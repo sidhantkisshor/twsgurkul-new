@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { instructorFeatures } from '../data';
-import { useSmoothScroll } from '../context/SmoothScrollContext';
 
-const InstructorSection: React.FC = () => {
-    const { handleSmoothScroll } = useSmoothScroll();
+interface InstructorSectionProps {
+    handleSmoothScroll: (event: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => void;
+}
 
+const InstructorSection: React.FC<InstructorSectionProps> = ({ handleSmoothScroll }) => {
     return (
         <section id="about" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
             <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -20,7 +21,7 @@ const InstructorSection: React.FC = () => {
                         <source srcSet="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/Trading%20with%20Sidhant%20TedX%20Speaker%20IIT%20NIT.webp" type="image/webp" />
                         <img
                             src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/Trading%20with%20Sidhant%20TedX%20Speaker%20IIT%20NIT_compressed.jpg"
-                            alt="Sidhant Kisshor - TEDx Speaker and trading mentor"
+                            alt="Sidhant - TEDx Speaker and IIT/NIIT Trainer"
                             className="rounded-xl shadow-2xl shadow-yellow-500/10"
                             loading="lazy"
                         />

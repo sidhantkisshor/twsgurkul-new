@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, TrendingUp, X, ChevronDown, Phone, ShieldCheck, Zap } from 'lucide-react';
-import { navLinks, features } from '../data';
-import { useSmoothScroll } from '../context/SmoothScrollContext';
+import { Menu, TrendingUp, X } from 'lucide-react';
 
 interface HeaderProps {
     isMenuOpen: boolean;
     setIsMenuOpen: (isOpen: boolean) => void;
+    handleSmoothScroll: (event: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen }) => {
-    const { handleSmoothScroll } = useSmoothScroll();
-    const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
+const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen, handleSmoothScroll }) => {
+    const navLinks = [
+        { href: '#why-crypto', text: 'Why Crypto' },
+        { href: '#about', text: 'About' },
+        { href: '#curriculum', text: 'Curriculum' },
+        { href: '#success-stories', text: 'Success Stories' },
+    ];
 
     // Effect to lock body scroll when the mobile menu is open
     useEffect(() => {
@@ -25,11 +28,10 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen }) => {
         };
     }, [isMenuOpen]);
 
-    // This function now also closes the main mobile menu
-    const closeAllMenusAndScroll = (event: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => {
-        handleSmoothScroll(event, targetId);
+    // Handles navigation link clicks inside the mobile menu
+    const handleNavClick = (e: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => {
+        handleSmoothScroll(e, targetId);
         setIsMenuOpen(false);
-        setIsFeaturesOpen(false);
     };
     
     return (
@@ -102,28 +104,26 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen }) => {
                             exit={{ opacity: 0, y: -20, scale: 0.95 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
                         >
-                            <div className="flex flex-col h-full">
-                                <nav className="flex-grow">
-                                    {navLinks.map((link) => (
-                                        <a
-                                            key={link.href}
-                                            href={link.href}
-                                            onClick={(e) => closeAllMenusAndScroll(e, link.href.substring(1))}
-                                            className="block text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800 rounded-md p-3 transition-colors"
-                                        >
-                                            {link.text}
-                                        </a>
-                                    ))}
-                                    <div className="!mt-3 pt-3 border-t border-slate-800">
-                                      <button
-                                          onClick={(e) => handleSmoothScroll(e, 'get-started')}
-                                          className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2.5 px-3 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all text-center"
-                                      >
-                                          See How It Works
-                                      </button>
-                                    </div>
-                                </nav>
-                            </div>
+                            <nav className="flex flex-col space-y-1">
+                                {navLinks.map(link => (
+                                    <a 
+                                        key={link.href} 
+                                        href={link.href} 
+                                        onClick={(e) => handleNavClick(e, link.href.substring(1))} 
+                                        className="block text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800 rounded-md p-3 transition-colors"
+                                    >
+                                        {link.text}
+                                    </a>
+                                ))}
+                                <div className="!mt-3 pt-3 border-t border-slate-800">
+                                  <button
+                                      onClick={(e) => handleNavClick(e, 'get-started')}
+                                      className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2.5 px-3 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all text-center"
+                                  >
+                                      See How It Works
+                                  </button>
+                                </div>
+                            </nav>
                         </motion.div>
                     </div>
                 )}
