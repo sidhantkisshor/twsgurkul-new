@@ -136,7 +136,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "Finally quit following random tips. Now I trade systematically after office hours.", 
       highlight: "Bought iPhone 15 for wife", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-1.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-1.jpg", 
       isVerified: true, 
       verificationDate: "Verified Nov 2024" 
     }, 
@@ -151,7 +151,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "Best decision ever! The Hindi explanations made complex concepts easy.", 
       highlight: "Paid off car loan early", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-2.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-2.jpg", 
       isVerified: true, 
       verificationDate: "Verified Oct 2024" 
     }, 
@@ -166,7 +166,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "Was skeptical initially, but the results speak for themselves. The strategies are easy to implement.", 
       highlight: "Planning Europe trip with family", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-3.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-3.jpg", 
       isVerified: true, 
       verificationDate: "Verified Dec 2024" 
     },
@@ -181,7 +181,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "The risk management techniques saved me from major losses. Now I trade confidently.", 
       highlight: "Funded sister's wedding expenses", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-4.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-4.jpg", 
       isVerified: true, 
       verificationDate: "Verified Jan 2025" 
     },
@@ -196,7 +196,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "The systematic approach changed everything. No more FOMO trading or emotional decisions.", 
       highlight: "Bought first bike with profits", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-5.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-5.jpg", 
       isVerified: true, 
       verificationDate: "Verified Dec 2024" 
     },
@@ -211,7 +211,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "Working in banking, I was skeptical about crypto. This course made me a believer with solid strategies.", 
       highlight: "Renovated parents' house", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-6.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-6.jpg", 
       isVerified: true, 
       verificationDate: "Verified Nov 2024" 
     },
@@ -226,7 +226,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "The advanced strategies in the course helped me scale beyond basic trading. Truly life-changing.", 
       highlight: "Started home loan prepayment", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-7.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-7.jpg", 
       isVerified: true, 
       verificationDate: "Verified Oct 2024" 
     },
@@ -241,7 +241,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "Balancing full-time job and trading seemed impossible. This course made it manageable and profitable.", 
       highlight: "Enrolled daughter in international school", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-8.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-8.jpg", 
       isVerified: true, 
       verificationDate: "Verified Jan 2025" 
     },
@@ -256,7 +256,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "The technical analysis combined with fundamental insights is what sets this course apart from others.", 
       highlight: "Invested in new CA practice office", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-9.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-9.jpg", 
       isVerified: true, 
       verificationDate: "Verified Dec 2024" 
     },
@@ -271,7 +271,7 @@ export const trustBadges: TrustBadge[] = [
       quoteBody: "Never thought government employees could succeed in crypto. This course proved me wrong completely.", 
       highlight: "Planning child's higher education abroad", 
       rating: 5, 
-      image: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/student-10.jpg", 
+      image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-10.jpg", 
       isVerified: true, 
       verificationDate: "Verified Nov 2024" 
     }
@@ -448,7 +448,7 @@ export const heroData: HeroData = {
         { value: "30Day", label: "Money-Back Guarantee", color: "blue" }
     ],
     video: {
-        thumbnail: "https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/-crypto-market-mastery-tws.jpeg",
+        thumbnail: "https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg",
         title: "Watch 2-Min Success Story",
         subtitle: "See how Shantanu earns ₹1.5L/month"
     },
