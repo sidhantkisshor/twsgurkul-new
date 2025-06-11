@@ -1,5 +1,11 @@
 import React from 'react';
 import { TrendingUp, Eye, Shield, BarChart4 } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const animationVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
 
 const BenefitsSection: React.FC = () => {
   return (
@@ -8,11 +14,23 @@ const BenefitsSection: React.FC = () => {
       
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="section-title text-center animate-on-scroll">
+          <motion.h2 
+            className="section-title text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={animationVariants}
+          >
             The Smart Money Secret <span className="text-gradient">They Don't Want You to Know</span>
-          </h2>
+          </motion.h2>
           
-          <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 md:p-8 mb-12 border border-slate-700 shadow-xl animate-on-scroll">
+          <motion.div 
+            className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 md:p-8 mb-12 border border-slate-700 shadow-xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={animationVariants}
+          >
             <p className="text-lg font-medium mb-4 text-white">
               Tumhe lagta hai tu market ko samjh gaya hai, lekin phir se trapped ho jaata hai?
             </p>
@@ -47,14 +65,26 @@ const BenefitsSection: React.FC = () => {
             <p className="text-lg italic mt-6 text-white">
               Imagine knowing exactly where smart money will strike next...
             </p>
-          </div>
+          </motion.div>
           
-          <h3 className="text-2xl font-bold mb-10 text-center animate-on-scroll">
+          <motion.h3 
+            className="text-2xl font-bold mb-10 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={animationVariants}
+          >
             Why <span className="text-gradient">90% Success Rate</span>? The Footprint Advantage
-          </h3>
+          </motion.h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-slate-900/70 rounded-xl p-6 border border-slate-800 animate-on-scroll">
+            <motion.div 
+              className="bg-slate-900/70 rounded-xl p-6 border border-slate-800"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              variants={animationVariants}
+            >
               <h4 className="text-xl font-bold mb-4 text-slate-300">Regular traders see:</h4>
               <ul className="space-y-3 text-slate-400">
                 <li className="flex items-start">
@@ -70,9 +100,15 @@ const BenefitsSection: React.FC = () => {
                   <span>Basic indicators</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
             
-            <div className="bg-slate-900/70 rounded-xl p-6 border border-slate-800 animate-on-scroll">
+            <motion.div 
+              className="bg-slate-900/70 rounded-xl p-6 border border-slate-800"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              variants={animationVariants}
+            >
               <h4 className="text-xl font-bold mb-4 text-amber-500">Footprint Masters see:</h4>
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-start">
@@ -92,10 +128,16 @@ const BenefitsSection: React.FC = () => {
                   <span>True supply/demand at the deepest level</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
           </div>
           
-          <div className="mt-10 text-center animate-on-scroll">
+          <motion.div 
+            className="mt-10 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={animationVariants}
+          >
             <p className="text-xl font-bold mb-6">
               <span className="text-gradient">Result:</span> You stop being smart money's target and start trading alongside institutions.
             </p>
@@ -107,7 +149,7 @@ const BenefitsSection: React.FC = () => {
             <a href="#course" className="cta-button-primary inline-block">
               Don't let another opportunity slip away →
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

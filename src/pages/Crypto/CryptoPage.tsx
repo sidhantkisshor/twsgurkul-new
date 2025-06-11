@@ -24,6 +24,7 @@ import ExitIntentPopup from './components/ExitIntentPopup';
 // Assuming this hook exists
 import { useCountdown } from './hooks/useCountdown';
 import { useExitIntent } from './hooks/useExitIntent';
+import { SmoothScrollProvider } from './context/SmoothScrollContext';
 
 function CryptoPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,62 +33,49 @@ function CryptoPage() {
   const timeLeft = useCountdown();
   const { showExitPopup, setShowExitPopup } = useExitIntent();
 
-  const handleSmoothScroll = (event: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => {
-    event.preventDefault();
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-    // Also close the menu on navigation
-    setIsMenuOpen(false);
-  };
-
   return (
-    <ErrorBoundary>
-      <div className="min-h-screen bg-slate-900 text-white font-sans shadow-lg">
-        <Seo
-          title="Crypto Market Mastery | TWS Gurukul"
-          description="Navigate the volatile crypto markets like a pro. Learn our proven strategies to master crypto trading and achieve financial freedom."
-        />
-        <FloatingTrustIndicators />
-        <AnnouncementBar timeLeft={timeLeft} />
-        <Header 
-          isMenuOpen={isMenuOpen} 
-          setIsMenuOpen={setIsMenuOpen} 
-          handleSmoothScroll={handleSmoothScroll} 
-        />
-        <TrustBadgesBar />
-        <main>
-          <HeroSection 
-            handleSmoothScroll={handleSmoothScroll} 
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-            setShowConsultationForm={setShowConsultationForm}
+    <SmoothScrollProvider>
+      <ErrorBoundary>
+        <div className="min-h-screen bg-slate-900 text-white font-sans shadow-lg">
+          <Seo
+            title="Crypto Market Mastery | TWS Gurukul"
+            description="Navigate the volatile crypto markets like a pro. Learn our proven strategies to master crypto trading and achieve financial freedom."
           />
-          <WhyCryptoSection />
-          <ProblemSection />
-          <InstructorSection handleSmoothScroll={handleSmoothScroll} />
-          <CurriculumSection />
-          <TestimonialsSection handleSmoothScroll={handleSmoothScroll} />
-          <CtaSection />
-          <FAQ setShowConsultationForm={setShowConsultationForm} />
-          <FinalCtaSection />
-        </main>
-        <Footer />
-        <ConsultationFormModal
-          isVisible={showConsultationForm}
-          onClose={() => setShowConsultationForm(false)}
-        />
-        <WhatsppFloatingButton />
-        <ExitIntentPopup 
-          isOpen={showExitPopup}
-          onClose={() => setShowExitPopup(false)}
-        />
-      </div>
-    </ErrorBoundary>
+          <FloatingTrustIndicators />
+          <AnnouncementBar timeLeft={timeLeft} />
+          <Header 
+            isMenuOpen={isMenuOpen} 
+            setIsMenuOpen={setIsMenuOpen} 
+          />
+          <TrustBadgesBar />
+          <main>
+            <HeroSection 
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
+              setShowConsultationForm={setShowConsultationForm}
+            />
+            <WhyCryptoSection />
+            <ProblemSection />
+            <InstructorSection />
+            <CurriculumSection />
+            <TestimonialsSection />
+            <CtaSection />
+            <FAQ setShowConsultationForm={setShowConsultationForm} />
+            <FinalCtaSection />
+          </main>
+          <Footer />
+          <ConsultationFormModal
+            isVisible={showConsultationForm}
+            onClose={() => setShowConsultationForm(false)}
+          />
+          <WhatsppFloatingButton />
+          <ExitIntentPopup 
+            isOpen={showExitPopup}
+            onClose={() => setShowExitPopup(false)}
+          />
+        </div>
+      </ErrorBoundary>
+    </SmoothScrollProvider>
   );
 }
 

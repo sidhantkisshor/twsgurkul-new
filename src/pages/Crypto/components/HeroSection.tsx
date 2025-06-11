@@ -2,15 +2,16 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone, Play, ShieldCheck, Star } from 'lucide-react';
 import { heroData } from '../data';
+import { useSmoothScroll } from '../context/SmoothScrollContext';
 
 interface HeroSectionProps {
-    handleSmoothScroll: (event: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => void;
     isPlaying: boolean;
     setIsPlaying: (isPlaying: boolean) => void;
     setShowConsultationForm: (show: boolean) => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ handleSmoothScroll, isPlaying, setIsPlaying, setShowConsultationForm }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ isPlaying, setIsPlaying, setShowConsultationForm }) => {
+    const { handleSmoothScroll } = useSmoothScroll();
     const videoRef = useRef<HTMLVideoElement>(null);
     
     useEffect(() => {
