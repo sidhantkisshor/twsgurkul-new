@@ -156,11 +156,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ handleSmoothScroll, isPlaying
         controlsList="nodownload nofullscreen noremoteplayback"
         disablePictureInPicture
         onContextMenu={(e) => e.preventDefault()}
-        poster="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/-crypto-market-mastery-tws.jpeg"
-    >
-        <source src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/videos/hero-background-cmm-sidhant-1080.webm" type="video/webm" />
-        <source src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/videos/hero-background-cmm-sidhant-1080.mp4" type="video/mp4" />
-        <source src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/videos/hero-background-720p-cmm-sidhant.mp4" type="video/mp4" />
+                      poster="https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg"
+            >
+              <source src="https://d2j3cl693ttatt.cloudfront.net/assets/videos/hero-background-cmm-sidhant-1080.webm" type="video/webm" />
+              <source src="https://d2j3cl693ttatt.cloudfront.net/assets/videos/hero-background-cmm-sidhant-1080.mp4" type="video/mp4" />
+              <source src="https://d2j3cl693ttatt.cloudfront.net/assets/videos/hero-background-720p-cmm-sidhant.mp4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
                             )}
