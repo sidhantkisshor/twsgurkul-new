@@ -47,7 +47,7 @@ function CryptoPage() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-slate-900 text-white font-sans shadow-lg">
+      <div className="min-h-screen bg-slate-900 text-white font-sans shadow-lg overflow-x-hidden">
         <Seo
           title="Crypto Market Mastery | TWS Gurukul"
           description="Navigate the volatile crypto markets like a pro. Learn our proven strategies to master crypto trading and achieve financial freedom."

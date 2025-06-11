@@ -109,11 +109,14 @@ const CtaSection: React.FC = () => {
                     </div>
 
                     {/* Payment Methods */}
-                    <div className="flex justify-center items-center mt-8 space-x-6">
+                    <div className="flex flex-col sm:flex-row justify-center items-center mt-8 space-y-2 sm:space-y-0 sm:space-x-6">
                         <p className="text-sm text-slate-400">100% Secure Payments:</p>
-                                    <object type="image/svg+xml" data="https://d2j3cl693ttatt.cloudfront.net/assets/images/payment-sprite.svg" className="h-6">
-              <img src="https://d2j3cl693ttatt.cloudfront.net/assets/images/payment-sprite.svg" alt="Payment methods accepted" />
-                        </object>
+                        <img 
+                            src="https://d2j3cl693ttatt.cloudfront.net/assets/images/payment-sprite.svg" 
+                            alt="Payment methods accepted" 
+                            className="h-6"
+                            style={{ filter: 'brightness(1.3) saturate(1.2) contrast(0.5)' }}
+                        />
                     </div>
 
                     {/* Student Counter */}
