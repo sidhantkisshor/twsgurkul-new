@@ -18,9 +18,9 @@ const InstructorSection: React.FC<InstructorSectionProps> = ({ handleSmoothScrol
                     viewport={{ once: true }}
                 >
                     <picture>
-                        <source srcSet="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/Trading%20with%20Sidhant%20TedX%20Speaker%20IIT%20NIT.webp" type="image/webp" />
-                        <img
-                            src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/Trading%20with%20Sidhant%20TedX%20Speaker%20IIT%20NIT_compressed.jpg"
+                                        <source srcSet="https://d2j3cl693ttatt.cloudfront.net/assets/images/Trading%20with%20Sidhant%20TedX%20Speaker%20IIT%20NIT.webp" type="image/webp" />
+                <img 
+                  src="https://d2j3cl693ttatt.cloudfront.net/assets/images/Trading%20with%20Sidhant%20TedX%20Speaker%20IIT%20NIT_compressed.jpg"
                             alt="Sidhant - TEDx Speaker and IIT/NIIT Trainer"
                             className="rounded-xl shadow-2xl shadow-yellow-500/10"
                             loading="lazy"

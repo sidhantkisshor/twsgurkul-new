@@ -111,8 +111,8 @@ const CtaSection: React.FC = () => {
                     {/* Payment Methods */}
                     <div className="flex justify-center items-center mt-8 space-x-6">
                         <p className="text-sm text-slate-400">100% Secure Payments:</p>
-                        <object type="image/svg+xml" data="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/payment-sprite.svg" className="h-6">
-                            <img src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/payment-sprite.svg" alt="Payment methods accepted" />
+                                    <object type="image/svg+xml" data="https://d2j3cl693ttatt.cloudfront.net/assets/images/payment-sprite.svg" className="h-6">
+              <img src="https://d2j3cl693ttatt.cloudfront.net/assets/images/payment-sprite.svg" alt="Payment methods accepted" />
                         </object>
                     </div>
 
