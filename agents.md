@@ -5,17 +5,47 @@ This guide provides instructions for AI agents working with this codebase, based
 ## Project Structure
 
 -   `/src`: Main source code directory.
-    -   `/assets`: Static assets like images and fonts.
+    -   `/components`: Shared, reusable components (Layout, Navbar, Footer, SEO).
     -   `/pages`: Contains the main pages of the application. Each subdirectory represents a page/route.
+        -   `/Blogs`: Complete blog system with dynamic routing and content management.
+            -   `/components`: Blog-specific reusable components (BlogCard, etc.).
+            -   `/hooks`: Custom hooks for blog functionality.
+            -   `/posts`: Individual blog post components.
+            -   `/utils`: Blog data management and utility functions.
+            -   `BlogsPage.tsx`: Main blog listing page.
+            -   `BlogDetailPage.tsx`: Individual blog post display page.
         -   `/Home`: Components and logic for the home page.
         -   `/Footprint`: Components and logic for the Footprint page.
         -   `/Crypto`: Components and logic for the Crypto page.
+    -   `/utils`: Utility functions and shared helpers.
     -   `App.tsx`: The root component, which defines the application's routing.
     -   `main.tsx`: The entry point of the application.
 -   `/public`: Static assets that are publicly accessible.
 -   `package.json`: Project dependencies and scripts.
 -   `tailwind.config.js`: Tailwind CSS configuration.
 -   `vite.config.ts`: Vite configuration.
+
+## Blog System Guidelines
+
+This project includes a comprehensive blog system. When working with blog content:
+
+### Blog Architecture
+-   **Individual posts** should be created as separate components in `/src/pages/Blogs/posts/`
+-   **Metadata** must be added to `/src/pages/Blogs/utils/blogData.ts`
+-   **Routing** updates required in `/src/pages/Blogs/BlogDetailPage.tsx`
+-   Follow the existing patterns for consistency
+
+### Content Standards
+-   Use the established dark theme (black/gray color scheme)
+-   Include proper metadata: title, excerpt, date, readTime, category, tags
+-   Ensure responsive design for all screen sizes
+-   Use Lucide React icons for consistency
+
+### Blog Post Development
+1. Create component in `posts/` folder using TypeScript
+2. Add metadata entry to `blogData.ts`
+3. Update routing switch case in `BlogDetailPage.tsx`
+4. Test both list view (`/blog`) and detail view (`/blog/:slug`)
 
 ## Coding Conventions
 
@@ -62,8 +92,20 @@ tsc --noEmit
 
 # Build check
 npm run build
+
+# Test blog routes (if adding new blog posts)
+# Verify /blog and /blog/:slug routes work correctly
+npm run dev
 ```
 All checks must pass before code can be merged.
+
+### Blog-Specific Testing
+When adding new blog posts, ensure:
+-   Blog post appears in `/blog` listing
+-   Individual post loads at `/blog/:slug`
+-   Metadata displays correctly
+-   Responsive design works on mobile/desktop
+-   Navigation between blog list and detail pages functions properly
 
 ## AI Agent Tooling: Stagewise
 

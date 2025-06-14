@@ -1,101 +1,138 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Footprint Program", href: "/footprint" },
+    { name: "Crypto Market Mastery", href: "/crypto" },
+  ];
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <nav className="bg-gray-900 p-4 sticky top-0 z-10">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex-shrink-0">
-          <a 
-            href="https://tradingwithsidhant.com" 
-            target="_blank" 
+    <>
+      <nav 
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-black/80 backdrop-blur-lg border border-white/20' 
+            : 'bg-white/10 backdrop-blur-sm border border-white/10'
+        } rounded-full px-6 py-3`}
+      >
+        <div className="flex items-center space-x-8">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <a 
+              href="https://tradingwithsidhant.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2"
+            >
+              <img 
+                src="https://framerusercontent.com/images/X6TcsL4DaLzmjtcjrJQvu5d8GzY.png?scale-down-to=512" 
+                alt="Trading With Sidhant" 
+                className="h-8 w-auto"
+              />
+              <span className="font-bold text-white hidden sm:block">TWS Gurukul</span>
+            </a>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <a
+            href="https://tradingwithsidhant.com"
+            target="_blank"
             rel="noopener noreferrer"
-            className="block"
+            className="bg-gradient-to-r from-green-500 to-[#01d449] hover:from-green-600 hover:to-[#00c43e] text-white rounded-full px-4 py-2 text-sm hidden sm:flex transition-all duration-200"
           >
-            <img 
-              src="https://framerusercontent.com/images/X6TcsL4DaLzmjtcjrJQvu5d8GzY.png?scale-down-to=512" 
-              alt="Trading With Sidhant" 
-              className="h-10 w-auto"
-            />
+            Get Started
           </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
+      </nav>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-6">
-          <li>
-            <Link to="/" className="text-white hover:text-yellow-400 transition duration-300">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/footprint" className="text-white hover:text-yellow-400 transition duration-300">
-              Footprint Program
-            </Link>
-          </li>
-          <li>
-            <Link to="/crypto" className="text-white hover:text-yellow-400 transition duration-300">
-              Crypto Market Mastery
-            </Link>
-          </li>
-        </ul>
-
-        {/* Mobile Hamburger Button */}
-        <button
-          onClick={toggleMenu}
-          className="md:hidden text-white hover:text-yellow-400 focus:outline-none"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden mt-4 pb-4">
-          <ul className="flex flex-col space-y-3">
-            <li>
-              <Link 
-                to="/" 
-                className="block text-white hover:text-yellow-400 transition duration-300 py-2"
-                onClick={toggleMenu}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/footprint" 
-                className="block text-white hover:text-yellow-400 transition duration-300 py-2"
-                onClick={toggleMenu}
-              >
-                Footprint Program
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/crypto" 
-                className="block text-white hover:text-yellow-400 transition duration-300 py-2"
-                onClick={toggleMenu}
-              >
-                Crypto Market Mastery
-              </Link>
-            </li>
-          </ul>
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden animate-fade-in">
+          <div 
+            className="absolute inset-0 bg-black/70 backdrop-blur-xl transition-opacity duration-300" 
+            onClick={() => setIsMobileMenuOpen(false)} 
+          />
+          <div className="absolute top-20 left-4 right-4 glass-effect rounded-3xl p-6 shadow-2xl animate-slide-down">
+            <div className="space-y-1">
+              {/* Navigation Items */}
+              {navItems.map((item, index) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={closeMobileMenu}
+                  className="group flex items-center justify-between text-gray-200 hover:text-white transition-all duration-300 w-full text-left p-4 hover:bg-white/5 rounded-xl"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <span className="text-base font-medium">{item.name}</span>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              ))}
+              
+              {/* CTA Section */}
+              <div className="pt-4">
+                <a
+                  href="https://tradingwithsidhant.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-r from-green-500 to-[#01d449] hover:from-green-600 hover:to-[#00c43e] text-white rounded-xl w-full py-3 px-4 text-center block transition-all duration-300 font-medium text-base"
+                >
+                  <span className="flex items-center justify-center space-x-2">
+                    <span>Get Started</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       )}
-    </nav>
+    </>
   );
 };
 
