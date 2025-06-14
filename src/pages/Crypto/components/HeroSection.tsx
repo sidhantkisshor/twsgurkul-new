@@ -127,12 +127,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ handleSmoothScroll, isPlaying
                             {!isPlaying ? (
                                 <div className="w-full h-full relative flex items-center justify-center">
                                     <img
-                                        src={video.thumbnail}
+                                        src="https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg"
                                         alt="Crypto Market Mastery Video Thumbnail"
                                         className="w-full h-full object-cover"
                                         loading="lazy"
                                         onError={(e) => {
-                                            e.currentTarget.src = "https://placehold.co/1280x720/1e293b/9ca3af?text=Watch+Success+Story";
+                                            e.currentTarget.src = video.thumbnail;
                                         }}
                                     />
                                     <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
@@ -153,14 +153,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ handleSmoothScroll, isPlaying
         autoPlay
         loop
         playsInline
+        preload="metadata"
         controlsList="nodownload nofullscreen noremoteplayback"
         disablePictureInPicture
         onContextMenu={(e) => e.preventDefault()}
-        poster="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/images/-crypto-market-mastery-tws.jpeg"
-    >
-        <source src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/videos/hero-background-cmm-sidhant-1080.webm" type="video/webm" />
-        <source src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/videos/hero-background-cmm-sidhant-1080.mp4" type="video/mp4" />
-        <source src="https://twsgurukul.s3.ap-south-1.amazonaws.com/assets/videos/hero-background-720p-cmm-sidhant.mp4" type="video/mp4" />
+                      poster="https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg"
+            >
+              <source src="https://d2j3cl693ttatt.cloudfront.net/assets/videos/hero-background-cmm-sidhant-1080.webm" type="video/webm" />
+              <source src="https://d2j3cl693ttatt.cloudfront.net/assets/videos/hero-background-cmm-sidhant-1080.mp4" type="video/mp4" />
+              <source src="https://d2j3cl693ttatt.cloudfront.net/assets/videos/hero-background-720p-cmm-sidhant.mp4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
                             )}
