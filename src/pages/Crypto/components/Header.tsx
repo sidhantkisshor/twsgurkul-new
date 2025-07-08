@@ -43,9 +43,11 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen, handleSmooth
                     <div className="flex justify-between items-center h-14 sm:h-16">
                         {/* Logo and Title */}
                         <div className="flex items-center space-x-2">
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center shrink-0">
-                                <Bitcoin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                            </div>
+                            <img 
+                                src="/favicon.png" 
+                                alt="Crypto Market Mastery Logo" 
+                                className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
+                            />
                             <div>
                                 <span className="text-base sm:text-xl font-bold text-white">Crypto Market Mastery</span>
                                 <p className="text-xs text-slate-400 hidden sm:block">by Trading With Sidhant</p>

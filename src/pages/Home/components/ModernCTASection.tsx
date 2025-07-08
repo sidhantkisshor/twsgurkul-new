@@ -48,12 +48,10 @@ const ModernCTASection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a
-              href="https://tradingwithsidhant.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#programs"
               className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-green-500/25 flex items-center justify-center gap-2"
             >
-              Apply for Mentorship
+              Explore Our Programs
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a

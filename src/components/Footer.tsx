@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <img 
-                  src="https://framerusercontent.com/images/X6TcsL4DaLzmjtcjrJQvu5d8GzY.png?scale-down-to=512" 
+                  src="/favicon.png" 
                   alt="TWS Logo" 
                   className="h-12 w-12 object-contain"
                 />

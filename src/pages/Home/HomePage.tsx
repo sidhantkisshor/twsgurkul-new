@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
 import ModernFeaturesSection from './components/ModernFeaturesSection';
-import ProgramsShowcase from './components/ProgramsShowcase';
+import WealthPathSelector from './components/WealthPathSelector';
 import SocialProofSection from './components/SocialProofSection';
 import ModernCTASection from './components/ModernCTASection';
 import Seo from '../../components/Seo';
@@ -10,13 +10,13 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Seo 
-        title="TWS Gurukul - Transform Your Trading Journey"
-        description="Join India's elite trading academy. Learn institutional strategies, master market psychology, and build consistent profits with personalized mentorship."
+        title="TWS Gurukul - From Salary to Financial Freedom"
+        description="Master high-income skills in Trading, Crypto & AI. Replace your 9-5 with automated income streams. Join 5000+ Indians building wealth on their terms."
       />
       <main className="min-h-screen bg-black">
         <HeroSection />
         <ModernFeaturesSection />
-        <ProgramsShowcase />
+        <WealthPathSelector />
         <SocialProofSection />
         <ModernCTASection />
       </main>

@@ -38,9 +38,11 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-3 xl:space-x-8">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-              <Radio className="w-6 h-6 text-white" />
-            </div>
+            <img 
+              src="/favicon.png" 
+              alt="SuperStreams Logo" 
+              className="h-10 w-10 object-contain"
+            />
             <Link 
               to="/"
               className="font-extrabold text-white hidden sm:block tracking-tight text-lg bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text text-transparent hover:from-yellow-300 hover:via-orange-300 hover:to-yellow-400 transition-all duration-300"

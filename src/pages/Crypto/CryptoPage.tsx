@@ -17,8 +17,6 @@ import CtaSection from './components/CtaSection';
 import FAQ from './components/FAQ';
 import FinalCtaSection from './components/FinalCtaSection';
 import Footer from './components/Footer';
-import ConsultationFormModal from './components/ConsultationFormModal';
-import WhatsppFloatingButton from './components/WhatsppFloatingButton';
 import ExitIntentPopup from './components/ExitIntentPopup';
 
 // Assuming this hook exists
@@ -27,7 +25,6 @@ import { useExitIntent } from './hooks/useExitIntent';
 
 function CryptoPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showConsultationForm, setShowConsultationForm] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const timeLeft = useCountdown();
   const { showExitPopup, setShowExitPopup } = useExitIntent();
@@ -65,7 +62,6 @@ function CryptoPage() {
             handleSmoothScroll={handleSmoothScroll} 
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
-            setShowConsultationForm={setShowConsultationForm}
           />
           <WhyCryptoSection />
           <ProblemSection />
@@ -73,15 +69,10 @@ function CryptoPage() {
           <CurriculumSection />
           <TestimonialsSection handleSmoothScroll={handleSmoothScroll} />
           <CtaSection />
-          <FAQ setShowConsultationForm={setShowConsultationForm} />
+          <FAQ />
           <FinalCtaSection />
         </main>
         <Footer />
-        <ConsultationFormModal
-          isVisible={showConsultationForm}
-          onClose={() => setShowConsultationForm(false)}
-        />
-        <WhatsppFloatingButton />
         <ExitIntentPopup 
           isOpen={showExitPopup}
           onClose={() => setShowExitPopup(false)}

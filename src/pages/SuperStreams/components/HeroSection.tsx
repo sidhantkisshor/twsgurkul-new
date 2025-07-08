@@ -59,26 +59,6 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Micro-Commitment Element */}
-            <motion.div
-              className="bg-slate-800/30 border border-slate-700/50 rounded-lg p-4"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <p className="text-slate-300 text-sm mb-3">
-                Are you tired of trading alone without expert guidance?
-              </p>
-              <label className="flex items-center space-x-3 cursor-pointer group">
-                <input 
-                  type="checkbox" 
-                  className="w-4 h-4 text-green-500 bg-slate-700 border-slate-600 rounded focus:ring-green-500"
-                />
-                <span className="text-yellow-400 text-sm font-medium group-hover:text-yellow-300">
-                  Yes, I want to trade with expert guidance
-                </span>
-              </label>
-            </motion.div>
 
             {/* Primary CTA with Behavioral Psychology */}
             <div className="pt-4 space-y-4">

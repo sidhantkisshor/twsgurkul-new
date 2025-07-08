@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const PricingSection: React.FC = () => {
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [showCheckoutPopup, setShowCheckoutPopup] = useState(false);
   const [checkoutUrl, setCheckoutUrl] = useState('');
 
@@ -10,7 +9,7 @@ const PricingSection: React.FC = () => {
     {
       id: 'first-profit',
       name: 'First Profit',
-      subtitle: 'Foundation Journey',
+      subtitle: 'Start Your Journey',
       duration: '1 Month',
       price: '2,499',
       originalPrice: '4,999',
@@ -24,7 +23,7 @@ const PricingSection: React.FC = () => {
         'Mobile app access'
       ],
       bonus: '₹500 bonus course included',
-      cta: 'Start My First Profit Journey',
+      cta: 'Start Now',
       checkoutUrl: 'https://learn.tradingwithsidhant.com/web/checkout/67c148c52dc619259f041721?purchaseNow=true',
       psychology: 'Safe first step, ownership language',
       color: 'from-green-500 to-green-600'
@@ -32,7 +31,7 @@ const PricingSection: React.FC = () => {
     {
       id: 'consistent-earner',
       name: 'Consistent Earner',
-      subtitle: 'Growth Program',
+      subtitle: 'Most Popular',
       duration: '3 Months',
       price: '6,999',
       originalPrice: '14,999',
@@ -47,53 +46,30 @@ const PricingSection: React.FC = () => {
         'Expert mentor guidance'
       ],
       bonus: '₹2,000 bonus courses + Live Q&A',
-      cta: 'Become a Consistent Earner Today',
+      cta: 'Get Started',
       checkoutUrl: 'https://learn.tradingwithsidhant.com/web/checkout/67c150877d6c64e363fcc523?purchaseNow=true',
       psychology: 'Social proof + results-focused',
       color: 'from-orange-500 to-orange-600'
     },
     {
-      id: 'job-replacement',
-      name: 'Job Replacement',
-      subtitle: 'Transformation Plan',
-      duration: '6 Months',
-      price: '11,999',
-      originalPrice: '29,999',
-      savings: '60% OFF',
-      popular: false,
-      features: [
-        'Everything in Consistent Earner',
-        'VIP live stream access',
-        'Personal trading reviews',
-        'Advanced market signals',
-        'Direct expert chat access',
-        'Custom watchlist alerts'
-      ],
-      bonus: '₹5,000 bonus + Premium indicators',
-      cta: 'Begin My Job Replacement Plan',
-      checkoutUrl: 'https://learn.tradingwithsidhant.com/web/checkout/67c1532bed36f445ab4c2dd1?purchaseNow=true',
-      psychology: 'Professional advancement focus',
-      color: 'from-blue-500 to-blue-600'
-    },
-    {
       id: 'financial-freedom',
       name: 'Financial Freedom Elite',
-      subtitle: 'Mastery Program',
+      subtitle: 'Complete Mastery',
       duration: '12 Months',
       price: '21,999',
       originalPrice: '59,999',
       savings: '63% OFF',
       popular: false,
       features: [
-        'Everything in Job Replacement',
+        'Everything in Consistent Earner',
         'Exclusive master streams',
+        'VIP live stream access',
         'Live trading with experts',
-        'Market maker insights',
-        'Lifetime access guarantee',
-        'Personal portfolio management'
+        'Personal portfolio management',
+        'Lifetime access + All future courses FREE'
       ],
-      bonus: '₹10,000 bonus + All future courses FREE',
-      cta: 'Join the Financial Freedom Elite',
+      bonus: '₹10,000 bonus + Premium indicators',
+      cta: 'Join Elite',
       checkoutUrl: 'https://learn.tradingwithsidhant.com/web/checkout/67c1581b2b702df0195be657?purchaseNow=true',
       psychology: 'Exclusivity + premium positioning',
       color: 'from-purple-500 to-purple-600'
@@ -101,14 +77,12 @@ const PricingSection: React.FC = () => {
   ];
 
   const handlePlanSelect = (plan: typeof plans[0]) => {
-    setSelectedPlan(plan.id);
     setCheckoutUrl(plan.checkoutUrl);
     setShowCheckoutPopup(true);
   };
 
   const closePopup = () => {
     setShowCheckoutPopup(false);
-    setSelectedPlan(null);
     setCheckoutUrl('');
   };
 
@@ -235,7 +209,6 @@ const PricingSection: React.FC = () => {
                   <span className="text-xs text-slate-500">
                     {plan.id === 'first-profit' && 'Join 500+ First Profit graduates'}
                     {plan.id === 'consistent-earner' && 'Join 200+ Consistent Earners'}
-                    {plan.id === 'job-replacement' && '50+ successful Job Replacers'}
                     {plan.id === 'financial-freedom' && 'Exclusive Elite community'}
                   </span>
                 </div>
@@ -276,18 +249,6 @@ const PricingSection: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Comparison Nudge */}
-          <motion.div
-            className="text-center mt-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <button className="text-yellow-400 hover:text-yellow-300 underline text-sm">
-              Not sure? Compare all benefits side-by-side
-            </button>
-          </motion.div>
         </div>
       </section>
 

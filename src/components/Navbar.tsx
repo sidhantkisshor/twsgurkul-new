@@ -45,7 +45,7 @@ const Navbar = () => {
               className="flex items-center"
             >
               <img 
-                src="https://framerusercontent.com/images/X6TcsL4DaLzmjtcjrJQvu5d8GzY.png?scale-down-to=512" 
+                src="/favicon.png" 
                 alt="Trading With Sidhant" 
                 className="h-10 w-10 object-contain"
               />
