@@ -18,24 +18,24 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass-effect border border-white/10 mb-6 sm:mb-8">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-xs sm:text-sm text-gray-300">India's Elite Trading Academy</span>
+            <span className="text-xs sm:text-sm text-gray-300">The Career Transformation Platform</span>
           </div>
 
           {/* Main headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight px-4">
             <span className="block bg-gradient-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
-              Transform Your Trading
+              From Salary to
             </span>
             <span className="block mt-2 bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
-              Master The Markets
+              Financial Freedom
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
-            Join the elite 1% of traders who consistently profit. 
-            Learn institutional strategies, master market psychology, 
-            and build generational wealth.
+            Master high-income skills in Trading, Crypto & AI. 
+            Replace your 9-5 with automated income streams. 
+            Join 5000+ Indians building wealth on their terms.
           </p>
 
           {/* Stats */}

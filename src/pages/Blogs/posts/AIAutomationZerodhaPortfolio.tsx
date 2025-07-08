@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, TrendingUp, Shield, Clock, Brain, Zap, CheckCircle, AlertCircle, ArrowRight, BarChart3, Code, Globe, Target, BookOpen, Users, Sparkles, Rocket, Flame, XCircle, Lightbulb, AlertTriangle, GitBranch, Briefcase, FileText, ShoppingCart, ShieldCheck, AreaChart, Cpu, MessageSquare, ListChecks } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Brain, Zap, CheckCircle, ArrowRight, BarChart3, Code, Globe, Target, Sparkles, Rocket, Flame, XCircle, Lightbulb, AlertTriangle, GitBranch, Briefcase, FileText, ShoppingCart, ShieldCheck, AreaChart, Cpu, ListChecks } from 'lucide-react';
 
 const BlogPost = () => {
   // Removed unused activeSection state
@@ -91,7 +92,7 @@ const BlogPost = () => {
             </p>
           </div>
 
-          <p>The game has changed, doston. What used to cost lakhs in portfolio management fees is now available for free. Today, I'm going to show you exactly how to transform your Zerodha account into an AI-powered investment machine that thinks, analyzes, and executes like a pro trader.</p>
+          <p>The game has changed, doston. What used to cost lakhs in portfolio management fees is now available for free. Today, I'm going to show you exactly how to transform your Zerodha account into an AI-powered investment machine that thinks, analyzes, and executes like a pro trader. If you're serious about automated trading, check out our <Link to="/superstreams" className="text-blue-400 underline hover:text-blue-300">SuperStreams program</Link> where we provide live AI-powered trading signals.</p>
           <p>This complete guide includes everything I promised in the YouTube video – from configuration files to detailed research reports. Buckle up!</p>
           
           <h2 className="text-3xl font-bold mt-12 mb-6 flex items-center">
@@ -127,7 +128,7 @@ const BlogPost = () => {
                 </div>
             </div>
             <div className="prose prose-invert max-w-none mt-8 text-sm text-gray-400">
-                <p>Here's what's happening right now: AI is reshaping portfolio management by automating investment strategies and refining risk assessments. It will handle almost 89% of the world's trading volume by 2025, with the market growing at 20% CAGR. The democratization of finance is happening – and you can either ride the wave or get swept away.</p>
+                <p>Here's what's happening right now: AI is reshaping portfolio management by automating investment strategies and refining risk assessments. It will handle almost 89% of the world's trading volume by 2025, with the market growing at 20% CAGR. The democratization of finance is happening – and you can either ride the wave or get swept away. Our <Link to="/footprint" className="text-blue-400 underline hover:text-blue-300">Footprint Mastery course</Link> teaches you how to read institutional order flow - the same data AI uses to make decisions.</p>
                 <p>The secret weapon? Integrating Claude AI and Cursor AI with your Zerodha account through Kite MCP (Market Connect Platform). This isn't just automation – it's financial intelligence that works 24/7.</p>
             </div>
         </section>
@@ -146,6 +147,12 @@ const BlogPost = () => {
             <UseCaseCard icon={Zap} title="Real-time Intelligence" features={["Process global market data", "Analyze news sentiment", "Factor in geopolitical events"]} />
             <UseCaseCard icon={Target} title="Smart Order Management" features={["Place GTT orders automatically", "Calculate optimal quantities", "Set scientific stop-losses"]} />
             <UseCaseCard icon={Globe} title="Geopolitical Strategies" features={["Identify opportunities from global events", "Analyze policy changes", "Find macro-driven trades"]} />
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-gray-400 mb-4">Want to master these strategies in crypto markets?</p>
+            <Link to="/crypto" className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all">
+              Explore Crypto Market Mastery <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
             <UseCaseCard icon={FileText} title="Research Automation" features={["Access data from Screener & Trendlyne", "Compile expert targets", "Integrate technical indicators"]} />
             <UseCaseCard icon={ShieldCheck} title="Advanced Risk Management" features={["Portfolio correlation analysis", "Volatility assessment", "Conduct stress testing"]} />
           </div>
@@ -271,8 +278,8 @@ const BlogPost = () => {
             <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Trading?</h2>
             <p className="text-xl text-gray-300 mb-8">Join thousands of traders who've already embraced AI-powered investing</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button type="button" className="bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">Start with Claude AI<ArrowRight className="w-5 h-5 ml-2" /></button>
-              <button type="button" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors">Try Free with Cursor</button>
+              <Link to="/superstreams" className="bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">Join Our Live Trading Streams<ArrowRight className="w-5 h-5 ml-2" /></Link>
+              <Link to="/" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors">Explore All Programs</Link>
             </div>
           </div>
         </section>

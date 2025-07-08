@@ -33,9 +33,11 @@ const Header: React.FC = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <BarChart3 className="h-6 w-6 text-white" />
-            </div>
+            <img 
+              src="/favicon.png" 
+              alt="Footprint Mastery Logo" 
+              className="h-10 w-10 object-contain"
+            />
             <span className="text-xl font-bold">Footprint Mastery</span>
           </div>
           

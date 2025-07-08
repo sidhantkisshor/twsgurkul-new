@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { handlePaymentPopup } from '../utils/payment';
 
 const HeroSection: React.FC = () => {
   return (
@@ -38,14 +39,13 @@ const HeroSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a href="#benefits" className="cta-button-primary group">
-              Discover The Institutional Secret 
-              <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-            </a>
-            <a href="#testimonials" className="cta-button-secondary">
-              See Student Results
-            </a>
+          <div className="flex justify-center">
+            <button 
+              onClick={handlePaymentPopup}
+              className="cta-button-primary group px-8 py-4 text-lg font-semibold">
+              Enroll in Footprint Mastery Now 
+              <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            </button>
           </div>
         </div>
       </div>

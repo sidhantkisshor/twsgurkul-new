@@ -59,7 +59,7 @@ const SocialProofSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Real Traders, Real Results
+              Student Success in Trading & Crypto
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">

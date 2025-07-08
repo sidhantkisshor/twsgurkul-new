@@ -1,12 +1,8 @@
 import { useState } from "react";
-import { Eye, ChevronDown, ChevronUp, Phone } from "lucide-react";
+import { Eye, ChevronDown, ChevronUp } from "lucide-react";
 import { faqs } from "../data";
 
-interface FAQProps {
-    setShowConsultationForm: (show: boolean) => void;
-}
-
-const FAQ: React.FC<FAQProps> = ({ setShowConsultationForm }) => {
+const FAQ: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleFAQ = (index: number) => {
@@ -67,18 +63,6 @@ const FAQ: React.FC<FAQProps> = ({ setShowConsultationForm }) => {
                     </div>
                 </div>
             </section>
-            
-            <div className="px-4 sm:px-6 lg:px-8 bg-slate-900 pb-8">
-                <div className="max-w-4xl mx-auto">
-                    <button 
-                        onClick={() => setShowConsultationForm(true)}
-                        className="w-full py-4 bg-slate-800/50 border border-yellow-500/50 text-yellow-400 font-semibold rounded-xl hover:bg-slate-800 transition-all"
-                    >
-                        <Phone className="w-5 h-5 inline mr-2" />
-                        Talk to Our Team First
-                    </button>
-                </div>
-            </div>
         </>
     );
 };
