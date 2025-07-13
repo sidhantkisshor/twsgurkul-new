@@ -5,20 +5,22 @@ import { ArrowRight, Eye, Bitcoin, Radio, CheckCircle, Sparkles } from 'lucide-r
 const wealthPaths = [
   {
     id: 'footprint-mastery',
+    identity: 'The Analyst',
+    identityDescription: 'You see patterns others miss',
     programName: 'Footprint Mastery',
-    mainBenefit: 'Read Order Flow Like Institutional Traders',
+    mainBenefit: 'See the Market\'s Next Move, Before It Happens',
     subhead: 'Master footprint charts to see where big money enters and exits',
     icon: Eye,
     link: '/footprint',
     gradient: 'from-blue-500 to-purple-600',
     bgGradient: 'from-blue-500/10 to-purple-600/10',
     features: [
-      'See exactly where institutions place orders',
-      'Identify accumulation zones before breakouts',
-      'Personal mentorship on live markets'
+      'See exactly where institutions place orders - Trade with the smart money, not against it',
+      'Identify accumulation zones before breakouts - Enter before the crowd catches on',
+      'Personal mentorship on live markets - Get direct guidance from Sidhant himself'
     ],
     testimonial: '"Finally, I see WHY price moves, not just that it moved" - Rajesh K.',
-    trustElement: '1000+ Active Students',
+    trustElement: '🔵 1000+ Active Students',
     cta: 'Start Footprint Mastery',
     colorClasses: {
       text: 'text-blue-400',
@@ -27,20 +29,22 @@ const wealthPaths = [
   },
   {
     id: 'crypto-mastery',
+    identity: 'The Strategist',
+    identityDescription: 'You find order in chaos',
     programName: 'Crypto Market Mastery',
-    mainBenefit: 'Master Crypto with Market Profile Tools',
-    subhead: 'Apply TPO, Volume Profile, and Footprint analysis to crypto markets',
+    mainBenefit: 'Complete Crypto Trading System in 21 Modules',
+    subhead: 'Master Support/Resistance, VWAP, VMC Divergence, and advanced pattern recognition for consistent crypto profits',
     icon: Bitcoin,
     link: '/crypto',
     gradient: 'from-orange-500 to-red-600',
     bgGradient: 'from-orange-500/10 to-red-600/10',
     features: [
-      '24/7 crypto market coverage',
-      'Institutional-grade volatility tools',
-      'TPO and Volume Profile mastery'
+      'Complete technical analysis mastery - From basics to advanced confluence strategies',
+      'VMC & Divergence trading secrets - Spot reversals before they happen',
+      'SuperPattern Strategy mastery - Never get trapped in fake breakouts again'
     ],
     testimonial: '"From -70% to +280% portfolio in 6 months" - Priya S.',
-    trustElement: 'Regulated & Compliant',
+    trustElement: '🔴 Regulated & Compliant',
     cta: 'Master Crypto Markets',
     colorClasses: {
       text: 'text-orange-400',
@@ -49,20 +53,22 @@ const wealthPaths = [
   },
   {
     id: 'super-streams',
+    identity: 'The Smart Investor',
+    identityDescription: 'You value expertise over ego',
     programName: 'Super Streams',
-    mainBenefit: 'Copy Professional Trades Live',
+    mainBenefit: 'Get Profitable Trades, Without the Learning Curve',
     subhead: 'Trade alongside experts in real-time streaming sessions',
     icon: Radio,
     link: '/superstreams',
     gradient: 'from-green-500 to-emerald-600',
     bgGradient: 'from-green-500/10 to-emerald-600/10',
     features: [
-      'Live morning trading sessions',
-      'Real-time trade alerts and execution',
-      'Professional risk management included'
+      'Live morning trading sessions - Watch every move as it happens',
+      'Real-time trade alerts and execution - Never miss a setup again',
+      'Professional risk management included - Protect your capital like a pro'
     ],
-    testimonial: '"₹45K profit last month just copying trades" - Amit P.',
-    trustElement: 'Live Daily Sessions',
+    testimonial: '"₹45k profit last month just copying trades" - Amit P.',
+    trustElement: '🟢 Live Daily Sessions',
     cta: 'Join Live Trading',
     colorClasses: {
       text: 'text-green-400',
