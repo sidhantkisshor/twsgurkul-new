@@ -134,8 +134,9 @@ const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-2xl hover:scale-110 transition-transform"
                   title={social.name}
+                  aria-label={`Follow us on ${social.name}`}
                 >
-                  {social.icon}
+                  <span aria-hidden="true">{social.icon}</span>
                 </a>
               ))}
             </div>

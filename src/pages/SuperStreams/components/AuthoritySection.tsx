@@ -86,7 +86,7 @@ const AuthoritySection: React.FC = () => {
               {credential.verified && (
                 <div className="absolute -top-2 -right-2">
                   <div className="bg-green-500 text-white rounded-full p-1">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-label="Verified">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>

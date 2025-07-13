@@ -4,11 +4,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 const FloatingCta: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [urgencyText, setUrgencyText] = useState('23 people viewing');
+  const [hasBeenClosed, setHasBeenClosed] = useState(false);
 
   useEffect(() => {
+    // Check if user has closed the popup in this session
+    const closedInSession = sessionStorage.getItem('floatingCtaClosed');
+    if (closedInSession) {
+      setHasBeenClosed(true);
+    }
+
     const handleScroll = () => {
-      // Show after user scrolls past hero section (approximately 600px)
-      setIsVisible(window.scrollY > 600);
+      // Show only if not closed and after significant scrolling (past 1200px)
+      if (!hasBeenClosed && !closedInSession) {
+        setIsVisible(window.scrollY > 1200);
+      }
     };
 
     // Simulate live activity updates
@@ -29,14 +38,14 @@ const FloatingCta: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     
-    // Update urgency text every 5 seconds
-    const urgencyInterval = setInterval(updateUrgency, 5000);
+    // Update urgency text every 10 seconds (less frequent)
+    const urgencyInterval = setInterval(updateUrgency, 10000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearInterval(urgencyInterval);
     };
-  }, []);
+  }, [hasBeenClosed]);
 
   const scrollToPricing = () => {
     const pricingSection = document.getElementById('pricing-section');
@@ -47,7 +56,7 @@ const FloatingCta: React.FC = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-4 right-4 z-40 max-w-sm"
+          className="fixed bottom-4 right-4 left-4 sm:left-auto z-40 max-w-sm sm:max-w-sm mx-auto sm:mx-0"
           initial={{ opacity: 0, y: 100, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 100, scale: 0.8 }}
@@ -140,36 +149,20 @@ const FloatingCta: React.FC = () => {
 
             {/* Close Button */}
             <button
-              onClick={() => setIsVisible(false)}
+              onClick={() => {
+                setIsVisible(false);
+                setHasBeenClosed(true);
+                sessionStorage.setItem('floatingCtaClosed', 'true');
+              }}
               className="absolute top-2 right-2 text-slate-400 hover:text-white transition-colors p-1"
+              aria-label="Close floating CTA"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
-          {/* Mobile-Optimized Sticky Bottom CTA (for smaller screens) */}
-          <div className="md:hidden fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-slate-700 p-4 z-40">
-            <div className="flex items-center justify-between space-x-4">
-              <div className="flex-1">
-                <div className="flex items-center space-x-2 mb-1">
-                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-green-400 text-xs font-semibold">{urgencyText}</span>
-                </div>
-                <h4 className="text-white font-bold text-sm">Join SuperStreams</h4>
-                <p className="text-slate-300 text-xs">Live trading community</p>
-              </div>
-              
-              <motion.button
-                onClick={scrollToPricing}
-                className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg px-6 py-3 text-sm shadow-lg"
-                whileTap={{ scale: 0.95 }}
-              >
-                Join Now
-              </motion.button>
-            </div>
-          </div>
         </motion.div>
       )}
     </AnimatePresence>

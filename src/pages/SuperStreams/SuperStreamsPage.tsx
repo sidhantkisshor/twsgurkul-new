@@ -16,7 +16,7 @@ import SocialProofTicker from './components/SocialProofTicker';
 
 const SuperStreamsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-black">
       {/* Fixed Header with Behavioral Psychology */}
       <Header />
       
@@ -51,9 +51,9 @@ const SuperStreamsPage: React.FC = () => {
       <Footer />
       
       {/* Behavioral Psychology Sticky Elements */}
-      <FloatingCta />
+      {/* <FloatingCta /> - Disabled as it's too intrusive */}
       <SocialProofTicker />
-      <ExitIntentPopup />
+      {/* <ExitIntentPopup /> - Disabled to reduce popup fatigue */}
     </div>
   );
 };

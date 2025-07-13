@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SocialProofTicker: React.FC = () => {
@@ -44,10 +44,10 @@ const SocialProofTicker: React.FC = () => {
   ];
 
   useEffect(() => {
-    // Show ticker after 5 seconds
+    // Show ticker after 15 seconds to reduce intrusiveness
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 5000);
+    }, 15000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -57,7 +57,7 @@ const SocialProofTicker: React.FC = () => {
 
     const interval = setInterval(() => {
       setCurrentNotification((prev) => (prev + 1) % notifications.length);
-    }, 4000);
+    }, 6000); // Slower rotation for less distraction
 
     return () => clearInterval(interval);
   }, [isVisible, notifications.length]);
@@ -67,7 +67,7 @@ const SocialProofTicker: React.FC = () => {
   const notification = notifications[currentNotification];
 
   return (
-    <div className="fixed bottom-20 left-4 z-30 hidden sm:block">
+    <div className="fixed bottom-4 left-4 z-30 hidden lg:block"> {/* Only show on desktop to reduce mobile clutter */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentNotification}
@@ -75,11 +75,11 @@ const SocialProofTicker: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5 }}
-          className="bg-slate-800/90 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4 shadow-lg max-w-sm"
+          className="glass-effect border border-white/10 rounded-xl p-4 shadow-2xl max-w-xs"
         >
           <div className="flex items-center space-x-3">
             {/* Avatar */}
-            <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center text-slate-900 font-bold text-sm">
+            <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
               {notification.avatar}
             </div>
             
@@ -93,10 +93,10 @@ const SocialProofTicker: React.FC = () => {
               <p className="text-white text-sm font-medium">
                 {notification.name}
               </p>
-              <p className="text-slate-300 text-xs">
+              <p className="text-gray-300 text-xs">
                 from {notification.location} {notification.action}
               </p>
-              <p className="text-slate-400 text-xs mt-1">
+              <p className="text-gray-500 text-xs mt-1">
                 {notification.time}
               </p>
             </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { scrollToPricing } from '../utils/common';
 
 const UrgencySection: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -54,10 +55,6 @@ const UrgencySection: React.FC = () => {
     }
   ];
 
-  const scrollToPricing = () => {
-    const pricingSection = document.getElementById('pricing-section');
-    pricingSection?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-800">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { scrollToPricing } from '../utils/common';
 
 const ExitIntentPopup: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -72,16 +73,13 @@ const ExitIntentPopup: React.FC = () => {
   };
 
   const handleStayAndJoin = () => {
-    // Scroll to pricing section
-    const pricingSection = document.getElementById('pricing-section');
-    pricingSection?.scrollIntoView({ behavior: 'smooth' });
+    scrollToPricing();
     handleClose();
   };
 
   const handleGetFreeAccess = () => {
-    // This could integrate with email capture
-    console.log('Free access claimed with SAVE20');
-    alert('Free 7-day access granted! Check your email for login details.');
+    // TODO: Implement actual email capture and free access logic
+    // For now, just close the popup
     handleClose();
   };
 
@@ -268,8 +266,9 @@ const ExitIntentPopup: React.FC = () => {
           <button
             onClick={handleClose}
             className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors z-20"
+            aria-label="Close popup"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>

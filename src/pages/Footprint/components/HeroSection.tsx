@@ -22,20 +22,37 @@ const HeroSection: React.FC = () => {
           
           <div className="max-w-xl mx-auto bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 mb-10 border border-slate-700 shadow-xl">
             <h3 className="text-xl font-semibold mb-4 text-amber-500">The 2 AM Breakdown That Changed Everything</h3>
-            <p className="text-slate-300 mb-4 text-left">
-              <span className="font-medium">December 2019. Main market close ke baad account statement dekh raha tha.</span>
+            
+            <p className="text-slate-300 mb-3 text-left">
+              <span className="font-medium">December 2019.</span>
             </p>
-            <p className="text-slate-300 mb-4 text-left">
-              ₹80,000 loss in one day. Sixth time in 3 months account completely blown kar diya tha.
+            
+            <p className="text-slate-300 mb-3 text-left">
+              Main market close ke baad account statement dekh raha tha.
             </p>
-            <p className="text-slate-300 mb-4 text-left">
-              Mom aur Dad so rahe the. Main apne room mein baithke ro raha tha, thinking:
+            
+            <p className="text-slate-300 mb-3 text-left">
+              <span className="font-semibold text-red-400">₹80,000 loss</span> in one day.
             </p>
-            <p className="text-slate-300 mb-4 text-left italic">
+            
+            <p className="text-slate-300 mb-4 text-left">
+              Sixth time in 3 months account completely blown kar diya tha.
+            </p>
+            
+            <p className="text-slate-300 mb-3 text-left">
+              Mom aur Dad so rahe the.
+            </p>
+            
+            <p className="text-slate-300 mb-3 text-left">
+              Main apne room mein baithke ro raha tha, thinking:
+            </p>
+            
+            <p className="text-slate-300 mb-4 text-left italic text-lg">
               "Am I just not cut out for trading?"
             </p>
-            <p className="text-slate-300 mb-6 text-left">
-              <span className="font-medium">Then I cracked the institutional code.</span>
+            
+            <p className="text-slate-300 mb-0 text-left">
+              <span className="font-bold text-green-400">Then I cracked the institutional code.</span>
             </p>
           </div>
           

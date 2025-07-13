@@ -1,11 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { scrollToPricing } from '../utils/common';
 
 const FinalCtaSection: React.FC = () => {
-  const scrollToPricing = () => {
-    const pricingSection = document.getElementById('pricing-section');
-    pricingSection?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const achievements = [
     "90% trading consistency",
