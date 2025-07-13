@@ -48,24 +48,24 @@ const features = [
 
 const ModernFeaturesSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent" />
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               Why TWS Gurukul?
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto px-2">
             We don't just teach trading. We transform mindsets, build discipline, 
             and create consistent profitable traders.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
@@ -74,16 +74,16 @@ const ModernFeaturesSection = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative glass-effect rounded-3xl p-8 h-full border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-[1.02]">
+              <div className="relative glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-[1.02]">
                 <div className={`inline-flex p-3 rounded-2xl ${feature.bgColor} mb-6`}>
                   <feature.icon className={`w-6 h-6 ${feature.color}`} />
                 </div>
                 
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">
                   {feature.title}
                 </h3>
                 
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                   {feature.description}
                 </p>
               </div>

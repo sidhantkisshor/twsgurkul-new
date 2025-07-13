@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Eye, Bitcoin, Radio, CheckCircle, Sparkles } from 'lucide-react';
 
 const wealthPaths = [
   {
     id: 'footprint-mastery',
-    identity: 'The Analyst',
-    identityDescription: 'You see patterns others miss',
     programName: 'Footprint Mastery',
-    mainBenefit: 'See the Market\'s Next Move, Before It Happens',
+    identity: 'The Analyst',
+    mainBenefit: 'Read Order Flow Like Institutional Traders',
     subhead: 'Master footprint charts to see where big money enters and exits',
     icon: Eye,
     link: '/footprint',
     gradient: 'from-blue-500 to-purple-600',
     bgGradient: 'from-blue-500/10 to-purple-600/10',
     features: [
-      'See exactly where institutions place orders - Trade with the smart money, not against it',
-      'Identify accumulation zones before breakouts - Enter before the crowd catches on',
-      'Personal mentorship on live markets - Get direct guidance from Sidhant himself'
+      'See exactly where institutions place orders',
+      'Identify accumulation zones before breakouts',
+      'Personal mentorship on live markets'
     ],
     testimonial: '"Finally, I see WHY price moves, not just that it moved" - Rajesh K.',
-    trustElement: '🔵 1000+ Active Students',
+    trustElement: '1000+ Active Students',
     cta: 'Start Footprint Mastery',
     colorClasses: {
       text: 'text-blue-400',
@@ -29,22 +28,20 @@ const wealthPaths = [
   },
   {
     id: 'crypto-mastery',
-    identity: 'The Strategist',
-    identityDescription: 'You find order in chaos',
     programName: 'Crypto Market Mastery',
-    mainBenefit: 'Complete Crypto Trading System in 21 Modules',
-    subhead: 'Master Support/Resistance, VWAP, VMC Divergence, and advanced pattern recognition for consistent crypto profits',
+    mainBenefit: 'Master Crypto with Market Profile Tools',
+    subhead: 'Apply TPO, Volume Profile, and Footprint analysis to crypto markets',
     icon: Bitcoin,
     link: '/crypto',
     gradient: 'from-orange-500 to-red-600',
     bgGradient: 'from-orange-500/10 to-red-600/10',
     features: [
-      'Complete technical analysis mastery - From basics to advanced confluence strategies',
-      'VMC & Divergence trading secrets - Spot reversals before they happen',
-      'SuperPattern Strategy mastery - Never get trapped in fake breakouts again'
+      '24/7 crypto market coverage',
+      'Institutional-grade volatility tools',
+      'TPO and Volume Profile mastery'
     ],
     testimonial: '"From -70% to +280% portfolio in 6 months" - Priya S.',
-    trustElement: '🔴 Regulated & Compliant',
+    trustElement: 'Regulated & Compliant',
     cta: 'Master Crypto Markets',
     colorClasses: {
       text: 'text-orange-400',
@@ -53,22 +50,20 @@ const wealthPaths = [
   },
   {
     id: 'super-streams',
-    identity: 'The Smart Investor',
-    identityDescription: 'You value expertise over ego',
     programName: 'Super Streams',
-    mainBenefit: 'Get Profitable Trades, Without the Learning Curve',
+    mainBenefit: 'Copy Professional Trades Live',
     subhead: 'Trade alongside experts in real-time streaming sessions',
     icon: Radio,
     link: '/superstreams',
     gradient: 'from-green-500 to-emerald-600',
     bgGradient: 'from-green-500/10 to-emerald-600/10',
     features: [
-      'Live morning trading sessions - Watch every move as it happens',
-      'Real-time trade alerts and execution - Never miss a setup again',
-      'Professional risk management included - Protect your capital like a pro'
+      'Live morning trading sessions',
+      'Real-time trade alerts and execution',
+      'Professional risk management included'
     ],
-    testimonial: '"₹45k profit last month just copying trades" - Amit P.',
-    trustElement: '🟢 Live Daily Sessions',
+    testimonial: '"₹45K profit last month just copying trades" - Amit P.',
+    trustElement: 'Live Daily Sessions',
     cta: 'Join Live Trading',
     colorClasses: {
       text: 'text-green-400',
@@ -77,8 +72,105 @@ const wealthPaths = [
   }
 ];
 
-const WealthPathSelector = () => {
+const WealthPathSelector = React.memo(() => {
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
+
+  // Memoize hover handlers to prevent unnecessary re-renders
+  const handleMouseEnter = useCallback((pathId: string) => {
+    setHoveredPath(pathId);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHoveredPath(null);
+  }, []);
+
+  // Memoize the trust indicators data to prevent recreation on every render
+  const trustIndicators = useMemo(() => [
+    { color: 'bg-green-400', text: '5000+ Active Traders' },
+    { color: 'bg-blue-400', text: '₹50Cr+ Profits Generated' },
+    { color: 'bg-purple-400', text: '98% Success Rate' }
+  ], []);
+
+  // Memoize the rendered cards to prevent unnecessary re-renders
+  const renderedCards = useMemo(() => 
+    wealthPaths.map((path, index) => (
+      <Link
+        key={path.id}
+        to={path.link}
+        className="group relative block"
+        style={{ animationDelay: `${index * 150}ms` }}
+        onMouseEnter={() => handleMouseEnter(path.id)}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Gradient background on hover */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${path.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`} />
+        
+        <div className="relative glass-effect rounded-2xl p-6 lg:p-7 h-full border border-white/10 group-hover:border-white/20 transition-all duration-300 hover:transform hover:translate-y-[-3px]">
+          {/* Background pattern */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${path.bgGradient} rounded-2xl opacity-50`} />
+          
+          <div className="relative z-10">
+            {/* Icon and Program Name */}
+            <div className="mb-5">
+              <div className={`inline-flex p-3.5 rounded-2xl bg-gradient-to-br ${path.gradient} shadow-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <path.icon className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="text-xl lg:text-2xl font-bold text-white">
+                {path.programName}
+              </h3>
+            </div>
+
+            {/* Primary Benefit with gradient text */}
+            <h4 className={`text-lg lg:text-xl font-semibold bg-gradient-to-r ${path.gradient} bg-clip-text text-transparent mb-3`}>
+              {path.mainBenefit}
+            </h4>
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              {path.subhead}
+            </p>
+
+            {/* Features with glass effect - better spacing */}
+            <div className="space-y-2.5 mb-6">
+              {path.features.map((feature, idx) => (
+                <div key={idx} className="flex items-start gap-3 glass-effect rounded-lg p-2.5 border border-white/5">
+                  <CheckCircle className={`w-4 h-4 ${path.colorClasses.text} flex-shrink-0 mt-0.5`} />
+                  <span className="text-gray-300 text-sm">{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Testimonial with subtle background */}
+            <div className="mb-6 p-3.5 bg-black/30 rounded-xl border border-white/5">
+              <p className="text-sm text-gray-400 italic">
+                {path.testimonial}
+              </p>
+            </div>
+
+            {/* Trust Element with glow */}
+            <div className="mb-6 flex items-center gap-2">
+              <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${path.gradient} animate-pulse`} />
+              <p className={`text-sm font-medium ${path.colorClasses.text}`}>
+                {path.trustElement}
+              </p>
+            </div>
+
+            {/* Enhanced CTA Button */}
+            <button className={`w-full bg-gradient-to-r ${path.gradient} text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-2xl ${path.colorClasses.glow} group relative overflow-hidden`}>
+              <span className="relative z-10 text-base">{path.cta}</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
+              <div className="absolute inset-0 bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            </button>
+          </div>
+
+          {/* Floating accent elements */}
+          {hoveredPath === path.id && (
+            <>
+              <div className={`absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br ${path.gradient} rounded-full blur-xl opacity-50 animate-pulse`} />
+              <div className={`absolute -bottom-8 -left-8 w-16 h-16 bg-gradient-to-br ${path.gradient} rounded-full blur-xl opacity-50 animate-pulse`} />
+            </>
+          )}
+        </div>
+      </Link>
+    )), [hoveredPath, handleMouseEnter, handleMouseLeave]);
 
   return (
     <section id="wealth-paths" className="py-16 lg:py-20 relative overflow-hidden">
@@ -109,110 +201,32 @@ const WealthPathSelector = () => {
 
         {/* Enhanced Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {wealthPaths.map((path, index) => (
-            <Link
-              key={path.id}
-              to={path.link}
-              className="group relative block"
-              style={{ animationDelay: `${index * 150}ms` }}
-              onMouseEnter={() => setHoveredPath(path.id)}
-              onMouseLeave={() => setHoveredPath(null)}
-            >
-              {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${path.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`} />
-              
-              <div className="relative glass-effect rounded-2xl p-6 lg:p-7 h-full border border-white/10 group-hover:border-white/20 transition-all duration-300 hover:transform hover:translate-y-[-3px]">
-                {/* Background pattern */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${path.bgGradient} rounded-2xl opacity-50`} />
-                
-                <div className="relative z-10">
-                  {/* Icon and Program Name */}
-                  <div className="mb-5">
-                    <div className={`inline-flex p-3.5 rounded-2xl bg-gradient-to-br ${path.gradient} shadow-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <path.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <h3 className="text-xl lg:text-2xl font-bold text-white">
-                      {path.programName}
-                    </h3>
-                  </div>
-
-                  {/* Primary Benefit with gradient text */}
-                  <h4 className={`text-lg lg:text-xl font-semibold bg-gradient-to-r ${path.gradient} bg-clip-text text-transparent mb-3`}>
-                    {path.mainBenefit}
-                  </h4>
-                  <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                    {path.subhead}
-                  </p>
-
-                  {/* Features with glass effect - better spacing */}
-                  <div className="space-y-2.5 mb-6">
-                    {path.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3 glass-effect rounded-lg p-2.5 border border-white/5">
-                        <CheckCircle className={`w-4 h-4 ${path.colorClasses.text} flex-shrink-0 mt-0.5`} />
-                        <span className="text-gray-300 text-sm">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Testimonial with subtle background */}
-                  <div className="mb-6 p-3.5 bg-black/30 rounded-xl border border-white/5">
-                    <p className="text-sm text-gray-400 italic">
-                      {path.testimonial}
-                    </p>
-                  </div>
-
-                  {/* Trust Element with glow */}
-                  <div className="mb-6 flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${path.gradient} animate-pulse`} />
-                    <p className={`text-sm font-medium ${path.colorClasses.text}`}>
-                      {path.trustElement}
-                    </p>
-                  </div>
-
-                  {/* Enhanced CTA Button */}
-                  <button className={`w-full bg-gradient-to-r ${path.gradient} text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-2xl ${path.colorClasses.glow} group relative overflow-hidden`}>
-                    <span className="relative z-10 text-base">{path.cta}</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
-                    <div className="absolute inset-0 bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                  </button>
-                </div>
-
-                {/* Floating accent elements */}
-                {hoveredPath === path.id && (
-                  <>
-                    <div className={`absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br ${path.gradient} rounded-full blur-xl opacity-50 animate-pulse`} />
-                    <div className={`absolute -bottom-8 -left-8 w-16 h-16 bg-gradient-to-br ${path.gradient} rounded-full blur-xl opacity-50 animate-pulse`} />
-                  </>
-                )}
-              </div>
-            </Link>
-          ))}
+          {renderedCards}
         </div>
 
         {/* Bottom trust indicators with glass effect */}
         <div className="mt-12 lg:mt-16 flex justify-center">
           <div className="glass-effect rounded-full px-6 sm:px-8 py-3 sm:py-4 border border-white/10">
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-gray-300">5000+ Active Traders</span>
-              </div>
-              <div className="hidden sm:block w-px h-4 bg-gray-700" />
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-                <span className="text-gray-300">₹50Cr+ Profits Generated</span>
-              </div>
-              <div className="hidden sm:block w-px h-4 bg-gray-700" />
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
-                <span className="text-gray-300">98% Success Rate</span>
-              </div>
+              {trustIndicators.map((indicator, index) => (
+                <React.Fragment key={indicator.text}>
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2 h-2 ${indicator.color} rounded-full animate-pulse`} />
+                    <span className="text-gray-300">{indicator.text}</span>
+                  </div>
+                  {index < trustIndicators.length - 1 && (
+                    <div className="hidden sm:block w-px h-4 bg-gray-700" />
+                  )}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
+});
+
+WealthPathSelector.displayName = 'WealthPathSelector';
 
 export default WealthPathSelector;
