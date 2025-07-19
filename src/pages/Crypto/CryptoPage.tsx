@@ -18,6 +18,8 @@ import FAQ from './components/FAQ';
 import FinalCtaSection from './components/FinalCtaSection';
 import Footer from './components/Footer';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import UniqueMechanismSection from './components/UniqueMechanismSection';
+import CredibilitySection from './components/CredibilitySection';
 
 // Assuming this hook exists
 import { useCountdown } from './hooks/useCountdown';
@@ -65,6 +67,8 @@ function CryptoPage() {
           />
           <WhyCryptoSection />
           <ProblemSection />
+          <UniqueMechanismSection />
+          <CredibilitySection />
           <InstructorSection handleSmoothScroll={handleSmoothScroll} />
           <CurriculumSection />
           <TestimonialsSection handleSmoothScroll={handleSmoothScroll} />

@@ -5,8 +5,10 @@ import { comparisonData } from '../data';
 
 const WhyCryptoSection: React.FC = () => {
     return (
-        <section id="why-crypto" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
-            <div className="max-w-4xl mx-auto">
+        <section id="why-crypto" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50 relative">
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-500/5 to-transparent" />
+            <div className="max-w-4xl mx-auto relative z-10">
                 <motion.div
                     className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12"
                     initial={{ opacity: 0, y: 20 }}
@@ -24,7 +26,7 @@ const WhyCryptoSection: React.FC = () => {
                     {comparisonData.map((comparison, index) => (
                         <motion.div
                             key={comparison.title}
-                            className={`bg-slate-800/50 rounded-xl p-4 sm:p-6 border ${comparison.color === 'green' ? 'border-green-500/30' : 'border-red-500/30'}`}
+                            className={`glass-effect rounded-xl p-4 sm:p-6 border ${comparison.color === 'green' ? 'border-green-500/20 hover:border-green-500/30' : 'border-red-500/20 hover:border-red-500/30'} transition-all hover:transform hover:scale-[1.02]`}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

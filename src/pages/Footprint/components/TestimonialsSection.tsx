@@ -30,24 +30,24 @@ const TestimonialsSection: React.FC = () => {
               
               <div>
                 <h3 className="text-xl font-bold mb-3 text-amber-500">
-                  "Maine apni job chhod di trading ke liye" - Rohit
+                  "From ₹3.2L Loss to ₹1.5L Monthly Profit" - Rohit Sharma, Ex-TCS
                 </h3>
                 <ul className="space-y-2 text-slate-300 mb-4">
                   <li className="flex items-start">
                     <span className="text-amber-500 mr-2">•</span>
-                    <span>Started losing ₹2-3k every week</span>
+                    <span>Before: Lost ₹3.2 Lakhs in 2 years (2021-2023)</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-amber-500 mr-2">•</span>
-                    <span>Joined Footprint Mastery in March</span>
+                    <span>March 2024: Joined Footprint Mastery (₹34,997 investment)</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-amber-500 mr-2">•</span>
-                    <span>Now making ₹1.5L+ monthly consistently</span>
+                    <span>April: First profitable month (₹42,000)</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-amber-500 mr-2">•</span>
-                    <span>Left corporate job last month</span>
+                    <span>October 2024: Consistent ₹1.5L+ monthly (Quit TCS job)</span>
                   </li>
                 </ul>
                 <p className="text-slate-400 italic">
@@ -74,9 +74,9 @@ const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">₹5L profit in 4 months</p>
+              <p className="text-lg font-bold text-amber-500 mb-2">June-Oct 2024: ₹5.2L Net Profit</p>
               <p className="text-slate-300">
-                "After years of inconsistent trading, the footprint system finally gave me clarity. I can now spot manipulation before it happens."
+                "Pehle sirf price action dekhta tha. Ab footprint mein EXACTLY dikta hai ki big players kahan accumulate kar rahe hain. Last trade: Nifty 24500 PE, 180% profit in 2 days."
               </p>
             </div>
             
@@ -95,9 +95,9 @@ const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">95% win rate last 3 months</p>
+              <p className="text-lg font-bold text-amber-500 mb-2">73 Wins out of 78 Trades (93.5% Accuracy)</p>
               <p className="text-slate-300">
-                "My win rate shot up from around 40% to over 95% in just three months. The institutional footprint methodology is game-changing."
+                "Module 3 ka OI analysis + Module 5 ka institutional flow = GAME OVER for losses. Ab main sirf wahi trades leta hun jahan footprint clear ho."
               </p>
             </div>
             
@@ -116,9 +116,9 @@ const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">Doubled capital in 6 months</p>
+              <p className="text-lg font-bold text-amber-500 mb-2">₹50K → ₹1.2L in 6 Months (140% ROI)</p>
               <p className="text-slate-300">
-                "I was skeptical at first, but the results speak for themselves. My trading capital has doubled in just 6 months of applying these principles."
+                "College fees ke liye papa se ₹50K liye the. 6 months mein ₹1.2L banake wapas kar diye + laptop bhi le liya. Footprint ne life change kar di!"
               </p>
             </div>
           </div>

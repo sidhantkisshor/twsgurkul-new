@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, CheckCircle, CreditCard, } from 'lucide-react';
-import { benefits, pricing } from '../data';
+import { Clock, CheckCircle, CreditCard, ShieldCheck, AlertCircle } from 'lucide-react';
+import { benefits, pricing, urgencyData, guarantees } from '../data';
 
 const CtaSection: React.FC = () => {
     return (
-        <section id="get-started" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-800">
+        <section id="get-started" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-800 relative">
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-orange-500/5" />
             <div className="max-w-4xl mx-auto">
                 <motion.div 
                     className="text-center mb-12"
@@ -23,11 +25,22 @@ const CtaSection: React.FC = () => {
                     <p className="text-lg text-slate-300">
                     You're one decision away from a completely different life. Start building your second income source today.
                     </p>
+                    
+                    {/* Bonus Timer */}
+                    <motion.div 
+                        className="mt-6 inline-block bg-yellow-500/10 border border-yellow-500/30 rounded-lg px-6 py-3"
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    >
+                        <p className="text-sm font-semibold text-yellow-400">
+                            🎁 {urgencyData.bonusDeadline}: FREE {urgencyData.bonusDescription} (Worth {urgencyData.bonusValue})
+                        </p>
+                    </motion.div>
                 </motion.div>
 
                 {/* Value Stack First */}
                 <motion.div 
-                    className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-2xl p-8 border border-slate-700 mb-8"
+                    className="glass-effect rounded-2xl p-8 border border-white/10 mb-8 hover:border-white/20 transition-all"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -40,7 +53,7 @@ const CtaSection: React.FC = () => {
                         {benefits.map((benefit, index) => (
                             <motion.div 
                                 key={benefit.item}
-                                className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg"
+                                className="flex items-center justify-between p-3 glass-effect rounded-lg border border-white/5 hover:border-white/10 transition-all"
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
@@ -63,7 +76,7 @@ const CtaSection: React.FC = () => {
                     {/* Price Reveal */}
                     <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-xl blur-xl"></div>
-                        <div className="relative bg-gradient-to-br from-green-500/10 to-green-600/10 rounded-xl p-8 border border-green-500/20 text-center">
+                        <div className="relative glass-effect rounded-xl p-8 border border-green-500/20 text-center hover:border-green-500/30 transition-all">
                             <p className="text-sm text-green-400 font-semibold mb-2">Today's Investment</p>
                             <p className="text-4xl font-bold text-white mb-2">{pricing.currentPrice}</p>
                             <p className="text-green-400 font-semibold">You Save {pricing.savings}</p>
@@ -99,7 +112,7 @@ const CtaSection: React.FC = () => {
                     <div className="space-y-4 mt-8">
                         <motion.button 
                             onClick={() => window.open('https://learn.tradingwithsidhant.com/web/checkout/68468c5a2f492ef9273b5025?purchaseNow=true', '_blank')}
-                            className="w-full py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"
+                            className="w-full py-4 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-yellow-500/25 transform hover:-translate-y-1 transition-all"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -119,16 +132,38 @@ const CtaSection: React.FC = () => {
                         />
                     </div>
 
-                    {/* Student Counter */}
+                    {/* Urgency Section */}
                     <motion.div 
-                        className="mt-8 bg-yellow-500/10 rounded-xl p-4 text-center border border-yellow-500/20"
+                        className="mt-8 glass-effect rounded-xl p-4 text-center border border-red-500/20 hover:border-red-500/30 transition-all"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                     >
-                        <p className="text-sm text-yellow-400 mb-2">🔥 High Demand Alert</p>
-                        <p className="font-semibold">Only 23 seats left in current batch</p>
-                        <p className="text-xs text-slate-400 mt-1">Next batch price: {pricing.nextBatchPrice}</p>
+                        <div className="flex items-center justify-center gap-2 mb-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <p className="text-sm text-red-400 font-semibold">Limited Time Offer Ending Soon</p>
+                        </div>
+                        <p className="font-semibold text-white">Price increases to {urgencyData.priceIncrease.newPrice} on {urgencyData.priceIncrease.date}</p>
+                        <p className="text-xs text-slate-400 mt-1">Only {urgencyData.seatsLeft} seats remaining at this price</p>
+                    </motion.div>
+
+                    {/* Guarantee Section */}
+                    <motion.div 
+                        className="mt-8 glass-effect rounded-xl p-6 border border-green-500/20 hover:border-green-500/30 transition-all"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="flex items-center justify-center gap-2 mb-4">
+                            <ShieldCheck className="w-6 h-6 text-green-400" />
+                            <h4 className="text-lg font-semibold text-green-400">100% Risk-Free Guarantee</h4>
+                        </div>
+                        <p className="text-sm text-slate-300 mb-3">
+                            <strong className="text-white">{guarantees.moneyBack.period} Money-Back Guarantee:</strong> {guarantees.moneyBack.condition}
+                        </p>
+                        <p className="text-sm text-slate-300">
+                            <strong className="text-white">{guarantees.results.claim}</strong> ({guarantees.results.verified})
+                        </p>
                     </motion.div>
                 </motion.div>
             </div>

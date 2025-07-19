@@ -38,21 +38,24 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen, handleSmooth
     return (
         // Use a React Fragment to return the header and the menu as sibling elements
         <>
-            <header className="sticky top-0 w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-800/50 z-40">
+            <header className="sticky top-0 w-full glass-effect border-b border-white/10 z-40">
                 <div className="px-3 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-14 sm:h-16">
                         {/* Logo and Title */}
-                        <div className="flex items-center space-x-2">
-                            <img 
-                                src="/favicon.png" 
-                                alt="Crypto Market Mastery Logo" 
-                                className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
-                            />
+                        <Link to="/" className="flex items-center space-x-2 group">
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-yellow-500 blur-lg opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                                <img 
+                                    src="/favicon.png" 
+                                    alt="Crypto Market Mastery Logo" 
+                                    className="h-8 w-8 sm:h-10 sm:w-10 object-contain relative z-10"
+                                />
+                            </div>
                             <div>
                                 <span className="text-base sm:text-xl font-bold text-white">Crypto Market Mastery</span>
                                 <p className="text-xs text-slate-400 hidden sm:block">by Trading With Sidhant</p>
                             </div>
-                        </div>
+                        </Link>
 
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">

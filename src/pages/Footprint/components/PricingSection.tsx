@@ -1,6 +1,8 @@
 import React from 'react';
-import { Check, Calendar, Users, BookOpen, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Check, Calendar, Users, BookOpen, ArrowRight, AlertCircle, Clock, Activity, Shield } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
+import { urgencyData } from '../data';
 
 const PricingSection: React.FC = () => {
   return (
@@ -9,18 +11,42 @@ const PricingSection: React.FC = () => {
       
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="section-title text-center animate-on-scroll">
-            Your Complete <span className="text-gradient">Transformation Package</span>
+          <h2 className="section-title text-center animate-on-scroll font-mono">
+            ACCESS <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">INSTITUTIONAL GRADE</span> SYSTEM
           </h2>
           
-          <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 md:p-10 border border-amber-500/20 shadow-xl mt-12 animate-on-scroll">
+          <motion.div 
+            className="bg-slate-900/80 border border-cyan-500/30 rounded-lg p-4 max-w-2xl mx-auto mb-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-3 font-mono">
+              <AlertCircle className="text-cyan-400" size={24} />
+              <p className="text-cyan-400 font-semibold">
+                [ALERT] Price: {urgencyData.priceIncrease.newPrice} after {urgencyData.priceIncrease.date} | Seats: {urgencyData.seatsLeft}/100
+              </p>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className="bg-slate-900/90 backdrop-blur-xl rounded-xl p-6 md:p-10 border border-cyan-500/20 shadow-xl shadow-cyan-500/10 mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             <div className="flex flex-col md:flex-row justify-between items-center mb-8">
               <div>
                 <div className="mb-2">
-                  <span className="text-lg text-slate-400 line-through mr-3">₹50,000</span>
+                  <span className="text-lg text-slate-400 line-through mr-3">₹59,999</span>
                   <span className="text-2xl md:text-3xl font-bold text-amber-500">₹34,997</span>
+                  <span className="text-sm text-green-500 ml-2">Save ₹25,002</span>
                 </div>
-                <p className="text-lg text-slate-300">Value: Financial Freedom (Priceless)</p>
+                <p className="text-lg text-slate-300">Less than your average monthly trading loss</p>
+                <p className="text-sm text-yellow-400 mt-2 flex items-center gap-2">
+                  <Clock size={16} />
+                  {urgencyData.bonusDeadline}: FREE {urgencyData.bonusDescription} (Worth {urgencyData.bonusValue})
+                </p>
               </div>
               
               <div className="mt-6 md:mt-0">
@@ -89,7 +115,7 @@ const PricingSection: React.FC = () => {
                 ENROLL IN FOOTPRINT MASTERY - ₹34,997
               </button>
             </div>
-          </div>
+          </motion.div>
           
           <div className="mt-16 text-center animate-on-scroll">
             <h3 className="text-2xl font-bold mb-6 text-white">

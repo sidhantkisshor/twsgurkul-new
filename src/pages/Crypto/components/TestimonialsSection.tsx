@@ -95,10 +95,12 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
     return (
         <section 
             id="success-stories" 
-            className="py-16 sm:py-20 bg-slate-800/30 overflow-hidden"
+            className="py-16 sm:py-20 bg-slate-900/50 overflow-hidden relative"
             role="region"
             aria-label="Customer testimonials"
         >
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-500/5 to-transparent" />
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     className="text-center space-y-4 sm:space-y-6 mb-12 sm:mb-16 px-4 sm:px-6 lg:px-8"
