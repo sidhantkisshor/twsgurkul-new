@@ -49,22 +49,22 @@ const wealthPaths = [
     }
   },
   {
-    id: 'super-streams',
-    programName: 'Super Streams',
-    mainBenefit: 'Copy Professional Trades Live',
-    subhead: 'Trade alongside experts in real-time streaming sessions',
+    id: 'etm-mentorship',
+    programName: 'ETM Mentorship',
+    mainBenefit: '1 in 2 Students Become Profitable',
+    subhead: 'Elite Trading Mentorship with daily live guidance',
     icon: Radio,
-    link: '/superstreams',
+    link: '/mentorship',
     gradient: 'from-green-500 to-emerald-600',
     bgGradient: 'from-green-500/10 to-emerald-600/10',
     features: [
-      'Live morning trading sessions',
-      'Real-time trade alerts and execution',
-      'Professional risk management included'
+      'Daily 12 PM live mentorship',
+      '90-day profit promise',
+      'Personal WhatsApp support'
     ],
-    testimonial: '"₹45K profit last month just copying trades" - Amit P.',
-    trustElement: 'Live Daily Sessions',
-    cta: 'Join Live Trading',
+    testimonial: '"From -₹50K to +₹30K/month in 67 days" - Rahul S.',
+    trustElement: '73% Success Rate',
+    cta: 'Start Your Transformation',
     colorClasses: {
       text: 'text-green-400',
       glow: 'shadow-green-500/25'

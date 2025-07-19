@@ -303,6 +303,39 @@ export const finalCtaCards: FinalCtaCard[] = [
     }
 ];
 
+export const uniqueMechanismData = {
+    headline: "The T.R.A.D.E Method™",
+    subheadline: "The Only Systematic Approach Designed for Indians Trading After Office Hours",
+    features: [
+        {
+            letter: "T",
+            title: "Time Zone Advantage",
+            description: "Trade when US markets move (7:30 PM IST onwards) - perfect for 9-5 jobs"
+        },
+        {
+            letter: "R",
+            title: "Risk Management First",
+            description: "Never lose more than 2% per trade - protect your capital like the pros"
+        },
+        {
+            letter: "A",
+            title: "AI-Powered Indicators",
+            description: "Use the same tools hedge funds use to predict market movements"
+        },
+        {
+            letter: "D",
+            title: "Daily Profit Targets",
+            description: "₹5,000 daily = ₹1.5 Lakhs monthly. Small consistent wins compound fast"
+        },
+        {
+            letter: "E",
+            title: "Exit Strategy Mastery",
+            description: "Know exactly when to book profits - no more watching gains turn to losses"
+        }
+    ],
+    proof: "Students using T.R.A.D.E Method™ average 73% win rate vs 12% for regular traders"
+};
+
 export const pricing = {
     totalValue: "₹1,70,000",
     currentPrice: "₹19,499",
@@ -312,6 +345,32 @@ export const pricing = {
     emiMonths: 12,
     nextBatchPrice: "₹24,999"
   };
+
+export const urgencyData = {
+    priceIncrease: {
+        newPrice: "₹24,999",
+        date: "January 31st"
+    },
+    seatsLeft: 23,
+    bonusDeadline: "Next 48 hours only",
+    bonusDescription: "Advanced Bot Trading Module",
+    bonusValue: "₹15,000"
+};
+
+export const guarantees = {
+    moneyBack: {
+        period: "30 days",
+        condition: "Complete all modules and follow the system - no questions asked"
+    },
+    support: {
+        type: "Lifetime",
+        includes: "Monthly live sessions, community access, and all future updates"
+    },
+    results: {
+        claim: "90% students report profits within 60 days",
+        verified: "Based on 2024 student survey of 847 active traders"
+    }
+};
 
 export const contactInfo = {
     whatsappNumber: "918806969132",
@@ -423,9 +482,9 @@ export const faqs: FaqItem[] = [
 
 export const heroData: HeroData = {
     headline: {
-        line1: "Learn How Indians Are",
-        line2: "Earning ₹50k to ₹2 Lakhs",
-        line3: "Monthly from Crypto"
+        line1: "The 2-Hour Evening System That Helps",
+        line2: "9-5 Indians Earn ₹1-3 Lakhs",
+        line3: "Monthly from Crypto (Without Quitting Jobs)"
     },
     description: {
         part1: "Join",

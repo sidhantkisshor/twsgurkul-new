@@ -6,8 +6,8 @@ const FinalCtaSection: React.FC = () => {
     return (
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 via-slate-900 to-black relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-yellow-500/5 pointer-events-none"></div>
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-green-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-orange-500/5 pointer-events-none"></div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="max-w-6xl mx-auto text-center relative z-10">
                 <motion.div
@@ -20,7 +20,7 @@ const FinalCtaSection: React.FC = () => {
                     <div className="mb-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                             Your Family's{' '}
-                            <span className="font-bold bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
+                            <span className="font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                                 Financial Security
                             </span>{' '}
                             is Waiting
@@ -31,7 +31,7 @@ const FinalCtaSection: React.FC = () => {
                     </div>
                     
                     {/* Comparison cards */}
-                    <div className="bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-12 border border-slate-600/30">
+                    <div className="glass-effect rounded-2xl p-6 sm:p-8 mb-12 border border-white/10 hover:border-white/20 transition-all">
                         <div className="grid md:grid-cols-2 gap-8">
                             {/* Without action */}
                             <motion.div 

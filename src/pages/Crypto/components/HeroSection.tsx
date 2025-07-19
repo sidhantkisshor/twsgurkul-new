@@ -22,7 +22,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ handleSmoothScroll, isPlaying
 
     return (
         <section className="pt-6 sm:pt-8 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            {/* Background gradient effects */}
             <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-orange-500/5" />
+            <div className="absolute top-1/4 -left-20 w-64 h-64 md:w-96 md:h-96 bg-yellow-500/10 rounded-full filter blur-[100px]" />
+            <div className="absolute bottom-1/4 -right-20 w-64 h-64 md:w-96 md:h-96 bg-orange-500/10 rounded-full filter blur-[100px]" />
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <motion.div
