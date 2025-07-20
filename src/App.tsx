@@ -8,6 +8,7 @@ import Layout from './components/Layout';
 import BlogsPage from './pages/Blogs/BlogsPage';
 import BlogDetailPage from './pages/Blogs/BlogDetailPage';
 import ScrollToTop from './components/ScrollToTop';
+import { QuizLandingPage } from './pages/Quiz';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/mentorship" element={<MentorshipPage />} />
         <Route path="/blog" element={<Layout><BlogsPage /></Layout>} />
         <Route path="/blog/:slug" element={<Layout><BlogDetailPage /></Layout>} />
+        <Route path="/quiz" element={<QuizLandingPage />} />
       </Routes>
     </Router>
   );

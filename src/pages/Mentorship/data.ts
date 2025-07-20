@@ -183,80 +183,113 @@ export const pricingData = {
     name: "ETM LITE",
     price: "₹6,999",
     duration: "3 months",
-    description: "Basic signals for beginners",
-    subtitle: "⚠️ 73% upgrade within 30 days",
+    description: "Perfect for self-starters",
+    subtitle: "📚 Learn at your own pace",
+    badge: "FOUNDATION",
     features: [
-      "✅ Daily trading signals on WhatsApp",
-      "✅ Basic market updates",
-      "❌ No LIVE sessions access",
-      "❌ No personal mentorship",
-      "❌ No strategy explanations",
-      "❌ No doubt clearing support",
-      "❌ No refund policy"
+      "✅ 10 daily trading signals with rationale",
+      "✅ Market analysis reports (twice daily)",
+      "✅ Telegram community (500+ active traders)",
+      "✅ Weekend webinars (recorded)",
+      "✅ Risk management guidelines",
+      "✅ Basic strategy PDFs",
+      "✅ Email support (24hr response)"
     ],
-    limitation: "Just signals without understanding = 87% fail rate"
+    limitation: "Best for: Part-time traders with experience",
+    highlight: "347 students earning ₹15-25K monthly"
   },
   pro: {
     name: "ETM PRO",
-    price: "₹14,999",
+    price: "₹17,999",
     duration: "3 months",
-    description: "Popular choice (but missing key features)",
-    subtitle: "⚡ Good, but Max students earn 3x more",
-    badge: "DECENT CHOICE",
+    description: "Most comprehensive program",
+    subtitle: "🎯 73% students choose PRO",
+    badge: "MOST POPULAR",
     features: [
-      "✅ Everything in Lite PLUS:",
-      "✅ 12 PM LIVE sessions (view only)",
-      "✅ Weekly group calls",
-      "✅ Basic strategy PDFs",
-      "✅ Telegram community access",
-      "❌ No personal WhatsApp group",
-      "❌ No 1-on-1 mentorship",
-      "❌ No priority support",
-      "❌ No advanced strategies"
+      "✅ Everything in LITE PLUS:",
+      "✅ LIVE 12 PM sessions (watch & learn)",
+      "✅ Strategy masterclasses (weekly)",
+      "✅ WhatsApp community (limited to 500)",
+      "✅ Bi-weekly group mentoring calls",
+      "✅ Advanced trading strategies",
+      "✅ Priority email support (12hr response)",
+      "✅ Monthly performance review",
+      "✅ Partial refund policy (terms apply)"
     ],
-    limitation: "Missing crucial elements for consistent profits"
+    limitation: "Ideal for: Serious learners ready to commit",
+    highlight: "Average student profit: ₹35-50K/month",
+    comparison: "Just ₹3K less than MAX (but worth considering the difference)"
   },
   max: {
     name: "ETM MAX",
     originalPrice: "₹49,999",
     salePrice: "₹21,000",
     savings: "₹28,999",
-    duration: "3 months + LIFETIME bonuses",
-    description: "The ONLY plan that creates millionaires",
-    subtitle: "🔥 2,347 profitable traders chose MAX",
-    badge: "🏆 BEST VALUE - 27 SEATS LEFT",
+    duration: "3 months",
+    description: "Complete mentorship program",
+    subtitle: "💎 Only 30 students per batch",
+    badge: "APPLICATION ONLY",
     features: [
-      "✅ EVERYTHING in Pro PLUS:",
-      "🔴 LIVE trading with screen share (trade along)",
-      "📱 Exclusive WhatsApp group (max 30 members)",
-      "🎯 Personal 1-on-1 sessions every week",
-      "💎 My exact entry/exit alerts in real-time",
-      "🧠 Trading psychology masterclass (₹15K value)",
-      "📊 Custom trading plan for YOUR capital",
-      "🚀 Advanced institutional strategies",
-      "💰 90-Day Profit Guarantee or FREE lifetime",
-      "🛡️ 30-Day 100% Money Back Guarantee",
-      "🎁 LIFETIME ACCESS to all future updates",
-      "🏆 Alumni Millionaire Network (67 crorepatis)"
+      "✅ Everything in PRO PLUS:",
+      "🔴 Trade WITH me live (screen share)",
+      "📱 Private WhatsApp (30 members)",
+      "🎯 Weekly 1-on-1 video calls",
+      "💰 Exact entry/exit alerts",
+      "🛡️ 30-day money back guarantee"
     ],
-    bonuses: [
-      "🎁 BONUS #1: Crypto Mastery Module (₹25,000 value) - FREE",
-      "🎁 BONUS #2: US Market Trading (₹15,000 value) - FREE", 
-      "🎁 BONUS #3: Tax Saving Masterclass (₹10,000 value) - FREE",
-      "🎁 BONUS #4: Algo Trading Basics (₹20,000 value) - FREE"
+    exclusiveFeatures: [
+      "Personal mentor mobile number",
+      "Custom strategy for YOUR capital",
+      "Lifetime alumni network",
+      "Emergency trade support"
     ],
-    stat: "Investment: ₹233/day | Students average ₹1,670/day profit",
-    guarantee: "Triple guarantee: 30-day refund + 90-day profit promise + Lifetime access",
-    scarcity: "⏰ Bonuses worth ₹70,000 expire in 14:23:45"
+    stat: "Average: ₹50K profit in first 30 days",
+    guarantee: "Profit in 30 days or money back",
+    scarcity: "27 seats left (Interview required)",
+    highlight: "94% students profitable within 45 days"
   },
   comparison: {
-    title: "Why 94% Students Choose MAX:",
-    points: [
-      "Lite students: ₹8-12K monthly (if profitable)",
-      "Pro students: ₹25-35K monthly average",
-      "MAX students: ₹50K-1.2L monthly average"
+    title: "See Exactly What You Get (And What You Don't):",
+    features: [
+      {
+        feature: "Live Trading Sessions",
+        lite: "❌ No access",
+        pro: "👀 Watch only", 
+        max: "🔴 Trade along"
+      },
+      {
+        feature: "Personal Attention",
+        lite: "❌ None",
+        pro: "👥 Group calls",
+        max: "📱 1-on-1 weekly"
+      },
+      {
+        feature: "Trade Alerts",
+        lite: "📧 Daily email",
+        pro: "📱 Telegram delay",
+        max: "💎 Real-time WhatsApp"
+      },
+      {
+        feature: "Support Response",
+        lite: "24-48 hours",
+        pro: "12-24 hours",
+        max: "Instant (direct line)"
+      },
+      {
+        feature: "Money Back Guarantee",
+        lite: "❌ None",
+        pro: "❌ None",
+        max: "✅ 30 days full refund"
+      }
     ],
-    bottomLine: "The ₹14K extra investment returns 10x in first month alone"
+    bottomLine: "The ₹3,000 you save today costs you ₹3,00,000 tomorrow",
+    calculation: {
+      title: "Your First Month Reality:",
+      lite: "Learning basics, no profits yet",
+      pro: "Starting to understand, small gains",
+      max: "Already profitable (avg ₹50K)",
+      note: "These aren't promises - these are averages from 2,347 students"
+    }
   }
 };
 
