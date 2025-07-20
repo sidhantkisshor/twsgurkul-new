@@ -44,8 +44,8 @@ const CurriculumSection: React.FC = () => {
                                 <div className="absolute left-8 top-16 h-[75%] w-0.5 bg-gradient-to-b from-slate-600 to-slate-700"></div>
                             )}
                             <div className="flex items-start space-x-4">
-                                <div className={`w-16 h-16 ${phaseColorMap[phase.color]} rounded-full flex items-center justify-center flex-shrink-0 relative z-10 border-4`}>
-                                    <phase.icon className="w-8 h-8" />
+                                <div className={`w-12 h-12 sm:w-16 sm:h-16 ${phaseColorMap[phase.color]} rounded-full flex items-center justify-center flex-shrink-0 relative z-10 border-4`}>
+                                    <phase.icon className="w-6 h-6 sm:w-8 sm:h-8" />
                                 </div>
                                 <div className="flex-1 bg-slate-800 rounded-lg p-4">
                                     <h3 className="text-lg font-bold text-yellow-400 mb-1">{phase.week}</h3>

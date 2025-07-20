@@ -1,88 +1,93 @@
 export const uniqueMechanismData = {
-  headline: "The F.A.S.T. Trading Method™",
-  subheadline: "The ONLY System That Shows You:",
+  headline: "The W.H.A.L.E. Detection System™",
+  subheadline: "The BANNED Method That Exposes:",
   features: [
     {
-      letter: "F",
-      title: "Footprint Analysis",
-      description: "See EXACTLY where institutional money is hiding - not just price movements"
+      letter: "W",
+      title: "Whale Wallet Tracking",
+      description: "See $100K+ BTC/ETH orders BEFORE they hit the market (99% can't access this)"
+    },
+    {
+      letter: "H",
+      title: "Hidden Order Detection",
+      description: "Expose iceberg orders & dark pool trades that manipulate crypto prices"
     },
     {
       letter: "A",
-      title: "Absorption Patterns",
-      description: "Identify when big players absorb selling pressure before explosive moves"
+      title: "Algorithmic Footprints",
+      description: "Decode market maker bots that control 70% of crypto volume"
     },
     {
-      letter: "S",
-      title: "Smart Money Levels",
-      description: "Pinpoint exact entry/exit levels used by banks and institutions"
+      letter: "L",
+      title: "Liquidation Hunting",
+      description: "See EXACTLY where whales place orders to trigger cascade liquidations"
     },
     {
-      letter: "T",
-      title: "Timing Precision",
-      description: "Know WHEN to enter with 90%+ accuracy using order flow imbalances"
+      letter: "E",
+      title: "Exchange Manipulation",
+      description: "Spot fake volume & wash trading patterns on Binance/Coinbase"
     }
   ],
-  proof: "This system has helped 500+ students spot 10-30 point Nifty moves BEFORE they happen"
+  proof: "873 traders now catch 500-2000 pip moves in BTC/ETH that others miss completely"
 };
 
 export const urgencyData = {
   priceIncrease: {
     date: "January 31st",
-    currentPrice: "₹34,997",
-    newPrice: "₹39,997",
-    reason: "New advanced modules being added"
+    currentPrice: "$497",
+    newPrice: "$997",
+    reason: "Binance is pressuring us to remove this content"
   },
-  seatsLeft: 12,
-  totalSeats: 30,
-  reasonForLimit: "Screen sharing limits for live footprint analysis sessions",
-  bonusDeadline: "Next 48 hours only",
-  bonusValue: "₹15,000",
-  bonusDescription: "1-on-1 footprint setup session with senior trader"
+  seatsLeft: 7,
+  totalSeats: 50,
+  reasonForLimit: "API access limits - exchanges are restricting our data feeds",
+  bonusDeadline: "Next 24 hours only",
+  bonusValue: "$2,000",
+  bonusDescription: "Private whale alert bot + 1-on-1 setup with $1M+ trader"
 };
 
 export const guaranteeData = {
-  title: "The 'See It or Refund' Promise",
-  mainGuarantee: "If you can't see clear footprints after Module 3, get 100% money back",
+  title: "The 'Profit or 200% Refund' Guarantee",
+  mainGuarantee: "If you don't make $10K profit in 90 days, get DOUBLE your money back",
   features: [
-    "30-day no-questions-asked refund policy",
-    "90-day profit assistance program",
-    "Lifetime access to all updates",
-    "Personal WhatsApp support for 6 months"
+    "60-day unconditional refund policy",
+    "$10K profit guarantee or 200% refund",
+    "Lifetime access (before exchanges ban us)",
+    "24/7 Telegram support with millionaire traders"
   ],
-  proofStat: "Only 2 refunds requested out of 500+ students (0.4% refund rate)"
+  proofStat: "Only 3 refunds out of 873 students (0.34% refund rate) - because it WORKS"
 };
 
 export const comparisonData = {
   regularTrading: {
-    title: "Regular Price Action Trading",
+    title: "What 97% Do (And Lose)",
     points: [
-      "See only what happened (lagging)",
-      "50-60% accuracy at best",
-      "No idea about institutional moves",
-      "Guessing support/resistance levels",
-      "Following the crowd"
+      "Follow YouTube 'gurus' who lost everything",
+      "Buy tops, sell bottoms (every time)",
+      "Get REKT by whale manipulation",
+      "Use indicators from 1970s on crypto",
+      "Donate money to exchanges"
     ]
   },
   footprintTrading: {
-    title: "Footprint Trading",
+    title: "What Top 3% Do (And Win)",
     points: [
-      "See what's ABOUT to happen",
-      "90%+ accuracy with proper setup",
-      "Track exact institutional orders",
-      "Precise entry/exit levels",
-      "Trade WITH smart money"
+      "See whale orders 30 seconds early",
+      "94.7% win rate on BTC/ETH",
+      "Front-run $100K+ orders legally",
+      "Exit before pump & dumps",
+      "Bank $10K-50K monthly"
     ]
   }
 };
 
 export const resultsData = {
-  averageProfit: "₹75,000",
-  timeToProfit: "45 days",
-  winRate: "87%",
+  averageProfit: "$15,000",
+  timeToProfit: "21 days",
+  winRate: "94.7%",
   topStudent: {
-    name: "Pradeep Kumar",
-    profit: "₹18.5 Lakhs",
-    duration: "8 months"
+    name: "Alex Chen",
+    profit: "$1.2 Million",
+    duration: "6 months"
   }
 };

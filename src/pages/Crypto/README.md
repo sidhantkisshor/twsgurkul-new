@@ -1,4 +1,4 @@
-# Crypto Landing Page (`/crypto3`)
+# Crypto Market Mastery Page
 
 This directory contains the refactored version of the Crypto Market Mastery landing page. The primary goal of the refactor was to improve maintainability, readability, and scalability by breaking down the original monolithic `App` component into smaller, focused components and centralizing state and data logic.
 

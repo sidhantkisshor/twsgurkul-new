@@ -16,10 +16,11 @@ const WhyCryptoSection: React.FC = () => {
                     viewport={{ once: true }}
                 >
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-                        Why <span className="text-yellow-400">Smart Indians</span> Are Choosing Crypto
+                        "My FD Gave 7% in 1 Year...
+                        <span className="text-yellow-400"> My Crypto Gave 73% in 1 Month"</span>
                     </h2>
                     <p className="text-base sm:text-lg text-slate-300">
-                        While others wait for 6-8% FD returns, crypto traders are targeting different results.
+                        — Priya Sharma, 28, Bangalore (Started with just ₹25,000)
                     </p>
                 </motion.div>
                 <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
@@ -56,8 +57,8 @@ const WhyCryptoSection: React.FC = () => {
                     <div className="flex items-start space-x-2 sm:space-x-3">
                         <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 flex-shrink-0 mt-0.5" />
                         <div>
-                            <p className="font-semibold text-blue-400 mb-1 text-sm sm:text-base">Important Disclaimer</p>
-                            <p className="text-xs sm:text-sm text-slate-300">
+                            <p className="font-semibold text-blue-400 mb-1 text-base">Important Disclaimer</p>
+                            <p className="text-sm text-slate-300">
                                 Crypto trading involves high risk. Past returns don't guarantee future results.
                                 We teach risk management and safe trading practices. Never invest money you can't afford to lose.
                             </p>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { TrustBadge } from '../types';
 import { trustBadges } from '../data';
 
@@ -73,26 +74,32 @@ const TrustBadgesMobile: React.FC<{ badges: TrustBadge[] }> = ({ badges }) => {
 
 const TrustBadgesBar: React.FC = () => {
     return (
-        <div className="py-2 sm:py-4 bg-gradient-to-b from-slate-800/50 to-transparent">
-            <div className="max-w-7xl mx-auto px-3 sm:px-4">
-                {/* DESKTOP */}
-                <div className="hidden sm:flex justify-center items-center gap-6 flex-nowrap">
+        <motion.div 
+            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 hidden sm:block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+        >
+            <div className="glass-effect border border-white/10 rounded-full px-6 py-3 shadow-2xl hover:border-white/20 transition-all">
+                <div className="flex justify-center items-center gap-6 flex-nowrap">
                     {trustBadges.map((badge, index) => (
                         <React.Fragment key={badge.text}>
-                            <div className="flex items-center space-x-1.5">
-                                <badge.icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${badgeColorMap[badge.color]}`} />
-                                <span className="text-[10px] sm:text-sm whitespace-nowrap">{badge.text}</span>
-                            </div>
+                            <motion.div 
+                                className="flex items-center space-x-1.5"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: "spring", stiffness: 300 }}
+                            >
+                                <badge.icon className={`w-4 h-4 ${badgeColorMap[badge.color]}`} />
+                                <span className="text-sm whitespace-nowrap">{badge.text}</span>
+                            </motion.div>
                             {index < trustBadges.length - 1 && (
-                                <span className="text-slate-600 text-xs hidden sm:inline">•</span>
+                                <span className="text-slate-600 text-xs">•</span>
                             )}
                         </React.Fragment>
                     ))}
                 </div>
-                {/* MOBILE */}
-                <TrustBadgesMobile badges={trustBadges} />
             </div>
-        </div>
+        </motion.div>
     );
 };
 

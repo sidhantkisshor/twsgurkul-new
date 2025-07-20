@@ -72,9 +72,152 @@ const TestimonialsSection: React.FC = () => {
                 </div>
               </div>
 
-              <p className="text-gray-300 mb-4 text-lg leading-relaxed">
-                "{testimonial.story}"
-              </p>
+              <div className="space-y-4 mb-6">
+                {testimonial.story.darkest && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-red-400 font-semibold">The Darkest Hour:</span> {testimonial.story.darkest}
+                  </p>
+                )}
+                {testimonial.story.background && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-gray-400 font-semibold">Background:</span> {testimonial.story.background}
+                  </p>
+                )}
+                {testimonial.story.turning && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-yellow-400 font-semibold">The Turning Point:</span> {testimonial.story.turning}
+                  </p>
+                )}
+                {testimonial.story.discovery && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-blue-400 font-semibold">Discovery:</span> {testimonial.story.discovery}
+                  </p>
+                )}
+                {testimonial.story.breakthrough && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-green-400 font-semibold">Breakthrough:</span> {testimonial.story.breakthrough}
+                  </p>
+                )}
+                {testimonial.story.journey && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-blue-400 font-semibold">The Journey:</span> {testimonial.story.journey}
+                  </p>
+                )}
+                {testimonial.story.learning && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-purple-400 font-semibold">Learning Curve:</span> {testimonial.story.learning}
+                  </p>
+                )}
+                {testimonial.story.growth && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-green-400 font-semibold">Growth:</span> {testimonial.story.growth}
+                  </p>
+                )}
+                {testimonial.story.today && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-green-400 font-semibold">Today:</span> {testimonial.story.today}
+                  </p>
+                )}
+                {testimonial.story.transformation && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-emerald-400 font-semibold">Transformation:</span> {testimonial.story.transformation}
+                  </p>
+                )}
+                {testimonial.story.present && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-emerald-400 font-semibold">Present Day:</span> {testimonial.story.present}
+                  </p>
+                )}
+                {testimonial.story.struggle && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-orange-400 font-semibold">The Struggle:</span> {testimonial.story.struggle}
+                  </p>
+                )}
+                {testimonial.story.riskTaken && (
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    <span className="text-yellow-400 font-semibold">Risk Taken:</span> {testimonial.story.riskTaken}
+                  </p>
+                )}
+              </div>
+
+              {/* Additional Info */}
+              {testimonial.warning && (
+                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-4">
+                  <p className="text-yellow-400 font-semibold">⚠️ {testimonial.warning}</p>
+                </div>
+              )}
+
+              {testimonial.currentMonthly && (
+                <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mb-4">
+                  <p className="text-green-400 font-semibold">💰 Current Monthly Income: {testimonial.currentMonthly}</p>
+                </div>
+              )}
+
+              {/* Proof Section */}
+              {testimonial.proof && (
+                <div className="bg-gray-800/50 rounded-lg p-4 mb-4 space-y-2">
+                  <p className="text-gray-400 font-semibold mb-2">Verify My Results:</p>
+                  {testimonial.proof.bankStatement && (
+                    <p className="text-sm text-gray-300">📊 {testimonial.proof.bankStatement}</p>
+                  )}
+                  {testimonial.proof.panCard && (
+                    <p className="text-sm text-gray-300">🆔 {testimonial.proof.panCard}</p>
+                  )}
+                  {testimonial.proof.tradingAccount && (
+                    <p className="text-sm text-gray-300">📈 {testimonial.proof.tradingAccount}</p>
+                  )}
+                  {testimonial.proof.whatsapp && (
+                    <p className="text-sm text-gray-300">📱 {testimonial.proof.whatsapp}</p>
+                  )}
+                  {testimonial.proof.profitScreenshots && (
+                    <p className="text-sm text-gray-300">📸 {testimonial.proof.profitScreenshots}</p>
+                  )}
+                  {testimonial.proof.husbandTestimony && (
+                    <p className="text-sm text-gray-300">🎥 {testimonial.proof.husbandTestimony}</p>
+                  )}
+                  {testimonial.proof.tradingSetup && (
+                    <p className="text-sm text-gray-300">🖥️ {testimonial.proof.tradingSetup}</p>
+                  )}
+                  {testimonial.proof.feature && (
+                    <p className="text-sm text-gray-300">📰 {testimonial.proof.feature}</p>
+                  )}
+                  {testimonial.proof.uberToTrading && (
+                    <p className="text-sm text-gray-300">🚗 {testimonial.proof.uberToTrading}</p>
+                  )}
+                  {testimonial.proof.familyPhoto && (
+                    <p className="text-sm text-gray-300">👨‍👩‍👦 {testimonial.proof.familyPhoto}</p>
+                  )}
+                  {testimonial.proof.officeSetup && (
+                    <p className="text-sm text-gray-300">🏢 {testimonial.proof.officeSetup}</p>
+                  )}
+                  {testimonial.proof.helping && (
+                    <p className="text-sm text-gray-300">🤝 {testimonial.proof.helping}</p>
+                  )}
+                </div>
+              )}
+
+              {/* Additional Messages */}
+              {testimonial.message && (
+                <p className="text-purple-400 font-semibold italic mb-4">"{testimonial.message}"</p>
+              )}
+
+              {testimonial.nowTeaching && (
+                <p className="text-blue-400 font-semibold mb-4">🎓 {testimonial.nowTeaching}</p>
+              )}
+
+              {testimonial.philosophy && (
+                <p className="text-gray-400 italic mb-4">"{testimonial.philosophy}"</p>
+              )}
+
+              {testimonial.mediaFeature && (
+                <p className="text-yellow-400 font-semibold mb-4">📺 {testimonial.mediaFeature}</p>
+              )}
+
+              {testimonial.videoCall && (
+                <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mb-4">
+                  <p className="text-blue-400">📞 {testimonial.videoCall}</p>
+                </div>
+              )}
 
               <div className="flex flex-wrap gap-2 sm:gap-4">
                 {testimonial.videoLink && (

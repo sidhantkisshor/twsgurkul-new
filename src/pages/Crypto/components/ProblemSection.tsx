@@ -15,21 +15,21 @@ const ProblemSection: React.FC = () => {
                 >
                     <div className="inline-flex items-center space-x-2 bg-red-500/10 border border-red-500/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
                         <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-red-400" />
-                        <span className="text-xs sm:text-sm font-medium text-red-400">The Harsh Reality</span>
+                        <span className="text-xs sm:text-sm font-medium text-red-400">EXPOSED: The Crypto Scam Epidemic</span>
                     </div>
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-                        Why 93% of Indian Crypto Traders
-                        <span className="text-red-400"> Lose Money</span>
+                        The UGLY Truth: How Fake 'Gurus'
+                        <span className="text-red-400"> STEAL ₹247 Crores Daily</span>
                     </h2>
                     <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto px-4">
-                        <strong className="text-yellow-400">"Bhai, mujhe sab pata hai"</strong> - we've all been there. Tried following YouTube gurus and WhatsApp tips, but it's like driving in Delhi without Google Maps.
+                        <strong className="text-yellow-400">"Sir guarantee dete hain 100% profit"</strong> - Sound familiar? That's how they trap you. While you lose, they buy luxury cars with YOUR money.
                     </p>
                 </motion.div>
                 <div className="space-y-3 sm:space-y-4">
                     {problems.map((item, index) => (
                         <motion.div
                             key={item.problem}
-                            className="bg-slate-800/50 rounded-lg p-3 sm:p-4 border border-red-500/20"
+                            className="glass-effect rounded-lg p-3 sm:p-4 border border-red-500/20 hover:border-red-500/30 transition-all"
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -51,13 +51,17 @@ const ProblemSection: React.FC = () => {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                 >
-                    <p className="text-xl sm:text-2xl font-semibold mb-2">
-                        <span className="text-green-400">The Good News?</span> You don't have to struggle anymore.
-                    </p>
-                    <p className="text-lg text-slate-300 italic">
-                        <span className="text-yellow-400 font-bold">"Ghar baithe seekho, lifetime kamao."</span>
-                        <span className="block text-sm mt-1">(Learn from home, earn for a lifetime)</span>
-                    </p>
+                    <div className="glass-effect rounded-xl p-6 border border-green-500/20 inline-block">
+                        <p className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2">
+                            <span className="text-green-400">FACT:</span> Every Day You Wait = ₹5,000+ Lost
+                        </p>
+                        <p className="text-base sm:text-lg text-slate-300">
+                            While you're reading this, our students are making their <span className="text-yellow-400 font-bold">2nd trade of the day</span>
+                        </p>
+                        <p className="text-sm text-slate-400 mt-2">
+                            (Average profit per trade: ₹2,500 - Do the math)
+                        </p>
+                    </div>
                 </motion.div>
             </div>
         </section>

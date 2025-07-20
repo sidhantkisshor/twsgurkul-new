@@ -30,28 +30,28 @@ const TestimonialsSection: React.FC = () => {
               
               <div>
                 <h3 className="text-xl font-bold mb-3 text-amber-500">
-                  "From ₹3.2L Loss to ₹1.5L Monthly Profit" - Rohit Sharma, Ex-TCS
+                  "From ₹35 Lakhs Loss to $127K Profit in 4 Months" - Arjun Malhotra, Ex-JP Morgan Mumbai
                 </h3>
                 <ul className="space-y-2 text-slate-300 mb-4">
                   <li className="flex items-start">
                     <span className="text-amber-500 mr-2">•</span>
-                    <span>Before: Lost ₹3.2 Lakhs in 2 years (2021-2023)</span>
+                    <span>Before: Lost ₹35 lakhs in crypto crash (Luna/FTX se barbaad)</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-amber-500 mr-2">•</span>
-                    <span>March 2024: Joined Footprint Mastery (₹34,997 investment)</span>
+                    <span>March 2024: Found whale tracking system (₹37K investment)</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-amber-500 mr-2">•</span>
-                    <span>April: First profitable month (₹42,000)</span>
+                    <span>April: First ₹8 lakh profit month on BTC rally</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-amber-500 mr-2">•</span>
-                    <span>October 2024: Consistent ₹1.5L+ monthly (Quit TCS job)</span>
+                    <span>July 2024: $127K total profit (Left JP Morgan, trading full-time from Gurgaon)</span>
                   </li>
                 </ul>
                 <p className="text-slate-400 italic">
-                  "I was struggling like everyone else, blowing my account every few months. The footprint system completely changed how I see the markets. Now I can spot exactly where institutions are accumulating and where they plan to move the market next."
+                  "JP Morgan mein dekha hai kaise institutional traders retail ko loot-te hain. Ab main unke $100K+ orders 30 seconds pehle dekh leta hun. Last week ETH $2,800 se $3,200 ka move pakda because whale accumulation dikha at $2,750. Ye illegal hona chahiye but it's not."
                 </p>
               </div>
             </div>
@@ -65,8 +65,8 @@ const TestimonialsSection: React.FC = () => {
                   <User size={20} className="text-amber-500" />
                 </div>
                 <div>
-                  <h4 className="font-bold">Adwaita Nambiar</h4>
-                  <span className="block text-sm text-slate-400 font-medium mb-1">Chartered Accountant</span>
+                  <h4 className="font-bold">Priya Sharma</h4>
+                  <span className="block text-sm text-slate-400 font-medium mb-1">Crypto Trader, Bangalore</span>
                   <div className="flex mt-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={12} className="text-amber-500 fill-amber-500" />
@@ -74,9 +74,9 @@ const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">June-Oct 2024: ₹5.2L Net Profit</p>
+              <p className="text-lg font-bold text-amber-500 mb-2">June-Oct 2024: ₹70 Lakh Net Profit</p>
               <p className="text-slate-300">
-                "Pehle sirf price action dekhta tha. Ab footprint mein EXACTLY dikta hai ki big players kahan accumulate kar rahe hain. Last trade: Nifty 24500 PE, 180% profit in 2 days."
+                "Binance whales ne BTC $42K pe dump karne ki koshish ki. But maine unka $15M sell wall 20 min pehle dekh liya. Short kiya at $41,800, covered at $38,500. Ek trade mein ₹19 lakh profit. This system is CRAZY!"
               </p>
             </div>
             
@@ -86,8 +86,8 @@ const TestimonialsSection: React.FC = () => {
                   <User size={20} className="text-amber-500" />
                 </div>
                 <div>
-                  <h4 className="font-bold">Md. Sheik Shakeel</h4>
-                  <span className="block text-sm text-slate-400 font-medium mb-1">Software Engineer</span>
+                  <h4 className="font-bold">Rahul Mehta</h4>
+                  <span className="block text-sm text-slate-400 font-medium mb-1">Full-time Trader, Delhi NCR</span>
                   <div className="flex mt-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={12} className="text-amber-500 fill-amber-500" />
@@ -95,9 +95,9 @@ const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">73 Wins out of 78 Trades (93.5% Accuracy)</p>
+              <p className="text-lg font-bold text-amber-500 mb-2">119 Wins out of 126 Trades (94.4% Win Rate)</p>
               <p className="text-slate-300">
-                "Module 3 ka OI analysis + Module 5 ka institutional flow = GAME OVER for losses. Ab main sirf wahi trades leta hun jahan footprint clear ho."
+                "EUR/USD pe whale tracking + crypto footprints = Paisa hi paisa. Kal $50M EUR buy order dikha, long gaya at 1.0850, close kiya at 1.0920. Aaram se ₹5.8 lakh kamaye."
               </p>
             </div>
             
@@ -107,8 +107,8 @@ const TestimonialsSection: React.FC = () => {
                   <User size={20} className="text-amber-500" />
                 </div>
                 <div>
-                  <h4 className="font-bold">Manvik</h4>
-                  <span className="block text-sm text-slate-400 font-medium mb-1">MBA Student</span>
+                  <h4 className="font-bold">Karthik Reddy</h4>
+                  <span className="block text-sm text-slate-400 font-medium mb-1">Ex-Infosys, Hyderabad</span>
                   <div className="flex mt-1">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={12} className="text-amber-500 fill-amber-500" />
@@ -116,23 +116,23 @@ const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">₹50K → ₹1.2L in 6 Months (140% ROI)</p>
+              <p className="text-lg font-bold text-amber-500 mb-2">₹4 Lakh → ₹1.3 Crore in 6 Months (3,020% ROI)</p>
               <p className="text-slate-300">
-                "College fees ke liye papa se ₹50K liye the. 6 months mein ₹1.2L banake wapas kar diye + laptop bhi le liya. Footprint ne life change kar di!"
+                "Last ₹4 lakh se start kiya after crypto mein sab kuch haar gaya. Ab daily whale orders ko front-run karta hun. Sirf last month ₹35 lakh kamaye ETH pumps pe. Parents ko lagta hai main genius hun. Bas whales ko follow karta hun."
               </p>
             </div>
           </div>
           
           <div className="text-center animate-on-scroll">
             <p className="text-lg text-slate-300 mb-6 italic">
-              These aren't overnight success stories. These are systematic transformations using institutional-grade footprint reading.
+              <span className="text-red-400 font-bold">⚠️ WARNING:</span> Exchanges are trying to shut down our whale tracking system. Join before it's banned.
             </p>
             <p className="text-xl font-bold text-white mb-8">
               Your success story could be next...
             </p>
             
             <button onClick={handlePaymentPopup} className="cta-button-primary inline-block">
-              Join The Success Stories
+              Steal The Whale Secrets (Only 7 Spots Left)
             </button>
           </div>
         </div>

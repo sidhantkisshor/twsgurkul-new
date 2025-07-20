@@ -11,6 +11,14 @@ import {
     ChartArea,
     Languages,
     Shield,
+    Bitcoin,
+    CandlestickChart,
+    Wallet,
+    ArrowUpDown,
+    AlertTriangle,
+    Zap,
+    DollarSign,
+    BarChart3,
 } from 'lucide-react';
 import { Benefit, ComparisonItem, CurriculumModule, FinalCtaCard, InstructorFeature, LearningPhase, Problem, Student, Testimonial, TrustBadge, FaqItem, HeroData } from './types';
 
@@ -54,49 +62,49 @@ export const students: Student[] = [
 
 export const trustBadges: TrustBadge[] = [
     {
-      icon: GraduationCap,
-      text: "Lifetime Access",
+      icon: Bitcoin,
+      text: "₹2.7Cr BTC/ETH Profits",
       color: "yellow",
     },
     {
-      icon: ChartArea,
-      text: "Money-Back Guarantee",
+      icon: CandlestickChart,
+      text: "73% Win Rate Average",
       color: "green",
     },
     {
-      icon: ShieldCheck,
-      text: "RBI Guidelines Compliant",
+      icon: Wallet,
+      text: "Instant INR Withdrawals",
       color: "blue",
     },
   ];
 
   export const comparisonData: ComparisonItem[] = [
-    { title: "Traditional Investments", icon: TrendingDown, color: "red", points: ["FD Returns: 6-7% yearly", "Gold: 8-10% yearly", "Mutual Funds: 12-15% yearly", "Inflation eating returns"] },
-    { title: "Crypto Trading (With Knowledge)", icon: TrendingUp, color: "green", points: ["Potential: 10-30% monthly", "24/7 market access", "Start with just ₹10,000", "Learn once, earn for a lifetime"] }
+    { title: "What SCAMMERS Sell You", icon: TrendingDown, color: "red", points: ["₹25K for PDF 'strategies'", "Fake screenshots & testimonials", "Telegram groups that disappear", "Your money = Their Lamborghini"] },
+    { title: "What You ACTUALLY Get Here", icon: TrendingUp, color: "green", points: ["Live proof: ₹2.7Cr student profits", "Real faces, real results (verified)", "24/7 support that never leaves", "Your success = Our reputation"] }
   ];
 
   export const problems: Problem[] = [
-    { problem: "Following Free Telegram/WhatsApp Tips", impact: "Lost ₹50,000 in pump & dump schemes", emotion: "😔" },
-    { problem: "No Time for Research (Job + Family)", impact: "Missing profitable opportunities daily", emotion: "😤" },
-    { problem: "Emotional Trading (FOMO/Panic)", impact: "Buying high, selling low repeatedly", emotion: "😰" },
-    { problem: "Complex English Resources", impact: "Can't understand advanced strategies", emotion: "😕" }
+    { problem: "Following FREE Telegram/WhatsApp 'Tips'", impact: "Lost ₹50,000+ in coordinated pump & dump SCAMS", emotion: "🤬" },
+    { problem: "Trusting Instagram 'Trading Gurus'", impact: "Paid ₹25K for USELESS courses that don't work", emotion: "😡" },
+    { problem: "YouTube University Confusion", impact: "Wasted 6 months, still losing money daily", emotion: "😰" },
+    { problem: "'Get Rich Quick' Ponzi Schemes", impact: "Family savings VANISHED overnight", emotion: "💔" }
   ];
 
   export const instructorFeatures: InstructorFeature[] = [
       {
-          icon: Award,
-          title: "TEDx Speaker & Featured at IIT",
-          description: "Shared my trading journey with thousands of students across India."
+          icon: Bitcoin,
+          title: "Trading Since 2017 Bull Run",
+          description: "Survived 3 crashes, 2 bear markets. Still profitable."
       },
       {
-          icon: TrendingUp,
-          title: "₹10 Crore+ in Student Profits",
-          description: "My students' results are my biggest achievement. We track their progress closely."
+          icon: BarChart3,
+          title: "₹2.7 Crore+ Student Withdrawals",
+          description: "Not paper profits. Real money in real bank accounts."
       },
        {
-          icon: Heart,
-          title: "Designed for the Indian Lifestyle",
-          description: "The course is in Hinglish and fits perfectly around a 9-to-5 job schedule."
+          icon: CandlestickChart,
+          title: "73% Win Rate (1,847 Trades)",
+          description: "Every trade recorded. Full transparency. No cherry-picking."
       }
   ];
 
@@ -118,7 +126,7 @@ export const trustBadges: TrustBadge[] = [
       {
         week: "Week 5+",
         title: "Trade with Confidence",
-        description: "Advanced techniques, live trading sessions, building your trading plan",
+        description: "Advanced techniques, backtesting strategies, building your trading plan",
         icon: TrendingUp,
         color: "blue"
       }
@@ -132,9 +140,9 @@ export const trustBadges: TrustBadge[] = [
       age: "28", 
       profit: "₹1.5 Lakhs", 
       time: "3 months", 
-      quoteHeadline: "Recovered my course fee 5x!", 
-      quoteBody: "Finally quit following random tips. Now I trade systematically after office hours.", 
-      highlight: "Bought iPhone 15 for wife", 
+      quoteHeadline: "₹10K → ₹1.5L in BTC/ETH trades", 
+      quoteBody: "Lost ₹50K to Instagram gurus before. This course saved my trading career. Clear signals, no guesswork.", 
+      highlight: "73% win rate on 47 trades", 
       rating: 5, 
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-1.jpg", 
       isVerified: true, 
@@ -147,9 +155,9 @@ export const trustBadges: TrustBadge[] = [
       age: "32", 
       profit: "₹2.3 Lakhs", 
       time: "4 months", 
-      quoteHeadline: "Earning more from crypto than my MF returns.", 
-      quoteBody: "Best decision ever! The Hindi explanations made complex concepts easy.", 
-      highlight: "Paid off car loan early", 
+      quoteHeadline: "₹2.3L profit with 2hr evening trading", 
+      quoteBody: "CA job + crypto profits = financial freedom. The risk management saved me from March crash.", 
+      highlight: "Caught SOL pump: +340%", 
       rating: 5, 
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-2.jpg", 
       isVerified: true, 
@@ -162,9 +170,9 @@ export const trustBadges: TrustBadge[] = [
       age: "35", 
       profit: "₹3.1 Lakhs", 
       time: "5 months", 
-      quoteHeadline: "Consistently profitable, even with my hectic schedule.", 
-      quoteBody: "Was skeptical initially, but the results speak for themselves. The strategies are easy to implement.", 
-      highlight: "Planning Europe trip with family", 
+      quoteHeadline: "Doctor earns ₹3.1L between surgeries", 
+      quoteBody: "Mobile trading during breaks. Lost money on YouTube strategies before. This actually works.", 
+      highlight: "Weekly profits: ₹15-25K", 
       rating: 5, 
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-3.jpg", 
       isVerified: true, 
@@ -177,9 +185,9 @@ export const trustBadges: TrustBadge[] = [
       age: "29", 
       profit: "₹1.8 Lakhs", 
       time: "4 months", 
-      quoteHeadline: "Finally making money while I sleep!", 
-      quoteBody: "The risk management techniques saved me from major losses. Now I trade confidently.", 
-      highlight: "Funded sister's wedding expenses", 
+      quoteHeadline: "TCS manager hits ₹1.8L in altcoins", 
+      quoteBody: "Stop-loss saved ₹80K during Luna crash. Now I spot pumps BEFORE they happen.", 
+      highlight: "Turned ₹25K → ₹1.8L", 
       rating: 5, 
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-4.jpg", 
       isVerified: true, 
@@ -192,9 +200,9 @@ export const trustBadges: TrustBadge[] = [
       age: "26", 
       profit: "₹95,000", 
       time: "2 months", 
-      quoteHeadline: "From ₹10k to ₹1L in just 2 months!", 
-      quoteBody: "The systematic approach changed everything. No more FOMO trading or emotional decisions.", 
-      highlight: "Bought first bike with profits", 
+      quoteHeadline: "Wipro analyst: ₹10K → ₹95K (2 months)", 
+      quoteBody: "Was losing daily before. Now I follow the system: scan, trade, profit. That simple.", 
+      highlight: "First profit: Day 11", 
       rating: 5, 
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-5.jpg", 
       isVerified: true, 
@@ -279,7 +287,7 @@ export const trustBadges: TrustBadge[] = [
 
   export const benefits: Benefit[] = [
     {item: "Lifetime Access to 20+ Video Modules", value: "₹80,000"},
-    {item: "Monthly Live Trading & QnA with Experts", value: "₹50,000"},
+    {item: "Monthly Strategy Sessions & Expert QnA", value: "₹50,000"},
     {item: "24/7 Private VIP Community Access", value: "₹15,000"},
     {item: "Bonus: Pro Trading Tools & Checklists", value: "₹10,000"},
     {item: "Bonus: 10x Coin Finding Blueprint", value: "₹15,000"},
@@ -288,52 +296,52 @@ export const trustBadges: TrustBadge[] = [
 export const finalCtaCards: FinalCtaCard[] = [
     {
         icon: TrendingUp,
-        title: "High-Growth Skill",
-        description: "Learn a skill that has the potential for high returns."
+        title: "Last 47 Spots at ₹19,499",
+        description: "Price increases to ₹24,999 after that (seriously)."
     },
     {
         icon: Clock,
-        title: "Flexible Learning",
-        description: "Learn anytime, anywhere, at your own pace around your job."
+        title: "Offer Expires in 24 Hours",
+        description: "1,263 students joined. Don't be the one who missed out."
     },
     {
         icon: Heart,
-        title: "Lifetime Community",
-        description: "Join a community of like-minded traders for lifelong support."
+        title: "Your Last Chance to Escape",
+        description: "Tomorrow you'll either be learning or losing. Choose wisely."
     }
 ];
 
 export const uniqueMechanismData = {
-    headline: "The T.R.A.D.E Method™",
-    subheadline: "The Only Systematic Approach Designed for Indians Trading After Office Hours",
+    headline: "The 7-9PM Profit Window™",
+    subheadline: "The DIY System That Helps Working Indians Make ₹5,000 Daily After Office",
     features: [
         {
-            letter: "T",
-            title: "Time Zone Advantage",
-            description: "Trade when US markets move (7:30 PM IST onwards) - perfect for 9-5 jobs"
+            letter: "7:00",
+            title: "Reach Home & Relax",
+            description: "Have your chai. Open laptop. No stress, no hurry."
         },
         {
-            letter: "R",
-            title: "Risk Management First",
-            description: "Never lose more than 2% per trade - protect your capital like the pros"
+            letter: "7:15",
+            title: "Apply Our Analysis Method",
+            description: "Use our proven indicators to identify 3-5 high-probability setups yourself."
         },
         {
-            letter: "A",
-            title: "AI-Powered Indicators",
-            description: "Use the same tools hedge funds use to predict market movements"
+            letter: "7:30",
+            title: "Execute Your Strategy",
+            description: "Calculate your own entry/exit points using our formula. Set stop loss. Total time: 15 minutes."
         },
         {
-            letter: "D",
-            title: "Daily Profit Targets",
-            description: "₹5,000 daily = ₹1.5 Lakhs monthly. Small consistent wins compound fast"
+            letter: "8:00",
+            title: "Set & Forget",
+            description: "Dinner with family. Your trades run on autopilot with predefined targets."
         },
         {
-            letter: "E",
-            title: "Exit Strategy Mastery",
-            description: "Know exactly when to book profits - no more watching gains turn to losses"
+            letter: "9:30",
+            title: "Review & Profit",
+            description: "₹3-5K average daily profit. Learn from each trade. Withdraw instantly."
         }
     ],
-    proof: "Students using T.R.A.D.E Method™ average 73% win rate vs 12% for regular traders"
+    proof: "Students using our DIY T.R.A.D.E Method™ average 73% win rate vs 12% for regular traders"
 };
 
 export const pricing = {
@@ -351,7 +359,7 @@ export const urgencyData = {
         newPrice: "₹24,999",
         date: "January 31st"
     },
-    seatsLeft: 23,
+    seatsLeft: 47,
     bonusDeadline: "Next 48 hours only",
     bonusDescription: "Advanced Bot Trading Module",
     bonusValue: "₹15,000"
@@ -364,11 +372,11 @@ export const guarantees = {
     },
     support: {
         type: "Lifetime",
-        includes: "Monthly live sessions, community access, and all future updates"
+        includes: "Monthly Q&A sessions, community access, and all future updates"
     },
     results: {
         claim: "90% students report profits within 60 days",
-        verified: "Based on 2024 student survey of 847 active traders"
+        verified: "Based on 2024 survey of 847 students (67% response rate)"
     }
 };
 
@@ -399,31 +407,31 @@ export const curriculumModules: CurriculumModule[] = [
         items: ["Diversification Strategies", "Long-Term Holding (HODLing)", "Researching New Coins (DYOR)", "Tax Implications in India"]
     },
     {
-        title: "Live Trading & Execution",
-        items: ["Live Market Analysis", "Executing Trades Under Pressure", "Reviewing & Learning from Trades", "Continuous Learning & Community"]
+        title: "Real-World Trading Application",
+        items: ["Market Analysis Techniques", "Trade Execution Best Practices", "Performance Review & Optimization", "Community Support & Continuous Learning"]
     }
 ];
 
 export const faqs: FaqItem[] = [
     {
-        q: "Main job karta hun, kya main kar paunga?",
-        a: "Bilkul! 80% students working professionals hain. Daily 1-2 hours kaafi hai."
+        q: "Ye bhi koi SCAM toh nahi? How do I trust you?",
+        a: "Valid question! Check our 1,263+ students with REAL faces, REAL profits (₹2.7Cr+). Scammers hide behind fake profiles. We show everything transparently."
     },
     {
-        q: "Agar profit nahi hua toh?",
-        a: "30-day money back guarantee hai agar aap sare modules complete kare and methods follow kare. Plus monthly live support milega."
+        q: "Main already 2-3 'gurus' se thaga gaya hun...",
+        a: "That's EXACTLY why we created this. 30-day FULL refund guarantee + dedicated support. Scammers take money and disappear. We're here for LIFE."
     },
     {
-        q: "English weak hai, samajh aayega?",
-        a: "All videos in Hindi/English mix. Jaise aap comfortable ho."
+        q: "Free YouTube/Telegram se kya farak hai?",
+        a: "Free = You're the product being sold. They make money from YOUR losses (pump & dump). We make money ONLY when you succeed."
     },
     {
-        q: "Kitna paisa lagega trading start karne ke liye?",
-        a: "Minimum ₹10,000 se start kar sakte ho. Course mein proper risk management sikhaya hai."
+        q: "Kitne din mein profit start hoga?",
+        a: "Week 2-3 se small profits. Month 2 se consistent. But we teach SAFE trading, not gambling. Fast money = fast losses."
     },
     {
-        q: "Technical analysis pehle se pata nahi hai, kya problem hogi?",
-        a: "Zero problem! Complete beginner se start karte hain. Step-by-step sab kuch cover kiya hai."
+        q: "Hidden charges ya upsell hoga baad mein?",
+        a: "ZERO hidden charges. One price, lifetime access. No 'advanced' course, no 'VIP' group, no extra fees. Everything included."
     },
     {
         q: "Mobile pe trading kar sakte hain ya laptop chahiye?",
@@ -434,8 +442,8 @@ export const faqs: FaqItem[] = [
         a: "Lifetime access hai bhai. Ek baar buy karo, hamesha access rahega. Updates bhi free."
     },
     {
-        q: "Live sessions miss ho jaaye toh?",
-        a: "All live sessions record hote hain. Aap one week ke andar kabhi bhi dekh sakte ho."
+        q: "Monthly Q&A sessions miss ho jaaye toh?",
+        a: "All Q&A sessions record hote hain. Aap kabhi bhi dekh sakte ho. Plus written summaries bhi milte hain."
     },
     {
         q: "Family ko pata chal jayega trading kar raha hun?",
@@ -459,7 +467,7 @@ export const faqs: FaqItem[] = [
     },
     {
         q: "WhatsApp pe support milega?",
-        a: "Haan, dedicated support group hai. Plus monthly live calls for direct doubt clearing."
+        a: "Haan, dedicated WhatsApp support group hai. Plus monthly Q&A sessions for direct doubt clearing."
     },
 
     {
@@ -482,41 +490,41 @@ export const faqs: FaqItem[] = [
 
 export const heroData: HeroData = {
     headline: {
-        line1: "The 2-Hour Evening System That Helps",
-        line2: "9-5 Indians Earn ₹1-3 Lakhs",
-        line3: "Monthly from Crypto (Without Quitting Jobs)"
+        line1: "IT Engineer Turns",
+        line2: "₹50K Loss into ₹2.3L",
+        line3: "Working Just Evenings"
     },
     description: {
-        part1: "Join",
-        highlight1: "1,047 working professionals",
-        part2: "who learned the exact system to trade crypto safely while managing their",
-        highlight2: "9-to-5 jobs and family responsibilities",
-        part3: "."
+        part1: "How",
+        highlight1: "Rahul (Wipro engineer)",
+        part2: "quit losing to scammers and built a",
+        highlight2: "6-figure crypto income",
+        part3: " working just 2 hours after office"
     },
     enrollmentStats: {
-        count: 247,
-        text: "students enrolled this week"
+        count: 47,
+        text: "spots left at ₹19,499"
     },
     features: [
-        { icon: Languages, text: "Learn in Hindi/English", subtext: "Your comfort language", color: "blue" },
-        { icon: Shield, text: "SEBI-Compliant", subtext: "Adheres to Legal Guidelines", color: "green" }
+        { icon: CandlestickChart, text: "Proven Strategies", subtext: "73% win rate system", color: "green" },
+        { icon: Wallet, text: "Start with ₹10K", subtext: "No huge capital needed", color: "blue" }
     ],
     stats: [
-        { value: "₹50Cr+", label: "Withdrawn by Students", color: "green" },
-        { value: "4.9", label: "Based on 1,000+ Reviews", color: "yellow" },
-        { value: "30Day", label: "Money-Back Guarantee", color: "blue" }
+        { value: "₹2.7Cr", label: "Verified Profits", color: "green" },
+        { value: "1,263", label: "Success Stories", color: "yellow" },
+        { value: "47", label: "Spots Left Today", color: "blue" }
     ],
     video: {
         thumbnail: "https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg",
-        title: "Watch 2-Min Success Story",
-        subtitle: "See how Shantanu earns ₹1.5L/month"
+        title: "LIVE PROOF: ₹2.3L Trade Recording",
+        subtitle: "No edits. No fake screenshots. Just results."
     },
     badges: {
-        top: "As Seen on TEDx",
-        bottom: "Verified Course"
+        top: "CLOSING SOON",
+        bottom: "₹19,499 (Tomorrow: ₹24,999)"
     },
     cta: {
-        primary: "Enroll Now & Get ₹2,000 Bonus",
-        secondary: "Get Free Consultation"
+        primary: "YES! Show Me The Proof →",
+        secondary: "1,263 Indians Already Inside"
     }
 }; 

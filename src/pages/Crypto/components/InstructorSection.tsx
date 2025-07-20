@@ -37,7 +37,7 @@ const InstructorSection: React.FC<InstructorSectionProps> = ({ handleSmoothScrol
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-2xl sm:text-3xl font-bold">Meet Your Instructor</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold">"I Lost ₹3.2 Lakhs Before I Cracked The Code"</h2>
                     <p className="text-slate-300 sm:text-lg">I'm not a guru. I'm a trader who lost money just like you, found a system that works, and now I'm here to share it. No fluff, no false promises. Just a practical path to profitable trading.</p>
                     <div className="space-y-4">
                         {instructorFeatures.map((feature, index) => (
