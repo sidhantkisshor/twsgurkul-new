@@ -1,0 +1,1 @@
+export { default as QuizLandingPage } from './QuizLandingPage';
