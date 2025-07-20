@@ -38,11 +38,11 @@ const PricingSection: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between items-center mb-8">
               <div>
                 <div className="mb-2">
-                  <span className="text-lg text-slate-400 line-through mr-3">₹59,999</span>
-                  <span className="text-2xl md:text-3xl font-bold text-amber-500">₹34,997</span>
-                  <span className="text-sm text-green-500 ml-2">Save ₹25,002</span>
+                  <span className="text-lg text-slate-400 line-through mr-3">$2,997</span>
+                  <span className="text-2xl md:text-3xl font-bold text-amber-500">$497</span>
+                  <span className="text-sm text-green-500 ml-2">Save $2,500 (TODAY ONLY)</span>
                 </div>
-                <p className="text-lg text-slate-300">Less than your average monthly trading loss</p>
+                <p className="text-lg text-slate-300">Less than what whales steal from you in ONE trade</p>
                 <p className="text-sm text-yellow-400 mt-2 flex items-center gap-2">
                   <Clock size={16} />
                   {urgencyData.bonusDeadline}: FREE {urgencyData.bonusDescription} (Worth {urgencyData.bonusValue})
@@ -51,7 +51,7 @@ const PricingSection: React.FC = () => {
               
               <div className="mt-6 md:mt-0">
                 <button onClick={handlePaymentPopup} className="cta-button-primary text-lg">
-                  ENROLL IN FOOTPRINT MASTERY
+                  ACTIVATE WHALE TRACKER NOW
                 </button>
               </div>
             </div>
@@ -102,17 +102,17 @@ const PricingSection: React.FC = () => {
             
             <div className="border-t border-slate-700 pt-6 mb-6">
               <p className="text-white mb-4">
-                <span className="font-bold">Most importantly:</span> You're not alone. Har month live session mein main personally tumhare complex doubts clear karta hun. Real market scenarios, tricky situations, advanced concepts - everything gets discussed.
+                <span className="font-bold text-red-400">⚠️ URGENT:</span> Binance & Coinbase are pressuring us to remove this system. We've already been banned from 3 trading forums for exposing whale manipulation tactics.
               </p>
               
               <p className="text-white">
-                <span className="font-bold">Think about it:</span> ₹34,997 is probably less than what you've lost in your last few trades. But this investment could end those losses forever.
+                <span className="font-bold">Reality Check:</span> $497 is less than what you'll lose in your NEXT trade without seeing whale orders. But with this system, you'll be on the WINNING side of every pump & dump.
               </p>
             </div>
             
             <div className="text-center">
               <button onClick={handlePaymentPopup} className="cta-button-primary text-lg inline-block">
-                ENROLL IN FOOTPRINT MASTERY - ₹34,997
+                STEAL THE WHALE PLAYBOOK - $497 (ONLY 7 SPOTS LEFT)
               </button>
             </div>
           </motion.div>
@@ -123,7 +123,7 @@ const PricingSection: React.FC = () => {
             </h3>
             
             <p className="text-lg text-slate-300 mb-8">
-              Six years ago, main 2 AM ko ro raha tha with blown accounts. Today, hundreds of students have achieved financial freedom using this exact system.
+              <span className="text-yellow-400 font-bold">FACT:</span> 97% of crypto traders get liquidated because they can't see whale manipulation. The 3% who can see it are banking $10K-50K monthly.
             </p>
             
             <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700 mb-8">
@@ -134,20 +134,20 @@ const PricingSection: React.FC = () => {
                   <div className="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center mr-3">
                     <span className="text-red-500">✕</span>
                   </div>
-                  <p className="text-slate-300">Keep getting trapped by smart money manipulation</p>
+                  <p className="text-slate-300">Keep donating to whales who laugh at your stop losses</p>
                 </div>
                 
                 <div className="flex items-center">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center mr-3">
                     <span className="text-green-500">✓</span>
                   </div>
-                  <p className="text-white font-bold">Learn to read their footprints and trade alongside them</p>
+                  <p className="text-white font-bold">See their $100K+ orders BEFORE execution & profit WITH them</p>
                 </div>
               </div>
             </div>
             
             <p className="text-lg text-slate-300 mb-8">
-              <span className="font-bold text-amber-500">World mein aur koi complete footprint system nahi milega. Main guarantee deta hun.</span>
+              <span className="font-bold text-amber-500">This is the ONLY system that shows live whale orders. Once banned, it's gone FOREVER.</span>
             </p>
             
             <p className="text-lg text-slate-300 mb-8">
@@ -156,7 +156,7 @@ const PricingSection: React.FC = () => {
             
             <div className="mb-12">
               <button onClick={handlePaymentPopup} className="cta-button-primary text-lg inline-block group">
-                STOP BEING SMART MONEY'S TARGET - START NOW
+                STOP BEING WHALE FOOD - JOIN THE PREDATORS
                 <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </button>
             </div>
@@ -170,13 +170,13 @@ const PricingSection: React.FC = () => {
               <div className="space-y-4 mb-6">
                 <div className="bg-slate-900 p-4 rounded-lg">
                   <p className="text-slate-300">
-                    <span className="font-bold text-white">Choice 1:</span> Close this page, continue with the same strategies, keep getting trapped by manipulation, and wonder "what if" for the next 6 months.
+                    <span className="font-bold text-white">Choice 1:</span> Close this page, lose another $10K to whale dumps, watch others profit from moves you missed, and hate yourself for not taking action.
                   </p>
                 </div>
                 
                 <div className="bg-amber-500/10 p-4 rounded-lg border border-amber-500/30">
                   <p className="text-slate-200">
-                    <span className="font-bold text-amber-500">Choice 2:</span> Invest in your transformation, master institutional footprints, and join the 90% who achieve consistency.
+                    <span className="font-bold text-amber-500">Choice 2:</span> Get instant access to whale orders, catch the next 1000+ pip BTC move, and join 873 traders already banking $10K+ monthly.
                   </p>
                 </div>
               </div>
@@ -186,7 +186,7 @@ const PricingSection: React.FC = () => {
               </p>
               
               <button onClick={handlePaymentPopup} className="cta-button-primary text-lg inline-block">
-                YES, I CHOOSE FINANCIAL FREEDOM - ENROLL NOW
+                YES, GIVE ME WHALE ACCESS NOW (BEFORE IT'S BANNED)
               </button>
             </div>
           </div>

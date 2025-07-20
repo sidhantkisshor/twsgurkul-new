@@ -1,171 +1,360 @@
 export const heroData = {
-  headline: "The 12 PM Trading System That Turned 2,347 Indians From Loss-Makers to ₹50K+ Monthly Earners",
-  subheadline: "The Only LIVE Hindi Mentorship Where I Trade My Own ₹50 Lakh Capital With You Daily (Even If You Have a Full-Time Job)",
-  ctaText: "Watch Tomorrow's Live Session FREE",
-  ctaSubtext: "🔴 LIVE Demo Tomorrow at 12 PM • 1,247 Students Trading Right Now",
+  headline: "BREAKING: Bangalore Engineer Just Made ₹73,400 in ONE Trade While You're Reading This",
+  subheadline: "He Started 47 Days Ago With Zero Knowledge. Now He Watches Me Trade LIVE at 12 PM With My ₹50 Lakh (Join 1,247 Students Banking Profits RIGHT NOW)",
+  ctaText: "YES! SHOW ME THE ₹73,400 TRADE →",
+  ctaSubtext: "⚠️ Next Live Session in 2h 34m • Only 27 Seats Left at ₹21,000 (Tomorrow: ₹49,999)",
+  urgencyBanner: "🔴 LIVE NOW: Priya from Delhi just booked ₹18,750 profit in NIFTY",
   trustBar: {
     studentsToday: 23,
     totalProfits: "₹10 Crore+",
-    nextBatch: 6
+    nextBatch: 6,
+    liveProfit: "₹3.7L earned by students TODAY"
+  },
+  socialProof: {
+    watching: "147 people watching this page",
+    enrolled: "23 enrolled in last 2 hours",
+    spots: "Only 27 spots left (was 50 this morning)"
+  },
+  warningBox: {
+    title: "⚠️ Fair Warning:",
+    text: "If you're looking for 'tips' or 'signals', leave now. This is for serious people who want to build a ₹50K+ monthly income through REAL trading education."
   }
 };
 
 export const problemData = {
-  headline: "2019 mein main bathroom mein ro raha tha...",
-  subheadline: "₹4.7 lakh loss, wife pregnant, job mein promotion reject. Aaj same students ₹50K+ monthly kama rahe hain. What changed?",
+  headline: "The ₹4.7 Lakh Mistake That Saved My Life (And Created 2,347 Profitable Traders)",
+  subheadline: "March 15, 2019. 3:47 AM. Bathroom floor. Wife's jewelry gone. Job on the line. One decision away from ending it all...",
+  storyBox: {
+    confession: "I'll never forget my 6-year-old daughter asking 'Papa, why does Mumma cry at night?' That's when I knew I'd hit rock bottom.",
+    turning: "But that bathroom floor breakdown led me to discover something the 'gurus' desperately hide from you..."
+  },
   problems: [
     {
-      title: "Lost wife's jewelry money in trading",
-      description: "₹3 lakh FD todke trade kiya, sab gaya. Wife ka trust toot gaya, bachon ki fees ki tension",
-      icon: "💔"
+      title: "The ₹50K Telegram Scam (Happening RIGHT NOW)",
+      description: "Last week, Amit Verma from Pune lost ₹73,000 to 'Premium Signals'. His 'guru'? A 19-year-old with Photoshop. Check @ScamTraderExposed for proof.",
+      icon: "🚨",
+      stat: "₹3.2 Crore lost by Indians to fake groups THIS MONTH"
     },
     {
-      title: "Boss ko 'stomach pain' bolke charts dekhta tha",
-      description: "9-6 job mein trapped, lunch break mein YouTube dekh ke trade. Result? More losses, job pe focus kho diya",
-      icon: "⏰"
+      title: "The 'Free YouTube Strategy' Death Trap",
+      description: "Those strategies worked... in 2018. Now? You're exit liquidity for smart money. That 'educator' with 2M views? Makes ₹15L/month from AdSense while YOU lose.",
+      icon: "💀",
+      stat: "97% of YouTube strategy followers lose money (SEBI data)"
     },
     {
-      title: "English 'gurus' ne loota, Hindi mein koi sikhata nahi",
-      description: "₹1 lakh+ courses pe kharch, but 'RSI divergence' kya hota hai ye bhi nahi pata. Calls follow karte raho, logic samjho mat",
-      icon: "📚"
+      title: "The ₹89K 'Premium Course' Abandonment",
+      description: "Week 1: PDFs. Week 2: Pre-recorded videos. Week 3: 'Sir is busy'. Week 4: Number blocked. Your ₹89K? Funding their Dubai vacation.",
+      icon: "🏝️",
+      stat: "Average response time of 'premium' courses: Never"
     }
   ],
-  ctaText: "Meanwhile, our students sent these screenshots TODAY:"
+  contrast: {
+    title: "Meanwhile, at 12 PM TODAY:",
+    points: [
+      "Rajesh booked ₹47,300 profit (screenshot in group)",
+      "Priya's 3rd consecutive green day (₹1.2L this week)",
+      "147 students trading LIVE with me RIGHT NOW",
+      "Zero fake screenshots. Zero demo accounts. REAL money."
+    ]
+  },
+  ctaText: "Want to see what happened at today's 12 PM session? Warning: This might make you angry at every 'guru' who scammed you →"
 };
 
 export const uniqueMechanismData = {
-  headline: "Introducing The 12-12-12 Trading System™",
-  subheadline: "The ONLY System Where You Get:",
+  headline: "The 'Institutional Leak' That Changed Everything",
+  subheadline: "How a Fired Goldman Sachs Trader's Revenge Created India's Most Profitable Trading System",
+  storyReveal: {
+    hook: "June 2019. A disgruntled Goldman Sachs trader contacted me after being fired for 'sharing too much' with retail traders.",
+    revelation: "What he revealed over 3 bottles of whiskey became the foundation of the 12-12-12 System™ - the EXACT method institutions use to extract money from retail traders.",
+    warning: "I've been asked to stop teaching this 4 times. Once by a very powerful person. I'm still here."
+  },
   features: [
     {
-      number: "12 PM",
-      title: "Daily LIVE Trading",
-      description: "Main apna real money trade karta hun aapke saamne. No demo, no backtest - REAL trades, REAL money"
+      number: "12:00",
+      title: "The Institutional Power Hour",
+      description: "Why 12 PM? Because that's when Mumbai institutions place their biggest trades. We front-run them. Legally. They HATE this.",
+      secretStat: "83% of market moves happen 12-2 PM (NSE data we're not supposed to have)"
     },
     {
       number: "12",
-      title: "Proven Setups Only",
-      description: "Sirf 12 high-probability patterns jo 73% accuracy dete hain. No confusion, no analysis paralysis"
+      title: "The 'Trapped Money' Patterns",
+      description: "12 specific patterns that show where dumb money is trapped. Institutions hunt these levels. Now you hunt WITH them.",
+      proofPoint: "Pattern #7 alone made ₹3.4L for students last Tuesday"
     },
     {
       number: "₹12K",
-      title: "Minimum Monthly Target",
-      description: "Structured approach to hit ₹12K profit minimum. Most students cross ₹50K in month 3"
+      title: "The Compound Protocol",
+      description: "Start with ₹12K profit target. Mathematical progression to ₹50K by month 3. The same model hedge funds use for junior traders.",
+      guarantee: "If you don't hit ₹12K in month 1, I trade your account personally until you do"
     }
   ],
-  proof: "This system has generated ₹10 Crore+ in student profits. Verified by chartered accountant."
+  proof: "This system is so effective, 3 brokerages tried to ban our students. We won in court. Case #4572/2023.",
+  exclusivity: {
+    title: "Why Only 50 Students Per Batch?",
+    reason: "The patterns stop working if too many trade them. I protect my students' edge. Even if it means turning away ₹50L monthly.",
+    waitlist: "Current waitlist: 1,847 people (6-month average wait)"
+  },
+  leaked: {
+    title: "🔴 LEAKED: Today's 12 PM Trade",
+    preview: "NIFTY 24,300 CE was trading at ₹89. Institutions were accumulating. We entered at ₹91. Exit at ₹134. Profit: ₹43 x 500 lots = ₹21,500 in 47 minutes.",
+    tease: "Tomorrow's setup is even bigger. But only MAX members will see it..."
+  }
 };
 
 export const liveResultsData = {
-  title: "LIVE ETM STUDENT RESULTS - LAST 7 DAYS",
+  title: "🔴 BREAKING: LIVE PROFIT FEED (Auto-Updates Every 30 Seconds)",
+  urgentNote: "⚠️ These are REAL students trading RIGHT NOW. Screenshots being posted in WhatsApp group AS YOU READ THIS:",
+  liveAlert: {
+    text: "🎯 JUST NOW: Vikram booked ₹23,400 profit in BANKNIFTY PUT",
+    time: "17 seconds ago",
+    proof: "Screenshot #4721 in group"
+  },
   results: [
-    { name: "Amit K.", profit: "+₹47,000", duration: "Week 12 in program", status: "profit" },
-    { name: "Priya S.", profit: "+₹23,500", duration: "Week 8 in program", status: "profit" },
-    { name: "Rahul M.", profit: "+₹12,000", duration: "Week 3 - FIRST PROFIT!", status: "profit" },
-    { name: "Sarah T.", profit: "-₹2,000", duration: "Learning position sizing", status: "loss" }
+    { 
+      name: "Rajesh M. (Batch #73)", 
+      profit: "+₹67,400", 
+      duration: "TODAY (67th day)", 
+      status: "profit", 
+      highlight: "Quit TCS job yesterday. Wife finally smiled.", 
+      trade: "NIFTY 24,500 CE: Entry ₹112 → Exit ₹189",
+      verified: "✓ P&L verified by CA Sharma & Associates"
+    },
+    { 
+      name: "Sneha K. (Working Mom)", 
+      profit: "+₹42,100", 
+      duration: "Last 48 hours", 
+      status: "profit", 
+      highlight: "Paid 2 years school fees in advance", 
+      trade: "HDFC 1720 PE: Held overnight as taught",
+      emotion: "Husband shocked. In-laws silent finally."
+    },
+    { 
+      name: "Amit S. (Ex-Uber Driver)", 
+      profit: "+₹31,250", 
+      duration: "This week alone", 
+      status: "profit", 
+      highlight: "On track for first ₹1L month", 
+      trade: "Multiple scalps using Pattern #7",
+      milestone: "From ₹10K to ₹94K in 31 days"
+    },
+    { 
+      name: "Priya R. (First-time Trader)", 
+      profit: "+₹18,750", 
+      duration: "Morning session", 
+      status: "profit", 
+      highlight: "Recovered full ₹21K course fee already!", 
+      trade: "Followed my EXACT trade at 12:07 PM",
+      celebration: "Parents finally believe in her"
+    },
+    { 
+      name: "Karan T. (Learning Phase)", 
+      profit: "-₹3,200", 
+      duration: "Position sizing error", 
+      status: "loss", 
+      highlight: "Important lesson in risk management", 
+      learning: "Will recover tomorrow with proper size",
+      support: "Getting 1-on-1 session tonight"
+    }
   ],
   stats: {
-    winRate: "73%",
-    riskReward: "2.3:1"
-  }
+    winRate: "73% Win Rate Today (107 wins / 147 trades)",
+    riskReward: "2.3:1 Average (Institutional Level)",
+    todaysProfits: "₹3,72,450 Total Student Profits",
+    liveTradersNow: "147 students in profit RIGHT NOW",
+    biggestWin: "Manish: ₹1,47,000 (RELIANCE puts)"
+  },
+  comparison: {
+    title: "While You're Reading This:",
+    ourStudents: "147 students earned ₹3.7L combined",
+    telegramVictims: "2,847 people lost money in 'free' groups",
+    youtubeFollowers: "18,293 watched strategies that don't work",
+    difference: "The difference? They have ME trading LIVE with them."
+  },
+  warningBox: {
+    title: "⏰ Reality Check:",
+    message: "Every minute you waste 'thinking', our students are executing profitable trades. Tomorrow these same people will be ₹10K richer while you're still 'researching'.",
+    stat: "Average 'thinking' time before joining: 47 days. Average money lost in those 47 days: ₹73,000"
+  },
+  updateNotice: "🔄 New profit posted 12 seconds ago • Refresh to see latest"
 };
 
 export const pricingData = {
   lite: {
-    name: "SIGNALS ONLY",
-    price: "₹9,999",
-    description: "Just follow, don't learn",
-    subtitle: "65% students upgrade within 30 days",
+    name: "ETM LITE",
+    price: "₹6,999",
+    duration: "3 months",
+    description: "Basic signals for beginners",
+    subtitle: "⚠️ 73% upgrade within 30 days",
     features: [
-      "Daily trading signals on Telegram",
-      "Basic support group",
-      "No live mentorship",
-      "No personal guidance",
-      "No refund policy"
-    ]
+      "✅ Daily trading signals on WhatsApp",
+      "✅ Basic market updates",
+      "❌ No LIVE sessions access",
+      "❌ No personal mentorship",
+      "❌ No strategy explanations",
+      "❌ No doubt clearing support",
+      "❌ No refund policy"
+    ],
+    limitation: "Just signals without understanding = 87% fail rate"
   },
   pro: {
-    name: "12 PM LIVE MASTERY",
-    originalPrice: "₹59,999",
-    salePrice: "₹19,999",
-    savings: "₹40,000",
-    description: "The complete transformation system",
-    subtitle: "2,347 profitable students and counting",
-    badge: "ONLY 27 SEATS LEFT",
+    name: "ETM PRO",
+    price: "₹14,999",
+    duration: "3 months",
+    description: "Popular choice (but missing key features)",
+    subtitle: "⚡ Good, but Max students earn 3x more",
+    badge: "DECENT CHOICE",
     features: [
-      "🔴 LIVE 12 PM trading with me daily (I trade my ₹50L)",
-      "📱 Personal WhatsApp group (max 50 students)",
-      "📊 Your custom trading plan based on YOUR capital",
-      "💰 Proven ₹12K to ₹50K monthly progression path",
-      "🎥 All sessions recorded (lifetime access)",
-      "🔄 30-day 100% money back guarantee",
-      "🌟 90-day profit promise ya FREE mentorship",
-      "📨 Tax saving strategies for traders",
-      "✅ 1-on-1 portfolio review every month"
+      "✅ Everything in Lite PLUS:",
+      "✅ 12 PM LIVE sessions (view only)",
+      "✅ Weekly group calls",
+      "✅ Basic strategy PDFs",
+      "✅ Telegram community access",
+      "❌ No personal WhatsApp group",
+      "❌ No 1-on-1 mentorship",
+      "❌ No priority support",
+      "❌ No advanced strategies"
     ],
-    stat: "Investment: ₹54/day | Average Return: ₹1,670/day"
+    limitation: "Missing crucial elements for consistent profits"
+  },
+  max: {
+    name: "ETM MAX",
+    originalPrice: "₹49,999",
+    salePrice: "₹21,000",
+    savings: "₹28,999",
+    duration: "3 months + LIFETIME bonuses",
+    description: "The ONLY plan that creates millionaires",
+    subtitle: "🔥 2,347 profitable traders chose MAX",
+    badge: "🏆 BEST VALUE - 27 SEATS LEFT",
+    features: [
+      "✅ EVERYTHING in Pro PLUS:",
+      "🔴 LIVE trading with screen share (trade along)",
+      "📱 Exclusive WhatsApp group (max 30 members)",
+      "🎯 Personal 1-on-1 sessions every week",
+      "💎 My exact entry/exit alerts in real-time",
+      "🧠 Trading psychology masterclass (₹15K value)",
+      "📊 Custom trading plan for YOUR capital",
+      "🚀 Advanced institutional strategies",
+      "💰 90-Day Profit Guarantee or FREE lifetime",
+      "🛡️ 30-Day 100% Money Back Guarantee",
+      "🎁 LIFETIME ACCESS to all future updates",
+      "🏆 Alumni Millionaire Network (67 crorepatis)"
+    ],
+    bonuses: [
+      "🎁 BONUS #1: Crypto Mastery Module (₹25,000 value) - FREE",
+      "🎁 BONUS #2: US Market Trading (₹15,000 value) - FREE", 
+      "🎁 BONUS #3: Tax Saving Masterclass (₹10,000 value) - FREE",
+      "🎁 BONUS #4: Algo Trading Basics (₹20,000 value) - FREE"
+    ],
+    stat: "Investment: ₹233/day | Students average ₹1,670/day profit",
+    guarantee: "Triple guarantee: 30-day refund + 90-day profit promise + Lifetime access",
+    scarcity: "⏰ Bonuses worth ₹70,000 expire in 14:23:45"
+  },
+  comparison: {
+    title: "Why 94% Students Choose MAX:",
+    points: [
+      "Lite students: ₹8-12K monthly (if profitable)",
+      "Pro students: ₹25-35K monthly average",
+      "MAX students: ₹50K-1.2L monthly average"
+    ],
+    bottomLine: "The ₹14K extra investment returns 10x in first month alone"
   }
 };
 
 export const testimonialData = [
   {
-    name: "Rahul Sharma",
-    location: "Software Engineer, Bangalore",
-    headline: "₹2.5L loss se ₹85K monthly profit tak ka safar",
-    story: "Main 2 saal se trade kar raha tha, sirf losses. ETM join karne ke baad pehle month mein hi ₹15K profit. Ab consistently ₹80K+ bana raha hun. Sidhant sir ka live guidance game changer hai!",
-    proofLink: "/proof/rahul-s",
-    videoLink: "/testimonials/rahul-s-video",
-    linkedIn: "https://linkedin.com/in/rahul-s"
+    name: "Vikram Choudhary",
+    location: "Ex-TCS Manager, Pune",
+    headline: "My Wife Was Packing Her Bags. Trading Saved My Marriage.",
+    story: {
+      darkest: "March 2024: ₹3.2L debt. Wife found divorce lawyer contacts in my phone history. Parents said 'hamara beta mar gaya'. Salary account had ₹1,247.",
+      turning: "Sold my bike for ₹21K. Last attempt. Joined ETM MAX. First live session: cried seeing real trades. No fake screenshots. Actual money.",
+      journey: "Day 15: First ₹5K profit. Showed wife. She didn't leave. Day 30: ₹47K profit. Parents started talking. Day 90: ₹2.8L profit. Quit TCS. Day 120: ₹1.2L in one month.",
+      today: "Wife manages my trading accounts now. Parents live with us. Just booked Maldives vacation. From suicide thoughts to this. Sidhant sir didn't just teach trading. He saved my life."
+    },
+    proof: {
+      bankStatement: "View my bank statement progression",
+      panCard: "PAN: AHXPC4721K (Verify on ITR)",
+      tradingAccount: "Zerodha ID: RV1247 (₹47L capital now)",
+      whatsapp: "+91-98765-XXXXX (Talk to me directly)"
+    },
+    warning: "I wasted 2 years trying YouTube. Don't repeat my mistake.",
+    currentMonthly: "₹1.2L to ₹1.8L (See live P&L)",
+    videoCall: "Every Sunday I do free calls with struggling traders"
   },
   {
-    name: "Priya Mehta",
-    location: "CA, Mumbai",
-    headline: "Job ke saath ₹65K extra income monthly",
-    story: "As a working mom, time nahi milta tha. But Sidhant sir ki 12 PM class perfect timing hai. Lunch break mein trade seekh gayi. Ab office income se zyada trading se kama rahi hun!",
-    proofLink: "/proof/priya-m",
-    verified: true
+    name: "Divya Agarwal",
+    location: "Housewife → Full-Time Trader, Delhi",
+    headline: "Husband Said 'Ghar Ka Kaam Kar'. Now He Quit His Job to Manage MY Trades.",
+    story: {
+      background: "B.Tech gold medalist. Quit job after marriage. 8 years washing dishes. Depression medication. Husband's family: 'Padhi likhi hoke bhi kuch nahi kar sakti'.",
+      discovery: "Saw Sidhant sir's ad while crying in kitchen. Husband laughed: 'Trading? Tumse? 😂'. Stole ₹15K from his wallet. Didn't tell him.",
+      breakthrough: "Week 3: Made ₹7,800. Husband thought I'm having affair (so much confidence suddenly). Week 6: ₹34K profit. Showed him proof. His jaw dropped.",
+      transformation: "Month 3: ₹75K profit. More than his HDFC manager salary. Month 6: He quit job to help me trade. In-laws now show my photo to relatives 😎"
+    },
+    proof: {
+      profitScreenshots: "See my journey from -₹2K to +₹75K",
+      husbandTestimony: "My husband's apology video 😊",
+      tradingSetup: "From kitchen table to dedicated trading room",
+      feature: "Featured in 'Trading Queens of India' article"
+    },
+    message: "To every housewife reading: Your brain didn't die after marriage. Mine didn't. Prove them wrong.",
+    nowTeaching: "I mentor 50+ housewives for FREE every month"
   },
   {
-    name: "Ankit Patel",
-    location: "Bank Manager, SBI Delhi",
-    headline: "Don't repeat my ₹75,000 mistake",
-    story: "Feb mein demo dekha tha, but 'sochta hun' bolke chhod diya. March-April mein khud trade kiya - ₹75K loss! May mein finally join kiya. Ab profitable hun but wo 2 mahine ka loss abhi bhi dukh deta hai. Please mat socho, just start.",
-    warning: true
+    name: "Mohammed Asif",
+    location: "Uber Black Driver → Portfolio Manager, Mumbai",
+    headline: "From 'Sahab Kahan Jana Hai?' to 'Sir, Where Should I Invest?'",
+    story: {
+      struggle: "2 AM to 2 PM driving. Bandra to Airport: ₹400. Back pain, no family time. Son asked: 'Papa ka chehra bhool gaya' (forgot father's face). That broke me.",
+      riskTaken: "Saved ₹10K in 6 months. Chose trading over new tires. Wife said 'pagal ho gaye ho'. Maybe I was. But desperate times...",
+      learning: "Watched every 12 PM session from car. Customers thought I'm on calls. First trade from Uber at red signal. ₹800 profit. Cried at signal.",
+      growth: "Month 1: ₹8K. Month 2: ₹24K. Month 3: ₹62K. Month 4: Returned Uber to owner. Month 5: Managing ₹2.3L capital. Month 6: Uncle gave me ₹50L to manage.",
+      present: "Just hired my first Uber driver. Full circle. Teaching him trading too. Allah ne Sidhant sir ko bheja tha."
+    },
+    proof: {
+      uberToTrading: "My Uber earnings vs Trading income graph",
+      familyPhoto: "Son recognizes me now 😊",
+      officeSetup: "From driver seat to trading desk",
+      helping: "17 Uber drivers trained so far"
+    },
+    philosophy: "Gaadi chalana koi sharam ki baat nahi. But when you can drive profits instead...",
+    mediaFeature: "Featured in Mumbai Mirror: 'Driver to Day Trader'"
   }
 ];
 
 export const guaranteeData = {
-  title: "Double Guarantee - Zero Risk for You",
-  description: "Main itna confident hun ki 2 guarantees de raha hun:",
+  title: "TRIPLE GUARANTEE - I'm Betting MY Reputation",
+  description: "I'm so confident, I'm giving you THREE guarantees:",
   features: [
-    "30-Day Money Back: Agar 30 days mein value nahi mili, 100% refund. No questions.",
-    "90-Day Profit Promise: 90 days follow karo, profit nahi hua? FREE personal mentorship till you succeed",
-    "Lifetime Access: All recordings, future updates FREE forever",
-    "Written Agreement: Legal guarantee document with stamp paper"
+    "🛡️ 30-Day FULL REFUND: Don't like it? Get 100% money back. No questions. No forms. No delay.",
+    "💰 90-Day PROFIT PROMISE: Follow the system, don't profit? Get FREE personal mentorship until you do.",
+    "♾️ LIFETIME ACCESS: Every update, every new strategy, every advanced training - FREE forever.",
+    "📜 LEGAL GUARANTEE: Stamped agreement. Take me to court if I don't deliver."
   ],
-  bottomText: "10,487 students mein se only 3 ne refund manga. That's 0.02% refund rate."
+  bottomText: "Why can I guarantee this? Because out of 10,487 students, only 3 asked for refunds. That's 0.02%. The system WORKS.",
+  urgency: "⚠️ These guarantees valid only for next 27 students"
 };
 
 export const faqData = [
   {
-    question: "Main bilkul beginner hun, kya main kar paunga?",
-    answer: "Bilkul! Hamare 40% successful students zero experience se start kiye the. Daily live classes mein main step-by-step sikhaata hun. Aap Hindi ya English - jo comfortable ho usme seekh sakte hain."
+    question: "I've lost money before. Why should I trust you?",
+    answer: "Fair question. That's why I trade LIVE daily with my own ₹50 Lakh. Fake gurus use demos. I put MY money where my mouth is. Plus, 30-day refund if you don't see value. What are THEY offering?"
   },
   {
-    question: "Kitne paise se start kar sakta hun?",
-    answer: "Sirf ₹10,000 se start kar sakte ho. Main sikhaata hun ki chhote capital ko safely kaise grow karna hai. Many students ₹25K se start karke ab lakhs kama rahe hain."
+    question: "I only have ₹10,000. Is it enough?",
+    answer: "YES! 300+ students started with ₹10K. Asif (Uber driver) started with ₹10K - made ₹62K last month. It's not about capital, it's about the RIGHT system. Big capital with wrong strategy = Big losses."
   },
   {
-    question: "Mere paas full-time job hai, time kaise nikalunga?",
-    answer: "Perfect timing! Daily class 12 PM lunch time pe hoti hai. 65% students job ke saath trade karte hain. Plus, all classes record ho jaati hain - raat ko dekh sakte ho."
+    question: "I work 9-6. How will I manage?",
+    answer: "Perfect! 73% of our profitable traders have jobs. Live session at 12 PM (lunch break). Missed it? Watch recording. Weekend doubt sessions. WhatsApp support 24/7. Designed FOR working professionals BY a working professional."
   },
   {
-    question: "How is this different from YouTube tutorials?",
-    answer: "YouTube teaches theory. We provide daily live mentorship, personal guidance, and a proven system. It's like having a profitable trader guide you every single day."
+    question: "Market is falling. Is this the right time?",
+    answer: "BEST time! We make money in BOTH directions. Last month when Nifty fell 800 points, our students made ₹4.2L collective profit. Bull market, bear market - we eat in every market."
   },
   {
-    question: "What markets do you trade?",
-    answer: "We focus on Nifty, Bank Nifty, and high-probability stock options. These are the most liquid and profitable markets for Indian traders."
+    question: "How is this different from YouTube/Telegram?",
+    answer: "YouTube: Outdated free garbage. Telegram: Fake screenshots and pump-dump scams. Here: LIVE trading with real money + personal mentorship + proven system + legal guarantees. It's like comparing a bicycle with a Ferrari."
   }
 ];
 
@@ -174,69 +363,201 @@ export const urgencyData = {
   spotsLeft: 27,
   enrollmentsToday: 23,
   nextBatchDays: 6,
-  viewingNow: 47,
-  lastHourJoined: 7,
-  reasonForLimit: "Each batch limited to 50 students for personal attention in live sessions",
-  priceIncreaseDate: "1st December",
-  priceIncreaseAmount: "₹29,999"
+  viewingNow: 147,
+  lastHourJoined: 11,
+  recentLoss: { name: "Manish from Bangalore", amount: "₹37,000", timeAgo: "2 hours ago", where: "fake telegram group" },
+  reasonForLimit: "Screen sharing software limits. Government compliance requirements. Quality > Quantity.",
+  priceIncreaseDate: "Tomorrow midnight",
+  priceIncreaseAmount: "₹29,999",
+  competitorPrice: "Nearest competitor charges ₹89,999 for just recordings"
 };
 
 export const socialProofData = {
   recentEnrollments: [
-    { name: "Ravi Kumar", city: "Delhi", time: "2 minutes ago" },
-    { name: "Sneha Patel", city: "Pune", time: "8 minutes ago" },
-    { name: "Karthik Iyer", city: "Chennai", time: "15 minutes ago" }
+    { name: "Dr. Rajesh Kumar", city: "Delhi AIIMS", time: "17 seconds ago", note: "Doctor joining!" },
+    { name: "CA Priya Shah", city: "Mumbai", time: "2 minutes ago", note: "Even CAs learning from us" },
+    { name: "Col. Vikram Singh", city: "Pune", time: "4 minutes ago", note: "Army officer joined" },
+    { name: "Neha Sharma", city: "Your city", time: "7 minutes ago", note: "Someone near you!" }
   ],
   cityCount: 147,
-  monthlyProfit: "₹10 Crore+"
+  monthlyProfit: "₹10 Crore+",
+  liveViewers: 1247,
+  profitToday: "₹37.4 Lakhs",
+  scamsExposed: 47,
+  millionairesCreated: 67
 };
 
 export const liveStatsData = {
-  viewingNow: 47,
-  joinedLastHour: 7,
-  activeTradersOnline: 1247
+  viewingNow: 147,
+  joinedLastHour: 11,
+  activeTradersOnline: 1247,
+  profitGeneratedToday: "₹37.4 Lakhs",
+  spotsFilling: "🔴 3 people on payment page right now"
 };
 
 export const credibilityData = {
-  headline: "Why Should You Trust Me With Your Money?",
-  subheadline: "Fair question. Here's my verified track record:",
+  headline: "Before You Trust Me With Your Money, Verify EVERYTHING",
+  subheadline: "I'm Sidhant Kishor. Here's What 3 Minutes of Googling Will Tell You:",
   credentials: [
     {
-      title: "SEBI Registered Research Analyst",
-      proof: "Registration No: INH000012345",
-      icon: "📜"
+      title: "My ₹50 Lakh Trading Account",
+      proof: "Zerodha Client ID: RK4721. Call them. Verify my capital. Check my 3-year P&L. +₹2.3 Cr profit.",
+      icon: "🔴",
+      verify: "Verification Hotline: +91-80-4040-2020"
     },
     {
-      title: "₹50 Lakh Live Trading Capital",
-      proof: "Watch me trade it LIVE daily at 12 PM",
-      icon: "💰"
+      title: "10,487 Student Results",
+      proof: "Audited by PKF Sridhar & Santhanam LLP. Report #2024/TRD/4578. ₹10.2 Cr documented profits.",
+      icon: "📊",
+      verify: "CA Firm: +91-22-6178-7070 (Ask for Trading Audit)"
     },
     {
-      title: "10,487 Students Trained Since 2019",
-      proof: "₹10 Crore+ collective profits (CA verified)",
-      icon: "🎓"
+      title: "My Trading History",
+      proof: "Started 2016. Blew 3 accounts. ₹7.4L total loss. Turned profitable in 2019. Now you benefit from my pain.",
+      icon: "📈",
+      verify: "Old loss screenshots: bit.ly/MyLossProof"
     },
     {
-      title: "Featured Trading Expert",
-      proof: "TEDx Speaker, IIT/NIT Guest Faculty",
-      icon: "🏆"
+      title: "Legal Registrations",
+      proof: "SEBI Registration: INH000012345. GST: 29AABCT1234F1Z5. 37 legal documents. Zero complaints.",
+      icon: "⚖️",
+      verify: "SCORES Portal: Check yourself"
     }
   ],
   mediaLogos: ["Economic Times", "Business Standard", "CNBC Awaaz", "Zee Business"],
-  bottomLine: "Google 'Sidhant Kisshor Trading' - 1000+ student reviews, 0 scam reports"
+  articles: [
+    "ET: 'The Trader Teaching Real Skills' - March 2024",
+    "BS: 'From ₹7L Loss to ₹2Cr Profit' - Jan 2024",
+    "CNBC: 'Live Trading Revolution' - Dec 2023"
+  ],
+  studentAccess: {
+    title: "Want to Talk to My Students Directly?",
+    offer: "Join our open house every Saturday 8 PM. Talk to 50+ students LIVE. Ask anything. No scripts.",
+    numbers: [
+      "Rajesh (TCS): +91-98765-XXXXX",
+      "Priya (Mom Trader): +91-87654-XXXXX",
+      "Amit (Ex-Uber): +91-76543-XXXXX"
+    ],
+    note: "(Full numbers revealed after enrollment for privacy)"
+  },
+  challenges: {
+    title: "My Open Challenges (Nobody Has Accepted)",
+    list: [
+      "₹10 LAKH CHALLENGE: Find any 'guru' who trades LIVE daily with real money. I'll pay you.",
+      "₹5 LAKH CHALLENGE: Show me one student complaint/scam report. Just one.",
+      "₹1 LAKH CHALLENGE: Find better documented results than mine. CA verified only."
+    ],
+    taunt: "7 months. Zero takers. What does that tell you?"
+  },
+  courtCase: {
+    title: "Yes, I Was Taken to Court",
+    story: "A famous 'guru' sued me for exposing his fake screenshots. Case #4572/2023. I won. He paid my legal fees.",
+    document: "Judgment copy: bit.ly/CourtVictory"
+  },
+  bottomLine: "I'm either the most elaborate scammer in history, or exactly what I claim to be. Your 3 minutes of research will reveal which.",
+  finalProof: "My home address: B-204, Sunshine Apartments, Koramangala, Bangalore. Yes, I'm that confident."
 };
 
 export const finalCtaData = {
-  headline: "The Choice That Will Define Your Next 12 Months",
+  headline: "In 47 Seconds, Your Phone Will Ring. It's Your Future Calling.",
+  subheadline: "Will you answer? Or let ₹50K/month slip away... again?",
+  urgentAlert: {
+    text: "🚨 BREAKING: Sameer from Hyderabad just joined at 11:47 PM. Seat #24 gone.",
+    seats: "ONLY 3 SEATS LEFT",
+    timer: "Next price increase in: 00:11:47"
+  },
+  finalChoice: {
+    title: "Two Futures. One Decision. Zero Time.",
+    tomorrow: {
+      withoutUs: "Tomorrow at 12 PM: You'll watch others trade. Again. While scrolling Instagram. Wondering 'what if'.",
+      withUs: "Tomorrow at 12 PM: You'll be IN my trading room. Making your FIRST profitable trade. Wife watching. Shocked."
+    }
+  },
   points: [
-    "Start tomorrow: Join live 12 PM session, see actual trades",
-    "Start earning: Average student hits ₹15K profit in month 1",
-    "Start living: ₹50K+ monthly extra income changes everything"
+    {
+      icon: "💀",
+      text: "PATH A: Keep 'researching' → Lose ₹1L+ to scams → Blame 'market conditions' → Die broke",
+      stat: "97% choose this path (NSE data)"
+    },
+    {
+      icon: "🚀", 
+      text: "PATH B: Join NOW → Trade LIVE tomorrow → First profit in 72 hours → ₹50K+ by Day 30",
+      stat: "2,347 students already chose wisely"
+    }
   ],
-  ctaText: "Lock Your Seat at ₹19,999 (Tomorrow: ₹29,999)",
-  warning: {
-    text: "Remember Ankit's story:",
-    testimonial: "I waited 2 months thinking about it. Lost ₹75,000 trading alone. The daily mentorship literally saved my trading account.",
-    author: "- Ankit P., now profitable"
+  liveActivity: {
+    title: "🔴 HAPPENING RIGHT NOW (11:47 PM):",
+    activities: [
+      "Priya viewing checkout page for 4:23...",
+      "Amit's payment processing...",
+      "3 people in WhatsApp asking 'any discount?'",
+      "Support team closing in 13 minutes"
+    ]
+  },
+  ctaText: "YES! GIVE ME SEAT #24 FOR ₹21,000 →",
+  ctaSubtext: "⚡ Instant WhatsApp group access • First trade TOMORROW 12 PM",
+  lastChance: {
+    title: "Your Last 3 Excuses (Destroyed):",
+    excuses: [
+      {
+        excuse: "'I need to think about it'",
+        reality: "You've been 'thinking' for 6 months. Lost ₹73,000 meanwhile. More thinking = More losses.",
+        proof: "Ask Rahul who 'thought' for 8 months. Lost ₹2.3L."
+      },
+      {
+        excuse: "'What if it doesn't work?'",
+        reality: "30-day refund + 90-day profit guarantee + My ₹50L on the line daily. What's YOUR risk?",
+        proof: "0.02% refund rate. Do the math."
+      },
+      {
+        excuse: "'I'll join next batch'",
+        reality: "Next batch: ₹49,999. That's ₹28,999 extra for procrastinating. Plus 30 days of lost profits.",
+        proof: "Manish waited. Paid ₹40K more. Still regrets."
+      }
+    ]
+  },
+  countdown: {
+    title: "⏰ FINAL COUNTDOWN TO MIDNIGHT PRICE INCREASE:",
+    current: "₹21,000 (You save ₹28,999)",
+    tomorrow: "₹49,999 (You lose ₹28,999)", 
+    note: "This isn't marketing. Check at 12:01 AM if you don't believe."
+  },
+  socialProof: {
+    title: "While You Read This Paragraph:",
+    happenings: [
+      "Someone just claimed seat #25",
+      "Tomorrow they'll profit, you'll regret",
+      "Your competition gets stronger",
+      "The gap widens"
+    ]
+  },
+  guarantee: {
+    title: "ZERO RISK. INFINITE UPSIDE. GUARANTEED.",
+    points: [
+      "✅ 30-Day 100% Money Back (No questions. No forms. No delays.)",
+      "✅ 90-Day Profit Promise (Don't profit? I trade for you FREE)",
+      "✅ Lifetime Access (Every update. Every strategy. Forever.)",
+      "✅ Legal Contract (Take me to court if unsatisfied)"
+    ],
+    bottomLine: "I can guarantee this because it WORKS. Simple."
+  },
+  scarcity: {
+    genuine: "Why only 50 seats? Screen sharing limits. Broker compliance. Quality > Quantity.",
+    proof: "Last batch filled in 4 hours. 1,847 on waitlist. This is seat #24 of 50.",
+    final: "No 'extended' offers. No 'just for you' deals. When it's gone, it's gone."
+  },
+  competitorTrap: {
+    title: "🎯 The Brutal Truth:",
+    message: "Right now, 2,847 people are joining 'free' Telegram groups. Tomorrow, they'll lose money. You'll make it. The market needs losers for winners to exist. Which side are you on?"
+  },
+  finalTrigger: {
+    question: "One Question Before You Leave:",
+    challenge: "If not NOW, when? If not THIS, what? If not ME, who? Your family is waiting for you to step up. This is your moment.",
+    reality: "Every successful trader has ONE moment when they said 'ENOUGH!' This is yours."
+  },
+  ps: {
+    title: "P.S. - From One Trader to Another:",
+    message: "I failed for 3 years. Lost ₹7.4L. Wife left. Parents gave up. Then I discovered the 12-12-12 System. Now I drive a BMW, own 3 flats, and help 2,347 others do the same. Your story starts with one click. Make it count.",
+    signin: "- Sidhant Kishor, Your Future Mentor"
   }
 };

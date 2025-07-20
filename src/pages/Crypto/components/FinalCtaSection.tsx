@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Shield, TrendingUp } from 'lucide-react';
+import { ArrowRight, Clock, Shield, TrendingUp, AlertTriangle, Bitcoin, Zap } from 'lucide-react';
 
 const FinalCtaSection: React.FC = () => {
     return (
@@ -16,17 +16,27 @@ const FinalCtaSection: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
+                    {/* Urgency Alert */}
+                    <motion.div
+                        className="inline-flex items-center gap-2 glass-effect border border-red-500/20 rounded-full px-4 py-2 mb-6"
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    >
+                        <AlertTriangle className="w-5 h-5 text-red-400" />
+                        <span className="text-sm font-medium text-red-400">BTC at All-Time High - Don't Miss The Next Rally</span>
+                    </motion.div>
+
                     {/* Main heading */}
                     <div className="mb-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                            Your Family's{' '}
-                            <span className="font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                                Financial Security
-                            </span>{' '}
-                            is Waiting
+                            Tomorrow You'll Hate Yourself For
+                            <span className="font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                                {' '}Missing This{' '}
+                            </span>
                         </h2>
-                        <p className="lg:text-lg sm:text-[10px] text-slate-400 mx-auto">
-                            Don't let another day pass wondering "what if" - your breakthrough moment starts now
+                        <p className="lg:text-lg sm:text-[10px] text-slate-300 mx-auto max-w-2xl">
+                            93% lose money to scammers. 7% actually profit. <br/>
+                            <span className="text-yellow-400 font-semibold">Last 47 spots to join the winning 7%.</span>
                         </p>
                     </div>
                     
@@ -48,19 +58,19 @@ const FinalCtaSection: React.FC = () => {
                                 <ul className="space-y-3 text-left">
                                     <li className="text-slate-400 flex items-start">
                                         <span className="text-red-400 mr-2 text-lg">×</span>
-                                        Continue struggling with money stress
+                                        Lose another ₹50K to Instagram "gurus"
                                     </li>
                                     <li className="text-slate-400 flex items-start">
                                         <span className="text-red-400 mr-2 text-lg">×</span>
-                                        Miss the crypto opportunity forever
+                                        Miss Bitcoin's next 10x move
                                     </li>
                                     <li className="text-slate-400 flex items-start">
                                         <span className="text-red-400 mr-2 text-lg">×</span>
-                                        Watch others succeed while you wait
+                                        Stay broke while friends get rich
                                     </li>
                                     <li className="text-slate-400 flex items-start">
                                         <span className="text-red-400 mr-2 text-lg">×</span>
-                                        Regret not starting when you had the chance
+                                        Price goes to ₹24,999 tomorrow
                                     </li>
                                 </ul>
                             </motion.div>
@@ -80,19 +90,19 @@ const FinalCtaSection: React.FC = () => {
                                 <ul className="space-y-3 text-left">
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Start earning within 30 days
+                                        Make ₹5K daily (proven system)
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Build a reliable second income source
+                                        73% win rate like 1,263 students
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Achieve financial goals 10x faster
+                                        Never fall for pump & dump again
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Inspire your family & become their hero
+                                        Save ₹5,500 (price increases tomorrow)
                                     </li>
                                 </ul>
                             </motion.div>
@@ -107,14 +117,19 @@ const FinalCtaSection: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
                     >
-                        <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-xl p-6 border border-yellow-500/20">
+                        <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-xl p-6 border border-red-500/20">
+                            <div className="flex items-center justify-center gap-3 mb-3">
+                                <Bitcoin className="w-8 h-8 text-yellow-400 animate-pulse" />
+                                <Zap className="w-6 h-6 text-orange-400" />
+                            </div>
                             <p className="text-xl sm:text-2xl font-bold mb-2">
-                                <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                                    "Kal kare so aaj kar, aaj kare so ab"
+                                <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                                    "While you're thinking, 3 more students just enrolled"
                                 </span>
                             </p>
-                            <p className="text-slate-400 text-sm sm:text-base">
-                                Don't wait for tomorrow, your financial freedom starts today
+                            <p className="text-slate-300 text-sm sm:text-base">
+                                Last month 67 people missed out. They're still messaging us.<br/>
+                                <span className="text-yellow-400 font-semibold">Don't be #68.</span>
                             </p>
                         </div>
                     </motion.div>
@@ -153,7 +168,7 @@ const FinalCtaSection: React.FC = () => {
                         transition={{ delay: 0.6 }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                        <span className="relative">Secure Your Seat Now</span>
+                        <span className="relative">CLAIM MY SPOT (47 LEFT)</span>
                         <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 relative group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.button>
 

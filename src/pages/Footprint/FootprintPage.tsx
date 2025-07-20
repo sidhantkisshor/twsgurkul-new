@@ -15,6 +15,7 @@ import PricingSection from './components/PricingSection';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
 import Seo from '../../components/Seo';
+import WhaleAlertPopup from './components/WhaleAlertPopup';
 
 function FootprintPage() {
   const [timeLeft, setTimeLeft] = useState('48:00:00');
@@ -70,11 +71,12 @@ function FootprintPage() {
         title="Footprint Mastery System | TWS Gurukul"
         description="Master order flow and institutional movements with the Footprint Mastery System. Learn to see what big money is doing before retail even knows."
       />
-      <AnnouncementBar timeLeft={timeLeft} />
       <Header />
-      <TrustBadgesBar />
-      <main>
-        <HeroSection />
+      <div className="pt-16">
+        <AnnouncementBar timeLeft={timeLeft} />
+        <TrustBadgesBar />
+        <main>
+          <HeroSection />
         <WhyFootprintSection />
         <ProblemSection />
         <UniqueMechanismSection />
@@ -85,8 +87,10 @@ function FootprintPage() {
         <CourseSection />
         <PricingSection />
         <FaqSection />
-      </main>
+        </main>
+      </div>
       <Footer />
+      <WhaleAlertPopup />
     </div>
   );
 }

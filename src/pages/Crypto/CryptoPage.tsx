@@ -20,6 +20,12 @@ import Footer from './components/Footer';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import UniqueMechanismSection from './components/UniqueMechanismSection';
 import CredibilitySection from './components/CredibilitySection';
+import LiveMarketTicker from './components/LiveMarketTicker';
+import ProfitCounter from './components/ProfitCounter';
+import PortfolioShowcase from './components/PortfolioShowcase';
+import TradingChartPreview from './components/TradingChartPreview';
+import CryptoSuccessStats from './components/CryptoSuccessStats';
+import CryptoGuaranteeSection from './components/CryptoGuaranteeSection';
 
 // Assuming this hook exists
 import { useCountdown } from './hooks/useCountdown';
@@ -52,27 +58,33 @@ function CryptoPage() {
           description="Navigate the volatile crypto markets like a pro. Learn our proven strategies to master crypto trading and achieve financial freedom."
         />
         <FloatingTrustIndicators />
-        <AnnouncementBar timeLeft={timeLeft} />
         <Header 
           isMenuOpen={isMenuOpen} 
           setIsMenuOpen={setIsMenuOpen} 
           handleSmoothScroll={handleSmoothScroll} 
         />
-        <TrustBadgesBar />
+        <AnnouncementBar timeLeft={timeLeft} />
         <main>
           <HeroSection 
             handleSmoothScroll={handleSmoothScroll} 
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
           />
+          <LiveMarketTicker />
+          <TrustBadgesBar />
+          <ProfitCounter />
           <WhyCryptoSection />
+          <CryptoSuccessStats />
           <ProblemSection />
           <UniqueMechanismSection />
+          <TradingChartPreview />
+          <PortfolioShowcase />
           <CredibilitySection />
           <InstructorSection handleSmoothScroll={handleSmoothScroll} />
           <CurriculumSection />
           <TestimonialsSection handleSmoothScroll={handleSmoothScroll} />
           <CtaSection />
+          <CryptoGuaranteeSection />
           <FAQ />
           <FinalCtaSection />
         </main>

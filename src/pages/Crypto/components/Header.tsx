@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, Bitcoin, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface HeaderProps {
@@ -38,84 +38,93 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen, handleSmooth
     return (
         // Use a React Fragment to return the header and the menu as sibling elements
         <>
-            <header className="sticky top-0 w-full glass-effect border-b border-white/10 z-40">
-                <div className="px-3 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-14 sm:h-16">
-                        {/* Logo and Title */}
-                        <Link to="/" className="flex items-center space-x-2 group">
-                            <div className="relative">
-                                <div className="absolute inset-0 bg-yellow-500 blur-lg opacity-30 group-hover:opacity-50 transition-opacity"></div>
-                                <img 
-                                    src="/favicon.png" 
-                                    alt="Crypto Market Mastery Logo" 
-                                    className="h-8 w-8 sm:h-10 sm:w-10 object-contain relative z-10"
-                                />
-                            </div>
-                            <div>
-                                <span className="text-base sm:text-xl font-bold text-white">Crypto Market Mastery</span>
-                                <p className="text-xs text-slate-400 hidden sm:block">by Trading With Sidhant</p>
-                            </div>
-                        </Link>
-
-                        {/* Desktop Navigation */}
-                        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-                            <Link to="/" className="text-slate-300 hover:text-white transition-colors font-medium text-sm lg:text-base">Home</Link>
-                            {navLinks.map(link => (
-                                 <a key={link.href} href={link.href} onClick={(e) => handleSmoothScroll(e, link.href.substring(1))} className="text-slate-300 hover:text-white transition-colors font-medium text-sm lg:text-base">{link.text}</a>
-                            ))}
-                            <button
-                                onClick={(e) => handleSmoothScroll(e, 'get-started')}
-                                className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-4 lg:px-6 py-2 rounded-lg font-semibold transition-all shadow-lg shadow-green-500/20 text-sm lg:text-base"
-                            >
-                                See How It Works
-                            </button>
-                        </nav>
-
-                        {/* Mobile Menu Toggle Button */}
-                        {/* FIX: Button z-index raised to keep it clickable. Icon now toggles. */}
-                        <button
-                            aria-label="Toggle menu"
-                            className="md:hidden p-2 text-white relative z-50"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            aria-expanded={isMenuOpen}
-                            aria-controls="mobile-menu-container"
+            <nav 
+                className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 glass-effect border border-white/10 hover:border-white/20 rounded-full px-3 sm:px-4 xl:px-6 py-2 sm:py-3 shadow-2xl w-[calc(100vw-2rem)] sm:w-auto sm:max-w-[90vw] lg:max-w-[80vw] xl:max-w-[70vw]"
+            >
+                <div className="flex items-center justify-between gap-2 sm:gap-3 xl:gap-8">
+                    {/* Logo and Title */}
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <img 
+                            src="/favicon.png" 
+                            alt="Crypto Market Mastery" 
+                            className="h-8 w-8 sm:h-10 sm:w-10 object-contain flex-shrink-0"
+                        />
+                        <Link 
+                            to="/"
+                            className="font-extrabold text-white hidden xs:block tracking-tight text-sm sm:text-lg bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text text-transparent hover:from-yellow-300 hover:via-orange-300 hover:to-yellow-400 transition-all duration-300 whitespace-nowrap"
                         >
-                            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                        </button>
+                            <span className="hidden sm:inline">CRYPTO<span className="text-green-400">.</span>MASTERY</span>
+                            <span className="sm:hidden">C<span className="text-green-400">.</span>M</span>
+                        </Link>
                     </div>
-                </div>
-            </header>
 
-            {/* Mobile Menu Overlay and Container */}
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center gap-2 lg:gap-4 xl:gap-6">
+                        <Link to="/" className="text-gray-400 hover:text-white transition-colors duration-200 text-xs lg:text-sm font-medium whitespace-nowrap px-2 lg:px-3 py-1.5 rounded-md hover:bg-white/10">Home</Link>
+                        {navLinks.map(link => (
+                            <a 
+                                key={link.href} 
+                                href={link.href} 
+                                onClick={(e) => handleSmoothScroll(e, link.href.substring(1))} 
+                                className="text-gray-400 hover:text-white transition-colors duration-200 text-xs lg:text-sm font-medium whitespace-nowrap px-2 lg:px-3 py-1.5 rounded-md hover:bg-white/10"
+                            >
+                                {link.text}
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* CTA Button */}
+                    <button
+                        onClick={(e) => handleSmoothScroll(e, 'get-started')}
+                        className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] xs:text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-yellow-500/25 hidden xs:block"
+                    >
+                        <span className="hidden sm:inline">See How It Works</span>
+                        <span className="sm:hidden">Start Now</span>
+                    </button>
+
+                    {/* Mobile Menu Button */}
+                    <button 
+                        className="md:hidden text-white p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-colors flex-shrink-0"
+                        aria-label="Toggle mobile menu"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            {isMenuOpen ? (
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            ) : (
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                            )}
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isMenuOpen && (
-                    <div 
-                        id="mobile-menu-container"
-                        className="md:hidden fixed inset-0 z-40" // z-40 to be below the toggle button
-                        aria-hidden="true"
-                    >
+                    <>
                         {/* Backdrop */}
                         <motion.div
-                            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+                            className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsMenuOpen(false)}
                         />
                         
-                        {/* Menu Panel */}
+                        {/* Mobile Menu */}
                         <motion.div
-                            className="absolute top-20 right-4 w-[calc(100%-2rem)] max-w-sm bg-slate-900/90 backdrop-blur-lg rounded-xl border border-slate-700 shadow-2xl p-4"
+                            className="md:hidden fixed top-16 sm:top-20 left-4 right-4 bg-black/95 backdrop-blur-lg border border-white/20 rounded-2xl z-50 overflow-hidden max-h-[calc(100vh-5rem)] sm:max-h-[calc(100vh-6rem)] overflow-y-auto"
                             initial={{ opacity: 0, y: -20, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            transition={{ duration: 0.2 }}
                         >
-                            <nav className="flex flex-col space-y-1">
+                            <div className="p-5 space-y-3">
                                 <Link 
                                     to="/" 
-                                    className="block text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800 rounded-md p-3 transition-colors"
                                     onClick={() => setIsMenuOpen(false)}
+                                    className="block text-gray-300 hover:text-white transition-colors duration-200 text-lg font-medium py-3 px-4 rounded-lg hover:bg-white/10"
                                 >
                                     Home
                                 </Link>
@@ -124,22 +133,22 @@ const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen, handleSmooth
                                         key={link.href} 
                                         href={link.href} 
                                         onClick={(e) => handleNavClick(e, link.href.substring(1))} 
-                                        className="block text-base font-medium text-slate-200 hover:text-white hover:bg-slate-800 rounded-md p-3 transition-colors"
+                                        className="block text-gray-300 hover:text-white transition-colors duration-200 text-lg font-medium py-3 px-4 rounded-lg hover:bg-white/10"
                                     >
                                         {link.text}
                                     </a>
                                 ))}
-                                <div className="!mt-3 pt-3 border-t border-slate-800">
-                                  <button
-                                      onClick={(e) => handleNavClick(e, 'get-started')}
-                                      className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2.5 px-3 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all text-center"
-                                  >
-                                      See How It Works
-                                  </button>
-                                </div>
-                            </nav>
+                                
+                                {/* Mobile CTA Button */}
+                                <button
+                                    onClick={(e) => handleNavClick(e, 'get-started')}
+                                    className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white rounded-full px-6 py-3 text-base font-semibold transition-all duration-200 shadow-lg hover:shadow-yellow-500/25 mt-6"
+                                >
+                                    See How It Works - Get Started
+                                </button>
+                            </div>
                         </motion.div>
-                    </div>
+                    </>
                 )}
             </AnimatePresence>
         </>

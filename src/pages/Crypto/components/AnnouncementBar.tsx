@@ -10,18 +10,21 @@ interface AnnouncementBarProps {
 const AnnouncementBar: React.FC<AnnouncementBarProps> = ({ timeLeft }) => {
     return (
         <motion.div
-            className="bg-gradient-to-r from-yellow-500 to-orange-500 py-1.5 sm:py-2 text-center text-xs sm:text-sm"
-            initial={{ y: -40 }}
-            animate={{ y: 0 }}
+            className="fixed top-20 sm:top-20 left-1/2 transform -translate-x-1/2 z-40 glass-effect border border-yellow-500/20 rounded-full px-3 sm:px-4 py-2 shadow-lg max-w-[90vw] sm:max-w-none"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
         >
-            <p className="px-2 sm:px-4 flex items-center justify-center flex-wrap">
-                <span className="mr-2">🎉 <strong>Special:</strong> ₹2,000 bonus on enrollment</span>
+            <p className="flex items-center justify-center gap-x-2 sm:gap-x-3 text-sm">
+                <span className="text-yellow-400">⚠️ <strong className="hidden xs:inline">ALERT:</strong> 47 spots left<span className="hidden sm:inline"> at ₹19,499</span></span>
                 {timeLeft && (
-                    <span className="inline-flex items-center" aria-live="polite">
-                        <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                        {String(timeLeft.hours).padStart(2, '0')}:
-                        {String(timeLeft.minutes).padStart(2, '0')}:
-                        {String(timeLeft.seconds).padStart(2, '0')}
+                    <span className="inline-flex items-center text-white" aria-live="polite">
+                        <Clock className="w-4 h-4 mr-1 text-yellow-400" />
+                        <span className="font-mono">
+                            {String(timeLeft.hours).padStart(2, '0')}:
+                            {String(timeLeft.minutes).padStart(2, '0')}:
+                            {String(timeLeft.seconds).padStart(2, '0')}
+                        </span>
                     </span>
                 )}
             </p>

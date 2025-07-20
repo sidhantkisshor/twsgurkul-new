@@ -18,14 +18,14 @@ const CredibilitySection: React.FC = () => {
     },
     {
       icon: Users,
-      title: "10,000+ Students",
-      description: "Largest crypto trading community in India",
+      title: "1,263+ Active Students",
+      description: "Growing crypto trading community",
       color: "green"
     },
     {
       icon: TrendingUp,
-      title: "₹50 Cr+ Withdrawn",
-      description: "Verified student profits since 2021",
+      title: "₹2.7 Cr+ Profits",
+      description: "Verified student withdrawals",
       color: "purple"
     }
   ];
@@ -80,7 +80,7 @@ const CredibilitySection: React.FC = () => {
           </p>
           <div className="inline-block bg-green-500/10 border border-green-500/30 rounded-lg px-6 py-3">
             <p className="text-green-400 font-semibold">
-              Average Student ROI: 312% in First Year
+              Average Student ROI: 230% in First 6 Months
             </p>
           </div>
         </motion.div>

@@ -15,15 +15,15 @@ const CtaSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="inline-flex items-center space-x-2 bg-green-500/20 border border-green-500/30 px-3 py-1.5 rounded-full mb-4">
-                        <Clock className="w-4 h-4 text-green-400" />
-                        <span className="text-xs sm:text-sm font-medium text-green-400">Limited Time Offer</span>
+                    <div className="inline-flex items-center space-x-2 bg-red-500/20 border border-red-500/30 px-3 py-1.5 rounded-full mb-4 animate-pulse">
+                        <Clock className="w-4 h-4 text-red-400" />
+                        <span className="text-xs sm:text-sm font-medium text-red-400">URGENT: Price Increases Tomorrow</span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                        Join <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">1,047 Indians</span> Building Wealth
+                        <span className="text-red-400">WARNING:</span> Only 47 Spots Left at <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">₹19,499</span>
                     </h2>
                     <p className="text-lg text-slate-300">
-                    You're one decision away from a completely different life. Start building your second income source today.
+                    Tomorrow it's ₹24,999. While you think, 3 more spots just got taken. Don't be the one who pays ₹5,500 extra.
                     </p>
                     
                     {/* Bonus Timer */}
@@ -46,7 +46,7 @@ const CtaSection: React.FC = () => {
                     viewport={{ once: true }}
                 >
                     <h3 className="text-2xl font-bold mb-6 text-center">
-                        Here's Everything You Get Today:
+                        What 1,263 Indians Got (You're Getting The Same):
                     </h3>
 
                     <div className="space-y-3 mb-8">

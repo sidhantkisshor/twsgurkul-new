@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, ArrowRight, AlertCircle, CheckCircle, X, TrendingUp, Users, Timer, Zap } from 'lucide-react';
+import { Phone, Clock, ArrowRight, AlertCircle, CheckCircle, X, TrendingUp, Users, Timer, Zap } from 'lucide-react';
 import { finalCtaData, urgencyData, liveStatsData } from '../data';
 
 const FinalCtaSection: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 11, seconds: 47 });
   const [seatsLeft, setSeatsLeft] = useState(3);
   const [currentActivity, setCurrentActivity] = useState(0);
+  const [showPhone, setShowPhone] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,6 +27,10 @@ const FinalCtaSection: React.FC = () => {
       setCurrentActivity(prev => (prev + 1) % finalCtaData.liveActivity.activities.length);
     }, 3000);
 
+    const phoneTimer = setTimeout(() => {
+      setShowPhone(true);
+    }, 47000);
+
     const seatTimer = setTimeout(() => {
       setSeatsLeft(2);
     }, 120000);
@@ -33,9 +38,14 @@ const FinalCtaSection: React.FC = () => {
     return () => {
       clearInterval(timer);
       clearInterval(activityTimer);
+      clearTimeout(phoneTimer);
       clearTimeout(seatTimer);
     };
   }, []);
+
+  const handleEnroll = () => {
+    window.location.href = '#pricing';
+  };
 
   const scrollToPricing = () => {
     const element = document.getElementById('pricing');
@@ -54,6 +64,25 @@ const FinalCtaSection: React.FC = () => {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-500/10 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
       </div>
 
+      {/* Phone ring animation */}
+      <AnimatePresence>
+        {showPhone && (
+          <motion.div
+            className="fixed top-20 right-4 z-50"
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
+          >
+            <div className="bg-green-500 text-white p-4 rounded-lg shadow-2xl flex items-center gap-3 animate-bounce">
+              <Phone className="animate-pulse" size={24} />
+              <div>
+                <p className="font-bold">Your Future Calling!</p>
+                <p className="text-sm">Answer now →</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 

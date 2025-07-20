@@ -6,27 +6,27 @@ const TrustBadgesBar: React.FC = () => {
   const trustItems = [
     { 
       icon: Users, 
-      text: "[LIVE] 523 Traders Online", 
+      text: "[LIVE] 873 traders tracking whales now", 
       color: "cyan",
-      detail: "Decoding institutional footprints"
+      detail: "$47M+ in orders exposed"
     },
     { 
       icon: Shield, 
-      text: "[VERIFIED] NSE Data Feed", 
+      text: "[ALERT] Major pump incoming", 
       color: "teal",
-      detail: "Real-time market depth analysis"
+      detail: "Whale accumulation detected"
     },
     { 
       icon: CheckCircle, 
-      text: "[STAT] 90.3% Win Rate", 
+      text: "[PROOF] 94.7% win rate this week", 
       color: "green",
-      detail: "Average across 500+ students"
+      detail: "Verified by students"
     },
     { 
       icon: Award, 
-      text: "[SECURE] 30-Day Guarantee", 
-      color: "blue",
-      detail: "Full refund if not profitable"
+      text: "[WARNING] Only 7 spots left", 
+      color: "red",
+      detail: "Closing at capacity"
     }
   ];
 

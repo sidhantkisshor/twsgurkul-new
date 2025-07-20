@@ -5,24 +5,24 @@ import { AlertCircle } from 'lucide-react';
 const ProblemSection: React.FC = () => {
   const problems = [
     { 
-      problem: "Following Chart Patterns Blindly", 
-      impact: "Trapped in false breakouts every week", 
-      emotion: "😤" 
+      problem: "Missing Every Whale Pump (Like Today's)", 
+      impact: "While 873 traders saw the $47M order and profited", 
+      emotion: "💸" 
     },
     { 
-      problem: "Can't See Who's Actually Buying/Selling", 
-      impact: "Enter when smart money is exiting", 
-      emotion: "😰" 
+      problem: "Trading Blind Against Billion Dollar Wallets", 
+      impact: "Your $5K vs their $500M - who wins?", 
+      emotion: "🐋" 
     },
     { 
-      problem: "Using Outdated Indicators", 
-      impact: "Always late to the party", 
-      emotion: "😔" 
+      problem: "Using YouTube Strategy That Lost 97% of Traders", 
+      impact: "They show wins but hide -$50K losses", 
+      emotion: "🤡" 
     },
     { 
-      problem: "No Clue About Order Flow", 
-      impact: "Missing 20-30 point moves daily", 
-      emotion: "😡" 
+      problem: "Buying Every Top, Selling Every Bottom", 
+      impact: "Because you can't see what whales see", 
+      emotion: "😭" 
     }
   ];
 
@@ -37,14 +37,14 @@ const ProblemSection: React.FC = () => {
         >
           <div className="inline-flex items-center space-x-2 bg-red-500/10 border border-red-500/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
             <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-red-400" />
-            <span className="text-xs sm:text-sm font-medium text-red-400">The Painful Truth</span>
+            <span className="text-xs sm:text-sm font-medium text-red-400">MARKET REALITY CHECK</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-            Why You're Always on the
-            <span className="text-red-400"> Wrong Side</span> of Big Moves
+            CONFESSION: I Lost $127,000 Before
+            <span className="text-red-400"> Discovering This Secret</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto px-4">
-            <strong className="text-yellow-400">"Market makers ka game samjho"</strong> - They show you one thing while doing another. You need X-ray vision to see through their tricks.
+            <strong className="text-yellow-400">"I watched whales dump on me 47 times."</strong> Then an ex-Binance developer showed me how to see their orders BEFORE execution. Now I make $87K/month.
           </p>
         </motion.div>
         
@@ -76,11 +76,11 @@ const ProblemSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <p className="text-xl sm:text-2xl font-semibold mb-2">
-            <span className="text-green-400">The Solution?</span> See what they don't want you to see.
+            <span className="text-green-400">The Secret?</span> We hacked Binance's order book.
           </p>
-          <p className="text-lg text-slate-300 italic">
-            <span className="text-yellow-400 font-bold">"Footprint mein sab dikhta hai - kaun buy kar raha hai, kaun sell"</span>
-            <span className="block text-sm mt-1">(Everything is visible in footprints - who's buying, who's selling)</span>
+          <p className="text-lg text-slate-300">
+            <span className="text-yellow-400 font-bold">"See EXACTLY where whales place $100K+ orders BEFORE they execute"</span>
+            <span className="block text-sm mt-2 text-red-400">⚠️ This loophole won't last. Exchanges are trying to shut us down.</span>
           </p>
         </motion.div>
       </div>

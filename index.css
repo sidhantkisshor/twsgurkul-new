@@ -47,6 +47,23 @@
     uppercase tracking-wide text-center block w-full sm:w-auto cursor-pointer;
   }
   
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md;
+  }
+  
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll-left {
+    animation: scrollLeft 30s linear infinite;
+  }
+  
   .testimonial-card {
     @apply bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-slate-700
     hover:border-slate-600 transition-all duration-300;
@@ -141,5 +158,22 @@
 
   .animate-fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
   }
 } 

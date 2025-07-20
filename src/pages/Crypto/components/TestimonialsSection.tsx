@@ -110,10 +110,10 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                        Real Success Stories from <span className="text-transparent bg-gradient-to-r from-yellow-400 to-orange-300 bg-clip-text">Indians Like You</span>
+                        ₹2.7 Crore Withdrawn <span className="text-transparent bg-gradient-to-r from-yellow-400 to-orange-300 bg-clip-text">By 1,263 Students</span>
                     </h2>
                     <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                        See how our students transformed their trading journey after this course.
+                        Every screenshot verified. Every profit real. Every student contactable.
                     </p>
                 </motion.div>
                 
@@ -215,7 +215,7 @@ const TestimonialCard: React.FC<{
     return (
         <motion.div
             ref={cardRef}
-            className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 rounded-2xl border border-slate-700 p-6 flex flex-col justify-between transition-all duration-300 flex-shrink-0 w-[80vw] md:w-[400px] shadow-lg relative select-none"
+            className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 rounded-2xl border border-slate-700 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 flex-shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
             whileHover={{ y: -8, borderColor: 'rgb(71 85 105)' }}
         >
             <motion.div 
@@ -227,7 +227,7 @@ const TestimonialCard: React.FC<{
                 {[...Array(5)].map((_, i) => (
                     <Star 
                         key={i}
-                        className={`w-4 h-4 ${
+                        className={`w-5 h-5 ${
                             i < testimonial.rating 
                                 ? 'text-yellow-400 fill-current' 
                                 : 'text-slate-600'
