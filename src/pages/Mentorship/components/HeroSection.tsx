@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Users, TrendingUp, Clock, Eye } from 'lucide-react';
 import { heroData, liveStatsData, urgencyData } from '../data';
 
 const HeroSection: React.FC = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 23,
+    minutes: 59,
+    seconds: 59
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        }
+        return { hours: 23, minutes: 59, seconds: 59 };
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -27,6 +50,23 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <motion.div
+            className="flex flex-col items-center gap-2 mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="bg-red-500/20 text-red-400 px-4 py-2 rounded-full text-sm font-semibold">
+              FOR CRYPTO TRADERS ONLY
+            </span>
+            <div className="bg-yellow-500/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-yellow-500/50">
+              <p className="text-yellow-400 font-bold flex items-center gap-2">
+                <Clock className="animate-pulse" size={16} />
+                PRICE INCREASES IN: {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+              </p>
+            </div>
+          </motion.div>
+          
           <motion.h1 
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -47,11 +87,34 @@ const HeroSection: React.FC = () => {
             {heroData.subheadline}
           </motion.p>
 
+          {heroData.systemHighlight && (
+            <motion.div 
+              className="mb-8 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <div className="glass-effect border border-green-500/30 rounded-2xl p-6 bg-gradient-to-br from-green-500/10 to-emerald-600/10">
+                <h3 className="text-2xl font-bold text-green-400 mb-4">{heroData.systemHighlight.title}</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {heroData.systemHighlight.points.map((point, index) => (
+                    <div key={index} className="text-center">
+                      <div className="text-3xl font-bold text-emerald-400 mb-2">
+                        {index === 0 ? '8 PM' : index === 1 ? '8' : '₹8K'}
+                      </div>
+                      <p className="text-sm text-gray-300">{point.split(':')[1]}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
           <motion.div 
             className="mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
           >
             <div className="text-center mb-4">
               <p className="text-yellow-400 font-semibold flex items-center justify-center gap-2">

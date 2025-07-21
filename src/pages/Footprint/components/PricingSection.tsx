@@ -102,7 +102,7 @@ const PricingSection: React.FC = () => {
             
             <div className="border-t border-slate-700 pt-6 mb-6">
               <p className="text-white mb-4">
-                <span className="font-bold text-red-400">⚠️ URGENT:</span> Binance & Coinbase are pressuring us to remove this system. We've already been banned from 3 trading forums for exposing whale manipulation tactics.
+                <span className="font-bold text-red-400">⚠️ URGENT:</span> Binance & Coinbase are pressuring us to remove this system. We've already been removed from 3 trading forums for exposing insider manipulation tactics.
               </p>
               
               <p className="text-white">
@@ -147,7 +147,7 @@ const PricingSection: React.FC = () => {
             </div>
             
             <p className="text-lg text-slate-300 mb-8">
-              <span className="font-bold text-amber-500">This is the ONLY system that shows live whale orders. Once banned, it's gone FOREVER.</span>
+              <span className="font-bold text-amber-500">This is the ONLY system that shows live whale orders. Once restricted, access ends FOREVER.</span>
             </p>
             
             <p className="text-lg text-slate-300 mb-8">
@@ -186,7 +186,7 @@ const PricingSection: React.FC = () => {
               </p>
               
               <button onClick={handlePaymentPopup} className="cta-button-primary text-lg inline-block">
-                YES, GIVE ME WHALE ACCESS NOW (BEFORE IT'S BANNED)
+                YES, GIVE ME WHALE ACCESS NOW (BEFORE IT'S GONE)
               </button>
             </div>
           </div>

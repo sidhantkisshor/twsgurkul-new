@@ -1,6 +1,6 @@
 export const uniqueMechanismData = {
   headline: "The W.H.A.L.E. Detection System™",
-  subheadline: "The BANNED Method That Exposes:",
+  subheadline: "The Underground Method That Exposes:",
   features: [
     {
       letter: "W",
@@ -52,7 +52,7 @@ export const guaranteeData = {
   features: [
     "60-day unconditional refund policy",
     "$10K profit guarantee or 200% refund",
-    "Lifetime access (before exchanges ban us)",
+    "Lifetime access (before exchanges shut us down)",
     "24/7 Telegram support with millionaire traders"
   ],
   proofStat: "Only 3 refunds out of 873 students (0.34% refund rate) - because it WORKS"

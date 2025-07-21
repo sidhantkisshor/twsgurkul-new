@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
     headline: {
       line1: "How 873 Traders Turned",
       line2: "$5K Into $127K+ in 4 Months",
-      line3: "(Using This Banned Method)"
+      line3: "(Using This Controversial Method)"
     },
     description: {
       part1: "They see what you can't:",

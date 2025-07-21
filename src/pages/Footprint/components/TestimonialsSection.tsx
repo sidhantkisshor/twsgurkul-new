@@ -125,7 +125,7 @@ const TestimonialsSection: React.FC = () => {
           
           <div className="text-center animate-on-scroll">
             <p className="text-lg text-slate-300 mb-6 italic">
-              <span className="text-red-400 font-bold">⚠️ WARNING:</span> Exchanges are trying to shut down our whale tracking system. Join before it's banned.
+              <span className="text-red-400 font-bold">⚠️ WARNING:</span> Exchanges are trying to shut down our whale tracking system. Join before exclusive access ends.
             </p>
             <p className="text-xl font-bold text-white mb-8">
               Your success story could be next...

@@ -42,9 +42,9 @@ const TransformationSection: React.FC = () => {
               <div className="flex items-start mb-4">
                 <Award className="text-amber-500 mr-4 h-8 w-8 flex-shrink-0" />
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Banned From 3 Trading Forums</h3>
+                  <h3 className="text-xl font-bold mb-2">Censored by 3 Trading Forums</h3>
                   <p className="text-slate-300">
-                    Why? Because I exposed how exchanges manipulate prices. Now Binance wants us shut down. Join before they succeed.
+                    Why? Because I exposed what institutions don't want you to know. Now major exchanges want us silenced. Join before they succeed.
                   </p>
                 </div>
               </div>

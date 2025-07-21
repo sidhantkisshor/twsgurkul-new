@@ -108,6 +108,12 @@ const BenefitsSection: React.FC = () => {
               Don't let another opportunity slip away →
             </a>
           </div>
+          
+          <div className="mt-16 text-center animate-on-scroll">
+            <p className="text-xl text-slate-300 italic">
+              But don't just take my word for it. Here's what happened when 873+ traders implemented these exact strategies...
+            </p>
+          </div>
         </div>
       </div>
     </section>

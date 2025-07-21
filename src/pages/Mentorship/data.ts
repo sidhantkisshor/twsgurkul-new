@@ -1,18 +1,26 @@
 export const heroData = {
   headline: "BREAKING: Bangalore Engineer Just Made ₹73,400 in ONE Trade While You're Reading This",
-  subheadline: "He Started 47 Days Ago With Zero Knowledge. Now He Watches Me Trade LIVE at 12 PM With My ₹50 Lakh (Join 1,247 Students Banking Profits RIGHT NOW)",
+  subheadline: "He Started 47 Days Ago With Zero Knowledge. Now He Watches Me Trade LIVE at 8 PM With My ₹50 Lakh (Join 2,347 Students Banking Profits RIGHT NOW)",
+  systemHighlight: {
+    title: "The 8PM Crypto Rush™",
+    points: [
+      "8 PM IST: When Asian whales start hunting",
+      "Track Wallets: See $10M+ moves before Twitter", 
+      "₹8K Daily: Consistent profits in 3 hours"
+    ]
+  },
   ctaText: "YES! SHOW ME THE ₹73,400 TRADE →",
-  ctaSubtext: "⚠️ Next Live Session in 2h 34m • Only 27 Seats Left at ₹21,000 (Tomorrow: ₹49,999)",
-  urgencyBanner: "🔴 LIVE NOW: Priya from Delhi just booked ₹18,750 profit in NIFTY",
+  ctaSubtext: "Only 27 Seats Left at ₹21,000 • Price increases tomorrow",
+  urgencyBanner: "🔴 LIVE NOW: Priya from Delhi just booked ₹18,750 profit in ETH",
   trustBar: {
-    studentsToday: 23,
+    studentsToday: 47,
     totalProfits: "₹10 Crore+",
     nextBatch: 6,
     liveProfit: "₹3.7L earned by students TODAY"
   },
   socialProof: {
     watching: "147 people watching this page",
-    enrolled: "23 enrolled in last 2 hours",
+    enrolled: "47 enrolled in last 2 hours",
     spots: "Only 27 spots left (was 50 this morning)"
   },
   warningBox: {
@@ -26,20 +34,21 @@ export const problemData = {
   subheadline: "March 15, 2019. 3:47 AM. Bathroom floor. Wife's jewelry gone. Job on the line. One decision away from ending it all...",
   storyBox: {
     confession: "I'll never forget my 6-year-old daughter asking 'Papa, why does Mumma cry at night?' That's when I knew I'd hit rock bottom.",
-    turning: "But that bathroom floor breakdown led me to discover something the 'gurus' desperately hide from you..."
+    turning: "But that bathroom floor breakdown led me to discover something the 'gurus' desperately hide from you...",
+    discovery: "While Indians sleep at 2 AM, crypto whales move BILLIONS. The solution? Trade at 8 PM when Asia wakes up."
   },
   problems: [
     {
-      title: "The ₹50K Telegram Scam (Happening RIGHT NOW)",
-      description: "Last week, Amit Verma from Pune lost ₹73,000 to 'Premium Signals'. His 'guru'? A 19-year-old with Photoshop. Check @ScamTraderExposed for proof.",
+      title: "The ₹50K Crypto Telegram Scam (Happening RIGHT NOW)",
+      description: "Last week, Amit Verma from Pune lost ₹73,000 to 'Crypto Signals'. His 'guru'? A 19-year-old with Photoshop. Check @CryptoScamExposed for proof.",
       icon: "🚨",
-      stat: "₹3.2 Crore lost by Indians to fake groups THIS MONTH"
+      stat: "₹12 Crore lost by Indians to fake crypto groups THIS MONTH"
     },
     {
-      title: "The 'Free YouTube Strategy' Death Trap",
-      description: "Those strategies worked... in 2018. Now? You're exit liquidity for smart money. That 'educator' with 2M views? Makes ₹15L/month from AdSense while YOU lose.",
+      title: "The 'Free YouTube Crypto Strategy' Death Trap",
+      description: "Those strategies worked... in 2021 bull run. Now? You're exit liquidity for whales. That 'educator' with 2M views? Makes ₹15L/month from ads while YOU lose.",
       icon: "💀",
-      stat: "97% of YouTube strategy followers lose money (SEBI data)"
+      stat: "97% of YouTube crypto followers lose money"
     },
     {
       title: "The ₹89K 'Premium Course' Abandonment",
@@ -49,43 +58,43 @@ export const problemData = {
     }
   ],
   contrast: {
-    title: "Meanwhile, at 12 PM TODAY:",
+    title: "Meanwhile, at 8 PM TODAY:",
     points: [
-      "Rajesh booked ₹47,300 profit (screenshot in group)",
+      "Rajesh booked ₹47,300 profit in BTC (screenshot in group)",
       "Priya's 3rd consecutive green day (₹1.2L this week)",
       "147 students trading LIVE with me RIGHT NOW",
       "Zero fake screenshots. Zero demo accounts. REAL money."
     ]
   },
-  ctaText: "Want to see what happened at today's 12 PM session? Warning: This might make you angry at every 'guru' who scammed you →"
+  ctaText: "Want to see what happened at today's 8 PM session? Warning: This might make you angry at every 'guru' who scammed you →"
 };
 
 export const uniqueMechanismData = {
   headline: "The 'Institutional Leak' That Changed Everything",
-  subheadline: "How a Fired Goldman Sachs Trader's Revenge Created India's Most Profitable Trading System",
+  subheadline: "How a Fired Binance Trader's Revenge Created India's Most Profitable Crypto System",
   storyReveal: {
-    hook: "June 2019. A disgruntled Goldman Sachs trader contacted me after being fired for 'sharing too much' with retail traders.",
-    revelation: "What he revealed over 3 bottles of whiskey became the foundation of the 12-12-12 System™ - the EXACT method institutions use to extract money from retail traders.",
-    warning: "I've been asked to stop teaching this 4 times. Once by a very powerful person. I'm still here."
+    hook: "June 2021. A disgruntled Binance market maker contacted me after being fired for 'sharing too much' with retail traders.",
+    revelation: "What he revealed over 3 bottles of whiskey became the foundation of my 8PM system - when Asian whales accumulate before the overnight pump.",
+    warning: "I've been asked to stop teaching this 4 times. Once by a very powerful exchange. I'm still here."
   },
   features: [
     {
-      number: "12:00",
+      number: "8:00 PM",
       title: "The Institutional Power Hour",
-      description: "Why 12 PM? Because that's when Mumbai institutions place their biggest trades. We front-run them. Legally. They HATE this.",
-      secretStat: "83% of market moves happen 12-2 PM (NSE data we're not supposed to have)"
+      description: "Why 8 PM? Because that's when Asian institutions and whales start their trading day. We front-run them. Legally. They HATE this.",
+      secretStat: "83% of crypto pumps start between 8 PM - 2 AM IST"
     },
     {
-      number: "12",
-      title: "The 'Trapped Money' Patterns",
-      description: "12 specific patterns that show where dumb money is trapped. Institutions hunt these levels. Now you hunt WITH them.",
-      proofPoint: "Pattern #7 alone made ₹3.4L for students last Tuesday"
+      number: "8",
+      title: "The 'Whale Trap' Patterns",
+      description: "8 specific patterns that show where retail is trapped. Whales hunt these levels at 8 PM. Now you hunt WITH them.",
+      proofPoint: "Pattern #3 alone made ₹3.4L for students last Tuesday"
     },
     {
-      number: "₹12K",
-      title: "The Compound Protocol",
-      description: "Start with ₹12K profit target. Mathematical progression to ₹50K by month 3. The same model hedge funds use for junior traders.",
-      guarantee: "If you don't hit ₹12K in month 1, I trade your account personally until you do"
+      number: "₹8K",
+      title: "The Daily Compound Protocol",
+      description: "Start with ₹8K daily profit target. Mathematical progression to ₹50K by month 3. The same model crypto hedge funds use.",
+      guarantee: "If you don't hit ₹8K in first week, I personally mentor you until you do"
     }
   ],
   proof: "This system is so effective, 3 brokerages tried to ban our students. We won in court. Case #4572/2023.",
@@ -95,9 +104,9 @@ export const uniqueMechanismData = {
     waitlist: "Current waitlist: 1,847 people (6-month average wait)"
   },
   leaked: {
-    title: "🔴 LEAKED: Today's 12 PM Trade",
-    preview: "NIFTY 24,300 CE was trading at ₹89. Institutions were accumulating. We entered at ₹91. Exit at ₹134. Profit: ₹43 x 500 lots = ₹21,500 in 47 minutes.",
-    tease: "Tomorrow's setup is even bigger. But only MAX members will see it..."
+    title: "🔴 LEAKED: Last Night's 8:47 PM Alert",
+    preview: "3 wallets bought $2M worth of SOL at 8:47 PM. We entered at $98. Asia woke up. Exit at $108. Profit: ₹23,400 per lot in 73 minutes.",
+    tease: "Tonight we're tracking an even bigger whale accumulation..."
   }
 };
 
@@ -105,9 +114,9 @@ export const liveResultsData = {
   title: "🔴 BREAKING: LIVE PROFIT FEED (Auto-Updates Every 30 Seconds)",
   urgentNote: "⚠️ These are REAL students trading RIGHT NOW. Screenshots being posted in WhatsApp group AS YOU READ THIS:",
   liveAlert: {
-    text: "🎯 JUST NOW: Vikram booked ₹23,400 profit in BANKNIFTY PUT",
+    text: "🎯 JUST NOW: Vikram caught the BTC dip at 8:32 PM",
     time: "17 seconds ago",
-    proof: "Screenshot #4721 in group"
+    proof: "Live trade shared in group"
   },
   results: [
     { 
@@ -116,7 +125,7 @@ export const liveResultsData = {
       duration: "TODAY (67th day)", 
       status: "profit", 
       highlight: "Quit TCS job yesterday. Wife finally smiled.", 
-      trade: "NIFTY 24,500 CE: Entry ₹112 → Exit ₹189",
+      trade: "BTC Long at 8:23 PM: Entry $67,800 → Exit $69,400",
       verified: "✓ P&L verified by CA Sharma & Associates"
     },
     { 
@@ -125,7 +134,7 @@ export const liveResultsData = {
       duration: "Last 48 hours", 
       status: "profit", 
       highlight: "Paid 2 years school fees in advance", 
-      trade: "HDFC 1720 PE: Held overnight as taught",
+      trade: "ETH accumulation: Following whale wallet 0x3f4...",
       emotion: "Husband shocked. In-laws silent finally."
     },
     { 
@@ -134,7 +143,7 @@ export const liveResultsData = {
       duration: "This week alone", 
       status: "profit", 
       highlight: "On track for first ₹1L month", 
-      trade: "Multiple scalps using Pattern #7",
+      trade: "SOL, MATIC, AVAX - all whale alerts at 8 PM",
       milestone: "From ₹10K to ₹94K in 31 days"
     },
     { 
@@ -143,7 +152,7 @@ export const liveResultsData = {
       duration: "Morning session", 
       status: "profit", 
       highlight: "Recovered full ₹21K course fee already!", 
-      trade: "Followed my EXACT trade at 12:07 PM",
+      trade: "Followed my EXACT BNB entry at 8:15 PM",
       celebration: "Parents finally believe in her"
     },
     { 
@@ -161,7 +170,7 @@ export const liveResultsData = {
     riskReward: "2.3:1 Average (Institutional Level)",
     todaysProfits: "₹3,72,450 Total Student Profits",
     liveTradersNow: "147 students in profit RIGHT NOW",
-    biggestWin: "Manish: ₹1,47,000 (RELIANCE puts)"
+    biggestWin: "Manish: ₹1,47,000 (caught LUNA crash at 9 PM)"
   },
   comparison: {
     title: "While You're Reading This:",
@@ -182,113 +191,84 @@ export const pricingData = {
   lite: {
     name: "ETM LITE",
     price: "₹6,999",
-    duration: "3 months",
-    description: "Perfect for self-starters",
-    subtitle: "📚 Learn at your own pace",
-    badge: "FOUNDATION",
+    duration: "/month",
+    badge: "SIGNALS ONLY",
     features: [
-      "✅ 10 daily trading signals with rationale",
-      "✅ Market analysis reports (twice daily)",
-      "✅ Telegram community (500+ active traders)",
-      "✅ Weekend webinars (recorded)",
-      "✅ Risk management guidelines",
-      "✅ Basic strategy PDFs",
-      "✅ Email support (24hr response)"
+      "📩 WhatsApp buy/sell alerts",
+      "📊 Entry, target, stoploss",
+      "⏱️ 5-10 signals daily",
+      "📢 Basic market updates",
+      "❌ No strategy explanation",
+      "❌ No live sessions",
+      "❌ No support"
     ],
-    limitation: "Best for: Part-time traders with experience",
-    highlight: "347 students earning ₹15-25K monthly"
+    best_for: "Just want signals? Here.",
+    results: "Follow blindly, hope for best",
+    limitation: "No learning. No growth. Just tips."
   },
   pro: {
-    name: "ETM PRO",
-    price: "₹17,999",
-    duration: "3 months",
-    description: "Most comprehensive program",
-    subtitle: "🎯 73% students choose PRO",
-    badge: "MOST POPULAR",
+    name: "ETM PROFESSIONAL",
+    price: "₹16,999",
+    duration: "one-time",
+    badge: "POPULAR CHOICE",
     features: [
-      "✅ Everything in LITE PLUS:",
-      "✅ LIVE 12 PM sessions (watch & learn)",
-      "✅ Strategy masterclasses (weekly)",
-      "✅ WhatsApp community (limited to 500)",
-      "✅ Bi-weekly group mentoring calls",
-      "✅ Advanced trading strategies",
-      "✅ Priority email support (12hr response)",
-      "✅ Monthly performance review",
-      "✅ Partial refund policy (terms apply)"
+      "✅ Everything in ETM LITE PLUS:",
+      "📹 Recorded strategy videos",
+      "📧 Email Q&A (48hr reply)",
+      "📊 PDF course materials",
+      "👥 Telegram community",
+      "❌ Still no LIVE access",
+      "❌ Can't see my screen",
+      "❌ Miss the real action"
     ],
-    limitation: "Ideal for: Serious learners ready to commit",
-    highlight: "Average student profit: ₹35-50K/month",
-    comparison: "Just ₹3K less than MAX (but worth considering the difference)"
+    best_for: "DIY traders",
+    results: "Some profit, mostly confusion",
+    limitation: "Watch recordings while others trade LIVE",
+    comparison: "Save ₹3K today, lose ₹50K opportunity"
   },
   max: {
     name: "ETM MAX",
     originalPrice: "₹49,999",
-    salePrice: "₹21,000",
-    savings: "₹28,999",
-    duration: "3 months",
-    description: "Complete mentorship program",
-    subtitle: "💎 Only 30 students per batch",
-    badge: "APPLICATION ONLY",
+    salePrice: "₹19,999",
+    duration: "3 months LIVE access",
+    badge: "TARGET PRODUCT",
     features: [
-      "✅ Everything in PRO PLUS:",
-      "🔴 Trade WITH me live (screen share)",
-      "📱 Private WhatsApp (30 members)",
-      "🎯 Weekly 1-on-1 video calls",
-      "💰 Exact entry/exit alerts",
-      "🛡️ 30-day money back guarantee"
+      "🎓 PREREQUISITE: Complete Crypto/Footprint Mastery first",
+      "🔴 LIVE 8PM Trading (See my screen)",
+      "💹 Trade alongside me in real-time",
+      "🎯 Copy my exact positions",
+      "🗣️ Voice guidance during trades",
+      "📱 Elite WhatsApp (Max 30)",
+      "🔄 Weekly 1-on-1 reviews",
+      "💰 30-day profit guarantee"
     ],
-    exclusiveFeatures: [
-      "Personal mentor mobile number",
-      "Custom strategy for YOUR capital",
-      "Lifetime alumni network",
-      "Emergency trade support"
+    best_for: "Mastery graduates ready to earn",
+    results: "₹50K+ avg monthly profit",
+    exclusive: [
+      "Institutional trading methods from Mastery programs",
+      "Direct hotline for urgent trades",
+      "Lifetime alumni benefits"
     ],
-    stat: "Average: ₹50K profit in first 30 days",
-    guarantee: "Profit in 30 days or money back",
-    scarcity: "27 seats left (Interview required)",
-    highlight: "94% students profitable within 45 days"
+    urgency: "Must complete Mastery program first",
+    requirement: "Entry after Crypto/Footprint Mastery only"
   },
   comparison: {
-    title: "See Exactly What You Get (And What You Don't):",
-    features: [
-      {
-        feature: "Live Trading Sessions",
-        lite: "❌ No access",
-        pro: "👀 Watch only", 
-        max: "🔴 Trade along"
-      },
-      {
-        feature: "Personal Attention",
-        lite: "❌ None",
-        pro: "👥 Group calls",
-        max: "📱 1-on-1 weekly"
-      },
-      {
-        feature: "Trade Alerts",
-        lite: "📧 Daily email",
-        pro: "📱 Telegram delay",
-        max: "💎 Real-time WhatsApp"
-      },
-      {
-        feature: "Support Response",
-        lite: "24-48 hours",
-        pro: "12-24 hours",
-        max: "Instant (direct line)"
-      },
-      {
-        feature: "Money Back Guarantee",
-        lite: "❌ None",
-        pro: "❌ None",
-        max: "✅ 30 days full refund"
-      }
-    ],
-    bottomLine: "The ₹3,000 you save today costs you ₹3,00,000 tomorrow",
-    calculation: {
-      title: "Your First Month Reality:",
-      lite: "Learning basics, no profits yet",
-      pro: "Starting to understand, small gains",
-      max: "Already profitable (avg ₹50K)",
-      note: "These aren't promises - these are averages from 2,347 students"
+    title: "What's The Real Difference?",
+    visual: {
+      basic: "SIGNALS: Get alert → Place trade → Hope it works",
+      standard: "PRO: Watch videos → Try yourself → Make mistakes", 
+      elite: "ELITE: See my screen → Copy exact trades → Bank profits"
+    },
+    bottomLine: "Elite Room = Where Mastery graduates become millionaires",
+    mathCheck: {
+      question: "Why pay ₹21K when signals are ₹5K?",
+      answer: "Because signals make you ₹10K. Elite Room makes you ₹1 Lakh+"
+    },
+    prerequisite: {
+      title: "🚨 IMPORTANT: Elite Room Entry Requirements",
+      requirement: "Must complete Crypto Mastery (₹21K) OR Footprint Mastery (₹21K) first",
+      why: "You need institutional methods before entering live trading room",
+      total: "Total Investment: ₹42K (Mastery + Elite Room) = ₹5L+ yearly profits"
     }
   }
 };
@@ -306,9 +286,9 @@ export const testimonialData = [
     },
     proof: {
       bankStatement: "View my bank statement progression",
-      panCard: "PAN: AHXPC4721K (Verify on ITR)",
-      tradingAccount: "Zerodha ID: RV1247 (₹47L capital now)",
-      whatsapp: "+91-98765-XXXXX (Talk to me directly)"
+      results: "Documented profit screenshots in group",
+      tradingCapital: "Current trading capital: ₹47L+",
+      contact: "Connect after enrollment"
     },
     warning: "I wasted 2 years trying YouTube. Don't repeat my mistake.",
     currentMonthly: "₹1.2L to ₹1.8L (See live P&L)",
@@ -364,7 +344,7 @@ export const guaranteeData = {
     "♾️ LIFETIME ACCESS: Every update, every new strategy, every advanced training - FREE forever.",
     "📜 LEGAL GUARANTEE: Stamped agreement. Take me to court if I don't deliver."
   ],
-  bottomText: "Why can I guarantee this? Because out of 10,487 students, only 3 asked for refunds. That's 0.02%. The system WORKS.",
+  bottomText: "Why can I guarantee this? Because out of 2,347 students, only 3 asked for refunds. That's 0.13%. The system WORKS.",
   urgency: "⚠️ These guarantees valid only for next 27 students"
 };
 
@@ -379,11 +359,11 @@ export const faqData = [
   },
   {
     question: "I work 9-6. How will I manage?",
-    answer: "Perfect! 73% of our profitable traders have jobs. Live session at 12 PM (lunch break). Missed it? Watch recording. Weekend doubt sessions. WhatsApp support 24/7. Designed FOR working professionals BY a working professional."
+    answer: "PERFECT timing! You'll be home by 8 PM for our live session. That's WHY we trade crypto at night - it fits YOUR schedule. 89% of our students have day jobs. Trade 8-11 PM, sleep peacefully, wake up richer."
   },
   {
-    question: "Market is falling. Is this the right time?",
-    answer: "BEST time! We make money in BOTH directions. Last month when Nifty fell 800 points, our students made ₹4.2L collective profit. Bull market, bear market - we eat in every market."
+    question: "Crypto is crashing. Is this the right time?",
+    answer: "BEST time! Crypto crashes = whale accumulation time. We SHORT the crashes, LONG the bottoms. Last week BTC fell 15%? Our students made ₹6.3L combined. Volatility = opportunity."
   },
   {
     question: "How is this different from YouTube/Telegram?",
@@ -394,7 +374,7 @@ export const faqData = [
 export const urgencyData = {
   discount: "₹40,000",
   spotsLeft: 27,
-  enrollmentsToday: 23,
+  enrollmentsToday: 47,
   nextBatchDays: 6,
   viewingNow: 147,
   lastHourJoined: 11,
@@ -414,7 +394,7 @@ export const socialProofData = {
   ],
   cityCount: 147,
   monthlyProfit: "₹10 Crore+",
-  liveViewers: 1247,
+  liveViewers: 2347,
   profitToday: "₹37.4 Lakhs",
   scamsExposed: 47,
   millionairesCreated: 67
@@ -423,38 +403,32 @@ export const socialProofData = {
 export const liveStatsData = {
   viewingNow: 147,
   joinedLastHour: 11,
-  activeTradersOnline: 1247,
+  activeTradersOnline: 2347,
   profitGeneratedToday: "₹37.4 Lakhs",
   spotsFilling: "🔴 3 people on payment page right now"
 };
 
 export const credibilityData = {
-  headline: "Before You Trust Me With Your Money, Verify EVERYTHING",
-  subheadline: "I'm Sidhant Kishor. Here's What 3 Minutes of Googling Will Tell You:",
+  headline: "3 Facts You Can Verify in 60 Seconds",
+  subheadline: "No hype. Just proof.",
   credentials: [
     {
-      title: "My ₹50 Lakh Trading Account",
-      proof: "Zerodha Client ID: RK4721. Call them. Verify my capital. Check my 3-year P&L. +₹2.3 Cr profit.",
+      title: "I Trade With Real Money Daily",
+      proof: "₹50 Lakh capital. 3-year audited P&L: +₹2.3 Cr. Watch me trade LIVE at 12 PM.",
       icon: "🔴",
-      verify: "Verification Hotline: +91-80-4040-2020"
+      verify: "Join tomorrow's session and see"
     },
     {
-      title: "10,487 Student Results",
-      proof: "Audited by PKF Sridhar & Santhanam LLP. Report #2024/TRD/4578. ₹10.2 Cr documented profits.",
+      title: "2,347 Students Making Real Profits",
+      proof: "CA-verified results. ₹10.2 Cr collective profits. Talk to them directly in our open house.",
       icon: "📊",
-      verify: "CA Firm: +91-22-6178-7070 (Ask for Trading Audit)"
+      verify: "Saturday 8 PM open house"
     },
     {
-      title: "My Trading History",
-      proof: "Started 2016. Blew 3 accounts. ₹7.4L total loss. Turned profitable in 2019. Now you benefit from my pain.",
+      title: "Failed Trader Turned Profitable",
+      proof: "Lost ₹7.4L (2016-2019). Now profitable since 2020. I teach what actually works.",
       icon: "📈",
-      verify: "Old loss screenshots: bit.ly/MyLossProof"
-    },
-    {
-      title: "Legal Registrations",
-      proof: "SEBI Registration: INH000012345. GST: 29AABCT1234F1Z5. 37 legal documents. Zero complaints.",
-      icon: "⚖️",
-      verify: "SCORES Portal: Check yourself"
+      verify: "Because I've been where you are"
     }
   ],
   mediaLogos: ["Economic Times", "Business Standard", "CNBC Awaaz", "Zee Business"],
@@ -473,31 +447,16 @@ export const credibilityData = {
     ],
     note: "(Full numbers revealed after enrollment for privacy)"
   },
-  challenges: {
-    title: "My Open Challenges (Nobody Has Accepted)",
-    list: [
-      "₹10 LAKH CHALLENGE: Find any 'guru' who trades LIVE daily with real money. I'll pay you.",
-      "₹5 LAKH CHALLENGE: Show me one student complaint/scam report. Just one.",
-      "₹1 LAKH CHALLENGE: Find better documented results than mine. CA verified only."
-    ],
-    taunt: "7 months. Zero takers. What does that tell you?"
-  },
-  courtCase: {
-    title: "Yes, I Was Taken to Court",
-    story: "A famous 'guru' sued me for exposing his fake screenshots. Case #4572/2023. I won. He paid my legal fees.",
-    document: "Judgment copy: bit.ly/CourtVictory"
-  },
-  bottomLine: "I'm either the most elaborate scammer in history, or exactly what I claim to be. Your 3 minutes of research will reveal which.",
-  finalProof: "My home address: B-204, Sunshine Apartments, Koramangala, Bangalore. Yes, I'm that confident."
+  bottomLine: "Simple: Either this works, or you get your money back. That's how confident I am."
 };
 
 export const finalCtaData = {
   headline: "In 47 Seconds, Your Phone Will Ring. It's Your Future Calling.",
   subheadline: "Will you answer? Or let ₹50K/month slip away... again?",
   urgentAlert: {
-    text: "🚨 BREAKING: Sameer from Hyderabad just joined at 11:47 PM. Seat #24 gone.",
-    seats: "ONLY 3 SEATS LEFT",
-    timer: "Next price increase in: 00:11:47"
+    text: "🚨 BREAKING: Another student just enrolled from Delhi",
+    seats: "ONLY 27 SEATS LEFT",
+    timer: "Price increases tomorrow midnight"
   },
   finalChoice: {
     title: "Two Futures. One Decision. Zero Time.",
@@ -519,7 +478,7 @@ export const finalCtaData = {
     }
   ],
   liveActivity: {
-    title: "🔴 HAPPENING RIGHT NOW (11:47 PM):",
+    title: "🔴 HAPPENING RIGHT NOW:",
     activities: [
       "Priya viewing checkout page for 4:23...",
       "Amit's payment processing...",
@@ -527,7 +486,7 @@ export const finalCtaData = {
       "Support team closing in 13 minutes"
     ]
   },
-  ctaText: "YES! GIVE ME SEAT #24 FOR ₹21,000 →",
+  ctaText: "YES! SECURE MY SEAT FOR ₹21,000 →",
   ctaSubtext: "⚡ Instant WhatsApp group access • First trade TOMORROW 12 PM",
   lastChance: {
     title: "Your Last 3 Excuses (Destroyed):",
@@ -558,7 +517,7 @@ export const finalCtaData = {
   socialProof: {
     title: "While You Read This Paragraph:",
     happenings: [
-      "Someone just claimed seat #25",
+      "Another student just enrolled",
       "Tomorrow they'll profit, you'll regret",
       "Your competition gets stronger",
       "The gap widens"
@@ -568,7 +527,7 @@ export const finalCtaData = {
     title: "ZERO RISK. INFINITE UPSIDE. GUARANTEED.",
     points: [
       "✅ 30-Day 100% Money Back (No questions. No forms. No delays.)",
-      "✅ 90-Day Profit Promise (Don't profit? I trade for you FREE)",
+      "✅ 90-Day Profit Promise (Don't profit? Personal mentorship until you do)",
       "✅ Lifetime Access (Every update. Every strategy. Forever.)",
       "✅ Legal Contract (Take me to court if unsatisfied)"
     ],
@@ -576,7 +535,7 @@ export const finalCtaData = {
   },
   scarcity: {
     genuine: "Why only 50 seats? Screen sharing limits. Broker compliance. Quality > Quantity.",
-    proof: "Last batch filled in 4 hours. 1,847 on waitlist. This is seat #24 of 50.",
+    proof: "Last batch filled in 4 hours. 1,847 on waitlist.",
     final: "No 'extended' offers. No 'just for you' deals. When it's gone, it's gone."
   },
   competitorTrap: {
@@ -590,7 +549,7 @@ export const finalCtaData = {
   },
   ps: {
     title: "P.S. - From One Trader to Another:",
-    message: "I failed for 3 years. Lost ₹7.4L. Wife left. Parents gave up. Then I discovered the 12-12-12 System. Now I drive a BMW, own 3 flats, and help 2,347 others do the same. Your story starts with one click. Make it count.",
+    message: "I failed for 3 years. Lost ₹7.4L. Wife left. Parents gave up. Then I discovered what actually works. Now I drive a BMW, own 3 flats, and help 2,347 others do the same. Your story starts with one click. Make it count.",
     signin: "- Sidhant Kishor, Your Future Mentor"
   }
 };

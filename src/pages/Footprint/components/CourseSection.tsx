@@ -17,6 +17,9 @@ const CourseSection: React.FC = () => {
           
           <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 md:p-8 mb-12 border border-slate-700 shadow-xl animate-on-scroll">
             <p className="text-lg font-bold mb-6 text-white">
+              Everything you've seen so far is just the beginning. Here's your complete roadmap to mastering whale tracking...
+            </p>
+            <p className="text-lg font-bold mb-6 text-white">
               Stop losing money to smart money manipulation. Start reading their footprints and trading alongside them.
             </p>
             

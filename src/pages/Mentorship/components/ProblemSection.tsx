@@ -29,10 +29,31 @@ const ProblemSection: React.FC = () => {
               <span className="text-red-500">{problemData.headline}</span>
             </h2>
             
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-300 italic">
               {problemData.subheadline}
             </p>
           </div>
+
+          {/* Personal Story Box */}
+          <motion.div 
+            className="bg-gradient-to-r from-gray-900 to-black rounded-xl p-6 mb-12 border border-gray-700"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg text-gray-300 mb-4">
+              {problemData.storyBox.confession}
+            </p>
+            <p className="text-lg text-gray-400 mb-4">
+              {problemData.storyBox.turning}
+            </p>
+            {problemData.storyBox.discovery && (
+              <p className="text-lg text-yellow-400 font-semibold">
+                💡 {problemData.storyBox.discovery}
+              </p>
+            )}
+          </motion.div>
 
           <div className="space-y-6">
             {problemData.problems.map((problem, index) => (
@@ -60,14 +81,33 @@ const ProblemSection: React.FC = () => {
             ))}
           </div>
 
+          {/* Contrast Section */}
           <motion.div 
-            className="mt-12 text-center"
+            className="mt-12 bg-gradient-to-r from-green-900/20 to-emerald-900/20 rounded-xl p-6 border border-green-500/30"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <p className="text-2xl font-bold text-green-500 mb-6">
+            <h3 className="text-2xl font-bold text-green-400 mb-4">{problemData.contrast.title}</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {problemData.contrast.points.map((point, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <span className="text-green-500 mt-1">✓</span>
+                  <p className="text-gray-300">{point}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="mt-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xl font-bold text-yellow-400 mb-6">
               {problemData.ctaText}
             </p>
             <motion.div 

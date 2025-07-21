@@ -76,6 +76,9 @@ const DataVisualizationSection: React.FC = () => {
           <p className="text-lg text-slate-300">
             This is what institutions don't want you to see - the actual order flow
           </p>
+          <p className="text-lg text-amber-400 mt-4 italic">
+            Imagine knowing about these orders while others are still sleeping...
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8">

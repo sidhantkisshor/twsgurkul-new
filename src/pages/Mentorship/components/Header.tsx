@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +19,6 @@ const Header: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -40,104 +38,19 @@ const Header: React.FC = () => {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('problem')} 
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Why ETM?
-            </button>
-            <button 
-              onClick={() => scrollToSection('results')} 
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Live Results
-            </button>
-            <button 
-              onClick={() => scrollToSection('pricing')} 
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Pricing
-            </button>
-            <button 
-              onClick={() => scrollToSection('testimonials')} 
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Success Stories
-            </button>
-            <button 
-              onClick={() => scrollToSection('faq')} 
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              FAQ
-            </button>
-          </nav>
-
-          <div className="hidden md:block">
+          <div className="flex items-center gap-4">
+            <span className="hidden md:block text-sm text-gray-300">
+              For Crypto Traders Only
+            </span>
             <button 
               onClick={() => scrollToSection('pricing')}
-              className="px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-green-500/25 transition-all transform hover:scale-105"
+              className="px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-green-500/25 transition-all transform hover:scale-105 animate-pulse"
             >
-              Start Today
+              Join ETM MAX
             </button>
           </div>
-
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </div>
-
-      {isMobileMenuOpen && (
-        <motion.div 
-          className="md:hidden bg-black/95 backdrop-blur-lg"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-        >
-          <nav className="px-4 py-4 space-y-4">
-            <button 
-              onClick={() => scrollToSection('problem')} 
-              className="block w-full text-left text-gray-300 hover:text-white transition-colors py-2"
-            >
-              Why ETM?
-            </button>
-            <button 
-              onClick={() => scrollToSection('results')} 
-              className="block w-full text-left text-gray-300 hover:text-white transition-colors py-2"
-            >
-              Live Results
-            </button>
-            <button 
-              onClick={() => scrollToSection('pricing')} 
-              className="block w-full text-left text-gray-300 hover:text-white transition-colors py-2"
-            >
-              Pricing
-            </button>
-            <button 
-              onClick={() => scrollToSection('testimonials')} 
-              className="block w-full text-left text-gray-300 hover:text-white transition-colors py-2"
-            >
-              Success Stories
-            </button>
-            <button 
-              onClick={() => scrollToSection('faq')} 
-              className="block w-full text-left text-gray-300 hover:text-white transition-colors py-2"
-            >
-              FAQ
-            </button>
-            <button 
-              onClick={() => scrollToSection('pricing')}
-              className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-full"
-            >
-              Start Today
-            </button>
-          </nav>
-        </motion.div>
-      )}
     </motion.header>
   );
 };

@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               TWS Gurukul - Elite Trading Mentorship
             </h3>
             <p className="text-gray-400">
-              Transforming traders since 2020 | 200+ profitable students and counting
+              Transforming traders since 2020 | 2,347 profitable students and counting
             </p>
           </motion.div>
 

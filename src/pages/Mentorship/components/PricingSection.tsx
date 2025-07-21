@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, X, Star, Zap, CreditCard, Crown, Timer } from 'lucide-react';
+import { Check, X, Crown, ArrowRight, Users, TrendingUp } from 'lucide-react';
 import { pricingData, urgencyData } from '../data';
 
 const PricingSection: React.FC = () => {
@@ -21,302 +21,187 @@ const PricingSection: React.FC = () => {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
-              Choose Your Path to ₹50K+ Monthly
+              Choose Your Profit Path
             </span>
           </h2>
-          <p className="text-xl text-gray-300 mb-6">
+          <p className="text-xl text-gray-300 mb-2">
             {pricingData.comparison.title}
           </p>
-          {/* Feature Comparison Table */}
-          {pricingData.comparison.features && (
-            <div className="max-w-4xl mx-auto mb-8">
-              <div className="bg-gray-900/50 rounded-lg overflow-x-auto">
-                <table className="w-full min-w-[500px]">
-                  <thead>
-                    <tr className="border-b border-gray-700">
-                      <th className="text-left p-3 sm:p-4 text-gray-400 text-sm sm:text-base">Feature</th>
-                      <th className="text-center p-3 sm:p-4 text-blue-400 text-sm sm:text-base">LITE</th>
-                      <th className="text-center p-3 sm:p-4 text-orange-400 text-sm sm:text-base">PRO</th>
-                      <th className="text-center p-3 sm:p-4 text-green-400 text-sm sm:text-base">MAX</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {pricingData.comparison.features.map((item, index) => (
-                      <tr key={index} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
-                        <td className="p-3 sm:p-4 text-gray-300 font-medium text-sm sm:text-base">{item.feature}</td>
-                        <td className="p-3 sm:p-4 text-center text-xs sm:text-sm">{item.lite}</td>
-                        <td className="p-3 sm:p-4 text-center text-xs sm:text-sm">{item.pro}</td>
-                        <td className="p-3 sm:p-4 text-center text-xs sm:text-sm font-semibold text-green-300">{item.max}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="text-center text-yellow-400 font-bold mt-4 text-lg">
-                {pricingData.comparison.bottomLine}
-              </p>
-            </div>
-          )}
-          {pricingData.comparison.calculation && (
-            <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-6 max-w-2xl mx-auto border border-gray-700">
-              <h4 className="text-lg font-bold text-white mb-4">{pricingData.comparison.calculation.title}</h4>
-              <div className="space-y-3">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <p className="text-blue-400 font-semibold mb-2">LITE</p>
-                    <p className="text-sm text-gray-300">{pricingData.comparison.calculation.lite}</p>
-                  </div>
-                  <div>
-                    <p className="text-orange-400 font-semibold mb-2">PRO</p>
-                    <p className="text-sm text-gray-300">{pricingData.comparison.calculation.pro}</p>
-                  </div>
-                  <div>
-                    <p className="text-green-400 font-semibold mb-2">MAX</p>
-                    <p className="text-sm text-green-300 font-semibold">{pricingData.comparison.calculation.max}</p>
-                  </div>
-                </div>
-                {pricingData.comparison.calculation.note && (
-                  <p className="text-sm text-gray-400 text-center mt-3 italic">{pricingData.comparison.calculation.note}</p>
-                )}
-              </div>
-            </div>
-          )}
-          <p className="text-yellow-400 font-semibold mt-4 flex items-center justify-center gap-2">
-            <Timer className="animate-pulse" size={20} />
-            {pricingData.max.scarcity}
+          <p className="text-yellow-400 font-semibold">
+            {pricingData.comparison.bottomLine}
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {/* Lite Plan */}
+        <div className="max-w-5xl mx-auto">
+          {/* Main ETM MAX Focus */}
           <motion.div 
-            className="relative"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            {pricingData.lite.badge && (
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                <div className="bg-blue-600 text-white px-4 py-1 rounded-full font-bold text-sm">
-                  {pricingData.lite.badge}
-                </div>
-              </div>
-            )}
-            
-            <div className="glass-effect rounded-2xl p-6 border border-blue-500/30 h-full relative overflow-hidden">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-blue-400 mb-2">{pricingData.lite.name}</h3>
-                <div className="text-3xl font-bold text-white mb-1">{pricingData.lite.price}</div>
-                <p className="text-sm text-gray-400">{pricingData.lite.duration}</p>
-                <p className="text-gray-300 mt-2">{pricingData.lite.description}</p>
-                <p className="text-sm text-blue-400 mt-2">{pricingData.lite.subtitle}</p>
-              </div>
-              
-              <ul className="space-y-3 mb-8">
-                {pricingData.lite.features.map((feature, index) => {
-                  const isNegative = feature.startsWith('❌');
-                  return (
-                    <li key={index} className={`flex items-start gap-2 text-sm ${isNegative ? 'text-gray-500' : 'text-gray-300'}`}>
-                      {!isNegative && <Check className="text-green-500 mt-0.5 flex-shrink-0" size={16} />}
-                      <span>{feature.replace('✅ ', '').replace('❌ ', '')}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-              
-              <div className="space-y-2 mb-4">
-                <p className="text-red-400 text-sm text-center">
-                  ⚠️ {pricingData.lite.limitation}
-                </p>
-                {pricingData.lite.highlight && (
-                  <p className="text-green-400 text-sm font-semibold text-center">
-                    📊 {pricingData.lite.highlight}
-                  </p>
-                )}
-              </div>
-              
-              <button 
-                onClick={() => handleEnroll('lite')}
-                className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Start with Lite
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Pro Plan - Decoy */}
-          <motion.div 
-            className="relative"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            {pricingData.lite.badge && (
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                <div className="bg-blue-600 text-white px-4 py-1 rounded-full font-bold text-sm">
-                  {pricingData.lite.badge}
-                </div>
-              </div>
-            )}
-            
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-              <div className="bg-orange-600 text-white px-4 py-1 rounded-full font-bold text-sm">
-                {pricingData.pro.badge}
-              </div>
-            </div>
-            
-            <div className="glass-effect rounded-2xl p-6 border border-orange-600/50 h-full relative overflow-hidden">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-orange-400 mb-2">{pricingData.pro.name}</h3>
-                <div className="text-3xl font-bold text-white mb-1">{pricingData.pro.price}</div>
-                <p className="text-sm text-gray-400">{pricingData.pro.duration}</p>
-                <p className="text-white mt-2">{pricingData.pro.description}</p>
-                <p className="text-sm text-yellow-400 mt-2">({pricingData.pro.subtitle})</p>
-              </div>
-              
-              <ul className="space-y-3 mb-8">
-                {pricingData.pro.features.map((feature, index) => {
-                  const isNegative = feature.startsWith('❌');
-                  return (
-                    <li key={index} className={`flex items-start gap-2 text-sm ${isNegative ? 'text-gray-500' : 'text-gray-300'}`}>
-                      {!isNegative && <Check className="text-blue-400 mt-0.5 flex-shrink-0" size={16} />}
-                      <span>{feature.replace('✅ ', '').replace('❌ ', '')}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-              
-              <div className="space-y-2 mb-4">
-                <p className="text-orange-400 text-sm text-center">
-                  ⚡ {pricingData.pro.limitation}
-                </p>
-                {pricingData.pro.highlight && (
-                  <p className="text-green-400 text-sm font-semibold text-center">
-                    📊 {pricingData.pro.highlight}
-                  </p>
-                )}
-                {pricingData.pro.comparison && (
-                  <p className="text-green-400 text-sm text-center">
-                    💰 {pricingData.pro.comparison}
-                  </p>
-                )}
-              </div>
-              
-              <button 
-                onClick={() => handleEnroll('pro')}
-                className="w-full py-3 bg-orange-600 text-white rounded-lg font-semibold hover:bg-orange-700 transition-colors"
-              >
-                Choose Pro
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Max Plan - Target */}
-          <motion.div 
-            className="relative transform lg:scale-105"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="mb-8"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-              <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-2 rounded-full font-bold text-sm flex items-center gap-2 animate-pulse">
-                <Crown size={16} />
-                {pricingData.max.badge}
-              </div>
-            </div>
-            
-            <div className="glass-effect rounded-2xl p-6 border-2 border-green-500 h-full relative overflow-hidden shadow-2xl shadow-green-500/20">
+            <div className="glass-effect rounded-2xl p-8 border-2 border-green-500 relative overflow-hidden shadow-2xl shadow-green-500/20">
               <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full filter blur-3xl"></div>
               
-              <div className="absolute top-4 right-4">
-                <Star className="text-yellow-500 fill-current animate-pulse" size={28} />
-              </div>
-              
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-green-500 mb-2">{pricingData.max.name}</h3>
-                <div className="flex items-baseline justify-center gap-3 mb-1">
-                  <span className="text-xl text-gray-500 line-through">{pricingData.max.originalPrice}</span>
-                  <span className="text-4xl font-bold text-white">{pricingData.max.salePrice}</span>
-                </div>
-                <div className="inline-block bg-red-500/20 text-red-500 px-3 py-1 rounded-full text-sm font-semibold mb-2">
-                  Save {pricingData.max.savings}
+                <h3 className="text-3xl font-bold text-green-500 mb-2">{pricingData.max.name}</h3>
+                <div className="flex items-baseline justify-center gap-3 mb-2">
+                  <span className="text-lg text-gray-500 line-through">{pricingData.max.originalPrice}</span>
+                  <span className="text-5xl font-bold text-white">{pricingData.max.salePrice}</span>
                 </div>
                 <p className="text-sm text-gray-400">{pricingData.max.duration}</p>
-                <p className="text-white font-semibold mt-2">{pricingData.max.description}</p>
-                <p className="text-sm text-green-400 mt-2">({pricingData.max.subtitle})</p>
+                <p className="text-yellow-400 font-semibold mt-2">{pricingData.max.urgency}</p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-lg p-4 mb-6 border border-red-500/50">
+                <p className="text-white font-bold text-center mb-2">
+                  ⚠️ {pricingData.max.requirement}
+                </p>
+                <p className="text-gray-300 text-center text-sm">
+                  Total Investment: ₹42K (Mastery + ETM MAX) = ₹5L+ yearly profits
+                </p>
               </div>
               
               <ul className="space-y-2 mb-6">
-                {pricingData.max.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm text-white">
-                    <Check className="text-green-500 mt-0.5 flex-shrink-0" size={16} />
-                    <span className="font-medium">{feature.replace('✅ ', '')}</span>
+                {pricingData.max.features.slice(1).map((feature, index) => (
+                  <li key={index} className="flex items-start gap-2 text-white">
+                    <Check className="text-green-500 mt-0.5 flex-shrink-0" size={20} />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-
-              {/* Exclusive Features */}
-              {pricingData.max.exclusiveFeatures && (
-                <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-lg p-4 mb-6 border border-green-500/30">
-                  <p className="text-center text-green-400 font-bold mb-2">🌟 MAX ONLY BENEFITS:</p>
-                  <ul className="space-y-1">
-                    {pricingData.max.exclusiveFeatures.map((feature, index) => (
-                      <li key={index} className="text-sm text-gray-300 text-center">• {feature}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              
-              <div className="space-y-2 mb-4">
-                <p className="text-center text-green-400 font-bold text-sm">
-                  {pricingData.max.stat}
-                </p>
-                <p className="text-center text-red-400 font-bold text-sm">
-                  {pricingData.max.scarcity}
-                </p>
-                {pricingData.max.highlight && (
-                  <p className="text-center text-emerald-400 font-bold text-sm">
-                    🏆 {pricingData.max.highlight}
-                  </p>
-                )}
-              </div>
               
               <button 
                 onClick={() => handleEnroll('max')}
-                className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-green-500/50 transition-all transform hover:scale-105 animate-pulse"
+                className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-bold text-xl hover:shadow-lg hover:shadow-green-500/50 transition-all transform hover:scale-105 group"
               >
-                SECURE MAX - SAVE ₹28,999
+                <span className="flex items-center justify-center gap-2">
+                  SECURE ETM MAX ACCESS NOW
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" size={24} />
+                </span>
               </button>
               
-              <div className="mt-4 space-y-2">
-                <p className="text-center text-sm text-green-400 font-semibold">
-                  {pricingData.max.guarantee}
-                </p>
-                <p className="text-center text-sm text-gray-400 flex items-center justify-center gap-2">
-                  <CreditCard size={16} />
-                  EMI: ₹2,333/month (9 months)
-                </p>
+              <div className="mt-4 text-center">
+                <p className="text-green-400 font-semibold">✓ 30-Day Refund • ✓ 90-Day Profit Guarantee</p>
               </div>
             </div>
           </motion.div>
+
+          {/* Other Options Grid */}
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* ETM LITE */}
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="glass-effect rounded-xl p-4 border border-gray-600 h-full opacity-80 hover:opacity-100 transition-opacity">
+                <div className="text-center mb-4">
+                  <h3 className="text-lg font-bold text-gray-400">{pricingData.lite.name}</h3>
+                  <div className="text-2xl font-bold text-white">{pricingData.lite.price}<span className="text-sm">{pricingData.lite.duration}</span></div>
+                </div>
+                
+                <p className="text-xs text-gray-400 text-center mb-4">{pricingData.lite.best_for}</p>
+                <p className="text-xs text-red-400 text-center italic mb-4">{pricingData.lite.limitation}</p>
+                
+                <button 
+                  onClick={() => handleEnroll('lite')}
+                  className="w-full py-2 bg-gray-700 text-white rounded-lg text-sm hover:bg-gray-600 transition-colors"
+                >
+                  Get Signals Only
+                </button>
+              </div>
+            </motion.div>
+
+            {/* ETM PROFESSIONAL - Decoy */}
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                <div className="bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  POPULAR
+                </div>
+              </div>
+              
+              <div className="glass-effect rounded-xl p-4 border border-orange-600/50 h-full">
+                <div className="text-center mb-4">
+                  <h3 className="text-lg font-bold text-orange-400">{pricingData.pro.name}</h3>
+                  <div className="text-2xl font-bold text-white">{pricingData.pro.price}</div>
+                </div>
+                
+                <p className="text-xs text-yellow-400 text-center mb-2">⚠️ {pricingData.pro.limitation}</p>
+                <p className="text-xs text-red-400 text-center font-semibold mb-4">{pricingData.pro.comparison}</p>
+                
+                <button 
+                  onClick={() => handleEnroll('pro')}
+                  className="w-full py-2 bg-orange-600 text-white rounded-lg text-sm hover:bg-orange-700 transition-colors"
+                >
+                  Choose Professional
+                </button>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Bottom comparison note */}
+        {/* Visual Comparison */}
         <motion.div 
-          className="text-center mt-12"
+          className="text-center mt-12 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl text-yellow-400 font-bold">
-            💡 {pricingData.comparison.bottomLine}
-          </p>
-          <p className="text-gray-400 mt-2">
-            {urgencyData.spotsLeft} MAX seats remaining • {urgencyData.lastHourJoined} people joined in last hour
+          <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-6 border border-gray-700 mb-6">
+            <h3 className="text-lg font-bold text-white mb-4">{pricingData.comparison.title}</h3>
+            <div className="grid md:grid-cols-3 gap-4 text-sm mb-6">
+              <div className="text-left">
+                <p className="text-gray-400">{pricingData.comparison.visual.basic}</p>
+              </div>
+              <div className="text-left">
+                <p className="text-gray-400">{pricingData.comparison.visual.standard}</p>
+              </div>
+              <div className="text-left">
+                <p className="text-green-400 font-bold">{pricingData.comparison.visual.elite}</p>
+              </div>
+            </div>
+            <div className="pt-4 border-t border-gray-700">
+              <p className="text-yellow-400 font-bold">
+                {pricingData.comparison.mathCheck.question}
+              </p>
+              <p className="text-gray-300">
+                {pricingData.comparison.mathCheck.answer}
+              </p>
+            </div>
+          </div>
+
+          {/* Prerequisite Box */}
+          {pricingData.comparison.prerequisite && (
+            <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-lg p-6 border border-red-500/50 mb-4">
+              <h3 className="text-lg font-bold text-red-400 mb-2">
+                {pricingData.comparison.prerequisite.title}
+              </h3>
+              <p className="text-white font-semibold mb-2">
+                {pricingData.comparison.prerequisite.requirement}
+              </p>
+              <p className="text-gray-300 text-sm mb-2">
+                {pricingData.comparison.prerequisite.why}
+              </p>
+              <p className="text-green-400 font-bold">
+                {pricingData.comparison.prerequisite.total}
+              </p>
+            </div>
+          )}
+          
+          <p className="text-gray-400">
+            <span className="text-green-400 font-semibold">{urgencyData.enrollmentsToday} people</span> chose Elite today • 
+            Only <span className="text-red-400 font-semibold">{urgencyData.spotsLeft} seats</span> remaining
           </p>
         </motion.div>
       </div>
