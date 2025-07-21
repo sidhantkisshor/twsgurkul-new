@@ -12,7 +12,7 @@ const FaqSection: React.FC = () => {
       question: "Is this legal? It sounds too good to be true...",
       answer: (
         <>
-          100% legal but exchanges HATE it. We use publicly available order book data that whales can't hide. Binance already banned 2 similar services. That's why we're limiting to 50 people - once they shut us down, it's over. <span className="text-red-400 font-bold">Join now or lose this forever.</span>
+          100% legal but exchanges HATE it. We use publicly available order book data that whales can't hide. Binance already removed 2 similar services. That's why we're limiting to 50 people - once they shut us down, it's over. <span className="text-red-400 font-bold">Join now or lose this forever.</span>
         </>
       )
     },

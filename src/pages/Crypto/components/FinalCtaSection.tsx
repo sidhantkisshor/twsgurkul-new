@@ -4,7 +4,7 @@ import { ArrowRight, Clock, Shield, TrendingUp, AlertTriangle, Bitcoin, Zap } fr
 
 const FinalCtaSection: React.FC = () => {
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 via-slate-900 to-black relative overflow-hidden">
+        <section id="final-cta" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 via-slate-900 to-black relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-orange-500/5 pointer-events-none"></div>
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>

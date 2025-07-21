@@ -83,8 +83,8 @@ function FootprintPage() {
         <DataVisualizationSection />
         <TransformationSection />
         <BenefitsSection />
-        <TestimonialsSection />
         <CourseSection />
+        <TestimonialsSection />
         <PricingSection />
         <FaqSection />
         </main>

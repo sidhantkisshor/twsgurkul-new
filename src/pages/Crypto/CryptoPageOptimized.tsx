@@ -1,30 +1,21 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState } from 'react';
 import Seo from '../../components/Seo';
 
-// Core components loaded immediately
+// Core components only - reduced from 19 to 10
 import ErrorBoundary from './components/ErrorBoundary';
 import AnnouncementBar from './components/AnnouncementBar';
-import HeaderMinimal from './components/HeaderMinimal';
 import HeroSection from './components/HeroSection';
 import ProblemSection from './components/ProblemSection';
 import UniqueMechanismSection from './components/UniqueMechanismSection';
-import InstructorSectionSimplified from './components/InstructorSectionSimplified';
 import TestimonialsSection from './components/TestimonialsSection';
-import PricingSection from './components/PricingSection';
 import CryptoGuaranteeSection from './components/CryptoGuaranteeSection';
 import FinalCtaSection from './components/FinalCtaSection';
 import ExitIntentPopup from './components/ExitIntentPopup';
 
-// Lazy load secondary components for performance
-const TrustBadgesBar = lazy(() => import('./components/TrustBadgesBar'));
-const CryptoSuccessStats = lazy(() => import('./components/CryptoSuccessStats'));
-const FAQ = lazy(() => import('./components/FAQ'));
-
-// Hooks
 import { useCountdown } from './hooks/useCountdown';
 import { useExitIntent } from './hooks/useExitIntent';
 
-function CryptoPage() {
+function CryptoPageOptimized() {
   const [isPlaying, setIsPlaying] = useState(false);
   const timeLeft = useCountdown();
   const { showExitPopup, setShowExitPopup } = useExitIntent();
@@ -37,50 +28,38 @@ function CryptoPage() {
           description="Navigate the volatile crypto markets like a pro. Learn our proven strategies to master crypto trading and achieve financial freedom."
         />
         
-        {/* Minimal header without navigation for conversion focus */}
-        <HeaderMinimal />
+        {/* Removed Header with navigation - landing pages should not have navigation */}
+        {/* Removed FloatingTrustIndicators - reduces cognitive load */}
         
         <AnnouncementBar timeLeft={timeLeft} />
         
-        <main className="pt-16">
-          {/* Core conversion flow: 8 sections instead of 19 */}
+        <main>
+          {/* Core conversion flow: Hook → Problem → Solution → Proof → Guarantee → CTA */}
           <HeroSection 
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
           />
           
-          {/* Trust indicators loaded after hero for performance */}
-          <Suspense fallback={<div className="h-20" />}>
-            <TrustBadgesBar />
-          </Suspense>
+          {/* Removed LiveMarketTicker, TrustBadgesBar, ProfitCounter - too many distractions */}
           
           <ProblemSection />
           
           <UniqueMechanismSection />
           
-          {/* Success stats lazy loaded */}
-          <Suspense fallback={<div className="h-40" />}>
-            <CryptoSuccessStats />
-          </Suspense>
-          
-          <InstructorSectionSimplified />
+          {/* Removed multiple sections: WhyCrypto, SuccessStats, TradingChart, Portfolio, 
+              Credibility, Instructor, Curriculum, FAQ - consolidated into core sections */}
           
           <TestimonialsSection />
           
-          <PricingSection />
+          {/* Removed CtaSection - using only FinalCtaSection for single CTA focus */}
           
           <CryptoGuaranteeSection />
           
-          {/* FAQ lazy loaded as it's below the fold */}
-          <Suspense fallback={<div className="h-40" />}>
-            <FAQ />
-          </Suspense>
-          
-          {/* Single final CTA - removed duplicate CtaSection */}
           <FinalCtaSection />
         </main>
         
-        {/* Exit intent popup for recovery */}
+        {/* Removed Footer - not needed on landing page */}
+        
         <ExitIntentPopup 
           isOpen={showExitPopup}
           onClose={() => setShowExitPopup(false)}
@@ -90,4 +69,4 @@ function CryptoPage() {
   );
 }
 
-export default CryptoPage; 
+export default CryptoPageOptimized;
