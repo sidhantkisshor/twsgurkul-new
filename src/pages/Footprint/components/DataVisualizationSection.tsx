@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Activity, TrendingUp, TrendingDown, BarChart3 } from 'lucide-react';
+import { Activity, TrendingUp, BarChart3 } from 'lucide-react';
 
 const DataVisualizationSection: React.FC = () => {
   // Simulate live order flow data

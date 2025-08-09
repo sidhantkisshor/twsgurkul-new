@@ -17,10 +17,10 @@ const WhyCryptoSection: React.FC = () => {
                 >
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
                         "My FD Gave 7% in 1 Year...
-                        <span className="text-yellow-400"> My Crypto Gave 73% in 1 Month"</span>
+                        <span className="text-yellow-400"> My Crypto Portfolio Grew 73% in 1 Month"</span>
                     </h2>
                     <p className="text-base sm:text-lg text-slate-300">
-                        — Priya Sharma, 28, Bangalore (Started with just ₹25,000)
+                        — Priya Sharma*, 28, Bangalore (Individual results may vary)
                     </p>
                 </motion.div>
                 <div className="grid md:grid-cols-2 gap-4 sm:gap-6">

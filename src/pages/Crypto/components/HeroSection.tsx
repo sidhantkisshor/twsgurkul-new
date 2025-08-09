@@ -81,16 +81,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({ handleSmoothScroll, isPlaying
                         </div>
 
 
-                        <div className="flex">
+                        <div className="hidden sm:flex flex-row gap-2 sm:gap-3">
                             <motion.button
-                                onClick={(e) => handleSmoothScroll(e, 'get-started')}
-                                className="group relative w-full xs:w-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold rounded-full overflow-hidden shadow-lg shadow-yellow-500/25 text-sm sm:text-base lg:text-lg transition-all"
+                                onClick={(e) => handleSmoothScroll(e, 'testimonials')}
+                                className="group relative flex-1 sm:flex-initial px-3 sm:px-6 lg:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold rounded-full overflow-hidden shadow-lg shadow-yellow-500/25 text-xs sm:text-base lg:text-lg transition-all whitespace-nowrap"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
-                                <span className="relative z-10 flex items-center justify-center space-x-2">
+                                <span className="relative z-10 flex items-center justify-center space-x-1 sm:space-x-2">
                                     <span>{cta.primary}</span>
-                                    <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" />
+                                </span>
+                            </motion.button>
+                            <motion.button
+                                onClick={(e) => handleSmoothScroll(e, 'get-started')}
+                                className="group relative flex-1 sm:flex-initial px-3 sm:px-6 lg:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-full overflow-hidden shadow-lg shadow-green-500/25 text-xs sm:text-base lg:text-lg transition-all whitespace-nowrap"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                            >
+                                <span className="relative z-10 flex items-center justify-center space-x-1 sm:space-x-2">
+                                    <span>{cta.secondary}</span>
+                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" />
                                 </span>
                             </motion.button>
                         </div>

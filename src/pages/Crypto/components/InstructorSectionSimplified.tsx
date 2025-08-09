@@ -43,13 +43,13 @@ const InstructorSectionSimplified: React.FC = () => {
                 >
                     <div>
                         <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-                            <span className="text-white">Why Learn From</span>{' '}
+                            <span className="text-white">Meet Sidhant —</span>{' '}
                             <span className="bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent">
-                                Sidhant?
+                                TEDx speaker, IIT/NIT guest faculty, trading since 2017
                             </span>
                         </h2>
                         <p className="text-lg text-slate-300">
-                            From losing ₹80,000 to building a ₹2.5 Cr+ portfolio. I've been where you are, and I know exactly how to get you where you want to be.
+                            Recorded program + monthly live Q&A. Process, risk, and practice over hype.
                         </p>
                     </div>
                     
@@ -80,7 +80,7 @@ const InstructorSectionSimplified: React.FC = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                     >
-                        <span>Learn My Exact Strategy</span>
+                        <span>What I teach inside</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </motion.button>
                 </motion.div>

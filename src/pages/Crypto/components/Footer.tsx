@@ -4,6 +4,12 @@ const Footer: React.FC = () => {
     return (
         <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-slate-900/80 to-slate-950/80 border-t border-slate-800">
             <div className="max-w-6xl mx-auto text-center text-slate-400 text-sm">
+                <div className="mb-4 p-3 bg-slate-800/50 rounded-lg border border-slate-700/50">
+                    <p className="text-xs text-yellow-400/80 font-medium">
+                        ⚠️ IMPORTANT DISCLAIMER: Education only, not investment advice. 
+                        Cryptocurrency trading carries substantial risk. Past performance doesn't guarantee future results.
+                    </p>
+                </div>
                 <p className="mb-2">Copyright © {new Date().getFullYear()} Trading With Sidhant. All Rights Reserved.</p>
                 <p className="text-xs text-slate-500">
                     This site is for educational purposes only. Cryptocurrency trading is subject to market risk.

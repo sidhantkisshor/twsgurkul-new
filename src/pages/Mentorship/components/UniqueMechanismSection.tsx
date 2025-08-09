@@ -1,152 +1,193 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Target, TrendingUp, AlertCircle } from 'lucide-react';
-import { uniqueMechanismData, liveResultsData } from '../data';
+import { ArrowRight, Activity, Eye, TrendingUp } from 'lucide-react';
 
 const UniqueMechanismSection: React.FC = () => {
-  return (
-    <section className="py-20 relative bg-gradient-to-b from-black via-gray-900 to-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              {uniqueMechanismData.headline}
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300">
-            {uniqueMechanismData.subheadline}
-          </p>
-        </motion.div>
+  const [activeStep, setActiveStep] = useState(1);
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-          {uniqueMechanismData.features.map((feature, index) => (
-            <motion.div 
-              key={index}
-              className="text-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+  const steps = [
+    {
+      id: 1,
+      time: "7:45 PM",
+      title: "Observe",
+      description: "Track institutional wallet movements",
+      icon: <Eye className="w-5 h-5" />
+    },
+    {
+      id: 2,
+      time: "8:00 PM",
+      title: "Follow",
+      description: "Mirror professional positions",
+      icon: <Activity className="w-5 h-5" />
+    },
+    {
+      id: 3,
+      time: "11:00 PM",
+      title: "Profit",
+      description: "Exit with consistent gains",
+      icon: <TrendingUp className="w-5 h-5" />
+    }
+  ];
+
+  return (
+    <section className="py-32 relative overflow-hidden bg-white">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <motion.div 
+            className="text-center mb-24"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+              The whale advantage
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+              While others guess, we follow those who know.
+            </p>
+          </motion.div>
+
+          {/* Visual representation */}
+          <div className="max-w-4xl mx-auto mb-32">
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <div className="glass-effect rounded-2xl p-8 h-full hover:scale-105 transition-transform">
-                <div className="text-6xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent mb-4">
-                  {feature.number}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-300">
-                  {feature.description}
-                </p>
+              {/* Connection line */}
+              <div className="absolute top-1/2 left-0 right-0 h-px bg-gray-200 -translate-y-1/2" />
+              
+              {/* Steps */}
+              <div className="relative grid grid-cols-3 gap-8">
+                {steps.map((step, index) => (
+                  <motion.div
+                    key={step.id}
+                    className="relative"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    onMouseEnter={() => setActiveStep(step.id)}
+                  >
+                    <div className="text-center">
+                      {/* Circle */}
+                      <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                        activeStep === step.id 
+                          ? 'bg-gray-900 text-white' 
+                          : 'bg-gray-100 text-gray-600'
+                      }`}>
+                        {step.icon}
+                      </div>
+                      
+                      {/* Time */}
+                      <p className="text-sm text-gray-500 mb-2">{step.time}</p>
+                      
+                      {/* Title */}
+                      <h3 className={`text-xl font-normal mb-2 transition-colors duration-300 ${
+                        activeStep === step.id ? 'text-gray-900' : 'text-gray-600'
+                      }`}>
+                        {step.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-sm text-gray-500 font-light">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
-          ))}
-        </div>
+          </div>
 
-        {/* Visual Flow Diagram */}
-        <motion.div 
-          className="max-w-4xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-center mb-8 text-white">
-            How The System Works
-          </h3>
-          <div className="glass-effect rounded-2xl p-8 bg-gradient-to-br from-green-500/5 to-emerald-600/5">
-            <div className="grid md:grid-cols-3 gap-4 items-center">
-              <div className="text-center">
-                <div className="bg-green-500/20 rounded-full p-6 inline-block mb-4">
-                  <Clock className="text-green-400" size={48} />
+          {/* Key insight */}
+          <motion.div
+            className="max-w-3xl mx-auto text-center mb-32"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gray-50 rounded-3xl p-12">
+              <h3 className="text-2xl font-light text-gray-900 mb-6">
+                Why this works
+              </h3>
+              <div className="space-y-6 text-left">
+                <div className="flex gap-4">
+                  <div className="w-px bg-gray-300 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-normal text-gray-900 mb-2">Information asymmetry</h4>
+                    <p className="text-sm text-gray-600 font-light">
+                      Institutional traders have access to data, analysis, and capital 
+                      that retail traders don't. Following their moves levels the playing field.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="font-bold text-lg text-white mb-2">STEP 1: Join at 8 PM</h4>
-                <p className="text-sm text-gray-400">Track whale wallets LIVE with me</p>
-              </div>
-              
-              <div className="hidden md:flex items-center justify-center">
-                <ArrowRight className="text-green-400" size={32} />
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-emerald-500/20 rounded-full p-6 inline-block mb-4">
-                  <Target className="text-emerald-400" size={48} />
+                <div className="flex gap-4">
+                  <div className="w-px bg-gray-300 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-normal text-gray-900 mb-2">Market impact</h4>
+                    <p className="text-sm text-gray-600 font-light">
+                      When whales move, markets follow. By identifying their positions early, 
+                      we position ourselves before the inevitable price movement.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="font-bold text-lg text-white mb-2">STEP 2: Follow Whale Moves</h4>
-                <p className="text-sm text-gray-400">See exactly what $10M+ wallets are buying</p>
-              </div>
-              
-              <div className="hidden md:flex items-center justify-center">
-                <ArrowRight className="text-emerald-400" size={32} />
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-yellow-500/20 rounded-full p-6 inline-block mb-4">
-                  <TrendingUp className="text-yellow-400" size={48} />
+                <div className="flex gap-4">
+                  <div className="w-px bg-gray-300 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-normal text-gray-900 mb-2">Risk management</h4>
+                    <p className="text-sm text-gray-600 font-light">
+                      Professionals don't gamble. Their calculated positions, backed by 
+                      thorough analysis, offer a safer path to consistent profits.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="font-bold text-lg text-white mb-2">STEP 3: Profit Before Sleep</h4>
-                <p className="text-sm text-gray-400">Close trades by 11 PM with 5-15% gains</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Live proof */}
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-sm text-gray-400 text-center mb-8">Last 24 hours</p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 rounded-2xl p-8 text-center">
+                <p className="text-sm text-gray-500 mb-2">Whale positions tracked</p>
+                <p className="text-3xl font-light text-gray-900">47</p>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-8 text-center">
+                <p className="text-sm text-gray-500 mb-2">Successful trades</p>
+                <p className="text-3xl font-light text-gray-900">42</p>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-8 text-center">
+                <p className="text-sm text-gray-500 mb-2">Average return</p>
+                <p className="text-3xl font-light text-gray-900">+8.7%</p>
               </div>
             </div>
             
-            <div className="mt-8 text-center">
-              <div className="inline-block bg-gradient-to-r from-green-500/20 to-emerald-600/20 rounded-full px-6 py-3">
-                <p className="text-green-400 font-semibold">
-                  Average Time to First Profit: <span className="text-white">72 Hours</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Live Results Preview */}
-        <motion.div 
-          className="max-w-4xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 rounded-xl p-6 border border-red-500/30">
-            <div className="flex items-center gap-2 mb-4">
-              <AlertCircle className="text-red-500 animate-pulse" size={24} />
-              <h3 className="text-xl font-bold text-white">Last Night's Results (8 PM Session)</h3>
-            </div>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-black/40 rounded-lg p-4">
-                <p className="text-green-400 font-bold mb-2">✅ Priya R. - ₹18,750 profit</p>
-                <p className="text-sm text-gray-400">BNB entry at 8:15 PM, closed 9:47 PM</p>
-              </div>
-              <div className="bg-black/40 rounded-lg p-4">
-                <p className="text-green-400 font-bold mb-2">✅ Rajesh M. - ₹47,300 profit</p>
-                <p className="text-sm text-gray-400">BTC long at 8:23 PM (caught the pump)</p>
-              </div>
-            </div>
-            <p className="text-center text-yellow-400 font-semibold mt-4">
-              {liveResultsData.stats.liveTradersNow} trading live RIGHT NOW
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <div className="glass-effect rounded-xl p-6 inline-block border-2 border-yellow-500/50">
-            <p className="text-lg font-semibold text-yellow-400">
-              {uniqueMechanismData.proof}
-            </p>
-          </div>
-        </motion.div>
+            <motion.div 
+              className="text-center mt-16"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              <button className="group inline-flex items-center gap-2 text-gray-900 hover:gap-4 transition-all duration-300">
+                <span className="text-sm font-light">Join tonight's session</span>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

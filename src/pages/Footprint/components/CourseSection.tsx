@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Award, BarChart4, Layers, Target, Users, Calendar, Check } from 'lucide-react';
+import { BookOpen, Award, BarChart4, Layers, Target, Check } from 'lucide-react';
 
 const CourseSection: React.FC = () => {
   return (

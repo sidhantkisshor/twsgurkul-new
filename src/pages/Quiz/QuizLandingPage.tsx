@@ -3,9 +3,6 @@ import { motion } from 'framer-motion';
 import { 
   Brain, 
   Target, 
-  TrendingUp, 
-  Clock, 
-  Users, 
   CheckCircle,
   ArrowRight,
   Zap,

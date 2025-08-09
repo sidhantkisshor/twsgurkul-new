@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Award, TrendingUp, Users } from 'lucide-react';
-import { credibilityData, authorityData } from '../data';
+import { Award, TrendingUp, Users } from 'lucide-react';
+import { credibilityData } from '../data';
 
 const CredibilitySection: React.FC = () => {
   return (

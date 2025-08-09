@@ -11,6 +11,8 @@ import TestimonialsSection from './components/TestimonialsSection';
 import CryptoGuaranteeSection from './components/CryptoGuaranteeSection';
 import FinalCtaSection from './components/FinalCtaSection';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import StickyMobileCTA from './components/StickyMobileCTA';
+import CtaSection from './components/CtaSection';
 
 import { useCountdown } from './hooks/useCountdown';
 import { useExitIntent } from './hooks/useExitIntent';
@@ -19,6 +21,14 @@ function CryptoPageOptimized() {
   const [isPlaying, setIsPlaying] = useState(false);
   const timeLeft = useCountdown();
   const { showExitPopup, setShowExitPopup } = useExitIntent();
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <ErrorBoundary>
@@ -36,6 +46,7 @@ function CryptoPageOptimized() {
         <main>
           {/* Core conversion flow: Hook → Problem → Solution → Proof → Guarantee → CTA */}
           <HeroSection 
+            handleSmoothScroll={handleSmoothScroll}
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
           />
@@ -49,9 +60,9 @@ function CryptoPageOptimized() {
           {/* Removed multiple sections: WhyCrypto, SuccessStats, TradingChart, Portfolio, 
               Credibility, Instructor, Curriculum, FAQ - consolidated into core sections */}
           
-          <TestimonialsSection />
+          <TestimonialsSection handleSmoothScroll={handleSmoothScroll} />
           
-          {/* Removed CtaSection - using only FinalCtaSection for single CTA focus */}
+          <CtaSection />
           
           <CryptoGuaranteeSection />
           
@@ -64,6 +75,9 @@ function CryptoPageOptimized() {
           isOpen={showExitPopup}
           onClose={() => setShowExitPopup(false)}
         />
+        
+        {/* Sticky mobile CTA */}
+        <StickyMobileCTA handleSmoothScroll={handleSmoothScroll} />
       </div>
     </ErrorBoundary>
   );

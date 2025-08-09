@@ -1,29 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingDown, TrendingUp } from 'lucide-react';
+import { XCircle, CheckCircle, ArrowRight } from 'lucide-react';
 
 const WhyFootprintSection: React.FC = () => {
-  const comparisonData = [
+  const beforeAfterData = [
     { 
-      title: "What I Did For 3 Years (Lost Everything)", 
-      icon: TrendingDown, 
+      title: "Before: Trading Without Order Flow", 
+      icon: XCircle, 
       color: "red", 
       points: [
-        "Followed crypto influencers (all scams)",
-        "Used TA on manipulated markets",
-        "Bought every pump, sold every dump",
-        "Lost $127K total (wife almost left)"
+        "Chased breakouts after they already moved",
+        "Late exits, giving back most profits",
+        "No objective invalidation levels",
+        "Volatile P&L swings day to day"
       ] 
     },
     { 
-      title: "What I Do Now (Banking $87K/Month)", 
-      icon: TrendingUp, 
+      title: "After: Adopting a Footprint Process", 
+      icon: CheckCircle, 
       color: "green", 
       points: [
-        "See $1M+ orders 30 seconds early",
-        "Know EXACTLY when whales accumulate",
-        "Exit 1 minute before dumps",
-        "94.7% win rate (verified trades)"
+        "Wait for absorption/delta confirmation",
+        "Pre-defined stops and exit targets",
+        "Fewer impulse entries, more patience",
+        "More consistent execution overall"
       ] 
     }
   ];
@@ -38,15 +38,15 @@ const WhyFootprintSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            PROOF: How I Went From <span className="text-red-400">-$127K to +$1.2M</span> in 14 Months
+            Why Learn <span className="text-cyan-400">Footprint Trading</span>?
           </h2>
           <p className="text-lg text-slate-300">
-            Ex-Goldman Sachs analyst reveals the ONE thing that changed everything...
+            Transform your trading approach from reactive to systematic
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {comparisonData.map((item, index) => (
+          {beforeAfterData.map((item, index) => (
             <motion.div
               key={item.title}
               className={`bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 border ${
@@ -58,17 +58,17 @@ const WhyFootprintSection: React.FC = () => {
               transition={{ delay: index * 0.2 }}
             >
               <div className="flex items-center space-x-3 mb-6">
-                <div className={`w-12 h-12 bg-${item.color}-500/20 rounded-full flex items-center justify-center`}>
-                  <item.icon className={`w-6 h-6 text-${item.color}-400`} />
+                <div className={`w-12 h-12 ${item.color === 'red' ? 'bg-red-500/20' : 'bg-green-500/20'} rounded-full flex items-center justify-center`}>
+                  <item.icon className={`w-6 h-6 ${item.color === 'red' ? 'text-red-400' : 'text-green-400'}`} />
                 </div>
-                <h3 className={`text-xl font-bold text-${item.color === 'red' ? 'red' : 'green'}-400`}>
+                <h3 className={`text-xl font-bold ${item.color === 'red' ? 'text-red-400' : 'text-green-400'}`}>
                   {item.title}
                 </h3>
               </div>
               <ul className="space-y-3">
                 {item.points.map((point, pointIndex) => (
                   <li key={pointIndex} className="flex items-start space-x-3">
-                    <span className={`text-${item.color}-500 mt-1`}>
+                    <span className={`${item.color === 'red' ? 'text-red-500' : 'text-green-500'} mt-1`}>
                       {item.color === 'red' ? '✗' : '✓'}
                     </span>
                     <span className="text-slate-300">{point}</span>
@@ -79,23 +79,64 @@ const WhyFootprintSection: React.FC = () => {
           ))}
         </div>
 
+        {/* Transition Arrow */}
         <motion.div
-          className="mt-12 text-center"
+          className="flex justify-center my-8"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-slate-500">Transform your approach</span>
+            <ArrowRight className="w-6 h-6 text-cyan-400" />
+          </div>
+        </motion.div>
+
+        {/* Key Benefits */}
+        <motion.div
+          className="mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-6 max-w-3xl mx-auto">
-            <p className="text-xl font-bold text-yellow-400 mb-3">
-              🚨 My Insider Warning From Goldman Sachs Days:
-            </p>
-            <p className="text-lg text-white mb-2">
-              "We used to laugh at retail traders using RSI and MACD. We'd dump $50M positions RIGHT when indicators said 'buy'."
-            </p>
-            <p className="text-sm text-slate-400 italic">
-              - James Chen, Ex-Goldman Sachs Trader, Now Full-Time Crypto
-            </p>
+          <div className="bg-slate-800/40 border border-cyan-500/20 rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">
+              The Footprint Advantage
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-cyan-400 mb-2">Objective</div>
+                <p className="text-sm text-slate-400">
+                  Trade based on actual order flow data, not opinions or predictions
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-teal-400 mb-2">Systematic</div>
+                <p className="text-sm text-slate-400">
+                  Follow a repeatable process for entries, exits, and risk management
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-amber-400 mb-2">Consistent</div>
+                <p className="text-sm text-slate-400">
+                  Build trading discipline through clear rules and regular review
+                </p>
+              </div>
+            </div>
           </div>
+        </motion.div>
+
+        <motion.div
+          className="mt-8 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          <p className="text-xs text-slate-500 italic">
+            Results vary. Education only — not investment advice.
+          </p>
         </motion.div>
       </div>
     </section>

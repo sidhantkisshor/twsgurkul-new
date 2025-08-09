@@ -24,8 +24,8 @@ const CredibilitySection: React.FC = () => {
     },
     {
       icon: TrendingUp,
-      title: "₹2.7 Cr+ Profits",
-      description: "Verified student withdrawals",
+      title: "₹2.7 Cr+ Reported",
+      description: "Self-reported student results",
       color: "purple"
     }
   ];
@@ -80,7 +80,7 @@ const CredibilitySection: React.FC = () => {
           </p>
           <div className="inline-block bg-green-500/10 border border-green-500/30 rounded-lg px-6 py-3">
             <p className="text-green-400 font-semibold">
-              Average Student ROI: 230% in First 6 Months
+              Student-reported outcomes vary • <a href="/results-and-claims#summary" className="underline">See our policy</a>
             </p>
           </div>
         </motion.div>

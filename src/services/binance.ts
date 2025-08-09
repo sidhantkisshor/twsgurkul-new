@@ -1,5 +1,9 @@
 // Binance API Configuration
 const BINANCE_API = 'https://api.binance.com/api/v3';
+
+// IMPORTANT: API keys are OPTIONAL for public market data endpoints
+// Only required for authenticated endpoints (trading, account info, etc.)
+// Never expose API keys in frontend code for production
 const API_KEY = import.meta.env.VITE_BINANCE_API_KEY || '';
 
 // Headers with optional API key for better rate limits
@@ -9,7 +13,8 @@ const getHeaders = () => {
   };
   
   // Add API key if available (not required for public endpoints)
-  if (API_KEY) {
+  // WARNING: In production, use a backend proxy to hide API keys
+  if (API_KEY && import.meta.env.DEV) {
     headers['X-MBX-APIKEY'] = API_KEY;
   }
   
@@ -34,14 +39,14 @@ export const getBinancePrices = async (): Promise<{ btc: number; eth: number } |
     const response = await fetch(`${BINANCE_API}/ticker/price?symbols=["BTCUSDT","ETHUSDT"]`, {
       headers: getHeaders()
     });
-    const data = await response.json();
+    const data: { symbol: string; price: string }[] = await response.json();
     
     return {
-      btc: parseFloat(data.find((item: any) => item.symbol === 'BTCUSDT')?.price || '0'),
-      eth: parseFloat(data.find((item: any) => item.symbol === 'ETHUSDT')?.price || '0')
+      btc: parseFloat(data.find((item) => item.symbol === 'BTCUSDT')?.price || '0'),
+      eth: parseFloat(data.find((item) => item.symbol === 'ETHUSDT')?.price || '0')
     };
-  } catch (error) {
-    console.error('Error fetching Binance prices:', error);
+  } catch {
+    // Error handled silently, returning fallback values
     // Fallback prices
     return {
       btc: 42850,
@@ -56,10 +61,10 @@ export const getBinance24hrTicker = async (): Promise<{ btc: TickerData; eth: Ti
     const response = await fetch(`${BINANCE_API}/ticker/24hr?symbols=["BTCUSDT","ETHUSDT"]`, {
       headers: getHeaders()
     });
-    const data = await response.json();
+    const data: { symbol: string; lastPrice: string; priceChangePercent: string; volume: string }[] = await response.json();
     
-    const btcData = data.find((item: any) => item.symbol === 'BTCUSDT');
-    const ethData = data.find((item: any) => item.symbol === 'ETHUSDT');
+    const btcData = data.find((item) => item.symbol === 'BTCUSDT');
+    const ethData = data.find((item) => item.symbol === 'ETHUSDT');
     
     return {
       btc: {
@@ -75,8 +80,8 @@ export const getBinance24hrTicker = async (): Promise<{ btc: TickerData; eth: Ti
         volume: parseFloat(ethData?.volume || '0')
       }
     };
-  } catch (error) {
-    console.error('Error fetching Binance 24hr data:', error);
+  } catch {
+    // Error handled silently, returning null
     return null;
   }
 };

@@ -51,7 +51,7 @@ const CryptoSuccessStats: React.FC = () => {
     {
       icon: TrendingUp,
       value: profitPercentage.toString(),
-      label: 'Average Win Rate',
+      label: 'Reported Win Rate',
       color: 'green',
       suffix: '%'
     },
@@ -72,21 +72,21 @@ const CryptoSuccessStats: React.FC = () => {
     {
       icon: Award,
       value: '₹2.7',
-      label: 'Total Student Profits',
+      label: 'Reported Student Profits',
       color: 'orange',
       suffix: 'Cr+'
     },
     {
       icon: Target,
       value: '90',
-      label: 'Success Rate',
+      label: 'Reported Success Rate',
       color: 'pink',
       suffix: '%'
     }
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-900/90">
+    <section id="stats" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-900/90">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-12"
@@ -96,13 +96,14 @@ const CryptoSuccessStats: React.FC = () => {
         >
           <div className="inline-flex items-center gap-2 glass-effect border border-yellow-500/20 rounded-full px-4 py-2 mb-6">
             <Award className="w-5 h-5 text-yellow-400" />
-            <span className="text-sm font-medium text-yellow-400">Verified Results</span>
+            <span className="text-sm font-medium text-yellow-400">Student Results</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Why <span className="text-yellow-400">1,263 Indians</span> Trust Our System
           </h2>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Real numbers. Real profits. Real people. No fake screenshots.
+            Based on self-reported student data. Results vary. As of Aug 2025. 
+            <a href="/results-and-claims#methodology" className="underline text-yellow-300 ml-1">Methodology & verification →</a>
           </p>
         </motion.div>
 
@@ -118,12 +119,12 @@ const CryptoSuccessStats: React.FC = () => {
               whileHover={{ scale: 1.05 }}
             >
               <div className="flex items-center justify-between mb-4">
-                <stat.icon className={`w-8 h-8 text-${stat.color}-400`} />
+                 <stat.icon className={`w-8 h-8 text-${stat.color}-400`} />
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
-                  <div className={`w-12 h-12 rounded-full bg-${stat.color}-400/10 flex items-center justify-center`}>
+                   <div className={`w-12 h-12 rounded-full bg-${stat.color}-400/10 flex items-center justify-center`}>
                     <div className={`w-6 h-6 rounded-full bg-${stat.color}-400/20`}></div>
                   </div>
                 </motion.div>
@@ -164,22 +165,22 @@ const CryptoSuccessStats: React.FC = () => {
           <div className="inline-flex flex-col items-center gap-4 glass-effect rounded-2xl p-6 border border-yellow-500/20">
             <div className="text-center">
               <p className="text-lg font-bold text-yellow-400 mb-2">
-                🔥 47 students enrolled today
+                🎯 Next Live Q&A: 18th AUG
               </p>
               <p className="text-sm text-slate-300 mb-1">
-                Average first month profit: <span className="text-green-400 font-semibold">₹45,000</span>
+                Reported average first month: <span className="text-green-400 font-semibold">₹45,000*</span>
               </p>
               <p className="text-xs text-slate-400">
-                Based on 847 verified student results
+                *Based on sample of 847 self-reported results
               </p>
             </div>
             <motion.button
               className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-slate-900 font-bold rounded-lg hover:shadow-lg hover:shadow-yellow-400/20 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '#get-started'}
+              onClick={() => window.location.href = '#pricing'}
             >
-              Start Your Profit Journey →
+              Start Learning — ₹19,499
             </motion.button>
           </div>
         </motion.div>

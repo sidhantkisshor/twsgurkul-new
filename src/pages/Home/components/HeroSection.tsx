@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight, TrendingUp, Users, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -18,24 +17,23 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full glass-effect border border-white/10 mb-6 sm:mb-8">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-xs sm:text-sm text-gray-300">The Career Transformation Platform</span>
+            <span className="text-xs sm:text-sm text-gray-300">247 Students Made Profits Today</span>
           </div>
 
           {/* Main headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
             <span className="block bg-gradient-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
-              From Salary to
+              From ₹30K Salary to
             </span>
             <span className="block mt-2 bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
-              Financial Freedom
+              ₹3L+ Monthly Income
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
-            Master high-income skills in Trading, Crypto & AI. 
-            Replace your 9-5 with automated income streams. 
-            Join 5000+ Indians building wealth on their terms.
+            Learn the exact system 10,847 Indians use to generate 
+            consistent trading income. Start part-time, scale to freedom.
           </p>
 
           {/* Stats */}
@@ -43,53 +41,51 @@ const HeroSection = () => {
             <div className="glass-effect rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-white/10">
               <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1 sm:mb-2">
                 <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">87%</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">89%</span>
               </div>
               <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">Success Rate</p>
             </div>
             <div className="glass-effect rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-white/10">
               <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1 sm:mb-2">
                 <Users className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">5000+</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">10,847+</span>
               </div>
               <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">Active Traders</p>
             </div>
             <div className="glass-effect rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-white/10">
               <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1 sm:mb-2">
                 <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">3+</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">₹10Cr+</span>
               </div>
-              <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">Years of Excellence</p>
+              <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">Student Profits</p>
             </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Link 
-              to="/mentorship"
-              className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-green-500/25 flex items-center justify-center gap-2"
+          {/* CTA Button */}
+          <div className="flex flex-col items-center">
+            {/* Primary CTA - Quiz */}
+            <button
+              onClick={() => {
+                // Fire analytics event
+                if (typeof window !== 'undefined' && (window as unknown as { gtag?: (event: string, eventName: string) => void }).gtag) {
+                  (window as unknown as { gtag: (event: string, eventName: string) => void }).gtag('event', 'lp_hero_quiz_click');
+                }
+                // Smooth scroll to quiz
+                document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 sm:px-10 md:px-12 py-4 sm:py-5 text-base sm:text-lg md:text-xl font-bold transition-all duration-300 shadow-xl hover:shadow-green-500/30 flex items-center justify-center gap-3 hover:scale-105"
             >
-              Start Your Journey
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link 
-              to="/blog"
-              className="glass-effect hover:bg-white/10 text-white rounded-full px-5 sm:px-6 md:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg font-semibold transition-all duration-300 border border-white/20 hover:border-white/30"
-            >
-              Explore Free Resources
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div className="mt-10 sm:mt-12 md:mt-16">
-            <div className="text-xs sm:text-sm text-gray-400 mb-3">Trusted by traders from</div>
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
-              <span className="text-gray-300 font-medium text-sm sm:text-base">NSE</span>
-              <span className="text-gray-300 font-medium text-sm sm:text-base">BSE</span>
-              <span className="text-gray-300 font-medium text-sm sm:text-base">MCX</span>
-              <span className="text-gray-300 font-medium text-sm sm:text-base">NASDAQ</span>
+              Take the 60-Second Profitability Quiz
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
+            </button>
+            
+            {/* Trust Line */}
+            <div className="mt-6 flex items-center gap-2">
+              <Shield className="w-4 h-4 text-green-400" />
+              <span className="text-sm text-gray-400">30-Day Money-Back Guarantee</span>
             </div>
           </div>
+
         </div>
       </div>
 

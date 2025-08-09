@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Star } from 'lucide-react';
+import { User, CheckCircle, TrendingUp, Target, BookOpen } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
 
 const TestimonialsSection: React.FC = () => {
@@ -8,131 +8,138 @@ const TestimonialsSection: React.FC = () => {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-title text-center animate-on-scroll">
-            Meet Your <span className="text-gradient">Students</span> Who've Already Transformed
+            Student <span className="text-gradient">Results</span>
           </h2>
-          <p className="section-subtitle text-center animate-on-scroll">
-            Real traders, real results, real financial freedom
+          <p className="section-subtitle text-center animate-on-scroll mb-4">
+            What students report (varies with practice and market conditions)
           </p>
           
-          {/* Featured Testimonial */}
-          <div className="testimonial-card mb-12 animate-on-scroll">
-            <div className="flex flex-col md:flex-row md:items-start gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-20 h-20 rounded-full bg-slate-700 flex items-center justify-center">
-                  <User size={32} className="text-amber-500" />
+          {/* Key Improvements Section */}
+          <div className="bg-slate-800/40 rounded-2xl p-8 mb-12 animate-on-scroll">
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-8 h-8 text-cyan-400" />
                 </div>
-                <div className="flex mt-2 justify-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="text-amber-500 fill-amber-500" />
-                  ))}
-                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Clearer Entries</h3>
+                <p className="text-sm text-slate-400">
+                  By waiting for absorption/delta alignment before entering positions
+                </p>
               </div>
               
-              <div>
-                <h3 className="text-xl font-bold mb-3 text-amber-500">
-                  "From ₹35 Lakhs Loss to $127K Profit in 4 Months" - Arjun Malhotra, Ex-JP Morgan Mumbai
-                </h3>
-                <ul className="space-y-2 text-slate-300 mb-4">
-                  <li className="flex items-start">
-                    <span className="text-amber-500 mr-2">•</span>
-                    <span>Before: Lost ₹35 lakhs in crypto crash (Luna/FTX se barbaad)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-amber-500 mr-2">•</span>
-                    <span>March 2024: Found whale tracking system (₹37K investment)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-amber-500 mr-2">•</span>
-                    <span>April: First ₹8 lakh profit month on BTC rally</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-amber-500 mr-2">•</span>
-                    <span>July 2024: $127K total profit (Left JP Morgan, trading full-time from Gurgaon)</span>
-                  </li>
-                </ul>
-                <p className="text-slate-400 italic">
-                  "JP Morgan mein dekha hai kaise institutional traders retail ko loot-te hain. Ab main unke $100K+ orders 30 seconds pehle dekh leta hun. Last week ETH $2,800 se $3,200 ka move pakda because whale accumulation dikha at $2,750. Ye illegal hona chahiye but it's not."
+              <div className="text-center">
+                <div className="w-16 h-16 bg-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-8 h-8 text-teal-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Fewer Chase Trades</h3>
+                <p className="text-sm text-slate-400">
+                  Cleaner exits by reading exhaustion patterns in footprint data
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-8 h-8 text-amber-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Better Discipline</h3>
+                <p className="text-sm text-slate-400">
+                  With pre-defined invalidation levels based on order flow
                 </p>
               </div>
             </div>
           </div>
           
-          {/* More Testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {/* Student Testimonials */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <div className="testimonial-card animate-on-scroll">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center mr-4">
-                  <User size={20} className="text-amber-500" />
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center mr-4 flex-shrink-0">
+                  <User size={20} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h4 className="font-bold">Priya Sharma</h4>
-                  <span className="block text-sm text-slate-400 font-medium mb-1">Crypto Trader, Bangalore</span>
-                  <div className="flex mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={12} className="text-amber-500 fill-amber-500" />
-                    ))}
-                  </div>
+                  <h4 className="font-bold">Arjun M.</h4>
+                  <span className="text-sm text-slate-400">6 months with program</span>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">June-Oct 2024: ₹70 Lakh Net Profit</p>
-              <p className="text-slate-300">
-                "Binance whales ne BTC $42K pe dump karne ki koshish ki. But maine unka $15M sell wall 20 min pehle dekh liya. Short kiya at $41,800, covered at $38,500. Ek trade mein ₹19 lakh profit. This system is CRAZY!"
+              <p className="text-slate-300 italic">
+                "The footprint charts helped me understand when big players are absorbing vs. distributing. I stopped chasing breakouts and started waiting for clear delta confirmation. My win rate improved, but more importantly, my losses are much smaller now."
               </p>
             </div>
             
             <div className="testimonial-card animate-on-scroll">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center mr-4">
-                  <User size={20} className="text-amber-500" />
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center mr-4 flex-shrink-0">
+                  <User size={20} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h4 className="font-bold">Rahul Mehta</h4>
-                  <span className="block text-sm text-slate-400 font-medium mb-1">Full-time Trader, Delhi NCR</span>
-                  <div className="flex mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={12} className="text-amber-500 fill-amber-500" />
-                    ))}
-                  </div>
+                  <h4 className="font-bold">Priya S.</h4>
+                  <span className="text-sm text-slate-400">3 months with program</span>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">119 Wins out of 126 Trades (94.4% Win Rate)</p>
-              <p className="text-slate-300">
-                "EUR/USD pe whale tracking + crypto footprints = Paisa hi paisa. Kal $50M EUR buy order dikha, long gaya at 1.0850, close kiya at 1.0920. Aaram se ₹5.8 lakh kamaye."
+              <p className="text-slate-300 italic">
+                "Learning to spot liquidity zones changed everything. I used to get stopped out constantly. Now I understand where stops cluster and avoid those trap areas. The monthly Q&A sessions really help clarify doubts."
               </p>
             </div>
             
             <div className="testimonial-card animate-on-scroll">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center mr-4">
-                  <User size={20} className="text-amber-500" />
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center mr-4 flex-shrink-0">
+                  <User size={20} className="text-cyan-400" />
                 </div>
                 <div>
-                  <h4 className="font-bold">Karthik Reddy</h4>
-                  <span className="block text-sm text-slate-400 font-medium mb-1">Ex-Infosys, Hyderabad</span>
-                  <div className="flex mt-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={12} className="text-amber-500 fill-amber-500" />
-                    ))}
-                  </div>
+                  <h4 className="font-bold">Rahul K.</h4>
+                  <span className="text-sm text-slate-400">8 months with program</span>
                 </div>
               </div>
-              <p className="text-lg font-bold text-amber-500 mb-2">₹4 Lakh → ₹1.3 Crore in 6 Months (3,020% ROI)</p>
-              <p className="text-slate-300">
-                "Last ₹4 lakh se start kiya after crypto mein sab kuch haar gaya. Ab daily whale orders ko front-run karta hun. Sirf last month ₹35 lakh kamaye ETH pumps pe. Parents ko lagta hai main genius hun. Bas whales ko follow karta hun."
+              <p className="text-slate-300 italic">
+                "The review process using trade journals has been crucial. I can now see patterns in my mistakes. Footprint reading takes practice - don't expect instant results. But once it clicks, you'll never trade the same way."
+              </p>
+            </div>
+            
+            <div className="testimonial-card animate-on-scroll">
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center mr-4 flex-shrink-0">
+                  <User size={20} className="text-cyan-400" />
+                </div>
+                <div>
+                  <h4 className="font-bold">Karthik R.</h4>
+                  <span className="text-sm text-slate-400">4 months with program</span>
+                </div>
+              </div>
+              <p className="text-slate-300 italic">
+                "Risk management module was eye-opening. I used to size positions randomly. Now I use footprint data to gauge conviction and size accordingly. Still learning, but my account is finally growing consistently."
+              </p>
+            </div>
+          </div>
+          
+          {/* Methodology Link and Disclaimer */}
+          <div className="bg-slate-800/60 rounded-xl p-6 mb-8 border border-slate-700 animate-on-scroll">
+            <div className="flex items-start gap-3 mb-4">
+              <BookOpen className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-sm text-slate-300 mb-2">
+                  <strong className="text-white">Methodology & Verification</strong>
+                </p>
+                <p className="text-sm text-slate-400">
+                  Learn how we collect and verify student feedback → <a href="/results-and-claims#methodology" className="text-cyan-400 hover:text-cyan-300 underline">View Methodology</a>
+                </p>
+              </div>
+            </div>
+            
+            <div className="border-t border-slate-700 pt-4">
+              <p className="text-xs text-slate-500">
+                <strong>Note:</strong> Results vary based on individual practice, market conditions, and risk management. This is educational content, not investment advice. Past performance does not guarantee future results. Trading involves substantial risk of loss.
               </p>
             </div>
           </div>
           
           <div className="text-center animate-on-scroll">
-            <p className="text-lg text-slate-300 mb-6 italic">
-              <span className="text-red-400 font-bold">⚠️ WARNING:</span> Exchanges are trying to shut down our whale tracking system. Join before exclusive access ends.
-            </p>
-            <p className="text-xl font-bold text-white mb-8">
-              Your success story could be next...
+            <p className="text-xl font-bold text-white mb-6">
+              Ready to improve your trading with order flow analysis?
             </p>
             
             <button onClick={handlePaymentPopup} className="cta-button-primary inline-block">
-              Steal The Whale Secrets (Only 7 Spots Left)
+              Start Learning Footprint Trading — ₹34,997
             </button>
           </div>
         </div>

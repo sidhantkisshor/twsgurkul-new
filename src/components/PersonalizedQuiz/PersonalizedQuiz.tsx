@@ -144,7 +144,7 @@ export default function PersonalizedQuiz() {
     
     setTimeout(() => {
       let recommendation: 'crypto' | 'footprint' | 'mentorship' | 'etm-lite' = 'crypto';
-      let tier: 'lite' | 'pro' | 'max' = 'max';
+      const tier: 'lite' | 'pro' | 'max' = 'max';
       let personalizedMessage = '';
       let urgencyMessage = '';
       let bonusOffer = '';

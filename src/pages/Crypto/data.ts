@@ -1,23 +1,13 @@
 import {
-    Award,
     Building2,
     Clock,
-    GraduationCap,
     Heart,
-    ShieldCheck,
     Target,
     TrendingDown,
     TrendingUp,
-    ChartArea,
-    Languages,
-    Shield,
     Bitcoin,
     CandlestickChart,
     Wallet,
-    ArrowUpDown,
-    AlertTriangle,
-    Zap,
-    DollarSign,
     BarChart3,
 } from 'lucide-react';
 import { Benefit, ComparisonItem, CurriculumModule, FinalCtaCard, InstructorFeature, LearningPhase, Problem, Student, Testimonial, TrustBadge, FaqItem, HeroData } from './types';
@@ -63,12 +53,12 @@ export const students: Student[] = [
 export const trustBadges: TrustBadge[] = [
     {
       icon: Bitcoin,
-      text: "₹2.7Cr BTC/ETH Profits",
+      text: "₹2.7Cr Reported Student Profits",
       color: "yellow",
     },
     {
       icon: CandlestickChart,
-      text: "73% Win Rate Average",
+      text: "73% Reported Win Rate",
       color: "green",
     },
     {
@@ -79,15 +69,15 @@ export const trustBadges: TrustBadge[] = [
   ];
 
   export const comparisonData: ComparisonItem[] = [
-    { title: "What SCAMMERS Sell You", icon: TrendingDown, color: "red", points: ["₹25K for PDF 'strategies'", "Fake screenshots & testimonials", "Telegram groups that disappear", "Your money = Their Lamborghini"] },
-    { title: "What You ACTUALLY Get Here", icon: TrendingUp, color: "green", points: ["Live proof: ₹2.7Cr student profits", "Real faces, real results (verified)", "24/7 support that never leaves", "Your success = Our reputation"] }
+    { title: "Common Online Courses", icon: TrendingDown, color: "red", points: ["Pre-recorded videos only", "No live support or Q&A", "Generic strategies", "One-size-fits-all approach"] },
+    { title: "What We Offer", icon: TrendingUp, color: "green", points: ["Recorded modules + monthly live Q&A", "Active community support", "Systematic trading approach", "Focus on risk management"] }
   ];
 
   export const problems: Problem[] = [
-    { problem: "Following FREE Telegram/WhatsApp 'Tips'", impact: "Lost ₹50,000+ in coordinated pump & dump SCAMS", emotion: "🤬" },
-    { problem: "Trusting Instagram 'Trading Gurus'", impact: "Paid ₹25K for USELESS courses that don't work", emotion: "😡" },
-    { problem: "YouTube University Confusion", impact: "Wasted 6 months, still losing money daily", emotion: "😰" },
-    { problem: "'Get Rich Quick' Ponzi Schemes", impact: "Family savings VANISHED overnight", emotion: "💔" }
+    { problem: "Following Unverified 'Tips'", impact: "No systematic approach to trading decisions", emotion: "📉" },
+    { problem: "Learning from Random Sources", impact: "Conflicting strategies and confused approach", emotion: "🤔" },
+    { problem: "No Risk Management System", impact: "Unpredictable results and stress", emotion: "📊" },
+    { problem: "Lack of Community Support", impact: "Trading alone without guidance or feedback", emotion: "👥" }
   ];
 
   export const instructorFeatures: InstructorFeature[] = [
@@ -103,8 +93,8 @@ export const trustBadges: TrustBadge[] = [
       },
        {
           icon: CandlestickChart,
-          title: "73% Win Rate (1,847 Trades)",
-          description: "Every trade recorded. Full transparency. No cherry-picking."
+          title: "73% Reported Win Rate (Sample: 1,847 Trades)",
+          description: "Based on recorded trades. Individual results may vary."
       }
   ];
 
@@ -142,7 +132,7 @@ export const trustBadges: TrustBadge[] = [
       time: "3 months", 
       quoteHeadline: "₹10K → ₹1.5L in BTC/ETH trades", 
       quoteBody: "Lost ₹50K to Instagram gurus before. This course saved my trading career. Clear signals, no guesswork.", 
-      highlight: "73% win rate on 47 trades", 
+      highlight: "73% reported win rate on sample of 47 trades", 
       rating: 5, 
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-1.jpg", 
       isVerified: true, 
@@ -286,17 +276,17 @@ export const trustBadges: TrustBadge[] = [
   ];
 
   export const benefits: Benefit[] = [
-    {item: "Lifetime Access to 20+ Video Modules", value: "₹80,000"},
-    {item: "Monthly Strategy Sessions & Expert QnA", value: "₹50,000"},
-    {item: "24/7 Private VIP Community Access", value: "₹15,000"},
+    {item: "Lifetime Access to Recorded Modules", value: "₹80,000"},
+    {item: "Monthly Live Q&A Sessions", value: "₹50,000"},
+    {item: "24/7 Private Community Support", value: "₹15,000"},
     {item: "Bonus: Pro Trading Tools & Checklists", value: "₹10,000"},
-    {item: "Bonus: 10x Coin Finding Blueprint", value: "₹15,000"},
+    {item: "Bonus: Risk Management Templates", value: "₹15,000"},
 ];
 
 export const finalCtaCards: FinalCtaCard[] = [
     {
         icon: TrendingUp,
-        title: "Last 47 Spots at ₹19,499",
+        title: "Instant Access Today",
         description: "Price increases to ₹24,999 after that (seriously)."
     },
     {
@@ -306,42 +296,42 @@ export const finalCtaCards: FinalCtaCard[] = [
     },
     {
         icon: Heart,
-        title: "Your Last Chance to Escape",
-        description: "Tomorrow you'll either be learning or losing. Choose wisely."
+        title: "Build a Reliable Evening Skill",
+        description: "Start today with recorded modules; join the next Live Q&A on 18th AUG."
     }
 ];
 
 export const uniqueMechanismData = {
-    headline: "The 7-9PM Profit Window™",
-    subheadline: "The DIY System That Helps Working Indians Make ₹5,000 Daily After Office",
+    headline: "The 7–9PM Routine",
+    subheadline: "Designed for consistency, not \"all‑day charts\" — perfect for working professionals",
     features: [
         {
             letter: "7:00",
-            title: "Reach Home & Relax",
-            description: "Have your chai. Open laptop. No stress, no hurry."
+            title: "Unwind & Open Watchlist",
+            description: "Relax after work and open your watchlist"
         },
         {
             letter: "7:15",
-            title: "Apply Our Analysis Method",
-            description: "Use our proven indicators to identify 3-5 high-probability setups yourself."
+            title: "Scan with Checklist",
+            description: "Use our checklist to shortlist 3–5 setups"
         },
         {
             letter: "7:30",
-            title: "Execute Your Strategy",
-            description: "Calculate your own entry/exit points using our formula. Set stop loss. Total time: 15 minutes."
+            title: "Plan Your Trades",
+            description: "Plan entries/exits with position sizing"
         },
         {
             letter: "8:00",
-            title: "Set & Forget",
-            description: "Dinner with family. Your trades run on autopilot with predefined targets."
+            title: "Place Orders",
+            description: "Place orders; \"set & manage\""
         },
         {
-            letter: "9:30",
-            title: "Review & Profit",
-            description: "₹3-5K average daily profit. Learn from each trade. Withdraw instantly."
+            letter: "9:00",
+            title: "Review & Journal",
+            description: "Review results and journal improvements"
         }
     ],
-    proof: "Students using our DIY T.R.A.D.E Method™ average 73% win rate vs 12% for regular traders"
+    proof: "Designed for consistency, not \"all‑day charts\""
 };
 
 export const pricing = {
@@ -357,9 +347,9 @@ export const pricing = {
 export const urgencyData = {
     priceIncrease: {
         newPrice: "₹24,999",
-        date: "January 31st"
+        date: "19th AUG"
     },
-    seatsLeft: 47,
+    nextLiveQA: "18th AUG",
     bonusDeadline: "Next 48 hours only",
     bonusDescription: "Advanced Bot Trading Module",
     bonusValue: "₹15,000"
@@ -367,16 +357,16 @@ export const urgencyData = {
 
 export const guarantees = {
     moneyBack: {
-        period: "30 days",
-        condition: "Complete all modules and follow the system - no questions asked"
+        period: "30-Day Satisfaction Guarantee",
+        condition: "Go through the first 4 modules and exercises. If it's not worth it, email support within 30 days for a full refund. No hidden conditions."
     },
     support: {
         type: "Lifetime",
         includes: "Monthly Q&A sessions, community access, and all future updates"
     },
     results: {
-        claim: "90% students report profits within 60 days",
-        verified: "Based on 2024 survey of 847 students (67% response rate)"
+        claim: "Student satisfaction",
+        verified: "Based on student feedback and course completion rates"
     }
 };
 
@@ -419,7 +409,7 @@ export const faqs: FaqItem[] = [
     },
     {
         q: "Main already 2-3 'gurus' se thaga gaya hun...",
-        a: "That's EXACTLY why we created this. 30-day FULL refund guarantee + dedicated support. Scammers take money and disappear. We're here for LIFE."
+        a: "That's EXACTLY why we created this. 30-day satisfaction guarantee + recorded modules + monthly live Q&A. Scammers disappear, we stay."
     },
     {
         q: "Free YouTube/Telegram se kya farak hai?",
@@ -427,7 +417,7 @@ export const faqs: FaqItem[] = [
     },
     {
         q: "Kitne din mein profit start hoga?",
-        a: "Week 2-3 se small profits. Month 2 se consistent. But we teach SAFE trading, not gambling. Fast money = fast losses."
+        a: "Results vary per student. Focus pehle process pe, profit follows. We teach systematic trading, not quick-money schemes."
     },
     {
         q: "Hidden charges ya upsell hoga baad mein?",
@@ -442,8 +432,8 @@ export const faqs: FaqItem[] = [
         a: "Lifetime access hai bhai. Ek baar buy karo, hamesha access rahega. Updates bhi free."
     },
     {
-        q: "Monthly Q&A sessions miss ho jaaye toh?",
-        a: "All Q&A sessions record hote hain. Aap kabhi bhi dekh sakte ho. Plus written summaries bhi milte hain."
+        q: "Monthly live Q&A sessions miss ho jaaye toh?",
+        a: "All live Q&A sessions record hote hain. Recordings mil jaati hain. Plus written summaries bhi milte hain."
     },
     {
         q: "Family ko pata chal jayega trading kar raha hun?",
@@ -459,7 +449,7 @@ export const faqs: FaqItem[] = [
     },
     {
         q: "Scam toh nahi hai? Bohot log fraud karte hain crypto mein.",
-        a: "TEDx speaker hun, IIT mein teach kiya hai. 1000+ students ke results check kar sakte ho. Fully transparent. 30-day money back guarantee hai."
+        a: "TEDx speaker hun, IIT mein teach kiya hai. Student results available for review. Fully transparent. 30-day money-back policy available."
     },
     {
         q: "Market crash ho jaaye toh strategies work karengi?",
@@ -467,12 +457,12 @@ export const faqs: FaqItem[] = [
     },
     {
         q: "WhatsApp pe support milega?",
-        a: "Haan, dedicated WhatsApp support group hai. Plus monthly Q&A sessions for direct doubt clearing."
+        a: "Haan, dedicated WhatsApp support group hai. Plus monthly live Q&A sessions for direct doubt clearing."
     },
 
     {
         q: "Course complete karne mein kitna time lagega?",
-        a: "21 videos total. Daily 1 video dekho toh 3 weeks. But practice ke saath 2 months realistically."
+        a: "Recorded modules apne pace pe dekho. Daily 1 hour dedicate karo toh 2-3 months. Monthly live Q&A for continuous support."
     },
     {
         q: "Trading mein loss hone pe kya karna chahiye?",
@@ -480,7 +470,7 @@ export const faqs: FaqItem[] = [
     },
     {
         q: "Kya main trading se job quit kar sakta hun?",
-        a: "Many students ne kiya hai, but gradual process hai. Pehle consistent profits, then transition planning."
+        a: "Trading secondary income ke liye best hai. Job quit karna personal choice hai. Process-first approach sikhate hain."
     },
     {
         q: "Course material download kar sakte hain?",
@@ -490,29 +480,29 @@ export const faqs: FaqItem[] = [
 
 export const heroData: HeroData = {
     headline: {
-        line1: "IT Engineer Turns",
-        line2: "₹50K Loss into ₹2.3L",
-        line3: "Working Just Evenings"
+        line1: "Make crypto a",
+        line2: "2‑hour evening skill,",
+        line3: "not a gamble"
     },
     description: {
-        part1: "How",
-        highlight1: "Rahul (Wipro engineer)",
-        part2: "quit losing to scammers and built a",
-        highlight2: "6-figure crypto income",
-        part3: " working just 2 hours after office"
+        part1: "A recorded, step‑by‑step system for working professionals —",
+        highlight1: "with monthly live Q&A",
+        part2: "for",
+        highlight2: "doubt‑solving and reviews.",
+        part3: ""
     },
     enrollmentStats: {
-        count: 47,
-        text: "spots left at ₹19,499"
+        count: "1,263+",
+        text: "students enrolled"
     },
     features: [
-        { icon: CandlestickChart, text: "Proven Strategies", subtext: "73% win rate system", color: "green" },
+        { icon: CandlestickChart, text: "Proven Strategies", subtext: "73% reported win rate", color: "green" },
         { icon: Wallet, text: "Start with ₹10K", subtext: "No huge capital needed", color: "blue" }
     ],
     stats: [
-        { value: "₹2.7Cr", label: "Verified Profits", color: "green" },
+        { value: "₹2.7Cr", label: "Reported Profits", color: "green" },
         { value: "1,263", label: "Success Stories", color: "yellow" },
-        { value: "47", label: "Spots Left Today", color: "blue" }
+        { value: "18 AUG", label: "Next Live Q&A", color: "blue" }
     ],
     video: {
         thumbnail: "https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg",
@@ -520,11 +510,11 @@ export const heroData: HeroData = {
         subtitle: "No edits. No fake screenshots. Just results."
     },
     badges: {
-        top: "CLOSING SOON",
-        bottom: "₹19,499 (Tomorrow: ₹24,999)"
+        top: "INSTANT ACCESS",
+        bottom: "Recorded + Monthly Live Q&A"
     },
     cta: {
-        primary: "YES! Show Me The Proof →",
-        secondary: "1,263 Indians Already Inside"
+        primary: "See Live Student Results",
+        secondary: "Start Learning — ₹19,499"
     }
 }; 

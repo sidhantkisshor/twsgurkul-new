@@ -1,21 +1,15 @@
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
-import AnnouncementBar from './components/AnnouncementBar';
-import TrustBadgesBar from './components/TrustBadgesBar';
 import HeroSection from './components/HeroSection';
 import WhyFootprintSection from './components/WhyFootprintSection';
 import ProblemSection from './components/ProblemSection';
 import UniqueMechanismSection from './components/UniqueMechanismSection';
-import DataVisualizationSection from './components/DataVisualizationSection';
-import BenefitsSection from './components/BenefitsSection';
-import TransformationSection from './components/TransformationSection';
 import TestimonialsSection from './components/TestimonialsSection';
-import CourseSection from './components/CourseSection';
 import PricingSection from './components/PricingSection';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
 import Seo from '../../components/Seo';
-import WhaleAlertPopup from './components/WhaleAlertPopup';
+import StickyMobileCTA from './components/StickyMobileCTA';
 
 function FootprintPage() {
   const [timeLeft, setTimeLeft] = useState('48:00:00');
@@ -72,25 +66,19 @@ function FootprintPage() {
         description="Master order flow and institutional movements with the Footprint Mastery System. Learn to see what big money is doing before retail even knows."
       />
       <Header />
-      <div className="pt-16">
-        <AnnouncementBar timeLeft={timeLeft} />
-        <TrustBadgesBar />
+      <div>
         <main>
           <HeroSection />
-        <WhyFootprintSection />
-        <ProblemSection />
-        <UniqueMechanismSection />
-        <DataVisualizationSection />
-        <TransformationSection />
-        <BenefitsSection />
-        <CourseSection />
-        <TestimonialsSection />
-        <PricingSection />
-        <FaqSection />
+          <ProblemSection />
+          <WhyFootprintSection />
+          <UniqueMechanismSection />
+          <TestimonialsSection />
+          <PricingSection />
+          <FaqSection />
         </main>
       </div>
       <Footer />
-      <WhaleAlertPopup />
+      <StickyMobileCTA />
     </div>
   );
 }

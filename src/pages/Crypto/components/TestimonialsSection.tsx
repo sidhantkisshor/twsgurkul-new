@@ -94,7 +94,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
 
     return (
         <section 
-            id="success-stories" 
+            id="testimonials" 
             className="py-16 sm:py-20 bg-slate-900/50 overflow-hidden relative"
             role="region"
             aria-label="Customer testimonials"

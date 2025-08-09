@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,39 +20,127 @@ const Header: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/90 backdrop-blur-lg shadow-lg' : 'bg-black/50 backdrop-blur-sm'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
-              TWS Gurukul
-            </span>
-          </Link>
+    <>
+      <motion.header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            {/* Logo */}
+            <Link to="/" className="text-xl sm:text-2xl font-light text-gray-900">
+              ETM
+            </Link>
 
-          <div className="flex items-center gap-4">
-            <span className="hidden md:block text-sm text-gray-300">
-              For Crypto Traders Only
-            </span>
-            <button 
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-8">
+              <button 
+                onClick={() => scrollToSection('problem')}
+                className="text-gray-600 hover:text-gray-900 transition-colors font-light"
+              >
+                Problem
+              </button>
+              <button 
+                onClick={() => scrollToSection('testimonials')}
+                className="text-gray-600 hover:text-gray-900 transition-colors font-light"
+              >
+                Success Stories
+              </button>
+              <button 
+                onClick={() => scrollToSection('pricing')}
+                className="text-gray-600 hover:text-gray-900 transition-colors font-light"
+              >
+                Pricing
+              </button>
+            </nav>
+
+            {/* Desktop CTA */}
+            <motion.button
               onClick={() => scrollToSection('pricing')}
-              className="px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-green-500/25 transition-all transform hover:scale-105 animate-pulse"
+              className="hidden md:block px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all font-light"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Join ETM MAX
+              Get Started
+            </motion.button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 text-gray-900"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
-      </div>
-    </motion.header>
+      </motion.header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-40 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-black/20"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Panel */}
+            <motion.div
+              className="absolute right-0 top-0 h-full w-3/4 max-w-sm bg-white shadow-xl"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.3 }}
+            >
+              <div className="flex flex-col h-full pt-20 px-6">
+                <nav className="flex flex-col gap-6">
+                  <button 
+                    onClick={() => scrollToSection('problem')}
+                    className="text-left text-lg text-gray-900 font-light"
+                  >
+                    Problem
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('testimonials')}
+                    className="text-left text-lg text-gray-900 font-light"
+                  >
+                    Success Stories
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('pricing')}
+                    className="text-left text-lg text-gray-900 font-light"
+                  >
+                    Pricing
+                  </button>
+                </nav>
+                
+                <motion.button
+                  onClick={() => scrollToSection('pricing')}
+                  className="mt-8 w-full px-6 py-3 bg-gray-900 text-white rounded-full font-light"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Get Started
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

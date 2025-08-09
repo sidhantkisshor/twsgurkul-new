@@ -16,27 +16,27 @@ const FinalCtaSection: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    {/* Urgency Alert */}
+                    {/* Access Alert */}
                     <motion.div
-                        className="inline-flex items-center gap-2 glass-effect border border-red-500/20 rounded-full px-4 py-2 mb-6"
+                        className="inline-flex items-center gap-2 glass-effect border border-green-500/20 rounded-full px-4 py-2 mb-6"
                         animate={{ scale: [1, 1.05, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
                     >
-                        <AlertTriangle className="w-5 h-5 text-red-400" />
-                        <span className="text-sm font-medium text-red-400">BTC at All-Time High - Don't Miss The Next Rally</span>
+                        <Zap className="w-5 h-5 text-green-400" />
+                        <span className="text-sm font-medium text-green-400">Instant Access Today • Next Live Q&A: 18th AUG</span>
                     </motion.div>
 
                     {/* Main heading */}
                     <div className="mb-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                            Tomorrow You'll Hate Yourself For
-                            <span className="font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-                                {' '}Missing This{' '}
+                            Ready to Start Your
+                            <span className="font-bold bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+                                {' '}Crypto Journey?{' '}
                             </span>
                         </h2>
                         <p className="lg:text-lg sm:text-[10px] text-slate-300 mx-auto max-w-2xl">
-                            93% lose money to scammers. 7% actually profit. <br/>
-                            <span className="text-yellow-400 font-semibold">Last 47 spots to join the winning 7%.</span>
+                            Join 1,263+ students learning systematic crypto trading. <br/>
+                            <span className="text-yellow-400 font-semibold">Start today with instant access to all modules.</span>
                         </p>
                     </div>
                     
@@ -51,26 +51,26 @@ const FinalCtaSection: React.FC = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
                             >
-                                <h3 className="font-bold text-red-400 mb-4 text-lg sm:text-xl flex items-center">
-                                    <span className="w-2 h-2 bg-red-400 rounded-full mr-3"></span>
-                                    Without Action Today
+                                <h3 className="font-bold text-slate-400 mb-4 text-lg sm:text-xl flex items-center">
+                                    <span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>
+                                    Without Proper Education
                                 </h3>
                                 <ul className="space-y-3 text-left">
                                     <li className="text-slate-400 flex items-start">
-                                        <span className="text-red-400 mr-2 text-lg">×</span>
-                                        Lose another ₹50K to Instagram "gurus"
+                                        <span className="text-slate-500 mr-2 text-lg">×</span>
+                                        Continue trading without a system
                                     </li>
                                     <li className="text-slate-400 flex items-start">
-                                        <span className="text-red-400 mr-2 text-lg">×</span>
-                                        Miss Bitcoin's next 10x move
+                                        <span className="text-slate-500 mr-2 text-lg">×</span>
+                                        Miss structured learning opportunities
                                     </li>
                                     <li className="text-slate-400 flex items-start">
-                                        <span className="text-red-400 mr-2 text-lg">×</span>
-                                        Stay broke while friends get rich
+                                        <span className="text-slate-500 mr-2 text-lg">×</span>
+                                        Lack community support and guidance
                                     </li>
                                     <li className="text-slate-400 flex items-start">
-                                        <span className="text-red-400 mr-2 text-lg">×</span>
-                                        Price goes to ₹24,999 tomorrow
+                                        <span className="text-slate-500 mr-2 text-lg">×</span>
+                                        Pay higher price after 19th AUG
                                     </li>
                                 </ul>
                             </motion.div>
@@ -85,31 +85,31 @@ const FinalCtaSection: React.FC = () => {
                             >
                                 <h3 className="font-bold text-green-400 mb-4 text-lg sm:text-xl flex items-center">
                                     <span className="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
-                                    With Action Today
+                                    With Our Program
                                 </h3>
                                 <ul className="space-y-3 text-left">
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Make ₹5K daily (proven system)
+                                        Learn proven trading strategies
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        73% win rate like 1,263 students
+                                        Join 1,263+ students (73% reported win rate)
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Never fall for pump & dump again
+                                        Learn to identify pump & dump schemes
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Save ₹5,500 (price increases tomorrow)
+                                        Join the next Live Q&A on 18th AUG
                                     </li>
                                 </ul>
                             </motion.div>
                         </div>
                     </div>
 
-                    {/* Motivational quote */}
+                    {/* Program highlights */}
                     <motion.div 
                         className="mb-12"
                         initial={{ opacity: 0, y: 20 }}
@@ -117,19 +117,19 @@ const FinalCtaSection: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
                     >
-                        <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-xl p-6 border border-red-500/20">
+                        <div className="bg-gradient-to-r from-green-500/10 to-yellow-500/10 rounded-xl p-6 border border-green-500/20">
                             <div className="flex items-center justify-center gap-3 mb-3">
                                 <Bitcoin className="w-8 h-8 text-yellow-400 animate-pulse" />
-                                <Zap className="w-6 h-6 text-orange-400" />
+                                <Zap className="w-6 h-6 text-green-400" />
                             </div>
                             <p className="text-xl sm:text-2xl font-bold mb-2">
-                                <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-                                    "While you're thinking, 3 more students just enrolled"
+                                <span className="bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+                                    Start Your Learning Journey Today
                                 </span>
                             </p>
                             <p className="text-slate-300 text-sm sm:text-base">
-                                Last month 67 people missed out. They're still messaging us.<br/>
-                                <span className="text-yellow-400 font-semibold">Don't be #68.</span>
+                                Get instant access to all modules and resources.<br/>
+                                <span className="text-yellow-400 font-semibold">Join the next Live Q&A on 18th AUG.</span>
                             </p>
                         </div>
                     </motion.div>
@@ -144,7 +144,7 @@ const FinalCtaSection: React.FC = () => {
                     >
                         <div className="flex items-center text-xs sm:text-sm text-slate-400">
                             <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-green-400" />
-                            100% Secure
+                            Secure Payment
                         </div>
                         <div className="flex items-center text-xs sm:text-sm text-slate-400">
                             <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-blue-400" />
@@ -168,7 +168,7 @@ const FinalCtaSection: React.FC = () => {
                         transition={{ delay: 0.6 }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                        <span className="relative">CLAIM MY SPOT (47 LEFT)</span>
+                        <span className="relative">Start Learning — ₹19,499</span>
                         <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 relative group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.button>
 

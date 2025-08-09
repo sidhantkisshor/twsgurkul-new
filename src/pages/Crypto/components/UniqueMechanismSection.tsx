@@ -4,7 +4,7 @@ import { uniqueMechanismData } from '../data';
 
 const UniqueMechanismSection: React.FC = () => {
   return (
-    <section className="section bg-slate-900 relative">
+    <section id="routine" className="section bg-slate-900 relative">
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
           <motion.div 

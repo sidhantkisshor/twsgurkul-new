@@ -15,15 +15,15 @@ const CtaSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="inline-flex items-center space-x-2 bg-red-500/20 border border-red-500/30 px-3 py-1.5 rounded-full mb-4 animate-pulse">
-                        <Clock className="w-4 h-4 text-red-400" />
-                        <span className="text-xs sm:text-sm font-medium text-red-400">URGENT: Price Increases Tomorrow</span>
+                    <div className="inline-flex items-center space-x-2 bg-amber-500/15 border border-amber-500/30 px-3 py-1.5 rounded-full mb-4">
+                        <Clock className="w-4 h-4 text-amber-400" />
+                        <span className="text-xs sm:text-sm font-medium text-amber-300">Next Live Q&A: 18th AUG • Price increases on 19th AUG</span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                        <span className="text-red-400">WARNING:</span> Only 47 Spots Left at <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">₹19,499</span>
+                        <span className="text-green-400">INSTANT ACCESS:</span> Start Today at <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">₹19,499</span>
                     </h2>
                     <p className="text-lg text-slate-300">
-                    Tomorrow it's ₹24,999. While you think, 3 more spots just got taken. Don't be the one who pays ₹5,500 extra.
+                    Enroll before 18th AUG to join the next Live Q&A. Price increases to ₹24,999 on 19th AUG.
                     </p>
                     
                     {/* Bonus Timer */}
@@ -116,14 +116,14 @@ const CtaSection: React.FC = () => {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
-                            Yes, I Want Financial Freedom →
+                            Start Learning — ₹19,499
                         </motion.button>
                         
                     </div>
 
                     {/* Payment Methods */}
                     <div className="flex flex-col sm:flex-row justify-center items-center mt-8 space-y-2 sm:space-y-0 sm:space-x-6">
-                        <p className="text-sm text-slate-400">100% Secure Payments:</p>
+                        <p className="text-sm text-slate-400">Secure Payments:</p>
                         <img 
                             src="https://d2j3cl693ttatt.cloudfront.net/assets/images/payment-sprite.svg" 
                             alt="Payment methods accepted" 
@@ -134,17 +134,17 @@ const CtaSection: React.FC = () => {
 
                     {/* Urgency Section */}
                     <motion.div 
-                        className="mt-8 glass-effect rounded-xl p-4 text-center border border-red-500/20 hover:border-red-500/30 transition-all"
+                        className="mt-8 glass-effect rounded-xl p-4 text-center border border-amber-500/20 hover:border-amber-500/30 transition-all"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                     >
                         <div className="flex items-center justify-center gap-2 mb-2">
-                            <AlertCircle className="w-5 h-5 text-red-400" />
-                            <p className="text-sm text-red-400 font-semibold">Limited Time Offer Ending Soon</p>
+                            <AlertCircle className="w-5 h-5 text-amber-400" />
+                            <p className="text-sm text-amber-300 font-semibold">Enroll before {urgencyData.priceIncrease.date} to join the next Live Q&A</p>
                         </div>
                         <p className="font-semibold text-white">Price increases to {urgencyData.priceIncrease.newPrice} on {urgencyData.priceIncrease.date}</p>
-                        <p className="text-xs text-slate-400 mt-1">Only {urgencyData.seatsLeft} seats remaining at this price</p>
+                        <p className="text-xs text-slate-400 mt-1">Enroll now to join the Live Q&A on {urgencyData.nextLiveQA}</p>
                     </motion.div>
 
                     {/* Guarantee Section */}
@@ -156,10 +156,10 @@ const CtaSection: React.FC = () => {
                     >
                         <div className="flex items-center justify-center gap-2 mb-4">
                             <ShieldCheck className="w-6 h-6 text-green-400" />
-                            <h4 className="text-lg font-semibold text-green-400">100% Risk-Free Guarantee</h4>
+                            <h4 className="text-lg font-semibold text-green-400">Satisfaction Guarantee</h4>
                         </div>
                         <p className="text-sm text-slate-300 mb-3">
-                            <strong className="text-white">{guarantees.moneyBack.period} Money-Back Guarantee:</strong> {guarantees.moneyBack.condition}
+                            <strong className="text-white">{guarantees.moneyBack.period}:</strong> {guarantees.moneyBack.condition}
                         </p>
                         <p className="text-sm text-slate-300">
                             <strong className="text-white">{guarantees.results.claim}</strong> ({guarantees.results.verified})

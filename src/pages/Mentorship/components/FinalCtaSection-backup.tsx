@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Clock, ArrowRight, AlertCircle, CheckCircle, X, TrendingUp, Users, Timer, Zap } from 'lucide-react';
+import { Phone, ArrowRight, AlertCircle, CheckCircle, TrendingUp } from 'lucide-react';
 import { finalCtaData, urgencyData, liveStatsData } from '../data';
 
 const FinalCtaSection: React.FC = () => {
@@ -42,10 +40,6 @@ const FinalCtaSection: React.FC = () => {
       clearTimeout(seatTimer);
     };
   }, []);
-
-  const handleEnroll = () => {
-    window.location.href = '#pricing';
-  };
 
   const scrollToPricing = () => {
     const element = document.getElementById('pricing');

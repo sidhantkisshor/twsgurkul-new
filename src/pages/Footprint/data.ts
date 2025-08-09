@@ -1,93 +1,98 @@
 export const uniqueMechanismData = {
-  headline: "The W.H.A.L.E. Detection System™",
-  subheadline: "The Underground Method That Exposes:",
+  headline: "What You'll Learn",
+  subheadline: "Master order flow analysis with these core concepts:",
   features: [
     {
-      letter: "W",
-      title: "Whale Wallet Tracking",
-      description: "See $100K+ BTC/ETH orders BEFORE they hit the market (99% can't access this)"
+      letter: "1",
+      title: "Footprint Basics",
+      description: "Identify absorption vs. exhaustion patterns in real-time order flow"
     },
     {
-      letter: "H",
-      title: "Hidden Order Detection",
-      description: "Expose iceberg orders & dark pool trades that manipulate crypto prices"
+      letter: "2",
+      title: "Cumulative Delta",
+      description: "Confirm or fade market moves using delta divergence signals"
     },
     {
-      letter: "A",
-      title: "Algorithmic Footprints",
-      description: "Decode market maker bots that control 70% of crypto volume"
+      letter: "3",
+      title: "Liquidity & Stop Clusters",
+      description: "Avoid chasing into traps by reading liquidity zones"
     },
     {
-      letter: "L",
-      title: "Liquidation Hunting",
-      description: "See EXACTLY where whales place orders to trigger cascade liquidations"
+      letter: "4",
+      title: "Risk Management",
+      description: "Clear invalidation levels and position sizing based on footprint data"
     },
     {
-      letter: "E",
-      title: "Exchange Manipulation",
-      description: "Spot fake volume & wash trading patterns on Binance/Coinbase"
+      letter: "5",
+      title: "Execution",
+      description: "Time entries/exits based on objective footprint cues"
+    },
+    {
+      letter: "6",
+      title: "Review Process",
+      description: "Use journals and checklists to build trading consistency"
     }
   ],
-  proof: "873 traders now catch 500-2000 pip moves in BTC/ETH that others miss completely"
+  proof: "Join traders who use order flow to make informed, consistent trading decisions"
 };
 
 export const urgencyData = {
   priceIncrease: {
-    date: "January 31st",
-    currentPrice: "$497",
-    newPrice: "$997",
-    reason: "Binance is pressuring us to remove this content"
+    date: "February 15th",
+    currentPrice: "₹34,997",
+    newPrice: "₹50,000",
+    reason: "Regular price update after introductory offer"
   },
-  seatsLeft: 7,
-  totalSeats: 50,
-  reasonForLimit: "API access limits - exchanges are restricting our data feeds",
-  bonusDeadline: "Next 24 hours only",
-  bonusValue: "$2,000",
-  bonusDescription: "Private whale alert bot + 1-on-1 setup with $1M+ trader"
+  seatsLeft: 12,
+  totalSeats: 100,
+  reasonForLimit: "Maintaining quality of monthly live Q&A sessions",
+  bonusDeadline: "This week only",
+  bonusValue: "₹5,000",
+  bonusDescription: "Trade journaling templates + Risk management tools"
 };
 
 export const guaranteeData = {
-  title: "The 'Profit or 200% Refund' Guarantee",
-  mainGuarantee: "If you don't make $10K profit in 90 days, get DOUBLE your money back",
+  title: "30-Day Satisfaction Guarantee",
+  mainGuarantee: "30-day satisfaction guarantee on content quality",
   features: [
-    "60-day unconditional refund policy",
-    "$10K profit guarantee or 200% refund",
-    "Lifetime access (before exchanges shut us down)",
-    "24/7 Telegram support with millionaire traders"
+    "30-day satisfaction guarantee",
+    "Full access to recorded modules",
+    "Lifetime access to content",
+    "WhatsApp/Discord support"
   ],
-  proofStat: "Only 3 refunds out of 873 students (0.34% refund rate) - because it WORKS"
+  proofStat: "Performance results vary. This is educational content."
 };
 
 export const comparisonData = {
   regularTrading: {
-    title: "What 97% Do (And Lose)",
+    title: "Trading Without Order Flow",
     points: [
-      "Follow YouTube 'gurus' who lost everything",
-      "Buy tops, sell bottoms (every time)",
-      "Get REKT by whale manipulation",
-      "Use indicators from 1970s on crypto",
-      "Donate money to exchanges"
+      "Follow price action alone",
+      "Chase breakouts after they happen",
+      "No clear invalidation levels",
+      "Use lagging indicators only",
+      "Reactive decision making"
     ]
   },
   footprintTrading: {
-    title: "What Top 3% Do (And Win)",
+    title: "Trading With Footprint Charts",
     points: [
-      "See whale orders 30 seconds early",
-      "94.7% win rate on BTC/ETH",
-      "Front-run $100K+ orders legally",
-      "Exit before pump & dumps",
-      "Bank $10K-50K monthly"
+      "See order flow in real-time",
+      "Identify absorption patterns",
+      "Clear risk management levels",
+      "Confirm with delta divergence",
+      "Systematic trading approach"
     ]
   }
 };
 
 export const resultsData = {
-  averageProfit: "$15,000",
-  timeToProfit: "21 days",
-  winRate: "94.7%",
+  averageProfit: "Varies by individual",
+  timeToProfit: "Depends on practice",
+  winRate: "Results vary",
   topStudent: {
-    name: "Alex Chen",
-    profit: "$1.2 Million",
-    duration: "6 months"
+    name: "Student testimonials",
+    profit: "Performance varies",
+    duration: "Individual results"
   }
 };

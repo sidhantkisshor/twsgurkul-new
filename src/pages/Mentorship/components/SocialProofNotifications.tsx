@@ -18,10 +18,10 @@ const SocialProofNotifications: React.FC = () => {
       const types: ('enrollment' | 'profit' | 'city')[] = ['enrollment', 'profit', 'city'];
       const randomType = types[Math.floor(Math.random() * types.length)];
       
-      let content: React.ReactNode;
+      let content: React.ReactNode = null;
       
       switch (randomType) {
-        case 'enrollment':
+        case 'enrollment': {
           const enrollment = socialProofData.recentEnrollments[
             Math.floor(Math.random() * socialProofData.recentEnrollments.length)
           ];
@@ -35,9 +35,10 @@ const SocialProofNotifications: React.FC = () => {
             </div>
           );
           break;
+        }
           
-        case 'profit':
-          content = (
+        case 'profit': {
+          const profitContent = (
             <div className="flex items-center gap-3">
               <TrendingUp className="text-emerald-500" size={20} />
               <div>
@@ -46,10 +47,12 @@ const SocialProofNotifications: React.FC = () => {
               </div>
             </div>
           );
+          content = profitContent;
           break;
+        }
           
-        case 'city':
-          content = (
+        case 'city': {
+          const cityContent = (
             <div className="flex items-center gap-3">
               <MapPin className="text-blue-500" size={20} />
               <div>
@@ -58,7 +61,9 @@ const SocialProofNotifications: React.FC = () => {
               </div>
             </div>
           );
+          content = cityContent;
           break;
+        }
       }
       
       const newNotification: Notification = {

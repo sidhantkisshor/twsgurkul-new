@@ -17,7 +17,7 @@ export const useWhaleTracker = () => {
     isLoading: true,
     lastUpdate: new Date(),
     countdown: "02:47:32",
-    viewersCount: 873
+    viewersCount: 0
   });
 
   // Fetch market data with whale orders
@@ -71,17 +71,7 @@ export const useWhaleTracker = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Simulate viewer count
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setData(prev => ({
-        ...prev,
-        viewersCount: Math.max(850, Math.min(950, prev.viewersCount + Math.floor(Math.random() * 20 - 10)))
-      }));
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, []);
+  // Remove fake viewer count simulation
 
   return data;
 };

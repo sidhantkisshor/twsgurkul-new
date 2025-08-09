@@ -27,7 +27,7 @@ const PortfolioShowcase: React.FC = () => {
             How Rahul's ₹50K Became <span className="text-yellow-400">₹10.4 Lakhs</span>
           </h2>
           <p className="text-lg text-slate-300">
-            Started: Jan 2024 | Current: Oct 2024 | ROI: 1,980%
+            Started: Jan 2024 | Current: Oct 2024 • Illustrative growth example (not typical)
           </p>
         </motion.div>
 
