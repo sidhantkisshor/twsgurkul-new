@@ -13,16 +13,16 @@ const ProblemSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="inline-flex items-center space-x-2 bg-red-500/10 border border-red-500/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
-                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-red-400" />
-                        <span className="text-xs sm:text-sm font-medium text-red-400">EXPOSED: The Crypto Scam Epidemic</span>
+                    <div className="inline-flex items-center space-x-2 bg-yellow-500/10 border border-yellow-500/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                        <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
+                        <span className="text-xs sm:text-sm font-medium text-yellow-400">Common Crypto Trading Challenges</span>
                     </div>
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-                        The UGLY Truth: How Fake 'Gurus'
-                        <span className="text-red-400"> STEAL ₹247 Crores Daily</span>
+                        Why Most Traders Struggle
+                        <span className="text-yellow-400"> Without Proper Education</span>
                     </h2>
                     <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto px-4">
-                        <strong className="text-yellow-400">"Sir guarantee dete hain 100% profit"</strong> - Sound familiar? That's how they trap you. While you lose, they buy luxury cars with YOUR money.
+                        <strong className="text-yellow-400">"Guaranteed profits"</strong> - These false promises are everywhere. Learn to trade systematically instead.
                     </p>
                 </motion.div>
                 <div className="space-y-3 sm:space-y-4">
@@ -53,13 +53,13 @@ const ProblemSection: React.FC = () => {
                 >
                     <div className="glass-effect rounded-xl p-6 border border-green-500/20 inline-block">
                         <p className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2">
-                            <span className="text-green-400">FACT:</span> Every Day You Wait = ₹5,000+ Lost
+                            <span className="text-green-400">Ready to Learn?</span> Start Your Journey Today
                         </p>
                         <p className="text-base sm:text-lg text-slate-300">
-                            While you're reading this, our students are making their <span className="text-yellow-400 font-bold">2nd trade of the day</span>
+                            Join our community of <span className="text-yellow-400 font-bold">1,263+ students</span> learning systematic trading
                         </p>
                         <p className="text-sm text-slate-400 mt-2">
-                            (Average profit per trade: ₹2,500 - Do the math)
+                            Next Live Q&A: 18th AUG
                         </p>
                     </div>
                 </motion.div>

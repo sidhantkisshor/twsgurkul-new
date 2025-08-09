@@ -7,18 +7,19 @@ const HeaderMinimal: React.FC = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo only - no navigation */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-white">
+            <h2 className="sr-only">TWS Gurukul</h2>
+            <a href="/" aria-label="TWS Gurukul" className="text-2xl font-bold text-white">
               TWS <span className="text-amber-500">Gurukul</span>
-            </h1>
+            </a>
           </div>
           
           {/* Single CTA in header */}
           <div className="hidden sm:block">
             <a 
-              href="#enroll" 
+              href="#pricing" 
               className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:shadow-amber-500/50 transition-all transform hover:scale-105"
             >
-              Start Trading Today →
+              Start Learning — ₹19,499
             </a>
           </div>
         </div>

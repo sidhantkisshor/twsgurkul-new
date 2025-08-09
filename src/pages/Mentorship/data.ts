@@ -1,6 +1,6 @@
 export const heroData = {
-  headline: "BREAKING: Bangalore Engineer Just Made ₹73,400 in ONE Trade While You're Reading This",
-  subheadline: "He Started 47 Days Ago With Zero Knowledge. Now He Watches Me Trade LIVE at 8 PM With My ₹50 Lakh (Join 2,347 Students Banking Profits RIGHT NOW)",
+  headline: "₹73,400 Profit in ONE Trade (While You're Reading This)",
+  subheadline: "47 Days Ago: Zero Knowledge. Today: Banking Daily Profits at 8 PM. Join 2,347 Students Already Winning.",
   systemHighlight: {
     title: "The 8PM Crypto Rush™",
     points: [
@@ -9,12 +9,13 @@ export const heroData = {
       "₹8K Daily: Consistent profits in 3 hours"
     ]
   },
-  ctaText: "YES! SHOW ME THE ₹73,400 TRADE →",
-  ctaSubtext: "Only 27 Seats Left at ₹21,000 • Price increases tomorrow",
-  urgencyBanner: "🔴 LIVE NOW: Priya from Delhi just booked ₹18,750 profit in ETH",
+  ctaText: "Join ETM MAX Today →",
+  ctaSubtext: "₹19,999 (Save ₹30,000) • Only 27 seats left",
+  urgencyBanner: "🔴 LIVE: Student just booked ₹18,750 profit",
   trustBar: {
     studentsToday: 47,
-    totalProfits: "₹10 Crore+",
+    todayProfits: "₹3.7L",
+    totalProfits: "₹10 Cr+",
     nextBatch: 6,
     liveProfit: "₹3.7L earned by students TODAY"
   },
@@ -24,14 +25,14 @@ export const heroData = {
     spots: "Only 27 spots left (was 50 this morning)"
   },
   warningBox: {
-    title: "⚠️ Fair Warning:",
-    text: "If you're looking for 'tips' or 'signals', leave now. This is for serious people who want to build a ₹50K+ monthly income through REAL trading education."
+    title: "⚠️ NOT for Everyone:",
+    text: "This is live trading education, not tips or signals. Only join if you're serious about learning."
   }
 };
 
 export const problemData = {
   headline: "The ₹4.7 Lakh Mistake That Saved My Life (And Created 2,347 Profitable Traders)",
-  subheadline: "March 15, 2019. 3:47 AM. Bathroom floor. Wife's jewelry gone. Job on the line. One decision away from ending it all...",
+  subheadline: "March 15, 2019. 3:47 AM. Bathroom floor. Wife's jewelry gone. Job on the line. Rock bottom.",
   storyBox: {
     confession: "I'll never forget my 6-year-old daughter asking 'Papa, why does Mumma cry at night?' That's when I knew I'd hit rock bottom.",
     turning: "But that bathroom floor breakdown led me to discover something the 'gurus' desperately hide from you...",
@@ -66,7 +67,7 @@ export const problemData = {
       "Zero fake screenshots. Zero demo accounts. REAL money."
     ]
   },
-  ctaText: "Want to see what happened at today's 8 PM session? Warning: This might make you angry at every 'guru' who scammed you →"
+  ctaText: "See what happened at today's 8 PM session →"
 };
 
 export const uniqueMechanismData = {
@@ -192,83 +193,81 @@ export const pricingData = {
     name: "ETM LITE",
     price: "₹6,999",
     duration: "/month",
-    badge: "SIGNALS ONLY",
+    badge: "GETTING STARTED",
     features: [
-      "📩 WhatsApp buy/sell alerts",
-      "📊 Entry, target, stoploss",
-      "⏱️ 5-10 signals daily",
-      "📢 Basic market updates",
-      "❌ No strategy explanation",
-      "❌ No live sessions",
-      "❌ No support"
+      "📩 Daily WhatsApp trade alerts",
+      "📊 Clear entry, target & stoploss levels",
+      "⏱️ 5-10 high-probability signals",
+      "📢 Market analysis updates",
+      "📱 Mobile-friendly format",
+      "✅ Perfect for beginners"
     ],
-    best_for: "Just want signals? Here.",
-    results: "Follow blindly, hope for best",
-    limitation: "No learning. No growth. Just tips."
+    best_for: "New to crypto trading",
+    results: "Learn market basics",
+    value: "Start your trading journey"
   },
   pro: {
-    name: "ETM PROFESSIONAL",
+    name: "ETM PRO",
     price: "₹16,999",
-    duration: "one-time",
-    badge: "POPULAR CHOICE",
+    duration: "3 months",
+    badge: "MOST POPULAR",
     features: [
-      "✅ Everything in ETM LITE PLUS:",
-      "📹 Recorded strategy videos",
-      "📧 Email Q&A (48hr reply)",
-      "📊 PDF course materials",
-      "👥 Telegram community",
-      "❌ Still no LIVE access",
-      "❌ Can't see my screen",
-      "❌ Miss the real action"
+      "✅ All ETM LITE benefits",
+      "📹 40+ strategy video lessons",
+      "📧 Priority email support",
+      "📊 Comprehensive course materials",
+      "👥 Active Telegram community",
+      "📈 Technical analysis training",
+      "🎯 Risk management protocols",
+      "📱 Mobile trading setup guide"
     ],
-    best_for: "DIY traders",
-    results: "Some profit, mostly confusion",
-    limitation: "Watch recordings while others trade LIVE",
-    comparison: "Save ₹3K today, lose ₹50K opportunity"
+    best_for: "Self-directed learners",
+    results: "Build trading foundation",
+    value: "Complete education package"
   },
   max: {
     name: "ETM MAX",
     originalPrice: "₹49,999",
     salePrice: "₹19,999",
-    duration: "3 months LIVE access",
-    badge: "TARGET PRODUCT",
+    duration: "3 months intensive",
+    badge: "PROFESSIONAL TRACK",
     features: [
-      "🎓 PREREQUISITE: Complete Crypto/Footprint Mastery first",
-      "🔴 LIVE 8PM Trading (See my screen)",
-      "💹 Trade alongside me in real-time",
-      "🎯 Copy my exact positions",
-      "🗣️ Voice guidance during trades",
-      "📱 Elite WhatsApp (Max 30)",
-      "🔄 Weekly 1-on-1 reviews",
-      "💰 30-day profit guarantee"
+      "🎓 Requires Mastery Program completion",
+      "🔴 LIVE 8PM trading sessions daily",
+      "💹 Real-time screen sharing",
+      "🎯 Trade alongside experienced mentors",
+      "🗣️ Live voice guidance",
+      "📱 Elite WhatsApp group (30 members)",
+      "🔄 Weekly performance reviews",
+      "💰 Profit optimization strategies"
     ],
-    best_for: "Mastery graduates ready to earn",
-    results: "₹50K+ avg monthly profit",
+    best_for: "Serious traders ready to scale",
+    results: "Professional trading skills",
     exclusive: [
-      "Institutional trading methods from Mastery programs",
-      "Direct hotline for urgent trades",
-      "Lifetime alumni benefits"
+      "Advanced institutional strategies",
+      "Priority trade alerts",
+      "Lifetime learning access"
     ],
-    urgency: "Must complete Mastery program first",
-    requirement: "Entry after Crypto/Footprint Mastery only"
+    value: "Transform into professional trader",
+    requirement: "Complete Crypto/Footprint Mastery first"
   },
   comparison: {
-    title: "What's The Real Difference?",
+    title: "Choose Your Learning Path",
     visual: {
-      basic: "SIGNALS: Get alert → Place trade → Hope it works",
-      standard: "PRO: Watch videos → Try yourself → Make mistakes", 
-      elite: "ELITE: See my screen → Copy exact trades → Bank profits"
+      basic: "ETM LITE: Receive signals → Execute trades → Track results",
+      standard: "ETM PRO: Learn strategies → Practice skills → Build confidence", 
+      elite: "ETM MAX: Trade live with mentors → Master advanced techniques → Scale profits"
     },
-    bottomLine: "Elite Room = Where Mastery graduates become millionaires",
-    mathCheck: {
-      question: "Why pay ₹21K when signals are ₹5K?",
-      answer: "Because signals make you ₹10K. Elite Room makes you ₹1 Lakh+"
+    bottomLine: "Each program designed for different experience levels",
+    progression: {
+      question: "Which program matches your goals?",
+      answer: "Start where you are, grow at your pace"
     },
     prerequisite: {
-      title: "🚨 IMPORTANT: Elite Room Entry Requirements",
-      requirement: "Must complete Crypto Mastery (₹21K) OR Footprint Mastery (₹21K) first",
-      why: "You need institutional methods before entering live trading room",
-      total: "Total Investment: ₹42K (Mastery + Elite Room) = ₹5L+ yearly profits"
+      title: "📚 ETM MAX Prerequisites",
+      requirement: "Complete Crypto Mastery OR Footprint Mastery Program",
+      why: "Build strong foundation before advanced live trading",
+      total: "Investment Path: Mastery Program + ETM MAX = Complete Trading Education"
     }
   }
 };

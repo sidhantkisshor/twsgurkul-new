@@ -1,273 +1,179 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Star, AlertCircle, CheckCircle, Play, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { testimonialData } from '../data';
 
 const TestimonialsSection: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonialData.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % testimonialData.length);
+    setIsPaused(true);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + testimonialData.length) % testimonialData.length);
+    setIsPaused(true);
+  };
+
+  const activeTestimonial = testimonialData[activeIndex];
+
   return (
-    <section id="testimonials" className="py-20 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
-              Real Students. Real Results. Real Money.
-            </span>
-          </h2>
-          <p className="text-xl text-gray-300">
-            Every story below is 100% verified with proof
-          </p>
-        </motion.div>
+    <section id="testimonials" className="py-32 relative overflow-hidden bg-gray-50">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <motion.div 
+            className="text-center mb-24"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+              Transformation stories
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+              Real people. Real results. Verified by chartered accountants.
+            </p>
+          </motion.div>
 
-        <div className="space-y-8 max-w-4xl mx-auto">
-          {testimonialData.map((testimonial, index) => (
-            <motion.div 
-              key={index}
-              className={`glass-effect rounded-2xl p-8 ${
-                testimonial.warning 
-                  ? 'border border-red-500/50' 
-                  : 'border border-green-500/30'
-              }`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              {testimonial.warning && (
-                <div className="flex items-center gap-2 mb-4 text-red-500">
-                  <AlertCircle size={20} />
-                  <span className="font-semibold">Warning Story</span>
-                </div>
-              )}
+          {/* Testimonial display */}
+          <div className="max-w-5xl mx-auto">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.6 }}
+                className="bg-white rounded-3xl p-12 md:p-16 shadow-sm"
+              >
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                  {/* Story */}
+                  <div>
+                    <Quote className="w-12 h-12 text-gray-200 mb-6" />
+                    <h3 className="text-2xl font-light text-gray-900 mb-6">
+                      {activeTestimonial.headline}
+                    </h3>
+                    <div className="space-y-4 text-gray-600 font-light">
+                      <p>{activeTestimonial.story.before}</p>
+                      <p>{activeTestimonial.story.breakthrough}</p>
+                      <p className="font-normal text-gray-900">{activeTestimonial.story.now}</p>
+                    </div>
+                    <div className="mt-8 pt-8 border-t border-gray-100">
+                      <p className="font-normal text-gray-900">{activeTestimonial.name}</p>
+                      <p className="text-sm text-gray-500">{activeTestimonial.location}</p>
+                    </div>
+                  </div>
 
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {testimonial.headline}
-                  </h3>
-                  <div className="flex items-center gap-4 text-sm text-gray-400">
-                    <span>{testimonial.name}</span>
-                    <span>•</span>
-                    <span>{testimonial.location}</span>
-                    {testimonial.verified && (
-                      <>
-                        <span>•</span>
-                        <span className="flex items-center gap-1 text-green-500">
-                          <CheckCircle size={16} />
-                          Verified
-                        </span>
-                      </>
-                    )}
+                  {/* Results */}
+                  <div>
+                    <div className="bg-gray-50 rounded-2xl p-8">
+                      <h4 className="text-sm text-gray-500 mb-6">Verified results</h4>
+                      <div className="space-y-6">
+                        {Object.entries(activeTestimonial.proof).slice(0, 4).map(([key, value]) => (
+                          <div key={key} className="flex justify-between items-baseline">
+                            <span className="text-sm text-gray-600">
+                              {key.replace(/([A-Z])/g, ' $1').trim()}
+                            </span>
+                            <span className="text-lg font-light text-gray-900">{value}</span>
+                          </div>
+                        ))}
+                      </div>
+                      {activeTestimonial.currentMonthly && (
+                        <div className="mt-8 pt-8 border-t border-gray-200">
+                          <p className="text-sm text-gray-500 mb-2">Current monthly income</p>
+                          <p className="text-3xl font-light text-gray-900">
+                            {activeTestimonial.currentMonthly}
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="text-yellow-500 fill-current" size={20} />
-                  ))}
-                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between mt-12">
+              {/* Dots */}
+              <div className="flex items-center gap-2">
+                {testimonialData.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setActiveIndex(index);
+                      setIsPaused(true);
+                    }}
+                    className={`transition-all duration-300 ${
+                      index === activeIndex
+                        ? 'w-8 h-2 bg-gray-900 rounded-full'
+                        : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
               </div>
 
-              <div className="space-y-4 mb-6">
-                {testimonial.story.darkest && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-red-400 font-semibold">The Darkest Hour:</span> {testimonial.story.darkest}
-                  </p>
-                )}
-                {testimonial.story.background && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-gray-400 font-semibold">Background:</span> {testimonial.story.background}
-                  </p>
-                )}
-                {testimonial.story.turning && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-yellow-400 font-semibold">The Turning Point:</span> {testimonial.story.turning}
-                  </p>
-                )}
-                {testimonial.story.discovery && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-blue-400 font-semibold">Discovery:</span> {testimonial.story.discovery}
-                  </p>
-                )}
-                {testimonial.story.breakthrough && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-green-400 font-semibold">Breakthrough:</span> {testimonial.story.breakthrough}
-                  </p>
-                )}
-                {testimonial.story.journey && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-blue-400 font-semibold">The Journey:</span> {testimonial.story.journey}
-                  </p>
-                )}
-                {testimonial.story.learning && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-purple-400 font-semibold">Learning Curve:</span> {testimonial.story.learning}
-                  </p>
-                )}
-                {testimonial.story.growth && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-green-400 font-semibold">Growth:</span> {testimonial.story.growth}
-                  </p>
-                )}
-                {testimonial.story.today && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-green-400 font-semibold">Today:</span> {testimonial.story.today}
-                  </p>
-                )}
-                {testimonial.story.transformation && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-emerald-400 font-semibold">Transformation:</span> {testimonial.story.transformation}
-                  </p>
-                )}
-                {testimonial.story.present && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-emerald-400 font-semibold">Present Day:</span> {testimonial.story.present}
-                  </p>
-                )}
-                {testimonial.story.struggle && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-orange-400 font-semibold">The Struggle:</span> {testimonial.story.struggle}
-                  </p>
-                )}
-                {testimonial.story.riskTaken && (
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    <span className="text-yellow-400 font-semibold">Risk Taken:</span> {testimonial.story.riskTaken}
-                  </p>
-                )}
+              {/* Arrows */}
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={handlePrev}
+                  className="p-3 rounded-full bg-white hover:bg-gray-100 transition-colors"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft className="w-5 h-5 text-gray-600" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="p-3 rounded-full bg-white hover:bg-gray-100 transition-colors"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight className="w-5 h-5 text-gray-600" />
+                </button>
               </div>
+            </div>
+          </div>
 
-              {/* Additional Info */}
-              {testimonial.warning && (
-                <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-4">
-                  <p className="text-yellow-400 font-semibold">⚠️ {testimonial.warning}</p>
-                </div>
-              )}
-
-              {testimonial.currentMonthly && (
-                <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4 mb-4">
-                  <p className="text-green-400 font-semibold">💰 Current Monthly Income: {testimonial.currentMonthly}</p>
-                </div>
-              )}
-
-              {/* Proof Section */}
-              {testimonial.proof && (
-                <div className="bg-gray-800/50 rounded-lg p-4 mb-4 space-y-2">
-                  <p className="text-gray-400 font-semibold mb-2">Verify My Results:</p>
-                  {testimonial.proof.bankStatement && (
-                    <p className="text-sm text-gray-300">📊 {testimonial.proof.bankStatement}</p>
-                  )}
-                  {testimonial.proof.panCard && (
-                    <p className="text-sm text-gray-300">🆔 {testimonial.proof.panCard}</p>
-                  )}
-                  {testimonial.proof.tradingAccount && (
-                    <p className="text-sm text-gray-300">📈 {testimonial.proof.tradingAccount}</p>
-                  )}
-                  {testimonial.proof.whatsapp && (
-                    <p className="text-sm text-gray-300">📱 {testimonial.proof.whatsapp}</p>
-                  )}
-                  {testimonial.proof.profitScreenshots && (
-                    <p className="text-sm text-gray-300">📸 {testimonial.proof.profitScreenshots}</p>
-                  )}
-                  {testimonial.proof.husbandTestimony && (
-                    <p className="text-sm text-gray-300">🎥 {testimonial.proof.husbandTestimony}</p>
-                  )}
-                  {testimonial.proof.tradingSetup && (
-                    <p className="text-sm text-gray-300">🖥️ {testimonial.proof.tradingSetup}</p>
-                  )}
-                  {testimonial.proof.feature && (
-                    <p className="text-sm text-gray-300">📰 {testimonial.proof.feature}</p>
-                  )}
-                  {testimonial.proof.uberToTrading && (
-                    <p className="text-sm text-gray-300">🚗 {testimonial.proof.uberToTrading}</p>
-                  )}
-                  {testimonial.proof.familyPhoto && (
-                    <p className="text-sm text-gray-300">👨‍👩‍👦 {testimonial.proof.familyPhoto}</p>
-                  )}
-                  {testimonial.proof.officeSetup && (
-                    <p className="text-sm text-gray-300">🏢 {testimonial.proof.officeSetup}</p>
-                  )}
-                  {testimonial.proof.helping && (
-                    <p className="text-sm text-gray-300">🤝 {testimonial.proof.helping}</p>
-                  )}
-                </div>
-              )}
-
-              {/* Additional Messages */}
-              {testimonial.message && (
-                <p className="text-purple-400 font-semibold italic mb-4">"{testimonial.message}"</p>
-              )}
-
-              {testimonial.nowTeaching && (
-                <p className="text-blue-400 font-semibold mb-4">🎓 {testimonial.nowTeaching}</p>
-              )}
-
-              {testimonial.philosophy && (
-                <p className="text-gray-400 italic mb-4">"{testimonial.philosophy}"</p>
-              )}
-
-              {testimonial.mediaFeature && (
-                <p className="text-yellow-400 font-semibold mb-4">📺 {testimonial.mediaFeature}</p>
-              )}
-
-              {testimonial.videoCall && (
-                <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mb-4">
-                  <p className="text-blue-400">📞 {testimonial.videoCall}</p>
-                </div>
-              )}
-
-              <div className="flex flex-wrap gap-2 sm:gap-4">
-                {testimonial.videoLink && (
-                  <button className="flex items-center gap-2 px-4 py-2 bg-green-500/20 text-green-500 rounded-lg hover:bg-green-500/30 transition-colors">
-                    <Play size={16} />
-                    Watch Live Trading Session
-                  </button>
-                )}
-                {testimonial.proofLink && (
-                  <button className="flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-500 rounded-lg hover:bg-blue-500/30 transition-colors">
-                    <ExternalLink size={16} />
-                    See P&L Proof
-                  </button>
-                )}
-                {testimonial.linkedIn && (
-                  <a 
-                    href={testimonial.linkedIn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 transition-colors"
-                  >
-                    <ExternalLink size={16} />
-                    View LinkedIn
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div 
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-lg text-gray-300 mb-6">
-            Want to be our next success story?
-          </p>
-          <button 
-            onClick={() => {
-              const element = document.getElementById('pricing');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-full hover:shadow-lg hover:shadow-green-500/50 transition-all transform hover:scale-105"
+          {/* Stats bar */}
+          <motion.div
+            className="mt-32"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            Start Your Success Story Today
-          </button>
-        </motion.div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+              <div className="text-center">
+                <p className="text-3xl font-light text-gray-900">2,347</p>
+                <p className="text-sm text-gray-500 mt-2">Success stories</p>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl font-light text-gray-900">₹10 Cr</p>
+                <p className="text-sm text-gray-500 mt-2">Total earnings</p>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl font-light text-gray-900">89%</p>
+                <p className="text-sm text-gray-500 mt-2">Success rate</p>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl font-light text-gray-900">4.9</p>
+                <p className="text-sm text-gray-500 mt-2">Average rating</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

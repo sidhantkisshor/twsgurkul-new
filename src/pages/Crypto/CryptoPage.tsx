@@ -14,6 +14,8 @@ import PricingSection from './components/PricingSection';
 import CryptoGuaranteeSection from './components/CryptoGuaranteeSection';
 import FinalCtaSection from './components/FinalCtaSection';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import StickyMobileCTA from './components/StickyMobileCTA';
+import CtaSection from './components/CtaSection';
 
 // Lazy load secondary components for performance
 const TrustBadgesBar = lazy(() => import('./components/TrustBadgesBar'));
@@ -29,12 +31,20 @@ function CryptoPage() {
   const timeLeft = useCountdown();
   const { showExitPopup, setShowExitPopup } = useExitIntent();
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <ErrorBoundary>
       <div className="min-h-screen bg-slate-900 text-white font-sans overflow-x-hidden">
         <Seo
           title="Crypto Market Mastery | TWS Gurukul"
-          description="Navigate the volatile crypto markets like a pro. Learn our proven strategies to master crypto trading and achieve financial freedom."
+          description="A recorded program with monthly live Q&A to learn systematic crypto trading with risk management at the core."
         />
         
         {/* Minimal header without navigation for conversion focus */}
@@ -45,6 +55,7 @@ function CryptoPage() {
         <main className="pt-16">
           {/* Core conversion flow: 8 sections instead of 19 */}
           <HeroSection 
+            handleSmoothScroll={handleSmoothScroll}
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
           />
@@ -65,9 +76,11 @@ function CryptoPage() {
           
           <InstructorSectionSimplified />
           
-          <TestimonialsSection />
+          <TestimonialsSection handleSmoothScroll={handleSmoothScroll} />
           
           <PricingSection />
+          
+          <CtaSection />
           
           <CryptoGuaranteeSection />
           
@@ -85,6 +98,9 @@ function CryptoPage() {
           isOpen={showExitPopup}
           onClose={() => setShowExitPopup(false)}
         />
+        
+        {/* Sticky mobile CTA */}
+        <StickyMobileCTA handleSmoothScroll={handleSmoothScroll} />
       </div>
     </ErrorBoundary>
   );

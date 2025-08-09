@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, Shield, Users, Award } from 'lucide-react';
+import { CheckCircle, BookOpen, Users, Award } from 'lucide-react';
 
 const TrustBadgesBar: React.FC = () => {
   const trustItems = [
     { 
-      icon: Users, 
-      text: "[LIVE] 873 traders tracking whales now", 
+      icon: BookOpen, 
+      text: "10 Recorded Modules", 
       color: "cyan",
-      detail: "$47M+ in orders exposed"
+      detail: "Foundation to advanced"
     },
     { 
-      icon: Shield, 
-      text: "[ALERT] Major pump incoming", 
+      icon: Users, 
+      text: "Monthly Live Q&A Sessions", 
       color: "teal",
-      detail: "Whale accumulation detected"
+      detail: "With recordings provided"
     },
     { 
       icon: CheckCircle, 
-      text: "[PROOF] 94.7% win rate this week", 
+      text: "Lifetime Access", 
       color: "green",
-      detail: "Verified by students"
+      detail: "Learn at your pace"
     },
     { 
       icon: Award, 
-      text: "[WARNING] Only 7 spots left", 
-      color: "red",
-      detail: "Closing at capacity"
+      text: "Risk Management Tools", 
+      color: "amber",
+      detail: "Templates included"
     }
   ];
 
@@ -62,8 +62,8 @@ const TrustBadgesBar: React.FC = () => {
                       <Icon className={`w-4 h-4 text-${item.color}-400`} />
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className="text-sm font-semibold text-white font-mono">{item.text}</span>
-                      <span className="text-xs text-slate-400 hidden sm:inline font-mono"> // {item.detail}</span>
+                      <span className="text-sm font-semibold text-white">{item.text}</span>
+                      <span className="text-xs text-slate-400 hidden sm:inline">• {item.detail}</span>
                     </div>
                   </>
                 );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Users, TrendingUp, Clock, Eye } from 'lucide-react';
-import { heroData, liveStatsData, urgencyData } from '../data';
+import { ArrowRight, Clock } from 'lucide-react';
+import { urgencyData } from '../data';
 
 const HeroSection: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -27,145 +27,212 @@ const HeroSection: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+  const scrollToPricing = () => {
+    const element = document.getElementById('pricing');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white px-4 sm:px-6 lg:px-12 pt-32 sm:pt-24">
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white" />
+        </div>
       
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-green-500/20 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-emerald-600/20 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
-      </div>
+      {/* Minimalist floating elements - hidden on mobile for clarity */}
+      <motion.div
+        className="hidden sm:block absolute top-20 left-20 w-64 sm:w-96 h-64 sm:h-96 bg-gray-100/30 rounded-full filter blur-3xl"
+        animate={{
+          x: [0, 30, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="hidden sm:block absolute bottom-20 right-20 w-64 sm:w-96 h-64 sm:h-96 bg-gray-100/30 rounded-full filter blur-3xl"
+        animate={{
+          x: [0, -30, 0],
+          y: [0, 30, 0],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
-          className="text-center max-w-5xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+      <div className="container mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Main content - centered and minimal */}
           <motion.div
-            className="flex flex-col items-center gap-2 mb-4"
-            initial={{ opacity: 0, y: -20 }}
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <span className="bg-red-500/20 text-red-400 px-4 py-2 rounded-full text-sm font-semibold">
-              FOR CRYPTO TRADERS ONLY
-            </span>
-            <div className="bg-yellow-500/20 backdrop-blur-sm rounded-lg px-4 py-2 border border-yellow-500/50">
-              <p className="text-yellow-400 font-bold flex items-center gap-2">
-                <Clock className="animate-pulse" size={16} />
-                PRICE INCREASES IN: {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
-              </p>
-            </div>
-          </motion.div>
-          
-          <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
-              {heroData.headline}
-            </span>
-          </motion.h1>
-
-          <motion.p 
-            className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {heroData.subheadline}
-          </motion.p>
-
-          {heroData.systemHighlight && (
+            {/* Live indicator - smaller, more subtle */}
             <motion.div 
-              className="mb-8 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mb-6 sm:mb-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <div className="glass-effect border border-green-500/30 rounded-2xl p-6 bg-gradient-to-br from-green-500/10 to-emerald-600/10">
-                <h3 className="text-2xl font-bold text-green-400 mb-4">{heroData.systemHighlight.title}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {heroData.systemHighlight.points.map((point, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-3xl font-bold text-emerald-400 mb-2">
-                        {index === 0 ? '8 PM' : index === 1 ? '8' : '₹8K'}
-                      </div>
-                      <p className="text-sm text-gray-300">{point.split(':')[1]}</p>
-                    </div>
-                  ))}
+              <div className="bg-gray-900 text-white py-2 px-4 rounded-full inline-flex items-center gap-2 text-xs">
+                <div className="relative">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full" />
+                  <motion.div 
+                    className="absolute inset-0 w-1.5 h-1.5 bg-green-400 rounded-full"
+                    animate={{ scale: [1, 2, 1], opacity: [1, 0, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
                 </div>
+                <span className="font-light tracking-wider uppercase">
+                  Live Trading • 8 PM Daily
+                </span>
               </div>
             </motion.div>
-          )}
 
-          <motion.div 
-            className="mb-8"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            <div className="text-center mb-4">
-              <p className="text-yellow-400 font-semibold flex items-center justify-center gap-2">
-                <Eye className="animate-pulse" size={16} />
-                <span>{liveStatsData.viewingNow} people viewing this page</span>
-                <span className="text-gray-400">•</span>
-                <span>{urgencyData.lastHourJoined} joined in last hour</span>
-              </p>
-            </div>
-            <button 
-              onClick={() => scrollToSection('pricing')}
-              className="group relative px-8 py-4 sm:px-12 sm:py-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold text-lg sm:text-xl rounded-full hover:shadow-2xl hover:shadow-green-500/50 transition-all transform hover:scale-105"
+            {/* Headline - pure simplicity */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 sm:mb-8 leading-tight px-4">
+              <motion.span 
+                className="block text-gray-900"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                Get Crypto Trading Profits Up to ₹2L Monthly
+              </motion.span>
+              <motion.span 
+                className="block text-gray-400 font-light"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                in 30 Days Using Live 8PM Mentorship Sessions
+              </motion.span>
+            </h1>
+
+            {/* Subheadline - refined */}
+            <motion.p 
+              className="text-base sm:text-lg md:text-xl text-gray-600 mb-12 sm:mb-20 max-w-3xl mx-auto leading-relaxed font-light px-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
             >
-              <span className="relative z-10">{heroData.ctaText}</span>
-              <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </button>
-            <p className="text-sm text-gray-400 mt-3">{heroData.ctaSubtext}</p>
-          </motion.div>
+              Done wasting lakhs on courses that show only past performance? The only transparent program that employs nightly live sessions and real capital deployment to deliver ₹2L monthly profits. No recordings, no fake screenshots, and measurable results from day one of joining.
+            </motion.p>
 
-          <motion.div 
-            className="glass-effect rounded-2xl p-4 sm:p-6 inline-flex flex-wrap justify-center items-center gap-4 sm:gap-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <div className="flex items-center gap-2">
-              <Users className="text-green-500" size={20} />
-              <span className="text-sm sm:text-base">
-                <span className="font-bold text-green-500">{heroData.trustBar.studentsToday}</span> students joined today
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <TrendingUp className="text-emerald-500" size={20} />
-              <span className="text-sm sm:text-base">
-                <span className="font-bold text-emerald-500">{heroData.trustBar.totalProfits}</span> total student profits this month
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="text-yellow-500" size={20} />
-              <span className="text-sm sm:text-base">
-                Next batch: <span className="font-bold text-yellow-500">{heroData.trustBar.nextBatch} days</span>
-              </span>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
+            {/* Stats - minimal and elegant */}
+            <motion.div 
+              className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 mb-12 sm:mb-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-light text-gray-900">₹50K</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">Average monthly profit</p>
+              </div>
+              <div className="hidden sm:block w-px h-16 bg-gray-200" />
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-light text-gray-900">2,347</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">Active traders</p>
+              </div>
+              <div className="hidden sm:block w-px h-16 bg-gray-200" />
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-light text-gray-900">89%</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">Success rate</p>
+              </div>
+            </motion.div>
 
-      <div className="absolute bottom-5 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
+            {/* CTA - elegant simplicity */}
+            <motion.div 
+              className="flex flex-col items-center gap-6 sm:gap-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            >
+              <motion.button
+                onClick={scrollToPricing}
+                className="group relative px-8 sm:px-16 py-4 sm:py-6 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all duration-300 text-sm sm:text-base"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="flex items-center gap-3 sm:gap-4 font-light tracking-wide">
+                  Begin your journey
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+              </motion.button>
+              
+              <p className="text-xs sm:text-sm text-gray-500">
+                Join {urgencyData.enrollmentsToday} traders who started today
+              </p>
+            </motion.div>
+
+            {/* Subtle urgency */}
+            <motion.div 
+              className="mt-12 sm:mt-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.4, duration: 0.8 }}
+            >
+              <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-500 flex-wrap justify-center">
+                <Clock size={16} />
+                <span className="text-center">
+                  {urgencyData.spotsLeft} seats • 
+                  Expires in {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Live results - minimal visualization */}
+            <motion.div
+              className="mt-16 sm:mt-32"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 1.6 }}
+            >
+              <p className="text-xs sm:text-sm text-gray-400 mb-6 sm:mb-8">Today's results</p>
+              <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                <motion.div
+                  className="bg-gray-50 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 transition-colors duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.8 }}
+                >
+                  <p className="text-xs sm:text-sm text-gray-500 mb-2">Bitcoin</p>
+                  <p className="text-xl sm:text-2xl font-light text-gray-900">+12.7%</p>
+                  <p className="text-base sm:text-lg text-gray-600 mt-1">₹47,300</p>
+                </motion.div>
+                <motion.div
+                  className="bg-gray-50 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 transition-colors duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.9 }}
+                >
+                  <p className="text-xs sm:text-sm text-gray-500 mb-2">Ethereum</p>
+                  <p className="text-xl sm:text-2xl font-light text-gray-900">+8.3%</p>
+                  <p className="text-base sm:text-lg text-gray-600 mt-1">₹23,100</p>
+                </motion.div>
+                <motion.div
+                  className="bg-gray-50 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 transition-colors duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 2 }}
+                >
+                  <p className="text-xs sm:text-sm text-gray-500 mb-2">Solana</p>
+                  <p className="text-xl sm:text-2xl font-light text-gray-900">+15.2%</p>
+                  <p className="text-base sm:text-lg text-gray-600 mt-1">₹31,500</p>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

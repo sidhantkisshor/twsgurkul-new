@@ -51,6 +51,24 @@
     @apply bg-white/5 backdrop-blur-md;
   }
   
+  .glassmorphism {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+  }
+  
+  .glassmorphism-card {
+    @apply bg-white/[0.02] backdrop-blur-2xl;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+  }
+  
   @keyframes scrollLeft {
     0% {
       transform: translateX(0);

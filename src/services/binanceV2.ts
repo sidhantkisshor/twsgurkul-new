@@ -96,15 +96,15 @@ export const getRecentTrades = async (symbol: string = 'BTCUSDT', limit: number 
     
     // Filter for large trades (> $50k)
     const largeTrades = trades
-      .map((trade: any) => ({
+      .map((trade: { price: string; qty: string; isBuyerMaker: boolean; time: number }) => ({
         price: parseFloat(trade.price),
         qty: parseFloat(trade.qty),
         total: parseFloat(trade.price) * parseFloat(trade.qty),
         isBuyer: trade.isBuyerMaker,
         time: new Date(trade.time)
       }))
-      .filter((trade: any) => trade.total > 50000)
-      .sort((a: any, b: any) => b.total - a.total);
+      .filter((trade) => trade.total > 50000)
+      .sort((a, b) => b.total - a.total);
     
     return largeTrades;
   } catch (error) {

@@ -14,15 +14,15 @@ const UniqueMechanismSection: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="section-title text-center font-mono">
-              SYSTEM: <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">{uniqueMechanismData.headline}</span>
+            <h2 className="section-title text-center">
+              <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">{uniqueMechanismData.headline}</span>
             </h2>
             <p className="section-subtitle text-center">
               {uniqueMechanismData.subheadline}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {uniqueMechanismData.features.map((feature, index) => (
               <motion.div 
                 key={index}
@@ -31,12 +31,17 @@ const UniqueMechanismSection: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <div className="absolute top-0 right-0 text-6xl font-bold text-cyan-500/10 group-hover:text-cyan-500/20 transition-colors">{feature.letter}</div>
-                <div className="text-3xl font-bold text-cyan-400 mb-4 font-mono">[{feature.letter}]</div>
-                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-slate-300">{feature.description}</p>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+                    <span className="text-lg font-bold text-cyan-400">{feature.letter}</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
+                    <p className="text-sm text-slate-300">{feature.description}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -10,8 +10,6 @@ import UrgencySection from './components/UrgencySection';
 import FaqSection from './components/FaqSection';
 import FinalCtaSection from './components/FinalCtaSection';
 import Footer from './components/Footer';
-import FloatingCta from './components/FloatingCta';
-import ExitIntentPopup from './components/ExitIntentPopup';
 import SocialProofTicker from './components/SocialProofTicker';
 
 const SuperStreamsPage: React.FC = () => {

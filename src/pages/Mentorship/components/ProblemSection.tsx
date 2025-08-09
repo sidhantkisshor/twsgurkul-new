@@ -1,124 +1,177 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { AlertTriangle } from 'lucide-react';
-import { problemData } from '../data';
+import { ChevronRight } from 'lucide-react';
 
 const ProblemSection: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const problems = [
+    {
+      title: "Lost in noise",
+      subtitle: "10,000 conflicting strategies",
+      description: "Every YouTube guru promises wealth. Most deliver confusion.",
+      stat: "97%",
+      statLabel: "fail within 90 days"
+    },
+    {
+      title: "Time wasted",
+      subtitle: "Months of trial and error",
+      description: "Learning alone means costly mistakes and missed opportunities.",
+      stat: "₹2.3L",
+      statLabel: "average beginner loss"
+    },
+    {
+      title: "Wrong approach",
+      subtitle: "Following retail strategies",
+      description: "While you chase patterns, professionals follow different rules.",
+      stat: "89%",
+      statLabel: "lose to institutions"
+    }
+  ];
+
   return (
-    <section id="problem" className="py-20 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center mb-12">
-            <motion.div 
-              className="inline-flex items-center justify-center w-16 h-16 bg-red-500/20 rounded-full mb-4"
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <AlertTriangle className="text-red-500" size={32} />
-            </motion.div>
-            
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-red-500">{problemData.headline}</span>
-            </h2>
-            
-            <p className="text-xl text-gray-300 italic">
-              {problemData.subheadline}
-            </p>
-          </div>
+    <section id="problem" className="py-32 relative overflow-hidden bg-gray-50">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50" />
+      </div>
 
-          {/* Personal Story Box */}
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Header - minimal and centered */}
           <motion.div 
-            className="bg-gradient-to-r from-gray-900 to-black rounded-xl p-6 mb-12 border border-gray-700"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-lg text-gray-300 mb-4">
-              {problemData.storyBox.confession}
-            </p>
-            <p className="text-lg text-gray-400 mb-4">
-              {problemData.storyBox.turning}
-            </p>
-            {problemData.storyBox.discovery && (
-              <p className="text-lg text-yellow-400 font-semibold">
-                💡 {problemData.storyBox.discovery}
-              </p>
-            )}
-          </motion.div>
-
-          <div className="space-y-6">
-            {problemData.problems.map((problem, index) => (
-              <motion.div 
-                key={index}
-                className="glass-effect rounded-xl p-6 border border-red-500/20 hover:border-red-500/40 transition-all"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">{problem.icon}</span>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      {problem.title}
-                    </h3>
-                    <p className="text-gray-400">
-                      {problem.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Contrast Section */}
-          <motion.div 
-            className="mt-12 bg-gradient-to-r from-green-900/20 to-emerald-900/20 rounded-xl p-6 border border-green-500/30"
+            className="text-center mb-24"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-green-400 mb-4">{problemData.contrast.title}</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {problemData.contrast.points.map((point, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">✓</span>
-                  <p className="text-gray-300">{point}</p>
-                </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+              The uncomfortable truth
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+              Most traders fail not because markets are hard, 
+              but because they're playing the wrong game.
+            </p>
+          </motion.div>
+
+          {/* Problem cards - clean and minimal */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
+              {problems.map((problem, index) => (
+                <motion.div
+                  key={index}
+                  className="group relative"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <div className={`bg-white rounded-2xl p-8 h-full transition-all duration-300 cursor-pointer
+                    ${activeIndex === index ? 'shadow-xl' : 'shadow-sm hover:shadow-md'}`}
+                  >
+                    {/* Number indicator */}
+                    <div className="text-6xl font-light text-gray-200 mb-4">
+                      0{index + 1}
+                    </div>
+                    
+                    {/* Content */}
+                    <h3 className="text-xl font-normal text-gray-900 mb-2">
+                      {problem.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 mb-4">
+                      {problem.subtitle}
+                    </p>
+                    <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                      {problem.description}
+                    </p>
+                    
+                    {/* Stat */}
+                    <div className="pt-6 border-t border-gray-100">
+                      <p className="text-3xl font-light text-gray-900">{problem.stat}</p>
+                      <p className="text-xs text-gray-500 mt-1">{problem.statLabel}</p>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
+            </div>
+          </div>
+
+          {/* The solution teaser - subtle and intriguing */}
+          <motion.div 
+            className="mt-32 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-white rounded-3xl p-12 shadow-sm">
+                <h3 className="text-2xl font-light text-gray-900 mb-6">
+                  There's a different way.
+                </h3>
+                <p className="text-lg text-gray-600 font-light leading-relaxed mb-8">
+                  What if instead of competing with millions of retail traders, 
+                  you could see what the professionals see?
+                </p>
+                <motion.button
+                  className="inline-flex items-center gap-2 text-gray-900 hover:gap-4 transition-all duration-300"
+                  whileHover={{ x: 5 }}
+                >
+                  <span className="text-sm font-light">Discover the method</span>
+                  <ChevronRight size={16} />
+                </motion.button>
+              </div>
             </div>
           </motion.div>
 
-          <motion.div 
-            className="mt-12 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+          {/* Visual element - minimalist chart */}
+          <motion.div
+            className="mt-24 max-w-4xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-xl font-bold text-yellow-400 mb-6">
-              {problemData.ctaText}
-            </p>
-            <motion.div 
-              className="inline-block"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <div className="text-6xl">👇</div>
-            </motion.div>
+            <div className="relative h-64">
+              {/* Simple line chart visualization */}
+              <svg className="w-full h-full" viewBox="0 0 800 200">
+                {/* Retail trader path - downward */}
+                <motion.path
+                  d="M 50 50 Q 200 80 350 120 T 650 180"
+                  fill="none"
+                  stroke="#ef4444"
+                  strokeWidth="2"
+                  opacity="0.3"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                  viewport={{ once: true }}
+                />
+                {/* Professional path - upward */}
+                <motion.path
+                  d="M 50 150 Q 200 120 350 80 T 650 20"
+                  fill="none"
+                  stroke="#10b981"
+                  strokeWidth="2"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
+                  viewport={{ once: true }}
+                />
+              </svg>
+              
+              {/* Labels */}
+              <div className="absolute top-0 left-0 text-xs text-gray-500">
+                Retail traders
+              </div>
+              <div className="absolute bottom-0 left-0 text-xs text-gray-500">
+                Our students
+              </div>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

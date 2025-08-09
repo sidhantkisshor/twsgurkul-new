@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Calendar, Users, BookOpen, ArrowRight, AlertCircle, Clock, Activity, Shield } from 'lucide-react';
+import { Check, Calendar, Users, BookOpen, ArrowRight, AlertCircle, Clock } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
 import { urgencyData } from '../data';
 
@@ -22,9 +22,9 @@ const PricingSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center gap-3 font-mono">
-              <AlertCircle className="text-cyan-400" size={24} />
+              <Calendar className="text-cyan-400" size={24} />
               <p className="text-cyan-400 font-semibold">
-                [ALERT] Price: {urgencyData.priceIncrease.newPrice} after {urgencyData.priceIncrease.date} | Seats: {urgencyData.seatsLeft}/100
+                Instant access today • Next Live Q&A: 27th Aug • Price increases on {urgencyData.priceIncrease.date}
               </p>
             </div>
           </motion.div>
@@ -38,25 +38,25 @@ const PricingSection: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between items-center mb-8">
               <div>
                 <div className="mb-2">
-                  <span className="text-lg text-slate-400 line-through mr-3">$2,997</span>
-                  <span className="text-2xl md:text-3xl font-bold text-amber-500">$497</span>
-                  <span className="text-sm text-green-500 ml-2">Save $2,500 (TODAY ONLY)</span>
+                  <span className="text-lg text-slate-400 line-through mr-3">₹1,50,000</span>
+                  <span className="text-2xl md:text-3xl font-bold text-amber-500">₹34,997</span>
+                  <span className="text-sm text-green-500 ml-2">Save ₹1,15,003 (LIMITED OFFER)</span>
                 </div>
-                <p className="text-lg text-slate-300">Less than what whales steal from you in ONE trade</p>
-                <p className="text-sm text-yellow-400 mt-2 flex items-center gap-2">
-                  <Clock size={16} />
-                  {urgencyData.bonusDeadline}: FREE {urgencyData.bonusDescription} (Worth {urgencyData.bonusValue})
+                <p className="text-lg text-slate-300">One-time payment • Lifetime access • Start instantly</p>
+                <p className="text-sm text-cyan-400 mt-2 flex items-center gap-2">
+                  <Calendar size={16} />
+                  Next Live Q&A: August 27th • Instant Access Today
                 </p>
               </div>
               
               <div className="mt-6 md:mt-0">
                 <button onClick={handlePaymentPopup} className="cta-button-primary text-lg">
-                  ACTIVATE WHALE TRACKER NOW
+                  START LEARNING NOW
                 </button>
               </div>
             </div>
             
-            <h4 className="text-xl font-bold mb-6 text-white">What You Get:</h4>
+            <h4 className="text-xl font-bold mb-6 text-white">You'll Get:</h4>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="flex items-start">
@@ -64,8 +64,8 @@ const PricingSection: React.FC = () => {
                   <BookOpen className="h-5 w-5 text-amber-500" />
                 </div>
                 <div>
-                  <p className="font-bold text-white">Lifetime Access</p>
-                  <p className="text-slate-300">to all 10 comprehensive modules</p>
+                  <p className="font-bold text-white">10 Recorded Modules</p>
+                  <p className="text-slate-300">Foundation → Advanced footprint reading</p>
                 </div>
               </div>
               
@@ -74,8 +74,8 @@ const PricingSection: React.FC = () => {
                   <Calendar className="h-5 w-5 text-amber-500" />
                 </div>
                 <div>
-                  <p className="font-bold text-white">Monthly Live Doubt Clearing</p>
-                  <p className="text-slate-300">Complex questions answered in real-time</p>
+                  <p className="font-bold text-white">Monthly Live Q&A + Chart Reviews</p>
+                  <p className="text-slate-300">Recordings provided for all sessions</p>
                 </div>
               </div>
               
@@ -84,8 +84,8 @@ const PricingSection: React.FC = () => {
                   <Users className="h-5 w-5 text-amber-500" />
                 </div>
                 <div>
-                  <p className="font-bold text-white">Direct Support</p>
-                  <p className="text-slate-300">throughout your trading journey</p>
+                  <p className="font-bold text-white">WhatsApp/Discord Support</p>
+                  <p className="text-slate-300">Get your doubts cleared anytime</p>
                 </div>
               </div>
               
@@ -94,25 +94,25 @@ const PricingSection: React.FC = () => {
                   <Check className="h-5 w-5 text-amber-500" />
                 </div>
                 <div>
-                  <p className="font-bold text-white">Real Market Case Studies</p>
-                  <p className="text-slate-300">with actual footprint examples</p>
+                  <p className="font-bold text-white">Case Studies & Templates</p>
+                  <p className="text-slate-300">Real examples + Risk management tools</p>
                 </div>
               </div>
             </div>
             
             <div className="border-t border-slate-700 pt-6 mb-6">
               <p className="text-white mb-4">
-                <span className="font-bold text-red-400">⚠️ URGENT:</span> Binance & Coinbase are pressuring us to remove this system. We've already been removed from 3 trading forums for exposing insider manipulation tactics.
+                <span className="font-bold text-cyan-400">Next Live Session:</span> August 27th - Live chart analysis and Q&A with all students
               </p>
               
               <p className="text-white">
-                <span className="font-bold">Reality Check:</span> $497 is less than what you'll lose in your NEXT trade without seeing whale orders. But with this system, you'll be on the WINNING side of every pump & dump.
+                <span className="font-bold">Investment Value:</span> Master footprint charts to understand market structure and make informed trading decisions based on actual order flow data.
               </p>
             </div>
             
             <div className="text-center">
               <button onClick={handlePaymentPopup} className="cta-button-primary text-lg inline-block">
-                STEAL THE WHALE PLAYBOOK - $497 (ONLY 7 SPOTS LEFT)
+                GET FOOTPRINT CHART MASTERY - ₹34,997 (LIMITED SEATS)
               </button>
             </div>
           </motion.div>
@@ -123,7 +123,7 @@ const PricingSection: React.FC = () => {
             </h3>
             
             <p className="text-lg text-slate-300 mb-8">
-              <span className="text-yellow-400 font-bold">FACT:</span> 97% of crypto traders get liquidated because they can't see whale manipulation. The 3% who can see it are banking $10K-50K monthly.
+              <span className="text-cyan-400 font-bold">FACT:</span> Understanding footprint charts gives you the ability to see actual order flow and market structure, helping you make more informed trading decisions.
             </p>
             
             <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 border border-slate-700 mb-8">
@@ -147,7 +147,7 @@ const PricingSection: React.FC = () => {
             </div>
             
             <p className="text-lg text-slate-300 mb-8">
-              <span className="font-bold text-amber-500">This is the ONLY system that shows live whale orders. Once restricted, access ends FOREVER.</span>
+              <span className="font-bold text-amber-500">Price increases to ₹34,997 on {urgencyData.priceIncrease.date}. Lock in the current price today.</span>
             </p>
             
             <p className="text-lg text-slate-300 mb-8">
@@ -156,7 +156,7 @@ const PricingSection: React.FC = () => {
             
             <div className="mb-12">
               <button onClick={handlePaymentPopup} className="cta-button-primary text-lg inline-block group">
-                STOP BEING WHALE FOOD - JOIN THE PREDATORS
+                MASTER FOOTPRINT CHARTS - START TODAY
                 <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </button>
             </div>
@@ -170,13 +170,13 @@ const PricingSection: React.FC = () => {
               <div className="space-y-4 mb-6">
                 <div className="bg-slate-900 p-4 rounded-lg">
                   <p className="text-slate-300">
-                    <span className="font-bold text-white">Choice 1:</span> Close this page, lose another $10K to whale dumps, watch others profit from moves you missed, and hate yourself for not taking action.
+                    <span className="font-bold text-white">Choice 1:</span> Continue trading without understanding order flow and market structure, missing key opportunities in the market.
                   </p>
                 </div>
                 
                 <div className="bg-amber-500/10 p-4 rounded-lg border border-amber-500/30">
                   <p className="text-slate-200">
-                    <span className="font-bold text-amber-500">Choice 2:</span> Get instant access to whale orders, catch the next 1000+ pip BTC move, and join 873 traders already banking $10K+ monthly.
+                    <span className="font-bold text-amber-500">Choice 2:</span> Get instant access to comprehensive footprint training, join monthly live Q&A sessions, and master order flow analysis.
                   </p>
                 </div>
               </div>
@@ -186,7 +186,7 @@ const PricingSection: React.FC = () => {
               </p>
               
               <button onClick={handlePaymentPopup} className="cta-button-primary text-lg inline-block">
-                YES, GIVE ME WHALE ACCESS NOW (BEFORE IT'S GONE)
+                YES, I WANT FOOTPRINT MASTERY NOW - ₹34,997
               </button>
             </div>
           </div>

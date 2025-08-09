@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Eye, Shield, BarChart4 } from 'lucide-react';
+
 
 const BenefitsSection: React.FC = () => {
   return (

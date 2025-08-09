@@ -14,9 +14,9 @@ const CryptoGuaranteeSection: React.FC = () => {
   const guarantees: Guarantee[] = [
     {
       icon: Shield,
-      title: "30-Day Profit Guarantee",
-      description: "If you don't see profits within 30 days following our system, get",
-      highlight: "100% money back",
+      title: "30-Day Satisfaction Guarantee",
+      description: "Go through the first 4 modules and exercises. If it's not worth it, email support within 30 days for",
+      highlight: "full refund. No hidden conditions.",
       color: "green"
     },
     {
@@ -35,9 +35,9 @@ const CryptoGuaranteeSection: React.FC = () => {
     },
     {
       icon: AlertTriangle,
-      title: "Scam Protection Promise",
-      description: "We'll expose every pump & dump scheme. Never lose to",
-      highlight: "fake gurus again",
+      title: "Education on Common Scams",
+      description: "Learn to identify pump & dump schemes and protect yourself from",
+      highlight: "common trading scams",
       color: "red"
     }
   ];
@@ -53,10 +53,10 @@ const CryptoGuaranteeSection: React.FC = () => {
         >
           <div className="inline-flex items-center gap-2 glass-effect border border-green-500/20 rounded-full px-4 py-2 mb-6">
             <Shield className="w-5 h-5 text-green-400" />
-            <span className="text-sm font-medium text-green-400">Risk-Free Investment</span>
+            <span className="text-sm font-medium text-green-400">Satisfaction Guarantee</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Our <span className="text-yellow-400">Iron-Clad</span> Guarantees
+            Our <span className="text-yellow-400">Course</span> Commitments
           </h2>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             We're so confident in our system, we're putting OUR money where our mouth is
@@ -109,25 +109,25 @@ const CryptoGuaranteeSection: React.FC = () => {
             </motion.div>
 
             <h3 className="text-2xl font-bold mb-4">
-              The <span className="text-yellow-400">"You Can't Lose"</span> Promise
+              Our <span className="text-yellow-400">30-Day</span> Satisfaction Guarantee
             </h3>
             
             <div className="max-w-2xl mx-auto space-y-3 text-left">
               <div className="flex items-center gap-3">
                 <span className="text-green-400 font-bold">✓</span>
-                <span>Try the full course for 30 days</span>
+                <span>Go through the first 4 modules and exercises</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-green-400 font-bold">✓</span>
-                <span>Follow our exact system (just 2 hours daily)</span>
+                <span>Evaluate the quality of content and teaching</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-green-400 font-bold">✓</span>
-                <span>If you don't see profits = Full refund</span>
+                <span>If it's not worth it, email support within 30 days</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-green-400 font-bold">✓</span>
-                <span>No questions asked. No "terms & conditions" tricks.</span>
+                <span>Get a full refund. No hidden conditions.</span>
               </div>
             </div>
 
@@ -153,8 +153,7 @@ const CryptoGuaranteeSection: React.FC = () => {
         >
           <p className="text-sm text-slate-400">
             <span className="text-yellow-400 font-semibold">1,263 students</span> trusted us. 
-            <span className="text-green-400 font-semibold"> 90%</span> are profitable. 
-            <span className="text-red-400 font-semibold"> 0</span> refund requests.
+            <span className="text-green-400 font-semibold">High satisfaction rate</span> based on student feedback.
           </p>
         </motion.div>
       </div>
