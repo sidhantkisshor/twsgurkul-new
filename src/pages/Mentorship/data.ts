@@ -336,16 +336,15 @@ export const testimonialData = [
 ];
 
 export const guaranteeData = {
-  title: "TRIPLE GUARANTEE - I'm Betting MY Reputation",
-  description: "I'm so confident, I'm giving you THREE guarantees:",
+  title: "Risk-Free Commitment",
+  description: "Our simple, clear policy:",
   features: [
-    "🛡️ 30-Day FULL REFUND: Don't like it? Get 100% money back. No questions. No forms. No delay.",
-    "💰 90-Day PROFIT PROMISE: Follow the system, don't profit? Get FREE personal mentorship until you do.",
-    "♾️ LIFETIME ACCESS: Every update, every new strategy, every advanced training - FREE forever.",
-    "📜 LEGAL GUARANTEE: Stamped agreement. Take me to court if I don't deliver."
+    "🛡️ 30-Day 100% Money-Back Guarantee (No questions asked)",
+    "🤝 Personal mentorship available if you need extra help",
+    "♾️ Lifetime access to updates"
   ],
-  bottomText: "Why can I guarantee this? Because out of 2,347 students, only 3 asked for refunds. That's 0.13%. The system WORKS.",
-  urgency: "⚠️ These guarantees valid only for next 27 students"
+  bottomText: "Educational program. No guaranteed returns.",
+  urgency: ""
 };
 
 export const faqData = [

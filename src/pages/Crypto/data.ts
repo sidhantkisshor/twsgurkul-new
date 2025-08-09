@@ -80,7 +80,7 @@ export const trustBadges: TrustBadge[] = [
 
   export const comparisonData: ComparisonItem[] = [
     { title: "What SCAMMERS Sell You", icon: TrendingDown, color: "red", points: ["₹25K for PDF 'strategies'", "Fake screenshots & testimonials", "Telegram groups that disappear", "Your money = Their Lamborghini"] },
-    { title: "What You ACTUALLY Get Here", icon: TrendingUp, color: "green", points: ["Live proof: ₹2.7Cr student profits", "Real faces, real results (verified)", "24/7 support that never leaves", "Your success = Our reputation"] }
+    { title: "What You ACTUALLY Get Here", icon: TrendingUp, color: "green", points: ["Live proof: ₹10Cr student profits", "Real faces, real results (verified)", "24/7 support that never leaves", "Your success = Our reputation"] }
   ];
 
   export const problems: Problem[] = [

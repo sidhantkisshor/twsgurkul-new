@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, TrendingUp, Users, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 const HeroSection = () => {
   return (
@@ -35,7 +36,7 @@ const HeroSection = () => {
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
             Master high-income skills in Trading, Crypto & AI. 
             Replace your 9-5 with automated income streams. 
-            Join 5000+ Indians building wealth on their terms.
+            Join 2,347+ Indians building wealth on their terms.
           </p>
 
           {/* Stats */}
@@ -43,9 +44,9 @@ const HeroSection = () => {
             <div className="glass-effect rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-white/10">
               <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1 sm:mb-2">
                 <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">87%</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{MARKETING_CONSTANTS.averageWinRate}</span>
               </div>
-              <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">Success Rate</p>
+              <p className="text-[10px] sm:text-xs md:text-sm text-gray-400">{MARKETING_CONSTANTS.winRateLabel}</p>
             </div>
             <div className="glass-effect rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-white/10">
               <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1 sm:mb-2">

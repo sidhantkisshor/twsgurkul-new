@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, CheckCircle2, Quote } from 'lucide-react';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 const testimonials = [
   {
@@ -26,8 +27,8 @@ const testimonials = [
 ];
 
 const stats = [
-  { label: "Students Transformed", value: "5,000+" },
-  { label: "Combined Profits", value: "₹50 Cr+" },
+  { label: "Students Transformed", value: MARKETING_CONSTANTS.studentsTotal },
+  { label: "Combined Profits", value: MARKETING_CONSTANTS.profitsTotal },
   { label: "Success Stories", value: "500+" },
   { label: "Years of Excellence", value: "3+" }
 ];

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 interface FaqItem {
   question: string;
@@ -22,7 +23,7 @@ const FaqSection: React.FC = () => {
     },
     {
       question: "What if I don't make money?",
-      answer: "Impossible. 873 students, 94.7% win rate. If you somehow fail (you won't), you get DOUBLE your money back. That's a $994 refund on your $497 investment. I'm that confident because I KNOW this works."
+      answer: `We offer a ${MARKETING_CONSTANTS.refund.period} ${MARKETING_CONSTANTS.refund.headline}. If you don't see value, ${MARKETING_CONSTANTS.refund.blurb}`
     },
     {
       question: "How fast will I see whale orders?",

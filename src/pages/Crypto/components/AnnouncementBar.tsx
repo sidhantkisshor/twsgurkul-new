@@ -16,7 +16,7 @@ const AnnouncementBar: React.FC<AnnouncementBarProps> = ({ timeLeft }) => {
             transition={{ delay: 0.3 }}
         >
             <p className="flex items-center justify-center gap-x-2 sm:gap-x-3 text-sm">
-                <span className="text-yellow-400">⚠️ <strong className="hidden xs:inline">ALERT:</strong> 47 spots left<span className="hidden sm:inline"> at ₹19,499</span></span>
+                <span className="text-yellow-400">⚠️ <strong className="hidden xs:inline">ALERT:</strong> Limited seats<span className="hidden sm:inline"> at current price</span></span>
                 {timeLeft && (
                     <span className="inline-flex items-center text-white" aria-live="polite">
                         <Clock className="w-4 h-4 mr-1 text-yellow-400" />

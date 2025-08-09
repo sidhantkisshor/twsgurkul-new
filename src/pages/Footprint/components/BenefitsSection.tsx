@@ -1,5 +1,6 @@
 import React from 'react';
 import { TrendingUp, Eye, Shield, BarChart4 } from 'lucide-react';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 const BenefitsSection: React.FC = () => {
   return (
@@ -50,7 +51,7 @@ const BenefitsSection: React.FC = () => {
           </div>
           
           <h3 className="text-2xl font-bold mb-10 text-center animate-on-scroll">
-            Why <span className="text-gradient">90% Success Rate</span>? The Footprint Advantage
+            Why <span className="text-gradient">{MARKETING_CONSTANTS.averageWinRate} {MARKETING_CONSTANTS.winRateLabel}</span>? The Footprint Advantage
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             <div className="text-center">
               <Award className="text-emerald-500 mx-auto mb-2" size={32} />
               <h4 className="font-semibold text-white mb-1">Proven Results</h4>
-              <p className="text-sm text-gray-400">73% student success rate</p>
+              <p className="text-sm text-gray-400">73% win rate</p>
             </div>
             <div className="text-center">
               <Lock className="text-blue-500 mx-auto mb-2" size={32} />

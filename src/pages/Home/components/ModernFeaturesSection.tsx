@@ -19,7 +19,7 @@ const features = [
   {
     icon: Users,
     title: "Elite Community",
-    description: "Join 5000+ serious traders. Network, share insights, and grow together.",
+    description: "Join 2,347+ serious traders. Network, share insights, and grow together.",
     color: "text-blue-400",
     bgColor: "bg-blue-500/10"
   },

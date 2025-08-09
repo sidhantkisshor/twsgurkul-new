@@ -94,7 +94,7 @@ const FinalCtaSection: React.FC = () => {
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        73% win rate like 1,263 students
+                                        73% win rate (verified)
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Award, Users, TrendingUp } from 'lucide-react';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 const CredibilitySection: React.FC = () => {
   const credibilityItems = [
@@ -15,18 +16,21 @@ const CredibilitySection: React.FC = () => {
       title: "TEDx & IIT Featured",
       description: "Recognized by India's top institutions",
       color: "yellow"
-    },
+    }
+  ];
+
+  const credibilityMetrics = [
     {
       icon: Users,
-      title: "1,263+ Active Students",
-      description: "Growing crypto trading community",
-      color: "green"
+      title: `${MARKETING_CONSTANTS.studentsTotal} Active Students`,
+      description: 'Growing crypto trading community',
+      color: 'green'
     },
     {
       icon: TrendingUp,
-      title: "₹2.7 Cr+ Profits",
-      description: "Verified student withdrawals",
-      color: "purple"
+      title: `${MARKETING_CONSTANTS.profitsTotal} Profits`,
+      description: 'Verified student withdrawals',
+      color: 'purple'
     }
   ];
 
