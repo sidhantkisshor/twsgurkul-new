@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Bitcoin, TrendingUp, Users, Clock, Award, Target } from 'lucide-react';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 interface Stat {
   icon: React.ElementType;
@@ -40,34 +41,13 @@ const CryptoSuccessStats: React.FC = () => {
     };
   }, []);
 
-  const stats: Stat[] = [
-    {
-      icon: Bitcoin,
-      value: btcCaptured.toString(),
-      label: 'Major BTC Moves Captured',
-      color: 'yellow',
-      suffix: '/50'
-    },
+  const stats = useMemo(() => [
     {
       icon: TrendingUp,
       value: profitPercentage.toString(),
       label: 'Average Win Rate',
       color: 'green',
       suffix: '%'
-    },
-    {
-      icon: Users,
-      value: '1,263',
-      label: 'Active Crypto Traders',
-      color: 'blue',
-      prefix: ''
-    },
-    {
-      icon: Clock,
-      value: '2-3',
-      label: 'Hours Daily Needed',
-      color: 'purple',
-      suffix: ' hrs'
     },
     {
       icon: Award,
@@ -78,12 +58,12 @@ const CryptoSuccessStats: React.FC = () => {
     },
     {
       icon: Target,
-      value: '90',
-      label: 'Success Rate',
+      value: MARKETING_CONSTANTS.averageWinRate.replace('%',''),
+      label: MARKETING_CONSTANTS.winRateLabel,
       color: 'pink',
       suffix: '%'
     }
-  ];
+  ], [profitPercentage]);
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-900/90">

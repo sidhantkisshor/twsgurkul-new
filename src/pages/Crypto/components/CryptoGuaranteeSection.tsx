@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, RefreshCw, HeartHandshake, AlertTriangle } from 'lucide-react';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 interface Guarantee {
   icon: React.ElementType;
@@ -14,9 +15,9 @@ const CryptoGuaranteeSection: React.FC = () => {
   const guarantees: Guarantee[] = [
     {
       icon: Shield,
-      title: "30-Day Profit Guarantee",
-      description: "If you don't see profits within 30 days following our system, get",
-      highlight: "100% money back",
+      title: MARKETING_CONSTANTS.refund.headline,
+      description: MARKETING_CONSTANTS.refund.blurb,
+      highlight: "",
       color: "green"
     },
     {

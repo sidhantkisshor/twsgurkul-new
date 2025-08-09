@@ -19,7 +19,7 @@ const wealthPaths = [
       'Personal mentorship on live markets'
     ],
     testimonial: '"Finally, I see WHY price moves, not just that it moved" - Rajesh K.',
-    trustElement: '1000+ Active Students',
+    trustElement: '2,347+ Active Students',
     cta: 'Start Footprint Mastery',
     colorClasses: {
       text: 'text-blue-400',
@@ -86,9 +86,9 @@ const WealthPathSelector = React.memo(() => {
 
   // Memoize the trust indicators data to prevent recreation on every render
   const trustIndicators = useMemo(() => [
-    { color: 'bg-green-400', text: '5000+ Active Traders' },
-    { color: 'bg-blue-400', text: '₹50Cr+ Profits Generated' },
-    { color: 'bg-purple-400', text: '98% Success Rate' }
+    { color: 'bg-green-400', text: '2,347+ Active Traders' },
+    { color: 'bg-blue-400', text: '₹10Cr+ Profits Generated' },
+    { color: 'bg-purple-400', text: '73% Win Rate' }
   ], []);
 
   // Memoize the rendered cards to prevent unnecessary re-renders

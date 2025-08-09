@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, CheckCircle, CreditCard, ShieldCheck, AlertCircle } from 'lucide-react';
 import { benefits, pricing, urgencyData, guarantees } from '../data';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 const CtaSection: React.FC = () => {
     return (
@@ -17,7 +18,7 @@ const CtaSection: React.FC = () => {
                 >
                     <div className="inline-flex items-center space-x-2 bg-red-500/20 border border-red-500/30 px-3 py-1.5 rounded-full mb-4 animate-pulse">
                         <Clock className="w-4 h-4 text-red-400" />
-                        <span className="text-xs sm:text-sm font-medium text-red-400">URGENT: Price Increases Tomorrow</span>
+                        <span className="text-xs sm:text-sm font-medium text-red-400">Limited seats at current price</span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                         <span className="text-red-400">WARNING:</span> Only 47 Spots Left at <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">₹19,499</span>
@@ -158,9 +159,9 @@ const CtaSection: React.FC = () => {
                             <ShieldCheck className="w-6 h-6 text-green-400" />
                             <h4 className="text-lg font-semibold text-green-400">100% Risk-Free Guarantee</h4>
                         </div>
-                        <p className="text-sm text-slate-300 mb-3">
-                            <strong className="text-white">{guarantees.moneyBack.period} Money-Back Guarantee:</strong> {guarantees.moneyBack.condition}
-                        </p>
+                                                    <p className="text-sm text-slate-300 mb-3">
+                                <strong className="text-white">{MARKETING_CONSTANTS.refund.period} Money-Back Guarantee:</strong> {MARKETING_CONSTANTS.refund.blurb}
+                            </p>
                         <p className="text-sm text-slate-300">
                             <strong className="text-white">{guarantees.results.claim}</strong> ({guarantees.results.verified})
                         </p>

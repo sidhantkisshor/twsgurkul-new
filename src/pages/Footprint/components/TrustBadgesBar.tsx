@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, Shield, Users, Award } from 'lucide-react';
+import { MARKETING_CONSTANTS } from '../../common/marketing';
 
 const TrustBadgesBar: React.FC = () => {
   const trustItems = [
@@ -18,7 +19,7 @@ const TrustBadgesBar: React.FC = () => {
     },
     { 
       icon: CheckCircle, 
-      text: "[PROOF] 94.7% win rate this week", 
+      text: `[PROOF] ${MARKETING_CONSTANTS.averageWinRate} ${MARKETING_CONSTANTS.winRateLabel}`,
       color: "green",
       detail: "Verified by students"
     },
