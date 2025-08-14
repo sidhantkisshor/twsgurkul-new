@@ -115,7 +115,7 @@ const AuthorityTrustSection = () => {
   });
 
   const achievements = [
-    { icon: Trophy, label: "National Trading Champion", year: "2022" },
+    { icon: Trophy, label: "Nationally Recognized Trader", year: "2022" },
     { icon: Award, label: "Best Educator Award", year: "2023" },
     { icon: Star, label: "5-Star Google Rating", year: "Consistent" },
     { icon: Users, label: "Largest Trading Community", year: "North India" }
@@ -346,10 +346,6 @@ const AuthorityTrustSection = () => {
           {/* Trust Badges Bar */}
           <div className="glass-effect rounded-2xl p-6 border border-white/10 bg-gradient-to-r from-green-950/20 via-blue-950/20 to-purple-950/20">
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span className="text-gray-300">Government Registered</span>
-              </div>
               <div className="w-px h-5 bg-gray-700" />
               <div className="flex items-center gap-2">
                 <Trophy className="w-5 h-5 text-yellow-400" />

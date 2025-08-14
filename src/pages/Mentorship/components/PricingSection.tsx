@@ -7,11 +7,11 @@ const PricingSection: React.FC = () => {
   
   const handleEnroll = (plan: string) => {
     if (plan === 'lite') {
-      window.open('https://learn.tradingwithsidhant.com/l/66d17fee97', '_blank');
+      window.open('https://learn.tradingwithsidhant.com/web/checkout/689e1446ec5d77ab522a50f7?purchaseNow=true', '_blank');
     } else if (plan === 'pro') {
       setShowInterceptModal(true);
     } else if (plan === 'max') {
-      window.open('https://learn.tradingwithsidhant.com/web/payment/thank-you/689e14304cdc28f73d92a88c', '_blank');
+      window.open('https://learn.tradingwithsidhant.com/web/checkout/689e14304cdc28f73d92a88c?purchaseNow=true', '_blank');
     } else {
       console.log(`Enrolling in ${plan} plan`);
       // Add enrollment logic here
@@ -25,7 +25,7 @@ const PricingSection: React.FC = () => {
   
   const handleUpgradeToMax = () => {
     setShowInterceptModal(false);
-    window.open('https://learn.tradingwithsidhant.com/web/payment/thank-you/689e14304cdc28f73d92a88c', '_blank');
+    window.open('https://learn.tradingwithsidhant.com/web/checkout/689e14304cdc28f73d92a88c?purchaseNow=true', '_blank');
   };
 
   // Desktop order: Lite, Pro, Max

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Target, Clock, IndianRupee, TrendingUp, Sparkles, CheckCircle, ArrowRight, Star, Play, Volume2, PlayCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Target, Clock, IndianRupee, TrendingUp, Sparkles, CheckCircle, ArrowRight, Star, Play, Volume2 } from 'lucide-react';
 import { useIntersectionAnimation, useCounterAnimation } from '../../../utils/animations';
 
 const WhyQuizSection = () => {

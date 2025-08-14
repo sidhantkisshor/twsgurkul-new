@@ -21,7 +21,6 @@ import VideoSection from './components/VideoSection';
 
 // Lazy load secondary components for performance
 const TrustBadgesBar = lazy(() => import('./components/TrustBadgesBar'));
-const CryptoSuccessStats = lazy(() => import('./components/CryptoSuccessStats'));
 const FAQ = lazy(() => import('./components/FAQ'));
 
 // Hooks
@@ -29,7 +28,7 @@ import { useCountdown } from './hooks/useCountdown';
 import { useExitIntent } from './hooks/useExitIntent';
 
 // Tracking
-import { initScrollTracking, trackTimeOnPage, cryptoTrackingEvents } from './utils/tracking';
+import { initScrollTracking, trackTimeOnPage } from './utils/tracking';
 
 function CryptoPage() {
   const [showMethodologyModal, setShowMethodologyModal] = useState(false);

@@ -125,18 +125,8 @@ const HeroSection: React.FC = () => {
                 </div>
               </div>
               
-              {/* Desktop version - all three inline */}
+              {/* Desktop version - only third stat */}
               <div className="hidden sm:flex items-center justify-center gap-6">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-light text-gray-900">2,300+</span>
-                  <span className="text-sm text-gray-500">traders trained</span>
-                </div>
-                <span className="text-gray-300">•</span>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-light text-gray-900">1,800+</span>
-                  <span className="text-sm text-gray-500">live sessions</span>
-                </div>
-                <span className="text-gray-300">•</span>
                 <div className="flex items-baseline gap-2">
                   <span className="text-3xl font-light text-gray-900">4.8/5</span>
                   <span className="text-sm text-gray-500">session rating (90 days)</span>

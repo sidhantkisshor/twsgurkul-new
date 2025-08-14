@@ -33,11 +33,6 @@ const MobileOptimizedHero = () => {
       <div className="relative z-10 bg-black/50 border-b border-white/10 py-2 px-4 md:hidden">
         <div className="flex items-center justify-center gap-4 text-xs">
           <div className="flex items-center gap-1">
-            <Shield className="w-3 h-3 text-green-400" />
-            <span className="text-gray-400">Gov Registered</span>
-          </div>
-          <div className="w-px h-3 bg-gray-600" />
-          <div className="flex items-center gap-1">
             <Star className="w-3 h-3 text-yellow-400" />
             <span className="text-gray-400">5.0 Rated</span>
           </div>

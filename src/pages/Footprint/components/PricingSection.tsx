@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Calendar, Users, BookOpen, ArrowRight } from 'lucide-react';
+import { Check, Calendar } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
-import { urgencyData } from '../data';
 import { getNextFirstSaturdayWithOrdinal } from '../../Crypto/utils/dateHelpers';
 
 const PricingSection: React.FC = () => {

@@ -180,10 +180,6 @@ const Footer: React.FC = () => {
                 <span>SSL Secured</span>
               </div>
               <div className="flex items-center space-x-1">
-                <span>🏛️</span>
-                <span>SEBI Registered</span>
-              </div>
-              <div className="flex items-center space-x-1">
                 <span>⭐</span>
                 <span>4.9/5 Rating</span>
               </div>

@@ -1,11 +1,5 @@
 import { ElementType } from 'react';
 
-export interface Student {
-  name: string;
-  location: string;
-  time: string;
-}
-
 export interface TrustBadge {
   icon: ElementType;
   text: string;
@@ -34,13 +28,6 @@ export interface Testimonial {
   verificationDate?: string;
 }
 
-export interface ComparisonItem {
-    title: string;
-    icon: ElementType;
-    color: 'red' | 'green';
-    points: string[];
-}
-
 export interface Problem {
     problem: string;
     impact: string;
@@ -53,30 +40,6 @@ export interface InstructorFeature {
     description: string;
     bgColor?: string;
     iconColor?: string;
-}
-
-export interface LearningPhase {
-    week: string;
-    title: string;
-    description: string;
-    icon: ElementType;
-    color: 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'indigo';
-}
-
-export interface Benefit {
-    item: string;
-    value: string;
-}
-
-export interface FinalCtaCard {
-    icon: ElementType;
-    title: string;
-    description: string;
-}
-
-export interface CurriculumModule {
-    title: string;
-    items: string[];
 }
 
 export interface FaqItem {

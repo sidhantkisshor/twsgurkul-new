@@ -1,5 +1,20 @@
 /* IMMEDIATE MOBILE FIXES - Add to index.css */
 
+/* 0. Fix Navbar Overlap on Mobile */
+@media (max-width: 640px) {
+  /* Ensure sections don't overlap with fixed navbar */
+  section:first-child,
+  .hero-section,
+  [class*="hero"] {
+    padding-top: 5rem !important; /* Account for navbar height + spacing */
+  }
+  
+  /* Navbar should be more compact on mobile */
+  nav {
+    top: 0.5rem !important;
+  }
+}
+
 /* 1. Fix Typography - 16px minimum to prevent zoom */
 @media (max-width: 640px) {
   html {

@@ -1,15 +1,11 @@
 import {
     Building2,
-    Target,
-    TrendingDown,
-    TrendingUp,
     Bitcoin,
     CandlestickChart,
     Wallet,
     BarChart3,
 } from 'lucide-react';
-import { TrustBadge, FaqItem, HeroData } from './types';
-import { getNextFirstSaturday } from './utils/dateHelpers';
+import { TrustBadge, FaqItem, HeroData, Problem, InstructorFeature, Testimonial } from './types';
 
 
 export const trustBadges: TrustBadge[] = [
@@ -28,11 +24,6 @@ export const trustBadges: TrustBadge[] = [
       text: "73% reported win rate",
       color: "green",
     },
-  ];
-
-  export const comparisonData: ComparisonItem[] = [
-    { title: "Common Online Courses", icon: TrendingDown, color: "red", points: ["Pre-recorded videos only", "No live support or Q&A", "Generic strategies", "One-size-fits-all approach"] },
-    { title: "What We Offer", icon: TrendingUp, color: "green", points: ["Recorded modules + monthly live Q&A", "Active community support", "Systematic trading approach", "Focus on risk management"] }
   ];
 
   export const problems: Problem[] = [
@@ -63,30 +54,6 @@ export const trustBadges: TrustBadge[] = [
           description: "Sample: 1,847 trades",
           bgColor: "bg-blue-500/20",
           iconColor: "text-blue-400"
-      }
-  ];
-
-  export const learningPath: LearningPhase[] = [
-      {
-        week: "Week 1-2",
-        title: "Master the Basics",
-        description: "Understanding crypto markets, setting up tools, risk management fundamentals",
-        icon: Building2,
-        color: "yellow"
-      },
-      {
-        week: "Week 3-4",
-        title: "Implement Proven Strategies",
-        description: "Learn support/resistance, chart patterns, and entry/exit strategies",
-        icon: Target,
-        color: "green"
-      },
-      {
-        week: "Week 5+",
-        title: "Trade with Confidence",
-        description: "Advanced techniques, backtesting strategies, building your trading plan",
-        icon: TrendingUp,
-        color: "blue"
       }
   ];
 
@@ -243,15 +210,6 @@ export const trustBadges: TrustBadge[] = [
     }
   ];
 
-  export const benefits: Benefit[] = [
-    {item: "Lifetime Access to Recorded Modules", value: "₹80,000"},
-    {item: "Monthly Live Q&A Sessions", value: "₹50,000"},
-    {item: "24/7 Private Community Support", value: "₹15,000"},
-    {item: "Bonus: Pro Trading Tools & Checklists", value: "₹10,000"},
-    {item: "Bonus: Risk Management Templates", value: "₹15,000"},
-];
-
-
 export const uniqueMechanismData = {
     headline: "The 2-Hour Skillstack (7–9 PM)",
     subheadline: "",
@@ -284,44 +242,6 @@ export const uniqueMechanismData = {
     ],
     proof: ""
 };
-
-export const pricing = {
-    totalValue: "₹1,70,000",
-    currentPrice: "₹19,499",
-    savings: "₹1,50,501",
-    dailyCost: "₹54",
-    emiAmount: "₹1,625",
-    emiMonths: 12,
-    nextBatchPrice: "₹24,999"
-  };
-
-export const urgencyData = {
-    priceIncrease: {
-        newPrice: "₹24,999",
-        date: getNextFirstSaturday()
-    },
-    nextLiveQA: getNextFirstSaturday(),
-    bonusDeadline: "Next 48 hours only",
-    bonusDescription: "Advanced Bot Trading Module",
-    bonusValue: "₹15,000"
-};
-
-export const guarantees = {
-    moneyBack: {
-        period: "30-Day Satisfaction Guarantee",
-        condition: "Go through the first 4 modules and exercises. If it's not worth it, email support within 30 days for a full refund. No hidden conditions."
-    },
-    support: {
-        type: "Lifetime",
-        includes: "Monthly Q&A sessions, community access, and all future updates"
-    },
-    results: {
-        claim: "Student satisfaction",
-        verified: "Based on student feedback and course completion rates"
-    }
-};
-
-
 
 export const faqs: FaqItem[] = [
     {

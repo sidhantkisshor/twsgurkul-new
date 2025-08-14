@@ -12,7 +12,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         Skip to content
       </a>
       <Navbar />
-      <main id="main">{children}</main>
+      <main id="main" className="relative">{children}</main>
       <Footer />
     </div>
   );
