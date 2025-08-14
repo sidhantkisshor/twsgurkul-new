@@ -169,7 +169,7 @@ const UnifiedStickyController = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5 hover:shadow-green-500/25 transition-shadow duration-300 text-sm"
+            className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5 hover:shadow-green-500/25 transition-shadow duration-300 text-sm z-50"
           >
             <Sparkles className="w-3 h-3" />
             <span className="font-medium whitespace-nowrap">Find Program</span>
@@ -177,11 +177,10 @@ const UnifiedStickyController = () => {
           </button>
           
           {isExpanded && (
-            <div className="bg-black/95 backdrop-blur-xl border-t border-white/10 p-4 pb-8">
-              <div className="mb-4 text-center text-xs text-gray-400">Choose your path</div>
+            <div className="fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-xl border-t border-white/10 p-4 z-50">
               <button
                 onClick={scrollToQuiz}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full py-3 font-semibold"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full py-3 font-semibold text-sm"
               >
                 Take 30-Second Quiz →
               </button>
