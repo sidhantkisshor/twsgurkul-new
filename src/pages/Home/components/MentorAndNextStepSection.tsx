@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, AlertTriangle, TrendingUp, Users, Target, CheckCircle, ArrowRight, Zap, Calendar, X } from 'lucide-react';
+import { Clock, AlertTriangle, TrendingUp, Users, Target, CheckCircle, ArrowRight, Zap, Calendar } from 'lucide-react';
 
 const MentorAndNextStepSection = () => {
   // Countdown timer state

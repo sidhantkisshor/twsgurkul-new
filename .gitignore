@@ -41,3 +41,12 @@ amplifyconfiguration*
 # e.g., if you don't want to commit assets that are hosted on S3
 public/assets/
 *.local
+
+# SuperStreams page
+/src/pages/SuperStreams
+
+# Documentation and IDE files
+/docs
+/.claude
+/.cursor
+/design.md

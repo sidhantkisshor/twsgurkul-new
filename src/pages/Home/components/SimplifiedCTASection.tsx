@@ -129,12 +129,6 @@ const SimplifiedCTASection = () => {
                   <span className="text-sm text-gray-400">UPI • Cards • EMI Available</span>
                 </div>
                 
-                {/* GST Invoice */}
-                <div className="flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm text-gray-400">GST Invoice Provided</span>
-                </div>
-                
                 {/* Money Back */}
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4 text-green-400" />

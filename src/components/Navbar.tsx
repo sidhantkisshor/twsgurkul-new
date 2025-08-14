@@ -30,15 +30,15 @@ const Navbar = () => {
   return (
     <>
       <nav 
-        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
+        className={`fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
           isScrolled 
             ? 'bg-black/80 backdrop-blur-lg border border-white/20' 
             : 'bg-white/10 backdrop-blur-sm border border-white/10'
-        } rounded-full px-4 xl:px-6 py-3`}
+        } rounded-full px-3 sm:px-4 xl:px-6 py-2 sm:py-3 w-[calc(100%-1rem)] sm:w-auto max-w-[calc(100vw-1rem)] sm:max-w-none`}
       >
-        <div className="flex items-center space-x-3 xl:space-x-8">
+        <div className="flex items-center justify-between sm:justify-start sm:space-x-3 xl:space-x-8 w-full sm:w-auto">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <Link 
               to="/"
               className="flex items-center"
@@ -46,12 +46,12 @@ const Navbar = () => {
               <img 
                 src="/favicon.png" 
                 alt="Trading With Sidhant" 
-                className="h-10 w-10 object-contain"
+                className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
               />
             </Link>
             <Link 
               to="/"
-              className="font-extrabold text-white hidden sm:block tracking-tight text-lg bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent hover:from-blue-200 hover:via-purple-200 hover:to-green-200 transition-all duration-300"
+              className="font-extrabold text-white block sm:hidden md:block tracking-tight text-sm sm:text-lg bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent hover:from-blue-200 hover:via-purple-200 hover:to-green-200 transition-all duration-300"
             >
               TWS<span className="text-green-400">.</span>GURUKUL
             </Link>
@@ -101,7 +101,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+            className="md:hidden text-white p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-colors"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -115,7 +115,7 @@ const Navbar = () => {
             className="absolute inset-0 bg-black/70 backdrop-blur-xl transition-opacity duration-300" 
             onClick={() => setIsMobileMenuOpen(false)} 
           />
-          <div className="absolute top-20 left-4 right-4 glass-effect rounded-3xl p-6 shadow-2xl animate-slide-down">
+          <div className="absolute top-16 sm:top-20 left-4 right-4 glass-effect rounded-3xl p-4 sm:p-6 shadow-2xl animate-slide-down">
             <div className="space-y-1">
               {/* Navigation Items */}
               {navItems.map((item, index) => (

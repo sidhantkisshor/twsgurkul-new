@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, AlertTriangle, Gift, ArrowRight, Users, TrendingDown, CheckCircle, X, Zap, IndianRupee } from 'lucide-react';
+import { Clock, AlertTriangle, Gift, ArrowRight, Users, TrendingDown, CheckCircle, Zap, IndianRupee } from 'lucide-react';
 
 const FinalPushSection = () => {
   // Countdown timer state

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, ArrowRight, X } from 'lucide-react';
+import { Sparkles, X } from 'lucide-react';
 
 const StickyMobileQuizCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
