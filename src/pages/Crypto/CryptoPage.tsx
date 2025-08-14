@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Seo from '../../components/Seo';
 
 // Core components loaded immediately
@@ -14,8 +14,10 @@ import PricingSection from './components/PricingSection';
 import CryptoGuaranteeSection from './components/CryptoGuaranteeSection';
 import FinalCtaSection from './components/FinalCtaSection';
 import ExitIntentPopup from './components/ExitIntentPopup';
-import StickyMobileCTA from './components/StickyMobileCTA';
-import CtaSection from './components/CtaSection';
+import MethodologyModal from './components/MethodologyModal';
+import JournalPreview from './components/JournalPreview';
+import ReturningUserCheckout from './components/ReturningUserCheckout';
+import VideoSection from './components/VideoSection';
 
 // Lazy load secondary components for performance
 const TrustBadgesBar = lazy(() => import('./components/TrustBadgesBar'));
@@ -26,10 +28,21 @@ const FAQ = lazy(() => import('./components/FAQ'));
 import { useCountdown } from './hooks/useCountdown';
 import { useExitIntent } from './hooks/useExitIntent';
 
+// Tracking
+import { initScrollTracking, trackTimeOnPage, cryptoTrackingEvents } from './utils/tracking';
+
 function CryptoPage() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [showMethodologyModal, setShowMethodologyModal] = useState(false);
   const timeLeft = useCountdown();
   const { showExitPopup, setShowExitPopup } = useExitIntent();
+
+  // Initialize tracking
+  useEffect(() => {
+    const cleanupScroll = initScrollTracking();
+    trackTimeOnPage();
+    
+    return cleanupScroll;
+  }, []);
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => {
     e.preventDefault();
@@ -52,35 +65,40 @@ function CryptoPage() {
         
         <AnnouncementBar timeLeft={timeLeft} />
         
+        {/* Returning user quick checkout */}
+        <ReturningUserCheckout />
+        
         <main className="pt-16">
           {/* Core conversion flow: 8 sections instead of 19 */}
           <HeroSection 
             handleSmoothScroll={handleSmoothScroll}
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
+            onMethodologyClick={() => setShowMethodologyModal(true)}
           />
           
           {/* Trust indicators loaded after hero for performance */}
           <Suspense fallback={<div className="h-20" />}>
-            <TrustBadgesBar />
+            <TrustBadgesBar onMethodologyClick={() => setShowMethodologyModal(true)} />
           </Suspense>
           
           <ProblemSection />
           
           <UniqueMechanismSection />
           
-          {/* Success stats lazy loaded */}
-          <Suspense fallback={<div className="h-40" />}>
-            <CryptoSuccessStats />
-          </Suspense>
           
           <InstructorSectionSimplified />
           
-          <TestimonialsSection handleSmoothScroll={handleSmoothScroll} />
+          <TestimonialsSection 
+            handleSmoothScroll={handleSmoothScroll} 
+            onMethodologyClick={() => setShowMethodologyModal(true)}
+          />
           
-          <PricingSection />
+          {/* Video Section - moved from hero */}
+          <VideoSection />
           
-          <CtaSection />
+          {/* Journal Preview - high intent signal */}
+          <JournalPreview />
+          
+          <PricingSection onMethodologyClick={() => setShowMethodologyModal(true)} />
           
           <CryptoGuaranteeSection />
           
@@ -99,8 +117,12 @@ function CryptoPage() {
           onClose={() => setShowExitPopup(false)}
         />
         
-        {/* Sticky mobile CTA */}
-        <StickyMobileCTA handleSmoothScroll={handleSmoothScroll} />
+        
+        {/* Methodology Modal */}
+        <MethodologyModal 
+          isOpen={showMethodologyModal}
+          onClose={() => setShowMethodologyModal(false)}
+        />
       </div>
     </ErrorBoundary>
   );

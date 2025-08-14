@@ -76,7 +76,7 @@ const InstructorSectionSimplified: React.FC = () => {
                     
                     <motion.button
                         onClick={scrollToPricing}
-                        className="group relative px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold rounded-full overflow-hidden shadow-lg shadow-yellow-500/25 transition-all flex items-center gap-2"
+                        className="group relative px-6 py-3 border-2 border-slate-400 text-slate-300 hover:border-slate-300 hover:bg-slate-800/50 font-semibold rounded-full transition-all flex items-center gap-2"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                     >

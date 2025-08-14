@@ -40,19 +40,6 @@ const UniqueMechanismSection: React.FC = () => {
             ))}
           </div>
 
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="inline-block bg-green-500/10 border border-green-500/30 rounded-lg px-6 py-3">
-              <p className="text-lg font-semibold text-green-400">
-                {uniqueMechanismData.proof}
-              </p>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

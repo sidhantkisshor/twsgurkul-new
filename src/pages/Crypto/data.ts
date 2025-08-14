@@ -1,7 +1,5 @@
 import {
     Building2,
-    Clock,
-    Heart,
     Target,
     TrendingDown,
     TrendingUp,
@@ -10,61 +8,25 @@ import {
     Wallet,
     BarChart3,
 } from 'lucide-react';
-import { Benefit, ComparisonItem, CurriculumModule, FinalCtaCard, InstructorFeature, LearningPhase, Problem, Student, Testimonial, TrustBadge, FaqItem, HeroData } from './types';
+import { TrustBadge, FaqItem, HeroData } from './types';
+import { getNextFirstSaturday } from './utils/dateHelpers';
 
-export const students: Student[] = [
-    { name: "Ravi", location: "Mumbai", time: "2 minutes ago" },
-    { name: "Priya", location: "Delhi", time: "5 minutes ago" },
-    { name: "Amit", location: "Bangalore", time: "8 minutes ago" },
-    { name: "Sneha", location: "Chennai", time: "10 minutes ago" },
-    { name: "Rahul", location: "Hyderabad", time: "7 minutes ago" },
-    { name: "Ayesha", location: "Mumbai", time: "4 minutes ago" },
-    { name: "Jaspreet", location: "Delhi", time: "3 minutes ago" },
-    { name: "Fatima", location: "Hyderabad", time: "6 minutes ago" },
-    { name: "Samuel", location: "Chennai", time: "1 minute ago" },
-    { name: "Ibrahim", location: "Bangalore", time: "9 minutes ago" },
-    { name: "Neha", location: "Delhi", time: "4 minutes ago" },
-    { name: "Harpreet", location: "Mumbai", time: "2 minutes ago" },
-    { name: "Roshan", location: "Bangalore", time: "7 minutes ago" },
-    { name: "Mary", location: "Chennai", time: "6 minutes ago" },
-    { name: "Sana", location: "Hyderabad", time: "3 minutes ago" },
-    { name: "Karan", location: "Delhi", time: "8 minutes ago" },
-    { name: "Zoya", location: "Mumbai", time: "5 minutes ago" },
-    { name: "David", location: "Chennai", time: "2 minutes ago" },
-    { name: "Imran", location: "Bangalore", time: "6 minutes ago" },
-    { name: "Anjali", location: "Hyderabad", time: "9 minutes ago" },
-    { name: "Mohit", location: "Delhi", time: "7 minutes ago" },
-    { name: "Farhan", location: "Mumbai", time: "3 minutes ago" },
-    { name: "Rebecca", location: "Bangalore", time: "4 minutes ago" },
-    { name: "Simran", location: "Chennai", time: "8 minutes ago" },
-    { name: "Adnan", location: "Hyderabad", time: "2 minutes ago" },
-    { name: "Avni", location: "Delhi", time: "1 minute ago" },
-    { name: "Yusuf", location: "Mumbai", time: "10 minutes ago" },
-    { name: "Raj", location: "Bangalore", time: "5 minutes ago" },
-    { name: "Christina", location: "Chennai", time: "6 minutes ago" },
-    { name: "Ruksar", location: "Hyderabad", time: "9 minutes ago" },
-    { name: "Manpreet", location: "Delhi", time: "2 minutes ago" },
-    { name: "Ali", location: "Mumbai", time: "7 minutes ago" },
-    { name: "Grace", location: "Bangalore", time: "1 minute ago" },
-    { name: "Nikhil", location: "Chennai", time: "4 minutes ago" },
-    { name: "Shabana", location: "Hyderabad", time: "8 minutes ago" }
-  ];
 
 export const trustBadges: TrustBadge[] = [
     {
+      icon: Building2,
+      text: "1,263 learners",
+      color: "blue",
+    },
+    {
       icon: Bitcoin,
-      text: "₹2.7Cr Reported Student Profits",
+      text: "₹27.2Cr self-reported",
       color: "yellow",
     },
     {
       icon: CandlestickChart,
-      text: "73% Reported Win Rate",
+      text: "73% reported win rate",
       color: "green",
-    },
-    {
-      icon: Wallet,
-      text: "Instant INR Withdrawals",
-      color: "blue",
     },
   ];
 
@@ -83,18 +45,24 @@ export const trustBadges: TrustBadge[] = [
   export const instructorFeatures: InstructorFeature[] = [
       {
           icon: Bitcoin,
-          title: "Trading Since 2017 Bull Run",
-          description: "Survived 3 crashes, 2 bear markets. Still profitable."
+          title: "Since 2017",
+          description: "3 crashes, 2 bears, still here",
+          bgColor: "bg-yellow-500/20",
+          iconColor: "text-yellow-400"
       },
       {
           icon: BarChart3,
-          title: "₹2.7 Crore+ Student Withdrawals",
-          description: "Not paper profits. Real money in real bank accounts."
+          title: "₹27.2Cr reported",
+          description: "Student-reported profits",
+          bgColor: "bg-green-500/20",
+          iconColor: "text-green-400"
       },
        {
           icon: CandlestickChart,
-          title: "73% Reported Win Rate (Sample: 1,847 Trades)",
-          description: "Based on recorded trades. Individual results may vary."
+          title: "73% win rate",
+          description: "Sample: 1,847 trades",
+          bgColor: "bg-blue-500/20",
+          iconColor: "text-blue-400"
       }
   ];
 
@@ -283,55 +251,38 @@ export const trustBadges: TrustBadge[] = [
     {item: "Bonus: Risk Management Templates", value: "₹15,000"},
 ];
 
-export const finalCtaCards: FinalCtaCard[] = [
-    {
-        icon: TrendingUp,
-        title: "Instant Access Today",
-        description: "Price increases to ₹24,999 after that (seriously)."
-    },
-    {
-        icon: Clock,
-        title: "Offer Expires in 24 Hours",
-        description: "1,263 students joined. Don't be the one who missed out."
-    },
-    {
-        icon: Heart,
-        title: "Build a Reliable Evening Skill",
-        description: "Start today with recorded modules; join the next Live Q&A on 18th AUG."
-    }
-];
 
 export const uniqueMechanismData = {
-    headline: "The 7–9PM Routine",
-    subheadline: "Designed for consistency, not \"all‑day charts\" — perfect for working professionals",
+    headline: "The 2-Hour Skillstack (7–9 PM)",
+    subheadline: "",
     features: [
         {
-            letter: "7:00",
-            title: "Unwind & Open Watchlist",
-            description: "Relax after work and open your watchlist"
+            letter: "1",
+            title: "Define risk first",
+            description: "Invalidation and position size set before entry"
         },
         {
-            letter: "7:15",
-            title: "Scan with Checklist",
-            description: "Use our checklist to shortlist 3–5 setups"
+            letter: "2",
+            title: "Scan with checklist",
+            description: "Shortlist 3–5 clean setups"
         },
         {
-            letter: "7:30",
-            title: "Plan Your Trades",
-            description: "Plan entries/exits with position sizing"
+            letter: "3",
+            title: "Plan entries/exits",
+            description: "Rules for partials and stops, not gut feel"
         },
         {
-            letter: "8:00",
-            title: "Place Orders",
-            description: "Place orders; \"set & manage\""
+            letter: "4",
+            title: "Execute with alerts",
+            description: "Place orders; manage by exception"
         },
         {
-            letter: "9:00",
-            title: "Review & Journal",
-            description: "Review results and journal improvements"
+            letter: "5",
+            title: "Review & journal",
+            description: "Weekly refinement tightens the system"
         }
     ],
-    proof: "Designed for consistency, not \"all‑day charts\""
+    proof: ""
 };
 
 export const pricing = {
@@ -339,7 +290,7 @@ export const pricing = {
     currentPrice: "₹19,499",
     savings: "₹1,50,501",
     dailyCost: "₹54",
-    emiAmount: "₹945",
+    emiAmount: "₹1,625",
     emiMonths: 12,
     nextBatchPrice: "₹24,999"
   };
@@ -347,9 +298,9 @@ export const pricing = {
 export const urgencyData = {
     priceIncrease: {
         newPrice: "₹24,999",
-        date: "19th AUG"
+        date: getNextFirstSaturday()
     },
-    nextLiveQA: "18th AUG",
+    nextLiveQA: getNextFirstSaturday(),
     bonusDeadline: "Next 48 hours only",
     bonusDescription: "Advanced Bot Trading Module",
     bonusValue: "₹15,000"
@@ -370,151 +321,73 @@ export const guarantees = {
     }
 };
 
-export const contactInfo = {
-    whatsappNumber: "918806969132",
-    whatsappMessage: "Hi Team, I want to know more about the crypto course",
-};
 
-export const curriculumModules: CurriculumModule[] = [
-    {
-        title: "Foundation & Setup",
-        items: ["Crypto Basics & History", "Choosing a Secure Wallet", "Navigating Trading Platforms", "Essential Security Practices"]
-    },
-    {
-        title: "Technical Analysis Mastery",
-        items: ["Reading Candlestick Charts", "Support, Resistance & Trendlines", "Key Chart Patterns", "Using Technical Indicators (RSI, MACD)"]
-    },
-    {
-        title: "Risk Management & Strategy",
-        items: ["Position Sizing", "Setting Stop-Loss & Take-Profit", "The Psychology of Trading", "Building a Personal Trading Plan"]
-    },
-    {
-        title: "Advanced Trading Techniques",
-        items: ["Introduction to Futures Trading", "Understanding Leverage & Margin", "Exploring DeFi & Yield Farming", "On-Chain Analysis Basics"]
-    },
-    {
-        title: "Portfolio Building",
-        items: ["Diversification Strategies", "Long-Term Holding (HODLing)", "Researching New Coins (DYOR)", "Tax Implications in India"]
-    },
-    {
-        title: "Real-World Trading Application",
-        items: ["Market Analysis Techniques", "Trade Execution Best Practices", "Performance Review & Optimization", "Community Support & Continuous Learning"]
-    }
-];
 
 export const faqs: FaqItem[] = [
     {
-        q: "Ye bhi koi SCAM toh nahi? How do I trust you?",
-        a: "Valid question! Check our 1,263+ students with REAL faces, REAL profits (₹2.7Cr+). Scammers hide behind fake profiles. We show everything transparently."
+        q: "Live or recorded?",
+        a: "Recorded program + one monthly live Q&A (recordings provided). Learn at your pace, then join live sessions for doubt-solving and trade reviews."
     },
     {
-        q: "Main already 2-3 'gurus' se thaga gaya hun...",
-        a: "That's EXACTLY why we created this. 30-day satisfaction guarantee + recorded modules + monthly live Q&A. Scammers disappear, we stay."
+        q: "Legal in India?",
+        a: "Trading on compliant platforms is permitted. Education only; no tips. We teach methods and risk control, not specific token recommendations."
     },
     {
-        q: "Free YouTube/Telegram se kya farak hai?",
-        a: "Free = You're the product being sold. They make money from YOUR losses (pump & dump). We make money ONLY when you succeed."
+        q: "Taxes basics?",
+        a: "We include a beginner primer + CA resources. Generally 30% tax + 1% TDS on transactions above ₹10,000. Consult a tax professional."
     },
     {
-        q: "Kitne din mein profit start hoga?",
-        a: "Results vary per student. Focus pehle process pe, profit follows. We teach systematic trading, not quick-money schemes."
+        q: "Exchange risk/self-custody?",
+        a: "Counterparty risk exists; we include a self-custody primer & risk checklist. Learn to minimize exchange exposure and protect your assets properly."
     },
     {
-        q: "Hidden charges ya upsell hoga baad mein?",
-        a: "ZERO hidden charges. One price, lifetime access. No 'advanced' course, no 'VIP' group, no extra fees. Everything included."
+        q: "Mobile vs laptop?",
+        a: "Both taught; laptop preferred for analysis. Many students trade successfully on mobile. We cover apps and tools for both platforms."
     },
     {
-        q: "Mobile pe trading kar sakte hain ya laptop chahiye?",
-        a: "Dono options hain. Mobile apps bhi detail mein sikhaye hain. Laptop better hai analysis ke liye."
-    },
-    {
-        q: "Course lifetime access hai ya limited time?",
-        a: "Lifetime access hai bhai. Ek baar buy karo, hamesha access rahega. Updates bhi free."
-    },
-    {
-        q: "Monthly live Q&A sessions miss ho jaaye toh?",
-        a: "All live Q&A sessions record hote hain. Recordings mil jaati hain. Plus written summaries bhi milte hain."
-    },
-    {
-        q: "Family ko pata chal jayega trading kar raha hun?",
-        a: "Bilkul private. Aap jitna chahte ho utna share karo. Many students secretly start karte hain."
-    },
-    {
-        q: "Age limit hai kya? Main 40+ hun.",
-        a: "No age limit! Oldest student 55 saal ka hai. Age doesn't matter, consistency matters."
-    },
-    {
-        q: "EMI option available hai?",
-        a: "Haan, 24 months tak ke EMI available hai. Easy installments. No-Cost EMI bhi available hai."
-    },
-    {
-        q: "Scam toh nahi hai? Bohot log fraud karte hain crypto mein.",
-        a: "TEDx speaker hun, IIT mein teach kiya hai. Student results available for review. Fully transparent. 30-day money-back policy available."
-    },
-    {
-        q: "Market crash ho jaaye toh strategies work karengi?",
-        a: "Crash mein bhi profit banaya jaata hai. Bear market strategies alag hain, bull market alag. Sab sikhaaya hai."
-    },
-    {
-        q: "WhatsApp pe support milega?",
-        a: "Haan, dedicated WhatsApp support group hai. Plus monthly live Q&A sessions for direct doubt clearing."
-    },
-
-    {
-        q: "Course complete karne mein kitna time lagega?",
-        a: "Recorded modules apne pace pe dekho. Daily 1 hour dedicate karo toh 2-3 months. Monthly live Q&A for continuous support."
-    },
-    {
-        q: "Trading mein loss hone pe kya karna chahiye?",
-        a: "Risk management properly sikhaya hai. Stop loss, position sizing - sab detail mein covered."
-    },
-    {
-        q: "Kya main trading se job quit kar sakta hun?",
-        a: "Trading secondary income ke liye best hai. Job quit karna personal choice hai. Process-first approach sikhate hain."
-    },
-    {
-        q: "Course material download kar sakte hain?",
-        a: "Videos downloadable nahi hain offline viewing ke liye."
+        q: "If I miss the live Q&A?",
+        a: "Recording + written summary provided. All live sessions are recorded so you never miss important insights or trade reviews."
     }
 ];
 
 export const heroData: HeroData = {
     headline: {
-        line1: "Make crypto a",
-        line2: "2‑hour evening skill,",
-        line3: "not a gamble"
+        line1: "Make crypto your",
+        line2: "2-hour evening skill",
+        line3: ""
     },
     description: {
-        part1: "A recorded, step‑by‑step system for working professionals —",
+        part1: "A step-by-step recorded system for busy professionals,",
         highlight1: "with monthly live Q&A",
         part2: "for",
-        highlight2: "doubt‑solving and reviews.",
+        highlight2: "doubt-solving and trade reviews.",
         part3: ""
     },
     enrollmentStats: {
-        count: "1,263+",
+        count: "1,263",
         text: "students enrolled"
     },
     features: [
-        { icon: CandlestickChart, text: "Proven Strategies", subtext: "73% reported win rate", color: "green" },
-        { icon: Wallet, text: "Start with ₹10K", subtext: "No huge capital needed", color: "blue" }
+        { icon: CandlestickChart, text: "Rule #1: Invalidation first", subtext: "Exit before entry", color: "green" },
+        { icon: Wallet, text: "Journal framework included", subtext: "Track & improve daily", color: "blue" }
     ],
     stats: [
-        { value: "₹2.7Cr", label: "Reported Profits", color: "green" },
-        { value: "1,263", label: "Success Stories", color: "yellow" },
-        { value: "18 AUG", label: "Next Live Q&A", color: "blue" }
+        { value: "₹27.2Cr", label: "Student Reports", color: "slate" },
+        { value: "1,263", label: "Active Learners", color: "yellow" },
+        { value: "73%", label: "Win Rate", color: "blue" }
     ],
     video: {
         thumbnail: "https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg",
-        title: "LIVE PROOF: ₹2.3L Trade Recording",
-        subtitle: "No edits. No fake screenshots. Just results."
+        title: "Uncut trade review: ₹2.3L example",
+        subtitle: "Watch how we analyze winning trades"
     },
     badges: {
         top: "INSTANT ACCESS",
         bottom: "Recorded + Monthly Live Q&A"
     },
+    microNote: "Education only. Results vary. Trading involves risk.",
     cta: {
-        primary: "See Live Student Results",
-        secondary: "Start Learning — ₹19,499"
+        primary: "Start my 2-hour skill today",
+        secondary: "See verified student results"
     }
 }; 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { uniqueMechanismData, comparisonData } from '../data';
+import { uniqueMechanismData } from '../data';
 
 const UniqueMechanismSection: React.FC = () => {
   return (
@@ -46,47 +46,6 @@ const UniqueMechanismSection: React.FC = () => {
             ))}
           </div>
 
-          <motion.div 
-            className="bg-slate-800/40 rounded-2xl p-8 mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold text-center mb-8">
-              <span className="text-red-400">Regular Trading</span> vs <span className="text-green-400">Footprint Trading</span>
-            </h3>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="text-xl font-semibold text-red-400 mb-4 text-center">
-                  {comparisonData.regularTrading.title}
-                </h4>
-                <ul className="space-y-3">
-                  {comparisonData.regularTrading.points.map((point, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span className="text-red-500 mt-1">✗</span>
-                      <span className="text-slate-300">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="text-xl font-semibold text-green-400 mb-4 text-center">
-                  {comparisonData.footprintTrading.title}
-                </h4>
-                <ul className="space-y-3">
-                  {comparisonData.footprintTrading.points.map((point, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span className="text-green-500 mt-1">✓</span>
-                      <span className="text-slate-300">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
 
           <motion.div 
             className="text-center"

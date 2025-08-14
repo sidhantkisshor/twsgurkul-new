@@ -37,7 +37,7 @@ const StickyMobileCTA: React.FC = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-cyan-500/20 p-4"
+          className="fixed bottom-0 left-0 right-0 z-[800] md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-cyan-500/20 p-4"
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           exit={{ y: 100 }}
@@ -47,7 +47,7 @@ const StickyMobileCTA: React.FC = () => {
             onClick={handlePaymentPopup}
             className="w-full py-4 px-6 bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-teal-600 transition-all"
           >
-            Start Learning — ₹34,997
+            Start Footprint Mastery
           </button>
           <p className="text-xs text-slate-400 text-center mt-2">
             Instant access • Next Live Q&A: 27th Aug

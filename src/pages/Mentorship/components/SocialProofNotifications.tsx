@@ -87,7 +87,7 @@ const SocialProofNotifications: React.FC = () => {
   }, [nextId]);
 
   return (
-    <div className="fixed bottom-20 left-4 md:bottom-8 md:left-8 z-30 pointer-events-none">
+    <div className="fixed bottom-0 left-0 right-0 md:bottom-8 md:left-8 md:right-auto z-[800] pointer-events-none">
       <AnimatePresence>
         {notifications.map((notification) => (
           <motion.div

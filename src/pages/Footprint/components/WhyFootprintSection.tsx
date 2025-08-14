@@ -1,30 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { XCircle, CheckCircle, ArrowRight } from 'lucide-react';
+import VerificationModal from './VerificationModal';
 
 const WhyFootprintSection: React.FC = () => {
-  const beforeAfterData = [
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
+  const learningPoints = [
     { 
-      title: "Before: Trading Without Order Flow", 
-      icon: XCircle, 
-      color: "red", 
-      points: [
-        "Chased breakouts after they already moved",
-        "Late exits, giving back most profits",
-        "No objective invalidation levels",
-        "Volatile P&L swings day to day"
-      ] 
+      letter: "F",
+      title: "Module 1-2: Find Liquidity",
+      description: "Identify high-volume nodes and stop clusters on the footprint chart"
     },
     { 
-      title: "After: Adopting a Footprint Process", 
-      icon: CheckCircle, 
-      color: "green", 
-      points: [
-        "Wait for absorption/delta confirmation",
-        "Pre-defined stops and exit targets",
-        "Fewer impulse entries, more patience",
-        "More consistent execution overall"
-      ] 
+      letter: "A",
+      title: "Module 3-4: Assess Absorption",
+      description: "Distinguish between absorption (strength) and exhaustion (weakness) patterns"
+    },
+    { 
+      letter: "S",
+      title: "Module 5-6: Sync with Delta",
+      description: "Use cumulative delta divergence to confirm or fade price moves"
+    },
+    { 
+      letter: "T",
+      title: "Module 7-8: Trade Execution",
+      description: "Apply the 1-page entry checklist with pre-defined stops and targets"
+    },
+    { 
+      letter: "+",
+      title: "Module 9-10: Risk & Review",
+      description: "Position sizing based on footprint strength and post-trade journaling"
     }
   ];
 
@@ -38,91 +42,67 @@ const WhyFootprintSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Why Learn <span className="text-cyan-400">Footprint Trading</span>?
+            What You'll Learn in <span className="text-cyan-400">10 Modules</span>
           </h2>
           <p className="text-lg text-slate-300">
-            Transform your trading approach from reactive to systematic
+            Each module directly maps to the F.A.S.T. framework
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {beforeAfterData.map((item, index) => (
+        <div className="space-y-4">
+          {learningPoints.map((point, index) => (
             <motion.div
-              key={item.title}
-              className={`bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 border ${
-                item.color === 'red' ? 'border-red-500/20' : 'border-green-500/20'
-              }`}
-              initial={{ opacity: 0, x: index === 0 ? -50 : 50 }}
+              key={index}
+              className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-4 border border-slate-700 flex items-start gap-4"
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ delay: index * 0.1 }}
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className={`w-12 h-12 ${item.color === 'red' ? 'bg-red-500/20' : 'bg-green-500/20'} rounded-full flex items-center justify-center`}>
-                  <item.icon className={`w-6 h-6 ${item.color === 'red' ? 'text-red-400' : 'text-green-400'}`} />
-                </div>
-                <h3 className={`text-xl font-bold ${item.color === 'red' ? 'text-red-400' : 'text-green-400'}`}>
-                  {item.title}
-                </h3>
+              <div className="flex-shrink-0 w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+                <span className="text-lg font-bold text-cyan-400">{point.letter}</span>
               </div>
-              <ul className="space-y-3">
-                {item.points.map((point, pointIndex) => (
-                  <li key={pointIndex} className="flex items-start space-x-3">
-                    <span className={`${item.color === 'red' ? 'text-red-500' : 'text-green-500'} mt-1`}>
-                      {item.color === 'red' ? '✗' : '✓'}
-                    </span>
-                    <span className="text-slate-300">{point}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex-1">
+                <h3 className="font-bold text-white mb-1">{point.title}</h3>
+                <p className="text-sm text-slate-300">{point.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Transition Arrow */}
+        {/* Instructor Strip */}
         <motion.div
-          className="flex justify-center my-8"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
-          <div className="flex items-center gap-4">
-            <span className="text-slate-500">Transform your approach</span>
-            <ArrowRight className="w-6 h-6 text-cyan-400" />
-          </div>
-        </motion.div>
-
-        {/* Key Benefits */}
-        <motion.div
-          className="mt-12"
+          className="mt-12 bg-slate-800/40 rounded-xl p-4 border border-slate-700"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
         >
-          <div className="bg-slate-800/40 border border-cyan-500/20 rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              The Footprint Advantage
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-cyan-400 mb-2">Objective</div>
-                <p className="text-sm text-slate-400">
-                  Trade based on actual order flow data, not opinions or predictions
-                </p>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0 pointer-events-none">
+              <span className="text-white font-bold text-xl">S</span>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-sm font-semibold text-white mb-2">Sidhant, Instructor</p>
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 text-xs text-slate-300">
+                <span className="flex items-center gap-1">
+                  <span className="text-cyan-400">•</span> Reading footprints since 2019
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="text-cyan-400">•</span> TWS Gurukul since 2023
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="text-cyan-400">•</span> 1,263+ students trained
+                </span>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-teal-400 mb-2">Systematic</div>
-                <p className="text-sm text-slate-400">
-                  Follow a repeatable process for entries, exits, and risk management
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-amber-400 mb-2">Consistent</div>
-                <p className="text-sm text-slate-400">
-                  Build trading discipline through clear rules and regular review
-                </p>
-              </div>
+            </div>
+            <div className="text-center md:text-right">
+              <button
+                onClick={() => setShowVerificationModal(true)}
+                className="text-xs text-cyan-400 hover:text-cyan-300 underline"
+              >
+                How TWS verifies student feedback →
+              </button>
             </div>
           </div>
         </motion.div>
@@ -139,6 +119,12 @@ const WhyFootprintSection: React.FC = () => {
           </p>
         </motion.div>
       </div>
+      
+      {/* Verification Modal */}
+      <VerificationModal 
+        isOpen={showVerificationModal}
+        onClose={() => setShowVerificationModal(false)}
+      />
     </section>
   );
 };

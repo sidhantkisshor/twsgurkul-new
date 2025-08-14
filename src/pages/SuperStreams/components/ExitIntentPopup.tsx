@@ -88,7 +88,7 @@ const ExitIntentPopup: React.FC = () => {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[60] flex items-center justify-center p-4 overflow-y-auto"
+        className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[900] flex items-center justify-center p-4 overflow-y-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

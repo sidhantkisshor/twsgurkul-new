@@ -1,39 +1,29 @@
 export const uniqueMechanismData = {
-  headline: "What You'll Learn",
-  subheadline: "Master order flow analysis with these core concepts:",
+  headline: "The F.A.S.T. Framework",
+  subheadline: "A systematic approach to order flow analysis that removes guesswork:",
   features: [
     {
-      letter: "1",
-      title: "Footprint Basics",
-      description: "Identify absorption vs. exhaustion patterns in real-time order flow"
+      letter: "F",
+      title: "Find",
+      description: "Liquidity zones and likely stop clusters"
     },
     {
-      letter: "2",
-      title: "Cumulative Delta",
-      description: "Confirm or fade market moves using delta divergence signals"
+      letter: "A",
+      title: "Assess",
+      description: "Absorption vs exhaustion on the footprint"
     },
     {
-      letter: "3",
-      title: "Liquidity & Stop Clusters",
-      description: "Avoid chasing into traps by reading liquidity zones"
+      letter: "S",
+      title: "Sync",
+      description: "Price action with cumulative delta alignment"
     },
     {
-      letter: "4",
-      title: "Risk Management",
-      description: "Clear invalidation levels and position sizing based on footprint data"
-    },
-    {
-      letter: "5",
-      title: "Execution",
-      description: "Time entries/exits based on objective footprint cues"
-    },
-    {
-      letter: "6",
-      title: "Review Process",
-      description: "Use journals and checklists to build trading consistency"
+      letter: "T",
+      title: "Trade",
+      description: "Pre-defined entry, invalidation and position size"
     }
   ],
-  proof: "Join traders who use order flow to make informed, consistent trading decisions"
+  proof: "Join traders who use the F.A.S.T. framework to make systematic, rule-based trading decisions"
 };
 
 export const urgencyData = {
@@ -43,9 +33,7 @@ export const urgencyData = {
     newPrice: "₹50,000",
     reason: "Regular price update after introductory offer"
   },
-  seatsLeft: 12,
-  totalSeats: 100,
-  reasonForLimit: "Maintaining quality of monthly live Q&A sessions",
+  reasonForLimit: "Monthly Q&A sessions are capped to ensure all questions get answered",
   bonusDeadline: "This week only",
   bonusValue: "₹5,000",
   bonusDescription: "Trade journaling templates + Risk management tools"
@@ -65,7 +53,7 @@ export const guaranteeData = {
 
 export const comparisonData = {
   regularTrading: {
-    title: "Trading Without Order Flow",
+    title: "Before TWS",
     points: [
       "Follow price action alone",
       "Chase breakouts after they happen",
@@ -75,13 +63,13 @@ export const comparisonData = {
     ]
   },
   footprintTrading: {
-    title: "Trading With Footprint Charts",
+    title: "After TWS",
     points: [
       "See order flow in real-time",
       "Identify absorption patterns",
       "Clear risk management levels",
       "Confirm with delta divergence",
-      "Systematic trading approach"
+      "F.A.S.T. framework execution"
     ]
   }
 };

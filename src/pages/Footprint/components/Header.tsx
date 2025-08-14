@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
         isScrolled ? 'bg-slate-900/95 backdrop-blur-xl shadow-lg border-b border-slate-800/50' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -45,14 +45,14 @@ const Header: React.FC = () => {
             </div>
             <div>
               <span className="text-xl font-bold font-mono bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">FOOTPRINT</span>
-              <span className="text-xl font-bold text-white ml-1 font-mono">MATRIX</span>
+              <span className="text-xl font-bold text-white ml-1 font-mono">MASTERY</span>
             </div>
           </Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium">Home</Link>
-            <a href="#mechanism" className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium">F.A.S.T Method</a>
+            <a href="#mechanism" className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium">F.A.S.T. Method</a>
             <a href="#testimonials" className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium">Success Stories</a>
             <a href="#curriculum" className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium">Course</a>
             <a href="#pricing" className="text-slate-300 hover:text-amber-400 transition-colors text-sm font-medium">Pricing</a>
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Learning →
+              Start Footprint Mastery →
             </motion.button>
           </div>
           
@@ -130,7 +130,7 @@ const Header: React.FC = () => {
               onClick={handlePaymentPopup}
               className="cta-button-primary mt-4"
             >
-              Enroll Now
+              Start Footprint Mastery
             </button>
           </div>
         </div>
