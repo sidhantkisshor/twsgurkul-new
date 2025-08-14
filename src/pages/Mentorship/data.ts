@@ -319,7 +319,7 @@ export const testimonialData = [
     story: {
       struggle: "2 AM to 2 PM driving. Bandra to Airport: ₹400. Back pain, no family time. Son asked: 'Papa ka chehra bhool gaya' (forgot father's face). That broke me.",
       riskTaken: "Saved ₹10K in 6 months. Chose trading over new tires. Wife said 'pagal ho gaye ho'. Maybe I was. But desperate times...",
-      learning: "Watched every 12 PM session from car. Customers thought I'm on calls. First trade from Uber at red signal. ₹800 profit. Cried at signal.",
+      learning: "Watched every 8 PM session from car. Customers thought I'm on calls. First trade from Uber at red signal. ₹800 profit. Cried at signal.",
       growth: "Month 1: ₹8K. Month 2: ₹24K. Month 3: ₹62K. Month 4: Returned Uber to owner. Month 5: Managing ₹2.3L capital. Month 6: Uncle gave me ₹50L to manage.",
       present: "Just hired my first Uber driver. Full circle. Teaching him trading too. Allah ne Sidhant sir ko bheja tha."
     },
@@ -413,7 +413,7 @@ export const credibilityData = {
   credentials: [
     {
       title: "I Trade With Real Money Daily",
-      proof: "₹50 Lakh capital. 3-year audited P&L: +₹2.3 Cr. Watch me trade LIVE at 12 PM.",
+      proof: "₹50 Lakh capital. 3-year audited P&L: +₹2.3 Cr. Watch me trade LIVE at 8 PM.",
       icon: "🔴",
       verify: "Join tomorrow's session and see"
     },
@@ -460,8 +460,8 @@ export const finalCtaData = {
   finalChoice: {
     title: "Two Futures. One Decision. Zero Time.",
     tomorrow: {
-      withoutUs: "Tomorrow at 12 PM: You'll watch others trade. Again. While scrolling Instagram. Wondering 'what if'.",
-      withUs: "Tomorrow at 12 PM: You'll be IN my trading room. Making your FIRST profitable trade. Wife watching. Shocked."
+      withoutUs: "Tomorrow at 8 PM: You'll watch others trade. Again. While scrolling Instagram. Wondering 'what if'.",
+      withUs: "Tomorrow at 8 PM: You'll be IN my trading room. Making your FIRST profitable trade. Wife watching. Shocked."
     }
   },
   points: [
@@ -486,7 +486,7 @@ export const finalCtaData = {
     ]
   },
   ctaText: "YES! SECURE MY SEAT FOR ₹21,000 →",
-  ctaSubtext: "⚡ Instant WhatsApp group access • First trade TOMORROW 12 PM",
+  ctaSubtext: "⚡ Instant WhatsApp group access • First trade TOMORROW 8 PM",
   lastChance: {
     title: "Your Last 3 Excuses (Destroyed):",
     excuses: [

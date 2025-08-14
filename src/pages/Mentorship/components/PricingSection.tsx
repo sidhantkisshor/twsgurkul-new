@@ -1,220 +1,457 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X, ArrowRight } from 'lucide-react';
 
 const PricingSection: React.FC = () => {
-  const [selectedPlan, setSelectedPlan] = useState<'lite' | 'pro' | 'max'>('max');
-
+  const [showInterceptModal, setShowInterceptModal] = useState(false);
+  
   const handleEnroll = (plan: string) => {
-    console.log(`Enrolling in ${plan} plan`);
+    if (plan === 'lite') {
+      window.open('https://learn.tradingwithsidhant.com/l/66d17fee97', '_blank');
+    } else if (plan === 'pro') {
+      setShowInterceptModal(true);
+    } else if (plan === 'max') {
+      window.open('https://learn.tradingwithsidhant.com/web/payment/thank-you/689e14304cdc28f73d92a88c', '_blank');
+    } else {
+      console.log(`Enrolling in ${plan} plan`);
+      // Add enrollment logic here
+    }
+  };
+  
+  const handleProContinue = () => {
+    setShowInterceptModal(false);
+    window.open('https://learn.tradingwithsidhant.com/web/checkout/689e14be3143df7292e76c34?purchaseNow=true', '_blank');
+  };
+  
+  const handleUpgradeToMax = () => {
+    setShowInterceptModal(false);
+    window.open('https://learn.tradingwithsidhant.com/web/payment/thank-you/689e14304cdc28f73d92a88c', '_blank');
   };
 
-  const plans = [
+  // Desktop order: Lite, Pro, Max
+  const desktopPlans = [
     {
-      id: 'lite' as const,
-      name: 'ETM LITE',
+      id: 'lite',
+      name: 'ETM Lite',
       price: '₹6,999',
-      duration: '3 months',
-      monthlyEquivalent: '₹2,333/month',
-      description: 'Essential trading signals',
+      duration: '/ month',
+      description: 'For beginners who want to get a feel for our system through daily trade ideas and analysis.',
       features: [
-        { included: true, text: 'Daily trading signals' },
+        { included: true, text: 'Daily trade ideas' },
         { included: true, text: 'Basic market analysis' },
-        { included: false, text: 'Live trading sessions' },
-        { included: false, text: 'WhatsApp support' },
-        { included: false, text: 'Portfolio reviews' }
-      ]
-    },
-    {
-      id: 'pro' as const,
-      name: 'ETM PRO',
-      price: '₹16,999',
-      duration: '3 months',
-      monthlyEquivalent: '₹5,666/month',
-      description: 'Comprehensive learning',
-      features: [
-        { included: true, text: 'Everything in LITE' },
-        { included: true, text: '40+ strategy videos' },
         { included: true, text: 'Community access' },
         { included: false, text: 'Live trading sessions' },
-        { included: false, text: '1-on-1 mentorship' }
-      ]
+        { included: false, text: 'Performance reviews' },
+        { included: false, text: 'Accountability pods' },
+      ],
+      ctaText: 'Start Small',
+      microcopy: null,
+      style: 'standard'
     },
     {
-      id: 'max' as const,
-      name: 'ETM MAX',
-      price: '₹19,999',
-      originalPrice: '₹49,999',
-      duration: '3 months',
-      monthlyEquivalent: '₹6,666/month',
-      description: 'Complete transformation',
+      id: 'pro',
+      name: 'ETM Pro',
+      price: '₹18,999',
+      duration: '/ 3 months',
+      description: 'For self-directed learners who want the full curriculum and community but no live room or reviews.',
       features: [
-        { included: true, text: 'Everything in PRO' },
-        { included: true, text: 'Live 8PM sessions' },
-        { included: true, text: 'Whale wallet tracking' },
-        { included: true, text: 'Personal WhatsApp group' },
-        { included: true, text: '90-day profit guarantee' }
+        { included: true, text: 'Everything in Lite' },
+        { included: true, text: '40+ strategy videos' },
+        { included: true, text: 'Priority email support' },
+        { included: true, text: 'Comprehensive course materials' },
+        { included: false, text: 'Live trading sessions' },
+        { included: false, text: 'Accountability pods' },
+        { included: false, text: 'Weekly performance reviews' },
       ],
-      recommended: true
+      ctaText: 'Self-Study Only',
+      microcopy: 'Most traders upgrade to Max for just ₹1,000 more.',
+      style: 'muted'
+    },
+    {
+      id: 'max',
+      name: 'ETM Max',
+      price: '₹19,999',
+      duration: '/ 3 months',
+      description: 'For serious traders ready for live coaching, accountability, and reviews.',
+      features: [
+        { included: true, text: 'Everything in Pro' },
+        { included: true, text: 'Nightly 8 PM live trading sessions with pro coaches' },
+        { included: true, text: 'Accountability pods' },
+        { included: true, text: 'Weekly performance reviews' },
+        { included: true, text: 'Whale wallet tracking' },
+        { included: true, text: 'Priority WhatsApp group' },
+        { included: true, text: '30-day satisfaction refund' }
+      ],
+      ctaText: 'Get Coached Nightly',
+      microcopy: 'Only 50 seats per cohort to protect mentor ratio.',
+      recommended: true,
+      style: 'featured'
     }
+  ];
+  
+  // Mobile order: Max, Pro, Lite (most important first)
+  const mobilePlans = [
+    desktopPlans[2], // Max
+    desktopPlans[1], // Pro
+    desktopPlans[0]  // Lite
   ];
 
   return (
-    <section id="pricing" className="py-16 sm:py-32 relative overflow-hidden bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        <div className="max-w-6xl mx-auto">
+    <section id="pricing" className="py-32 relative overflow-hidden bg-white">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div 
-            className="text-center mb-12 sm:mb-24"
+            className="text-center mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4 sm:mb-6">
-              Choose your path
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+              Choose your learning path
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light px-4">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
               Three months to transform your trading. One decision to change your life.
             </p>
           </motion.div>
 
-          {/* Pricing cards - stack on mobile */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {plans.map((plan, index) => (
+          {/* Pricing cards - Desktop */}
+          <div className="hidden lg:grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {desktopPlans.map((plan, index) => (
               <motion.div
                 key={plan.id}
-                className={`relative bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-300 ${
-                  selectedPlan === plan.id ? 'ring-2 ring-gray-900' : ''
+                className={`relative rounded-3xl transition-all duration-300 ${
+                  plan.style === 'featured' 
+                    ? 'bg-gray-900 text-white shadow-2xl transform scale-105 lg:scale-110' 
+                    : plan.style === 'muted'
+                    ? 'bg-gray-50 shadow-none'
+                    : 'bg-white shadow-sm'
                 }`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                onClick={() => setSelectedPlan(plan.id)}
               >
                 {/* Recommended badge */}
                 {plan.recommended && (
-                  <div className="absolute -top-3 sm:top-4 left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:right-4">
-                    <div className="bg-gray-900 text-white text-xs px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                  <div className="absolute -top-4 right-6">
+                    <div className="bg-green-500 text-white text-xs px-4 py-2 rounded-full font-medium">
                       Recommended
                     </div>
                   </div>
                 )}
 
-                {/* Plan details */}
-                <div className="text-center mb-6 sm:mb-8">
-                  <h3 className="text-lg sm:text-xl font-normal text-gray-900 mb-2">{plan.name}</h3>
-                  <p className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">{plan.description}</p>
-                  
-                  {/* Price */}
-                  <div>
-                    {plan.originalPrice && (
-                      <div className="text-xs sm:text-sm text-gray-400 line-through mb-1">
-                        {plan.originalPrice}
-                      </div>
-                    )}
-                    <div className="text-2xl sm:text-3xl font-light text-gray-900">
-                      {plan.price}
-                    </div>
-                    <div className="text-xs sm:text-sm text-gray-500 mt-1">
-                      {plan.duration}
-                    </div>
-                    <div className="text-xs text-gray-400 mt-1">
-                      ({plan.monthlyEquivalent})
-                    </div>
-                  </div>
-                </div>
-
-                {/* Features */}
-                <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2 sm:gap-3">
-                      {feature.included ? (
-                        <Check className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
-                      ) : (
-                        <X className="w-4 h-4 text-gray-300 mt-0.5 flex-shrink-0" />
-                      )}
-                      <span className={`text-xs sm:text-sm ${
-                        feature.included ? 'text-gray-700' : 'text-gray-400'
-                      } font-light`}>
-                        {feature.text}
+                {/* Card content */}
+                <div className={`p-8 ${plan.style === 'muted' ? 'opacity-90' : ''}`}>
+                  {/* Plan header */}
+                  <div className={`text-center mb-8 pb-8 border-b ${
+                    plan.style === 'featured' ? 'border-gray-700' : 'border-gray-200'
+                  }`}>
+                    <h3 className={`text-2xl font-normal mb-2 ${
+                      plan.style === 'featured' ? 'text-white' : 'text-gray-900'
+                    }`}>
+                      {plan.name}
+                    </h3>
+                    
+                    {/* Price */}
+                    <div className="mt-4">
+                      <span className={`text-3xl font-light ${
+                        plan.style === 'featured' ? 'text-white' : 'text-gray-900'
+                      }`}>
+                        {plan.price}
+                      </span>
+                      <span className={`text-sm ${
+                        plan.style === 'featured' ? 'text-gray-400' : 'text-gray-500'
+                      }`}>
+                        {plan.duration}
                       </span>
                     </div>
-                  ))}
-                </div>
+                    
+                    {/* Description */}
+                    <p className={`text-sm mt-4 ${
+                      plan.style === 'featured' ? 'text-gray-300' : 'text-gray-600'
+                    } font-light`}>
+                      {plan.description}
+                    </p>
+                  </div>
 
-                {/* CTA */}
-                <motion.button
-                  onClick={() => handleEnroll(plan.id)}
-                  className={`w-full py-3 sm:py-4 rounded-full transition-all duration-300 group font-light text-sm sm:text-base ${
-                    plan.recommended
-                      ? 'bg-gray-900 text-white hover:bg-gray-800'
-                      : 'bg-white text-gray-900 hover:bg-gray-100'
-                  }`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    Select {plan.name}
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </motion.button>
+                  {/* Features */}
+                  <div className="space-y-4 mb-8">
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        {feature.included ? (
+                          <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                            plan.style === 'featured' ? 'text-green-400' : 'text-green-600'
+                          }`} />
+                        ) : (
+                          <X className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                            plan.style === 'featured' ? 'text-gray-600' : 'text-gray-300'
+                          }`} />
+                        )}
+                        <span className={`text-sm font-light ${
+                          feature.included 
+                            ? plan.style === 'featured' ? 'text-gray-200' : 'text-gray-700'
+                            : plan.style === 'featured' ? 'text-gray-500' : 'text-gray-400'
+                        }`}>
+                          {feature.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div>
+                    <motion.button
+                      onClick={() => handleEnroll(plan.id)}
+                      className={`w-full py-4 rounded-full transition-all duration-300 group font-light flex items-center justify-center gap-2 ${
+                        plan.style === 'featured'
+                          ? 'bg-white text-gray-900 hover:bg-gray-100 text-base'
+                          : 'bg-gray-900 text-white hover:bg-gray-800 text-sm'
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {plan.ctaText}
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+                    
+                    {/* Microcopy */}
+                    {plan.microcopy && (
+                      <p className={`text-xs text-center mt-3 ${
+                        plan.style === 'featured' 
+                          ? 'text-gray-400' 
+                          : plan.style === 'muted'
+                          ? 'text-red-600 font-medium'
+                          : 'text-gray-500'
+                      }`}>
+                        {plan.microcopy}
+                      </p>
+                    )}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
+          
+          {/* Pricing cards - Mobile (carousel style, Max first) */}
+          <div className="lg:hidden">
+            <div className="flex flex-col gap-6 max-w-md mx-auto">
+              {mobilePlans.map((plan, index) => (
+              <motion.div
+                key={plan.id}
+                className={`relative rounded-3xl transition-all duration-300 ${
+                  plan.style === 'featured' 
+                    ? 'bg-gray-900 text-white shadow-2xl transform scale-105 lg:scale-110' 
+                    : plan.style === 'muted'
+                    ? 'bg-gray-50 shadow-none'
+                    : 'bg-white shadow-sm'
+                }`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                {/* Recommended badge */}
+                {plan.recommended && (
+                  <div className="absolute -top-4 right-6">
+                    <div className="bg-green-500 text-white text-xs px-4 py-2 rounded-full font-medium">
+                      Recommended
+                    </div>
+                  </div>
+                )}
 
-          {/* Value proposition */}
+                {/* Card content */}
+                <div className={`p-8 ${plan.style === 'muted' ? 'opacity-90' : ''}`}>
+                  {/* Plan header */}
+                  <div className={`text-center mb-8 pb-8 border-b ${
+                    plan.style === 'featured' ? 'border-gray-700' : 'border-gray-200'
+                  }`}>
+                    <h3 className={`text-2xl font-normal mb-2 ${
+                      plan.style === 'featured' ? 'text-white' : 'text-gray-900'
+                    }`}>
+                      {plan.name}
+                    </h3>
+                    
+                    {/* Price */}
+                    <div className="mt-4">
+                      <span className={`text-3xl font-light ${
+                        plan.style === 'featured' ? 'text-white' : 'text-gray-900'
+                      }`}>
+                        {plan.price}
+                      </span>
+                      <span className={`text-sm ${
+                        plan.style === 'featured' ? 'text-gray-400' : 'text-gray-500'
+                      }`}>
+                        {plan.duration}
+                      </span>
+                    </div>
+                    
+                    {/* Description */}
+                    <p className={`text-sm mt-4 ${
+                      plan.style === 'featured' ? 'text-gray-300' : 'text-gray-600'
+                    } font-light`}>
+                      {plan.description}
+                    </p>
+                  </div>
+
+                  {/* Features */}
+                  <div className="space-y-4 mb-8">
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        {feature.included ? (
+                          <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                            plan.style === 'featured' ? 'text-green-400' : 'text-green-600'
+                          }`} />
+                        ) : (
+                          <X className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                            plan.style === 'featured' ? 'text-gray-600' : 'text-gray-300'
+                          }`} />
+                        )}
+                        <span className={`text-sm font-light ${
+                          feature.included 
+                            ? plan.style === 'featured' ? 'text-gray-200' : 'text-gray-700'
+                            : plan.style === 'featured' ? 'text-gray-500' : 'text-gray-400'
+                        }`}>
+                          {feature.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div>
+                    <motion.button
+                      onClick={() => handleEnroll(plan.id)}
+                      className={`w-full py-4 rounded-full transition-all duration-300 group font-light flex items-center justify-center gap-2 ${
+                        plan.style === 'featured'
+                          ? 'bg-white text-gray-900 hover:bg-gray-100 text-base'
+                          : 'bg-gray-900 text-white hover:bg-gray-800 text-sm'
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {plan.ctaText}
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+                    
+                    {/* Microcopy */}
+                    {plan.microcopy && (
+                      <p className={`text-xs text-center mt-3 ${
+                        plan.style === 'featured' 
+                          ? 'text-gray-400' 
+                          : plan.style === 'muted'
+                          ? 'text-red-600 font-medium'
+                          : 'text-gray-500'
+                      }`}>
+                        {plan.microcopy}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+            </div>
+          </div>
+
+          {/* Bottom notes */}
           <motion.div
-            className="mt-12 sm:mt-24 text-center"
+            className="mt-20 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p className="text-xs sm:text-sm text-gray-500 px-4">
-              All plans are for 3-month access • 30-day money-back guarantee • Renew at same price
+            <p className="text-sm text-gray-500 mb-4">
+              All plans include lifetime access to updates • 30-day money-back guarantee on ETM Max
             </p>
-          </motion.div>
-
-          {/* ROI visualization */}
-          <motion.div
-            className="mt-16 sm:mt-32 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-xl sm:text-2xl font-light text-center text-gray-900 mb-8 sm:mb-12">
-              Expected returns in 3 months
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-              <div className="text-center">
-                <p className="text-xs sm:text-sm text-gray-500 mb-2">ETM LITE</p>
-                <p className="text-2xl sm:text-3xl font-light text-gray-900">₹30-45K</p>
-                <p className="text-xs sm:text-sm text-gray-500 mt-1">Total returns</p>
-                <p className="text-xs text-gray-400 mt-2">4-6x ROI</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xs sm:text-sm text-gray-500 mb-2">ETM PRO</p>
-                <p className="text-2xl sm:text-3xl font-light text-gray-900">₹75-105K</p>
-                <p className="text-xs sm:text-sm text-gray-500 mt-1">Total returns</p>
-                <p className="text-xs text-gray-400 mt-2">4-6x ROI</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xs sm:text-sm text-gray-500 mb-2">ETM MAX</p>
-                <p className="text-2xl sm:text-3xl font-light text-gray-900">₹150K+</p>
-                <p className="text-xs sm:text-sm text-gray-500 mt-1">Total returns</p>
-                <p className="text-xs text-gray-400 mt-2">7.5x+ ROI</p>
-              </div>
-            </div>
-            
-            <p className="text-center text-xs sm:text-sm text-gray-400 mt-6 sm:mt-8 px-4">
-              Based on average student performance over 3-month period
+            <p className="text-xs text-gray-400">
+              Lite & Pro buyers can upgrade anytime for the difference in price
             </p>
           </motion.div>
         </div>
       </div>
+      
+      {/* Intercept Modal for Pro Plan */}
+      <AnimatePresence>
+        {showInterceptModal && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-black/60"
+              onClick={() => setShowInterceptModal(false)}
+            />
+            
+            {/* Modal Content */}
+            <motion.div
+              className="relative bg-white rounded-3xl p-8 sm:p-12 max-w-md w-full shadow-2xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.5 }}
+            >
+              {/* Modal Content */}
+              <div className="text-center">
+                {/* Icon */}
+                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl">💭</span>
+                </div>
+                
+                {/* Message */}
+                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                  Add nightly live coaching for ₹1,000 more?
+                </h3>
+                
+                <p className="text-base text-gray-600 mb-8 font-light">
+                  9 out of 10 traders choose Max.
+                </p>
+                
+                {/* Visual comparison */}
+                <div className="bg-gray-50 rounded-2xl p-6 mb-8">
+                  <div className="space-y-3 text-left">
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">Nightly 8 PM live sessions</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">Weekly performance reviews</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">Accountability pod (12 max)</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* CTAs */}
+                <div className="space-y-3">
+                  <motion.button
+                    onClick={handleUpgradeToMax}
+                    className="w-full py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors font-light"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Upgrade to Max
+                  </motion.button>
+                  
+                  <button
+                    onClick={handleProContinue}
+                    className="w-full py-4 text-gray-500 hover:text-gray-700 transition-colors font-light text-sm"
+                  >
+                    Continue to Pro
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

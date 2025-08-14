@@ -76,7 +76,7 @@ const AuthoritySection: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 mt-1">✓</span>
-                  <span className="text-gray-300">Daily live trading at 12 PM - trade alongside me</span>
+                  <span className="text-gray-300">Daily live trading at 8 PM - trade alongside our certified pro coaches</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 mt-1">✓</span>

@@ -17,9 +17,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "CMM", href: "/crypto" },
     { name: "Footprint", href: "/footprint" },
-    { name: "Crypto", href: "/crypto" },
-    { name: "Mentorship", href: "/mentorship" },
+    { name: "Elite", href: "/mentorship" },
     { name: "Blog", href: "/blog" },
   ];
 
@@ -39,10 +39,8 @@ const Navbar = () => {
         <div className="flex items-center space-x-3 xl:space-x-8">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <a 
-              href="https://tradingwithsidhant.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Link 
+              to="/"
               className="flex items-center"
             >
               <img 
@@ -50,7 +48,7 @@ const Navbar = () => {
                 alt="Trading With Sidhant" 
                 className="h-10 w-10 object-contain"
               />
-            </a>
+            </Link>
             <Link 
               to="/"
               className="font-extrabold text-white hidden sm:block tracking-tight text-lg bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent hover:from-blue-200 hover:via-purple-200 hover:to-green-200 transition-all duration-300"
@@ -62,25 +60,43 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 xl:space-x-6">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium whitespace-nowrap px-3 py-1.5 rounded-md hover:bg-white/10"
-              >
-                {item.name}
-              </Link>
+              item.isAnchor ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium whitespace-nowrap px-3 py-1.5 rounded-md hover:bg-white/10"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium whitespace-nowrap px-3 py-1.5 rounded-md hover:bg-white/10"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
 
-          {/* CTA Button */}
-          <a
-            href="https://tradingwithsidhant.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* CTA Button - Points to Quiz or Programs */}
+          <button
+            onClick={() => {
+              // If on homepage, scroll to quiz. Otherwise navigate to homepage quiz
+              if (window.location.pathname === '/') {
+                const quizElement = document.getElementById('quiz');
+                if (quizElement) {
+                  quizElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              } else {
+                window.location.href = '/#quiz';
+              }
+            }}
             className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-4 py-2 text-sm font-semibold hidden md:flex transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-green-500/25"
           >
-            Get Started
-          </a>
+            Find Your Program
+          </button>
 
           {/* Mobile Menu Button */}
           <button
@@ -103,12 +119,13 @@ const Navbar = () => {
             <div className="space-y-1">
               {/* Navigation Items */}
               {navItems.map((item, index) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={closeMobileMenu}
-                  className="group flex items-center justify-between text-gray-300 hover:text-white transition-all duration-300 w-full text-left p-4 hover:bg-white/10 rounded-xl"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                item.isAnchor ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={closeMobileMenu}
+                    className="group flex items-center justify-between text-gray-300 hover:text-white transition-all duration-300 w-full text-left p-4 hover:bg-white/10 rounded-xl"
+                    style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <span className="text-base font-medium">{item.name}</span>
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -116,24 +133,44 @@ const Navbar = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
-                </Link>
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={closeMobileMenu}
+                    className="group flex items-center justify-between text-gray-300 hover:text-white transition-all duration-300 w-full text-left p-4 hover:bg-white/10 rounded-xl"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <span className="text-base font-medium">{item.name}</span>
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </Link>
+                )
               ))}
               
-              {/* CTA Section */}
+              {/* CTA Section - Points to Quiz */}
               <div className="pt-4">
-                <a
-                  href="https://tradingwithsidhant.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => {
+                    closeMobileMenu();
+                    const quizElement = document.getElementById('quiz');
+                    if (quizElement) {
+                      quizElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className="group bg-gradient-to-r from-green-500 to-[#01d449] hover:from-green-600 hover:to-[#00c43e] text-white rounded-xl w-full py-3 px-4 text-center block transition-all duration-300 font-medium text-base"
                 >
                   <span className="flex items-center justify-center space-x-2">
-                    <span>Get Started</span>
+                    <span>Take Quiz</span>
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </span>
-                </a>
+                </button>
               </div>
             </div>
           </div>

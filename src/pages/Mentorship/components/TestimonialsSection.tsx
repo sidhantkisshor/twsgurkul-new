@@ -1,33 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import { testimonialData } from '../data';
+import { ChevronLeft, ChevronRight, CheckCircle, ExternalLink, X } from 'lucide-react';
 
 const TestimonialsSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [showProofModal, setShowProofModal] = useState(false);
+  const [selectedProof, setSelectedProof] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (isPaused) return;
-    
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonialData.length);
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, [isPaused]);
+  const testimonials = [
+    {
+      name: "Divya A",
+      location: "Delhi",
+      quote: "Week 3 I finally stopped revenge trading. By Month 3 I was consistent enough to cover school fees from trading profits. The 8 PM routine saved my sanity.",
+      facts: [
+        "From kitchen table to dedicated trading desk",
+        "From indicators to order flow and footprint",
+        "Featured in 'Trading Queens of India'"
+      ],
+      proofImage: "/proof-divya-blurred.jpg" // Placeholder path
+    },
+    {
+      name: "Vikram C",
+      location: "Pune",
+      quote: "I used to binge strategies. The live room forced one playbook. After 8 weeks of reviews my red days are small. Green days now pay for the month.",
+      facts: [
+        "Quit job after building six green weeks in a row",
+        "Consistency score improved 52 → 83",
+        "Wife manages his trade journaling now"
+      ],
+      proofImage: "/proof-vikram-blurred.jpg" // Placeholder path
+    },
+    {
+      name: "Mohammed A",
+      location: "Mumbai",
+      quote: "Uber driver shifts wrecked my focus. The 8 PM window fit my life. First month I learned to cut losses. Third month I stopped overtrading.",
+      facts: [
+        "From ₹10k starting capital",
+        "Now runs a small family account",
+        "Mentors two new students on journaling"
+      ],
+      proofImage: "/proof-mohammed-blurred.jpg" // Placeholder path
+    }
+  ];
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonialData.length);
-    setIsPaused(true);
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonialData.length) % testimonialData.length);
-    setIsPaused(true);
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
-
-  const activeTestimonial = testimonialData[activeIndex];
 
   return (
     <section id="testimonials" className="py-32 relative overflow-hidden bg-gray-50">
@@ -44,137 +66,199 @@ const TestimonialsSection: React.FC = () => {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
               Transformation stories
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-              Real people. Real results. Verified by chartered accountants.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light mb-4">
+              Real people. Real progress. Many verified by independent accountants.
+            </p>
+            <p className="text-base text-gray-500 max-w-4xl mx-auto font-light">
+              Coached daily by our team of professional mentors.
             </p>
           </motion.div>
 
-          {/* Testimonial display */}
-          <div className="max-w-5xl mx-auto">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.6 }}
-                className="bg-white rounded-3xl p-12 md:p-16 shadow-sm"
-              >
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                  {/* Story */}
+          {/* Testimonial Carousel */}
+          <div className="max-w-5xl mx-auto relative">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="grid md:grid-cols-2 gap-12 items-start"
+            >
+              {/* Quote Card */}
+              <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm">
+                <div className="flex items-start gap-4 mb-6">
                   <div>
-                    <Quote className="w-12 h-12 text-gray-200 mb-6" />
-                    <h3 className="text-2xl font-light text-gray-900 mb-6">
-                      {activeTestimonial.headline}
+                    <h3 className="text-xl font-normal text-gray-900">
+                      {testimonials[activeIndex].name}, {testimonials[activeIndex].location}
                     </h3>
-                    <div className="space-y-4 text-gray-600 font-light">
-                      <p>{activeTestimonial.story.before}</p>
-                      <p>{activeTestimonial.story.breakthrough}</p>
-                      <p className="font-normal text-gray-900">{activeTestimonial.story.now}</p>
-                    </div>
-                    <div className="mt-8 pt-8 border-t border-gray-100">
-                      <p className="font-normal text-gray-900">{activeTestimonial.name}</p>
-                      <p className="text-sm text-gray-500">{activeTestimonial.location}</p>
-                    </div>
-                  </div>
-
-                  {/* Results */}
-                  <div>
-                    <div className="bg-gray-50 rounded-2xl p-8">
-                      <h4 className="text-sm text-gray-500 mb-6">Verified results</h4>
-                      <div className="space-y-6">
-                        {Object.entries(activeTestimonial.proof).slice(0, 4).map(([key, value]) => (
-                          <div key={key} className="flex justify-between items-baseline">
-                            <span className="text-sm text-gray-600">
-                              {key.replace(/([A-Z])/g, ' $1').trim()}
-                            </span>
-                            <span className="text-lg font-light text-gray-900">{value}</span>
-                          </div>
-                        ))}
-                      </div>
-                      {activeTestimonial.currentMonthly && (
-                        <div className="mt-8 pt-8 border-t border-gray-200">
-                          <p className="text-sm text-gray-500 mb-2">Current monthly income</p>
-                          <p className="text-3xl font-light text-gray-900">
-                            {activeTestimonial.currentMonthly}
-                          </p>
-                        </div>
-                      )}
-                    </div>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
+                
+                <blockquote className="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                  "{testimonials[activeIndex].quote}"
+                </blockquote>
+                
+                {/* View proof link */}
+                <button
+                  onClick={() => {
+                    setSelectedProof(testimonials[activeIndex].proofImage);
+                    setShowProofModal(true);
+                  }}
+                  className="text-sm text-gray-500 hover:text-gray-700 underline inline-flex items-center gap-1 mb-8 transition-colors"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  View proof
+                </button>
 
-            {/* Navigation */}
-            <div className="flex items-center justify-between mt-12">
-              {/* Dots */}
-              <div className="flex items-center gap-2">
-                {testimonialData.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setActiveIndex(index);
-                      setIsPaused(true);
-                    }}
-                    className={`transition-all duration-300 ${
-                      index === activeIndex
-                        ? 'w-8 h-2 bg-gray-900 rounded-full'
-                        : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-gray-400'
-                    }`}
-                  />
-                ))}
+                {/* Navigation dots */}
+                <div className="flex items-center gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveIndex(index)}
+                      className={`transition-all duration-300 ${
+                        index === activeIndex
+                          ? 'w-8 h-2 bg-gray-900 rounded-full'
+                          : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-gray-400'
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
 
-              {/* Arrows */}
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={handlePrev}
-                  className="p-3 rounded-full bg-white hover:bg-gray-100 transition-colors"
-                  aria-label="Previous testimonial"
-                >
-                  <ChevronLeft className="w-5 h-5 text-gray-600" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="p-3 rounded-full bg-white hover:bg-gray-100 transition-colors"
-                  aria-label="Next testimonial"
-                >
-                  <ChevronRight className="w-5 h-5 text-gray-600" />
-                </button>
+              {/* Quick Facts Card */}
+              <div className="bg-gray-900 text-white rounded-3xl p-8 sm:p-12">
+                <h4 className="text-sm uppercase tracking-wider mb-6 text-gray-400">
+                  Quick facts
+                </h4>
+                <div className="space-y-4">
+                  {testimonials[activeIndex].facts.map((fact, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="flex items-start gap-3"
+                    >
+                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm sm:text-base font-light">
+                        {fact}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
+            </motion.div>
+
+            {/* Navigation Arrows */}
+            <div className="absolute top-1/2 -translate-y-1/2 -left-4 sm:-left-12">
+              <button
+                onClick={handlePrev}
+                className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
+                aria-label="Previous testimonial"
+              >
+                <ChevronLeft className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+            <div className="absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-12">
+              <button
+                onClick={handleNext}
+                className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
+                aria-label="Next testimonial"
+              >
+                <ChevronRight className="w-5 h-5 text-gray-600" />
+              </button>
             </div>
           </div>
 
-          {/* Stats bar */}
+          {/* Case Study Stripe */}
           <motion.div
-            className="mt-32"
-            initial={{ opacity: 0, y: 30 }}
+            className="mt-16 bg-gray-900 text-white rounded-3xl p-8"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              <div className="text-center">
-                <p className="text-3xl font-light text-gray-900">2,347</p>
-                <p className="text-sm text-gray-500 mt-2">Success stories</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-light text-gray-900">₹10 Cr</p>
-                <p className="text-sm text-gray-500 mt-2">Total earnings</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-light text-gray-900">89%</p>
-                <p className="text-sm text-gray-500 mt-2">Success rate</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-light text-gray-900">4.9</p>
-                <p className="text-sm text-gray-500 mt-2">Average rating</p>
-              </div>
-            </div>
+            <p className="text-base sm:text-lg text-center font-light">
+              Case studies show ₹50k to ₹2L months once the routine sticks. Individual results vary.
+            </p>
+          </motion.div>
+
+          {/* Disclaimer */}
+          <motion.div
+            className="text-center mt-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-sm text-gray-500 max-w-2xl mx-auto">
+              Individual experiences. No assured returns. Skill and discipline decide outcomes.
+            </p>
           </motion.div>
         </div>
       </div>
+      
+      {/* Proof Modal */}
+      <AnimatePresence>
+        {showProofModal && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-black/70"
+              onClick={() => setShowProofModal(false)}
+            />
+            
+            {/* Modal Content */}
+            <motion.div
+              className="relative bg-white rounded-3xl p-8 max-w-2xl w-full shadow-2xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.5 }}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setShowProofModal(false)}
+                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              
+              {/* Modal Header */}
+              <h3 className="text-2xl font-light text-gray-900 mb-6">
+                Performance Verification
+              </h3>
+              
+              {/* Placeholder for proof image */}
+              <div className="bg-gray-100 rounded-2xl p-12 mb-6">
+                <div className="text-center space-y-4">
+                  <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                    <p className="text-gray-500 text-sm">
+                      P&L Statement<br/>
+                      (Numbers blurred for privacy)
+                    </p>
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    Verified by independent CA firm<br/>
+                    Letter available upon enrollment
+                  </p>
+                </div>
+              </div>
+              
+              {/* Disclaimer */}
+              <p className="text-xs text-gray-500 text-center">
+                Past performance does not guarantee future results. Results vary based on individual skill, capital, and market conditions.
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

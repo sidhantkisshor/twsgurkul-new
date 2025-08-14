@@ -1,32 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock } from 'lucide-react';
-import { urgencyData } from '../data';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 59,
-    seconds: 59
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return { hours: 23, minutes: 59, seconds: 59 };
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   const scrollToPricing = () => {
     const element = document.getElementById('pricing');
     if (element) {
@@ -106,54 +82,71 @@ const HeroSection: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                Get Crypto Trading Profits Up to ₹2L Monthly
-              </motion.span>
-              <motion.span 
-                className="block text-gray-400 font-light"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                in 30 Days Using Live 8PM Mentorship Sessions
+                Build Consistent Crypto Profits in the 8 PM Window
               </motion.span>
             </h1>
 
             {/* Subheadline - refined */}
             <motion.p 
-              className="text-base sm:text-lg md:text-xl text-gray-600 mb-12 sm:mb-20 max-w-3xl mx-auto leading-relaxed font-light px-4"
+              className="text-base sm:text-lg md:text-xl text-gray-600 mb-12 sm:mb-20 max-w-2xl mx-auto leading-relaxed font-light px-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
+              style={{ maxWidth: '720px' }}
             >
-              Done wasting lakhs on courses that show only past performance? The only transparent program that employs nightly live sessions and real capital deployment to deliver ₹2L monthly profits. No recordings, no fake screenshots, and measurable results from day one of joining.
+              Trade a clear playbook live with our certified pro coaches, five nights a week. India-friendly timing, real executions, and weekly reviews that build discipline.
             </motion.p>
 
-            {/* Stats - minimal and elegant */}
+            {/* Stats - responsive layout for mobile */}
             <motion.div 
-              className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 mb-12 sm:mb-20"
+              className="mb-12 sm:mb-20"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
-              <div className="text-center">
-                <p className="text-3xl sm:text-4xl font-light text-gray-900">₹50K</p>
-                <p className="text-xs sm:text-sm text-gray-500 mt-2">Average monthly profit</p>
+              {/* First two stats - always inline */}
+              <div className="flex items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base mb-4 sm:mb-0">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl sm:text-3xl font-light text-gray-900">2,300+</span>
+                  <span className="text-xs sm:text-sm text-gray-500">traders trained</span>
+                </div>
+                <span className="text-gray-300">•</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl sm:text-3xl font-light text-gray-900">1,800+</span>
+                  <span className="text-xs sm:text-sm text-gray-500">live sessions</span>
+                </div>
               </div>
-              <div className="hidden sm:block w-px h-16 bg-gray-200" />
-              <div className="text-center">
-                <p className="text-3xl sm:text-4xl font-light text-gray-900">2,347</p>
-                <p className="text-xs sm:text-sm text-gray-500 mt-2">Active traders</p>
+              
+              {/* Third stat - below on mobile, inline on desktop */}
+              <div className="flex items-center justify-center sm:hidden">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl font-light text-gray-900">4.8/5</span>
+                  <span className="text-xs text-gray-500">session rating (90 days)</span>
+                </div>
               </div>
-              <div className="hidden sm:block w-px h-16 bg-gray-200" />
-              <div className="text-center">
-                <p className="text-3xl sm:text-4xl font-light text-gray-900">89%</p>
-                <p className="text-xs sm:text-sm text-gray-500 mt-2">Success rate</p>
+              
+              {/* Desktop version - all three inline */}
+              <div className="hidden sm:flex items-center justify-center gap-6">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-light text-gray-900">2,300+</span>
+                  <span className="text-sm text-gray-500">traders trained</span>
+                </div>
+                <span className="text-gray-300">•</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-light text-gray-900">1,800+</span>
+                  <span className="text-sm text-gray-500">live sessions</span>
+                </div>
+                <span className="text-gray-300">•</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-light text-gray-900">4.8/5</span>
+                  <span className="text-sm text-gray-500">session rating (90 days)</span>
+                </div>
               </div>
             </motion.div>
 
             {/* CTA - elegant simplicity */}
             <motion.div 
-              className="flex flex-col items-center gap-6 sm:gap-8"
+              className="flex flex-col items-center gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2, duration: 0.8 }}
@@ -170,68 +163,11 @@ const HeroSection: React.FC = () => {
                 </span>
               </motion.button>
               
-              <p className="text-xs sm:text-sm text-gray-500">
-                Join {urgencyData.enrollmentsToday} traders who started today
+              <p className="text-xs sm:text-sm text-gray-500 mt-2">
+                Cohort capped at 50 seats for mentor ratio
               </p>
             </motion.div>
 
-            {/* Subtle urgency */}
-            <motion.div 
-              className="mt-12 sm:mt-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.4, duration: 0.8 }}
-            >
-              <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-500 flex-wrap justify-center">
-                <Clock size={16} />
-                <span className="text-center">
-                  {urgencyData.spotsLeft} seats • 
-                  Expires in {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Live results - minimal visualization */}
-            <motion.div
-              className="mt-16 sm:mt-32"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 1.6 }}
-            >
-              <p className="text-xs sm:text-sm text-gray-400 mb-6 sm:mb-8">Today's results</p>
-              <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                <motion.div
-                  className="bg-gray-50 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 transition-colors duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.8 }}
-                >
-                  <p className="text-xs sm:text-sm text-gray-500 mb-2">Bitcoin</p>
-                  <p className="text-xl sm:text-2xl font-light text-gray-900">+12.7%</p>
-                  <p className="text-base sm:text-lg text-gray-600 mt-1">₹47,300</p>
-                </motion.div>
-                <motion.div
-                  className="bg-gray-50 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 transition-colors duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.9 }}
-                >
-                  <p className="text-xs sm:text-sm text-gray-500 mb-2">Ethereum</p>
-                  <p className="text-xl sm:text-2xl font-light text-gray-900">+8.3%</p>
-                  <p className="text-base sm:text-lg text-gray-600 mt-1">₹23,100</p>
-                </motion.div>
-                <motion.div
-                  className="bg-gray-50 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 transition-colors duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 2 }}
-                >
-                  <p className="text-xs sm:text-sm text-gray-500 mb-2">Solana</p>
-                  <p className="text-xl sm:text-2xl font-light text-gray-900">+15.2%</p>
-                  <p className="text-base sm:text-lg text-gray-600 mt-1">₹31,500</p>
-                </motion.div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>
