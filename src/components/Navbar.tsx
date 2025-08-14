@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <>
       <nav 
-        className={`fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
+        className={`fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 transition-colors duration-300 ${
           isScrolled 
             ? 'bg-black/80 backdrop-blur-lg border border-white/20' 
             : 'bg-white/10 backdrop-blur-sm border border-white/10'
@@ -93,7 +93,7 @@ const Navbar = () => {
                 window.location.href = '/#quiz';
               }
             }}
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-4 py-2 text-sm font-semibold hidden md:flex transition-all duration-200 whitespace-nowrap shadow-lg hover:shadow-green-500/25"
+            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-4 py-2 text-sm font-semibold hidden md:flex transition-colors duration-200 whitespace-nowrap shadow-lg"
           >
             Find Your Program
           </button>

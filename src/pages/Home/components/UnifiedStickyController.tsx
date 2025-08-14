@@ -169,15 +169,16 @@ const UnifiedStickyController = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 animate-bounce"
+            className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5 hover:shadow-green-500/25 transition-shadow duration-300 text-sm"
           >
-            <Sparkles className="w-4 h-4" />
-            <span className="font-semibold">Find Your Program</span>
-            <ChevronUp className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+            <Sparkles className="w-3 h-3" />
+            <span className="font-medium whitespace-nowrap">Find Program</span>
+            <ChevronUp className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
           </button>
           
           {isExpanded && (
-            <div className="bg-black/95 backdrop-blur-xl border-t border-white/10 p-4">
+            <div className="bg-black/95 backdrop-blur-xl border-t border-white/10 p-4 pb-8">
+              <div className="mb-4 text-center text-xs text-gray-400">Choose your path</div>
               <button
                 onClick={scrollToQuiz}
                 className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full py-3 font-semibold"
