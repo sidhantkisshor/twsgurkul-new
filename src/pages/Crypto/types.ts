@@ -51,6 +51,8 @@ export interface InstructorFeature {
     icon: ElementType;
     title: string;
     description: string;
+    bgColor?: string;
+    iconColor?: string;
 }
 
 export interface LearningPhase {
@@ -123,6 +125,7 @@ export interface HeroData {
         top: string;
         bottom: string;
     };
+    microNote?: string;
     cta: {
         primary: string;
         secondary: string;

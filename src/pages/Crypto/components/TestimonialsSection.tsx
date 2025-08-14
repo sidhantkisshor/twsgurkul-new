@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, useMotionValue, useTransform, animate, useAnimationFrame, wrap, PanInfo } from 'framer-motion';
-import { Star, Gift, UserCheck } from 'lucide-react';
+import { Gift, UserCheck } from 'lucide-react';
 import { testimonials } from '../data';
 import { Testimonial } from '../types';
 
 interface TestimonialsSectionProps {
     handleSmoothScroll: (event: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => void;
+    onMethodologyClick?: () => void;
 }
 
 const parseProfit = (profit: string): number => {
@@ -16,7 +17,7 @@ const parseProfit = (profit: string): number => {
     return isLakhs ? value * 100000 : value;
 };
 
-const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
+const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodologyClick }) => {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [scrollWidth, setScrollWidth] = useState(0);
 
@@ -110,10 +111,22 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                        ₹2.7 Crore Withdrawn <span className="text-transparent bg-gradient-to-r from-yellow-400 to-orange-300 bg-clip-text">By 1,263 Students</span>
+                        Real Student <span className="text-transparent bg-gradient-to-r from-yellow-400 to-orange-300 bg-clip-text">Experiences</span>
                     </h2>
-                    <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                        Every screenshot verified. Every profit real. Every student contactable.
+                    <p className="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
+                        Based on self-reported data. Individual results vary significantly.
+                        {onMethodologyClick && (
+                            <>
+                                {' '}
+                                <button
+                                    onClick={onMethodologyClick}
+                                    className="inline-flex items-center gap-1 text-slate-400 hover:text-yellow-400 transition-colors group"
+                                >
+                                    <span className="group-hover:underline">Methodology & verification</span>
+                                    <span>→</span>
+                                </button>
+                            </>
+                        )}
                     </p>
                 </motion.div>
                 
@@ -153,7 +166,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = () => {
                     </p>
                     <motion.button
                         onClick={(e) => handleSmoothScroll(e, 'get-started')}
-                        className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-12 py-6 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-3 mx-auto text-lg shadow-xl hover:shadow-2xl transform hover:scale-105"
+                        className="border-2 border-slate-400 text-slate-200 hover:border-slate-300 hover:bg-slate-800/50 px-12 py-6 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-3 mx-auto text-lg transform hover:scale-105"
                         whileTap={{ scale: 0.98 }}
                         whileHover={{ y: -2 }}
                     >
@@ -215,26 +228,9 @@ const TestimonialCard: React.FC<{
     return (
         <motion.div
             ref={cardRef}
-            className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 rounded-2xl border border-slate-700 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 flex-shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
+            className="bg-gradient-to-br from-slate-800 to-slate-850 rounded-2xl border border-slate-700 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 flex-shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
             whileHover={{ y: -8, borderColor: 'rgb(71 85 105)' }}
         >
-            <motion.div 
-                className="absolute top-5 right-5 flex items-center space-x-1"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-            >
-                {[...Array(5)].map((_, i) => (
-                    <Star 
-                        key={i}
-                        className={`w-5 h-5 ${
-                            i < testimonial.rating 
-                                ? 'text-yellow-400 fill-current' 
-                                : 'text-slate-600'
-                        }`} 
-                    />
-                ))}
-            </motion.div>
 
             <div className="flex items-center space-x-4 mb-4">
                 <div className="relative flex-shrink-0">

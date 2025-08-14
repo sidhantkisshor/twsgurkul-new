@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Shield, TrendingUp, AlertTriangle, Bitcoin, Zap } from 'lucide-react';
+import { ArrowRight, Clock, Shield, TrendingUp, Bitcoin, Zap, CreditCard, Smartphone, Building } from 'lucide-react';
 
 const FinalCtaSection: React.FC = () => {
+    
     return (
         <section id="final-cta" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 via-slate-900 to-black relative overflow-hidden">
             {/* Background decoration */}
@@ -16,15 +17,6 @@ const FinalCtaSection: React.FC = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    {/* Access Alert */}
-                    <motion.div
-                        className="inline-flex items-center gap-2 glass-effect border border-green-500/20 rounded-full px-4 py-2 mb-6"
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                    >
-                        <Zap className="w-5 h-5 text-green-400" />
-                        <span className="text-sm font-medium text-green-400">Instant Access Today • Next Live Q&A: 18th AUG</span>
-                    </motion.div>
 
                     {/* Main heading */}
                     <div className="mb-12">
@@ -35,7 +27,7 @@ const FinalCtaSection: React.FC = () => {
                             </span>
                         </h2>
                         <p className="lg:text-lg sm:text-[10px] text-slate-300 mx-auto max-w-2xl">
-                            Join 1,263+ students learning systematic crypto trading. <br/>
+                            Join our community learning systematic crypto trading. <br/>
                             <span className="text-yellow-400 font-semibold">Start today with instant access to all modules.</span>
                         </p>
                     </div>
@@ -70,7 +62,7 @@ const FinalCtaSection: React.FC = () => {
                                     </li>
                                     <li className="text-slate-400 flex items-start">
                                         <span className="text-slate-500 mr-2 text-lg">×</span>
-                                        Pay higher price after 19th AUG
+                                        Miss the next Live Q&A session
                                     </li>
                                 </ul>
                             </motion.div>
@@ -94,7 +86,7 @@ const FinalCtaSection: React.FC = () => {
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Join 1,263+ students (73% reported win rate)
+                                        Get access to proven trading strategies
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
@@ -102,7 +94,7 @@ const FinalCtaSection: React.FC = () => {
                                     </li>
                                     <li className="text-slate-200 flex items-start">
                                         <span className="text-green-400 mr-2 text-lg">✓</span>
-                                        Join the next Live Q&A on 18th AUG
+                                        Access to monthly Live Q&A sessions
                                     </li>
                                 </ul>
                             </motion.div>
@@ -129,8 +121,35 @@ const FinalCtaSection: React.FC = () => {
                             </p>
                             <p className="text-slate-300 text-sm sm:text-base">
                                 Get instant access to all modules and resources.<br/>
-                                <span className="text-yellow-400 font-semibold">Join the next Live Q&A on 18th AUG.</span>
+                                <span className="text-yellow-400 font-semibold">Start your transformation today.</span>
                             </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Payment Options */}
+                    <motion.div 
+                        className="mb-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <div className="glass-effect rounded-xl p-6 border border-white/10 max-w-lg mx-auto">
+                            <h3 className="text-lg font-bold text-white mb-4">Multiple payment options available</h3>
+                            <div className="flex justify-center gap-4 mb-4">
+                                <div className="flex items-center gap-2 text-sm text-slate-300">
+                                    <Smartphone className="w-4 h-4 text-yellow-400" />
+                                    <span>UPI</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-sm text-slate-300">
+                                    <CreditCard className="w-4 h-4 text-yellow-400" />
+                                    <span>Cards</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-sm text-slate-300">
+                                    <Building className="w-4 h-4 text-yellow-400" />
+                                    <span>Netbanking</span>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
 
@@ -140,7 +159,7 @@ const FinalCtaSection: React.FC = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.5 }}
+                        transition={{ delay: 0.6 }}
                     >
                         <div className="flex items-center text-xs sm:text-sm text-slate-400">
                             <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-green-400" />
@@ -165,16 +184,15 @@ const FinalCtaSection: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.6 }}
+                        transition={{ delay: 0.7 }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                        <span className="relative">Start Learning — ₹19,499</span>
+                        <span className="relative">Start Learning Today</span>
                         <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 relative group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.button>
 
-                    <p className="text-sm text-slate-500 mt-6 flex items-center justify-center text-center">
-                        <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
-                        <span>Takes only 2 minutes to enroll</span>
+                    <p className="text-xs text-slate-400 mt-3 text-center">
+                        Takes under 2 minutes · UPI/cards/netbanking · No-cost EMI available
                     </p>
                 </motion.div>
             </div>

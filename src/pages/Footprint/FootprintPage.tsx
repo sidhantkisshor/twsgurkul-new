@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import WhyFootprintSection from './components/WhyFootprintSection';
@@ -10,33 +10,9 @@ import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
 import Seo from '../../components/Seo';
 import StickyMobileCTA from './components/StickyMobileCTA';
+import StructuredData from './components/StructuredData';
 
 function FootprintPage() {
-  const [timeLeft, setTimeLeft] = useState('48:00:00');
-  
-  useEffect(() => {
-    // Countdown timer logic
-    const targetDate = new Date();
-    targetDate.setHours(targetDate.getHours() + 48);
-    
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
-      
-      if (distance < 0) {
-        clearInterval(interval);
-        setTimeLeft('00:00:00');
-      } else {
-        const hours = Math.floor(distance / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        setTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
-      }
-    }, 1000);
-    
-    return () => clearInterval(interval);
-  }, []);
   
   useEffect(() => {
     // Add scroll animation observer
@@ -62,13 +38,38 @@ function FootprintPage() {
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans overflow-x-hidden">
       <Seo
-        title="Footprint Mastery System | TWS Gurukul"
-        description="Master order flow and institutional movements with the Footprint Mastery System. Learn to see what big money is doing before retail even knows."
+        title="Footprint Mastery | TWS Gurukul"
+        description="See order flow before it hits the chart. Plan clean entries. Exit with rules."
+        ogImage="https://www.twsgurukul.com/footprint-og.jpg"
+        ogType="website"
+        canonicalUrl="https://twsgurukul.com/footprint"
       />
+      <StructuredData />
       <Header />
       <div>
         <main>
           <HeroSection />
+          
+          {/* Trust Stripe */}
+          <div className="bg-slate-800/30 border-y border-slate-700/50 py-3">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-slate-400">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0 pointer-events-none">
+                    <span className="text-white font-bold text-[10px] sm:text-xs">S</span>
+                  </div>
+                  <span>TWS Gurukul since 2023</span>
+                </div>
+                <span className="hidden sm:inline text-slate-600">•</span>
+                <span>1,263+ paid learners</span>
+                <span className="hidden sm:inline text-slate-600">•</span>
+                <span>Monthly live Q&A</span>
+                <span className="hidden sm:inline text-slate-600">•</span>
+                <span>30-day guarantee</span>
+              </div>
+            </div>
+          </div>
+          
           <ProblemSection />
           <WhyFootprintSection />
           <UniqueMechanismSection />

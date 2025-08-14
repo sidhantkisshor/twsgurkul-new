@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Bitcoin, TrendingUp, Users, Clock, Award, Target } from 'lucide-react';
+import { Bitcoin, TrendingUp, Users, Clock, Award, Target, Info } from 'lucide-react';
+import { getNextFirstSaturdayWithOrdinal } from '../utils/dateHelpers';
 
 interface Stat {
   icon: React.ElementType;
@@ -11,7 +12,12 @@ interface Stat {
   suffix?: string;
 }
 
-const CryptoSuccessStats: React.FC = () => {
+interface CryptoSuccessStatsProps {
+  onMethodologyClick?: () => void;
+}
+
+const CryptoSuccessStats: React.FC<CryptoSuccessStatsProps> = ({ onMethodologyClick }) => {
+  const nextLiveDate = getNextFirstSaturdayWithOrdinal();
   const [btcCaptured, setBtcCaptured] = useState(0);
   const [profitPercentage, setProfitPercentage] = useState(0);
 
@@ -57,8 +63,8 @@ const CryptoSuccessStats: React.FC = () => {
     },
     {
       icon: Users,
-      value: '1,263',
-      label: 'Active Crypto Traders',
+      value: '1,263+',
+      label: 'Active Learners',
       color: 'blue',
       prefix: ''
     },
@@ -71,7 +77,7 @@ const CryptoSuccessStats: React.FC = () => {
     },
     {
       icon: Award,
-      value: '₹2.7',
+      value: '₹27.2',
       label: 'Reported Student Profits',
       color: 'orange',
       suffix: 'Cr+'
@@ -99,11 +105,17 @@ const CryptoSuccessStats: React.FC = () => {
             <span className="text-sm font-medium text-yellow-400">Student Results</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Why <span className="text-yellow-400">1,263 Indians</span> Trust Our System
+            Why <span className="text-yellow-400">1,263+ Learners</span> Trust Our System
           </h2>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Based on self-reported student data. Results vary. As of Aug 2025. 
-            <a href="/results-and-claims#methodology" className="underline text-yellow-300 ml-1">Methodology & verification →</a>
+            Based on self-reported student data. Results vary. 
+            <button 
+              onClick={onMethodologyClick}
+              className="underline text-yellow-300 ml-1 hover:text-yellow-200 transition-colors inline-flex items-center gap-1"
+            >
+              Methodology & verification
+              <Info className="w-4 h-4" />
+            </button>
           </p>
         </motion.div>
 
@@ -165,13 +177,13 @@ const CryptoSuccessStats: React.FC = () => {
           <div className="inline-flex flex-col items-center gap-4 glass-effect rounded-2xl p-6 border border-yellow-500/20">
             <div className="text-center">
               <p className="text-lg font-bold text-yellow-400 mb-2">
-                🎯 Next Live Q&A: 18th AUG
+                🎯 Next Live Q&A: {nextLiveDate}
               </p>
               <p className="text-sm text-slate-300 mb-1">
-                Reported average first month: <span className="text-green-400 font-semibold">₹45,000*</span>
+                Some students report early results*
               </p>
               <p className="text-xs text-slate-400">
-                *Based on sample of 847 self-reported results
+                *Individual results vary. No guarantees.
               </p>
             </div>
             <motion.button
@@ -180,7 +192,7 @@ const CryptoSuccessStats: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => window.location.href = '#pricing'}
             >
-              Start Learning — ₹19,499
+              Start Learning Today
             </motion.button>
           </div>
         </motion.div>

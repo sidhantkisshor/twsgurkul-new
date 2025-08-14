@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BookOpen } from 'lucide-react';
+import VerificationModal from './VerificationModal';
 
 const Footer: React.FC = () => {
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
   return (
     <footer className="bg-slate-950 py-12 border-t border-slate-800">
       <div className="container-custom">
@@ -16,7 +18,7 @@ const Footer: React.FC = () => {
               </div>
               <div>
                 <span className="text-lg font-bold text-white">Footprint</span>
-                <span className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent ml-1">Chart Mastery</span>
+                <span className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent ml-1">Mastery</span>
               </div>
             </div>
             
@@ -45,7 +47,12 @@ const Footer: React.FC = () => {
                 Education only. Not investment advice. Results vary.
               </p>
               <p className="text-xs text-slate-500">
-                Methodology & verification → <a href="/results-and-claims" className="text-cyan-400 hover:text-cyan-300 underline">/results-and-claims</a>
+                <button
+                  onClick={() => setShowVerificationModal(true)}
+                  className="text-cyan-400 hover:text-cyan-300 underline"
+                >
+                  How TWS verifies student feedback →
+                </button>
               </p>
               <p className="text-xs text-slate-500">
                 Support: support@twsgurukul.com
@@ -54,6 +61,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Verification Modal */}
+      <VerificationModal 
+        isOpen={showVerificationModal}
+        onClose={() => setShowVerificationModal(false)}
+      />
     </footer>
   );
 };

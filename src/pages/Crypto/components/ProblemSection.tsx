@@ -5,7 +5,7 @@ import { problems } from '../data';
 
 const ProblemSection: React.FC = () => {
     return (
-        <section id="how-it-works" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <section id="how-it-works" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12"
@@ -17,7 +17,7 @@ const ProblemSection: React.FC = () => {
                         <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
                         <span className="text-xs sm:text-sm font-medium text-yellow-400">Common Crypto Trading Challenges</span>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+                    <h2 className="text-[28px] sm:text-[30px] lg:text-[32px] font-bold">
                         Why Most Traders Struggle
                         <span className="text-yellow-400"> Without Proper Education</span>
                     </h2>
@@ -45,24 +45,6 @@ const ProblemSection: React.FC = () => {
                         </motion.div>
                     ))}
                 </div>
-                <motion.div
-                    className="mt-12 text-center"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="glass-effect rounded-xl p-6 border border-green-500/20 inline-block">
-                        <p className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2">
-                            <span className="text-green-400">Ready to Learn?</span> Start Your Journey Today
-                        </p>
-                        <p className="text-base sm:text-lg text-slate-300">
-                            Join our community of <span className="text-yellow-400 font-bold">1,263+ students</span> learning systematic trading
-                        </p>
-                        <p className="text-sm text-slate-400 mt-2">
-                            Next Live Q&A: 18th AUG
-                        </p>
-                    </div>
-                </motion.div>
             </div>
         </section>
     );

@@ -32,7 +32,7 @@ const UrgencyBanner: React.FC = () => {
 
   return (
     <motion.div 
-      className="fixed top-0 left-0 right-0 bg-gradient-to-r from-red-600 to-orange-600 text-white py-2 z-[60] cursor-pointer"
+      className="fixed top-0 left-0 right-0 bg-gradient-to-r from-red-600 to-orange-600 text-white py-2 z-[800] cursor-pointer"
       onClick={() => scrollToSection('pricing')}
       initial={{ y: -100 }}
       animate={{ y: 0 }}

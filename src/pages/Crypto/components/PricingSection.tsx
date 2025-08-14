@@ -1,14 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, Clock } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
+import { getNextFirstSaturdayWithOrdinal } from '../utils/dateHelpers';
+import { cryptoTrackingEvents } from '../utils/tracking';
 
-const PricingSection: React.FC = () => {
+interface PricingSectionProps {
+  onMethodologyClick?: () => void;
+}
+
+const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) => {
+  const nextLiveDate = getNextFirstSaturdayWithOrdinal();
+  
   const handleEnroll = () => {
-    // Scroll to final CTA or handle payment
-    const element = document.getElementById('final-cta');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    cryptoTrackingEvents.checkoutStart('pricing_section', 19499);
+    // Open payment page directly
+    window.open('https://learn.tradingwithsidhant.com/web/checkout/68468c5a2f492ef9273b5025?purchaseNow=true', '_blank');
   };
 
   return (
@@ -23,11 +29,23 @@ const PricingSection: React.FC = () => {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent">
-              One Decision. Two Futures.
+              Choose Your Learning Path
             </span>
           </h2>
-          <p className="text-xl text-gray-300">
-            Learn systematically. Your confidence grows with practice.
+          <p className="text-xl text-slate-200">
+            Everything you need in one complete program.
+            {onMethodologyClick && (
+              <>
+                <br />
+                <button
+                  onClick={onMethodologyClick}
+                  className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-yellow-400 transition-colors mt-2 group"
+                >
+                  <span className="group-hover:underline">Methodology & verification</span>
+                  <span>→</span>
+                </button>
+              </>
+            )}
           </p>
         </motion.div>
 
@@ -42,7 +60,7 @@ const PricingSection: React.FC = () => {
           {/* Best Value Badge */}
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
             <div className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-6 py-2 rounded-full font-bold text-sm animate-pulse whitespace-nowrap">
-              🎯 INSTANT ACCESS TODAY
+              🎯 <span className="tracking-[0.02em]">INSTANT ACCESS TODAY</span>
             </div>
           </div>
           
@@ -51,55 +69,44 @@ const PricingSection: React.FC = () => {
             
             {/* Pricing Header */}
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-2">Crypto Market Mastery — ₹19,499</h3>
-              <div className="flex items-baseline justify-center gap-3 mb-2">
-                <span className="text-xl text-gray-500">(Recorded + Monthly Live Q&A)</span>
+              <h3 className="text-2xl font-bold text-white mb-2">Crypto Market Mastery</h3>
+              <p className="text-sm text-gray-400 mb-1">
+                <span className="line-through">List price ₹50,000</span>
+              </p>
+              <div className="flex items-baseline justify-center gap-2">
+                <span className="text-lg text-gray-400">This cycle:</span>
+                <span className="text-4xl font-bold text-yellow-400">₹19,499</span>
               </div>
               <p className="text-sm text-gray-400">One-time payment • Lifetime access</p>
+              <p className="text-xs text-green-400 mt-1">EMI available: ₹1,625/month × 12 (No-cost EMI)</p>
               <p className="text-sm text-yellow-400 mt-2">
-                Enroll before 18th AUG to join the next Live Q&A • Price increases on 19th AUG
+                Enroll before {nextLiveDate} to join the next Live Q&A
               </p>
             </div>
             
             {/* What You Get */}
             <div className="space-y-3 mb-8">
-              <h4 className="font-semibold text-white text-center">You'll get:</h4>
+              <h4 className="font-semibold text-white text-center">What you get for ₹19,499 (one-time, lifetime)</h4>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <Check className="text-green-500 mt-0.5 flex-shrink-0" size={20} />
-                  <span className="text-gray-300">Full 12‑week curriculum (foundations → strategy → execution)</span>
+                  <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-gray-300"><strong className="text-white">Core Skillset</strong> — 12-week recorded curriculum</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="text-green-500 mt-0.5 flex-shrink-0" size={20} />
-                  <span className="text-gray-300">Monthly live Q&A + trade reviews (recordings provided)</span>
+                  <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-gray-300"><strong className="text-white">Real-time Refinement</strong> — monthly live Q&A + trade reviews (recorded)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="text-green-500 mt-0.5 flex-shrink-0" size={20} />
-                  <span className="text-gray-300">Support group for doubt clearing</span>
+                  <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-gray-300"><strong className="text-white">Tools & Templates</strong> — scanners, checklists, sizing sheets, psychology drills</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="text-green-500 mt-0.5 flex-shrink-0" size={20} />
-                  <span className="text-gray-300">Risk management + psychology modules</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="text-green-500 mt-0.5 flex-shrink-0" size={20} />
-                  <span className="text-gray-300">Tools, templates, and checklists</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="text-green-500 mt-0.5 flex-shrink-0" size={20} />
-                  <span className="text-gray-300">Regular updates without additional pay</span>
+                  <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-gray-300"><strong className="text-white">Private Network</strong> — moderated community for accountability</span>
                 </li>
               </ul>
             </div>
             
-            {/* Social Proof */}
-            <div className="bg-gradient-to-r from-green-900/20 to-emerald-900/20 rounded-lg p-4 mb-6 border border-green-500/30">
-              <p className="text-sm text-center text-gray-300">
-                <span className="text-green-400 font-bold">1,263 students</span> enrolled • 
-                <span className="text-green-400 font-bold"> ₹2.7Cr</span> reported profits • 
-                <span className="text-green-400 font-bold"> 73%</span> reported win rate
-              </p>
-            </div>
             
             {/* CTA Button */}
             <button 
@@ -112,8 +119,12 @@ const PricingSection: React.FC = () => {
               </span>
             </button>
             
+            <p className="text-xs text-slate-400 mt-3 text-center">
+              Takes under 2 minutes · UPI/cards/netbanking · No-cost EMI available
+            </p>
+            
             {/* Trust Badges */}
-            <div className="mt-6 text-center space-y-2">
+            <div className="mt-4 text-center space-y-2">
               <p className="text-sm text-gray-400">
                 🔒 Secure payment • 💳 EMI available • ✅ No hidden charges
               </p>
@@ -127,39 +138,6 @@ const PricingSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Comparison with DIY */}
-        <motion.div 
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <div className="glass-effect rounded-xl p-6 max-w-2xl mx-auto">
-            <h4 className="font-bold text-white mb-4">The Real Cost of NOT Joining:</h4>
-            <div className="grid sm:grid-cols-2 gap-4 text-sm">
-              <div className="text-left">
-                <p className="text-red-400 font-semibold mb-2">❌ Continue Losing:</p>
-                <ul className="space-y-1 text-gray-400">
-                  <li>• Average loss: ₹50K in 3 months</li>
-                  <li>• Time wasted: 200+ hours</li>
-                  <li>• Stress & sleepless nights</li>
-                  <li>• Family relationships suffer</li>
-                </ul>
-              </div>
-              <div className="text-left">
-                <p className="text-green-400 font-semibold mb-2">✅ Start Learning:</p>
-                <ul className="space-y-1 text-gray-300">
-                  <li>• Reported average: ₹75K in 3 months*</li>
-                  <li>• Time invested: 3 hours/day</li>
-                  <li>• Confidence & peace of mind</li>
-                  <li>• Provide for your family</li>
-                </ul>
-              </div>
-            </div>
-            {/* ROI statement removed to maintain compliance and avoid promissory language */}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

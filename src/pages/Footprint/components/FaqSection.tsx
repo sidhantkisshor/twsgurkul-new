@@ -10,27 +10,30 @@ const FaqSection: React.FC = () => {
   const faqs: FaqItem[] = [
     {
       question: "Kya yeh legal hai?",
-      answer: "Haan. Hum exchange public APIs aur standard charting use karte hain. Yeh education hai, signals nahi. Results vary."
+      answer: "Haan. Public market data aur standard charting tools. Education only—no tips/signals."
     },
     {
-      question: "Aap share kyu kar rahe ho?",
-      answer: "Community aur support ke liye. Aapko recorded modules + monthly live Q&A milta hai."
+      question: "Kitni jaldi results?",
+      answer: "Checklist day-1 se apply hota hai. Consistency practice, risk rules aur market pe depend karti hai."
     },
     {
-      question: "Agar profit na ho toh?",
-      answer: "30-day satisfaction guarantee on content quality. Performance guarantees nahi."
+      question: "Crypto ke alawa kaam karega?",
+      answer: "Concepts indices/FX par generalize hote hain; examples BTC/ETH footprints se."
     },
     {
-      question: "Kitni jaldi result milega?",
-      answer: "Tools turant samajh aate hain; outcomes practice, risk rules, aur market pe depend karte hain."
+      question: "Calls milenge?",
+      answer: (
+        <div className="flex items-start gap-2">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0 mt-0.5 pointer-events-none">
+            <span className="text-white font-bold text-[10px]">S</span>
+          </div>
+          <span>Nahi. Process sikhate hain—planned entries with clear invalidation.</span>
+        </div>
+      )
     },
     {
-      question: "Crypto ke alawa forex pe bhi?",
-      answer: "Concepts generalize; examples zyadatar BTC/ETH footprints hain."
-    },
-    {
-      question: "EMI available hai?",
-      answer: "Haan, 3–24 months (no-cost EMI where available)."
+      question: "EMI/refund?",
+      answer: "EMI 3–24 months where supported. 30-day satisfaction guarantee on content quality."
     }
   ];
 
@@ -55,10 +58,10 @@ const FaqSection: React.FC = () => {
                 className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-700 overflow-hidden animate-on-scroll"
               >
                 <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center"
+                  className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center gap-2"
                   onClick={() => toggleFaq(index)}
                 >
-                  <span className="font-bold text-white">{faq.question}</span>
+                  <span className="font-bold text-white text-sm sm:text-base">{faq.question}</span>
                   {openIndex === index ? (
                     <ChevronUp className="text-cyan-400 flex-shrink-0" />
                   ) : (
@@ -67,8 +70,8 @@ const FaqSection: React.FC = () => {
                 </button>
                 
                 {openIndex === index && (
-                  <div className="px-6 pb-4 text-slate-300">
-                    <p>{faq.answer}</p>
+                  <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-slate-300 text-sm sm:text-base">
+                    {typeof faq.answer === 'string' ? <p>{faq.answer}</p> : faq.answer}
                   </div>
                 )}
               </div>
@@ -76,12 +79,12 @@ const FaqSection: React.FC = () => {
           </div>
           
           <div className="mt-12 text-center animate-on-scroll">
-            <div className="bg-slate-800/40 border border-cyan-500/20 rounded-lg p-6">
-              <p className="text-lg text-white mb-4">
-                Have more questions? Join our monthly live Q&A sessions where we discuss footprint trading in detail.
+            <div className="bg-slate-800/40 border border-cyan-500/20 rounded-lg p-4 sm:p-6">
+              <p className="text-base sm:text-lg text-white mb-3 sm:mb-4">
+                Have more questions? Join our monthly live Q&A sessions in Footprint Mastery.
               </p>
               <a href="#pricing" className="cta-button-primary inline-block">
-                Start Learning — ₹34,997
+                Start Footprint Mastery
               </a>
             </div>
           </div>
