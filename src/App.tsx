@@ -9,7 +9,7 @@ import PageLoader from './components/PageLoader';
 const HomePage = lazy(() => import('./pages/Home/HomePage'));
 const FootprintPage = lazy(() => import('./pages/Footprint/FootprintPage'));
 const CryptoPage = lazy(() => import('./pages/Crypto/CryptoPage'));
-const SuperStreamsPage = lazy(() => import('./pages/SuperStreams/SuperStreamsPage'));
+// Removed SuperStreamsPage import
 const MentorshipPage = lazy(() => import('./pages/Mentorship/MentorshipPage'));
 const ResultsAndClaims = lazy(() => import('./pages/Results/ResultsAndClaims'));
 const BlogsPage = lazy(() => import('./pages/Blogs/BlogsPage'));
@@ -33,7 +33,7 @@ function App() {
           } />
           <Route path="/footprint" element={<FootprintPage />} />
           <Route path="/crypto" element={<CryptoPage />} />
-          <Route path="/superstreams" element={<SuperStreamsPage />} />
+          {/* Removed SuperStreams route */}
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/blog" element={
             <Layout>
