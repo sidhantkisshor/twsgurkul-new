@@ -6,7 +6,7 @@
   section:first-child,
   .hero-section,
   [class*="hero"] {
-    padding-top: 5rem !important; /* Account for navbar height + spacing */
+    padding-top: 6rem !important; /* More spacing - Account for navbar height + breathing room */
   }
   
   /* Navbar should be more compact on mobile */

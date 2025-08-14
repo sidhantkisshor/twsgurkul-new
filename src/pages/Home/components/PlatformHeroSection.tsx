@@ -62,7 +62,7 @@ const PlatformHeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20 sm:pt-32 sm:pb-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-20 sm:pt-32 sm:pb-32">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5" />
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[150px]" />
