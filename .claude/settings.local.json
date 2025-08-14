@@ -13,8 +13,20 @@
       "WebFetch(domain:tradingwithsidhant.com)",
       "Bash(npm cache clean:*)",
       "Bash(npm uninstall:*)",
-      "Bash(npm audit:*)"
+      "Bash(npm audit:*)",
+      "Bash(for file in *.tsx)",
+      "Bash(do if ! grep -q \"$file%.tsx\" ../HomePage.tsx)",
+      "Bash(! grep -q \"$file%.tsx\" *.tsx)",
+      "Bash(then echo \"$file\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(for:*)",
+      "Bash(do if [ -f \"$file\" ])",
+      "Bash(then echo \"Found unused: $file\")",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   }
 }

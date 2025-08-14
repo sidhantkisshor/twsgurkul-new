@@ -23,6 +23,17 @@ const blogPosts: BlogPost[] = [
     author: 'TWS Gurukul',
     tags: ['AI', 'Automation', 'Zerodha', 'Portfolio Management', 'Trading'],
   },
+  {
+    slug: 'bitcoin-trading-sessions',
+    title: 'Bitcoin Trading Sessions: The Essential Guide for Crypto Traders',
+    excerpt: 'Master the art of trading Bitcoin across global sessions. Learn when institutional money flows, why certain hours produce explosive moves, and how to align your strategy with market rhythms.',
+    date: '2025-01-14',
+    readTime: '12 min',
+    category: 'Crypto Trading',
+    featured: false,
+    author: 'TWS Gurukul',
+    tags: ['Bitcoin', 'Crypto', 'Trading Sessions', 'Market Analysis', 'Institutional Trading'],
+  },
 ];
 
 // Get all blog posts

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, Eye, TrendingUp } from 'lucide-react';
+import { Eye, Play, CheckCircle } from 'lucide-react';
 
 const UniqueMechanismSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState(1);
@@ -10,27 +10,27 @@ const UniqueMechanismSection: React.FC = () => {
       id: 1,
       time: "7:45 PM",
       title: "Observe",
-      description: "Track institutional wallet movements",
-      icon: <Eye className="w-5 h-5" />
+      description: "Track on-chain wallet activity, order flow, and footprint to locate absorption and trapped liquidity.",
+      icon: <Eye className="w-6 h-6" />
     },
     {
       id: 2,
-      time: "8:00 PM",
-      title: "Follow",
-      description: "Mirror professional positions",
-      icon: <Activity className="w-5 h-5" />
+      time: "8:00–10:30 PM",
+      title: "Execute",
+      description: "Run the 8-pattern playbook with clear if-then rules and hard invalidation. Position size is capped. No hero trades.",
+      icon: <Play className="w-6 h-6" />
     },
     {
       id: 3,
-      time: "11:00 PM",
-      title: "Profit",
-      description: "Exit with consistent gains",
-      icon: <TrendingUp className="w-5 h-5" />
+      time: "10:45 PM",
+      title: "Review",
+      description: "Mark the trade, compute R-multiples, fix checklist leaks, and plan tomorrow's first look.",
+      icon: <CheckCircle className="w-6 h-6" />
     }
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden bg-white">
+    <section id="unique-mechanism" className="py-32 relative overflow-hidden bg-white">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -42,15 +42,15 @@ const UniqueMechanismSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
-              The whale advantage
+              The 8 PM Liquidity Window
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-              While others guess, we follow those who know.
+              While others guess, we follow flows that actually move price.
             </p>
           </motion.div>
 
-          {/* Visual representation */}
-          <div className="max-w-4xl mx-auto mb-32">
+          {/* 3-step timeline */}
+          <div className="max-w-5xl mx-auto mb-32">
             <motion.div
               className="relative"
               initial={{ opacity: 0 }}
@@ -58,11 +58,11 @@ const UniqueMechanismSection: React.FC = () => {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              {/* Connection line */}
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-gray-200 -translate-y-1/2" />
+              {/* Timeline divider line - positioned behind icons */}
+              <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-gray-200/50 z-0" />
               
               {/* Steps */}
-              <div className="relative grid grid-cols-3 gap-8">
+              <div className="relative grid md:grid-cols-3 gap-12 md:gap-8">
                 {steps.map((step, index) => (
                   <motion.div
                     key={step.id}
@@ -73,28 +73,21 @@ const UniqueMechanismSection: React.FC = () => {
                     viewport={{ once: true }}
                     onMouseEnter={() => setActiveStep(step.id)}
                   >
-                    <div className="text-center">
-                      {/* Circle */}
-                      <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    <div className="md:text-center relative">
+                      {/* Circle - 48px (12 tailwind units) */}
+                      <div className={`w-12 h-12 md:mx-auto mb-4 md:mb-6 rounded-full flex items-center justify-center transition-all duration-300 relative z-10 ${
                         activeStep === step.id 
-                          ? 'bg-gray-900 text-white' 
-                          : 'bg-gray-100 text-gray-600'
+                          ? 'bg-gray-900 text-white shadow-lg' 
+                          : 'bg-white text-gray-600 border border-gray-200'
                       }`}>
                         {step.icon}
                       </div>
                       
                       {/* Time */}
-                      <p className="text-sm text-gray-500 mb-2">{step.time}</p>
-                      
-                      {/* Title */}
-                      <h3 className={`text-xl font-normal mb-2 transition-colors duration-300 ${
-                        activeStep === step.id ? 'text-gray-900' : 'text-gray-600'
-                      }`}>
-                        {step.title}
-                      </h3>
+                      <p className="text-sm font-medium text-gray-900 mb-2">{step.time} — {step.title}</p>
                       
                       {/* Description */}
-                      <p className="text-sm text-gray-500 font-light">
+                      <p className="text-sm text-gray-600 font-light leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -104,89 +97,53 @@ const UniqueMechanismSection: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Key insight */}
+          {/* Why this works */}
           <motion.div
-            className="max-w-3xl mx-auto text-center mb-32"
+            className="max-w-3xl mx-auto mb-32"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-50 rounded-3xl p-12">
-              <h3 className="text-2xl font-light text-gray-900 mb-6">
+            <div className="bg-gray-50 rounded-3xl p-8 sm:p-12">
+              <h3 className="text-2xl font-light text-gray-900 mb-8">
                 Why this works
               </h3>
-              <div className="space-y-6 text-left">
-                <div className="flex gap-4">
-                  <div className="w-px bg-gray-300 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-normal text-gray-900 mb-2">Information asymmetry</h4>
-                    <p className="text-sm text-gray-600 font-light">
-                      Institutional traders have access to data, analysis, and capital 
-                      that retail traders don't. Following their moves levels the playing field.
-                    </p>
-                  </div>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <span className="text-gray-400">•</span>
+                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                    New York opens while India is free from 9 to 6 jobs
+                  </p>
                 </div>
-                <div className="flex gap-4">
-                  <div className="w-px bg-gray-300 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-normal text-gray-900 mb-2">Market impact</h4>
-                    <p className="text-sm text-gray-600 font-light">
-                      When whales move, markets follow. By identifying their positions early, 
-                      we position ourselves before the inevitable price movement.
-                    </p>
-                  </div>
+                <div className="flex gap-3">
+                  <span className="text-gray-400">•</span>
+                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                    Wallet flow reveals where size is preparing to act
+                  </p>
                 </div>
-                <div className="flex gap-4">
-                  <div className="w-px bg-gray-300 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-normal text-gray-900 mb-2">Risk management</h4>
-                    <p className="text-sm text-gray-600 font-light">
-                      Professionals don't gamble. Their calculated positions, backed by 
-                      thorough analysis, offer a safer path to consistent profits.
-                    </p>
-                  </div>
+                <div className="flex gap-3">
+                  <span className="text-gray-400">•</span>
+                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                    Footprint + order flow show real intent, not stories
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-gray-400">•</span>
+                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                    Same time every night builds skill and discipline
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <span className="text-gray-400">•</span>
+                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                    Weekly reviews convert knowledge into consistency
+                  </p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Live proof */}
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-sm text-gray-400 text-center mb-8">Last 24 hours</p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gray-50 rounded-2xl p-8 text-center">
-                <p className="text-sm text-gray-500 mb-2">Whale positions tracked</p>
-                <p className="text-3xl font-light text-gray-900">47</p>
-              </div>
-              <div className="bg-gray-50 rounded-2xl p-8 text-center">
-                <p className="text-sm text-gray-500 mb-2">Successful trades</p>
-                <p className="text-3xl font-light text-gray-900">42</p>
-              </div>
-              <div className="bg-gray-50 rounded-2xl p-8 text-center">
-                <p className="text-sm text-gray-500 mb-2">Average return</p>
-                <p className="text-3xl font-light text-gray-900">+8.7%</p>
-              </div>
-            </div>
-            
-            <motion.div 
-              className="text-center mt-16"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
-              <button className="group inline-flex items-center gap-2 text-gray-900 hover:gap-4 transition-all duration-300">
-                <span className="text-sm font-light">Join tonight's session</span>
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
     </section>

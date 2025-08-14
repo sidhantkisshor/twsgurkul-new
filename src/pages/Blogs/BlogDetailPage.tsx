@@ -7,6 +7,7 @@ import { getBlogPostBySlug } from './utils/blogData';
 
 // Import blog post components
 import AIAutomationZerodhaPortfolio from './posts/AIAutomationZerodhaPortfolio';
+import BitcoinTradingSessions from './posts/BitcoinTradingSessions';
 
 const BlogDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -42,6 +43,8 @@ const BlogDetailPage: React.FC = () => {
     switch (slug) {
       case 'ai-automation-zerodha-portfolio':
         return <AIAutomationZerodhaPortfolio />;
+      case 'bitcoin-trading-sessions':
+        return <BitcoinTradingSessions />;
       default:
         return null;
     }

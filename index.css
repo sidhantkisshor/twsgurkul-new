@@ -5,16 +5,52 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Prevent iOS zoom on input focus */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  /* Mobile-first typography - 16px minimum */
+  @media (max-width: 640px) {
+    html {
+      font-size: 16px !important;
+    }
   }
   
   body {
     @apply antialiased;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     overflow-x: hidden;
+    /* Mobile font size */
+    font-size: 1rem;
+    line-height: 1.6;
   }
   
+  /* Mobile-optimized headings */
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold leading-tight;
+  }
+  
+  @media (max-width: 640px) {
+    /* Never go below 14px for readability */
+    .text-xs { font-size: 0.875rem !important; }
+    .text-sm { font-size: 0.9375rem !important; }
+    
+    /* Responsive headings */
+    h1, .text-5xl, .text-6xl { font-size: 1.875rem !important; }
+    h2, .text-4xl { font-size: 1.5rem !important; }
+    h3, .text-3xl { font-size: 1.25rem !important; }
+    
+    /* Touch target minimum 44px */
+    button, a, [role="button"], input, select, textarea {
+      min-height: 44px;
+      padding: 12px 16px;
+    }
+    
+    /* Prevent zoom on iOS form focus */
+    input, select, textarea {
+      font-size: 16px !important;
+    }
   }
 }
 
@@ -94,6 +130,16 @@
 }
 
 @layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);

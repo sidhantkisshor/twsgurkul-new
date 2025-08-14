@@ -49,6 +49,12 @@ const Header: React.FC = () => {
                 Problem
               </button>
               <button 
+                onClick={() => scrollToSection('unique-mechanism')}
+                className="text-gray-600 hover:text-gray-900 transition-colors font-light"
+              >
+                Method
+              </button>
+              <button 
                 onClick={() => scrollToSection('testimonials')}
                 className="text-gray-600 hover:text-gray-900 transition-colors font-light"
               >
@@ -113,6 +119,12 @@ const Header: React.FC = () => {
                     className="text-left text-lg text-gray-900 font-light"
                   >
                     Problem
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('unique-mechanism')}
+                    className="text-left text-lg text-gray-900 font-light"
+                  >
+                    Method
                   </button>
                   <button 
                     onClick={() => scrollToSection('testimonials')}

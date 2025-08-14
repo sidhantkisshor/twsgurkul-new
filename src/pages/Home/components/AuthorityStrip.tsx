@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { getDomainForMediaName, getLogoFallbackUrls } from '../../../utils/mediaLogos';
 
 interface LogoItem {
   name: string;
@@ -11,20 +12,26 @@ const AuthorityStrip: React.FC = () => {
   const logos: LogoItem[] = [
     { name: 'Economic Times', alt: 'Featured in Economic Times' },
     { name: 'CNBC TV18', alt: 'Featured on CNBC TV18' },
-    { name: 'Mint', alt: 'Featured in Mint' },
     { name: 'Business Standard', alt: 'Featured in Business Standard' },
     { name: 'MoneyControl', alt: 'Featured on MoneyControl' },
-    { name: 'Finance With Sharan', alt: 'Featured on Finance With Sharan' },
-    { name: 'Ankur Warikoo', alt: 'Featured by Ankur Warikoo' },
     { name: 'Zee Business', alt: 'Featured on Zee Business' },
   ];
+
+  const resolvedLogos = useMemo(() => {
+    return logos.map((item) => {
+      const domain = getDomainForMediaName(item.name);
+      if (!domain) return item;
+      const fallbacks = getLogoFallbackUrls(domain, 128);
+      return { ...item, src: fallbacks[0], _fallbacks: fallbacks } as LogoItem & { _fallbacks?: string[] };
+    });
+  }, []);
 
   return (
     <section className="w-full py-8 sm:py-12 bg-black/50 border-y border-white/5">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Headline */}
         <p className="text-center text-sm sm:text-base text-gray-500 mb-6 sm:mb-8">
-          Featured by India's top finance media and creator channels
+          Featured by India's top finance media
         </p>
         
         {/* Logo Grid */}
@@ -35,7 +42,7 @@ const AuthorityStrip: React.FC = () => {
           
           {/* Logo container */}
           <div className="flex items-center justify-center flex-wrap gap-8 sm:gap-12 md:gap-16">
-            {logos.map((logo, index) => (
+            {resolvedLogos.map((logo: any, index) => (
               <div
                 key={index}
                 className="group transition-all duration-300 hover:scale-110"
@@ -45,6 +52,25 @@ const AuthorityStrip: React.FC = () => {
                     src={logo.src}
                     alt={logo.alt}
                     className="h-6 sm:h-8 w-auto object-contain filter grayscale opacity-50 hover:opacity-70 transition-opacity duration-300"
+                    onError={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      const list = (logo._fallbacks || []) as string[];
+                      const currentIndex = list.indexOf(img.src);
+                      const next = list[currentIndex + 1];
+                      if (next) {
+                        img.src = next;
+                      } else {
+                        // If all fail, remove image so text placeholder shows
+                        img.style.display = 'none';
+                        const parent = img.parentElement;
+                        if (parent) {
+                          const text = document.createElement('div');
+                          text.className = 'text-gray-600 font-semibold text-sm sm:text-base';
+                          text.textContent = logo.name;
+                          parent.appendChild(text);
+                        }
+                      }
+                    }}
                   />
                 ) : (
                   // Placeholder text when no logo image

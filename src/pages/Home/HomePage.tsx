@@ -1,12 +1,17 @@
-import React from 'react';
-import HeroSection from './components/HeroSection';
-import AuthorityStrip from './components/AuthorityStrip';
+import React, { Suspense, lazy } from 'react';
+import PlatformHeroSection from './components/PlatformHeroSection';
+import BigProblemSection from './components/BigProblemSection';
+import ProgramsOverviewSection from './components/ProgramsOverviewSection';
+import CombinedStudentSuccessSection from './components/CombinedStudentSuccessSection';
 import ProgramQuiz from './components/ProgramQuiz';
-import CredibilitySection from './components/CredibilitySection';
-import StudentResults from './components/StudentResults';
-import CTASection from './components/CTASection';
+import UnifiedStickyController from './components/UnifiedStickyController';
+import LazyLoadSection from './components/LazyLoadSection';
 import Seo from '../../components/Seo';
 import { Disclaimer } from '../../components/Disclaimer';
+
+// Lazy load heavy sections
+const AuthorityTrustSection = lazy(() => import('./components/AuthorityTrustSection'));
+const SimplifiedCTASection = lazy(() => import('./components/SimplifiedCTASection'));
 
 const HomePage: React.FC = () => {
   return (
@@ -17,23 +22,51 @@ const HomePage: React.FC = () => {
         keywords="trading courses india, crypto trading course, footprint trading, elite trading mentorship, sidhant gurukul, TWS gurukul"
       />
       <div className="min-h-screen bg-black">
-        {/* Hero - Introduce Sidhant & TWS Gurukul */}
-        <HeroSection />
+        {/* Unified Sticky Controller */}
+        <UnifiedStickyController />
         
-        {/* Authority Strip - Media & Creator Features */}
-        <AuthorityStrip />
+        {/* MULTI-PROGRAM HOMEPAGE FLOW */}
         
-        {/* Quiz - Primary conversion tool */}
-        <ProgramQuiz />
+        {/* 1. Platform Hero - Brand & Programs Introduction */}
+        <div id="hero">
+          <PlatformHeroSection />
+        </div>
         
-        {/* Results - Student success stories (build trust before showing programs) */}
-        <StudentResults />
+        {/* 2. Universal Problem - Why Traders Fail */}
+        <div id="problem">
+          <BigProblemSection />
+        </div>
         
-        {/* Credibility - Why learn from Sidhant */}
-        <CredibilitySection />
+        {/* 3. Programs Overview - 3 Paths to Success */}
+        <div id="programs">
+          <ProgramsOverviewSection />
+        </div>
         
-        {/* CTA - Book consultation call */}
-        <CTASection />
+        {/* 4. Platform Authority - Sidhant & TWS Credibility */}
+        <LazyLoadSection>
+          <Suspense fallback={<div className="py-20 text-center text-gray-400">Loading...</div>}>
+            <AuthorityTrustSection />
+          </Suspense>
+        </LazyLoadSection>
+        
+        {/* 5. Success Stories - Results Across All Programs */}
+        <div id="success">
+          <CombinedStudentSuccessSection />
+        </div>
+        
+        {/* 6. Program Matcher Quiz - Personalized Recommendation */}
+        <div id="quiz">
+          <ProgramQuiz />
+        </div>
+        
+        {/* 7. Final CTA - Start Your Journey */}
+        <div id="cta">
+          <LazyLoadSection>
+            <Suspense fallback={<div className="py-20 text-center text-gray-400">Loading...</div>}>
+              <SimplifiedCTASection />
+            </Suspense>
+          </LazyLoadSection>
+        </div>
         
         {/* Disclaimer for success rates */}
         <div className="container mx-auto px-4 pb-8">
