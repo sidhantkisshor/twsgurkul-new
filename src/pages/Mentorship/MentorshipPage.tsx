@@ -13,6 +13,7 @@ import SimpleFaqSection from './components/SimpleFaqSection';
 import Footer from './components/Footer';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import MobileStickyQuiz from './components/MobileStickyQuiz';
+import FloatingCTA from './components/FloatingCTA';
 import { useExitIntent } from './hooks/useExitIntent';
 import Seo from '../../components/Seo';
 
@@ -51,6 +52,7 @@ const MentorshipPage: React.FC = () => {
         
         {showExitIntent && <ExitIntentPopup />}
         <MobileStickyQuiz />
+        <FloatingCTA />
       </motion.div>
     </>
   );
