@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { User, CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
-import { handlePaymentPopup } from '../utils/payment';
 import VerificationModal from './VerificationModal';
 
 const TestimonialsSection: React.FC = () => {
@@ -9,21 +8,21 @@ const TestimonialsSection: React.FC = () => {
 
   const mainTestimonials = [
     {
-      name: "Arjun M.",
+      name: "Arjun",
       duration: "6 months with program",
       text: "The footprint charts helped me understand when big players are absorbing vs. distributing. I stopped chasing breakouts and started waiting for clear delta confirmation.",
       artifact: "📊", // Placeholder for blurred footprint chart
       caption: "Now waits for delta confirmation before entries"
     },
     {
-      name: "Priya S.",
+      name: "Priya",
       duration: "3 months with program",
       text: "Learning to spot liquidity zones changed everything. I used to get stopped out constantly. Now I understand where stops cluster and avoid those trap areas.",
       artifact: "📈", // Placeholder for liquidity zone screenshot
       caption: "Identifies liquidity zones to avoid stop hunts"
     },
     {
-      name: "Rahul K.",
+      name: "Rahul",
       duration: "8 months with program",
       text: "The review process using trade journals has been crucial. Footprint reading takes practice - don't expect instant results. But once it clicks, you'll never trade the same way.",
       artifact: "📝", // Placeholder for journal page
@@ -33,12 +32,12 @@ const TestimonialsSection: React.FC = () => {
 
   const additionalTestimonials = [
     {
-      name: "Karthik R.",
+      name: "Karthik",
       duration: "4 months with program",
       text: "Risk management module was eye-opening. I used to size positions randomly. Now I use footprint data to gauge conviction and size accordingly."
     },
     {
-      name: "Anita P.",
+      name: "Anita",
       duration: "5 months with program",
       text: "The monthly Q&A sessions are invaluable. Getting real-time chart analysis helps connect theory to practice."
     }
@@ -143,12 +142,6 @@ const TestimonialsSection: React.FC = () => {
                 How TWS verifies student feedback →
               </button>
             </p>
-          </div>
-          
-          <div className="text-center animate-on-scroll">
-            <button onClick={handlePaymentPopup} className="cta-button-primary inline-block">
-              Start Footprint Mastery
-            </button>
           </div>
         </div>
       </div>

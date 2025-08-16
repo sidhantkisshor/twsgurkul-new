@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binance API Test</title>
+</head>
+<body>
+    <h1>Binance API Test via Vite Proxy</h1>
+    <div id="results"></div>
+    
+    <script>
+        async function testAPI() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Testing API...</p>';
+            
+            try {
+                // Test the proxied endpoint
+                const response = await fetch('/api/binance/ticker/24hr?symbol=BTCUSDT');
+                const data = await response.json();
+                
+                if (data.lastPrice) {
+                    resultsDiv.innerHTML = `
+                        <h2>✅ Success! Real-time data received:</h2>
+                        <p><strong>BTC Price:</strong> $${parseFloat(data.lastPrice).toLocaleString()}</p>
+                        <p><strong>24h Change:</strong> ${data.priceChangePercent}%</p>
+                        <p><strong>24h Volume:</strong> $${(parseFloat(data.volume) * parseFloat(data.lastPrice)).toLocaleString()}</p>
+                        <p><strong>High 24h:</strong> $${parseFloat(data.highPrice).toLocaleString()}</p>
+                        <p><strong>Low 24h:</strong> $${parseFloat(data.lowPrice).toLocaleString()}</p>
+                    `;
+                } else {
+                    resultsDiv.innerHTML = '<p>❌ No data received</p>';
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `<p>❌ Error: ${error.message}</p>`;
+            }
+        }
+        
+        // Test on load
+        testAPI();
+        
+        // Update every 5 seconds
+        setInterval(testAPI, 5000);
+    </script>
+</body>
+</html>

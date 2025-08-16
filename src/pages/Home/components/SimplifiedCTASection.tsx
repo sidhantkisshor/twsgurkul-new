@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Clock, ArrowRight, Target, Star, TrendingUp, CheckCircle, CreditCard, Smartphone, FileText, AlertTriangle } from 'lucide-react';
 
-const SimplifiedCTASection = () => {
+interface SimplifiedCTASectionProps {
+  onQuizOpen?: () => void;
+}
+
+const SimplifiedCTASection: React.FC<SimplifiedCTASectionProps> = ({ onQuizOpen }) => {
   // Single countdown timer
   const [timeLeft, setTimeLeft] = useState({
     hours: 23,
@@ -36,8 +40,12 @@ const SimplifiedCTASection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToQuiz = () => {
-    document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+  const handleQuizClick = () => {
+    if (onQuizOpen) {
+      onQuizOpen();
+    } else {
+      document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -108,7 +116,7 @@ const SimplifiedCTASection = () => {
 
             {/* Single Clear CTA */}
             <button
-              onClick={scrollToQuiz}
+              onClick={handleQuizClick}
               className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 group"
             >
               <Target className="w-6 h-6" />

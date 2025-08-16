@@ -1,0 +1,129 @@
+/* Hero Section Button Hover Effect */
+.hero-cta {
+  transition: transform 180ms ease-out, box-shadow 180ms ease-out;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Focus States for Accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Chip Hover Effects */
+.chip-hover {
+  transition: all 200ms ease-out;
+  position: relative;
+}
+
+.chip-hover:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.3);
+}
+
+/* Methodology Link Styling */
+.methodology-link {
+  position: relative;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+.methodology-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Glass Effect Enhancement */
+.glass-effect {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Improved Text Contrast */
+.text-contrast-high {
+  color: rgb(226, 232, 240); /* slate-200 with better contrast */
+}
+
+/* Stat Bar Animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-animate {
+  animation: countUp 300ms ease-out forwards;
+}
+
+/* Modal Focus Trap */
+.modal-focus-trap:focus {
+  outline: none;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 36px;
+    line-height: 1.15;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* Sticky Bar Rotation Animation */
+.sticky-rotate-enter {
+  animation: slideInUp 400ms ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Better Chip Borders */
+.chip-border {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 200ms ease;
+}
+
+.chip-border:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.2);
+}
+
+/* Shimmer Animation for Nav */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Slow Spin Animation */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}

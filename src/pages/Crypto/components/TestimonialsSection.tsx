@@ -5,7 +5,6 @@ import { testimonials } from '../data';
 import { Testimonial } from '../types';
 
 interface TestimonialsSectionProps {
-    handleSmoothScroll: (event: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => void;
     onMethodologyClick?: () => void;
 }
 
@@ -96,13 +95,13 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
     return (
         <section 
             id="testimonials" 
-            className="py-16 sm:py-20 bg-slate-900/50 overflow-hidden relative"
+            className="crypto-section bg-slate-900/50 overflow-hidden relative"
             role="region"
             aria-label="Customer testimonials"
         >
             {/* Subtle gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-500/5 to-transparent" />
-            <div className="max-w-7xl mx-auto">
+            <div className="crypto-container">
                 <motion.div
                     className="text-center space-y-4 sm:space-y-6 mb-12 sm:mb-16 px-4 sm:px-6 lg:px-8"
                     initial={{ opacity: 0, y: 20 }}
@@ -110,7 +109,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                    <h2 className="crypto-h2">
                         Real Student <span className="text-transparent bg-gradient-to-r from-yellow-400 to-orange-300 bg-clip-text">Experiences</span>
                     </h2>
                     <p className="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">

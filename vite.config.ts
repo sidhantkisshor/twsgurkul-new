@@ -4,6 +4,16 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/',
+  server: {
+    proxy: {
+      '/api/binance': {
+        target: 'https://api.binance.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/binance/, '/api/v3'),
+        secure: false,
+      }
+    }
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

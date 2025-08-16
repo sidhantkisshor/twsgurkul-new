@@ -7,17 +7,17 @@ import { formatCurrency } from '../../../services/binanceV2';
 
 const HeroSection: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [shouldLoadDemo, setShouldLoadDemo] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [showDemo, setShowDemo] = useState(false);
-  const demoRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
 
-  // Lazy load demo section with IntersectionObserver
+  // Lazy load video section with IntersectionObserver
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            setShouldLoadDemo(true);
+            setShouldLoadVideo(true);
             observer.disconnect();
           }
         });
@@ -28,8 +28,8 @@ const HeroSection: React.FC = () => {
       }
     );
 
-    if (demoRef.current) {
-      observer.observe(demoRef.current);
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
     }
 
     return () => observer.disconnect();
@@ -153,7 +153,7 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-3 md:hidden">
               <motion.button
                 onClick={handlePaymentPopup}
-                className="w-full px-4 py-3 font-semibold rounded-lg text-sm bg-gradient-to-r from-cyan-500 to-teal-500 text-white hover:from-cyan-600 hover:to-teal-600 transition-all"
+                className="w-full px-4 py-3 font-semibold rounded-lg text-sm bg-slate-800 border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-300 transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -174,7 +174,7 @@ const HeroSection: React.FC = () => {
             <div className="hidden md:flex gap-4">
               <motion.button
                 onClick={handlePaymentPopup}
-                className="px-6 sm:px-8 py-3 sm:py-4 font-semibold rounded-lg text-base sm:text-lg bg-gradient-to-r from-cyan-500 to-teal-500 text-white hover:from-cyan-600 hover:to-teal-600 transition-all"
+                className="px-6 sm:px-8 py-3 sm:py-4 font-semibold rounded-lg text-base sm:text-lg bg-slate-800 border-2 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-300 transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -243,7 +243,7 @@ const HeroSection: React.FC = () => {
           >
             {/* Live Demo Section - Hidden by default */}
             {showDemo ? (
-              <div ref={demoRef} className="bg-slate-900/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-cyan-500/20 mb-6 font-mono relative z-[700]">
+              <div className="bg-slate-900/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-cyan-500/20 mb-6 font-mono relative z-[700]">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold text-cyan-400">
                   Live Demo • Footprint Table & Delta Shifts
@@ -347,10 +347,11 @@ const HeroSection: React.FC = () => {
             )}
 
             <div
+              ref={videoRef}
               className="aspect-video bg-slate-900/80 rounded-2xl border border-cyan-500/20 overflow-hidden hover:border-cyan-400/40 transition-colors cursor-pointer relative"
               onClick={() => setIsPlaying(true)}
             >
-              {!isPlaying || !shouldLoadDemo ? (
+              {!isPlaying || !shouldLoadVideo ? (
                 <div className="w-full h-full relative flex items-center justify-center">
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-cyan-950/20 to-slate-900">
                     {/* Matrix rain effect */}
@@ -412,25 +413,6 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
             
-            {/* Mentor Card - Hidden on small screens, shown on medium+ */}
-            <motion.div 
-              className="hidden lg:block mt-6 bg-slate-800/60 backdrop-blur-sm rounded-lg p-3 border border-slate-700 max-w-sm mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-sm">S</span>
-                </div>
-                <div className="flex-1">
-                  <p className="text-xs font-semibold text-cyan-400 mb-1">From Sidhant</p>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    "I've been reading footprints since 2019. This program distills everything I've learned into a clear, actionable framework."
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -25,7 +25,7 @@ const FaqSection: React.FC = () => {
       answer: (
         <div className="flex items-start gap-2">
           <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0 mt-0.5 pointer-events-none">
-            <span className="text-white font-bold text-[10px]">S</span>
+            <span className="text-white font-bold text-[10px]">TWS</span>
           </div>
           <span>Nahi. Process sikhate hain—planned entries with clear invalidation.</span>
         </div>

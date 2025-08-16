@@ -45,7 +45,7 @@ const StickyMobileCTA: React.FC = () => {
         >
           <button
             onClick={handlePaymentPopup}
-            className="w-full py-4 px-6 bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-teal-600 transition-all"
+            className="w-full py-4 px-6 bg-slate-800 border border-cyan-500/50 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-300 transition-all"
           >
             Start Footprint Mastery
           </button>

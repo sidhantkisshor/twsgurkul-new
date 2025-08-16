@@ -50,7 +50,7 @@ const Footer = () => {
                   <Youtube className="w-5 h-5 text-gray-400 hover:text-white" />
                 </a>
                 <a 
-                  href="https://t.me/twsgurukul" 
+                  href="https://t.me/tradingwsidhant" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="glass-effect p-2.5 rounded-full hover:bg-white/10 transition-all duration-300"
@@ -80,8 +80,8 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/superstreams" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Super Streams
+                  <Link to="/etm" className="text-sm text-gray-400 hover:text-white transition-colors">
+                    ETM
                   </Link>
                 </li>
                 <li>
@@ -118,7 +118,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a 
-                    href="https://t.me/twsgurukul" 
+                    href="https://t.me/tradingwsidhant" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-sm text-gray-400 hover:text-white transition-colors"
@@ -138,10 +138,22 @@ const Footer = () => {
               <p className="text-sm text-gray-400">
                 © {currentYear} TWS Gurukul. All rights reserved.
               </p>
-              <div className="flex gap-6">
-                <Link to="/disclaimer" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Risk Disclaimer
-                </Link>
+              <div className="flex flex-wrap gap-4 md:gap-6">
+                <a href="https://tradingwithsidhant.com/legal/disclaimers" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Disclaimers
+                </a>
+                <a href="https://tradingwithsidhant.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+                <a href="https://tradingwithsidhant.com/legal/terms" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Terms
+                </a>
+                <a href="https://tradingwithsidhant.com/legal/refund-policy" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Refund Policy
+                </a>
+                <a href="https://tradingwithsidhant.com/legal/cookie-policy" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Cookie Policy
+                </a>
               </div>
             </div>
           </div>

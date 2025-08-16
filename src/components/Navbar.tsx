@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +16,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Don't show Home button when on home page
+  const isHomePage = location.pathname === '/';
+  
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "CMM", href: "/crypto" },
+    ...(isHomePage ? [] : [{ name: "Home", href: "/" }]),
+    { name: "Crypto", href: "/crypto" },
     { name: "Footprint", href: "/footprint" },
-    { name: "Elite", href: "/mentorship" },
+    { name: "Mentorship", href: "/mentorship" },
     { name: "Blog", href: "/blog" },
   ];
 

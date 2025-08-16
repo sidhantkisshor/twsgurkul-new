@@ -1,19 +1,28 @@
 import React, { Suspense, lazy } from 'react';
-import PlatformHeroSection from './components/PlatformHeroSection';
+import NewHeroSection from './components/NewHeroSection';
 import BigProblemSection from './components/BigProblemSection';
 import ProgramsOverviewSection from './components/ProgramsOverviewSection';
 import CombinedStudentSuccessSection from './components/CombinedStudentSuccessSection';
-import ProgramQuiz from './components/ProgramQuiz';
 import UnifiedStickyController from './components/UnifiedStickyController';
 import LazyLoadSection from './components/LazyLoadSection';
 import Seo from '../../components/Seo';
 import { Disclaimer } from '../../components/Disclaimer';
+import QuizModal from '../../components/QuizModal';
+import QuizStickyBar from '../../components/QuizStickyBar';
+import { useQuizModal } from '../../hooks/useQuizModal';
 
 // Lazy load heavy sections
 const AuthorityTrustSection = lazy(() => import('./components/AuthorityTrustSection'));
 const SimplifiedCTASection = lazy(() => import('./components/SimplifiedCTASection'));
 
 const HomePage: React.FC = () => {
+  // Initialize quiz modal with all triggers
+  const { isOpen, source, showStickyBar, openQuiz, closeQuiz } = useQuizModal({
+    enableExitIntent: true,
+    enableStickyBar: true,
+    stickyBarThreshold: 30
+  });
+
   return (
     <>
       <Seo 
@@ -23,47 +32,42 @@ const HomePage: React.FC = () => {
       />
       <div className="min-h-screen bg-black">
         {/* Unified Sticky Controller */}
-        <UnifiedStickyController />
+        <UnifiedStickyController onQuizOpen={() => openQuiz('sticky')} />
         
         {/* MULTI-PROGRAM HOMEPAGE FLOW */}
         
         {/* 1. Platform Hero - Brand & Programs Introduction */}
         <div id="hero">
-          <PlatformHeroSection />
+          <NewHeroSection onQuizOpen={() => openQuiz('hero')} />
         </div>
         
         {/* 2. Universal Problem - Why Traders Fail */}
         <div id="problem">
-          <BigProblemSection />
+          <BigProblemSection onQuizOpen={() => openQuiz('problem')} />
         </div>
         
         {/* 3. Programs Overview - 3 Paths to Success */}
         <div id="programs">
-          <ProgramsOverviewSection />
+          <ProgramsOverviewSection onQuizOpen={() => openQuiz('program_card')} />
         </div>
         
         {/* 4. Platform Authority - Sidhant & TWS Credibility */}
         <LazyLoadSection>
           <Suspense fallback={<div className="py-20 text-center text-gray-400">Loading...</div>}>
-            <AuthorityTrustSection />
+            <AuthorityTrustSection onQuizOpen={() => openQuiz('authority')} />
           </Suspense>
         </LazyLoadSection>
         
         {/* 5. Success Stories - Results Across All Programs */}
         <div id="success">
-          <CombinedStudentSuccessSection />
+          <CombinedStudentSuccessSection onQuizOpen={() => openQuiz('success')} />
         </div>
         
-        {/* 6. Program Matcher Quiz - Personalized Recommendation */}
-        <div id="quiz">
-          <ProgramQuiz />
-        </div>
-        
-        {/* 7. Final CTA - Start Your Journey */}
+        {/* 6. Final CTA - Start Your Journey */}
         <div id="cta">
           <LazyLoadSection>
             <Suspense fallback={<div className="py-20 text-center text-gray-400">Loading...</div>}>
-              <SimplifiedCTASection />
+              <SimplifiedCTASection onQuizOpen={() => openQuiz('cta')} />
             </Suspense>
           </LazyLoadSection>
         </div>
@@ -73,6 +77,19 @@ const HomePage: React.FC = () => {
           <Disclaimer type="footer" />
         </div>
       </div>
+
+      {/* Quiz Modal */}
+      <QuizModal 
+        isOpen={isOpen} 
+        onClose={closeQuiz} 
+        source={source}
+      />
+
+      {/* Quiz Sticky Bar */}
+      <QuizStickyBar
+        show={showStickyBar}
+        onClick={() => openQuiz('sticky_bar')}
+      />
     </>
   );
 };

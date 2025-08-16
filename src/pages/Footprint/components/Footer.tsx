@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="border-t border-slate-800 pt-8 text-center">
-            <div className="space-y-2">
+            <div className="space-y-4">
               <p className="text-xs text-slate-500">
                 © {new Date().getFullYear()} TWS Gurukul. All rights reserved.
               </p>
@@ -54,6 +54,23 @@ const Footer: React.FC = () => {
                   How TWS verifies student feedback →
                 </button>
               </p>
+              <div className="flex flex-wrap justify-center gap-4 text-xs">
+                <a href="https://tradingwithsidhant.com/legal/disclaimers" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Disclaimers
+                </a>
+                <a href="https://tradingwithsidhant.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Privacy Policy
+                </a>
+                <a href="https://tradingwithsidhant.com/legal/terms" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Terms
+                </a>
+                <a href="https://tradingwithsidhant.com/legal/refund-policy" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Refund Policy
+                </a>
+                <a href="https://tradingwithsidhant.com/legal/cookie-policy" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                  Cookie Policy
+                </a>
+              </div>
               <p className="text-xs text-slate-500">
                 Support: support@twsgurukul.com
               </p>

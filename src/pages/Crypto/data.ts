@@ -4,6 +4,7 @@ import {
     CandlestickChart,
     Wallet,
     BarChart3,
+    Calendar,
 } from 'lucide-react';
 import { TrustBadge, FaqItem, HeroData, Problem, InstructorFeature, Testimonial } from './types';
 
@@ -16,7 +17,7 @@ export const trustBadges: TrustBadge[] = [
     },
     {
       icon: Bitcoin,
-      text: "₹27.2Cr self-reported",
+      text: "₹27.2 Cr self-reported",
       color: "yellow",
     },
     {
@@ -43,7 +44,7 @@ export const trustBadges: TrustBadge[] = [
       },
       {
           icon: BarChart3,
-          title: "₹27.2Cr reported",
+          title: "₹27.2 Cr reported",
           description: "Student-reported profits",
           bgColor: "bg-green-500/20",
           iconColor: "text-green-400"
@@ -285,16 +286,17 @@ export const heroData: HeroData = {
     },
     enrollmentStats: {
         count: "1,263",
-        text: "students enrolled"
+        text: "learners"
     },
     features: [
         { icon: CandlestickChart, text: "Rule #1: Invalidation first", subtext: "Exit before entry", color: "green" },
-        { icon: Wallet, text: "Journal framework included", subtext: "Track & improve daily", color: "blue" }
+        { icon: Wallet, text: "Journal framework included", subtext: "Track & improve daily", color: "blue" },
+        { icon: Calendar, text: "Monthly live Q&A", subtext: "Recording provided", color: "yellow" }
     ],
     stats: [
-        { value: "₹27.2Cr", label: "Student Reports", color: "slate" },
-        { value: "1,263", label: "Active Learners", color: "yellow" },
-        { value: "73%", label: "Win Rate", color: "blue" }
+        { value: "₹27.2 Cr", label: "Self-reported profits", color: "slate" },
+        { value: "1,263", label: "Active learners", color: "yellow" },
+        { value: "73%", label: "Reported win rate", color: "blue" }
     ],
     video: {
         thumbnail: "https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg",

@@ -1,0 +1,277 @@
+/* =================================================================
+   CRYPTO PAGE DESIGN SYSTEM
+   ================================================================= */
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* =================================================================
+   CSS VARIABLES & DESIGN TOKENS
+   ================================================================= */
+:root {
+  /* Typography */
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  
+  /* Type Scale */
+  --text-h1: 44px;
+  --text-h1-line: 50px;
+  --text-h2: 32px;
+  --text-h2-line: 40px;
+  --text-h3: 24px;
+  --text-h3-line: 32px;
+  --text-body: 17px;
+  --text-body-line: 28px;
+  --text-micro: 14px;
+  --text-micro-line: 22px;
+  
+  /* Line Heights */
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+  
+  /* Spacing */
+  --space-section-desktop: 96px;
+  --space-section-tablet: 80px;
+  --space-section-mobile: 64px;
+  
+  /* Grid */
+  --grid-cols: 12;
+  --grid-gutter-desktop: 24px;
+  --grid-gutter-mobile: 12px;
+  
+  /* Container */
+  --container-max: 1200px;
+  --container-gutter-desktop: 32px;
+  --container-gutter-mobile: 20px;
+  
+  /* Border Radius */
+  --radius-card: 14px;
+  --radius-image: 16px;
+  --radius-button: 9999px;
+  --radius-chip: 8px;
+  
+  /* Shadows */
+  --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.18);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-button: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* =================================================================
+   BASE TYPOGRAPHY
+   ================================================================= */
+.crypto-page {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+.crypto-page h1, .crypto-h1 {
+  font-size: var(--text-h1);
+  line-height: var(--lh-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.crypto-page h2, .crypto-h2 {
+  font-size: var(--text-h2);
+  line-height: var(--lh-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.crypto-page h3, .crypto-h3 {
+  font-size: var(--text-h3);
+  line-height: var(--lh-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Body Text */
+.crypto-body, .crypto-page p {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+}
+
+/* Micro Text */
+.crypto-micro {
+  font-size: var(--text-micro);
+  line-height: var(--text-micro-line);
+}
+
+/* Caps Text (for chips only) */
+.crypto-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+/* =================================================================
+   LAYOUT SYSTEM
+   ================================================================= */
+
+/* Container */
+.crypto-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-gutter-desktop);
+  padding-right: var(--container-gutter-desktop);
+  width: 100%;
+}
+
+/* Grid System */
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  gap: var(--grid-gutter-desktop);
+}
+
+/* Section Spacing */
+.crypto-section {
+  padding-top: var(--space-section-desktop);
+  padding-bottom: var(--space-section-desktop);
+}
+
+/* =================================================================
+   COMPONENTS
+   ================================================================= */
+
+/* Cards */
+.crypto-card {
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-base);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.crypto-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Images */
+.crypto-image {
+  border-radius: var(--radius-image);
+  overflow: hidden;
+}
+
+/* Buttons */
+.crypto-button {
+  border-radius: var(--radius-button);
+  font-weight: 600;
+  transition: all 200ms ease;
+  box-shadow: var(--shadow-button);
+}
+
+.crypto-button:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* Chips */
+.crypto-chip {
+  border-radius: var(--radius-chip);
+  padding: 8px 16px;
+  font-size: var(--text-micro);
+  font-weight: 500;
+}
+
+/* =================================================================
+   RESPONSIVE ADJUSTMENTS
+   ================================================================= */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .crypto-section {
+    padding-top: var(--space-section-tablet);
+    padding-bottom: var(--space-section-tablet);
+  }
+  
+  .crypto-container {
+    padding-left: var(--grid-gutter-desktop);
+    padding-right: var(--grid-gutter-desktop);
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  :root {
+    --text-h1: 36px;
+    --text-h1-line: 42px;
+    --text-h2: 28px;
+    --text-h2-line: 34px;
+    --text-h3: 20px;
+    --text-h3-line: 26px;
+    --text-body: 16px;
+    --text-body-line: 26px;
+  }
+  
+  .crypto-section {
+    padding-top: var(--space-section-mobile);
+    padding-bottom: var(--space-section-mobile);
+  }
+  
+  .crypto-container {
+    padding-left: var(--container-gutter-mobile);
+    padding-right: var(--container-gutter-mobile);
+  }
+  
+  .crypto-grid {
+    gap: var(--grid-gutter-mobile);
+    grid-template-columns: 1fr; /* Stack on mobile */
+  }
+}
+
+/* =================================================================
+   UTILITY CLASSES
+   ================================================================= */
+
+/* Spacing Utilities */
+.crypto-mt-8 { margin-top: 2rem; }
+.crypto-mb-8 { margin-bottom: 2rem; }
+.crypto-py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+
+/* Text Utilities */
+.crypto-text-center { text-align: center; }
+.crypto-font-bold { font-weight: 700; }
+.crypto-font-medium { font-weight: 500; }
+
+/* Shadow Utilities */
+.crypto-shadow-sm { box-shadow: var(--shadow-base); }
+.crypto-shadow-md { box-shadow: var(--shadow-card); }
+.crypto-shadow-lg { box-shadow: var(--shadow-hover); }
+
+/* Radius Utilities */
+.crypto-rounded { border-radius: var(--radius-card); }
+.crypto-rounded-full { border-radius: var(--radius-button); }
+
+/* =================================================================
+   GLASS MORPHISM OVERRIDE
+   ================================================================= */
+.glass-effect {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card);
+}
+
+/* =================================================================
+   ANIMATIONS
+   ================================================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.crypto-animate-in {
+  animation: fadeInUp 600ms ease-out forwards;
+}

@@ -9,7 +9,7 @@ const TestimonialsSection: React.FC = () => {
 
   const testimonials = [
     {
-      name: "Divya A",
+      name: "Divya",
       location: "Delhi",
       quote: "Week 3 I finally stopped revenge trading. By Month 3 I was consistent enough to cover school fees from trading profits. The 8 PM routine saved my sanity.",
       facts: [
@@ -20,7 +20,7 @@ const TestimonialsSection: React.FC = () => {
       proofImage: "/proof-divya-blurred.jpg" // Placeholder path
     },
     {
-      name: "Vikram C",
+      name: "Vikram",
       location: "Pune",
       quote: "I used to binge strategies. The live room forced one playbook. After 8 weeks of reviews my red days are small. Green days now pay for the month.",
       facts: [
@@ -31,7 +31,7 @@ const TestimonialsSection: React.FC = () => {
       proofImage: "/proof-vikram-blurred.jpg" // Placeholder path
     },
     {
-      name: "Mohammed A",
+      name: "Mohammed",
       location: "Mumbai",
       quote: "Uber driver shifts wrecked my focus. The 8 PM window fit my life. First month I learned to cut losses. Third month I stopped overtrading.",
       facts: [

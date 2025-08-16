@@ -1,11 +1,13 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Seo from '../../components/Seo';
+import './styles/design-system.css';
+import './styles/hero-reimagined.css';
+import './styles/crypto.css';
 
 // Core components loaded immediately
 import ErrorBoundary from './components/ErrorBoundary';
-import AnnouncementBar from './components/AnnouncementBar';
 import HeaderMinimal from './components/HeaderMinimal';
-import HeroSection from './components/HeroSection';
+import HeroSectionReimagined from './components/HeroSectionReimagined';
 import ProblemSection from './components/ProblemSection';
 import UniqueMechanismSection from './components/UniqueMechanismSection';
 import InstructorSectionSimplified from './components/InstructorSectionSimplified';
@@ -18,6 +20,7 @@ import MethodologyModal from './components/MethodologyModal';
 import JournalPreview from './components/JournalPreview';
 import ReturningUserCheckout from './components/ReturningUserCheckout';
 import VideoSection from './components/VideoSection';
+import Footer from './components/Footer';
 
 // Lazy load secondary components for performance
 const TrustBadgesBar = lazy(() => import('./components/TrustBadgesBar'));
@@ -53,7 +56,7 @@ function CryptoPage() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-slate-900 text-white font-sans overflow-x-hidden">
+      <div className="crypto-page min-h-screen bg-slate-900 text-white overflow-x-hidden">
         <Seo
           title="Crypto Market Mastery | TWS Gurukul"
           description="A recorded program with monthly live Q&A to learn systematic crypto trading with risk management at the core."
@@ -62,14 +65,15 @@ function CryptoPage() {
         {/* Minimal header without navigation for conversion focus */}
         <HeaderMinimal />
         
-        <AnnouncementBar timeLeft={timeLeft} />
+        {/* Announcement bar removed - keeping Q&A date only in hero */}
+        {/* <AnnouncementBar timeLeft={timeLeft} /> */}
         
         {/* Returning user quick checkout */}
         <ReturningUserCheckout />
         
         <main className="pt-16">
-          {/* Core conversion flow: 8 sections instead of 19 */}
-          <HeroSection 
+          {/* Reimagined Hero Section */}
+          <HeroSectionReimagined 
             handleSmoothScroll={handleSmoothScroll}
             onMethodologyClick={() => setShowMethodologyModal(true)}
           />
@@ -87,7 +91,6 @@ function CryptoPage() {
           <InstructorSectionSimplified />
           
           <TestimonialsSection 
-            handleSmoothScroll={handleSmoothScroll} 
             onMethodologyClick={() => setShowMethodologyModal(true)}
           />
           
@@ -109,6 +112,9 @@ function CryptoPage() {
           {/* Single final CTA - removed duplicate CtaSection */}
           <FinalCtaSection />
         </main>
+        
+        {/* Footer */}
+        <Footer />
         
         {/* Exit intent popup for recovery */}
         <ExitIntentPopup 

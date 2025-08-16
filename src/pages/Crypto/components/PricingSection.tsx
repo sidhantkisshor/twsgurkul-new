@@ -9,7 +9,14 @@ interface PricingSectionProps {
 }
 
 const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) => {
-  const nextLiveDate = getNextFirstSaturdayWithOrdinal();
+  const formatDate = (dateStr: string) => {
+    // Remove ordinal suffix and format properly to "5 Sep" format
+    return dateStr.replace(/(\\d+)(st|nd|rd|th)\\s+/, '$1 ').replace(/([A-Z]{3})/, (match) => 
+      match.charAt(0) + match.slice(1).toLowerCase()
+    );
+  };
+  
+  const nextLiveDate = formatDate(getNextFirstSaturdayWithOrdinal());
   
   const handleEnroll = () => {
     cryptoTrackingEvents.checkoutStart('pricing_section', 19499);
@@ -18,8 +25,8 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
   };
 
   return (
-    <section id="pricing" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-800">
-      <div className="max-w-4xl mx-auto">
+    <section id="pricing" className="crypto-section bg-gradient-to-b from-slate-900 to-slate-800">
+      <div className="crypto-container">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -27,12 +34,12 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="crypto-h2 mb-4">
             <span className="bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent">
               Choose Your Learning Path
             </span>
           </h2>
-          <p className="text-xl text-slate-200">
+          <p className="crypto-body text-slate-200">
             Everything you need in one complete program.
             {onMethodologyClick && (
               <>
@@ -64,22 +71,22 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
             </div>
           </div>
           
-          <div className="glass-effect rounded-2xl p-8 border-2 border-yellow-500/50 relative overflow-hidden shadow-2xl shadow-yellow-500/20">
+          <div className="crypto-card glass-effect p-8 border-2 border-yellow-500/50 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/20 rounded-full filter blur-3xl"></div>
             
             {/* Pricing Header */}
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-2">Crypto Market Mastery</h3>
-              <p className="text-sm text-gray-400 mb-1">
+              <h3 className="crypto-h3 text-white mb-2">Crypto Market Mastery</h3>
+              <p className="crypto-micro text-gray-400 mb-1">
                 <span className="line-through">List price ₹50,000</span>
               </p>
               <div className="flex items-baseline justify-center gap-2">
                 <span className="text-lg text-gray-400">This cycle:</span>
                 <span className="text-4xl font-bold text-yellow-400">₹19,499</span>
               </div>
-              <p className="text-sm text-gray-400">One-time payment • Lifetime access</p>
-              <p className="text-xs text-green-400 mt-1">EMI available: ₹1,625/month × 12 (No-cost EMI)</p>
-              <p className="text-sm text-yellow-400 mt-2">
+              <p className="crypto-micro text-gray-400">One-time payment • Lifetime access</p>
+              <p className="crypto-micro text-green-400 mt-1">EMI available: ₹1,625/month × 12 (No-cost EMI)</p>
+              <p className="crypto-micro text-yellow-400 mt-2">
                 Enroll before {nextLiveDate} to join the next Live Q&A
               </p>
             </div>

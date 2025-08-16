@@ -3,7 +3,11 @@ import { Sparkles, ArrowRight, X, ChevronUp } from 'lucide-react';
 
 type StickyMode = 'hidden' | 'quiz-prompt' | 'navigation' | 'mobile-quiz';
 
-const UnifiedStickyController = () => {
+interface UnifiedStickyControllerProps {
+  onQuizOpen?: () => void;
+}
+
+const UnifiedStickyController: React.FC<UnifiedStickyControllerProps> = ({ onQuizOpen }) => {
   const [mode, setMode] = useState<StickyMode>('hidden');
   const [isExpanded, setIsExpanded] = useState(true);
   const [isDismissed, setIsDismissed] = useState(false);
@@ -80,8 +84,12 @@ const UnifiedStickyController = () => {
     };
   }, [isDismissed]);
 
-  const scrollToQuiz = () => {
-    document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+  const handleQuizClick = () => {
+    if (onQuizOpen) {
+      onQuizOpen();
+    } else {
+      document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const scrollToTop = () => {
@@ -96,7 +104,7 @@ const UnifiedStickyController = () => {
     return (
       <div className="fixed bottom-4 left-4 right-4 z-40 md:hidden animate-slide-up">
         <button
-          onClick={scrollToQuiz}
+          onClick={handleQuizClick}
           className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-2xl p-4 flex items-center justify-between shadow-2xl hover:shadow-green-500/25 transition-all group"
         >
           <div className="flex items-center gap-3">
@@ -155,7 +163,7 @@ const UnifiedStickyController = () => {
                 </div>
               </div>
               <button
-                onClick={scrollToQuiz}
+                onClick={handleQuizClick}
                 className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-green-500/25 transition-all flex items-center gap-2 group"
               >
                 Take the Quiz
@@ -179,7 +187,7 @@ const UnifiedStickyController = () => {
           {isExpanded && (
             <div className="fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-xl border-t border-white/10 p-4 z-50">
               <button
-                onClick={scrollToQuiz}
+                onClick={handleQuizClick}
                 className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full py-3 font-semibold text-sm"
               >
                 Take 30-Second Quiz →
@@ -208,7 +216,7 @@ const UnifiedStickyController = () => {
               </nav>
             </div>
             <button
-              onClick={scrollToQuiz}
+              onClick={handleQuizClick}
               className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-green-500/25 transition-all"
             >
               Take Quiz →

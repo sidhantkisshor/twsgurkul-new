@@ -58,13 +58,9 @@ const StructuredData: React.FC = () => {
       "courseMode": "online",
       "courseWorkload": "PT10H",
       "instructor": {
-        "@type": "Person",
-        "name": "Sidhant Kisshor",
-        "jobTitle": "Trading Instructor",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "TWS Gurukul"
-        }
+        "@type": "Organization",
+        "name": "TWS Gurukul Pro Coaches",
+        "description": "Expert team of order flow and footprint analysis specialists"
       }
     },
     "aggregateRating": {

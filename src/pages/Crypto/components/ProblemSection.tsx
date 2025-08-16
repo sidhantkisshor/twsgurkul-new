@@ -5,8 +5,8 @@ import { problems } from '../data';
 
 const ProblemSection: React.FC = () => {
     return (
-        <section id="how-it-works" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
+        <section id="how-it-works" className="crypto-section">
+            <div className="crypto-container">
                 <motion.div
                     className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12"
                     initial={{ opacity: 0, y: 20 }}
@@ -15,13 +15,13 @@ const ProblemSection: React.FC = () => {
                 >
                     <div className="inline-flex items-center space-x-2 bg-yellow-500/10 border border-yellow-500/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
                         <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
-                        <span className="text-xs sm:text-sm font-medium text-yellow-400">Common Crypto Trading Challenges</span>
+                        <span className="crypto-micro crypto-caps text-yellow-400">Common Crypto Trading Challenges</span>
                     </div>
-                    <h2 className="text-[28px] sm:text-[30px] lg:text-[32px] font-bold">
+                    <h2 className="crypto-h2">
                         Why Most Traders Struggle
                         <span className="text-yellow-400"> Without Proper Education</span>
                     </h2>
-                    <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto px-4">
+                    <p className="crypto-body text-slate-300 max-w-2xl mx-auto px-4">
                         <strong className="text-yellow-400">"Guaranteed profits"</strong> - These false promises are everywhere. Learn to trade systematically instead.
                     </p>
                 </motion.div>

@@ -29,16 +29,16 @@ const ReturningUserCheckout: React.FC = () => {
         <AnimatePresence>
             {showQuickCheckout && (
                 <motion.div
-                    className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 max-w-md w-full mx-4"
-                    initial={{ opacity: 0, y: -20, x: '-50%' }}
-                    animate={{ opacity: 1, y: 0, x: '-50%' }}
-                    exit={{ opacity: 0, y: -20, x: '-50%' }}
+                    className="fixed top-20 right-4 z-50 w-[380px] max-w-[calc(100vw-2rem)]"
+                    initial={{ opacity: 0, y: -20, x: 20 }}
+                    animate={{ opacity: 1, y: 0, x: 0 }}
+                    exit={{ opacity: 0, y: -20, x: 20 }}
                     transition={{ duration: 0.5, type: 'spring' }}
                 >
-                    <div className="glass-effect bg-slate-900/95 backdrop-blur-lg rounded-xl p-4 border border-yellow-500/30 shadow-2xl">
+                    <div className="glass-effect bg-slate-900/95 backdrop-blur-lg rounded-xl p-5 border border-yellow-500/30 shadow-2xl">
                         <button
                             onClick={() => setShowQuickCheckout(false)}
-                            className="absolute top-2 right-2 text-slate-400 hover:text-white p-1"
+                            className="absolute top-3 right-3 text-slate-400 hover:text-white text-2xl leading-none p-1"
                             aria-label="Close"
                         >
                             ×
@@ -51,15 +51,15 @@ const ReturningUserCheckout: React.FC = () => {
                                 </div>
                             </div>
                             
-                            <div className="flex-1 space-y-2">
-                                <h3 className="text-white font-semibold">Welcome back! Ready to start?</h3>
+                            <div className="flex-1 space-y-3">
+                                <h3 className="text-white font-semibold text-lg">Welcome back! Ready to start?</h3>
                                 <p className="text-sm text-slate-300">
                                     Your seat is still available. Complete your enrollment today.
                                 </p>
                                 
                                 <motion.button
                                     onClick={handleQuickCheckout}
-                                    className="w-full mt-3 px-4 py-2.5 bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm inline-flex items-center justify-center gap-2"
+                                    className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all text-base inline-flex items-center justify-center gap-2"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >

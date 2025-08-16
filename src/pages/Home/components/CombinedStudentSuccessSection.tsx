@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { TrendingUp, MapPin, Play, MessageCircle, Trophy, Star, ChevronLeft, ChevronRight, ArrowRight, PlayCircle, ChevronDown, Eye, CheckCircle, Filter } from 'lucide-react';
+import { TrendingUp, MapPin, Play, MessageCircle, Trophy, Star, ChevronLeft, ChevronRight, ArrowRight, PlayCircle, ChevronDown, CheckCircle } from 'lucide-react';
 import { useIntersectionAnimation, useCounterAnimation } from '../../../utils/animations';
 
 // Types
-type StageFilter = 'all' | 'stage1' | 'stage2' | 'stage3';
-type ViewType = 'featured' | 'all';
 
 interface Testimonial {
   id: number;
@@ -74,24 +72,19 @@ const TestimonialMiniCard = ({ testimonial }: { testimonial: any }) => (
   </div>
 );
 
-// Stage filter configuration
-const STAGE_FILTERS = [
-  { id: 'all', label: 'All Stages', color: 'bg-green-500 text-black' },
-  { id: 'stage1', label: 'Stage 1 (Beginner)', color: 'bg-blue-500 text-white' },
-  { id: 'stage2', label: 'Stage 2 (Scale)', color: 'bg-purple-500 text-white' },
-  { id: 'stage3', label: 'Stage 3 (Pro)', color: 'bg-orange-500 text-white' }
-];
 
-const CombinedStudentSuccessSection = () => {
-  const [activeView, setActiveView] = useState<ViewType>('featured');
+interface CombinedStudentSuccessSectionProps {
+  onQuizOpen?: () => void;
+}
+
+const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps> = ({ onQuizOpen }) => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
-  const [activeStageFilter, setActiveStageFilter] = useState<StageFilter>('all');
   const [sectionRef, isVisible] = useIntersectionAnimation();
   const chatContainerRef = useRef<HTMLDivElement>(null);
   
   // Use animation hooks for counters
-  const profitsCounter = useCounterAnimation(10.2, 2000, isVisible, 1);
+  const profitsCounter = useCounterAnimation(100, 2000, isVisible, 0);
   const successRateCounter = useCounterAnimation(89, 2000, isVisible, 0);
   const citiesCounter = useCounterAnimation(37, 2000, isVisible, 0);
 
@@ -124,9 +117,9 @@ const CombinedStudentSuccessSection = () => {
       location: "Bangalore",
       program: "Footprint Master",
       stage: "stage2",
-      before: "₹5K/week",
-      after: "₹3.5L/month",
-      profit: "₹3,42,000",
+      before: "₹20K/month",
+      after: "₹8.5L/month",
+      profit: "₹8,42,000",
       duration: "4 months",
       image: "👨‍🎓",
       message: "Left my job after 4 months. The institutional order flow strategy is pure gold.",
@@ -141,12 +134,12 @@ const CombinedStudentSuccessSection = () => {
       location: "Mumbai",
       program: "Elite Mentorship",
       stage: "stage3",
-      before: "₹2K/day",
-      after: "₹2L/month",
-      profit: "₹1,87,000",
+      before: "₹50K/month",
+      after: "₹5L/month",
+      profit: "₹4,87,000",
       duration: "3 months",
       image: "👨‍💼",
-      message: "Sidhant's footprint analysis changed everything. From struggling with random trades to consistent 2L monthly.",
+      message: "Sidhant's footprint analysis changed everything. From struggling with random trades to consistent 5L monthly.",
       type: "screenshot",
       hasScreenshot: true
     },
@@ -156,9 +149,9 @@ const CombinedStudentSuccessSection = () => {
       location: "Ahmedabad",
       program: "CMM + Footprint",
       stage: "stage2",
-      before: "₹500/day",
-      after: "₹1.2L/month",
-      profit: "₹1,15,000",
+      before: "₹15K/month",
+      after: "₹3.2L/month",
+      profit: "₹3,15,000",
       duration: "5 months",
       image: "👩‍🏫",
       message: "Started with CMM basics, upgraded to Footprint. Now trading full-time from home!",
@@ -173,8 +166,8 @@ const CombinedStudentSuccessSection = () => {
       program: "CMM Graduate",
       stage: "stage1",
       before: "₹0",
-      after: "₹65K/month",
-      profit: "₹65,000",
+      after: "₹1.5L/month",
+      profit: "₹1,50,000",
       duration: "2 months",
       image: "👩‍💻",
       message: "Started with just ₹30K capital. CMM taught me crypto patterns that actually work. First month itself profitable!",
@@ -186,38 +179,32 @@ const CombinedStudentSuccessSection = () => {
 
   // Additional testimonials data
   const additionalTestimonials = [
-    { name: "Amit Kumar", location: "Pune", profit: "₹95,000/month", program: "Footprint" },
-    { name: "Sneha Verma", location: "Chennai", profit: "₹78,000/month", program: "CMM" },
-    { name: "Karan Singh", location: "Jaipur", profit: "₹1.5L/month", program: "Elite" },
-    { name: "Neha Gupta", location: "Kolkata", profit: "₹62,000/month", program: "CMM" },
-    { name: "Rohit Sharma", location: "Hyderabad", profit: "₹2.1L/month", program: "Elite" },
-    { name: "Pooja Reddy", location: "Noida", profit: "₹88,000/month", program: "Footprint" }
+    { name: "Amit Kumar", location: "Pune", profit: "₹2.5L/month", program: "Footprint" },
+    { name: "Sneha Verma", location: "Chennai", profit: "₹1.8L/month", program: "CMM" },
+    { name: "Karan Singh", location: "Jaipur", profit: "₹4.5L/month", program: "Elite" },
+    { name: "Neha Gupta", location: "Kolkata", profit: "₹1.2L/month", program: "CMM" },
+    { name: "Rohit Sharma", location: "Hyderabad", profit: "₹7.1L/month", program: "Elite" },
+    { name: "Pooja Reddy", location: "Noida", profit: "₹3.8L/month", program: "Footprint" }
   ];
 
   const whatsappChats = [
-    { time: "10:23 AM", message: "Today's profit ₹18,750! 🎯", sender: "student", isVerified: true, name: "Amit K." },
+    { time: "10:23 AM", message: "Today's profit ₹48,750! 🎯", sender: "student", isVerified: true, name: "Amit K." },
     { time: "10:24 AM", message: "Footprint pattern worked perfectly", sender: "student" },
     { time: "10:25 AM", message: "Excellent execution! Keep it up 💪", sender: "sidhant" },
-    { time: "2:15 PM", message: "₹32K profit this week already!", sender: "student", isVerified: true, name: "Priya S." },
+    { time: "2:15 PM", message: "₹1.2L profit this week already!", sender: "student", isVerified: true, name: "Priya S." },
     { time: "2:16 PM", message: "Following exact CMM strategy", sender: "student" },
     { time: "2:17 PM", message: "This is the way! Consistency is key 🔥", sender: "sidhant" },
-    { time: "3:45 PM", message: "Hit ₹1L this month! 🚀", sender: "student", isVerified: true, name: "Raj M." },
+    { time: "3:45 PM", message: "Hit ₹5L this month! 🚀", sender: "student", isVerified: true, name: "Raj M." },
     { time: "3:46 PM", message: "Stage 2 Footprint magic", sender: "student" }
   ];
 
   const screenshots = [
-    { profit: "+₹45,230", percentage: "+12.3%", label: "Today's P&L" },
-    { profit: "+₹1,24,560", percentage: "+31.2%", label: "Weekly Result" },
-    { profit: "+₹3,87,900", percentage: "+87.4%", label: "Monthly Gains" },
-    { profit: "+₹89,340", percentage: "+22.1%", label: "Single Trade" }
+    { profit: "+₹85,230", percentage: "+18.3%", label: "Today's P&L" },
+    { profit: "+₹3,24,560", percentage: "+42.2%", label: "Weekly Result" },
+    { profit: "+₹12,87,900", percentage: "+127.4%", label: "Monthly Gains" },
+    { profit: "+₹1,89,340", percentage: "+32.1%", label: "Single Trade" }
   ];
   
-  // Filter testimonials based on selected stage
-  const getFilteredTestimonials = () => {
-    return activeStageFilter === 'all' 
-      ? featuredTestimonials 
-      : featuredTestimonials.filter(t => t.stage === activeStageFilter);
-  };
 
   return (
     <section ref={sectionRef} className="relative py-20 sm:py-32 overflow-hidden">
@@ -238,7 +225,7 @@ const CombinedStudentSuccessSection = () => {
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                From ₹2K/day to ₹2L/month
+                From ₹0 to ₹15L/month
               </span>
               <br />
               <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
@@ -249,7 +236,7 @@ const CombinedStudentSuccessSection = () => {
             {/* Animated Metrics */}
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto mt-8">
               {[
-                { value: `₹${profitsCounter}Cr`, label: 'Total Student Profits', gradient: 'from-green-400 to-emerald-400' },
+                { value: `₹${profitsCounter}+ Cr`, label: 'Total Student Profits', gradient: 'from-green-400 to-emerald-400' },
                 { value: `${successRateCounter}%`, label: 'Success Rate', gradient: 'from-blue-400 to-cyan-400' },
                 { value: citiesCounter, label: 'Cities Represented', gradient: 'from-purple-400 to-pink-400' }
               ].map((metric, index) => (
@@ -263,83 +250,9 @@ const CombinedStudentSuccessSection = () => {
             </div>
           </div>
 
-          {/* Stage Filters */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            {/* Stage Filter Buttons */}
-            <div className="flex items-center gap-2">
-              <Filter className="w-4 h-4 text-gray-400" />
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setActiveStageFilter('all')}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                    activeStageFilter === 'all'
-                      ? 'bg-green-500 text-black'
-                      : 'bg-white/10 text-gray-400 hover:text-white'
-                  }`}
-                >
-                  All Stages
-                </button>
-                <button
-                  onClick={() => setActiveStageFilter('stage1')}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                    activeStageFilter === 'stage1'
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-white/10 text-gray-400 hover:text-white'
-                  }`}
-                >
-                  Stage 1 (Beginner)
-                </button>
-                <button
-                  onClick={() => setActiveStageFilter('stage2')}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                    activeStageFilter === 'stage2'
-                      ? 'bg-purple-500 text-white'
-                      : 'bg-white/10 text-gray-400 hover:text-white'
-                  }`}
-                >
-                  Stage 2 (Scale)
-                </button>
-                <button
-                  onClick={() => setActiveStageFilter('stage3')}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                    activeStageFilter === 'stage3'
-                      ? 'bg-orange-500 text-white'
-                      : 'bg-white/10 text-gray-400 hover:text-white'
-                  }`}
-                >
-                  Stage 3 (Pro)
-                </button>
-              </div>
-            </div>
-            
-            {/* View Toggle */}
-            <div className="inline-flex rounded-full bg-white/10 p-1">
-              <button
-                onClick={() => setActiveView('featured')}
-                className={`px-6 py-2 rounded-full transition-all ${
-                  activeView === 'featured' 
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white' 
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                Featured Stories
-              </button>
-              <button
-                onClick={() => setActiveView('all')}
-                className={`px-6 py-2 rounded-full transition-all flex items-center gap-2 ${
-                  activeView === 'all' 
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white' 
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                <Eye className="w-4 h-4" />
-                View All 2,847+
-              </button>
-            </div>
-          </div>
 
-          {/* Featured View */}
-          {activeView === 'featured' && (
+          {/* Main Content */}
+          {
             <div className="grid lg:grid-cols-3 gap-6 mb-12">
               
               {/* Left Column - WhatsApp Chats */}
@@ -396,8 +309,7 @@ const CombinedStudentSuccessSection = () => {
                 
                 <div className="relative">
                   {(() => {
-                    const filteredTestimonials = getFilteredTestimonials();
-                    const currentTestimonial = filteredTestimonials[activeTestimonial % filteredTestimonials.length] || featuredTestimonials[0];
+                    const currentTestimonial = featuredTestimonials[activeTestimonial % featuredTestimonials.length] || featuredTestimonials[0];
                     
                     return (
                       <div className="glass-effect rounded-2xl p-6 border border-yellow-500/20 bg-gradient-to-br from-yellow-950/20 to-orange-950/10">
@@ -555,31 +467,7 @@ const CombinedStudentSuccessSection = () => {
                 </div>
               </div>
             </div>
-          )}
-
-          {/* All Results View (Collapsed by default) */}
-          {activeView === 'all' && (
-            <div className="glass-effect rounded-2xl p-6 border border-white/10">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {featuredTestimonials.concat(additionalTestimonials.slice(0, 6)).map((testimonial, index) => (
-                  <TestimonialMiniCard key={index} testimonial={testimonial} />
-                ))}
-              </div>
-              
-              <div className="text-center mt-6">
-                <p className="text-sm text-gray-400">
-                  Showing 10 of 2,847+ verified success stories
-                </p>
-                <a 
-                  href="/results" 
-                  className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 mt-2 transition-colors"
-                >
-                  View Complete Results Gallery
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          )}
+          }
 
           {/* Bottom CTA */}
           <div className="text-center mt-12">
@@ -589,7 +477,11 @@ const CombinedStudentSuccessSection = () => {
             
             <button
               onClick={() => {
-                document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                if (onQuizOpen) {
+                  onQuizOpen();
+                } else {
+                  document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 font-bold transition-all duration-300 hover:scale-105"
             >

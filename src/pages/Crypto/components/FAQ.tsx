@@ -11,7 +11,7 @@ const FAQ: React.FC = () => {
 
     return (
         <>
-            <section id="faq" className="pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-slate-900 to-slate-800">
+            <section id="faq" className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-slate-900 to-slate-800">
                 <div className="max-w-4xl mx-auto">
                     {/* FAQ */}
                     <div className="space-y-4">

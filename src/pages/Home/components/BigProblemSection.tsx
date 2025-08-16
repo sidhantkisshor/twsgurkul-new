@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { AlertCircle, TrendingDown, Clock, IndianRupee, XCircle, ChevronRight, Target, Users } from 'lucide-react';
 
-const BigProblemSection = () => {
+interface BigProblemSectionProps {
+  onQuizOpen?: () => void;
+}
+
+const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => {
   const [activeFailure, setActiveFailure] = useState<number | null>(null);
 
   // Other students with similar stories
@@ -307,7 +311,11 @@ const BigProblemSection = () => {
           <div className="text-center">
             <button
               onClick={() => {
-                document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                if (onQuizOpen) {
+                  onQuizOpen();
+                } else {
+                  document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
               className="group inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105"
             >

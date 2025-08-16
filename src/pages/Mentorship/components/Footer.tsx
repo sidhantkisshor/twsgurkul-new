@@ -15,15 +15,21 @@ const Footer: React.FC = () => {
           
           {/* Links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm">
-            <Link to="/terms" className="text-gray-500 hover:text-gray-900 transition-colors">
+            <a href="https://tradingwithsidhant.com/legal/terms" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
               Terms
-            </Link>
-            <Link to="/privacy" className="text-gray-500 hover:text-gray-900 transition-colors">
-              Privacy
-            </Link>
-            <Link to="/refund" className="text-gray-500 hover:text-gray-900 transition-colors">
+            </a>
+            <a href="https://tradingwithsidhant.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+              Privacy Policy
+            </a>
+            <a href="https://tradingwithsidhant.com/legal/refund-policy" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
               Refund Policy
-            </Link>
+            </a>
+            <a href="https://tradingwithsidhant.com/legal/disclaimers" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+              Disclaimers
+            </a>
+            <a href="https://tradingwithsidhant.com/legal/cookie-policy" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+              Cookie Policy
+            </a>
           </div>
         </div>
       </div>

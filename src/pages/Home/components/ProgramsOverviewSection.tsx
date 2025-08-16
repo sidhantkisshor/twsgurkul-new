@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, BarChart3, Crown, ArrowRight, Check, Clock, Users, IndianRupee, TrendingUp, Star } from 'lucide-react';
 
-const ProgramsOverviewSection = () => {
+interface ProgramsOverviewSectionProps {
+  onQuizOpen?: () => void;
+}
+
+const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQuizOpen }) => {
   const [hoveredProgram, setHoveredProgram] = useState<number | null>(null);
   const navigate = useNavigate();
   
   const programs = [
     {
       id: 'cmm',
-      name: 'Crypto Mastery Method',
+      name: 'Crypto Mastery Method (CMM)',
       route: '/crypto',
       tagline: 'Start Your Trading Journey',
       level: 'BEGINNER',
@@ -24,24 +28,23 @@ const ProgramsOverviewSection = () => {
       originalPrice: '₹29,999',
       transformation: {
         from: '₹0/month',
-        to: '₹50K/month',
+        to: '₹1.2L/month',
         timeline: '45 days'
       },
       features: [
-        'Crypto fundamentals & market basics',
-        'Risk management & position sizing',
-        'Technical analysis patterns',
-        'Live trading sessions',
-        'Private Telegram group',
-        'Lifetime community access'
+        'Fully recorded step-by-step curriculum',
+        'Covers crypto fundamentals & market basics',
+        'Risk management & position sizing frameworks',
+        'Technical analysis patterns that actually work',
+        'Includes monthly live Q&A with pro coach'
       ],
-      bestFor: 'Complete beginners with ₹10-50K capital',
+      bestFor: 'Complete beginners with ₹10K–₹50K capital',
       successRate: '87%',
       testimonial: {
         name: 'Priya S.',
         location: 'Delhi',
-        text: 'Started with zero knowledge, now making ₹45K monthly!',
-        profit: '+₹45,000/month'
+        text: 'Started with zero knowledge, now making ₹1.2L/month',
+        profit: '+₹1,20,000/month'
       }
     },
     {
@@ -60,25 +63,24 @@ const ProgramsOverviewSection = () => {
       price: '₹34,999',
       originalPrice: '₹69,999',
       transformation: {
-        from: '₹50K/month',
-        to: '₹2L/month',
+        from: '₹1L/month',
+        to: '₹5L/month',
         timeline: '60 days'
       },
       features: [
-        'Institutional order flow analysis',
-        'Footprint charts mastery',
-        'Volume profile trading',
-        'Multi-timeframe analysis',
-        'Advanced risk models',
-        'Personal trading plan'
+        'Fully recorded institutional order-flow course',
+        'Footprint charts mastery & advanced setups',
+        'Volume profile trading strategies',
+        'Multi-timeframe analysis for precision entries',
+        'Includes monthly live Q&A with pro coach'
       ],
-      bestFor: 'Traders making some profit but inconsistent',
+      bestFor: 'Traders making profit but inconsistent',
       successRate: '91%',
       testimonial: {
         name: 'Vikram R.',
         location: 'Mumbai',
-        text: 'Footprint changed everything - ₹2L consistent now',
-        profit: '+₹2,00,000/month'
+        text: 'Footprint changed everything — ₹5L consistent now',
+        profit: '+₹5,00,000/month'
       }
     },
     {
@@ -97,25 +99,24 @@ const ProgramsOverviewSection = () => {
       price: '₹89,999',
       originalPrice: '₹1,49,999',
       transformation: {
-        from: '₹2L/month',
-        to: '₹10L/month',
+        from: '₹5L/month',
+        to: '₹25L/month',
         timeline: '90 days'
       },
       features: [
+        'Daily live market mentorship',
         '1-on-1 mentorship with Sidhant',
-        'Live trade copying',
-        'Proprietary indicators access',
-        'Hedge fund strategies',
-        'Portfolio management',
-        'Business scaling blueprint'
+        'Live trade copying & proprietary indicators',
+        'Hedge fund–level risk & capital strategies',
+        'Direct access to private trading network'
       ],
       bestFor: 'Profitable traders ready to go full-time',
       successRate: '94%',
       testimonial: {
         name: 'Arjun K.',
         location: 'Bangalore',
-        text: 'Quit my job, now earning ₹8L monthly!',
-        profit: '+₹8,00,000/month'
+        text: 'Quit my job, now earning ₹15L/month',
+        profit: '+₹15,00,000/month'
       }
     }
   ];
@@ -137,8 +138,7 @@ const ProgramsOverviewSection = () => {
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Each program is designed for a specific trading level. Start where you are, 
-              reach where you want to be.
+              Each program is designed for a specific trading level. Start where you are — reach where you want to be.
             </p>
           </div>
 
@@ -211,12 +211,6 @@ const ProgramsOverviewSection = () => {
                     )}
                   </div>
 
-                  {/* Success Rate */}
-                  <div className="flex items-center justify-between p-3 rounded-lg bg-green-500/10 border border-green-500/20 mb-4">
-                    <span className="text-sm text-gray-300">Success Rate</span>
-                    <span className="font-bold text-green-400">{program.successRate}</span>
-                  </div>
-
                   {/* Testimonial */}
                   <div className="p-3 rounded-lg bg-white/5 border border-white/10 mb-4">
                     <div className="flex items-start gap-2 mb-2">
@@ -232,18 +226,8 @@ const ProgramsOverviewSection = () => {
                     <p className="text-xs text-gray-400 italic">"{program.testimonial.text}"</p>
                   </div>
 
-                  {/* Price & CTA */}
-                  <div className="space-y-3">
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <span className="text-sm text-gray-500 line-through">{program.originalPrice}</span>
-                        <p className="text-2xl font-bold text-white">{program.price}</p>
-                      </div>
-                      <span className="px-2 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold">
-                        50% OFF
-                      </span>
-                    </div>
-                    
+                  {/* CTA Only - No Pricing */}
+                  <div className="space-y-3 mt-6">
                     <button 
                       onClick={() => navigate(program.route)}
                       className={`w-full py-3 rounded-full bg-gradient-to-r ${program.color} text-white font-bold hover:shadow-lg transition-all cursor-pointer`}
@@ -263,16 +247,23 @@ const ProgramsOverviewSection = () => {
 
           {/* Bottom CTA */}
           <div className="text-center">
-            <p className="text-lg text-gray-400 mb-6">
+            <p className="text-lg text-gray-400 mb-2">
               Not sure which program is right for you?
+            </p>
+            <p className="text-sm text-gray-500 mb-6">
+              Find out in 30 seconds — no email, instant results.
             </p>
             <button
               onClick={() => {
-                document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                if (onQuizOpen) {
+                  onQuizOpen();
+                } else {
+                  document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-full px-8 py-4 font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 group"
             >
-              Take Our 2-Minute Assessment
+              Take the Quiz
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

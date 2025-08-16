@@ -1,5 +1,11 @@
 // Enhanced Binance API Service with Order Book and Trade Data
-const BINANCE_API = 'https://api.binance.com/api/v3';
+const API_KEY = import.meta.env.VITE_BINANCE_API_KEY || '';
+
+// Use proxy in development, direct API in production
+const isDevelopment = import.meta.env.DEV;
+const BINANCE_API = isDevelopment 
+  ? '/api/binance'  // Uses Vite proxy in development
+  : 'https://api.binance.com/api/v3';
 
 export interface OrderBookLevel {
   price: number;
@@ -29,13 +35,22 @@ export interface MarketData {
   sellPressure: number; // % of sell orders
 }
 
-// Helper function for fetch with timeout
+// Helper function for fetch with timeout and API key
 const fetchWithTimeout = async (url: string, timeout = 5000) => {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);
   
+  const headers: HeadersInit = {};
+  // Add API key to headers if available (for authenticated endpoints)
+  if (API_KEY) {
+    headers['X-MBX-APIKEY'] = API_KEY;
+  }
+  
   try {
-    const response = await fetch(url, { signal: controller.signal });
+    const response = await fetch(url, { 
+      signal: controller.signal,
+      headers 
+    });
     clearTimeout(id);
     return response;
   } catch (error) {
@@ -170,24 +185,17 @@ export const getMultipleSymbolsData = async () => {
       getEnhancedMarketData('ETHUSDT')
     ]);
     
-    // If ETH data fails, provide fallback
-    const ethDataWithFallback = ethData || {
-      symbol: 'ETHUSDT',
-      price: 2250,
-      priceChange24h: 1.5,
-      volume24h: 15000000000,
-      high24h: 2280,
-      low24h: 2220,
-      whaleOrders: [],
-      largestBuyOrder: { side: 'BUY' as const, price: 2240, quantity: 10000, total: 22400000, percentage: 2.5 },
-      largestSellOrder: { side: 'SELL' as const, price: 2260, quantity: 8000, total: 18080000, percentage: 2.0 },
-      buyPressure: 52,
-      sellPressure: 48
-    };
-    
-    return { btc: btcData, eth: ethDataWithFallback };
+    return { btc: btcData, eth: ethData };
   } catch (error) {
-    console.error('Error fetching multiple symbols:', error);
-    return { btc: null, eth: null };
+    console.error('Error fetching Binance data:', error);
+    // Try again with a single request
+    try {
+      const btcData = await getEnhancedMarketData('BTCUSDT');
+      const ethData = await getEnhancedMarketData('ETHUSDT');
+      return { btc: btcData, eth: ethData };
+    } catch (retryError) {
+      console.error('Retry failed:', retryError);
+      return { btc: null, eth: null };
+    }
   }
 };

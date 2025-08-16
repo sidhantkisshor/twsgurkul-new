@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
-import WhyFootprintSection from './components/WhyFootprintSection';
 import ProblemSection from './components/ProblemSection';
-import UniqueMechanismSection from './components/UniqueMechanismSection';
+import FrameworkSection from './components/FrameworkSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import PricingSection from './components/PricingSection';
 import FaqSection from './components/FaqSection';
@@ -56,7 +55,7 @@ function FootprintPage() {
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-slate-400">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0 pointer-events-none">
-                    <span className="text-white font-bold text-[10px] sm:text-xs">S</span>
+                    <span className="text-white font-bold text-[10px] sm:text-xs">TWS</span>
                   </div>
                   <span>TWS Gurukul since 2023</span>
                 </div>
@@ -71,8 +70,7 @@ function FootprintPage() {
           </div>
           
           <ProblemSection />
-          <WhyFootprintSection />
-          <UniqueMechanismSection />
+          <FrameworkSection />
           <TestimonialsSection />
           <PricingSection />
           <FaqSection />

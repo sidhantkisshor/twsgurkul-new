@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { trustBadges } from '../data';
-import { Info } from 'lucide-react';
 
 interface TrustBadgesBarProps {
     onMethodologyClick?: () => void;
