@@ -34,7 +34,7 @@ const PricingSection: React.FC = () => {
       id: 'lite',
       name: 'ETM Lite',
       price: '₹6,999',
-      duration: '/ month',
+      duration: '/ 3 months',
       description: 'For beginners who want to get a feel for our system through daily trade ideas and analysis.',
       features: [
         { included: true, text: 'Daily trade ideas' },
@@ -57,7 +57,7 @@ const PricingSection: React.FC = () => {
       features: [
         { included: true, text: 'Everything in Lite' },
         { included: true, text: '40+ strategy videos' },
-        { included: true, text: 'Priority email support' },
+        { included: true, text: 'WhatsApp support' },
         { included: true, text: 'Comprehensive course materials' },
         { included: false, text: 'Live trading sessions' },
         { included: false, text: 'Accountability pods' },
@@ -80,7 +80,7 @@ const PricingSection: React.FC = () => {
         { included: true, text: 'Weekly performance reviews' },
         { included: true, text: 'Whale wallet tracking' },
         { included: true, text: 'Priority WhatsApp group' },
-        { included: true, text: '30-day satisfaction refund' }
+        { included: true, text: '30-day satisfaction guarantee' }
       ],
       ctaText: 'Get Coached Nightly',
       microcopy: 'Only 50 seats per cohort to protect mentor ratio.',
