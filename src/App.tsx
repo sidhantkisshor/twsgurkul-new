@@ -19,6 +19,7 @@ const QuizLandingPage = lazy(() =>
     default: module.QuizLandingPage 
   }))
 );
+const PropScannerPage = lazy(() => import('./pages/PropScanner/PropScannerPage'));
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           } />
           <Route path="/quiz" element={<QuizLandingPage />} />
           <Route path="/results-and-claims" element={<ResultsAndClaims />} />
+          <Route path="/prop-firm-safety-checker" element={<PropScannerPage />} />
         </Routes>
       </Suspense>
     </Router>
