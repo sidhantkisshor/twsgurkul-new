@@ -161,7 +161,7 @@ const WhatYouGetSection: React.FC = () => {
                 <div>
                   <h4 className="text-sm uppercase tracking-wider text-gray-500 mb-2">Weekly Review</h4>
                   <p className="text-base text-gray-700 font-light">
-                    Every WWeekend: P&L analysis, journal review, pattern recognition, and personalized action items for the coming week.
+                    Every Weekend: P&L analysis, journal review, pattern recognition, and personalized action items for the coming week.
                   </p>
                 </div>
                 
