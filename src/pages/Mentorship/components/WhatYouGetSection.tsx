@@ -84,7 +84,7 @@ const WhatYouGetSection: React.FC = () => {
                 className="text-sm text-gray-500 underline hover:text-gray-700 transition-colors inline-flex items-center gap-1"
               >
                 <Info className="w-3 h-3" />
-                How pods work
+                How Pods Work
               </button>
             </motion.div>
           </div>
@@ -139,7 +139,7 @@ const WhatYouGetSection: React.FC = () => {
               
               {/* Modal Header */}
               <h3 className="text-2xl font-light text-gray-900 mb-6">
-                How pods work
+                How Pods Work
               </h3>
               
               {/* Pod Details */}
@@ -161,7 +161,7 @@ const WhatYouGetSection: React.FC = () => {
                 <div>
                   <h4 className="text-sm uppercase tracking-wider text-gray-500 mb-2">Weekly Review</h4>
                   <p className="text-base text-gray-700 font-light">
-                    Every Weekend: P&L analysis, journal review, pattern recognition, and personalized action items for the coming week.
+                    Every weekend: P&L analysis, journal review, pattern recognition, and personalized action items for the coming week.
                   </p>
                 </div>
                 

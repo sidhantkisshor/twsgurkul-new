@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, BarChart3, Crown, ArrowRight, Check, Clock, Users, IndianRupee, TrendingUp, Star } from 'lucide-react';
+import { BookOpen, BarChart3, Crown, ArrowRight, Check, Clock, Users, Star } from 'lucide-react';
 
 interface ProgramsOverviewSectionProps {
   onQuizOpen?: () => void;
@@ -85,10 +85,10 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
     },
     {
       id: 'elite',
-      name: 'Elite Mentorship',
+      name: 'Elite Trading Mentorship (ETM)',
       route: '/mentorship',
-      tagline: 'Master The Markets',
-      level: 'ADVANCED',
+      tagline: 'Master your psychology. Trade like a professional.',
+      level: 'ADVANCED PROGRAM',
       icon: Crown,
       color: 'from-orange-500 to-red-500',
       borderColor: 'border-orange-500/30',
@@ -104,13 +104,12 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
         timeline: '90 days'
       },
       features: [
-        'Daily live market mentorship',
-        '1-on-1 mentorship with Sidhant',
-        'Live trade copying & proprietary indicators',
-        'Hedge fund–level risk & capital strategies',
-        'Direct access to private trading network'
+        'Live & recorded mentorship sessions',
+        'Psychological and risk management frameworks',
+        'Weekly reviews & group discussions',
+        'Monthly live sessions with Sidhant'
       ],
-      bestFor: 'Profitable traders ready to go full-time',
+      bestFor: 'Working professionals and independent traders seeking freedom from the 9-to-5 grind.',
       successRate: '94%',
       testimonial: {
         name: 'Arjun K.',
