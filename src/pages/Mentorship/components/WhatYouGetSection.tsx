@@ -6,11 +6,11 @@ const WhatYouGetSection: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
   const features = [
-    "Nightly 8 PM live market sessions, Monday–Friday",
-    "Real‑time walkthrough of entries, exits, and invalidation",
-    "Accountability pod with 12 traders max",
-    "Weekly performance review with action items",
-    "Private community and priority support"
+    "Live 8 PM sessions, Mon-Fri (miss one? watch the replay within 1 hour)",
+    "Real trades explained as they happen — same screen, same market, no editing",
+    "Small group pod, max 12 people — coach knows your name",
+    "Weekly 1-on-1 review: \"here's what you did wrong, here's the fix\"",
+    "Private WhatsApp group — ask questions anytime, get answers same day"
   ];
 
   return (
@@ -68,7 +68,7 @@ const WhatYouGetSection: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              Delivered by our certified pro coaches trained in the 8 PM system
+              Delivered by certified coaches trained in Sidhant's system
             </motion.p>
             
             {/* How pods work link */}
@@ -99,7 +99,7 @@ const WhatYouGetSection: React.FC = () => {
           >
             <div className="bg-soft-sand/50 rounded-2xl px-6 py-4">
               <p className="text-sm text-deep-slate/70 text-center font-normal">
-                We trade the market you see, not screenshots you cannot verify.
+                We trade the market you see. No screenshots. No faking. Same screen, same time.
               </p>
             </div>
           </motion.div>

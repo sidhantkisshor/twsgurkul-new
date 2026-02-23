@@ -84,10 +84,10 @@ const LiveDashboardSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              Live dashboard
+              See What Happened Last Night
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-3xl mx-auto font-normal">
-              Real sessions. Real executions explained. Your screen, our screen, same market.
+              Real sessions. Real trades. Your screen = our screen.
             </p>
           </motion.div>
 
@@ -221,7 +221,7 @@ const LiveDashboardSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <p className="text-sm text-deep-slate/60 max-w-3xl mx-auto">
-              These are example recaps of live sessions. Outcomes vary by trader, capital, and execution. Education only.
+              Example session recaps. Your results depend on your skill, capital, and discipline.
             </p>
           </motion.div>
         </div>
