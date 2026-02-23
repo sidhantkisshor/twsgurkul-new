@@ -35,10 +35,10 @@ const ReturningUserCheckout: React.FC = () => {
                     exit={{ opacity: 0, y: -20, x: 20 }}
                     transition={{ duration: 0.5, type: 'spring' }}
                 >
-                    <div className="glass-effect bg-slate-900/95 backdrop-blur-lg rounded-xl p-5 border border-yellow-500/30 shadow-2xl">
+                    <div className="bg-[#FAF8F5] shadow-lg rounded-xl p-5 border border-[rgba(44,53,57,0.08)]">
                         <button
                             onClick={() => setShowQuickCheckout(false)}
-                            className="absolute top-3 right-3 text-slate-400 hover:text-white text-2xl leading-none p-1"
+                            className="absolute top-3 right-3 text-[#111111]/40 hover:text-[#2C3539] text-2xl leading-none p-1"
                             aria-label="Close"
                         >
                             ×
@@ -46,20 +46,20 @@ const ReturningUserCheckout: React.FC = () => {
                         
                         <div className="flex items-start gap-3">
                             <div className="shrink-0">
-                                <div className="w-10 h-10 bg-yellow-500/20 rounded-full flex items-center justify-center">
-                                    <Zap className="w-5 h-5 text-yellow-400" />
+                                <div className="w-10 h-10 bg-[#C87533]/10 rounded-full flex items-center justify-center">
+                                    <Zap className="w-5 h-5 text-[#C87533]" />
                                 </div>
                             </div>
                             
                             <div className="flex-1 space-y-3">
-                                <h3 className="text-white font-semibold text-lg">Welcome back! Ready to start?</h3>
-                                <p className="text-sm text-slate-300">
+                                <h3 className="text-[#2C3539] font-semibold text-lg">Welcome back! Ready to start?</h3>
+                                <p className="text-sm text-[#111111]/70">
                                     Your seat is still available. Complete your enrollment today.
                                 </p>
                                 
                                 <motion.button
                                     onClick={handleQuickCheckout}
-                                    className="w-full mt-4 px-4 py-3 bg-linear-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all text-base inline-flex items-center justify-center gap-2"
+                                    className="w-full mt-4 px-4 py-3 bg-[#C87533] text-white hover:bg-[#b5682d] font-semibold rounded-lg hover:shadow-lg transition-all text-base inline-flex items-center justify-center gap-2"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
@@ -68,8 +68,8 @@ const ReturningUserCheckout: React.FC = () => {
                                 </motion.button>
                                 
                                 <div className="flex items-center justify-between pt-2">
-                                    <p className="text-xs text-slate-500">One-time payment</p>
-                                    <p className="text-xs text-green-400">EMI available</p>
+                                    <p className="text-xs text-[#111111]/50">One-time payment</p>
+                                    <p className="text-xs text-[#0A8D7A]">EMI available</p>
                                 </div>
                             </div>
                         </div>
