@@ -11,15 +11,15 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white px-4 sm:px-6 lg:px-12 pt-32 sm:pt-24">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-deep-slate px-4 sm:px-6 lg:px-12 pt-32 sm:pt-24">
         {/* Subtle gradient background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-linear-to-b from-gray-50/50 to-white" />
+          <div className="absolute inset-0 bg-linear-to-b from-deep-slate to-deep-slate" />
         </div>
       
       {/* Minimalist floating elements - hidden on mobile for clarity */}
       <motion.div
-        className="hidden sm:block absolute top-20 left-20 w-64 sm:w-96 h-64 sm:h-96 bg-gray-100/30 rounded-full filter blur-3xl"
+        className="hidden sm:block absolute top-20 left-20 w-64 sm:w-96 h-64 sm:h-96 bg-burnt-amber/10 rounded-full filter blur-3xl"
         animate={{
           x: [0, 30, 0],
           y: [0, -30, 0],
@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
         }}
       />
       <motion.div
-        className="hidden sm:block absolute bottom-20 right-20 w-64 sm:w-96 h-64 sm:h-96 bg-gray-100/30 rounded-full filter blur-3xl"
+        className="hidden sm:block absolute bottom-20 right-20 w-64 sm:w-96 h-64 sm:h-96 bg-wealth-teal/10 rounded-full filter blur-3xl"
         animate={{
           x: [0, -30, 0],
           y: [0, 30, 0],
@@ -59,7 +59,7 @@ const HeroSection: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <div className="bg-gray-900 text-white py-2 px-4 rounded-full inline-flex items-center gap-2 text-xs">
+              <div className="bg-burnt-amber text-white py-2 px-4 rounded-full inline-flex items-center gap-2 text-xs">
                 <div className="relative">
                   <div className="w-1.5 h-1.5 bg-green-400 rounded-full" />
                   <motion.div 
@@ -68,16 +68,16 @@ const HeroSection: React.FC = () => {
                     transition={{ duration: 2, repeat: Infinity }}
                   />
                 </div>
-                <span className="font-light tracking-wider uppercase">
+                <span className="font-semibold tracking-wider uppercase">
                   Live Trading • 8 PM Daily
                 </span>
               </div>
             </motion.div>
 
             {/* Headline - pure simplicity */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 sm:mb-8 leading-tight px-4">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold mb-6 sm:mb-8 leading-tight px-4">
               <motion.span 
-                className="block text-gray-900"
+                className="block text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -88,7 +88,7 @@ const HeroSection: React.FC = () => {
 
             {/* Subheadline - refined */}
             <motion.p 
-              className="text-base sm:text-lg md:text-xl text-gray-600 mb-12 sm:mb-20 max-w-2xl mx-auto leading-relaxed font-light px-4"
+              className="text-base sm:text-lg md:text-xl text-soft-sand mb-12 sm:mb-20 max-w-2xl mx-auto leading-relaxed font-normal px-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
@@ -107,29 +107,29 @@ const HeroSection: React.FC = () => {
               {/* First two stats - always inline */}
               <div className="flex items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base mb-4 sm:mb-0">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl sm:text-3xl font-light text-gray-900">2,300+</span>
-                  <span className="text-xs sm:text-sm text-gray-500">traders trained</span>
+                  <span className="text-2xl sm:text-3xl font-light text-white">2,300+</span>
+                  <span className="text-xs sm:text-sm text-soft-sand/70">traders trained</span>
                 </div>
-                <span className="text-gray-300">•</span>
+                <span className="text-soft-sand/40">•</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl sm:text-3xl font-light text-gray-900">1,800+</span>
-                  <span className="text-xs sm:text-sm text-gray-500">live sessions</span>
+                  <span className="text-2xl sm:text-3xl font-light text-white">1,800+</span>
+                  <span className="text-xs sm:text-sm text-soft-sand/70">live sessions</span>
                 </div>
               </div>
               
               {/* Third stat - below on mobile, inline on desktop */}
               <div className="flex items-center justify-center sm:hidden">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-light text-gray-900">4.8/5</span>
-                  <span className="text-xs text-gray-500">session rating (90 days)</span>
+                  <span className="text-2xl font-light text-white">4.8/5</span>
+                  <span className="text-xs text-soft-sand/70">session rating (90 days)</span>
                 </div>
               </div>
               
               {/* Desktop version - only third stat */}
               <div className="hidden sm:flex items-center justify-center gap-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-light text-gray-900">4.8/5</span>
-                  <span className="text-sm text-gray-500">session rating (90 days)</span>
+                  <span className="text-3xl font-light text-white">4.8/5</span>
+                  <span className="text-sm text-soft-sand/70">session rating (90 days)</span>
                 </div>
               </div>
             </motion.div>
@@ -143,17 +143,17 @@ const HeroSection: React.FC = () => {
             >
               <motion.button
                 onClick={scrollToPricing}
-                className="group relative px-8 sm:px-16 py-4 sm:py-6 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all duration-300 text-sm sm:text-base"
+                className="group relative px-8 sm:px-16 py-4 sm:py-6 bg-burnt-amber text-white rounded-full hover:bg-burnt-amber/90 transition-all duration-300 text-sm sm:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="flex items-center gap-3 sm:gap-4 font-light tracking-wide">
+                <span className="flex items-center gap-3 sm:gap-4 font-semibold tracking-wide">
                   Begin your journey
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </motion.button>
               
-              <p className="text-xs sm:text-sm text-gray-500 mt-2">
+              <p className="text-xs sm:text-sm text-soft-sand/70 mt-2">
                 Cohort capped at 50 seats for mentor ratio
               </p>
             </motion.div>
