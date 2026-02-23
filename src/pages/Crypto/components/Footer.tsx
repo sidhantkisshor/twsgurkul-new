@@ -2,12 +2,12 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="py-12 bg-slate-950 border-t border-slate-800">
+    <footer className="py-12 bg-[#2C3539] border-t border-[#EDE6D8]/10">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Disclaimer */}
           <div className="text-center mb-8">
-            <p className="text-sm text-slate-400 max-w-3xl mx-auto">
+            <p className="text-sm text-[#EDE6D8] max-w-3xl mx-auto">
               Cryptocurrency trading involves substantial risk. Past performance does not guarantee future results. Educational content only.
             </p>
           </div>
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               href="https://tradingwithsidhant.com/legal/terms" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-slate-500 hover:text-cyan-400 transition-colors"
+              className="text-[#EDE6D8]/60 hover:text-[#0A8D7A] transition-colors"
             >
               Terms
             </a>
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
               href="https://tradingwithsidhant.com/legal/privacy-policy" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-slate-500 hover:text-cyan-400 transition-colors"
+              className="text-[#EDE6D8]/60 hover:text-[#0A8D7A] transition-colors"
             >
               Privacy Policy
             </a>
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
               href="https://tradingwithsidhant.com/legal/refund-policy" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-slate-500 hover:text-cyan-400 transition-colors"
+              className="text-[#EDE6D8]/60 hover:text-[#0A8D7A] transition-colors"
             >
               Refund Policy
             </a>
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
               href="https://tradingwithsidhant.com/legal/disclaimers" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-slate-500 hover:text-cyan-400 transition-colors"
+              className="text-[#EDE6D8]/60 hover:text-[#0A8D7A] transition-colors"
             >
               Disclaimers
             </a>
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
               href="https://tradingwithsidhant.com/legal/cookie-policy" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-slate-500 hover:text-cyan-400 transition-colors"
+              className="text-[#EDE6D8]/60 hover:text-[#0A8D7A] transition-colors"
             >
               Cookie Policy
             </a>
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
           
           {/* Copyright */}
           <div className="text-center">
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-[#EDE6D8]/60">
               © {new Date().getFullYear()} TWS Gurukul. All rights reserved.
             </p>
           </div>
