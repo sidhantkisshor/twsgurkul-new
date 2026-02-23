@@ -137,7 +137,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors z-10"
+            className="absolute top-4 right-4 p-2 text-deep-slate/40 hover:text-deep-slate transition-colors z-10"
           >
             <X className="w-5 h-5" />
           </button>
@@ -148,16 +148,16 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                 {/* Progress bar */}
                 <div className="mb-8">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-deep-slate/60">
                       Question {currentQuestion + 1} of {questions.length}
                     </span>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-deep-slate/60">
                       {Math.round(((currentQuestion + 1) / questions.length) * 100)}%
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <motion.div
-                      className="bg-gray-900 h-2 rounded-full"
+                      className="bg-wealth-teal h-2 rounded-full"
                       initial={{ width: 0 }}
                       animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
                       transition={{ duration: 0.3 }}
@@ -173,7 +173,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="text-xl sm:text-2xl font-light text-gray-900 mb-6">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-deep-slate mb-6">
                     {questions[currentQuestion].question}
                   </h3>
 
@@ -183,9 +183,13 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                       <button
                         key={option.value}
                         onClick={() => handleAnswer(option.value, option.points)}
-                        className="w-full text-left p-4 rounded-2xl border border-gray-200 hover:border-gray-900 hover:bg-gray-50 transition-all duration-200"
+                        className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 ${
+                          answers[currentQuestion] === option.value
+                            ? 'border-burnt-amber bg-burnt-amber/10 text-deep-slate'
+                            : 'border-deep-slate/20 hover:border-burnt-amber hover:bg-burnt-amber/5'
+                        }`}
                       >
-                        <span className="text-base text-gray-700">{option.label}</span>
+                        <span className="text-base text-deep-slate">{option.label}</span>
                       </button>
                     ))}
                   </div>
@@ -194,7 +198,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                   {currentQuestion > 0 && (
                     <button
                       onClick={handleBack}
-                      className="mt-6 flex items-center gap-2 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+                      className="mt-6 flex items-center gap-2 text-sm text-deep-slate/50 hover:text-deep-slate/70 transition-colors"
                     >
                       <ArrowLeft className="w-4 h-4" />
                       Back
@@ -210,39 +214,39 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                 transition={{ duration: 0.5 }}
                 className="text-center py-4"
               >
-                <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-burnt-amber/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-3xl">🎯</span>
                 </div>
 
-                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                <h3 className="text-2xl font-semibold text-deep-slate mb-4">
                   Your perfect match:
                 </h3>
 
                 {recommendation === 'max' ? (
                   <>
-                    <div className="bg-gray-900 text-white rounded-2xl p-6 mb-6">
-                      <h4 className="text-xl font-normal mb-2">ETM Max</h4>
-                      <p className="text-sm opacity-90 mb-4">
+                    <div className="bg-deep-slate text-white rounded-2xl p-6 mb-6">
+                      <h4 className="text-xl font-semibold mb-2">ETM Max</h4>
+                      <p className="text-sm text-soft-sand mb-4">
                         Based on your answers, you'll benefit most from live coaching, accountability, and structured reviews.
                       </p>
-                      <div className="text-2xl mb-1">₹19,999</div>
-                      <div className="text-xs opacity-75">for 3 months</div>
+                      <div className="text-2xl text-burnt-amber mb-1">₹19,999</div>
+                      <div className="text-xs text-soft-sand/70">for 3 months</div>
                     </div>
-                    <p className="text-sm text-gray-600 mb-6">
+                    <p className="text-sm text-deep-slate/70 mb-6">
                       You need guidance and structure to succeed. Max provides nightly live sessions and weekly reviews.
                     </p>
                   </>
                 ) : (
                   <>
-                    <div className="bg-gray-50 rounded-2xl p-6 mb-6">
-                      <h4 className="text-xl font-normal text-gray-900 mb-2">ETM Lite</h4>
-                      <p className="text-sm text-gray-600 mb-4">
+                    <div className="bg-burnt-amber/10 rounded-2xl p-6 mb-6">
+                      <h4 className="text-xl font-semibold text-deep-slate mb-2">ETM Lite</h4>
+                      <p className="text-sm text-deep-slate/70 mb-4">
                         Perfect for beginners who want to start small with daily trade ideas and basic analysis.
                       </p>
-                      <div className="text-2xl text-gray-900 mb-1">₹6,999</div>
-                      <div className="text-xs text-gray-500">per month</div>
+                      <div className="text-2xl text-burnt-amber mb-1">₹6,999</div>
+                      <div className="text-xs text-deep-slate/50">per month</div>
                     </div>
-                    <p className="text-sm text-gray-600 mb-6">
+                    <p className="text-sm text-deep-slate/70 mb-6">
                       Start here to get a feel for our system. You can always upgrade to Max later.
                     </p>
                   </>
@@ -251,7 +255,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                 <div className="space-y-3">
                   <motion.button
                     onClick={scrollToPricing}
-                    className="w-full py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors font-light"
+                    className="w-full py-4 bg-burnt-amber text-white font-semibold rounded-full hover:bg-burnt-amber/90 transition-colors"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -261,7 +265,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
 
                   <button
                     onClick={handleRestart}
-                    className="w-full py-3 text-gray-500 hover:text-gray-700 transition-colors text-sm"
+                    className="w-full py-3 text-deep-slate/50 hover:text-deep-slate/70 transition-colors text-sm"
                   >
                     Retake quiz
                   </button>
