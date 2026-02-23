@@ -1,9 +1,9 @@
 # TWS Gurukul - Trading Education Platform
 
-[![React](https://img.shields.io/badge/React-19-blue)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.2-blue)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.0-purple)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-blue)](https://tailwindcss.com/)
+[![React](https://img.shields.io/badge/React-19.2-blue)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.3-purple)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.2-blue)](https://tailwindcss.com/)
 
 The official repository for TWS Gurukul, a modern trading education platform dedicated to transforming beginners into market masters. Built with cutting-edge web technologies and hosted on AWS for optimal performance and reliability.
 
@@ -75,17 +75,17 @@ The website features a modern, responsive design with glass morphism effects, co
 ## Tech Stack
 
 ### Core Technologies
-- **Frontend Framework:** React 19 with TypeScript
-- **Build Tool:** Vite 5.0 for lightning-fast development
-- **Styling:** Tailwind CSS 3.4 with custom utilities
-- **Routing:** React Router v6
-- **Animation:** Framer Motion for smooth transitions
+- **Frontend Framework:** React 19.2 with TypeScript
+- **Build Tool:** Vite 7.3 for lightning-fast development
+- **Styling:** Tailwind CSS 4.2 with CSS-based theme configuration
+- **Routing:** React Router v7
+- **Animation:** Framer Motion 12 for smooth transitions
 - **Icons:** Lucide React for consistent iconography
 
 ### Additional Libraries
 - **Security:** DOMPurify for XSS protection
-- **Development:** ESLint, PostCSS, Autoprefixer
-- **Type Safety:** TypeScript 5.2+ with strict mode
+- **Development:** ESLint 10, PostCSS
+- **Type Safety:** TypeScript 5.9+ with strict mode
 
 ### Infrastructure
 - **Hosting:** AWS (Amazon Web Services)
@@ -96,7 +96,7 @@ The website features a modern, responsive design with glass morphism effects, co
 
 ### Prerequisites
 
-- Node.js v18+ (LTS recommended)
+- Node.js v20+ (LTS recommended)
 - npm, yarn, or pnpm package manager
 - Git for version control
 
@@ -167,14 +167,21 @@ twsgurukul/
 │   │   ├── Crypto/      # Crypto Market Mastery course
 │   │   ├── Footprint/   # Footprint Mastery System
 │   │   ├── SuperStreams/ # Super Streams program
+│   │   ├── Mentorship/  # Mentorship program
+│   │   ├── PropScanner/ # Prop trading scanner tool
+│   │   ├── Quiz/        # Interactive quiz system
+│   │   ├── Results/     # Quiz/assessment results
 │   │   └── Blogs/       # Blog system
-│   ├── utils/           # Utility functions
-│   │   └── security.ts  # XSS protection utilities
+│   ├── hooks/           # Global custom hooks
+│   ├── services/        # External service integrations
+│   ├── styles/          # Global styles
+│   └── utils/           # Utility functions
+│       └── security.ts  # XSS protection utilities
 │   ├── App.tsx          # Route configuration
 │   └── main.tsx         # Application entry
 ├── index.html           # Entry HTML
 ├── vite.config.ts       # Vite configuration
-├── tailwind.config.js   # Tailwind configuration
+├── tailwind.config.js   # Tailwind JS config (v4 compat)
 └── package.json         # Project dependencies
 ```
 
@@ -221,12 +228,23 @@ A comprehensive content management system for trading insights:
 
 ### Design System
 
-#### Glass Morphism Theme
+#### Glass Morphism Theme (Tailwind v4)
 ```css
-.glass-effect {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(40px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+/* index.css — Tailwind v4 CSS-based theme */
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #01d449;
+  --breakpoint-xs: 475px;
+  --animate-float: float 3s ease-in-out infinite;
+}
+
+@layer utilities {
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
 }
 ```
 
@@ -328,6 +346,13 @@ We welcome contributions! Please follow these guidelines:
 - Update documentation as needed
 
 ## Recent Updates
+
+### Dependency Update (2026-02-23)
+- **React 19.2**: Latest React with improved concurrent features
+- **Tailwind CSS v4**: Migrated to CSS-based `@theme {}` configuration
+- **ESLint v10**: Updated flat config with `defineConfig` wrapper
+- **Vite 7.3**: Latest build tooling
+- **All packages**: Updated to latest stable versions
 
 ### Home Page Redesign (Latest)
 - **Hero Section**: New glass morphism design with gradient backgrounds and floating animations
