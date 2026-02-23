@@ -24,7 +24,7 @@ const FaqSection: React.FC = () => {
       question: "Calls milenge?",
       answer: (
         <div className="flex items-start gap-2">
-          <div className="w-6 h-6 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center shrink-0 mt-0.5 pointer-events-none">
+          <div className="w-6 h-6 rounded-full bg-[#C87533] flex items-center justify-center shrink-0 mt-0.5 pointer-events-none">
             <span className="text-white font-bold text-[10px]">TWS</span>
           </div>
           <span>Nahi. Process sikhate hain—planned entries with clear invalidation.</span>
@@ -44,43 +44,49 @@ const FaqSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="section bg-slate-950 relative">
+    <section id="faq" className="section bg-[#3A4449] relative">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto">
-          <h2 className="section-title text-center animate-on-scroll">
-            Frequently Asked <span className="text-gradient">Questions</span>
+          <h2 className="section-title text-center text-[#EDE6D8] animate-on-scroll">
+            Frequently Asked <span className="text-[#C87533]">Questions</span>
           </h2>
-          
-          <div className="mt-12 space-y-4">
+
+          <div className="mt-12">
             {faqs.map((faq, index) => (
-              <div 
-                key={index} 
-                className="bg-slate-800/60 backdrop-blur-xs rounded-xl border border-slate-700 overflow-hidden animate-on-scroll"
-              >
-                <button
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center gap-2"
-                  onClick={() => toggleFaq(index)}
+              openIndex === index ? (
+                <div
+                  key={index}
+                  className="border-b border-[#2C3539] py-4 border-l-2 border-l-[#0A8D7A] pl-4 animate-on-scroll"
                 >
-                  <span className="font-bold text-white text-sm sm:text-base">{faq.question}</span>
-                  {openIndex === index ? (
-                    <ChevronUp className="text-cyan-400 shrink-0" />
-                  ) : (
-                    <ChevronDown className="text-cyan-400 shrink-0" />
-                  )}
-                </button>
-                
-                {openIndex === index && (
-                  <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-slate-300 text-sm sm:text-base">
+                  <div
+                    className="flex items-center justify-between cursor-pointer"
+                    onClick={() => toggleFaq(index)}
+                  >
+                    <h3 className="text-[#EDE6D8] font-medium">{faq.question}</h3>
+                    <ChevronUp className="w-5 h-5 text-[#C87533]" />
+                  </div>
+                  <div className="mt-3 text-[#B8A99A] text-sm leading-relaxed">
                     {typeof faq.answer === 'string' ? <p>{faq.answer}</p> : faq.answer}
                   </div>
-                )}
-              </div>
+                </div>
+              ) : (
+                <div
+                  key={index}
+                  className="border-b border-[#2C3539] py-4 cursor-pointer animate-on-scroll"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-[#EDE6D8] font-medium">{faq.question}</h3>
+                    <ChevronDown className="w-5 h-5 text-[#C87533] transition-transform" />
+                  </div>
+                </div>
+              )
             ))}
           </div>
-          
+
           <div className="mt-12 text-center animate-on-scroll">
-            <div className="bg-slate-800/40 border border-cyan-500/20 rounded-lg p-4 sm:p-6">
-              <p className="text-base sm:text-lg text-white mb-3 sm:mb-4">
+            <div className="bg-[#2C3539] border border-[#0A8D7A]/20 rounded-lg p-4 sm:p-6">
+              <p className="text-base sm:text-lg text-[#EDE6D8] mb-3 sm:mb-4">
                 Have more questions? Join our monthly live Q&A sessions in Footprint Mastery.
               </p>
               <a href="#pricing" className="cta-button-primary inline-block">
