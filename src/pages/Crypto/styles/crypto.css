@@ -1,37 +1,42 @@
-/* Hero Section Button Hover Effect */
+/* =================================================================
+   CRYPTO PAGE — Component Styles (Sophisticated Warmth)
+   ================================================================= */
+
+/* Hero CTA Button */
 .hero-cta {
-  transition: transform 180ms ease-out, box-shadow 180ms ease-out;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
 }
 
 .hero-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 20px rgba(44, 53, 57, 0.15);
 }
 
 /* Focus States for Accessibility */
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid #facc15;
+  outline: 2px solid var(--brand-wealth-teal);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 /* Chip Hover Effects */
 .chip-hover {
-  transition: all 200ms ease-out;
+  transition: all var(--transition-base);
   position: relative;
 }
 
 .chip-hover:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.3);
+  border-color: var(--card-hover-border);
+  box-shadow: 0 0 0 1px rgba(200, 117, 51, 0.2);
 }
 
-/* Methodology Link Styling */
+/* Methodology Link */
 .methodology-link {
   position: relative;
   text-decoration: none;
-  transition: all 200ms ease;
+  color: var(--brand-wealth-teal);
+  transition: all var(--transition-base);
 }
 
 .methodology-link:hover {
@@ -39,32 +44,14 @@ a:focus-visible {
   text-underline-offset: 2px;
 }
 
-/* Glass Effect Enhancement */
-.glass-effect {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-/* Improved Text Contrast */
+/* High Contrast Text */
 .text-contrast-high {
-  color: rgb(226, 232, 240); /* slate-200 with better contrast */
+  color: var(--brand-graphite);
 }
 
 /* Stat Bar Animation */
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .stat-animate {
-  animation: countUp 300ms ease-out forwards;
+  animation: fadeInUp 300ms ease-out forwards;
 }
 
 /* Modal Focus Trap */
@@ -75,17 +62,17 @@ a:focus-visible {
 /* Responsive Typography */
 @media (max-width: 640px) {
   .hero-title {
-    font-size: 36px;
-    line-height: 1.15;
+    font-size: var(--text-h1);
+    line-height: var(--lh-heading);
   }
-  
+
   .hero-subtitle {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: var(--lh-body);
   }
 }
 
-/* Sticky Bar Rotation Animation */
+/* Sticky Bar Animation */
 .sticky-rotate-enter {
   animation: slideInUp 400ms ease-out;
 }
@@ -101,29 +88,12 @@ a:focus-visible {
   }
 }
 
-/* Better Chip Borders */
+/* Chip Borders */
 .chip-border {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: border-color 200ms ease;
+  border: 1px solid var(--card-border);
+  transition: border-color var(--transition-base);
 }
 
 .chip-border:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.2);
-}
-
-/* Shimmer Animation for Nav */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* Slow Spin Animation */
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
+  border-color: var(--card-hover-border);
 }
