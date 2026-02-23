@@ -45,7 +45,7 @@ const JournalPreview: React.FC = () => {
                             </p>
                             <motion.button
                                 onClick={handleViewJournal}
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-[#C87533] text-white font-semibold rounded-lg hover:bg-[#b5682d] hover:shadow-lg transition-all"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >

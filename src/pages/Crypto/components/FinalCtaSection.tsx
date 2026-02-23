@@ -32,7 +32,7 @@ const FinalCtaSection: React.FC = () => {
                     </div>
                     
                     {/* Comparison cards */}
-                    <div className="glass-effect rounded-2xl p-6 sm:p-8 mb-12 border border-white/10 hover:border-white/20 transition-all">
+                    <div className="bg-white/10 rounded-2xl p-6 sm:p-8 mb-12 border border-white/10 hover:border-white/20 transition-all">
                         <div className="grid md:grid-cols-2 gap-8">
                             {/* Without action */}
                             <motion.div 
@@ -133,7 +133,7 @@ const FinalCtaSection: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.5 }}
                     >
-                        <div className="glass-effect rounded-xl p-6 border border-white/10 max-w-lg mx-auto">
+                        <div className="bg-white/10 rounded-xl p-6 border border-white/10 max-w-lg mx-auto">
                             <h3 className="text-lg font-bold text-white mb-4">Multiple payment options available</h3>
                             <div className="flex justify-center gap-4 mb-4">
                                 <div className="flex items-center gap-2 text-sm text-[#EDE6D8]">

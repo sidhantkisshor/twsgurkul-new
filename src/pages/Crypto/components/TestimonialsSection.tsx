@@ -159,7 +159,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
                 >
-                    <p className="text-slate-400 mb-8 text-lg">
+                    <p className="text-[#EDE6D8]/80 mb-8 text-lg">
                         Join our community of successful traders
                     </p>
                     <motion.button
