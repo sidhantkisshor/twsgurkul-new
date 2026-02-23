@@ -83,10 +83,10 @@ const LiveDashboardSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
               Live dashboard
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light">
+            <p className="text-lg text-deep-slate/70 max-w-3xl mx-auto font-normal">
               Real sessions. Real executions explained. Your screen, our screen, same market.
             </p>
           </motion.div>
@@ -99,12 +99,12 @@ const LiveDashboardSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-50 rounded-2xl p-6 text-center">
+            <div className="bg-warm-white rounded-2xl p-6 text-center border border-deep-slate/10">
               <div className="flex items-center justify-center mb-3">
-                <Users className="w-5 h-5 text-gray-600" />
+                <Users className="w-5 h-5 text-deep-slate/70" />
               </div>
-              <motion.p 
-                className="text-3xl font-light text-gray-900 mb-2"
+              <motion.p
+                className="text-3xl font-semibold text-deep-slate mb-2"
                 key={attendance}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -112,15 +112,15 @@ const LiveDashboardSection: React.FC = () => {
               >
                 {attendance !== null ? attendance : '—'}
               </motion.p>
-              <p className="text-sm text-gray-500">Tonight's attendance</p>
+              <p className="text-sm text-deep-slate/70">Tonight's attendance</p>
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-6 text-center">
+            <div className="bg-warm-white rounded-2xl p-6 text-center border border-deep-slate/10">
               <div className="flex items-center justify-center mb-3">
-                <Activity className="w-5 h-5 text-gray-600" />
+                <Activity className="w-5 h-5 text-deep-slate/70" />
               </div>
-              <motion.p 
-                className="text-3xl font-light text-gray-900 mb-2"
+              <motion.p
+                className="text-3xl font-semibold text-deep-slate mb-2"
                 key={checklists}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -128,15 +128,15 @@ const LiveDashboardSection: React.FC = () => {
               >
                 {checklists !== null ? checklists : '—'}
               </motion.p>
-              <p className="text-sm text-gray-500">Checklists submitted</p>
+              <p className="text-sm text-deep-slate/70">Checklists submitted</p>
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-6 text-center">
+            <div className="bg-warm-white rounded-2xl p-6 text-center border border-deep-slate/10">
               <div className="flex items-center justify-center mb-3">
-                <TrendingUp className="w-5 h-5 text-gray-600" />
+                <TrendingUp className="w-5 h-5 text-deep-slate/70" />
               </div>
-              <motion.p 
-                className="text-3xl font-light text-gray-900 mb-2"
+              <motion.p
+                className="text-3xl font-semibold text-deep-slate mb-2"
                 key={winRate}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ const LiveDashboardSection: React.FC = () => {
               >
                 {winRate !== null ? `${winRate}%` : '—'}
               </motion.p>
-              <p className="text-sm text-gray-500">Win rate today</p>
+              <p className="text-sm text-deep-slate/70">Win rate today</p>
             </div>
           </motion.div>
 
@@ -156,7 +156,7 @@ const LiveDashboardSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-900 text-white rounded-3xl p-8 sm:p-12 min-h-[200px] relative overflow-hidden">
+            <div className="bg-deep-slate text-white rounded-3xl p-8 sm:p-12 min-h-[200px] relative overflow-hidden">
               {isLoading ? (
                 // Skeleton loader
                 <div className="space-y-4 animate-pulse">
@@ -182,8 +182,8 @@ const LiveDashboardSection: React.FC = () => {
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-sm text-gray-400">{feedTiles[currentFeedIndex].time}</span>
                       <span className={`text-sm font-medium ${
-                        feedTiles[currentFeedIndex].result.includes('+') 
-                          ? 'text-green-400' 
+                        feedTiles[currentFeedIndex].result.includes('+')
+                          ? 'text-wealth-teal'
                           : 'text-gray-400'
                       }`}>
                         {feedTiles[currentFeedIndex].result}
@@ -220,7 +220,7 @@ const LiveDashboardSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm text-gray-500 max-w-3xl mx-auto">
+            <p className="text-sm text-deep-slate/60 max-w-3xl mx-auto">
               These are example recaps of live sessions. Outcomes vary by trader, capital, and execution. Education only.
             </p>
           </motion.div>

@@ -52,7 +52,7 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-32 relative overflow-hidden bg-gray-50">
+    <section id="testimonials" className="py-32 relative overflow-hidden bg-warm-white">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -63,13 +63,13 @@ const TestimonialsSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
               Transformation stories
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light mb-4">
+            <p className="text-lg text-deep-slate/70 max-w-3xl mx-auto font-normal mb-4">
               Real people. Real progress. Many verified by independent accountants.
             </p>
-            <p className="text-base text-gray-500 max-w-4xl mx-auto font-light">
+            <p className="text-base text-deep-slate/60 max-w-4xl mx-auto font-normal">
               Coached daily by our team of professional mentors.
             </p>
           </motion.div>
@@ -84,16 +84,16 @@ const TestimonialsSection: React.FC = () => {
               className="grid md:grid-cols-2 gap-12 items-start"
             >
               {/* Quote Card */}
-              <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xs">
+              <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xs border border-deep-slate/10">
                 <div className="flex items-start gap-4 mb-6">
                   <div>
-                    <h3 className="text-xl font-normal text-gray-900">
+                    <h3 className="text-xl font-medium text-deep-slate">
                       {testimonials[activeIndex].name}, {testimonials[activeIndex].location}
                     </h3>
                   </div>
                 </div>
                 
-                <blockquote className="text-lg text-gray-700 font-light leading-relaxed mb-6">
+                <blockquote className="text-lg text-deep-slate font-normal leading-relaxed mb-6">
                   "{testimonials[activeIndex].quote}"
                 </blockquote>
                 
@@ -103,7 +103,7 @@ const TestimonialsSection: React.FC = () => {
                     setSelectedProof(testimonials[activeIndex].proofImage);
                     setShowProofModal(true);
                   }}
-                  className="text-sm text-gray-500 hover:text-gray-700 underline inline-flex items-center gap-1 mb-8 transition-colors"
+                  className="text-sm text-deep-slate/60 hover:text-deep-slate underline inline-flex items-center gap-1 mb-8 transition-colors"
                 >
                   <ExternalLink className="w-3 h-3" />
                   View proof
@@ -117,8 +117,8 @@ const TestimonialsSection: React.FC = () => {
                       onClick={() => setActiveIndex(index)}
                       className={`transition-all duration-300 ${
                         index === activeIndex
-                          ? 'w-8 h-2 bg-gray-900 rounded-full'
-                          : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-gray-400'
+                          ? 'w-8 h-2 bg-deep-slate rounded-full'
+                          : 'w-2 h-2 bg-deep-slate/20 rounded-full hover:bg-deep-slate/40'
                       }`}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
@@ -127,7 +127,7 @@ const TestimonialsSection: React.FC = () => {
               </div>
 
               {/* Quick Facts Card */}
-              <div className="bg-gray-900 text-white rounded-3xl p-8 sm:p-12">
+              <div className="bg-deep-slate text-white rounded-3xl p-8 sm:p-12">
                 <h4 className="text-sm uppercase tracking-wider mb-6 text-gray-400">
                   Quick facts
                 </h4>
@@ -140,8 +140,8 @@ const TestimonialsSection: React.FC = () => {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-                      <p className="text-sm sm:text-base font-light">
+                      <CheckCircle className="w-5 h-5 text-wealth-teal mt-0.5 shrink-0" />
+                      <p className="text-sm sm:text-base font-normal">
                         {fact}
                       </p>
                     </motion.div>
@@ -157,7 +157,7 @@ const TestimonialsSection: React.FC = () => {
                 className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
+                <ChevronLeft className="w-5 h-5 text-deep-slate" />
               </button>
             </div>
             <div className="absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-12">
@@ -166,20 +166,20 @@ const TestimonialsSection: React.FC = () => {
                 className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
+                <ChevronRight className="w-5 h-5 text-deep-slate" />
               </button>
             </div>
           </div>
 
           {/* Case Study Stripe */}
           <motion.div
-            className="mt-16 bg-gray-900 text-white rounded-3xl p-8"
+            className="mt-16 bg-deep-slate text-white rounded-3xl p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p className="text-base sm:text-lg text-center font-light">
+            <p className="text-base sm:text-lg text-center font-normal">
               Case studies show ₹50k to ₹2L months once the routine sticks. Individual results vary.
             </p>
           </motion.div>
@@ -192,7 +192,7 @@ const TestimonialsSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm text-gray-500 max-w-2xl mx-auto">
+            <p className="text-sm text-deep-slate/60 max-w-2xl mx-auto">
               Individual experiences. No assured returns. Skill and discipline decide outcomes.
             </p>
           </motion.div>
@@ -225,26 +225,26 @@ const TestimonialsSection: React.FC = () => {
               {/* Close Button */}
               <button
                 onClick={() => setShowProofModal(false)}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                className="absolute top-4 right-4 p-2 text-deep-slate/40 hover:text-deep-slate/60 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
               
               {/* Modal Header */}
-              <h3 className="text-2xl font-light text-gray-900 mb-6">
+              <h3 className="text-2xl font-semibold text-deep-slate mb-6">
                 Performance Verification
               </h3>
               
               {/* Placeholder for proof image */}
-              <div className="bg-gray-100 rounded-2xl p-12 mb-6">
+              <div className="bg-soft-sand/30 rounded-2xl p-12 mb-6">
                 <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <p className="text-gray-500 text-sm">
+                  <div className="w-full h-64 bg-soft-sand/50 rounded-lg flex items-center justify-center">
+                    <p className="text-deep-slate/60 text-sm">
                       P&L Statement<br/>
                       (Numbers blurred for privacy)
                     </p>
                   </div>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-deep-slate/60">
                     Verified by independent CA firm<br/>
                     Letter available upon enrollment
                   </p>
@@ -252,7 +252,7 @@ const TestimonialsSection: React.FC = () => {
               </div>
               
               {/* Disclaimer */}
-              <p className="text-xs text-gray-500 text-center">
+              <p className="text-xs text-deep-slate/60 text-center">
                 Past performance does not guarantee future results. Results vary based on individual skill, capital, and market conditions.
               </p>
             </motion.div>
