@@ -35,7 +35,9 @@ function FootprintPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#2C3539] text-white font-sans overflow-x-hidden">
+      <Header />
+      <StructuredData />
       <Seo
         title="Footprint Mastery | TWS Gurukul"
         description="See order flow before it hits the chart. Plan clean entries. Exit with rules."
@@ -43,8 +45,6 @@ function FootprintPage() {
         ogType="website"
         canonicalUrl="https://twsgurukul.com/footprint"
       />
-      <StructuredData />
-      <Header />
       <div>
         <main>
           <HeroSection />
