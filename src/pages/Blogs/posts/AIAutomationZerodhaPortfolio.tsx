@@ -2,6 +2,44 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Brain, Zap, CheckCircle, ArrowRight, BarChart3, Code, Globe, Target, Sparkles, Rocket, Flame, XCircle, Lightbulb, AlertTriangle, GitBranch, Briefcase, FileText, ShoppingCart, ShieldCheck, AreaChart, Cpu, ListChecks } from 'lucide-react';
 
+const CommandDoc = ({ category, commands, icon: Icon }) => (
+  <div id={category.toLowerCase().replace(/ /g, '-')} className="mb-10">
+    <h3 className="text-2xl font-bold mb-6 text-blue-400 flex items-center">
+      <Icon className="w-7 h-7 mr-3" />
+      {category}
+    </h3>
+    <div className="space-y-4">
+      {commands.map((cmd, idx) => (
+        <div key={idx} className="bg-gray-900/50 rounded-lg p-4 border border-gray-800">
+          <p className="text-gray-300 text-sm mb-2">{cmd.description}</p>
+          <div className="bg-black/50 rounded-sm p-3 font-mono text-xs text-green-400">
+            {cmd.command}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const UseCaseCard = ({ icon: Icon, title, description, features }) => (
+  <div className="bg-linear-to-br from-gray-900 to-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-500 to-purple-500"></div>
+      <div className="flex items-center mb-4">
+          <Icon className="w-8 h-8 text-blue-400" />
+          <h3 className="text-xl font-bold text-white ml-3">{title}</h3>
+      </div>
+      <p className="text-gray-400 mb-4 text-sm">{description}</p>
+      <ul className="space-y-2">
+          {features.map((feature, idx) => (
+              <li key={idx} className="flex items-start text-sm">
+                  <CheckCircle className="w-4 h-4 text-green-400 mr-2 mt-0.5 shrink-0" />
+                  <span className="text-gray-300">{feature}</span>
+              </li>
+          ))}
+      </ul>
+  </div>
+);
+
 const BlogPost = () => {
   // Removed unused activeSection state
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -18,64 +56,26 @@ const BlogPost = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const CommandDoc = ({ category, commands, icon: Icon }) => (
-    <div id={category.toLowerCase().replace(/ /g, '-')} className="mb-10">
-      <h3 className="text-2xl font-bold mb-6 text-blue-400 flex items-center">
-        <Icon className="w-7 h-7 mr-3" />
-        {category}
-      </h3>
-      <div className="space-y-4">
-        {commands.map((cmd, idx) => (
-          <div key={idx} className="bg-gray-900/50 rounded-lg p-4 border border-gray-800">
-            <p className="text-gray-300 text-sm mb-2">{cmd.description}</p>
-            <div className="bg-black/50 rounded p-3 font-mono text-xs text-green-400">
-              {cmd.command}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-  
-  const UseCaseCard = ({ icon: Icon, title, description, features }) => (
-    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-        <div className="flex items-center mb-4">
-            <Icon className="w-8 h-8 text-blue-400" />
-            <h3 className="text-xl font-bold text-white ml-3">{title}</h3>
-        </div>
-        <p className="text-gray-400 mb-4 text-sm">{description}</p>
-        <ul className="space-y-2">
-            {features.map((feature, idx) => (
-                <li key={idx} className="flex items-start text-sm">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-300">{feature}</span>
-                </li>
-            ))}
-        </ul>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
         <div 
-          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
+          className="h-full bg-linear-to-r from-blue-500 to-purple-500 transition-all duration-300"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-blue-900/20 to-purple-900/20"></div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center mb-6">
               <Sparkles className="w-8 h-8 text-yellow-400 mr-2" />
               <span className="text-yellow-400 font-semibold">The Complete 2025 Trading Game-Changer</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               How to Automate Your Zerodha Investment Portfolio with Free AI Tools
             </h1>
           </div>
@@ -86,7 +86,7 @@ const BlogPost = () => {
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         {/* Introduction */}
         <div className="prose prose-invert max-w-none mb-16">
-          <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-xl p-8 mb-8">
+          <div className="bg-linear-to-r from-blue-900/30 to-purple-900/30 rounded-xl p-8 mb-8">
             <p className="text-lg italic text-gray-300">
               Bhai, picture this: You're sitting with your morning chai, and instead of frantically checking 50 different apps and websites for market analysis, your AI assistant has already done the homework. Portfolio analyzed, risk assessed, orders placed – all while you were sleeping. Sounds like a dream? Welcome to the reality of AI-powered investing.
             </p>
@@ -150,7 +150,7 @@ const BlogPost = () => {
           </div>
           <div className="mt-8 text-center">
             <p className="text-gray-400 mb-4">Want to master these strategies in crypto markets?</p>
-            <Link to="/crypto" className="inline-flex items-center bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all">
+            <Link to="/crypto" className="inline-flex items-center bg-linear-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all">
               Explore Crypto Market Mastery <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <UseCaseCard icon={FileText} title="Research Automation" features={["Access data from Screener & Trendlyne", "Compile expert targets", "Integrate technical indicators"]} />
@@ -171,9 +171,9 @@ const BlogPost = () => {
           <div className="bg-gray-900 rounded-xl p-8 mb-8">
             <h3 className="text-2xl font-bold mb-6 text-blue-400">Method 1: Claude AI + Zerodha Integration</h3>
             <div className="space-y-6">
-              <div className="flex items-start space-x-4"><div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">1</div><div><h4 className="font-semibold text-white mb-2">Download and Install Claude</h4><p className="text-gray-400">Head to "Meet Claude Anthropic" and download the desktop version. Choose the correct option for your system (Mac, Windows, or Windows ARM 64 if applicable).</p></div></div>
-              <div className="flex items-start space-x-4"><div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">2</div><div><h4 className="font-semibold text-white mb-2">Configure Claude for Zerodha Access</h4><p className="text-gray-400 mb-4">Open Settings (Ctrl + Comma) → Developer → Edit Config. Delete existing content and paste the following:</p><div className="bg-black rounded-lg p-4 overflow-x-auto"><pre className="text-green-400 text-sm font-mono">{`{\n    "mcpServers": {\n        "kite": {\n            "command": "npx",\n            "args": ["mcp-remote", "https://mcp.kite.trade/sse"]\n        }\n    }\n}`}</pre></div><div className="mt-4 bg-red-900/20 border border-red-700 rounded-lg p-4"><p className="text-red-400 font-semibold flex items-center"><AlertTriangle className="w-5 h-5 mr-2"/>Critical Step: Restart Claude completely via Task Manager after saving.</p></div></div></div>
-              <div className="flex items-start space-x-4"><div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">3</div><div><h4 className="font-semibold text-white mb-2">Connect to Your Zerodha Account</h4><p className="text-gray-400 mb-2">Type this exact command in Claude:</p><div className="bg-black rounded-lg p-4"><code className="text-green-400 text-sm">Hello Can you please help me login to Kite with MCP?</code></div><p className="text-gray-400 text-xs mt-2">Claude will generate a secure login link. Think of Kite MCP as a secure translator between Claude and Zerodha.</p></div></div>
+              <div className="flex items-start space-x-4"><div className="shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">1</div><div><h4 className="font-semibold text-white mb-2">Download and Install Claude</h4><p className="text-gray-400">Head to "Meet Claude Anthropic" and download the desktop version. Choose the correct option for your system (Mac, Windows, or Windows ARM 64 if applicable).</p></div></div>
+              <div className="flex items-start space-x-4"><div className="shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">2</div><div><h4 className="font-semibold text-white mb-2">Configure Claude for Zerodha Access</h4><p className="text-gray-400 mb-4">Open Settings (Ctrl + Comma) → Developer → Edit Config. Delete existing content and paste the following:</p><div className="bg-black rounded-lg p-4 overflow-x-auto"><pre className="text-green-400 text-sm font-mono">{`{\n    "mcpServers": {\n        "kite": {\n            "command": "npx",\n            "args": ["mcp-remote", "https://mcp.kite.trade/sse"]\n        }\n    }\n}`}</pre></div><div className="mt-4 bg-red-900/20 border border-red-700 rounded-lg p-4"><p className="text-red-400 font-semibold flex items-center"><AlertTriangle className="w-5 h-5 mr-2"/>Critical Step: Restart Claude completely via Task Manager after saving.</p></div></div></div>
+              <div className="flex items-start space-x-4"><div className="shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">3</div><div><h4 className="font-semibold text-white mb-2">Connect to Your Zerodha Account</h4><p className="text-gray-400 mb-2">Type this exact command in Claude:</p><div className="bg-black rounded-lg p-4"><code className="text-green-400 text-sm">Hello Can you please help me login to Kite with MCP?</code></div><p className="text-gray-400 text-xs mt-2">Claude will generate a secure login link. Think of Kite MCP as a secure translator between Claude and Zerodha.</p></div></div>
             </div>
           </div>
 
@@ -201,7 +201,7 @@ const BlogPost = () => {
           </h2>
           <p className="text-gray-400 mb-8">Bhai, ab yahan hai complete documentation with every single command you'll ever need! Save this, bookmark this, and refer to it whenever you're commanding your AI trading assistant.</p>
           
-          <div className="bg-gradient-to-br from-gray-900 to-black/50 p-8 rounded-xl border border-gray-800">
+          <div className="bg-linear-to-br from-gray-900 to-black/50 p-8 rounded-xl border border-gray-800">
             <CommandDoc category="Basic Setup" icon={Cpu} commands={[
               { description: 'Initiate the secure connection to your Zerodha account.', command: 'Hello Can you please help me login to Kite with MCP?' },
               { description: 'Verify that the connection is active and stable.', command: 'Can you verify my Kite MCP connection status?' },
@@ -274,7 +274,7 @@ const BlogPost = () => {
 
         {/* CTA Section */}
         <section>
-          <div className="bg-gradient-to-r from-blue-900 to-purple-900 rounded-xl p-12 text-center">
+          <div className="bg-linear-to-r from-blue-900 to-purple-900 rounded-xl p-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Trading?</h2>
             <p className="text-xl text-gray-300 mb-8">Join thousands of traders who've already embraced AI-powered investing</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

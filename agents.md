@@ -59,20 +59,15 @@ twsgurukul/
 
 ## Design System & UI Guidelines
 
-### Glass Morphism Theme (Tailwind v4)
+### Glass Morphism Theme (Tailwind v4 — Compatibility Mode)
 
-Tailwind CSS v4 uses CSS-based configuration. The theme is defined in `index.css` using `@theme {}` blocks instead of `tailwind.config.js`. Key custom utilities are defined in `@layer`:
+This project uses Tailwind CSS v4 in **compatibility mode**. The official upgrade tool could not auto-migrate the JS config to full `@theme {}` CSS format, so `tailwind.config.js` is still used and loaded via `@config` in `index.css`:
 
 ```css
-/* index.css */
+/* index.css — actual configuration */
 @import "tailwindcss";
 
-@theme {
-  --font-sans: Inter, system-ui, sans-serif;
-  --breakpoint-xs: 475px;
-  --animate-float: float 6s ease-in-out infinite;
-  /* ... all custom animations */
-}
+@config './tailwind.config.js';
 
 @layer utilities {
   .glass-effect {
@@ -83,6 +78,8 @@ Tailwind CSS v4 uses CSS-based configuration. The theme is defined in `index.css
   }
 }
 ```
+
+**Important for AI agents:** Do NOT add CSS variables to a `@theme {}` block — one does not exist. Custom animations, screens (`xs: 475px`), and font families are in `tailwind.config.js`. Full migration to `@theme {}` is a future step.
 
 The project uses a modern glass morphism design system. Key classes available globally:
 

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { X, ChevronLeft, ArrowRight, Check, Clock, IndianRupee, Target, AlertCircle, TrendingUp, MapPin, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, ChevronLeft, ArrowRight, Check, Clock, IndianRupee, Target, AlertCircle, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface QuizModalProps {
@@ -313,7 +313,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
     };
   }, [isOpen, currentStep, showResults]);
 
-  // Restore progress from sessionStorage
+  // Restore progress from sessionStorage when modal opens
   useEffect(() => {
     const savedProgress = sessionStorage.getItem('quizProgress');
     if (savedProgress && isOpen) {
@@ -329,10 +329,10 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+    <div className="fixed inset-0 z-100 flex items-center justify-center">
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/80 backdrop-blur-xs"
         onClick={handleCloseAttempt}
       />
 
@@ -344,7 +344,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
         aria-modal="true"
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 bg-black/95 backdrop-blur border-b border-white/10 px-6 py-4">
+        <div className="sticky top-0 z-10 bg-black/95 backdrop-blur-sm border-b border-white/10 px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img src="/favicon.png" alt="TWS" className="w-8 h-8" />
@@ -355,7 +355,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
                   </span>
                   <div className="w-32 h-1.5 bg-white/10 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-green-500 to-emerald-500 transition-all duration-500"
+                      className="h-full bg-linear-to-r from-green-500 to-emerald-500 transition-all duration-500"
                       style={{ width: `${progressPercentage}%` }}
                     />
                   </div>
@@ -401,7 +401,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
         <div className="p-6 md:p-8 overflow-y-auto max-h-[calc(100vh-200px)] md:max-h-[calc(85vh-140px)]">
           {/* Exit Confirmation */}
           {showExitConfirm && (
-            <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
+            <div className="fixed inset-0 z-110 flex items-center justify-center p-4">
               <div className="bg-black border border-white/20 rounded-xl p-6 max-w-sm">
                 <h3 className="text-lg font-bold text-white mb-2">Leave the quiz?</h3>
                 <p className="text-gray-400 mb-4">
@@ -410,7 +410,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
                 <div className="flex gap-3">
                   <button
                     onClick={() => setShowExitConfirm(false)}
-                    className="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full font-medium hover:shadow-lg transition-all"
+                    className="flex-1 px-4 py-2 bg-linear-to-r from-green-500 to-emerald-500 text-white rounded-full font-medium hover:shadow-lg transition-all"
                   >
                     Resume
                   </button>
@@ -494,7 +494,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
                   <button
                     onClick={handleComplete}
                     disabled={!answers[questions[currentStep].id]}
-                    className="flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full font-medium hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="flex items-center gap-2 px-6 py-2 bg-linear-to-r from-green-500 to-emerald-500 text-white rounded-full font-medium hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Get Results
                     <ArrowRight className="w-4 h-4" />
@@ -545,14 +545,14 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
                     </div>
 
                     {/* Recommended Program Card */}
-                    <div className="glass-effect rounded-2xl p-6 border border-green-500/30 bg-gradient-to-br from-green-950/20 to-emerald-950/10">
+                    <div className="glass-effect rounded-2xl p-6 border border-green-500/30 bg-linear-to-br from-green-950/20 to-emerald-950/10">
                       <div className="flex items-center justify-between mb-4">
                         <div>
                           <span className="text-xs font-bold text-green-400">RECOMMENDED FOR YOU</span>
                           <h3 className="text-2xl font-bold text-white mt-1">{result.program}</h3>
                           <p className="text-gray-400">{result.tagline}</p>
                         </div>
-                        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-xl bg-linear-to-br from-green-500 to-emerald-500 flex items-center justify-center">
                           <span className="text-2xl font-bold text-white">{result.stage}</span>
                         </div>
                       </div>
@@ -561,7 +561,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
                       <div className="space-y-3 mb-6">
                         {result.outcomes.map((outcome, index) => (
                           <div key={index} className="flex items-start gap-2">
-                            <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                            <Check className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
                             <span className="text-gray-300">{outcome}</span>
                           </div>
                         ))}
@@ -570,7 +570,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
                       {/* Testimonial */}
                       <div className="p-4 rounded-xl bg-black/30 mb-6">
                         <div className="flex items-start gap-3 mb-2">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+                          <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-400 to-emerald-500 flex items-center justify-center">
                             <span className="text-lg">👤</span>
                           </div>
                           <div className="flex-1">
@@ -597,7 +597,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
                       <div className="space-y-3">
                         <button
                           onClick={handleCTAClick}
-                          className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full font-bold text-lg hover:shadow-lg hover:shadow-green-500/25 transition-all"
+                          className="w-full py-4 bg-linear-to-r from-green-500 to-emerald-500 text-white rounded-full font-bold text-lg hover:shadow-lg hover:shadow-green-500/25 transition-all"
                         >
                           {result.stage === 3 ? 'Apply for Elite Mentorship →' : `Start Stage ${result.stage} (${result.programId.toUpperCase()}) →`}
                         </button>
@@ -621,7 +621,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose, source = 'unknow
                             value={emailCapture}
                             onChange={(e) => setEmailCapture(e.target.value)}
                             placeholder="your@email.com"
-                            className="flex-1 px-4 py-2 bg-black/50 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-500"
+                            className="flex-1 px-4 py-2 bg-black/50 border border-white/20 rounded-lg text-white placeholder-gray-500 focus:outline-hidden focus:border-green-500"
                           />
                           <button
                             onClick={() => {

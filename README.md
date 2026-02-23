@@ -229,15 +229,14 @@ A comprehensive content management system for trading insights:
 ### Design System
 
 #### Glass Morphism Theme (Tailwind v4)
+
+The project uses Tailwind CSS v4 in compatibility mode. The existing `tailwind.config.js` is loaded via `@config` in `index.css` (the upgrade tool could not auto-migrate the JS config to full CSS `@theme {}` format):
+
 ```css
-/* index.css — Tailwind v4 CSS-based theme */
+/* index.css */
 @import "tailwindcss";
 
-@theme {
-  --color-brand: #01d449;
-  --breakpoint-xs: 475px;
-  --animate-float: float 3s ease-in-out infinite;
-}
+@config './tailwind.config.js';
 
 @layer utilities {
   .glass-effect {
@@ -247,6 +246,8 @@ A comprehensive content management system for trading insights:
   }
 }
 ```
+
+Custom animations, screens, and font families remain in `tailwind.config.js`. Full migration to `@theme {}` is a future step.
 
 #### Key Design Elements
 - **Floating Navbar**: Dynamic transparency on scroll

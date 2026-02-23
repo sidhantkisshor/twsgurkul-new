@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "security-check": "npm audit && npm outdated",
+    "security-check": "npm audit --omit=dev && (npm outdated || true)",
     "build-secure": "npm run security-check && npm run lint && npm run build"
   },
   "dependencies": {

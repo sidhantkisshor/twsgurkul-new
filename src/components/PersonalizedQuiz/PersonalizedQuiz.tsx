@@ -143,12 +143,12 @@ export default function PersonalizedQuiz() {
     setIsCalculating(true);
     
     setTimeout(() => {
-      let recommendation: 'crypto' | 'footprint' | 'mentorship' | 'etm-lite' = 'crypto';
+      let recommendation: 'crypto' | 'footprint' | 'mentorship' | 'etm-lite';
       const tier: 'lite' | 'pro' | 'max' = 'max';
-      let personalizedMessage = '';
-      let urgencyMessage = '';
-      let bonusOffer = '';
-      let additionalInfo = '';
+      let personalizedMessage: string;
+      let urgencyMessage: string;
+      let bonusOffer: string;
+      let additionalInfo: string;
 
       // Complex scoring logic based on answers
       const { experience, goal, time, capital, pain, style } = allAnswers;
@@ -281,7 +281,7 @@ export default function PersonalizedQuiz() {
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl">
         <AnimatePresence mode="wait">
           {!showResult && !isCalculating && (
@@ -290,7 +290,7 @@ export default function PersonalizedQuiz() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-gray-700"
+              className="bg-gray-800/50 backdrop-blur-xs rounded-2xl p-8 shadow-2xl border border-gray-700"
             >
               {/* Progress Bar */}
               <div className="mb-8">
@@ -300,7 +300,7 @@ export default function PersonalizedQuiz() {
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-yellow-500 to-yellow-600"
+                    className="h-full bg-linear-to-r from-yellow-500 to-yellow-600"
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.5 }}
@@ -353,7 +353,7 @@ export default function PersonalizedQuiz() {
               animate={{ opacity: 1 }}
               className="text-center"
             >
-              <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-12 shadow-2xl border border-gray-700">
+              <div className="bg-gray-800/50 backdrop-blur-xs rounded-2xl p-12 shadow-2xl border border-gray-700">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -395,7 +395,7 @@ export default function PersonalizedQuiz() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-gray-700"
+              className="bg-gray-800/50 backdrop-blur-xs rounded-2xl p-8 shadow-2xl border border-gray-700"
             >
               <div className="text-center mb-8">
                 <Trophy className="w-20 h-20 text-yellow-500 mx-auto mb-4" />
@@ -404,7 +404,7 @@ export default function PersonalizedQuiz() {
               </div>
 
               {/* Recommendation Box */}
-              <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-xl p-6 mb-6 border border-yellow-500/30">
+              <div className="bg-linear-to-r from-yellow-500/20 to-yellow-600/20 rounded-xl p-6 mb-6 border border-yellow-500/30">
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
                   <Zap className="w-5 h-5 text-yellow-500" />
                   YOUR RECOMMENDATION: {result.recommendation === 'etm-lite' ? 'ETM LITE' : result.recommendation.toUpperCase()}
@@ -429,14 +429,14 @@ export default function PersonalizedQuiz() {
                   placeholder="Your Name"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:border-yellow-500 focus:outline-none"
+                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:border-yellow-500 focus:outline-hidden"
                 />
                 <input
                   type="tel"
                   placeholder="WhatsApp Number (for instant access)"
                   value={userPhone}
                   onChange={(e) => setUserPhone(e.target.value)}
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:border-yellow-500 focus:outline-none"
+                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:border-yellow-500 focus:outline-hidden"
                 />
               </div>
 
@@ -445,7 +445,7 @@ export default function PersonalizedQuiz() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleFinalSubmit}
-                className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg flex items-center justify-center gap-2 shadow-lg"
+                className="w-full bg-linear-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg flex items-center justify-center gap-2 shadow-lg"
               >
                 CLAIM MY SPOT NOW
                 <ArrowRight className="w-5 h-5" />
