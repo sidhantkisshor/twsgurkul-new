@@ -50,20 +50,20 @@ function FootprintPage() {
           <HeroSection />
           
           {/* Trust Stripe */}
-          <div className="bg-slate-800/30 border-y border-slate-700/50 py-3">
+          <div className="bg-[#3A4449]/30 border-y border-[#B8956A]/20 py-3">
             <div className="max-w-6xl mx-auto px-4">
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-slate-400">
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-[#B8956A]">
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center shrink-0 pointer-events-none">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#C87533] flex items-center justify-center shrink-0 pointer-events-none">
                     <span className="text-white font-bold text-[10px] sm:text-xs">TWS</span>
                   </div>
                   <span>TWS Gurukul since 2023</span>
                 </div>
-                <span className="hidden sm:inline text-slate-600">•</span>
+                <span className="hidden sm:inline text-[#B8A99A]/40">•</span>
                 <span>1,263+ paid learners</span>
-                <span className="hidden sm:inline text-slate-600">•</span>
+                <span className="hidden sm:inline text-[#B8A99A]/40">•</span>
                 <span>Monthly live Q&A</span>
-                <span className="hidden sm:inline text-slate-600">•</span>
+                <span className="hidden sm:inline text-[#B8A99A]/40">•</span>
                 <span>30-day guarantee</span>
               </div>
             </div>
