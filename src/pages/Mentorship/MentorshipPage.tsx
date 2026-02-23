@@ -15,6 +15,7 @@ import Footer from './components/Footer';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import MobileStickyQuiz from './components/MobileStickyQuiz';
 import FloatingCTA from './components/FloatingCTA';
+import WhatsAppButton from './components/WhatsAppButton';
 import SocialProofBar from './components/SocialProofBar';
 import { useExitIntent } from './hooks/useExitIntent';
 import Seo from '../../components/Seo';
@@ -57,6 +58,7 @@ const MentorshipPage: React.FC = () => {
         {showExitIntent && <ExitIntentPopup />}
         <MobileStickyQuiz />
         <FloatingCTA />
+        <WhatsAppButton />
       </motion.div>
     </>
   );

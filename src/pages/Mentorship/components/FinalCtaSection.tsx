@@ -1,30 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Info } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 const FinalCtaSection: React.FC = () => {
-  const [seatsRemaining, setSeatsRemaining] = useState(27);
-  const [lastUpdated, setLastUpdated] = useState(new Date());
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  // Simulate dynamic seat updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeatsRemaining(prev => Math.max(prev - Math.floor(Math.random() * 2), 5));
-      setLastUpdated(new Date());
-    }, 30000); // Update every 30 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-  
-  const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-IN', { 
-      hour: '2-digit', 
-      minute: '2-digit',
-      timeZoneName: 'short'
-    });
-  };
-
   const scrollToPricing = () => {
     const element = document.getElementById('pricing');
     if (element) {
@@ -33,9 +11,9 @@ const FinalCtaSection: React.FC = () => {
   };
 
   const checklistItems = [
-    "Same time nightly",
-    "One playbook",
-    "Reviews that fix leaks"
+    "Same time every night",
+    "One playbook that works",
+    "Coach who fixes your mistakes"
   ];
 
   return (
@@ -50,10 +28,10 @@ const FinalCtaSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-6">
-              Two futures. One decision.
+              Tonight at 8 PM, the Market Opens. Will You Be Ready?
             </h2>
             <p className="text-xl font-medium mb-12 max-w-2xl mx-auto text-soft-sand">
-              In 30 days you either have an 8 PM habit or another month of "someday".
+              30 days from now, you'll either have a trading routine that works — or another month of "I'll start tomorrow."
             </p>
           </motion.div>
 
@@ -96,36 +74,12 @@ const FinalCtaSection: React.FC = () => {
               whileTap={{ scale: 0.98 }}
             >
               <span className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-semibold tracking-wide">
-                Secure my seat
+                Join the 8 PM Room
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>
 
-            {/* Microtext */}
-            <motion.div
-              className="mt-4 text-sm flex items-center justify-center gap-2 text-soft-sand/70"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              <span>Seats remaining: {seatsRemaining}</span>
-              <div className="relative inline-block">
-                <button
-                  onMouseEnter={() => setShowTooltip(true)}
-                  onMouseLeave={() => setShowTooltip(false)}
-                  className="hover:opacity-80 transition-opacity"
-                >
-                  <Info className="w-3 h-3" />
-                </button>
-                {showTooltip && (
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-40 p-2 bg-deep-slate text-white text-xs rounded-lg shadow-lg z-10">
-                    Updated {formatTime(lastUpdated)}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-deep-slate" />
-                  </div>
-                )}
-              </div>
-              <span>• Price updates at midnight</span>
-            </motion.div>
+            <p className="mt-4 text-sm text-soft-sand/60">30-day guarantee · ₹222/day · WhatsApp support</p>
           </motion.div>
         </div>
       </div>

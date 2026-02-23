@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,14 +69,25 @@ const Header: React.FC = () => {
             </nav>
 
             {/* Desktop CTA */}
+            <div className="hidden md:flex items-center gap-4">
+              <a
+                href="https://wa.me/919220592205?text=Hi%2C%20I%20want%20to%20know%20more%20about%20ETM%20Mentorship"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-white transition-colors"
+                aria-label="Chat on WhatsApp"
+              >
+                <MessageCircle size={20} />
+              </a>
             <motion.button
               onClick={() => scrollToSection('pricing')}
-              className="hidden md:block px-6 py-3 bg-burnt-amber text-white rounded-full hover:bg-burnt-amber/90 transition-all font-semibold"
+              className="px-6 py-3 bg-burnt-amber text-white rounded-full hover:bg-burnt-amber/90 transition-all font-semibold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Get Started
             </motion.button>
+            </div>
 
             {/* Mobile Menu Button */}
             <button

@@ -67,34 +67,23 @@ const FloatingCTA: React.FC = () => {
                       </div>
                       <div>
                         <h3 className="text-white font-semibold text-lg">
-                          Ready to Transform?
+                          Tonight's Session at 8 PM
                         </h3>
                         <p className="text-soft-sand text-sm mt-1">
-                          Join 500+ traders in ETM Mentorship
+                          500+ traders already in the room
                         </p>
                       </div>
                     </div>
 
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-sm text-soft-sand">
-                        <span className="text-wealth-teal">✓</span>
-                        <span>Daily 8 PM live sessions</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-soft-sand">
-                        <span className="text-wealth-teal">✓</span>
-                        <span>Personal trade reviews</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-soft-sand">
-                        <span className="text-wealth-teal">✓</span>
-                        <span>90-day transformation</span>
-                      </div>
-                    </div>
+                    <p className="text-sm text-soft-sand">
+                      Live trading · Personal reviews · 30-day guarantee
+                    </p>
 
                     <button
                       onClick={handleClick}
                       className="w-full mt-5 bg-burnt-amber text-white font-semibold py-3 px-4 rounded-lg hover:bg-burnt-amber/90 transition-all duration-300 flex items-center justify-center gap-2 group"
                     >
-                      <span>View Pricing</span>
+                      <span>View Plans</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -124,17 +113,17 @@ const FloatingCTA: React.FC = () => {
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex-1">
                     <p className="text-white font-medium text-sm">
-                      ETM Mentorship Open
+                      8 PM Session Tonight
                     </p>
                     <p className="text-soft-sand/70 text-xs">
-                      Limited seats available
+                      30-day guarantee
                     </p>
                   </div>
                   <button
                     onClick={handleClick}
                     className="bg-burnt-amber text-white font-semibold py-2.5 px-5 rounded-lg text-sm flex items-center gap-2 whitespace-nowrap hover:bg-burnt-amber/90 transition-all"
                   >
-                    <span>Enroll Now</span>
+                    <span>Join Now</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
