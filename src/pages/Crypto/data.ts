@@ -39,22 +39,22 @@ export const trustBadges: TrustBadge[] = [
           icon: Bitcoin,
           title: "Since 2017",
           description: "3 crashes, 2 bears, still here",
-          bgColor: "bg-yellow-500/20",
-          iconColor: "text-yellow-400"
+          bgColor: "bg-[#0A8D7A]/10",
+          iconColor: "text-[#0A8D7A]"
       },
       {
           icon: BarChart3,
           title: "₹27.2 Cr reported",
           description: "Student-reported profits",
-          bgColor: "bg-green-500/20",
-          iconColor: "text-green-400"
+          bgColor: "bg-[#0A8D7A]/10",
+          iconColor: "text-[#0A8D7A]"
       },
        {
           icon: CandlestickChart,
           title: "73% win rate",
           description: "Sample: 1,847 trades",
-          bgColor: "bg-blue-500/20",
-          iconColor: "text-blue-400"
+          bgColor: "bg-[#0A8D7A]/10",
+          iconColor: "text-[#0A8D7A]"
       }
   ];
 
