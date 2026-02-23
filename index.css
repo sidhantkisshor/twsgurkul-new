@@ -1,6 +1,143 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config './tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility container-custom {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+
+@utility section {
+  @apply py-16 md:py-24;
+}
+
+@utility section-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white;
+}
+
+@utility section-subtitle {
+  @apply text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto text-center;
+}
+
+@utility cta-button-primary {
+  @apply bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-4 px-8 rounded-lg 
+    transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-500/20
+    uppercase tracking-wide text-center block w-full sm:w-auto cursor-pointer;
+}
+
+@utility cta-button-secondary {
+  @apply bg-transparent hover:bg-slate-800 text-amber-500 font-bold py-3 px-6 rounded-lg
+    border-2 border-amber-500 hover:border-amber-500 transition-all duration-300 
+    uppercase tracking-wide text-center block w-full sm:w-auto cursor-pointer;
+}
+
+@utility glass-effect {
+  @apply bg-white/5 backdrop-blur-md;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(40px) saturate(180%) brightness(120%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(120%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@utility glassmorphism {
+  @apply bg-white/3 backdrop-blur-xl border border-white/10;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
+@utility glassmorphism-card {
+  @apply bg-white/2 backdrop-blur-2xl;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
+@utility animate-scroll-left {
+  animation: scrollLeft 30s linear infinite;
+}
+
+@utility testimonial-card {
+  @apply bg-slate-800/50 backdrop-blur-xs rounded-xl p-6 shadow-xl border border-slate-700
+    hover:border-slate-600 transition-all duration-300;
+}
+
+@utility feature-card {
+  @apply bg-slate-800/30 backdrop-blur-xs rounded-xl p-6 shadow-lg border border-slate-700/50
+    hover:border-amber-500/50 transition-all duration-300 h-full;
+}
+
+@utility scrollbar-hide {
+  /* Hide scrollbar but keep functionality */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@utility animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+@utility animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@utility animate-slide-down {
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-amber-400 to-amber-600;
+}
+
+@utility bg-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@utility animate-float-delayed {
+  animation: float-delayed 6s ease-in-out 3s infinite;
+}
+
+@utility animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+@utility animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
 
 @layer base {
   html {
@@ -55,55 +192,6 @@
 }
 
 @layer components {
-  .container-custom {
-    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
-  }
-  
-  .section {
-    @apply py-16 md:py-24;
-  }
-  
-  .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white;
-  }
-  
-  .section-subtitle {
-    @apply text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto text-center;
-  }
-  
-  .cta-button-primary {
-    @apply bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-4 px-8 rounded-lg 
-    transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-500/20
-    uppercase tracking-wide text-center block w-full sm:w-auto cursor-pointer;
-  }
-  
-  .cta-button-secondary {
-    @apply bg-transparent hover:bg-slate-800 text-amber-500 font-bold py-3 px-6 rounded-lg
-    border-2 border-amber-500 hover:border-amber-500 transition-all duration-300 
-    uppercase tracking-wide text-center block w-full sm:w-auto cursor-pointer;
-  }
-  
-  .glass-effect {
-    @apply bg-white/5 backdrop-blur-md;
-  }
-  
-  .glassmorphism {
-    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0.01) 100%
-    );
-  }
-  
-  .glassmorphism-card {
-    @apply bg-white/[0.02] backdrop-blur-2xl;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.04) 0%,
-      rgba(255, 255, 255, 0.01) 100%
-    );
-  }
   
   @keyframes scrollLeft {
     0% {
@@ -113,47 +201,9 @@
       transform: translateX(-50%);
     }
   }
-  
-  .animate-scroll-left {
-    animation: scrollLeft 30s linear infinite;
-  }
-  
-  .testimonial-card {
-    @apply bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-slate-700
-    hover:border-slate-600 transition-all duration-300;
-  }
-  
-  .feature-card {
-    @apply bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-slate-700/50
-    hover:border-amber-500/50 transition-all duration-300 h-full;
-  }
 }
 
 @layer utilities {
-  /* Hide scrollbar but keep functionality */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-  
-  .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  
-  .animate-fade-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .animate-slide-down {
-    animation: slideDown 0.4s ease-out forwards;
-  }
   
   @keyframes slideDown {
     from {
@@ -164,21 +214,6 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
-  }
-  
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600;
-  }
-  
-  .bg-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  
-  .glass-effect {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(40px) saturate(180%) brightness(120%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(120%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 }
 
@@ -201,14 +236,6 @@
     }
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-float-delayed {
-    animation: float-delayed 6s ease-in-out 3s infinite;
-  }
-
   @keyframes fade-in-up {
     from {
       opacity: 0;
@@ -218,10 +245,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
   }
 
   @keyframes gradient {
@@ -234,10 +257,5 @@
     100% {
       background-position: 0% 50%;
     }
-  }
-
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 3s ease infinite;
   }
 } 
