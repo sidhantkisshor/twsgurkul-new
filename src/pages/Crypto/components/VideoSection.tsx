@@ -84,9 +84,9 @@ const VideoSection: React.FC = () => {
                                                 className="flex items-center justify-center gap-2 text-xs text-[#C87533] font-medium"
                                             >
                                                 <span>Setup logic</span>
-                                                <span className="text-slate-500">·</span>
+                                                <span className="text-[#111111]/40">·</span>
                                                 <span>Risk sizing</span>
-                                                <span className="text-slate-500">·</span>
+                                                <span className="text-[#111111]/40">·</span>
                                                 <span>Exit plan</span>
                                             </motion.div>
                                         )}

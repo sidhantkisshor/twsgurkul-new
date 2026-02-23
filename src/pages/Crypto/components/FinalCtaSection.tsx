@@ -2,24 +2,51 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Clock, Shield, TrendingUp, Bitcoin, Zap, CreditCard, Smartphone, Building } from 'lucide-react';
 
+const containerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            staggerChildren: 0.12,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 16 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const slideLeftVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+};
+
+const slideRightVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+};
+
 const FinalCtaSection: React.FC = () => {
-    
+
     return (
         <section id="final-cta" className="py-16 px-4 sm:px-6 lg:px-8 bg-[#2C3539] relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-[#C87533]/10 rounded-full blur-3xl pointer-events-none"></div>
+
             <div className="max-w-6xl mx-auto text-center relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
                 >
 
                     {/* Main heading */}
-                    <div className="mb-12">
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                    <motion.div className="mb-12" variants={itemVariants}>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white">
                             Ready to Start Your
                             <span className="font-bold text-white">
                                 {' '}Crypto Journey?{' '}
@@ -29,18 +56,15 @@ const FinalCtaSection: React.FC = () => {
                             Join our community learning systematic crypto trading. <br/>
                             <span className="text-[#C87533] font-semibold">Start today with instant access to all modules.</span>
                         </p>
-                    </div>
-                    
+                    </motion.div>
+
                     {/* Comparison cards */}
-                    <div className="bg-white/10 rounded-2xl p-6 sm:p-8 mb-12 border border-white/10 hover:border-white/20 transition-all">
+                    <motion.div className="bg-white/10 rounded-2xl p-6 sm:p-8 mb-12 border border-white/10 hover:border-white/20 transition-all" variants={itemVariants}>
                         <div className="grid md:grid-cols-2 gap-8">
                             {/* Without action */}
-                            <motion.div 
+                            <motion.div
                                 className="relative"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
+                                variants={slideLeftVariants}
                             >
                                 <h3 className="font-bold text-[#E5484D] mb-4 text-lg sm:text-xl flex items-center">
                                     <span className="w-2 h-2 bg-[#E5484D] rounded-full mr-3"></span>
@@ -67,12 +91,9 @@ const FinalCtaSection: React.FC = () => {
                             </motion.div>
 
                             {/* With action */}
-                            <motion.div 
+                            <motion.div
                                 className="relative"
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.3 }}
+                                variants={slideRightVariants}
                             >
                                 <h3 className="font-bold text-[#0A8D7A] mb-4 text-lg sm:text-xl flex items-center">
                                     <span className="w-2 h-2 bg-[#0A8D7A] rounded-full mr-3"></span>
@@ -98,16 +119,10 @@ const FinalCtaSection: React.FC = () => {
                                 </ul>
                             </motion.div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Program highlights */}
-                    <motion.div 
-                        className="mb-12"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
-                    >
+                    <motion.div className="mb-12" variants={itemVariants}>
                         <div className="bg-white/10 rounded-xl p-6 border border-[#EDE6D8]/20">
                             <div className="flex items-center justify-center gap-3 mb-3">
                                 <Bitcoin className="w-8 h-8 text-[#C87533] animate-pulse" />
@@ -126,13 +141,7 @@ const FinalCtaSection: React.FC = () => {
                     </motion.div>
 
                     {/* Payment Options */}
-                    <motion.div 
-                        className="mb-8"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5 }}
-                    >
+                    <motion.div className="mb-8" variants={itemVariants}>
                         <div className="bg-white/10 rounded-xl p-6 border border-white/10 max-w-lg mx-auto">
                             <h3 className="text-lg font-bold text-white mb-4">Multiple payment options available</h3>
                             <div className="flex justify-center gap-4 mb-4">
@@ -153,13 +162,7 @@ const FinalCtaSection: React.FC = () => {
                     </motion.div>
 
                     {/* Trust indicators */}
-                    <motion.div 
-                        className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.6 }}
-                    >
+                    <motion.div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8" variants={itemVariants}>
                         <div className="flex items-center text-xs sm:text-sm text-[#EDE6D8]/80" style={{ fontSize: '13px' }}>
                             <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-[#0A8D7A]" />
                             Secure Payment
@@ -175,15 +178,12 @@ const FinalCtaSection: React.FC = () => {
                     </motion.div>
 
                     {/* CTA Button */}
-                    <motion.button 
+                    <motion.button
                         onClick={() => window.open('https://learn.tradingwithsidhant.com/web/checkout/68468c5a2f492ef9273b5025?purchaseNow=true', '_blank')}
                         className="group bg-[#C87533] text-white px-8 sm:px-12 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold shadow-2xl hover:bg-[#b5682d] transform hover:-translate-y-2 transition-all duration-300 inline-flex items-center space-x-3 relative overflow-hidden"
+                        variants={itemVariants}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.7 }}
                     >
                         <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                         <span className="relative">Start Learning Today</span>
@@ -199,4 +199,4 @@ const FinalCtaSection: React.FC = () => {
     );
 };
 
-export default FinalCtaSection; 
+export default FinalCtaSection;

@@ -152,26 +152,6 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                     </motion.div>
                 </div>
 
-                {/*<motion.div 
-                    className="mt-16 text-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                >
-                    <p className="text-[#EDE6D8]/80 mb-8 text-lg">
-                        Join our community of successful traders
-                    </p>
-                    <motion.button
-                        onClick={(e) => handleSmoothScroll(e, 'get-started')}
-                        className="border-2 border-slate-400 text-slate-200 hover:border-slate-300 hover:bg-slate-800/50 px-12 py-6 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-3 mx-auto text-lg transform hover:scale-105"
-                        whileTap={{ scale: 0.98 }}
-                        whileHover={{ y: -2 }}
-                    >
-                        <span>Start Your Journey</span>
-                        <ArrowRight className="w-6 h-6" />
-                    </motion.button>
-                </motion.div> */}
             </div>
         </section>
     );

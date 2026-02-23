@@ -44,7 +44,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
             {/* Close button */}
             <button 
               onClick={onClose}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 hover:bg-slate-700/50 rounded-lg transition-colors z-20"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 hover:bg-[#2C3539]/10 rounded-lg transition-colors z-20"
             >
               <X className="w-5 h-5 text-[#111111]/40 hover:text-[#2C3539]" />
             </button>
