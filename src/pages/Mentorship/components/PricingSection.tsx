@@ -35,7 +35,7 @@ const PricingSection: React.FC = () => {
       name: 'ETM Lite',
       price: '₹6,999',
       duration: '/ 3 months',
-      description: 'For beginners who want to get a feel for our system through daily trade ideas and analysis.',
+      description: 'Just watching for now',
       features: [
         { included: true, text: 'Daily trade ideas' },
         { included: true, text: 'Basic market analysis' },
@@ -44,7 +44,7 @@ const PricingSection: React.FC = () => {
         { included: false, text: 'Performance reviews' },
         { included: false, text: 'Accountability pods' },
       ],
-      ctaText: 'Start Small',
+      ctaText: 'Start with Lite',
       microcopy: null,
       style: 'standard'
     },
@@ -53,7 +53,7 @@ const PricingSection: React.FC = () => {
       name: 'ETM Pro',
       price: '₹18,999',
       duration: '/ 3 months',
-      description: 'For self-directed learners who want the full curriculum and community but no live room or reviews.',
+      description: "I'll study on my own",
       features: [
         { included: true, text: 'Everything in Lite' },
         { included: true, text: '40+ strategy videos' },
@@ -64,7 +64,7 @@ const PricingSection: React.FC = () => {
         { included: false, text: 'Weekly performance reviews' },
       ],
       ctaText: 'Self-Study Only',
-      microcopy: 'Most traders upgrade to Max for just ₹1,000 more.',
+      microcopy: 'For ₹1,000 more, get live coaching with Max →',
       style: 'muted'
     },
     {
@@ -72,7 +72,8 @@ const PricingSection: React.FC = () => {
       name: 'ETM Max',
       price: '₹19,999',
       duration: '/ 3 months',
-      description: 'For serious traders ready for live coaching, accountability, and reviews.',
+      description: 'I want the full transformation',
+      strikethrough: '₹85,000+ value',
       features: [
         { included: true, text: 'Everything in Pro' },
         { included: true, text: 'Nightly 8 PM live trading sessions with pro coaches' },
@@ -82,8 +83,9 @@ const PricingSection: React.FC = () => {
         { included: true, text: 'Priority WhatsApp group' },
         { included: true, text: '30-day satisfaction guarantee' }
       ],
-      ctaText: 'Get Coached Nightly',
-      microcopy: 'Only 50 seats per cohort to protect mentor ratio.',
+      ctaText: 'Start Trading at 8 PM',
+      microcopy: '= ₹222/day. Less than chai + samosa.',
+      badge: 'Recommended · 30-Day Guarantee',
       recommended: true,
       style: 'featured'
     }
@@ -97,7 +99,7 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section id="pricing" className="py-32 relative overflow-hidden bg-white">
+    <section id="pricing" className="py-32 relative overflow-hidden bg-warm-white">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -109,10 +111,10 @@ const PricingSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              Choose your learning path
+              Pick Your Plan. Start Tonight.
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
-              Three months to transform your trading. One decision to change your life.
+              All plans include lifetime access to updates. Upgrade anytime for the difference.
             </p>
           </motion.div>
 
@@ -137,7 +139,7 @@ const PricingSection: React.FC = () => {
                 {plan.recommended && (
                   <div className="absolute -top-4 right-6">
                     <div className="bg-brushed-gold text-white text-xs px-4 py-2 rounded-full font-semibold">
-                      Recommended
+                      {plan.badge || 'Recommended'}
                     </div>
                   </div>
                 )}
@@ -156,6 +158,11 @@ const PricingSection: React.FC = () => {
 
                     {/* Price */}
                     <div className="mt-4">
+                      {plan.strikethrough && (
+                        <p className={`text-sm line-through ${plan.style === 'featured' ? 'text-soft-sand/50' : 'text-deep-slate/40'}`}>
+                          {plan.strikethrough}
+                        </p>
+                      )}
                       <span className={`text-3xl font-semibold ${
                         plan.style === 'featured' ? 'text-white' : 'text-deep-slate'
                       }`}>
@@ -254,7 +261,7 @@ const PricingSection: React.FC = () => {
                 {plan.recommended && (
                   <div className="absolute -top-4 right-6">
                     <div className="bg-brushed-gold text-white text-xs px-4 py-2 rounded-full font-semibold">
-                      Recommended
+                      {plan.badge || 'Recommended'}
                     </div>
                   </div>
                 )}
@@ -273,6 +280,11 @@ const PricingSection: React.FC = () => {
 
                     {/* Price */}
                     <div className="mt-4">
+                      {plan.strikethrough && (
+                        <p className={`text-sm line-through ${plan.style === 'featured' ? 'text-soft-sand/50' : 'text-deep-slate/40'}`}>
+                          {plan.strikethrough}
+                        </p>
+                      )}
                       <span className={`text-3xl font-semibold ${
                         plan.style === 'featured' ? 'text-white' : 'text-deep-slate'
                       }`}>
@@ -358,11 +370,8 @@ const PricingSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm text-deep-slate/50 mb-4">
-              All plans include lifetime access to updates • 30-day money-back guarantee on ETM Max
-            </p>
-            <p className="text-xs text-deep-slate/40">
-              Lite & Pro buyers can upgrade anytime for the difference in price
+            <p className="text-sm text-deep-slate/50">
+              Lite & Pro can upgrade anytime. Pay only the difference.
             </p>
           </motion.div>
         </div>
