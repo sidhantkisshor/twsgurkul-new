@@ -7,6 +7,7 @@ import UniqueMechanismSection from './components/UniqueMechanismSection';
 import WhatYouGetSection from './components/WhatYouGetSection';
 import LiveDashboardSection from './components/LiveDashboardSection';
 import TestimonialsSection from './components/TestimonialsSection';
+import RiskReversalSection from './components/RiskReversalSection';
 import PricingSection from './components/PricingSection';
 import FinalCtaSection from './components/FinalCtaSection';
 import SimpleFaqSection from './components/SimpleFaqSection';
@@ -47,6 +48,7 @@ const MentorshipPage: React.FC = () => {
         <WhatYouGetSection />
         <LiveDashboardSection />
         <TestimonialsSection />
+        <RiskReversalSection />
         <PricingSection />
         <FinalCtaSection />
         <SimpleFaqSection />
