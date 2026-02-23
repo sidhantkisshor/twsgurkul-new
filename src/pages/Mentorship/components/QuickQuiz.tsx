@@ -155,7 +155,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                       {Math.round(((currentQuestion + 1) / questions.length) * 100)}%
                     </span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-deep-slate/10 rounded-full h-2">
                     <motion.div
                       className="bg-wealth-teal h-2 rounded-full"
                       initial={{ width: 0 }}

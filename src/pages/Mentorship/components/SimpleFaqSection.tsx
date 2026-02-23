@@ -43,7 +43,7 @@ const SimpleFaqSection: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-semibold text-deep-slate mb-4">
               Common questions
             </h2>
-            <p className="text-base text-deep-slate/70 font-light">
+            <p className="text-base text-deep-slate/70 font-medium">
               Quick answers to what's on your mind
             </p>
           </motion.div>

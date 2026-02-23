@@ -161,12 +161,12 @@ const LiveDashboardSection: React.FC = () => {
                 // Skeleton loader
                 <div className="space-y-4 animate-pulse">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="h-4 w-16 bg-gray-700 rounded-sm"></div>
-                    <div className="h-4 w-12 bg-gray-700 rounded-sm"></div>
+                    <div className="h-4 w-16 bg-deep-slate/70 rounded-sm"></div>
+                    <div className="h-4 w-12 bg-deep-slate/70 rounded-sm"></div>
                   </div>
                   <div className="space-y-3">
-                    <div className="h-4 w-full bg-gray-700 rounded-sm"></div>
-                    <div className="h-4 w-5/6 bg-gray-700 rounded-sm"></div>
+                    <div className="h-4 w-full bg-deep-slate/70 rounded-sm"></div>
+                    <div className="h-4 w-5/6 bg-deep-slate/70 rounded-sm"></div>
                   </div>
                 </div>
               ) : (
@@ -180,11 +180,11 @@ const LiveDashboardSection: React.FC = () => {
                     className="space-y-4"
                   >
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm text-gray-400">{feedTiles[currentFeedIndex].time}</span>
+                      <span className="text-sm text-soft-sand/60">{feedTiles[currentFeedIndex].time}</span>
                       <span className={`text-sm font-medium ${
                         feedTiles[currentFeedIndex].result.includes('+')
                           ? 'text-wealth-teal'
-                          : 'text-gray-400'
+                          : 'text-soft-sand/60'
                       }`}>
                         {feedTiles[currentFeedIndex].result}
                       </span>

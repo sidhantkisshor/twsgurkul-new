@@ -128,7 +128,7 @@ const TestimonialsSection: React.FC = () => {
 
               {/* Quick Facts Card */}
               <div className="bg-deep-slate text-white rounded-3xl p-8 sm:p-12">
-                <h4 className="text-sm uppercase tracking-wider mb-6 text-gray-400">
+                <h4 className="text-sm uppercase tracking-wider mb-6 text-soft-sand/60">
                   Quick facts
                 </h4>
                 <div className="space-y-4">

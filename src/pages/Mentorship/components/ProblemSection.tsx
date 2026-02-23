@@ -104,10 +104,10 @@ const ProblemSection: React.FC = () => {
                             <Info size={14} />
                           </button>
                           {showTooltip === index && (
-                            <div className="absolute bottom-full right-0 mb-2 w-48 p-2 bg-gray-900 text-white text-xs rounded-lg shadow-lg z-10">
+                            <div className="absolute bottom-full right-0 mb-2 w-48 p-2 bg-deep-slate text-white text-xs rounded-lg shadow-lg z-10">
                               <div className="relative">
                                 Indicative; internal survey of new members, last 12 months
-                                <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900" />
+                                <div className="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-deep-slate" />
                               </div>
                             </div>
                           )}
@@ -129,7 +129,7 @@ const ProblemSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="max-w-4xl mx-auto">
-              <div className="bg-gray-900 text-white rounded-3xl p-8 sm:p-12">
+              <div className="bg-deep-slate text-white rounded-3xl p-8 sm:p-12">
                 <p className="text-lg sm:text-xl font-normal leading-relaxed">
                   There is a better way. Instead of competing with millions of retail traders, see what the professionals are doing at 8 PM.
                 </p>

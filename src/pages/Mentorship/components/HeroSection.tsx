@@ -107,12 +107,12 @@ const HeroSection: React.FC = () => {
               {/* First two stats - always inline */}
               <div className="flex items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base mb-4 sm:mb-0">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl sm:text-3xl font-light text-white">2,300+</span>
+                  <span className="text-2xl sm:text-3xl font-semibold text-white">2,300+</span>
                   <span className="text-xs sm:text-sm text-soft-sand/70">traders trained</span>
                 </div>
                 <span className="text-soft-sand/40">•</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl sm:text-3xl font-light text-white">1,800+</span>
+                  <span className="text-2xl sm:text-3xl font-semibold text-white">1,800+</span>
                   <span className="text-xs sm:text-sm text-soft-sand/70">live sessions</span>
                 </div>
               </div>
@@ -120,7 +120,7 @@ const HeroSection: React.FC = () => {
               {/* Third stat - below on mobile, inline on desktop */}
               <div className="flex items-center justify-center sm:hidden">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-light text-white">4.8/5</span>
+                  <span className="text-2xl font-semibold text-white">4.8/5</span>
                   <span className="text-xs text-soft-sand/70">session rating (90 days)</span>
                 </div>
               </div>
@@ -128,7 +128,7 @@ const HeroSection: React.FC = () => {
               {/* Desktop version - only third stat */}
               <div className="hidden sm:flex items-center justify-center gap-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-light text-white">4.8/5</span>
+                  <span className="text-3xl font-semibold text-white">4.8/5</span>
                   <span className="text-sm text-soft-sand/70">session rating (90 days)</span>
                 </div>
               </div>

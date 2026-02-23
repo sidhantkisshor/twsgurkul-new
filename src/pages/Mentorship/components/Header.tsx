@@ -44,25 +44,25 @@ const Header: React.FC = () => {
             <nav className="hidden md:flex items-center gap-8">
               <button 
                 onClick={() => scrollToSection('problem')}
-                className="text-white/80 hover:text-white transition-colors font-light"
+                className="text-white/80 hover:text-white transition-colors font-medium"
               >
                 Problem
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('unique-mechanism')}
-                className="text-white/80 hover:text-white transition-colors font-light"
+                className="text-white/80 hover:text-white transition-colors font-medium"
               >
                 Method
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('testimonials')}
-                className="text-white/80 hover:text-white transition-colors font-light"
+                className="text-white/80 hover:text-white transition-colors font-medium"
               >
                 Success Stories
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('pricing')}
-                className="text-white/80 hover:text-white transition-colors font-light"
+                className="text-white/80 hover:text-white transition-colors font-medium"
               >
                 Pricing
               </button>
@@ -116,25 +116,25 @@ const Header: React.FC = () => {
                 <nav className="flex flex-col gap-6">
                   <button 
                     onClick={() => scrollToSection('problem')}
-                    className="text-left text-lg text-white/80 hover:text-white font-light"
+                    className="text-left text-lg text-white/80 hover:text-white font-medium"
                   >
                     Problem
                   </button>
-                  <button 
+                  <button
                     onClick={() => scrollToSection('unique-mechanism')}
-                    className="text-left text-lg text-white/80 hover:text-white font-light"
+                    className="text-left text-lg text-white/80 hover:text-white font-medium"
                   >
                     Method
                   </button>
-                  <button 
+                  <button
                     onClick={() => scrollToSection('testimonials')}
-                    className="text-left text-lg text-white/80 hover:text-white font-light"
+                    className="text-left text-lg text-white/80 hover:text-white font-medium"
                   >
                     Success Stories
                   </button>
-                  <button 
+                  <button
                     onClick={() => scrollToSection('pricing')}
-                    className="text-left text-lg text-white/80 hover:text-white font-light"
+                    className="text-left text-lg text-white/80 hover:text-white font-medium"
                   >
                     Pricing
                   </button>

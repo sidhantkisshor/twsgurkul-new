@@ -52,7 +52,7 @@ const FinalCtaSection: React.FC = () => {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-6">
               Two futures. One decision.
             </h2>
-            <p className="text-xl font-light mb-12 max-w-2xl mx-auto text-soft-sand">
+            <p className="text-xl font-medium mb-12 max-w-2xl mx-auto text-soft-sand">
               In 30 days you either have an 8 PM habit or another month of "someday".
             </p>
           </motion.div>
@@ -75,8 +75,8 @@ const FinalCtaSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Check className="w-5 h-5 text-green-400 shrink-0" />
-                  <span className="text-lg font-light text-soft-sand">{item}</span>
+                  <Check className="w-5 h-5 text-wealth-teal shrink-0" />
+                  <span className="text-lg font-medium text-soft-sand">{item}</span>
                 </motion.div>
               ))}
             </div>
