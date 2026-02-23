@@ -39,7 +39,7 @@ const FinalCtaSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden" style={{ backgroundColor: '#0D1321' }}>
+    <section className="py-32 relative overflow-hidden bg-deep-slate">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main message */}
@@ -49,10 +49,10 @@ const FinalCtaSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-6" style={{ color: '#F7F9FB' }}>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-6">
               Two futures. One decision.
             </h2>
-            <p className="text-xl font-light mb-12 max-w-2xl mx-auto" style={{ color: '#E9EDF1' }}>
+            <p className="text-xl font-light mb-12 max-w-2xl mx-auto text-soft-sand">
               In 30 days you either have an 8 PM habit or another month of "someday".
             </p>
           </motion.div>
@@ -76,7 +76,7 @@ const FinalCtaSection: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <Check className="w-5 h-5 text-green-400 shrink-0" />
-                  <span className="text-lg font-light" style={{ color: '#E9EDF1' }}>{item}</span>
+                  <span className="text-lg font-light text-soft-sand">{item}</span>
                 </motion.div>
               ))}
             </div>
@@ -91,12 +91,11 @@ const FinalCtaSection: React.FC = () => {
           >
             <motion.button
               onClick={scrollToPricing}
-              className="group px-12 sm:px-16 py-5 sm:py-6 bg-white rounded-full hover:bg-gray-100 transition-all duration-300"
-              style={{ color: '#0D1321' }}
+              className="group px-12 sm:px-16 py-5 sm:py-6 bg-burnt-amber text-white rounded-full hover:bg-burnt-amber/90 transition-all duration-300 font-semibold"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-light tracking-wide">
+              <span className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-semibold tracking-wide">
                 Secure my seat
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </span>
@@ -104,8 +103,7 @@ const FinalCtaSection: React.FC = () => {
 
             {/* Microtext */}
             <motion.div
-              className="mt-4 text-sm flex items-center justify-center gap-2"
-              style={{ color: '#9CA3AF' }}
+              className="mt-4 text-sm flex items-center justify-center gap-2 text-soft-sand/70"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -120,9 +118,9 @@ const FinalCtaSection: React.FC = () => {
                   <Info className="w-3 h-3" />
                 </button>
                 {showTooltip && (
-                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-40 p-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg z-10">
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-40 p-2 bg-deep-slate text-white text-xs rounded-lg shadow-lg z-10">
                     Updated {formatTime(lastUpdated)}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-deep-slate" />
                   </div>
                 )}
               </div>

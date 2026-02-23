@@ -29,7 +29,7 @@ const SimpleFaqSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 relative overflow-hidden bg-gray-50">
+    <section id="faq" className="py-20 relative overflow-hidden bg-warm-white">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
@@ -40,10 +40,10 @@ const SimpleFaqSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-deep-slate mb-4">
               Common questions
             </h2>
-            <p className="text-base text-gray-600 font-light">
+            <p className="text-base text-deep-slate/70 font-light">
               Quick answers to what's on your mind
             </p>
           </motion.div>
@@ -59,7 +59,7 @@ const SimpleFaqSection: React.FC = () => {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden"
+                className="bg-white rounded-2xl overflow-hidden border border-deep-slate/10"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -67,9 +67,9 @@ const SimpleFaqSection: React.FC = () => {
               >
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-warm-white transition-colors"
                 >
-                  <span className="text-base sm:text-lg text-gray-900 font-light pr-4">
+                  <span className="text-base sm:text-lg text-deep-slate font-medium pr-4">
                     {faq.question}
                   </span>
                   <motion.div
@@ -77,7 +77,7 @@ const SimpleFaqSection: React.FC = () => {
                     transition={{ duration: 0.3 }}
                     className="shrink-0"
                   >
-                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                    <ChevronDown className="w-5 h-5 text-burnt-amber" />
                   </motion.div>
                 </button>
                 
@@ -91,7 +91,7 @@ const SimpleFaqSection: React.FC = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-5">
-                        <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
+                        <p className="text-sm sm:text-base text-deep-slate/70 font-normal leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
