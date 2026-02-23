@@ -11,10 +11,11 @@ const TestimonialsSection: React.FC = () => {
     {
       name: "Divya",
       location: "Delhi",
-      quote: "Week 3 I finally stopped revenge trading. By Month 3 I was consistent enough to cover school fees from trading profits. The 8 PM routine saved my sanity.",
+      tag: "Homemaker · Started with ₹15k",
+      quote: "Pehle mujhe lagta tha trading sirf boys ka kaam hai. 3 weeks mein I stopped revenge trading. Month 3, my profits paid school fees. The 8 PM routine saved my sanity.",
       facts: [
-        "From kitchen table to dedicated trading desk",
-        "From indicators to order flow and footprint",
+        "Kitchen table to dedicated trading desk",
+        "Indicators to order flow and footprint",
         "Featured in 'Trading Queens of India'"
       ],
       proofImage: "/proof-divya-blurred.jpg" // Placeholder path
@@ -22,22 +23,24 @@ const TestimonialsSection: React.FC = () => {
     {
       name: "Vikram",
       location: "Pune",
-      quote: "I used to binge strategies. The live room forced one playbook. After 8 weeks of reviews my red days are small. Green days now pay for the month.",
+      tag: "Ex-IT employee · Started with ₹50k",
+      quote: "I wasted 2 years and ₹3 lakh on YouTube strategies. The live room forced me to follow ONE playbook. After 8 weeks of reviews, my red days became small. Green days now pay for the month.",
       facts: [
-        "Quit job after building six green weeks in a row",
-        "Consistency score improved 52 → 83",
-        "Wife manages his trade journaling now"
+        "Quit IT job after 6 green weeks in a row",
+        "Consistency score: 52 → 83",
+        "Wife manages his trade journal now"
       ],
       proofImage: "/proof-vikram-blurred.jpg" // Placeholder path
     },
     {
       name: "Mohammed",
       location: "Mumbai",
-      quote: "Uber driver shifts wrecked my focus. The 8 PM window fit my life. First month I learned to cut losses. Third month I stopped overtrading.",
+      tag: "Uber driver · Started with ₹10k",
+      quote: "Driving shifts wrecked my focus. But 8 PM fit my life. First month I learned to cut losses. Third month I stopped overtrading. Ab mera apna family account hai.",
       facts: [
         "From ₹10k starting capital",
         "Now runs a small family account",
-        "Mentors two new students on journaling"
+        "Mentors 2 new students on journaling"
       ],
       proofImage: "/proof-mohammed-blurred.jpg" // Placeholder path
     }
@@ -64,13 +67,10 @@ const TestimonialsSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              Transformation stories
+              Real People. Real Stories. Real Numbers.
             </h2>
-            <p className="text-lg text-deep-slate/70 max-w-3xl mx-auto font-normal mb-4">
-              Real people. Real progress. Many verified by independent accountants.
-            </p>
-            <p className="text-base text-deep-slate/60 max-w-4xl mx-auto font-normal">
-              Coached daily by our team of professional mentors.
+            <p className="text-lg text-deep-slate/70 max-w-3xl mx-auto font-normal">
+              They started just like you. Some with ₹10k. Some with no experience. All of them stuck to the 8 PM routine.
             </p>
           </motion.div>
 
@@ -90,6 +90,9 @@ const TestimonialsSection: React.FC = () => {
                     <h3 className="text-xl font-medium text-deep-slate">
                       {testimonials[activeIndex].name}, {testimonials[activeIndex].location}
                     </h3>
+                    <p className="text-sm text-deep-slate/60">
+                      {testimonials[activeIndex].tag}
+                    </p>
                   </div>
                 </div>
                 
@@ -180,7 +183,7 @@ const TestimonialsSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <p className="text-base sm:text-lg text-center font-normal">
-              Case studies show ₹50k to ₹2L months once the routine sticks. Individual results vary.
+              Students report ₹50k–₹2L monthly once the routine sticks. Individual results vary by skill and capital.
             </p>
           </motion.div>
 
