@@ -111,7 +111,7 @@ const PricingSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              Pick Your Plan. Start Tonight.
+              Three plans. Pick one. Start tonight.
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
               All plans include lifetime access to updates. Upgrade anytime for the difference.

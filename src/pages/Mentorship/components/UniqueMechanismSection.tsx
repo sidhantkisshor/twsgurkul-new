@@ -42,7 +42,7 @@ const UniqueMechanismSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              The <span className="text-burnt-amber font-semibold">8 PM</span> Liquidity Window
+              The <span className="text-burnt-amber font-semibold">8 PM</span> Window — Why This Time, Why This Works
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
               New York opens at 8 PM India time. That's when the real money moves. We show you exactly where.

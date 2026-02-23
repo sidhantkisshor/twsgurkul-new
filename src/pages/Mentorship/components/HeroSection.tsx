@@ -117,7 +117,7 @@ const HeroSection: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                Every Night at 8 PM, We Trade Live. You Watch. You Learn. You Earn.
+                Every Night at 8 PM, We Trade Live. You Follow Along. You Get Better.
               </motion.span>
             </h1>
 

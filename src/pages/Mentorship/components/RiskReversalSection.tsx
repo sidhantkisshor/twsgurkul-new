@@ -15,7 +15,7 @@ const RiskReversalSection: React.FC = () => {
         <Shield className="mx-auto mb-6 text-wealth-teal" size={48} />
 
         <h2 className="text-4xl sm:text-5xl font-semibold text-deep-slate mb-6">
-          Zero Risk. Full Refund in 30 Days.
+          Don&apos;t like it? Full refund. 30 days.
         </h2>
 
         <p className="text-lg text-deep-slate/70 mb-6">
@@ -26,7 +26,7 @@ const RiskReversalSection: React.FC = () => {
 
         <p className="text-base text-deep-slate/50 italic">
           Why we can offer this: 83% of students complete all 90 days. We
-          don&apos;t need to trap anyone. The system speaks for itself.
+          don&apos;t need to lock anyone in.
         </p>
       </motion.div>
     </section>

@@ -51,7 +51,7 @@ const ProblemSection: React.FC = () => {
               You Already Know Trading Is Hard. Here's Why.
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
-              It's not your fault. But it IS your problem to solve.
+              Most traders lose money for the same 3 reasons. Sound familiar?
             </p>
           </motion.div>
 

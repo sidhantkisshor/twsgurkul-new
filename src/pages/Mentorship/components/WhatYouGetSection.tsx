@@ -168,7 +168,7 @@ const WhatYouGetSection: React.FC = () => {
                 <div>
                   <h4 className="text-sm uppercase tracking-wider text-deep-slate/60 mb-2">Accountability</h4>
                   <p className="text-base text-deep-slate/70 font-normal">
-                    Daily check-ins, trade logs, and peer support. No hiding. No excuses. Just consistent progress.
+                    Daily check-ins, trade logs, and peer support. Your pod keeps you honest.
                   </p>
                 </div>
               </div>

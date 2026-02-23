@@ -65,11 +65,8 @@ const SimpleFaqSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl font-semibold text-deep-slate mb-4">
-              Got Questions? We've Got Answers.
+              10 things everyone asks before joining
             </h2>
-            <p className="text-base text-deep-slate/70 font-normal">
-              The 10 things everyone asks before joining.
-            </p>
           </motion.div>
 
           {/* FAQ Accordion */}

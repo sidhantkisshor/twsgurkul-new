@@ -28,7 +28,7 @@ const FinalCtaSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-6">
-              Tonight at 8 PM, the Market Opens. Will You Be Ready?
+              8 PM tonight. The market opens. You in?
             </h2>
             <p className="text-xl font-medium mb-12 max-w-2xl mx-auto text-soft-sand">
               30 days from now, you'll either have a trading routine that works — or another month of "I'll start tomorrow."

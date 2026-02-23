@@ -67,10 +67,10 @@ const TestimonialsSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              Real People. Real Stories. Real Numbers.
+              They Were Where You Are
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-3xl mx-auto font-normal">
-              They started just like you. Some with ₹10k. Some with no experience. All of them stuck to the 8 PM routine.
+              Some started with ₹10k. Some had zero experience. All of them stuck to the 8 PM routine.
             </p>
           </motion.div>
 
