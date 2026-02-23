@@ -41,10 +41,10 @@ const UniqueMechanismSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
-              The 8 PM Liquidity Window
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
+              The <span className="text-burnt-amber font-semibold">8 PM</span> Liquidity Window
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+            <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
               While others guess, we follow flows that actually move price.
             </p>
           </motion.div>
@@ -59,7 +59,7 @@ const UniqueMechanismSection: React.FC = () => {
               viewport={{ once: true }}
             >
               {/* Timeline divider line - positioned behind icons */}
-              <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-gray-200/50 z-0" />
+              <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-wealth-teal/30 z-0" />
               
               {/* Steps */}
               <div className="relative grid md:grid-cols-3 gap-12 md:gap-8">
@@ -76,18 +76,18 @@ const UniqueMechanismSection: React.FC = () => {
                     <div className="md:text-center relative">
                       {/* Circle - 48px (12 tailwind units) */}
                       <div className={`w-12 h-12 md:mx-auto mb-4 md:mb-6 rounded-full flex items-center justify-center transition-all duration-300 relative z-10 ${
-                        activeStep === step.id 
-                          ? 'bg-gray-900 text-white shadow-lg' 
-                          : 'bg-white text-gray-600 border border-gray-200'
+                        activeStep === step.id
+                          ? 'bg-burnt-amber text-white shadow-lg'
+                          : 'bg-white text-deep-slate/60 border border-deep-slate/10'
                       }`}>
                         {step.icon}
                       </div>
                       
                       {/* Time */}
-                      <p className="text-sm font-medium text-gray-900 mb-2">{step.time} — {step.title}</p>
+                      <p className="text-sm font-medium text-deep-slate mb-2">{step.time} — {step.title}</p>
                       
                       {/* Description */}
-                      <p className="text-sm text-gray-600 font-light leading-relaxed">
+                      <p className="text-sm text-deep-slate/70 font-normal leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -105,38 +105,38 @@ const UniqueMechanismSection: React.FC = () => {
             transition={{ duration: 1, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-50 rounded-3xl p-8 sm:p-12">
-              <h3 className="text-2xl font-light text-gray-900 mb-8">
+            <div className="bg-warm-white rounded-3xl p-8 sm:p-12">
+              <h3 className="text-2xl font-semibold text-deep-slate mb-8">
                 Why this works
               </h3>
               <div className="space-y-4">
                 <div className="flex gap-3">
-                  <span className="text-gray-400">•</span>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                  <span className="text-burnt-amber">•</span>
+                  <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
                     New York opens while India is free from 9 to 6 jobs
                   </p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-gray-400">•</span>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                  <span className="text-burnt-amber">•</span>
+                  <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
                     Wallet flow reveals where size is preparing to act
                   </p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-gray-400">•</span>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                  <span className="text-burnt-amber">•</span>
+                  <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
                     Footprint + order flow show real intent, not stories
                   </p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-gray-400">•</span>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                  <span className="text-burnt-amber">•</span>
+                  <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
                     Same time every night builds skill and discipline
                   </p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-gray-400">•</span>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
+                  <span className="text-burnt-amber">•</span>
+                  <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
                     Weekly reviews convert knowledge into consistency
                   </p>
                 </div>

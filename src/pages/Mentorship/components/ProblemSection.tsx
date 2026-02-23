@@ -31,10 +31,10 @@ const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section id="problem" className="py-32 relative overflow-hidden bg-gray-50">
+    <section id="problem" className="py-32 relative overflow-hidden bg-warm-white">
       {/* Subtle background gradient */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-linear-to-b from-white to-gray-50" />
+        <div className="absolute inset-0 bg-linear-to-b from-white to-warm-white" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -47,10 +47,10 @@ const ProblemSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
               The uncomfortable truth
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+            <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
               Most traders fail not because markets are hard, but because they are playing the wrong game.
             </p>
           </motion.div>
@@ -72,28 +72,28 @@ const ProblemSection: React.FC = () => {
                     ${activeIndex === index ? 'shadow-xl' : 'shadow-xs hover:shadow-md'}`}
                   >
                     {/* Kicker */}
-                    <div className="text-xs font-medium tracking-wider text-gray-400 mb-4">
+                    <div className="text-xs font-medium tracking-wider text-burnt-amber mb-4">
                       {problem.kicker}
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-xl font-normal text-gray-900 mb-4">
+                    <h3 className="text-xl font-medium text-deep-slate mb-4">
                       {problem.title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                    <p className="text-sm text-deep-slate/70 leading-relaxed mb-6">
                       {problem.description}
                     </p>
                     
                     {/* Stat with info icon */}
-                    <div className="pt-6 border-t border-gray-100">
+                    <div className="pt-6 border-t border-deep-slate/10">
                       <div className="flex items-start justify-between">
                         <div>
-                          <p className="text-3xl font-light text-gray-900">{problem.stat}</p>
-                          <p className="text-xs text-gray-500 mt-1">{problem.statLabel}</p>
+                          <p className="text-3xl font-normal text-burnt-amber">{problem.stat}</p>
+                          <p className="text-xs text-deep-slate/70 mt-1">{problem.statLabel}</p>
                         </div>
                         <div className="relative">
                           <button
-                            className="text-gray-400 hover:text-gray-600 transition-colors p-1"
+                            className="text-deep-slate/40 hover:text-deep-slate/60 transition-colors p-1"
                             onMouseEnter={() => setShowTooltip(index)}
                             onMouseLeave={() => setShowTooltip(null)}
                             onClick={(e) => {
@@ -130,7 +130,7 @@ const ProblemSection: React.FC = () => {
           >
             <div className="max-w-4xl mx-auto">
               <div className="bg-gray-900 text-white rounded-3xl p-8 sm:p-12">
-                <p className="text-lg sm:text-xl font-light leading-relaxed">
+                <p className="text-lg sm:text-xl font-normal leading-relaxed">
                   There is a better way. Instead of competing with millions of retail traders, see what the professionals are doing at 8 PM.
                 </p>
               </div>
