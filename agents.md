@@ -4,14 +4,15 @@ This guide provides comprehensive instructions for AI agents and developers work
 
 ## Tech Stack Overview
 
-- **Framework**: React 19 with TypeScript 5.2+
-- **Build Tool**: Vite 5.0 (fast HMR and optimized builds)
-- **Styling**: Tailwind CSS 3.4 with glass morphism design
-- **Routing**: React Router v6
-- **Animation**: Framer Motion
-- **Icons**: Lucide React
-- **Security**: DOMPurify for XSS protection
+- **Framework**: React 19.2 with TypeScript 5.9+
+- **Build Tool**: Vite 7.3 (fast HMR and optimized builds)
+- **Styling**: Tailwind CSS 4.2 with CSS-based `@theme {}` configuration
+- **Routing**: React Router v7
+- **Animation**: Framer Motion 12.34
+- **Icons**: Lucide React 0.575
+- **Security**: DOMPurify 3.3 for XSS protection
 - **Hosting**: AWS (S3 + CloudFront CDN)
+- **Linting**: ESLint 10 with flat config (`eslint.config.js`)
 
 ## Project Structure
 
@@ -32,6 +33,10 @@ twsgurukul/
 │   │   ├── Crypto/        # Crypto Market Mastery course
 │   │   ├── Footprint/     # Footprint Mastery System
 │   │   ├── SuperStreams/  # Super Streams program
+│   │   ├── Mentorship/    # Mentorship program
+│   │   ├── PropScanner/   # Prop trading scanner tool
+│   │   ├── Quiz/          # Interactive quiz system
+│   │   ├── Results/       # Quiz/assessment results
 │   │   └── Blogs/         # Blog system
 │   │       ├── components/ # Blog-specific components
 │   │       ├── hooks/      # Custom hooks
@@ -39,29 +44,49 @@ twsgurukul/
 │   │       ├── utils/      # Blog data management
 │   │       ├── BlogsPage.tsx
 │   │       └── BlogDetailPage.tsx
+│   ├── hooks/             # Global custom hooks
+│   ├── services/          # External service integrations
+│   ├── styles/            # Global styles
 │   ├── utils/             # Utility functions
 │   │   └── security.ts    # XSS protection utilities
 │   ├── App.tsx            # Route configuration
 │   └── main.tsx           # Application entry with ErrorBoundary
 ├── index.html             # Entry HTML
 ├── vite.config.ts         # Vite configuration
-├── tailwind.config.js     # Tailwind configuration
+├── tailwind.config.js     # Tailwind JS config (v4 compat)
 └── package.json           # Dependencies and scripts
 ```
 
 ## Design System & UI Guidelines
 
-### Glass Morphism Theme
+### Glass Morphism Theme (Tailwind v4)
+
+Tailwind CSS v4 uses CSS-based configuration. The theme is defined in `index.css` using `@theme {}` blocks instead of `tailwind.config.js`. Key custom utilities are defined in `@layer`:
+
+```css
+/* index.css */
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, system-ui, sans-serif;
+  --breakpoint-xs: 475px;
+  --animate-float: float 6s ease-in-out infinite;
+  /* ... all custom animations */
+}
+
+@layer utilities {
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(40px) saturate(180%) brightness(120%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(120%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+```
+
 The project uses a modern glass morphism design system. Key classes available globally:
 
 ```css
-/* Glass effect - use for cards, modals, floating elements */
-.glass-effect {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(40px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
 /* Animations */
 .animate-slide-down     /* Smooth entrance animation */
 .animate-fade-in        /* Fade in effect */
@@ -264,6 +289,10 @@ npm run preview
 # - /crypto
 # - /footprint
 # - /super-streams
+# - /mentorship
+# - /prop-scanner
+# - /quiz
+# - /results
 # - /blog
 # - /blog/:slug
 
@@ -346,9 +375,10 @@ The home page has been completely redesigned with a modern aesthetic:
 ## Additional Resources
 
 - **Project README**: Comprehensive overview and setup instructions
-- **Tailwind Docs**: [tailwindcss.com](https://tailwindcss.com)
-- **React Router v6**: [reactrouter.com](https://reactrouter.com)
+- **Tailwind CSS v4 Docs**: [tailwindcss.com](https://tailwindcss.com)
+- **React Router v7**: [reactrouter.com](https://reactrouter.com)
 - **Framer Motion**: [framer.com/motion](https://framer.com/motion)
+- **ESLint Flat Config**: [eslint.org/docs/latest/use/configure/configuration-files](https://eslint.org/docs/latest/use/configure/configuration-files)
 - **AWS S3 Static Hosting**: [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
 
 ---
