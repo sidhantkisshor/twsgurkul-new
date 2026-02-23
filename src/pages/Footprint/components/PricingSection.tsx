@@ -6,7 +6,7 @@ import { getNextFirstSaturdayWithOrdinal } from '../../Crypto/utils/dateHelpers'
 
 const PricingSection: React.FC = () => {
   const nextSession = getNextFirstSaturdayWithOrdinal();
-  
+
   const features = [
     {
       icon: BookOpen,
@@ -48,154 +48,157 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section id="pricing" className="section bg-linear-to-b from-slate-900 via-slate-950 to-slate-900 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.05),transparent_70%)]"></div>
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <section id="pricing" className="relative py-20 bg-[#2C3539] overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-96 h-96 bg-[#C87533]/5 rounded-full blur-3xl" />
       </div>
-      
+
       <div className="container-custom relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <motion.div 
+          <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="section-title text-center mb-4">
-              Master <span className="bg-linear-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Footprint Trading</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#EDE6D8] text-center mb-4">
+              Master <span className="text-[#C87533]">Footprint Trading</span>
             </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-[#B8A99A] max-w-2xl mx-auto">
               Stop guessing. Start reading order flow like institutional traders.
             </p>
           </motion.div>
 
           {/* Main Pricing Card */}
-          <motion.div 
-            className="max-w-5xl mx-auto"
+          <motion.div
+            className="max-w-2xl mx-auto"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="bg-linear-to-b from-slate-800/50 to-slate-900/50 backdrop-blur-xl rounded-2xl border border-cyan-500/20 overflow-hidden">
+            <div className="bg-[#3A4449]/80 backdrop-blur-sm rounded-2xl p-8 border border-[#C87533]/30 shadow-xl shadow-[#C87533]/5 relative">
               {/* Price Header */}
-              <div className="bg-linear-to-r from-cyan-900/20 to-teal-900/20 p-8 border-b border-cyan-500/20">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Footprint Mastery Program</h3>
-                    <p className="text-slate-300">Complete order flow education system</p>
-                  </div>
-                  <div className="text-center md:text-right">
-                    <div className="flex items-baseline gap-2 justify-center md:justify-end">
-                      <span className="text-slate-400 line-through text-lg">₹1,50,000</span>
-                      <span className="text-3xl font-bold text-cyan-400">₹34,997</span>
-                    </div>
-                    <p className="text-sm text-amber-400 mt-1">Limited time offer</p>
-                  </div>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-[#EDE6D8] mb-2">Footprint Mastery Program</h3>
+                <p className="text-[#B8A99A] mb-4">Complete order flow education system</p>
+                <div className="flex items-baseline gap-3 justify-center">
+                  <span className="text-[#B8A99A] line-through text-lg">₹1,50,000</span>
+                  <span className="text-5xl font-bold text-[#EDE6D8]">₹34,997</span>
                 </div>
+                <p className="text-sm text-[#E5484D] font-medium mt-2">Limited time offer</p>
               </div>
 
               {/* Features Grid */}
-              <div className="p-8">
-                <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-cyan-400" />
+              <div className="mb-8">
+                <h4 className="text-lg font-semibold text-[#EDE6D8] mb-6 flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-[#C87533]" />
                   What's Included
                 </h4>
-                
-                <div className="grid md:grid-cols-2 gap-4 mb-8">
+
+                <div className="grid md:grid-cols-2 gap-4">
                   {features.map((feature, index) => (
                     <motion.div
                       key={index}
-                      className="flex gap-4 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-cyan-500/30 transition-colors"
+                      className="flex gap-4 bg-[#2C3539]/60 rounded-lg p-4 border border-[#0A8D7A]/10 hover:border-[#C87533]/30 transition-colors"
                       initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
                     >
                       <div className="shrink-0">
-                        <div className="w-10 h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center">
-                          <feature.icon className="w-5 h-5 text-cyan-400" />
+                        <div className="w-10 h-10 bg-[#0A8D7A]/10 rounded-lg flex items-center justify-center">
+                          <feature.icon className="w-5 h-5 text-[#0A8D7A]" />
                         </div>
                       </div>
                       <div>
-                        <h5 className="font-semibold text-white text-sm mb-1">{feature.title}</h5>
-                        <p className="text-xs text-slate-400">{feature.description}</p>
+                        <h5 className="font-semibold text-[#EDE6D8] text-sm mb-1">{feature.title}</h5>
+                        <p className="text-xs text-[#B8A99A]">{feature.description}</p>
                       </div>
                     </motion.div>
                   ))}
                 </div>
+              </div>
 
-                {/* Guarantees */}
-                <div className="bg-slate-800/30 rounded-lg p-6 border border-slate-700/50 mb-8">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Shield className="w-5 h-5 text-amber-400" />
-                    <h4 className="font-semibold text-white">Your Investment is Protected</h4>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {guarantees.map((guarantee, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-400 shrink-0" />
-                        <span className="text-sm text-slate-300">{guarantee}</span>
-                      </div>
-                    ))}
-                  </div>
+              {/* Guarantees */}
+              <div className="bg-[#2C3539]/60 rounded-lg p-6 border border-[#B8956A]/20 mb-8">
+                <div className="flex items-center gap-2 mb-4">
+                  <Shield className="w-5 h-5 text-[#B8956A]" />
+                  <h4 className="font-semibold text-[#EDE6D8]">Your Investment is Protected</h4>
                 </div>
-
-                {/* Limited Seats Notice */}
-                <motion.div 
-                  className="bg-amber-900/20 border border-amber-500/30 rounded-lg p-4 mb-8"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-semibold text-amber-400 mb-1">Limited Monthly Seats</p>
-                      <p className="text-xs text-slate-300">
-                        Q&A sessions are capped to ensure quality interaction. Secure your spot before the next batch fills.
-                      </p>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {guarantees.map((guarantee, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-[#0A8D7A] shrink-0" />
+                      <span className="text-sm text-[#EDE6D8]">{guarantee}</span>
                     </div>
-                  </div>
-                </motion.div>
-
-                {/* CTA Button */}
-                <div className="text-center">
-                  <motion.button 
-                    onClick={handlePaymentPopup}
-                    className="px-8 py-4 bg-linear-to-r from-cyan-500 to-teal-500 text-white font-bold rounded-lg text-lg hover:from-cyan-600 hover:to-teal-600 transition-all shadow-lg shadow-cyan-500/25 mb-4"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Start Your Footprint Journey
-                    <span className="block text-sm font-normal mt-1 opacity-90">
-                      Instant access • Lifetime updates
-                    </span>
-                  </motion.button>
-                  
-                  <p className="text-xs text-slate-500 max-w-md mx-auto">
-                    Join 1,263+ traders who stopped guessing and started reading order flow systematically
-                  </p>
+                  ))}
                 </div>
+              </div>
+
+              {/* Guarantee Badges */}
+              <div className="mt-6 flex flex-wrap gap-3 justify-center mb-8">
+                <span className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#B8956A]/30 text-[#B8956A] text-sm">
+                  <Shield className="w-4 h-4" /> 30-Day Guarantee
+                </span>
+                <span className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#B8956A]/30 text-[#B8956A] text-sm">
+                  <Clock className="w-4 h-4" /> Lifetime Access
+                </span>
+              </div>
+
+              {/* Limited Seats Notice */}
+              <motion.div
+                className="bg-[#E5484D]/10 border border-[#E5484D]/30 rounded-lg p-4 mb-8"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-start gap-3">
+                  <Clock className="w-5 h-5 text-[#E5484D] shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-[#E5484D] text-sm font-medium mb-1">Limited Monthly Seats</p>
+                    <p className="text-xs text-[#B8A99A]">
+                      Q&A sessions are capped to ensure quality interaction. Secure your spot before the next batch fills.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* CTA Button */}
+              <div className="text-center">
+                <motion.button
+                  onClick={handlePaymentPopup}
+                  className="w-full bg-[#C87533] hover:bg-[#A85E28] text-white font-bold py-4 rounded-full shadow-lg shadow-[#C87533]/25 transition-all text-lg mb-4"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Start Your Footprint Journey
+                  <span className="block text-sm font-normal mt-1 opacity-90">
+                    Instant access · Lifetime updates
+                  </span>
+                </motion.button>
+
+                <p className="text-[#B8A99A] text-xs max-w-md mx-auto">
+                  Join 1,263+ traders who stopped guessing and started reading order flow systematically
+                </p>
               </div>
             </div>
           </motion.div>
 
           {/* Bottom Trust Elements */}
-          <motion.div 
+          <motion.div
             className="mt-12 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-sm text-slate-400 mb-2">
-              ✓ No recurring fees • ✓ No upsells • ✓ Complete program
+            <p className="text-[#B8A99A] text-xs mb-2">
+              No recurring fees · No upsells · Complete program
             </p>
-            <p className="text-xs text-slate-500 italic">
+            <p className="text-[#B8A99A] text-xs italic">
               Educational content only. Not investment advice. Results vary with practice.
             </p>
           </motion.div>
