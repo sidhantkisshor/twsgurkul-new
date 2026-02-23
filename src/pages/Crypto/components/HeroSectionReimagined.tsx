@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ArrowRight,
     Lock,
-    TrendingUp,
     Users,
     Calendar,
     Zap,
@@ -12,7 +11,6 @@ import {
     Clock,
     AlertCircle,
     CheckCircle,
-    Activity,
     DollarSign
 } from 'lucide-react';
 import { getNextFirstSaturdayWithOrdinal } from '../utils/dateHelpers';
@@ -23,18 +21,7 @@ interface HeroSectionReimaginedProps {
     onMethodologyClick?: () => void;
 }
 
-// Live ticker data
-const liveWins = [
-    { name: "Rahul S.", location: "Mumbai", profit: "+₹12,400", time: "2 min ago", coin: "BTC" },
-    { name: "Priya K.", location: "Delhi", profit: "+₹8,200", time: "5 min ago", coin: "ETH" },
-    { name: "Amit R.", location: "Bangalore", profit: "+₹15,600", time: "8 min ago", coin: "SOL" },
-    { name: "Sneha M.", location: "Pune", profit: "+₹9,800", time: "12 min ago", coin: "MATIC" },
-    { name: "Vikram T.", location: "Chennai", profit: "+₹21,300", time: "15 min ago", coin: "BTC" }
-];
-
 const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmoothScroll, onMethodologyClick }) => {
-    const [currentWinIndex, setCurrentWinIndex] = useState(0);
-    const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 45, seconds: 30 });
     const [activeTab, setActiveTab] = useState<'problem' | 'solution'>('problem');
     const containerRef = useRef(null);
 
@@ -46,27 +33,6 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
     };
 
     const nextLiveDate = formatDate(getNextFirstSaturdayWithOrdinal());
-
-    // Rotate live wins
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentWinIndex((prev) => (prev + 1) % liveWins.length);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
-
-    // Countdown timer
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setTimeLeft(prev => {
-                if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-                if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-                if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-                return prev;
-            });
-        }, 1000);
-        return () => clearInterval(timer);
-    }, []);
 
     const handleEnroll = () => {
         cryptoTrackingEvents.checkoutStart('hero_section_reimagined', 19499);
@@ -86,25 +52,17 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     {/* Left Column - Main Content */}
                     <div className="space-y-6">
-                        {/* Live Ticker */}
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={currentWinIndex}
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: 10 }}
-                                className="inline-flex items-center gap-2 bg-[#0A8D7A]/10 border border-[#0A8D7A]/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2"
-                            >
-                                <div className="w-2 h-2 bg-[#0A8D7A] rounded-full animate-pulse" />
-                                <span className="text-xs sm:text-sm text-[#0A8D7A]">
-                                    <span className="font-semibold">{liveWins[currentWinIndex].name}</span>
-                                    <span className="hidden sm:inline"> from {liveWins[currentWinIndex].location}</span>
-                                    <span> made </span>
-                                    <span className="font-bold">{liveWins[currentWinIndex].profit}</span>
-                                    <span className="hidden sm:inline"> on {liveWins[currentWinIndex].coin}</span>
-                                </span>
-                            </motion.div>
-                        </AnimatePresence>
+                        {/* Next Q&A Badge - honest, real date */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="inline-flex items-center gap-2 bg-[#C87533]/10 border border-[#C87533]/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2"
+                        >
+                            <Calendar className="w-3.5 h-3.5 text-[#C87533]" />
+                            <span className="text-xs sm:text-sm text-[#EDE6D8]">
+                                Next Live Q&A: <span className="font-semibold text-[#C87533]">{nextLiveDate}</span>
+                            </span>
+                        </motion.div>
 
                         {/* Main Headline */}
                         <div>
@@ -197,7 +155,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                                     className="space-y-3"
                                 >
                                     {[
-                                        "Rule-based system → ₹27.2 Cr student profits",
+                                        "Rule-based system → ₹27.2 Cr student profits reported",
                                         "Risk-first approach → Never lose more than 2%",
                                         "2-hour daily routine → Perfect for working professionals",
                                         "Live monthly Q&A → Direct access to expert guidance"
@@ -212,29 +170,6 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                                 </motion.div>
                             )}
                         </AnimatePresence>
-
-                        {/* Mobile Countdown Timer */}
-                        <div className="lg:hidden bg-white/10 rounded-xl p-3 border border-[#C87533]/20">
-                            <div className="text-center">
-                                <div className="text-xs text-[#C87533] mb-1">Enrollment closes in</div>
-                                <div className="flex items-center justify-center gap-1 text-white font-mono">
-                                    <div className="bg-[#2C3539] rounded-sm px-2 py-1">
-                                        <div className="text-lg font-bold text-[#C87533]">{String(timeLeft.hours).padStart(2, '0')}</div>
-                                        <div className="text-[9px] text-[#EDE6D8]">HRS</div>
-                                    </div>
-                                    <span className="text-[#C87533] text-sm">:</span>
-                                    <div className="bg-[#2C3539] rounded-sm px-2 py-1">
-                                        <div className="text-lg font-bold text-[#C87533]">{String(timeLeft.minutes).padStart(2, '0')}</div>
-                                        <div className="text-[9px] text-[#EDE6D8]">MIN</div>
-                                    </div>
-                                    <span className="text-[#C87533] text-sm">:</span>
-                                    <div className="bg-[#2C3539] rounded-sm px-2 py-1">
-                                        <div className="text-lg font-bold text-[#C87533]">{String(timeLeft.seconds).padStart(2, '0')}</div>
-                                        <div className="text-[9px] text-[#EDE6D8]">SEC</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         {/* CTA Section */}
                         <div className="space-y-4">
@@ -252,14 +187,6 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                             <div className="flex items-center gap-2 text-sm text-[#EDE6D8]/80">
                                 <Lock className="w-4 h-4" />
                                 <span>Takes under 2 minutes · UPI/cards/netbanking · No-cost EMI available</span>
-                            </div>
-
-                            {/* Next Live Q&A */}
-                            <div className="flex items-center gap-2 text-sm">
-                                <Calendar className="w-4 h-4 text-[#C87533]" />
-                                <span className="text-[#EDE6D8]/80">Next live Q&A:</span>
-                                <span className="text-[#C87533] font-semibold">{nextLiveDate}</span>
-                                <span className="text-[#EDE6D8]/60">· Recording provided</span>
                             </div>
                         </div>
                     </div>
@@ -312,41 +239,40 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                                     </div>
                                     <div>
                                         <div className="text-2xl font-bold text-[#C87533]">1,263</div>
-                                        <div className="text-xs text-[#2C3539]/60">Active Learners</div>
+                                        <div className="text-xs text-[#2C3539]/60">Students Enrolled</div>
                                     </div>
                                 </div>
                             </div>
 
+                            {/* Next Q&A Card - replaces fake "Live Now" */}
                             <div className="absolute bottom-20 left-0 bg-[#FAF8F5] text-[#2C3539] rounded-xl p-4 shadow-lg">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-[#0A8D7A]/10 rounded-lg flex items-center justify-center">
-                                        <Activity className="w-5 h-5 text-[#0A8D7A]" />
+                                    <div className="w-10 h-10 bg-[#C87533]/10 rounded-lg flex items-center justify-center">
+                                        <Calendar className="w-5 h-5 text-[#C87533]" />
                                     </div>
                                     <div>
-                                        <div className="text-2xl font-bold text-[#C87533]">Live Now</div>
-                                        <div className="text-xs text-[#2C3539]/60">42 Students Trading</div>
+                                        <div className="text-lg font-bold text-[#C87533]">Next Q&A</div>
+                                        <div className="text-xs text-[#2C3539]/60">{nextLiveDate}</div>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Timer Card - Desktop Only */}
-                            <div className="hidden lg:block absolute bottom-0 right-0 bg-white/10 rounded-xl p-4 border border-[#C87533]/20">
+                            {/* Program Format Card - replaces fake countdown */}
+                            <div className="hidden lg:block absolute bottom-0 right-0 bg-white/10 rounded-xl p-4 border border-[#EDE6D8]/20">
                                 <div className="text-center">
-                                    <div className="text-xs text-[#C87533] mb-2">Enrollment closes in</div>
-                                    <div className="flex items-center gap-2 text-white font-mono">
-                                        <div className="bg-[#2C3539] rounded-sm px-2 py-1">
-                                            <div className="text-xl font-bold text-[#C87533]">{String(timeLeft.hours).padStart(2, '0')}</div>
-                                            <div className="text-[10px] text-[#EDE6D8]">HRS</div>
+                                    <div className="text-xs text-[#C87533] mb-2">Program Format</div>
+                                    <div className="space-y-1.5 text-sm">
+                                        <div className="flex items-center gap-2 text-[#EDE6D8]">
+                                            <BookOpen className="w-4 h-4 text-[#0A8D7A]" />
+                                            <span>12-week recorded curriculum</span>
                                         </div>
-                                        <span className="text-[#C87533]">:</span>
-                                        <div className="bg-[#2C3539] rounded-sm px-2 py-1">
-                                            <div className="text-xl font-bold text-[#C87533]">{String(timeLeft.minutes).padStart(2, '0')}</div>
-                                            <div className="text-[10px] text-[#EDE6D8]">MIN</div>
+                                        <div className="flex items-center gap-2 text-[#EDE6D8]">
+                                            <Calendar className="w-4 h-4 text-[#C87533]" />
+                                            <span>Monthly live Q&A sessions</span>
                                         </div>
-                                        <span className="text-[#C87533]">:</span>
-                                        <div className="bg-[#2C3539] rounded-sm px-2 py-1">
-                                            <div className="text-xl font-bold text-[#C87533]">{String(timeLeft.seconds).padStart(2, '0')}</div>
-                                            <div className="text-[10px] text-[#EDE6D8]">SEC</div>
+                                        <div className="flex items-center gap-2 text-[#EDE6D8]">
+                                            <Clock className="w-4 h-4 text-[#0A8D7A]" />
+                                            <span>Lifetime access included</span>
                                         </div>
                                     </div>
                                 </div>
@@ -361,15 +287,15 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                             </div>
                             <div className="bg-[#FAF8F5] text-[#2C3539] rounded-xl p-4 shadow-lg">
                                 <div className="text-2xl font-bold text-[#C87533]">1,263</div>
-                                <div className="text-xs text-[#2C3539]/60">Active Learners</div>
+                                <div className="text-xs text-[#2C3539]/60">Students Enrolled</div>
                             </div>
                             <div className="bg-[#FAF8F5] text-[#2C3539] rounded-xl p-4 shadow-lg">
                                 <div className="text-2xl font-bold text-[#C87533]">73%</div>
                                 <div className="text-xs text-[#2C3539]/60">Win Rate</div>
                             </div>
                             <div className="bg-[#FAF8F5] text-[#2C3539] rounded-xl p-4 shadow-lg">
-                                <div className="text-2xl font-bold text-[#C87533]">Live</div>
-                                <div className="text-xs text-[#2C3539]/60">42 Trading Now</div>
+                                <div className="text-lg font-bold text-[#C87533]">Q&A {nextLiveDate}</div>
+                                <div className="text-xs text-[#2C3539]/60">Next Live Session</div>
                             </div>
                         </div>
 
@@ -391,7 +317,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                     </div>
                 </div>
 
-                {/* Bottom Proof Bar */}
+                {/* Bottom Proof Bar - honest, no fake avatars */}
                 <motion.div
                     className="mt-8 lg:mt-12 bg-white/10 rounded-xl p-3 sm:p-4 border border-white/10"
                     initial={{ opacity: 0, y: 20 }}
@@ -400,20 +326,12 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                 >
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-center sm:text-left">
-                            {/* Avatar Group */}
-                            <div className="flex -space-x-2 sm:-space-x-3">
-                                <div aria-label="student avatar" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#2C3539] bg-cover bg-center filter brightness-90 contrast-110" style={{ backgroundImage: 'url(https://randomuser.me/api/portraits/men/48.jpg)' }} />
-                                <div aria-label="student avatar" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#2C3539] bg-cover bg-center filter brightness-90 contrast-110" style={{ backgroundImage: 'url(https://randomuser.me/api/portraits/men/12.jpg)' }} />
-                                <div aria-label="student avatar" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#2C3539] bg-cover bg-center filter brightness-90 contrast-110" style={{ backgroundImage: 'url(https://randomuser.me/api/portraits/women/15.jpg)' }} />
-                                <div aria-label="student avatar" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#2C3539] bg-cover bg-center filter brightness-90 contrast-110" style={{ backgroundImage: 'url(https://xsgames.co/randomusers/assets/avatars/male/65.jpg)' }} />
-                                <div aria-label="student avatar" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#2C3539] bg-cover bg-center filter brightness-90 contrast-110" style={{ backgroundImage: 'url(https://i.pravatar.cc/400?img=59)' }} />
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#C87533] border-2 border-[#2C3539] flex items-center justify-center">
-                                    <span className="text-[10px] sm:text-xs text-white font-semibold">+1k</span>
+                            <div className="flex items-center gap-2">
+                                <Users className="w-5 h-5 text-[#C87533]" />
+                                <div className="text-sm">
+                                    <span className="text-white font-semibold">1,263 students enrolled</span>
+                                    <span className="text-[#EDE6D8]/60 ml-2">· Self-reported results</span>
                                 </div>
-                            </div>
-                            <div className="text-xs sm:text-sm">
-                                <div className="text-white font-semibold">Join 1,263 profitable traders</div>
-                                <div className="text-[#EDE6D8]/80">Learning the TWS method right now</div>
                             </div>
                         </div>
 

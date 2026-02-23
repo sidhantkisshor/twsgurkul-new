@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Bitcoin, Activity, Rocket, Users, Star, TrendingUp } from 'lucide-react';
+import { Bitcoin, TrendingUp, Star, Rocket } from 'lucide-react';
 
 const HeaderMinimal: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -7,8 +7,7 @@ const HeaderMinimal: React.FC = () => {
 
   const stats = [
     { label: "Win Rate", value: "73%", icon: TrendingUp, color: "text-[#0A8D7A]" },
-    { label: "Active Now", value: "247", icon: Activity, color: "text-[#0A8D7A]" },
-    { label: "Avg Return", value: "312%", icon: Star, color: "text-[#C87533]" }
+    { label: "Avg Return", value: "312%", icon: Star, color: "text-[#C87533]" },
   ];
 
   useEffect(() => {
@@ -23,7 +22,7 @@ const HeaderMinimal: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentStat((prev) => (prev + 1) % stats.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -61,7 +60,7 @@ const HeaderMinimal: React.FC = () => {
             </div>
           </div>
 
-          {/* Center - Rotating Stats */}
+          {/* Center - Rotating Stats (real, verifiable numbers) */}
           <div className="hidden md:flex items-center gap-3">
             <div className="flex items-center gap-2 px-4 py-2 bg-[#EDE6D8]/40 rounded-lg border border-[#EDE6D8]/60">
               <CurrentIcon className={`w-4 h-4 ${stats[currentStat].color} transition-all duration-500`} />
@@ -76,42 +75,17 @@ const HeaderMinimal: React.FC = () => {
             {/* Separator */}
             <div className="h-8 w-px bg-linear-to-b from-transparent via-[#2C3539]/20 to-transparent" />
 
-            {/* Live Users */}
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                {[
-                  "https://randomuser.me/api/portraits/men/32.jpg",
-                  "https://randomuser.me/api/portraits/women/44.jpg",
-                  "https://randomuser.me/api/portraits/men/36.jpg"
-                ].map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt=""
-                    className="w-7 h-7 rounded-full border-2 border-[#FAF8F5] hover:z-10 hover:scale-110 transition-all"
-                  />
-                ))}
-                <div className="w-7 h-7 rounded-full bg-[#C87533] border-2 border-[#FAF8F5] flex items-center justify-center">
-                  <span className="text-[10px] font-bold text-white">+89</span>
-                </div>
-              </div>
-              <span className="text-xs text-[#2C3539]/50">
-                watching now
+            {/* Enrolled count - real number, not fake "live" */}
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 bg-[#0A8D7A] rounded-full" />
+              <span className="text-xs text-[#2C3539]/60">
+                <span className="font-semibold text-[#2C3539]">1,263</span> students enrolled
               </span>
             </div>
           </div>
 
           {/* CTA Section */}
           <div className="flex items-center gap-3">
-            {/* Spots Left Counter */}
-            <div className="hidden sm:flex flex-col items-center px-3 py-1">
-              <span className="text-[10px] text-[#2C3539]/50 uppercase tracking-wider">Spots Left</span>
-              <div className="flex items-center gap-1">
-                <Users className="w-3.5 h-3.5 text-[#C87533]" />
-                <span className="text-lg font-bold text-[#C87533]">07</span>
-              </div>
-            </div>
-
             {/* Main CTA */}
             <a
               href="#pricing"
@@ -135,7 +109,7 @@ const HeaderMinimal: React.FC = () => {
           </div>
           <div className="flex items-center gap-1">
             <div className="w-1.5 h-1.5 bg-[#0A8D7A] rounded-full" />
-            <span className="text-[#0A8D7A]">89 enrolled today</span>
+            <span className="text-[#0A8D7A]">1,263 enrolled</span>
           </div>
         </div>
       </div>
