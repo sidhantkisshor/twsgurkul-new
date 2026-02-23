@@ -29,7 +29,7 @@ const VideoSection: React.FC = () => {
     const { video } = heroData;
 
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#FAF8F5]">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -38,10 +38,10 @@ const VideoSection: React.FC = () => {
                     viewport={{ once: true }}
                     className="text-center mb-8"
                 >
-                    <h2 className="text-3xl font-bold text-white mb-4">
+                    <h2 className="text-3xl font-bold text-[#2C3539] mb-4">
                         {video.title}
                     </h2>
-                    <p className="text-lg text-slate-300">
+                    <p className="text-lg text-[#111111]/70">
                         {video.subtitle}
                     </p>
                 </motion.div>
@@ -54,7 +54,7 @@ const VideoSection: React.FC = () => {
                     viewport={{ once: true }}
                 >
                     <div
-                        className="aspect-video glass-effect rounded-2xl border border-white/10 overflow-hidden hover:border-yellow-400/50 transition-all cursor-pointer shadow-2xl relative group"
+                        className="aspect-video border border-[rgba(44,53,57,0.08)] rounded-xl shadow-sm overflow-hidden hover:border-[#C87533]/50 transition-all cursor-pointer relative group"
                         onClick={() => setShowLightbox(true)}
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
@@ -66,12 +66,12 @@ const VideoSection: React.FC = () => {
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                             />
-                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                            <div className="absolute inset-0 bg-[#2C3539]/60 flex items-center justify-center">
                                 <div className="text-center px-4">
-                                    <div className="w-20 h-20 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                                        <Play className="w-10 h-10 text-yellow-400 ml-1" />
+                                    <div className="w-20 h-20 bg-[#C87533]/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                        <Play className="w-10 h-10 text-[#C87533] ml-1" />
                                     </div>
-                                    <p className="text-sm text-slate-400 mb-3">Click to watch</p>
+                                    <p className="text-sm text-[#111111]/60 mb-3">Click to watch</p>
                                     
                                     {/* Hover bullets */}
                                     <AnimatePresence>
@@ -81,7 +81,7 @@ const VideoSection: React.FC = () => {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 exit={{ opacity: 0, y: 10 }}
                                                 transition={{ duration: 0.2 }}
-                                                className="flex items-center justify-center gap-2 text-xs text-yellow-400 font-medium"
+                                                className="flex items-center justify-center gap-2 text-xs text-[#C87533] font-medium"
                                             >
                                                 <span>Setup logic</span>
                                                 <span className="text-slate-500">·</span>
@@ -101,7 +101,7 @@ const VideoSection: React.FC = () => {
                 <AnimatePresence>
                     {showLightbox && (
                         <motion.div
-                            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xs"
+                            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B1221]/90"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -118,7 +118,7 @@ const VideoSection: React.FC = () => {
                                 {/* Close button */}
                                 <button
                                     onClick={() => setShowLightbox(false)}
-                                    className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors"
+                                    className="absolute -top-12 right-0 text-[#EDE6D8] hover:text-white transition-colors"
                                     aria-label="Close video"
                                 >
                                     <X className="w-8 h-8" />
@@ -145,7 +145,7 @@ const VideoSection: React.FC = () => {
                                 {/* Video title in lightbox */}
                                 <div className="mt-4 text-center">
                                     <p className="text-white text-lg font-semibold">{video.title}</p>
-                                    <p className="text-slate-400 text-sm mt-1">{video.subtitle}</p>
+                                    <p className="text-[#EDE6D8] text-sm mt-1">{video.subtitle}</p>
                                 </div>
                             </motion.div>
                         </motion.div>
