@@ -188,14 +188,10 @@ const HeroSection: React.FC = () => {
                 </span>
               </motion.button>
 
-              <p className="text-xs sm:text-sm text-soft-sand/70 mt-2">
-                30-day money-back guarantee · No questions asked
-              </p>
-
               {/* Guarantee badge */}
-              <div className="flex items-center gap-2 mt-3">
+              <div className="flex items-center gap-2 mt-4">
                 <Shield size={16} className="text-wealth-teal" />
-                <span className="text-xs text-soft-sand/70">30-day money-back guarantee</span>
+                <span className="text-xs sm:text-sm text-soft-sand/70">30-day money-back · No questions asked</span>
               </div>
 
               {/* Countdown to 8 PM IST */}
