@@ -9,22 +9,22 @@ const UniqueMechanismSection: React.FC = () => {
     {
       id: 1,
       time: "7:45 PM",
-      title: "Observe",
-      description: "Track on-chain wallet activity, order flow, and footprint to locate absorption and trapped liquidity.",
+      title: "Watch",
+      description: "New York market opens. Big players start moving money. We show you exactly where — on your screen, live.",
       icon: <Eye className="w-6 h-6" />
     },
     {
       id: 2,
       time: "8:00–10:30 PM",
-      title: "Execute",
-      description: "Run the 8-pattern playbook with clear if-then rules and hard invalidation. Position size is capped. No hero trades.",
+      title: "Trade",
+      description: "Coach calls the setup. You see the entry, the stop loss, the target. Simple rules. No guessing. No hero trades.",
       icon: <Play className="w-6 h-6" />
     },
     {
       id: 3,
       time: "10:45 PM",
       title: "Review",
-      description: "Mark the trade, compute R-multiples, fix checklist leaks, and plan tomorrow's first look.",
+      description: "Did you follow the rules? What went right? What broke? Weekly review fixes your mistakes before they become bad habits.",
       icon: <CheckCircle className="w-6 h-6" />
     }
   ];
@@ -45,7 +45,7 @@ const UniqueMechanismSection: React.FC = () => {
               The <span className="text-burnt-amber font-semibold">8 PM</span> Liquidity Window
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
-              While others guess, we follow flows that actually move price.
+              New York opens at 8 PM India time. That's when the real money moves. We show you exactly where.
             </p>
           </motion.div>
 
@@ -113,31 +113,31 @@ const UniqueMechanismSection: React.FC = () => {
                 <div className="flex gap-3">
                   <span className="text-burnt-amber">•</span>
                   <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
-                    New York opens while India is free from 9 to 6 jobs
+                    8 PM IST = New York open = maximum market movement
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-burnt-amber">•</span>
                   <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
-                    Wallet flow reveals where size is preparing to act
+                    You're free from office by then — no conflict with your 9-6
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-burnt-amber">•</span>
                   <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
-                    Footprint + order flow show real intent, not stories
+                    Same time, same rules, every night = muscle memory (like gym)
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-burnt-amber">•</span>
                   <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
-                    Same time every night builds skill and discipline
+                    Coach trades the same screen you see — no fake screenshots
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-burnt-amber">•</span>
                   <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
-                    Weekly reviews convert knowledge into consistency
+                    Small group (12 max) — coach knows your name
                   </p>
                 </div>
               </div>
