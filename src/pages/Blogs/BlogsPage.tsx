@@ -14,12 +14,12 @@ const BlogsPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
         {/* Background gradient effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-green-500/5" />
+        <div className="absolute inset-0 bg-linear-to-br from-purple-500/5 via-transparent to-green-500/5" />
         <div className="absolute top-1/4 -left-20 w-64 h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full filter blur-[100px]" />
         <div className="absolute bottom-1/4 -right-20 w-64 h-64 md:w-72 md:h-72 bg-green-500/10 rounded-full filter blur-[100px]" />
         
         {/* Grid pattern overlay - hidden on mobile */}
-        <div className="hidden md:block absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+        <div className="hidden md:block absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-size-[4rem_4rem]" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -31,10 +31,10 @@ const BlogsPage: React.FC = () => {
 
             {/* Main headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="block bg-gradient-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
+              <span className="block bg-linear-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
                 Market Wisdom
               </span>
-              <span className="block mt-2 bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
+              <span className="block mt-2 bg-linear-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
                 Trading Insights
               </span>
             </h1>
@@ -59,7 +59,7 @@ const BlogsPage: React.FC = () => {
           <section className="mb-12 sm:mb-20">
             <div className="text-center mb-8 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   Featured Story
                 </span>
               </h2>
@@ -68,7 +68,7 @@ const BlogsPage: React.FC = () => {
             <Link to={`/blog/${featuredPost.slug}`} className="block group">
               <div className="relative">
                 {/* Gradient glow on hover - hidden on mobile */}
-                <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-purple-500/20 to-green-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+                <div className="hidden sm:block absolute inset-0 bg-linear-to-r from-purple-500/20 to-green-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
                 
                 <div className="relative glass-effect rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-white/10 group-hover:border-white/20 transition-all duration-300">
                   <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
@@ -93,7 +93,7 @@ const BlogsPage: React.FC = () => {
                         </div>
                       </div>
                       
-                      <h3 className="text-xl sm:text-2xl md:text-4xl font-bold text-white mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-green-400 group-hover:bg-clip-text transition-all duration-300">
+                      <h3 className="text-xl sm:text-2xl md:text-4xl font-bold text-white mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-purple-400 group-hover:to-green-400 group-hover:bg-clip-text transition-all duration-300">
                         {featuredPost.title}
                       </h3>
                       
@@ -108,7 +108,7 @@ const BlogsPage: React.FC = () => {
                     </div>
                     
                     <div className="hidden md:block">
-                      <div className="aspect-video rounded-2xl bg-gradient-to-br from-purple-500/20 to-green-500/20 flex items-center justify-center">
+                      <div className="aspect-video rounded-2xl bg-linear-to-br from-purple-500/20 to-green-500/20 flex items-center justify-center">
                         <BookOpen className="w-24 h-24 text-white/20" />
                       </div>
                     </div>
@@ -124,7 +124,7 @@ const BlogsPage: React.FC = () => {
           <section>
             <div className="text-center mb-8 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   Latest Insights
                 </span>
               </h2>
@@ -140,7 +140,7 @@ const BlogsPage: React.FC = () => {
                 >
                   <div className="relative h-full">
                     {/* Hover gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-linear-to-r from-white/5 to-white/0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     
                     <article className="relative glass-effect rounded-2xl sm:rounded-3xl p-4 sm:p-6 h-full border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-[1.02]">
                       <div className="flex flex-col h-full">
@@ -156,12 +156,12 @@ const BlogsPage: React.FC = () => {
                         </div>
                         
                         {/* Title */}
-                        <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-green-400 group-hover:bg-clip-text transition-all duration-300">
+                        <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-purple-400 group-hover:to-green-400 group-hover:bg-clip-text transition-all duration-300">
                           {post.title}
                         </h3>
                         
                         {/* Excerpt */}
-                        <p className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4 flex-grow leading-relaxed">
+                        <p className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4 grow leading-relaxed">
                           {post.excerpt}
                         </p>
                         
@@ -190,7 +190,7 @@ const BlogsPage: React.FC = () => {
             <div className="glass-effect rounded-2xl sm:rounded-3xl p-8 sm:p-12 border border-white/10 max-w-2xl mx-auto">
               <BookOpen className="w-12 h-12 sm:w-16 sm:h-16 text-purple-400 mx-auto mb-4 sm:mb-6" />
               <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
-                <span className="bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
                   Content Coming Soon
                 </span>
               </h2>

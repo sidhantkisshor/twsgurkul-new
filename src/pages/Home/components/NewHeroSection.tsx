@@ -67,7 +67,7 @@ const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
       {/* Animated Background */}
       <div className="absolute inset-0 bg-black">
         {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:14px_24px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[14px_24px]" />
         
         {/* Gradient orbs */}
         <div className="absolute top-1/4 -left-48 w-96 h-96 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse" />
@@ -82,7 +82,7 @@ const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
           <div className="text-center mb-16 animate-slide-up">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
               <span className="text-white block mb-2">Your Complete Journey from</span>
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent block pb-2">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent block pb-2">
                 Trading Beginner to Market Master
               </span>
             </h1>
@@ -103,13 +103,13 @@ const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
               >
                 {/* Level Badge */}
                 <div className="absolute top-4 right-4">
-                  <span className={`text-xs font-bold px-2 py-1 rounded-full bg-gradient-to-r ${path.color} text-white`}>
+                  <span className={`text-xs font-bold px-2 py-1 rounded-full bg-linear-to-r ${path.color} text-white`}>
                     {path.level}
                   </span>
                 </div>
 
                 {/* Icon */}
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${path.color} flex items-center justify-center mb-4`}>
+                <div className={`w-12 h-12 rounded-xl bg-linear-to-r ${path.color} flex items-center justify-center mb-4`}>
                   <path.icon className="w-6 h-6 text-white" />
                 </div>
 
@@ -144,18 +144,18 @@ const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
                 </div>
 
                 {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
               </div>
             ))}
           </div>
 
           {/* Floating Testimonial */}
           <div className="relative mb-12 animate-fade-in animation-delay-400">
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-green-500/5 rounded-2xl" />
+            <div className="absolute inset-0 bg-linear-to-r from-green-500/5 via-transparent to-green-500/5 rounded-2xl" />
             <div className="glass-effect rounded-2xl p-4 border border-green-500/20 max-w-md mx-auto">
               <div className="flex items-center gap-4">
                 <div className="relative">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-2xl">
+                  <div className="w-12 h-12 rounded-full bg-linear-to-br from-green-400 to-emerald-500 flex items-center justify-center text-2xl">
                     {testimonials[currentTestimonial].avatar}
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full flex items-center justify-center">
@@ -190,7 +190,7 @@ const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
           <div className="text-center animate-slide-up animation-delay-600">
             <button
               onClick={handleQuizClick}
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25"
+              className="group inline-flex items-center gap-3 bg-linear-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25"
             >
               <Target className="w-6 h-6" />
               Find Your Perfect Program

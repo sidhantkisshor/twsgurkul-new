@@ -75,7 +75,7 @@ const FinalCtaSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Check className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <Check className="w-5 h-5 text-green-400 shrink-0" />
                   <span className="text-lg font-light" style={{ color: '#E9EDF1' }}>{item}</span>
                 </motion.div>
               ))}

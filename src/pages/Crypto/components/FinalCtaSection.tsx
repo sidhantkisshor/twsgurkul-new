@@ -5,9 +5,9 @@ import { ArrowRight, Clock, Shield, TrendingUp, Bitcoin, Zap, CreditCard, Smartp
 const FinalCtaSection: React.FC = () => {
     
     return (
-        <section id="final-cta" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 via-slate-900 to-black relative overflow-hidden">
+        <section id="final-cta" className="py-16 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-slate-800 via-slate-900 to-black relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 to-orange-500/5 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-yellow-500/5 to-orange-500/5 pointer-events-none"></div>
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -22,7 +22,7 @@ const FinalCtaSection: React.FC = () => {
                     <div className="mb-12">
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                             Ready to Start Your
-                            <span className="font-bold bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+                            <span className="font-bold bg-linear-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
                                 {' '}Crypto Journey?{' '}
                             </span>
                         </h2>
@@ -109,13 +109,13 @@ const FinalCtaSection: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
                     >
-                        <div className="bg-gradient-to-r from-green-500/10 to-yellow-500/10 rounded-xl p-6 border border-green-500/20">
+                        <div className="bg-linear-to-r from-green-500/10 to-yellow-500/10 rounded-xl p-6 border border-green-500/20">
                             <div className="flex items-center justify-center gap-3 mb-3">
                                 <Bitcoin className="w-8 h-8 text-yellow-400 animate-pulse" />
                                 <Zap className="w-6 h-6 text-green-400" />
                             </div>
                             <p className="text-xl sm:text-2xl font-bold mb-2">
-                                <span className="bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+                                <span className="bg-linear-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
                                     Start Your Learning Journey Today
                                 </span>
                             </p>
@@ -178,7 +178,7 @@ const FinalCtaSection: React.FC = () => {
                     {/* CTA Button */}
                     <motion.button 
                         onClick={() => window.open('https://learn.tradingwithsidhant.com/web/checkout/68468c5a2f492ef9273b5025?purchaseNow=true', '_blank')}
-                        className="group bg-gradient-to-r from-green-500 via-green-600 to-green-500 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 transition-all duration-300 inline-flex items-center space-x-3 border border-green-400/20 relative overflow-hidden"
+                        className="group bg-linear-to-r from-green-500 via-green-600 to-green-500 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-2 transition-all duration-300 inline-flex items-center space-x-3 border border-green-400/20 relative overflow-hidden"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         initial={{ opacity: 0, y: 20 }}
@@ -186,7 +186,7 @@ const FinalCtaSection: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.7 }}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                         <span className="relative">Start Learning Today</span>
                         <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 relative group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.button>

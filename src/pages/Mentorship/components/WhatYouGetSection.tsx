@@ -48,7 +48,7 @@ const WhatYouGetSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                   viewport={{ once: true }}
                 >
-                  <div className="flex-shrink-0 mt-1">
+                  <div className="shrink-0 mt-1">
                     <div className="w-5 h-5 rounded-full bg-gray-900 flex items-center justify-center">
                       <Check className="w-3 h-3 text-white" />
                     </div>

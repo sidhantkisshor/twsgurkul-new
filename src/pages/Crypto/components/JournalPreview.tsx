@@ -45,7 +45,7 @@ const JournalPreview: React.FC = () => {
                             </p>
                             <motion.button
                                 onClick={handleViewJournal}
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -66,7 +66,7 @@ const JournalPreview: React.FC = () => {
                                         <Calendar className="w-4 h-4 text-slate-400" />
                                         <span className="text-sm text-slate-400">15 Nov 2024</span>
                                     </div>
-                                    <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded">WIN</span>
+                                    <span className="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-sm">WIN</span>
                                 </div>
                                 <h4 className="font-semibold text-white mb-1">BTC/USDT Long</h4>
                                 <div className="grid grid-cols-3 gap-4 text-sm">
@@ -99,7 +99,7 @@ const JournalPreview: React.FC = () => {
                                         <Calendar className="w-4 h-4 text-slate-400" />
                                         <span className="text-sm text-slate-400">14 Nov 2024</span>
                                     </div>
-                                    <span className="text-xs px-2 py-1 bg-red-500/20 text-red-400 rounded">LOSS</span>
+                                    <span className="text-xs px-2 py-1 bg-red-500/20 text-red-400 rounded-sm">LOSS</span>
                                 </div>
                                 <h4 className="font-semibold text-white mb-1">ETH/USDT Short</h4>
                                 <div className="grid grid-cols-3 gap-4 text-sm">

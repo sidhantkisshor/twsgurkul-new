@@ -84,7 +84,7 @@ const TestimonialsSection: React.FC = () => {
               className="grid md:grid-cols-2 gap-12 items-start"
             >
               {/* Quote Card */}
-              <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm">
+              <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xs">
                 <div className="flex items-start gap-4 mb-6">
                   <div>
                     <h3 className="text-xl font-normal text-gray-900">
@@ -140,7 +140,7 @@ const TestimonialsSection: React.FC = () => {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
                       <p className="text-sm sm:text-base font-light">
                         {fact}
                       </p>

@@ -34,7 +34,7 @@ const ProblemSection: React.FC = () => {
     <section id="problem" className="py-32 relative overflow-hidden bg-gray-50">
       {/* Subtle background gradient */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50" />
+        <div className="absolute inset-0 bg-linear-to-b from-white to-gray-50" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -69,7 +69,7 @@ const ProblemSection: React.FC = () => {
                   onClick={() => setActiveIndex(index)}
                 >
                   <div className={`bg-white rounded-2xl p-8 h-full transition-all duration-300 cursor-pointer relative
-                    ${activeIndex === index ? 'shadow-xl' : 'shadow-sm hover:shadow-md'}`}
+                    ${activeIndex === index ? 'shadow-xl' : 'shadow-xs hover:shadow-md'}`}
                   >
                     {/* Kicker */}
                     <div className="text-xs font-medium tracking-wider text-gray-400 mb-4">

@@ -189,7 +189,7 @@ Provide:
   const checkedFlags = getCheckedRedFlags();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900">
       <Seo
         title="Prop Firm Safety Checker 2025 - Free Legitimacy Scanner | TWS Gurukul"
         description="Free prop firm legitimacy checker tool. Instantly verify FTMO, Topstep, MyFundedFX & 100+ prop trading firms before paying fees. AI-powered safety analysis for traders."
@@ -200,11 +200,11 @@ Provide:
       />
 
       {/* Header */}
-      <div className="border-b border-white/10 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-50">
+      <div className="border-b border-white/10 bg-slate-900/50 backdrop-blur-xs sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">TWS</span>
               </div>
               <span className="text-white font-semibold text-lg">TWS Gurukul</span>
@@ -217,7 +217,7 @@ Provide:
       <div className="max-w-2xl mx-auto px-4 py-12">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-white/20">
           {/* Card Header */}
-          <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-center relative overflow-hidden">
+          <div className="bg-linear-to-r from-purple-600 to-indigo-600 p-8 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative z-10">
               <h1 className="text-3xl font-bold text-white mb-2">⚡ Free Prop Firm Safety Checker</h1>
@@ -229,7 +229,7 @@ Provide:
           <div className="p-6 lg:p-8 space-y-6">
             {/* Alert with SEO keywords */}
             <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4 flex gap-3">
-              <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center shrink-0 mt-0.5">
                 <span className="text-white font-bold text-xs">!</span>
               </div>
               <div className="text-amber-100 text-sm">
@@ -241,14 +241,14 @@ Provide:
             <div>
               <label htmlFor="firmName" className="block text-sm font-semibold text-white mb-2">
                 Prop Firm Name
-                <span className="ml-2 text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">Required</span>
+                <span className="ml-2 text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-sm">Required</span>
               </label>
               <input
                 type="text"
                 id="firmName"
                 value={firmName}
                 onChange={(e) => setFirmName(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-purple-400 focus:bg-white/15 transition-all"
                 placeholder="e.g., FTMO, Topstep, MyFundedFX"
                 autoComplete="off"
               />
@@ -259,13 +259,13 @@ Provide:
             <div>
               <label htmlFor="country" className="block text-sm font-semibold text-white mb-2">
                 Your Location
-                <span className="ml-2 text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">Required</span>
+                <span className="ml-2 text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-sm">Required</span>
               </label>
               <select
                 id="country"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-hidden focus:border-purple-400 focus:bg-white/15 transition-all"
               >
                 <option value="" className="bg-slate-800">Select your country</option>
                 <option value="India" className="bg-slate-800">🇮🇳 India</option>
@@ -284,14 +284,14 @@ Provide:
             <div>
               <label htmlFor="fee" className="block text-sm font-semibold text-white mb-2">
                 Challenge Fee
-                <span className="ml-2 text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded">Optional</span>
+                <span className="ml-2 text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded-sm">Optional</span>
               </label>
               <input
                 type="number"
                 id="fee"
                 value={fee}
                 onChange={(e) => setFee(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-purple-400 focus:bg-white/15 transition-all"
                 placeholder="Amount in USD (e.g., 150)"
               />
               <p className="text-xs text-gray-400 mt-1">Helps calculate ROI potential</p>
@@ -306,13 +306,13 @@ Provide:
                 {redFlags.map(flag => (
                   <label 
                     key={flag.id}
-                    className="flex items-center gap-3 p-2 rounded hover:bg-white/5 cursor-pointer transition-colors"
+                    className="flex items-center gap-3 p-2 rounded-sm hover:bg-white/5 cursor-pointer transition-colors"
                   >
                     <input
                       type="checkbox"
                       checked={flag.checked}
                       onChange={() => handleRedFlagToggle(flag.id)}
-                      className="w-4 h-4 rounded border-red-400 text-red-500 focus:ring-red-500 focus:ring-offset-0 bg-transparent"
+                      className="w-4 h-4 rounded-sm border-red-400 text-red-500 focus:ring-red-500 focus:ring-offset-0 bg-transparent"
                     />
                     <span className="text-red-200 text-sm">{flag.text}</span>
                   </label>
@@ -323,7 +323,7 @@ Provide:
             {/* Generate Button */}
             <button
               onClick={generatePrompt}
-              className="w-full py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-[1.02] transition-all duration-200"
+              className="w-full py-4 bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-[1.02] transition-all duration-200"
             >
               Generate Safety Analysis →
             </button>
@@ -422,7 +422,7 @@ Provide:
 
         {/* CTA Section with SEO content */}
         <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-cyan-500/10 to-teal-500/10 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/20">
+          <div className="bg-linear-to-r from-cyan-500/10 to-teal-500/10 backdrop-blur-xs rounded-2xl p-8 border border-cyan-500/20">
             <h2 className="text-2xl font-bold text-white mb-4">
               Learn Real Trading Instead of Prop Firm Challenges
             </h2>
@@ -433,7 +433,7 @@ Provide:
               href="https://learn.tradingwithsidhant.com/l/f232107210"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
             >
               <span>Join Wealth OS</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -447,7 +447,7 @@ Provide:
         </div>
 
         {/* SEO Content Section */}
-        <div className="mt-12 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+        <div className="mt-12 bg-white/5 backdrop-blur-xs rounded-2xl p-8 border border-white/10">
           <h2 className="text-xl font-bold text-white mb-4">Why Use Our Prop Firm Safety Checker?</h2>
           <div className="text-gray-300 space-y-4 text-sm">
             <p>

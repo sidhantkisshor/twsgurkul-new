@@ -48,7 +48,7 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section id="pricing" className="section bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 relative overflow-hidden">
+    <section id="pricing" className="section bg-linear-to-b from-slate-900 via-slate-950 to-slate-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.05),transparent_70%)]"></div>
@@ -65,7 +65,7 @@ const PricingSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="section-title text-center mb-4">
-              Master <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Footprint Trading</span>
+              Master <span className="bg-linear-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Footprint Trading</span>
             </h2>
             <p className="text-lg text-slate-300 max-w-2xl mx-auto">
               Stop guessing. Start reading order flow like institutional traders.
@@ -80,9 +80,9 @@ const PricingSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="bg-gradient-to-b from-slate-800/50 to-slate-900/50 backdrop-blur-xl rounded-2xl border border-cyan-500/20 overflow-hidden">
+            <div className="bg-linear-to-b from-slate-800/50 to-slate-900/50 backdrop-blur-xl rounded-2xl border border-cyan-500/20 overflow-hidden">
               {/* Price Header */}
-              <div className="bg-gradient-to-r from-cyan-900/20 to-teal-900/20 p-8 border-b border-cyan-500/20">
+              <div className="bg-linear-to-r from-cyan-900/20 to-teal-900/20 p-8 border-b border-cyan-500/20">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">Footprint Mastery Program</h3>
@@ -115,7 +115,7 @@ const PricingSection: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
                     >
-                      <div className="flex-shrink-0">
+                      <div className="shrink-0">
                         <div className="w-10 h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center">
                           <feature.icon className="w-5 h-5 text-cyan-400" />
                         </div>
@@ -137,7 +137,7 @@ const PricingSection: React.FC = () => {
                   <div className="grid sm:grid-cols-2 gap-3">
                     {guarantees.map((guarantee, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <Check className="w-4 h-4 text-green-400 shrink-0" />
                         <span className="text-sm text-slate-300">{guarantee}</span>
                       </div>
                     ))}
@@ -152,7 +152,7 @@ const PricingSection: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <Clock className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                     <div>
                       <p className="text-sm font-semibold text-amber-400 mb-1">Limited Monthly Seats</p>
                       <p className="text-xs text-slate-300">
@@ -166,7 +166,7 @@ const PricingSection: React.FC = () => {
                 <div className="text-center">
                   <motion.button 
                     onClick={handlePaymentPopup}
-                    className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-bold rounded-lg text-lg hover:from-cyan-600 hover:to-teal-600 transition-all shadow-lg shadow-cyan-500/25 mb-4"
+                    className="px-8 py-4 bg-linear-to-r from-cyan-500 to-teal-500 text-white font-bold rounded-lg text-lg hover:from-cyan-600 hover:to-teal-600 transition-all shadow-lg shadow-cyan-500/25 mb-4"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

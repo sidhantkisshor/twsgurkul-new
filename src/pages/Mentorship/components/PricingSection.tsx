@@ -126,7 +126,7 @@ const PricingSection: React.FC = () => {
                     ? 'bg-gray-900 text-white shadow-2xl transform scale-105 lg:scale-110' 
                     : plan.style === 'muted'
                     ? 'bg-gray-50 shadow-none'
-                    : 'bg-white shadow-sm'
+                    : 'bg-white shadow-xs'
                 }`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -181,11 +181,11 @@ const PricingSection: React.FC = () => {
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
                         {feature.included ? (
-                          <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                          <Check className={`w-5 h-5 mt-0.5 shrink-0 ${
                             plan.style === 'featured' ? 'text-green-400' : 'text-green-600'
                           }`} />
                         ) : (
-                          <X className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                          <X className={`w-5 h-5 mt-0.5 shrink-0 ${
                             plan.style === 'featured' ? 'text-gray-600' : 'text-gray-300'
                           }`} />
                         )}
@@ -245,7 +245,7 @@ const PricingSection: React.FC = () => {
                     ? 'bg-gray-900 text-white shadow-2xl transform scale-105 lg:scale-110' 
                     : plan.style === 'muted'
                     ? 'bg-gray-50 shadow-none'
-                    : 'bg-white shadow-sm'
+                    : 'bg-white shadow-xs'
                 }`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -300,11 +300,11 @@ const PricingSection: React.FC = () => {
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
                         {feature.included ? (
-                          <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                          <Check className={`w-5 h-5 mt-0.5 shrink-0 ${
                             plan.style === 'featured' ? 'text-green-400' : 'text-green-600'
                           }`} />
                         ) : (
-                          <X className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                          <X className={`w-5 h-5 mt-0.5 shrink-0 ${
                             plan.style === 'featured' ? 'text-gray-600' : 'text-gray-300'
                           }`} />
                         )}
@@ -415,15 +415,15 @@ const PricingSection: React.FC = () => {
                 <div className="bg-gray-50 rounded-2xl p-6 mb-8">
                   <div className="space-y-3 text-left">
                     <div className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-green-600 shrink-0" />
                       <span className="text-sm text-gray-700">Nightly 8 PM live sessions</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-green-600 shrink-0" />
                       <span className="text-sm text-gray-700">Weekly performance reviews</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-green-600 shrink-0" />
                       <span className="text-sm text-gray-700">Accountability pod (12 max)</span>
                     </div>
                   </div>

@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-0 relative overflow-hidden">
       {/* Animated background with market depth visualization */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/20">
+      <div className="absolute inset-0 bg-linear-to-br from-slate-950 via-slate-900 to-cyan-950/20">
         <div className="absolute inset-0 opacity-10">
           <div className="h-full w-full" style={{
             backgroundImage: `repeating-linear-gradient(
@@ -106,7 +106,7 @@ const HeroSection: React.FC = () => {
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-[600]">
+      <div className="max-w-7xl mx-auto relative z-600">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             className="space-y-5 sm:space-y-6"
@@ -133,8 +133,8 @@ const HeroSection: React.FC = () => {
                   <span className="text-white">{heroData.headline.line2}</span><br />
                   <span className="text-cyan-400">{heroData.headline.line3}</span>
                 </h1>
-                <div className="flex-shrink-0 mt-1 sm:mt-2 pointer-events-none">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                <div className="shrink-0 mt-1 sm:mt-2 pointer-events-none">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-linear-to-br from-cyan-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/30">
                     <span className="text-white font-bold text-[10px] sm:text-xs lg:text-sm">TWS</span>
                   </div>
                 </div>
@@ -192,39 +192,39 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Key Highlights Section */}
-            <div className="bg-slate-900/60 backdrop-blur-sm rounded-lg p-4 border border-slate-700 space-y-3">
+            <div className="bg-slate-900/60 backdrop-blur-xs rounded-lg p-4 border border-slate-700 space-y-3">
               <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-3">Key Highlights</h3>
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0"></div>
                   <div>
                     <span className="font-medium text-white">Footprint clarity:</span>
                     <span className="text-slate-400 text-sm"> spot absorption vs. exhaustion</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0"></div>
                   <div>
                     <span className="font-medium text-white">Delta confirmation:</span>
                     <span className="text-slate-400 text-sm"> use cumulative delta for bias</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0"></div>
                   <div>
                     <span className="font-medium text-white">Liquidity zones:</span>
                     <span className="text-slate-400 text-sm"> mark likely stop clusters</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0"></div>
                   <div>
                     <span className="font-medium text-white">Risk rules:</span>
                     <span className="text-slate-400 text-sm"> pre-defined entries, invalidation, and sizing</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0"></div>
                   <div>
                     <span className="font-medium text-white">Review loop:</span>
                     <span className="text-slate-400 text-sm"> post-trade logs to improve consistency</span>
@@ -243,7 +243,7 @@ const HeroSection: React.FC = () => {
           >
             {/* Live Demo Section - Hidden by default */}
             {showDemo ? (
-              <div className="bg-slate-900/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-cyan-500/20 mb-6 font-mono relative z-[700]">
+              <div className="bg-slate-900/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-cyan-500/20 mb-6 font-mono relative z-700">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold text-cyan-400">
                   Live Demo • Footprint Table & Delta Shifts
@@ -258,9 +258,9 @@ const HeroSection: React.FC = () => {
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   <span className="text-[10px] sm:text-xs text-slate-400 whitespace-nowrap">BTC</span>
-                  <div className="flex-1 mx-2 sm:mx-3 h-6 bg-slate-800 rounded overflow-hidden relative">
+                  <div className="flex-1 mx-2 sm:mx-3 h-6 bg-slate-800 rounded-sm overflow-hidden relative">
                     <motion.div 
-                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500/50 to-cyan-500/20"
+                      className="absolute top-0 left-0 h-full bg-linear-to-r from-cyan-500/50 to-cyan-500/20"
                       initial={{ width: "60%" }}
                       animate={{ width: [`${Math.min(85, largestWhaleOrder ? (largestWhaleOrder.total / (largestWhaleOrder.total + (largestSellOrder?.total || 0))) * 100 : 60)}%`] }}
                       transition={{ duration: 0.5 }}
@@ -280,9 +280,9 @@ const HeroSection: React.FC = () => {
                   transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
                 >
                   <span className="text-[10px] sm:text-xs text-slate-400 whitespace-nowrap">ETH</span>
-                  <div className="flex-1 mx-2 sm:mx-3 h-6 bg-slate-800 rounded overflow-hidden relative">
+                  <div className="flex-1 mx-2 sm:mx-3 h-6 bg-slate-800 rounded-sm overflow-hidden relative">
                     <motion.div 
-                      className="absolute top-0 right-0 h-full bg-gradient-to-l from-red-500/50 to-red-500/20"
+                      className="absolute top-0 right-0 h-full bg-linear-to-l from-red-500/50 to-red-500/20"
                       initial={{ width: "40%" }}
                       animate={{ width: ["40%", "55%", "40%"] }}
                       transition={{ duration: 3, repeat: Infinity }}
@@ -330,7 +330,7 @@ const HeroSection: React.FC = () => {
             ) : (
               <button
                 onClick={() => setShowDemo(true)}
-                className="w-full bg-slate-900/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-cyan-500/20 mb-6 hover:border-cyan-400/40 transition-colors cursor-pointer relative z-[700] group"
+                className="w-full bg-slate-900/60 backdrop-blur-xs rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-cyan-500/20 mb-6 hover:border-cyan-400/40 transition-colors cursor-pointer relative z-700 group"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -353,7 +353,7 @@ const HeroSection: React.FC = () => {
             >
               {!isPlaying || !shouldLoadVideo ? (
                 <div className="w-full h-full relative flex items-center justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-cyan-950/20 to-slate-900">
+                  <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-cyan-950/20 to-slate-900">
                     {/* Matrix rain effect */}
                     <div className="absolute inset-0 opacity-20">
                       {[...Array(20)].map((_, i) => (
@@ -399,14 +399,14 @@ const HeroSection: React.FC = () => {
             </div>
             
             <motion.div
-              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-slate-800 text-cyan-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm border border-cyan-500/30 pointer-events-none z-[700]"
+              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-slate-800 text-cyan-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm border border-cyan-500/30 pointer-events-none z-700"
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               Live Demo
             </motion.div>
             
-            <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2 bg-slate-900/90 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-slate-700 pointer-events-none z-[700]">
+            <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2 bg-slate-900/90 backdrop-blur-xs px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-slate-700 pointer-events-none z-700">
               <div className="flex items-center space-x-2">
                 <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
                 <span className="text-xs sm:text-sm whitespace-nowrap">Order Flow Visualization</span>

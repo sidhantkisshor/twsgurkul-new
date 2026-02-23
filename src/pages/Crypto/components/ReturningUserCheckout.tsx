@@ -45,7 +45,7 @@ const ReturningUserCheckout: React.FC = () => {
                         </button>
                         
                         <div className="flex items-start gap-3">
-                            <div className="flex-shrink-0">
+                            <div className="shrink-0">
                                 <div className="w-10 h-10 bg-yellow-500/20 rounded-full flex items-center justify-center">
                                     <Zap className="w-5 h-5 text-yellow-400" />
                                 </div>
@@ -59,7 +59,7 @@ const ReturningUserCheckout: React.FC = () => {
                                 
                                 <motion.button
                                     onClick={handleQuickCheckout}
-                                    className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all text-base inline-flex items-center justify-center gap-2"
+                                    className="w-full mt-4 px-4 py-3 bg-linear-to-r from-yellow-500 to-orange-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all text-base inline-flex items-center justify-center gap-2"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >

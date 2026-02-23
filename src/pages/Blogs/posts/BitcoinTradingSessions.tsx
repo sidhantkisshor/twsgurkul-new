@@ -17,8 +17,8 @@ const BitcoinTradingSessions = () => {
   }, []);
 
   const SessionCard = ({ title, time, description, features, color }) => (
-    <div className={`bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 border border-${color}-500/30 hover:border-${color}-500 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden`}>
-      <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-${color}-500 to-${color}-400`}></div>
+    <div className={`bg-linear-to-br from-gray-900 to-gray-800 rounded-xl p-6 border border-${color}-500/30 hover:border-${color}-500 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden`}>
+      <div className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-${color}-500 to-${color}-400`}></div>
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-xl font-bold text-white">{title}</h3>
         <Clock className={`w-6 h-6 text-${color}-400`} />
@@ -28,7 +28,7 @@ const BitcoinTradingSessions = () => {
       <ul className="space-y-2">
         {features.map((feature, idx) => (
           <li key={idx} className="flex items-start text-sm">
-            <CheckCircle className={`w-4 h-4 text-${color}-400 mr-2 mt-0.5 flex-shrink-0`} />
+            <CheckCircle className={`w-4 h-4 text-${color}-400 mr-2 mt-0.5 shrink-0`} />
             <span className="text-gray-300">{feature}</span>
           </li>
         ))}
@@ -46,7 +46,7 @@ const BitcoinTradingSessions = () => {
       <div className="space-y-3">
         {steps.map((step, idx) => (
           <div key={idx} className="flex items-start">
-            <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-semibold mr-3">{idx + 1}</span>
+            <span className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded-sm text-xs font-semibold mr-3">{idx + 1}</span>
             <p className="text-sm text-gray-300">{step}</p>
           </div>
         ))}
@@ -59,14 +59,14 @@ const BitcoinTradingSessions = () => {
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
         <div 
-          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
+          className="h-full bg-linear-to-r from-blue-500 to-purple-500 transition-all duration-300"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       {/* Hero Section */}
       <div className="mb-12 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
           Bitcoin Trading Sessions
         </h1>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -76,7 +76,7 @@ const BitcoinTradingSessions = () => {
 
       {/* Introduction */}
       <div className="prose prose-invert max-w-none mb-12">
-        <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-6 mb-8">
+        <div className="bg-linear-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-lg p-6 mb-8">
           <p className="text-lg text-gray-300 leading-relaxed">
             Bitcoin trades 24/7, but here's a secret that separates successful crypto traders from the rest: 
             the biggest moves still happen when institutional money flows in during traditional trading sessions. 
@@ -166,7 +166,7 @@ const BitcoinTradingSessions = () => {
 
       {/* Golden Hours */}
       <section className="mb-12">
-        <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 rounded-xl p-8">
+        <div className="bg-linear-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 rounded-xl p-8">
           <h2 className="text-3xl font-bold mb-6 text-white flex items-center">
             <Zap className="w-8 h-8 mr-3 text-yellow-400" />
             The Golden Hours: When Sessions Overlap
@@ -189,7 +189,7 @@ const BitcoinTradingSessions = () => {
 
           <div className="mt-6 p-4 bg-orange-500/10 border border-orange-500/30 rounded-lg">
             <p className="text-orange-300 flex items-start">
-              <AlertCircle className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" />
+              <AlertCircle className="w-5 h-5 mr-2 mt-0.5 shrink-0" />
               During overlap hours, reduce your leverage but increase your attention. The moves are bigger, 
               faster, and more unpredictable.
             </p>
@@ -322,7 +322,7 @@ const BitcoinTradingSessions = () => {
       <section className="mb-12">
         <h2 className="text-3xl font-bold mb-6 text-white">Your Session Trading Blueprint</h2>
         
-        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-8 border border-gray-700">
+        <div className="bg-linear-to-br from-gray-900 to-gray-800 rounded-xl p-8 border border-gray-700">
           <div className="space-y-6">
             <div className="flex items-start">
               <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold mr-4">1</span>
@@ -362,7 +362,7 @@ const BitcoinTradingSessions = () => {
 
       {/* Bottom Line */}
       <section className="mb-12">
-        <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/30 rounded-xl p-8">
+        <div className="bg-linear-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/30 rounded-xl p-8">
           <h2 className="text-3xl font-bold mb-6 text-white">The Bottom Line</h2>
           
           <p className="text-gray-300 mb-4">
@@ -392,7 +392,7 @@ const BitcoinTradingSessions = () => {
 
       {/* CTA Section */}
       <section className="mb-12">
-        <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-xl p-8 text-center">
+        <div className="bg-linear-to-r from-red-600 to-red-700 rounded-xl p-8 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">
             Want to stay ahead of the Bitcoin market?
           </h3>

@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-black border-t border-white/10">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/50" />
       
       <div className="relative z-10">
         {/* Main Footer Content */}

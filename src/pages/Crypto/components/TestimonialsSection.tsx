@@ -100,7 +100,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
             aria-label="Customer testimonials"
         >
             {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-500/5 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-b from-transparent via-yellow-500/5 to-transparent" />
             <div className="crypto-container">
                 <motion.div
                     className="text-center space-y-4 sm:space-y-6 mb-12 sm:mb-16 px-4 sm:px-6 lg:px-8"
@@ -110,7 +110,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="crypto-h2">
-                        Real Student <span className="text-transparent bg-gradient-to-r from-yellow-400 to-orange-300 bg-clip-text">Experiences</span>
+                        Real Student <span className="text-transparent bg-linear-to-r from-yellow-400 to-orange-300 bg-clip-text">Experiences</span>
                     </h2>
                     <p className="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
                         Based on self-reported data. Individual results vary significantly.
@@ -227,12 +227,12 @@ const TestimonialCard: React.FC<{
     return (
         <motion.div
             ref={cardRef}
-            className="bg-gradient-to-br from-slate-800 to-slate-850 rounded-2xl border border-slate-700 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 flex-shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
+            className="bg-linear-to-br from-slate-800 to-slate-850 rounded-2xl border border-slate-700 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
             whileHover={{ y: -8, borderColor: 'rgb(71 85 105)' }}
         >
 
             <div className="flex items-center space-x-4 mb-4">
-                <div className="relative flex-shrink-0">
+                <div className="relative shrink-0">
                     <motion.picture
                         initial={{ scale: 0.8 }}
                         animate={{ scale: 1 }}
@@ -298,7 +298,7 @@ const TestimonialCard: React.FC<{
 
             <div className="space-y-3">
                 <motion.div 
-                    className="bg-gradient-to-r from-green-900/40 to-green-800/40 border border-green-500/30 rounded-xl p-3 relative overflow-hidden"
+                    className="bg-linear-to-r from-green-900/40 to-green-800/40 border border-green-500/30 rounded-xl p-3 relative overflow-hidden"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.6 }}
@@ -308,7 +308,7 @@ const TestimonialCard: React.FC<{
                             Profit in {testimonial.time}
                         </span>
                         <motion.span 
-                            className="font-bold bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent text-xl"
+                            className="font-bold bg-linear-to-r from-green-400 to-green-300 bg-clip-text text-transparent text-xl"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: profitVisible ? 1 : 0 }}
                             transition={{ delay: 0.8, duration: 0.5 }}
@@ -317,7 +317,7 @@ const TestimonialCard: React.FC<{
                         </motion.span>
                     </div>
                     <motion.div 
-                        className="absolute inset-0 bg-gradient-to-r from-green-400/10 to-transparent"
+                        className="absolute inset-0 bg-linear-to-r from-green-400/10 to-transparent"
                         initial={{ x: '-100%' }}
                         animate={{ x: '100%' }}
                         transition={{ delay: 1, duration: 1.5, repeat: Infinity, repeatDelay: 2 }}

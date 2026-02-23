@@ -18,21 +18,21 @@ const TrustBadgesBar: React.FC<TrustBadgesBarProps> = ({ onMethodologyClick }) =
         <>
             {trustBadges.map((badge, index) => (
                 <React.Fragment key={`${badge.text}-${index}`}>
-                    <div className="flex items-center space-x-1.5 flex-shrink-0">
-                        <badge.icon className={`w-4 h-4 ${badgeColorMap[badge.color]} flex-shrink-0`} />
+                    <div className="flex items-center space-x-1.5 shrink-0">
+                        <badge.icon className={`w-4 h-4 ${badgeColorMap[badge.color]} shrink-0`} />
                         <span className="text-xs sm:text-sm whitespace-nowrap text-slate-200">{badge.text}</span>
                     </div>
                     {index < trustBadges.length - 1 && (
-                        <span className="text-slate-600 text-xs flex-shrink-0 mx-3">•</span>
+                        <span className="text-slate-600 text-xs shrink-0 mx-3">•</span>
                     )}
                 </React.Fragment>
             ))}
             {onMethodologyClick && (
                 <>
-                    <span className="text-slate-600 text-xs flex-shrink-0 mx-3">•</span>
+                    <span className="text-slate-600 text-xs shrink-0 mx-3">•</span>
                     <button
                         onClick={onMethodologyClick}
-                        className="flex items-center gap-1 text-xs sm:text-sm text-slate-400 hover:text-yellow-400 transition-colors group flex-shrink-0"
+                        className="flex items-center gap-1 text-xs sm:text-sm text-slate-400 hover:text-yellow-400 transition-colors group shrink-0"
                     >
                         <span className="group-hover:underline">Methodology & verification</span>
                         <span>→</span>
@@ -86,8 +86,8 @@ const TrustBadgesBar: React.FC<TrustBadgesBarProps> = ({ onMethodologyClick }) =
                 </div>
                 
                 {/* Gradient edges for better visual on mobile */}
-                <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none"></div>
-                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-8 bg-linear-to-r from-slate-900 to-transparent pointer-events-none"></div>
+                <div className="absolute right-0 top-0 bottom-0 w-8 bg-linear-to-l from-slate-900 to-transparent pointer-events-none"></div>
             </div>
         </motion.div>
     );

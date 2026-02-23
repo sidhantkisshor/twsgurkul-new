@@ -53,7 +53,7 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
   return (
     <section className="relative py-20 sm:py-32 overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-red-950/5 to-black" />
+      <div className="absolute inset-0 bg-linear-to-b from-black via-red-950/5 to-black" />
       <div className="absolute top-1/2 -translate-y-1/2 -left-32 w-64 h-64 bg-red-500/10 rounded-full filter blur-[120px]" />
       <div className="absolute top-1/2 -translate-y-1/2 -right-32 w-64 h-64 bg-orange-500/10 rounded-full filter blur-[120px]" />
 
@@ -68,11 +68,11 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
             </div>
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
                 The ₹73,000 Lesson Most Traders
               </span>
               <br />
-              <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
                 Learn Too Late
               </span>
             </h2>
@@ -80,12 +80,12 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
 
           {/* Raj's Story Card */}
           <div className="mb-12 sm:mb-16">
-            <div className="glass-effect rounded-2xl p-6 sm:p-8 border border-red-500/20 bg-gradient-to-br from-red-950/20 to-orange-950/10">
+            <div className="glass-effect rounded-2xl p-6 sm:p-8 border border-red-500/20 bg-linear-to-br from-red-950/20 to-orange-950/10">
               <div className="flex flex-col lg:flex-row gap-8 items-start">
                 {/* Story Content */}
                 <div className="flex-1">
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-linear-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center shrink-0">
                       <span className="text-2xl">👨‍💼</span>
                     </div>
                     <div>
@@ -121,7 +121,7 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
                             <p className="text-xs text-red-500">Account Wiped</p>
                           </div>
                         </div>
-                        <div className="absolute top-1.5 left-6 right-6 h-0.5 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-600"></div>
+                        <div className="absolute top-1.5 left-6 right-6 h-0.5 bg-linear-to-r from-yellow-500 via-orange-500 to-red-600"></div>
                       </div>
                     </div>
                     
@@ -185,14 +185,14 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
                         <div className={`
                           p-4 rounded-xl border transition-all duration-300 cursor-pointer
                           ${activeFailure === path.id 
-                            ? 'border-red-500/40 bg-gradient-to-r ' + path.color + ' bg-opacity-10' 
+                            ? 'border-red-500/40 bg-linear-to-r ' + path.color + ' bg-opacity-10' 
                             : 'border-white/10 bg-white/5 hover:bg-white/10'
                           }
                         `}>
                           <div className="flex items-start gap-3">
                             <div className={`
-                              w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0
-                              bg-gradient-to-br ${path.color}
+                              w-10 h-10 rounded-lg flex items-center justify-center shrink-0
+                              bg-linear-to-br ${path.color}
                             `}>
                               <path.icon className="w-5 h-5 text-white" />
                             </div>
@@ -215,7 +215,7 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
                               <p className="text-xs text-gray-300 mb-2">
                                 <span className="text-red-400 font-semibold">Result:</span> {path.result}
                               </p>
-                              <p className="text-xs bg-green-500/10 border border-green-500/30 rounded px-2 py-1">
+                              <p className="text-xs bg-green-500/10 border border-green-500/30 rounded-sm px-2 py-1">
                                 <span className="text-green-400 font-semibold">Our Fix:</span> {path.solution}
                               </p>
                             </div>
@@ -224,7 +224,7 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
                         
                         {/* Connector line */}
                         {index < failurePaths.length - 1 && (
-                          <div className="absolute left-5 top-full w-0.5 h-3 bg-gradient-to-b from-red-500/40 to-transparent" />
+                          <div className="absolute left-5 top-full w-0.5 h-3 bg-linear-to-b from-red-500/40 to-transparent" />
                         )}
                       </div>
                     ))}
@@ -255,9 +255,9 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {/* Loss stories */}
               {otherStudents.map((student, index) => (
-                <div key={index} className="glass-effect rounded-xl p-6 border border-orange-500/20 bg-gradient-to-br from-orange-950/20 to-red-950/10">
+                <div key={index} className="glass-effect rounded-xl p-6 border border-orange-500/20 bg-linear-to-br from-orange-950/20 to-red-950/10">
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-14 h-14 rounded-full bg-linear-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center shrink-0">
                       <span className="text-2xl">{student.emoji}</span>
                     </div>
                     <div className="flex-1">
@@ -273,14 +273,14 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
               ))}
               
               {/* SUCCESS STORY - Emotional flip */}
-              <div className="glass-effect rounded-xl p-6 border-2 border-green-500/30 bg-gradient-to-br from-green-950/30 to-emerald-950/20 relative overflow-hidden">
+              <div className="glass-effect rounded-xl p-6 border-2 border-green-500/30 bg-linear-to-br from-green-950/30 to-emerald-950/20 relative overflow-hidden">
                 {/* Success badge */}
-                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full">
+                <div className="absolute -top-2 -right-2 bg-linear-to-r from-green-500 to-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full">
                   After TWS ✨
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-500/30 to-emerald-500/30 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-linear-to-br from-green-500/30 to-emerald-500/30 flex items-center justify-center shrink-0">
                     <span className="text-2xl">👨‍💼</span>
                   </div>
                   <div className="flex-1">
@@ -317,7 +317,7 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
                   document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="group inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105"
+              className="group inline-flex items-center gap-2 bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105"
             >
               <Target className="w-5 h-5" />
               Find Your Perfect Sequence

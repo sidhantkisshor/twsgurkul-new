@@ -161,12 +161,12 @@ const LiveDashboardSection: React.FC = () => {
                 // Skeleton loader
                 <div className="space-y-4 animate-pulse">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="h-4 w-16 bg-gray-700 rounded"></div>
-                    <div className="h-4 w-12 bg-gray-700 rounded"></div>
+                    <div className="h-4 w-16 bg-gray-700 rounded-sm"></div>
+                    <div className="h-4 w-12 bg-gray-700 rounded-sm"></div>
                   </div>
                   <div className="space-y-3">
-                    <div className="h-4 w-full bg-gray-700 rounded"></div>
-                    <div className="h-4 w-5/6 bg-gray-700 rounded"></div>
+                    <div className="h-4 w-full bg-gray-700 rounded-sm"></div>
+                    <div className="h-4 w-5/6 bg-gray-700 rounded-sm"></div>
                   </div>
                 </div>
               ) : (

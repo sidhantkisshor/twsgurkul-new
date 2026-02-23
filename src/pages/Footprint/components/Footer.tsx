@@ -12,13 +12,13 @@ const Footer: React.FC = () => {
             <div className="flex items-center space-x-3 mb-6 md:mb-0">
               <div className="relative">
                 <div className="absolute inset-0 bg-cyan-500 blur-lg opacity-30"></div>
-                <div className="relative bg-gradient-to-br from-cyan-400 to-teal-500 p-2 rounded-lg">
+                <div className="relative bg-linear-to-br from-cyan-400 to-teal-500 p-2 rounded-lg">
                   <BookOpen className="w-5 h-5 text-slate-900" />
                 </div>
               </div>
               <div>
                 <span className="text-lg font-bold text-white">Footprint</span>
-                <span className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent ml-1">Mastery</span>
+                <span className="text-lg font-bold bg-linear-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent ml-1">Mastery</span>
               </div>
             </div>
             

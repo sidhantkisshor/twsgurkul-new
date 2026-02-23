@@ -27,7 +27,7 @@ interface Testimonial {
 const STYLES = {
   glassCard: 'glass-effect rounded-2xl p-4 border',
   verifiedBadge: 'w-4 h-4 text-blue-400',
-  ctaButton: 'inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 font-bold transition-all duration-300 hover:scale-105',
+  ctaButton: 'inline-flex items-center gap-2 bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 font-bold transition-all duration-300 hover:scale-105',
   stageButton: 'px-3 py-1 rounded-full text-xs font-medium transition-all',
   metricValue: 'text-3xl sm:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent',
   sectionHeader: 'text-lg font-semibold text-white mb-4 flex items-center gap-2',
@@ -57,7 +57,7 @@ const StarRating = ({ size = 'w-4 h-4' }: { size?: string }) => (
 const TestimonialMiniCard = ({ testimonial }: { testimonial: any }) => (
   <div className="glass-effect rounded-xl p-4 border border-white/10 hover:border-green-500/30 transition-all">
     <div className="flex items-start gap-3 mb-3">
-      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+      <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-400 to-emerald-500 flex items-center justify-center">
         <span className="text-lg">{testimonial.image || '👤'}</span>
       </div>
       <div className="flex-1">
@@ -209,7 +209,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
   return (
     <section ref={sectionRef} className="relative py-20 sm:py-32 overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-green-950/10 to-black" />
+      <div className="absolute inset-0 bg-linear-to-b from-black via-green-950/10 to-black" />
       <div className="absolute top-1/3 -left-32 w-96 h-96 bg-green-500/5 rounded-full filter blur-[150px]" />
       <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-blue-500/5 rounded-full filter blur-[150px]" />
       
@@ -218,17 +218,17 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
           
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/20 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-green-500/10 to-blue-500/10 border border-green-500/20 mb-6">
               <Trophy className="w-4 h-4 text-green-400" />
               <span className="text-sm font-medium text-green-400">Real Students, Real Profits</span>
             </div>
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 From ₹0 to ₹15L/month
               </span>
               <br />
-              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                 Real People, Real Results
               </span>
             </h2>
@@ -241,7 +241,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                 { value: citiesCounter, label: 'Cities Represented', gradient: 'from-purple-400 to-pink-400' }
               ].map((metric, index) => (
                 <div key={index} className="text-center">
-                  <div className={`${STYLES.metricValue} bg-gradient-to-r ${metric.gradient}`}>
+                  <div className={`${STYLES.metricValue} bg-linear-to-r ${metric.gradient}`}>
                     {metric.value}
                   </div>
                   <p className="text-sm sm:text-base text-gray-400 mt-2">{metric.label}</p>
@@ -264,7 +264,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                     LIVE
                   </span>
                 </h3>
-                <div className="glass-effect rounded-2xl p-4 border border-green-500/20 bg-gradient-to-br from-green-950/20 to-emerald-950/10 relative overflow-hidden">
+                <div className="glass-effect rounded-2xl p-4 border border-green-500/20 bg-linear-to-br from-green-950/20 to-emerald-950/10 relative overflow-hidden">
                   <div 
                     ref={chatContainerRef}
                     className="space-y-3 max-h-64 overflow-y-auto scroll-smooth scrollbar-hide"
@@ -283,7 +283,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                                 <p className="text-sm">{chat.message}</p>
                                 <p className="text-xs opacity-70 mt-1">{chat.time}</p>
                               </div>
-                              {chat.isVerified && <CheckCircle className="w-3 h-3 text-blue-400 flex-shrink-0 mt-1" />}
+                              {chat.isVerified && <CheckCircle className="w-3 h-3 text-blue-400 shrink-0 mt-1" />}
                             </div>
                           </div>
                         </div>
@@ -312,10 +312,10 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                     const currentTestimonial = featuredTestimonials[activeTestimonial % featuredTestimonials.length] || featuredTestimonials[0];
                     
                     return (
-                      <div className="glass-effect rounded-2xl p-6 border border-yellow-500/20 bg-gradient-to-br from-yellow-950/20 to-orange-950/10">
+                      <div className="glass-effect rounded-2xl p-6 border border-yellow-500/20 bg-linear-to-br from-yellow-950/20 to-orange-950/10">
                         <div className="mb-4">
                           <div className="flex items-start gap-4">
-                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-2xl flex-shrink-0">
+                            <div className="w-14 h-14 rounded-full bg-linear-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-2xl shrink-0">
                               {currentTestimonial.image}
                             </div>
                             <div className="flex-1">
@@ -375,7 +375,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                             { label: 'AFTER', color: 'green', text: 'After TWS', value: currentTestimonial.after }
                           ].map((item, idx) => (
                             <div key={idx} className="relative">
-                              <div className={`absolute -top-2 left-2 px-2 py-0.5 bg-${item.color}-500/20 rounded text-xs font-bold text-${item.color}-400`}>
+                              <div className={`absolute -top-2 left-2 px-2 py-0.5 bg-${item.color}-500/20 rounded-sm text-xs font-bold text-${item.color}-400`}>
                                 {item.label}
                               </div>
                               <p className="text-xs text-gray-500 mt-2">{item.text}</p>
@@ -433,10 +433,10 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                 </h3>
                 
                 {/* Video Thumbnail */}
-                <div className="relative glass-effect rounded-2xl overflow-hidden border border-blue-500/20 bg-gradient-to-br from-blue-950/20 to-cyan-950/10">
-                  <div className="aspect-video bg-gradient-to-br from-blue-900/50 to-purple-900/50 flex items-center justify-center">
+                <div className="relative glass-effect rounded-2xl overflow-hidden border border-blue-500/20 bg-linear-to-br from-blue-950/20 to-cyan-950/10">
+                  <div className="aspect-video bg-linear-to-br from-blue-900/50 to-purple-900/50 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3 backdrop-blur">
+                      <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3 backdrop-blur-sm">
                         <Play className="w-8 h-8 text-white ml-1" />
                       </div>
                       <p className="text-white font-semibold">Watch Success Stories</p>
@@ -456,7 +456,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                 </div>
                 
                 {/* Achievement Badge */}
-                <div className="glass-effect rounded-xl p-4 border border-purple-500/20 bg-gradient-to-br from-purple-950/20 to-pink-950/10">
+                <div className="glass-effect rounded-xl p-4 border border-purple-500/20 bg-linear-to-br from-purple-950/20 to-pink-950/10">
                   <div className="flex items-center gap-3">
                     <Trophy className="w-10 h-10 text-purple-400" />
                     <div>
@@ -483,7 +483,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                   document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 font-bold transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 font-bold transition-all duration-300 hover:scale-105"
             >
               Start Your Success Story
               <TrendingUp className="w-5 h-5" />

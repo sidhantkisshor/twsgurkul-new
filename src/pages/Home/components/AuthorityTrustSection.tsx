@@ -76,7 +76,7 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 relative overflow-hidden bg-gradient-to-b from-gray-900 via-black to-gray-900">
+    <section ref={sectionRef} className="py-20 relative overflow-hidden bg-linear-to-b from-gray-900 via-black to-gray-900">
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[150px]" />
@@ -86,14 +86,14 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 mb-6">
             <Award className="w-4 h-4 text-blue-400" />
             <span className="text-sm text-blue-400 font-medium">Trusted by Thousands</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-white">Learn from a </span>
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Proven Expert
             </span>
           </h2>
@@ -127,7 +127,7 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
                 {credentials.map((cred, index) => (
                   <div 
                     key={index}
-                    className={`glass-effect rounded-2xl p-5 border border-white/10 bg-gradient-to-br ${cred.color.replace('from-', 'from-').replace('to-', 'to-')}/10 hover:scale-[1.02] transition-all duration-300`}
+                    className={`glass-effect rounded-2xl p-5 border border-white/10 bg-linear-to-br ${cred.color.replace('from-', 'from-').replace('to-', 'to-')}/10 hover:scale-[1.02] transition-all duration-300`}
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -166,13 +166,13 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
               </h3>
               
               {/* Media Logos Grid - Subtle Professional Design */}
-              <div className="glass-effect rounded-2xl p-6 border border-blue-500/20 bg-gradient-to-br from-blue-950/20 to-cyan-950/10 mb-6">
+              <div className="glass-effect rounded-2xl p-6 border border-blue-500/20 bg-linear-to-br from-blue-950/20 to-cyan-950/10 mb-6">
                 <p className="text-sm text-gray-400 mb-6 uppercase tracking-wider font-medium">As Featured In</p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {mediaLogos.map((media: MediaLogo, index) => (
                     <div 
                       key={index}
-                      className="group relative rounded-lg p-3 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
+                      className="group relative rounded-lg p-3 border border-white/5 bg-white/2 hover:bg-white/5 hover:border-white/20 transition-all duration-300"
                     >
                       <div className="flex flex-col items-center justify-center gap-1">
                         {/* Icon */}
@@ -223,7 +223,7 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
                   document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-full px-8 py-4 font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-green-500/25 hover:scale-105"
+              className="inline-flex items-center gap-3 bg-linear-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-full px-8 py-4 font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-green-500/25 hover:scale-105"
             >
               Find Your Perfect Program
               <ArrowRight className="w-5 h-5" />

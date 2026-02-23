@@ -51,7 +51,7 @@ const SimplifiedCTASection: React.FC<SimplifiedCTASectionProps> = ({ onQuizOpen 
   return (
     <section className="py-16 sm:py-20 relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-950/5 to-black" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-green-950/5 to-black" />
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -70,15 +70,15 @@ const SimplifiedCTASection: React.FC<SimplifiedCTASectionProps> = ({ onQuizOpen 
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-yellow-400" />
                   <div className="flex gap-1 font-mono">
-                    <span className="bg-black/50 px-2 py-1 rounded text-white">
+                    <span className="bg-black/50 px-2 py-1 rounded-sm text-white">
                       {String(timeLeft.hours).padStart(2, '0')}
                     </span>
                     <span className="text-gray-500">:</span>
-                    <span className="bg-black/50 px-2 py-1 rounded text-white">
+                    <span className="bg-black/50 px-2 py-1 rounded-sm text-white">
                       {String(timeLeft.minutes).padStart(2, '0')}
                     </span>
                     <span className="text-gray-500">:</span>
-                    <span className="bg-black/50 px-2 py-1 rounded text-white">
+                    <span className="bg-black/50 px-2 py-1 rounded-sm text-white">
                       {String(timeLeft.seconds).padStart(2, '0')}
                     </span>
                   </div>
@@ -88,12 +88,12 @@ const SimplifiedCTASection: React.FC<SimplifiedCTASectionProps> = ({ onQuizOpen 
           </div>
           
           {/* Main CTA Card */}
-          <div className="glass-effect rounded-3xl border border-white/20 p-8 sm:p-12 text-center bg-gradient-to-br from-green-500/5 via-transparent to-purple-500/5">
+          <div className="glass-effect rounded-3xl border border-white/20 p-8 sm:p-12 text-center bg-linear-to-br from-green-500/5 via-transparent to-purple-500/5">
             
             {/* Headline */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
               <span className="text-white">Your Trading Journey </span>
-              <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
                 Starts Here
               </span>
             </h2>
@@ -117,7 +117,7 @@ const SimplifiedCTASection: React.FC<SimplifiedCTASectionProps> = ({ onQuizOpen 
             {/* Single Clear CTA */}
             <button
               onClick={handleQuizClick}
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 group"
+              className="inline-flex items-center gap-3 bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 group"
             >
               <Target className="w-6 h-6" />
               Get Your Personalized Program

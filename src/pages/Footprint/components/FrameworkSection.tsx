@@ -46,7 +46,7 @@ const FrameworkSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="section-title text-center">
-              The <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">F.A.S.T. Framework</span>
+              The <span className="bg-linear-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">F.A.S.T. Framework</span>
             </h2>
             <p className="section-subtitle text-center">
               A systematic approach to order flow analysis that removes guesswork
@@ -60,7 +60,7 @@ const FrameworkSection: React.FC = () => {
             {modules.map((item, index) => (
               <motion.div 
                 key={index}
-                className="bg-slate-900/80 backdrop-blur-sm rounded-xl p-6 border border-cyan-500/20 hover:border-cyan-500/40 transition-all relative overflow-hidden group"
+                className="bg-slate-900/80 backdrop-blur-xs rounded-xl p-6 border border-cyan-500/20 hover:border-cyan-500/40 transition-all relative overflow-hidden group"
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -68,7 +68,7 @@ const FrameworkSection: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500/30 to-teal-500/30 rounded-lg flex items-center justify-center">
+                  <div className="shrink-0 w-12 h-12 bg-linear-to-br from-cyan-500/30 to-teal-500/30 rounded-lg flex items-center justify-center">
                     <span className="text-xl font-bold text-cyan-400">{item.letter}</span>
                   </div>
                   <div className="flex-1">
@@ -83,14 +83,14 @@ const FrameworkSection: React.FC = () => {
 
           {/* Bonus Modules */}
           <motion.div 
-            className="bg-gradient-to-r from-amber-900/20 to-orange-900/20 rounded-xl p-6 border border-amber-500/30 mb-12"
+            className="bg-linear-to-r from-amber-900/20 to-orange-900/20 rounded-xl p-6 border border-amber-500/30 mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center">
+              <div className="shrink-0 w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center">
                 <span className="text-xl font-bold text-amber-400">+</span>
               </div>
               <div className="flex-1">
@@ -126,7 +126,7 @@ const FrameworkSection: React.FC = () => {
           >
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
                   <span className="text-white font-bold text-xl">TWS</span>
                 </div>
                 <div>

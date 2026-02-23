@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden bg-white px-4 sm:px-6 lg:px-12 pt-32 sm:pt-24">
         {/* Subtle gradient background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white" />
+          <div className="absolute inset-0 bg-linear-to-b from-gray-50/50 to-white" />
         </div>
       
       {/* Minimalist floating elements - hidden on mobile for clarity */}

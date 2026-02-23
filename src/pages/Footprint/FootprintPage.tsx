@@ -54,7 +54,7 @@ function FootprintPage() {
             <div className="max-w-6xl mx-auto px-4">
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-slate-400">
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0 pointer-events-none">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center shrink-0 pointer-events-none">
                     <span className="text-white font-bold text-[10px] sm:text-xs">TWS</span>
                   </div>
                   <span>TWS Gurukul since 2023</span>

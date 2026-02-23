@@ -16,8 +16,19 @@ export default {
       screens: {
         'xs': '475px',
       },
+      colors: {
+        'deep-slate': '#2C3539',
+        'burnt-amber': '#C87533',
+        'brushed-gold': '#B8956A',
+        'warm-white': '#FAF8F5',
+        'wealth-teal': '#0A8D7A',
+        'soft-sand': '#EDE6D8',
+        'navy-black': '#0B1221',
+        'paper-cream': '#FFF1E0',
+      },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['Satoshi', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['Instrument Serif', 'Georgia', 'serif'],
       },
       keyframes: {
         fadeIn: {

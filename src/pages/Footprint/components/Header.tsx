@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 ${
         isScrolled ? 'bg-slate-900/95 backdrop-blur-xl shadow-lg border-b border-slate-800/50' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -39,12 +39,12 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <div className="absolute inset-0 bg-cyan-500 blur-lg opacity-30 group-hover:opacity-50 transition-opacity"></div>
-              <div className="relative bg-gradient-to-br from-cyan-400 to-teal-500 p-2 rounded-lg">
+              <div className="relative bg-linear-to-br from-cyan-400 to-teal-500 p-2 rounded-lg">
                 <Activity className="w-6 h-6 text-slate-900" />
               </div>
             </div>
             <div>
-              <span className="text-xl font-bold font-mono bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">FOOTPRINT</span>
+              <span className="text-xl font-bold font-mono bg-linear-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">FOOTPRINT</span>
               <span className="text-xl font-bold text-white ml-1 font-mono">MASTERY</span>
             </div>
           </Link>
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-slate-200 focus:outline-none"
+            className="md:hidden text-slate-200 focus:outline-hidden"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

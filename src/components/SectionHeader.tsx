@@ -41,7 +41,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       <h2 className="text-4xl md:text-5xl font-bold mb-6">
         {typeof title === 'string' ? (
           <span className={cn(
-            "bg-gradient-to-r bg-clip-text text-transparent",
+            "bg-linear-to-r bg-clip-text text-transparent",
             gradientFrom,
             gradientTo
           )}>
@@ -49,12 +49,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
           </span>
         ) : (
           <>
-            <span className="bg-gradient-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
               {title.line1}
             </span>
             <br />
             <span className={cn(
-              "bg-gradient-to-r bg-clip-text text-transparent",
+              "bg-linear-to-r bg-clip-text text-transparent",
               gradientFrom,
               gradientTo
             )}>

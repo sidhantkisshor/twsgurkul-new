@@ -33,7 +33,7 @@ const HeaderMinimal: React.FC = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled 
         ? 'bg-slate-950/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(250,204,21,0.1)] py-3' 
-        : 'bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-transparent py-4'
+        : 'bg-linear-to-b from-slate-900/80 via-slate-900/40 to-transparent py-4'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -64,7 +64,7 @@ const HeaderMinimal: React.FC = () => {
 
           {/* Center - Rotating Stats */}
           <div className="hidden md:flex items-center gap-3">
-            <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/40 rounded-lg border border-slate-700/30 backdrop-blur-sm">
+            <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/40 rounded-lg border border-slate-700/30 backdrop-blur-xs">
               <CurrentIcon className={`w-4 h-4 ${stats[currentStat].color} transition-all duration-500`} />
               <div className="flex flex-col">
                 <span className="text-[10px] text-slate-500 uppercase tracking-wider">{stats[currentStat].label}</span>
@@ -75,7 +75,7 @@ const HeaderMinimal: React.FC = () => {
             </div>
             
             {/* Separator */}
-            <div className="h-8 w-px bg-gradient-to-b from-transparent via-slate-600 to-transparent" />
+            <div className="h-8 w-px bg-linear-to-b from-transparent via-slate-600 to-transparent" />
             
             {/* Live Users */}
             <div className="flex items-center gap-2">
@@ -92,7 +92,7 @@ const HeaderMinimal: React.FC = () => {
                     className="w-7 h-7 rounded-full border-2 border-slate-900 hover:z-10 hover:scale-110 transition-all"
                   />
                 ))}
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 border-2 border-slate-900 flex items-center justify-center">
+                <div className="w-7 h-7 rounded-full bg-linear-to-br from-yellow-400 to-orange-500 border-2 border-slate-900 flex items-center justify-center">
                   <span className="text-[10px] font-bold text-slate-900">+89</span>
                 </div>
               </div>
@@ -118,8 +118,8 @@ const HeaderMinimal: React.FC = () => {
               href="#pricing"
               className={`group relative px-5 py-2.5 rounded-lg font-bold transition-all overflow-hidden ${
                 scrolled
-                  ? 'bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 text-slate-900 hover:shadow-[0_0_24px_rgba(250,204,21,0.5)]'
-                  : 'bg-slate-800/60 backdrop-blur-sm border border-yellow-400/40 text-yellow-400 hover:border-yellow-400/60 hover:bg-yellow-400/10'
+                  ? 'bg-linear-to-r from-yellow-400 via-yellow-500 to-orange-500 text-slate-900 hover:shadow-[0_0_24px_rgba(250,204,21,0.5)]'
+                  : 'bg-slate-800/60 backdrop-blur-xs border border-yellow-400/40 text-yellow-400 hover:border-yellow-400/60 hover:bg-yellow-400/10'
               }`}
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -127,7 +127,7 @@ const HeaderMinimal: React.FC = () => {
                 <span className="hidden sm:inline">Join Crypto Mastery</span>
                 <span className="sm:hidden">Join Now</span>
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-orange-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-linear-to-r from-yellow-600 to-orange-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </a>
           </div>
         </div>
@@ -147,7 +147,7 @@ const HeaderMinimal: React.FC = () => {
       </div>
 
       {/* Animated Bottom Border */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-yellow-400/50 to-transparent animate-shimmer" 
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-linear-to-r from-transparent via-yellow-400/50 to-transparent animate-shimmer" 
         style={{ 
           backgroundSize: '200% 100%',
           animation: 'shimmer 3s linear infinite'

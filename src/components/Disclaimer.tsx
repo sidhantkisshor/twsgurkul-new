@@ -32,7 +32,7 @@ export const Disclaimer: React.FC<DisclaimerProps> = ({ type = 'inline', classNa
   return (
     <div className={`bg-gray-900/50 border border-gray-800 rounded-lg p-3 mt-4 ${className}`}>
       <div className="flex items-start gap-2">
-        <Info className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
+        <Info className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" />
         <p className="text-xs text-gray-400">
           <span className="font-semibold">Disclaimer:</span> Success rates and profit figures mentioned are {disclaimerText}. 
           Individual results may vary based on market conditions, capital invested, and personal dedication. 

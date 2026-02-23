@@ -47,9 +47,9 @@ export default function QuizLandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {/* Urgency Banner */}
-      <div className="bg-red-600/20 border-b border-red-600/30 backdrop-blur-sm">
+      <div className="bg-red-600/20 border-b border-red-600/30 backdrop-blur-xs">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-center gap-2 text-sm">
             <AlertTriangle className="w-4 h-4 text-red-500 animate-pulse" />
@@ -110,15 +110,15 @@ export default function QuizLandingPage() {
             transition={{ delay: 0.3 }}
             className="grid grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto"
           >
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
+            <div className="bg-gray-800/50 backdrop-blur-xs rounded-lg p-4 border border-gray-700">
               <div className="text-2xl font-bold text-yellow-500">89%</div>
               <div className="text-sm text-gray-400">Match Accuracy</div>
             </div>
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
+            <div className="bg-gray-800/50 backdrop-blur-xs rounded-lg p-4 border border-gray-700">
               <div className="text-2xl font-bold text-green-500">2 Min</div>
               <div className="text-sm text-gray-400">To Complete</div>
             </div>
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-gray-700">
+            <div className="bg-gray-800/50 backdrop-blur-xs rounded-lg p-4 border border-gray-700">
               <div className="text-2xl font-bold text-blue-500">₹15K</div>
               <div className="text-sm text-gray-400">In Bonuses</div>
             </div>
@@ -132,7 +132,7 @@ export default function QuizLandingPage() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowQuiz(true)}
-            className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold py-5 px-12 rounded-lg text-lg shadow-2xl hover:shadow-yellow-500/25 transition-all flex items-center gap-3 mx-auto"
+            className="bg-linear-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold py-5 px-12 rounded-lg text-lg shadow-2xl hover:shadow-yellow-500/25 transition-all flex items-center gap-3 mx-auto"
           >
             <Brain className="w-6 h-6" />
             START MY PERSONALIZED ASSESSMENT
@@ -164,7 +164,7 @@ export default function QuizLandingPage() {
           className="max-w-4xl mx-auto mt-16 grid md:grid-cols-2 gap-8"
         >
           {/* Wrong Choice */}
-          <div className="bg-red-500/10 backdrop-blur-sm rounded-xl p-6 border border-red-500/30">
+          <div className="bg-red-500/10 backdrop-blur-xs rounded-xl p-6 border border-red-500/30">
             <h3 className="text-xl font-bold text-red-400 mb-4 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5" />
               What Happens When You Choose WRONG
@@ -195,7 +195,7 @@ export default function QuizLandingPage() {
           </div>
 
           {/* Right Choice */}
-          <div className="bg-green-500/10 backdrop-blur-sm rounded-xl p-6 border border-green-500/30">
+          <div className="bg-green-500/10 backdrop-blur-xs rounded-xl p-6 border border-green-500/30">
             <h3 className="text-xl font-bold text-green-400 mb-4 flex items-center gap-2">
               <CheckCircle className="w-5 h-5" />
               What Happens With PERFECT Match
@@ -272,7 +272,7 @@ export default function QuizLandingPage() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="max-w-4xl mx-auto mt-16 bg-gray-800/30 backdrop-blur-sm rounded-xl p-8 border border-gray-700"
+          className="max-w-4xl mx-auto mt-16 bg-gray-800/30 backdrop-blur-xs rounded-xl p-8 border border-gray-700"
         >
           <h3 className="text-2xl font-bold text-center mb-6">
             Recent Quiz Results (Live Updates)
@@ -318,7 +318,7 @@ export default function QuizLandingPage() {
           transition={{ delay: 0.9 }}
           className="max-w-4xl mx-auto mt-16 text-center"
         >
-          <div className="bg-yellow-500/10 backdrop-blur-sm rounded-xl p-8 border border-yellow-500/30">
+          <div className="bg-yellow-500/10 backdrop-blur-xs rounded-xl p-8 border border-yellow-500/30">
             <h3 className="text-2xl font-bold mb-4">
               ⚠️ Why Most Traders Fail (And How You Won't)
             </h3>
@@ -333,7 +333,7 @@ export default function QuizLandingPage() {
             </p>
             <button
               onClick={() => setShowQuiz(true)}
-              className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-yellow-500/25 transition-all inline-flex items-center gap-2"
+              className="bg-linear-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-yellow-500/25 transition-all inline-flex items-center gap-2"
             >
               <Brain className="w-5 h-5" />
               DISCOVER MY PERFECT PROGRAM NOW

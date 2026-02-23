@@ -38,7 +38,7 @@ const GlassCard: React.FC<GlassCardProps> = ({
       {/* Gradient background on hover */}
       {hover && gradient !== 'none' && (
         <div className={cn(
-          "absolute inset-0 bg-gradient-to-br rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+          "absolute inset-0 bg-linear-to-br rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500",
           gradientClasses[gradient]
         )} />
       )}

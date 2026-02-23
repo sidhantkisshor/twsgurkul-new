@@ -149,12 +149,12 @@ export const getStaggerDelay = (index: number, baseDelay: number = 100) => {
  * CSS classes for common animations
  */
 export const animationClasses = {
-  fadeIn: 'animate-fadeIn',
-  slideUp: 'animate-slideUp',
-  slideDown: 'animate-slideDown',
-  slideLeft: 'animate-slideLeft',
-  slideRight: 'animate-slideRight',
-  scaleIn: 'animate-scaleIn',
+  fadeIn: 'animate-fade-in',
+  slideUp: 'animate-slide-up',
+  slideDown: 'animate-slide-down',
+  slideLeft: 'animate-slide-left',
+  slideRight: 'animate-slide-right',
+  scaleIn: 'animate-scale-in',
   pulse: 'animate-pulse',
   bounce: 'animate-bounce',
   wiggle: 'animate-wiggle',

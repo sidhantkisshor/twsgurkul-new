@@ -75,7 +75,7 @@ const SimpleFaqSection: React.FC = () => {
                   <motion.div
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="flex-shrink-0"
+                    className="shrink-0"
                   >
                     <ChevronDown className="w-5 h-5 text-gray-500" />
                   </motion.div>

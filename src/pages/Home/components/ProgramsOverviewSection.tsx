@@ -123,7 +123,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
   return (
     <section id="programs" className="py-20 sm:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950/50 to-black" />
+      <div className="absolute inset-0 bg-linear-to-b from-black via-gray-950/50 to-black" />
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -132,7 +132,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="text-white">Choose Your </span>
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Trading Path
               </span>
             </h2>
@@ -152,18 +152,18 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
                   hoveredProgram === index ? 'scale-105 z-10' : hoveredProgram !== null ? 'scale-95 opacity-70' : ''
                 }`}
               >
-                <div className={`glass-effect rounded-3xl p-6 border ${program.borderColor} hover:border-white/30 h-full bg-gradient-to-br ${program.bgGradient}`}>
+                <div className={`glass-effect rounded-3xl p-6 border ${program.borderColor} hover:border-white/30 h-full bg-linear-to-br ${program.bgGradient}`}>
                   
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <span className={`text-xs font-bold bg-gradient-to-r ${program.color} bg-clip-text text-transparent`}>
+                      <span className={`text-xs font-bold bg-linear-to-r ${program.color} bg-clip-text text-transparent`}>
                         {program.level}
                       </span>
                       <h3 className="text-2xl font-bold text-white mt-1">{program.name}</h3>
                       <p className="text-sm text-gray-400 mt-1">{program.tagline}</p>
                     </div>
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${program.color} flex items-center justify-center`}>
+                    <div className={`w-12 h-12 rounded-xl bg-linear-to-r ${program.color} flex items-center justify-center`}>
                       <program.icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -177,7 +177,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
                     <div className="flex items-center gap-2">
                       <span className="text-lg font-semibold text-red-400">{program.transformation.from}</span>
                       <div className="flex-1 flex items-center">
-                        <div className="flex-1 h-0.5 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500" />
+                        <div className="flex-1 h-0.5 bg-linear-to-r from-red-500 via-yellow-500 to-green-500" />
                         <ArrowRight className="w-4 h-4 text-gray-400 mx-2" />
                       </div>
                       <span className="text-lg font-bold text-green-400">{program.transformation.to}</span>
@@ -201,7 +201,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
                   <div className="space-y-2 mb-4">
                     {program.features.slice(0, 4).map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
                         <span className="text-sm text-gray-300">{feature}</span>
                       </div>
                     ))}
@@ -213,7 +213,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
                   {/* Testimonial */}
                   <div className="p-3 rounded-lg bg-white/5 border border-white/10 mb-4">
                     <div className="flex items-start gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-full bg-linear-to-br from-green-400 to-emerald-500 flex items-center justify-center">
                         <Star className="w-4 h-4 text-white" />
                       </div>
                       <div className="flex-1">
@@ -229,7 +229,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
                   <div className="space-y-3 mt-6">
                     <button 
                       onClick={() => navigate(program.route)}
-                      className={`w-full py-3 rounded-full bg-gradient-to-r ${program.color} text-white font-bold hover:shadow-lg transition-all cursor-pointer`}
+                      className={`w-full py-3 rounded-full bg-linear-to-r ${program.color} text-white font-bold hover:shadow-lg transition-all cursor-pointer`}
                     >
                       Learn More →
                     </button>
@@ -260,7 +260,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
                   document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-full px-8 py-4 font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 group"
+              className="inline-flex items-center gap-2 bg-linear-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-full px-8 py-4 font-bold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 group"
             >
               Take the Quiz
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

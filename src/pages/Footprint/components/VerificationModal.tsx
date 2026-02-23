@@ -14,7 +14,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
         <>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[900]"
+            className="fixed inset-0 bg-black/80 backdrop-blur-xs z-900"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -23,7 +23,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
           
           {/* Modal */}
           <motion.div
-            className="fixed inset-0 flex items-center justify-center z-[900] p-4 pointer-events-none"
+            className="fixed inset-0 flex items-center justify-center z-900 p-4 pointer-events-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -67,7 +67,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
                         <span className="text-cyan-400 font-bold text-sm">1</span>
                       </div>
                       <div>
@@ -79,7 +79,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
                         <span className="text-cyan-400 font-bold text-sm">2</span>
                       </div>
                       <div>
@@ -92,7 +92,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
                         <span className="text-cyan-400 font-bold text-sm">3</span>
                       </div>
                       <div>

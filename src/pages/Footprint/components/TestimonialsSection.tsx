@@ -61,7 +61,7 @@ const TestimonialsSection: React.FC = () => {
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
                   <div className="flex-1">
                     <div className="flex items-start mb-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-700 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-700 flex items-center justify-center mr-3 sm:mr-4 shrink-0">
                         <User className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
                       </div>
                       <div>
@@ -105,7 +105,7 @@ const TestimonialsSection: React.FC = () => {
                 {additionalTestimonials.map((testimonial, index) => (
                   <div key={index} className="bg-slate-800/60 rounded-xl p-4 border border-slate-700">
                     <div className="flex items-start mb-3">
-                      <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center mr-3 flex-shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center mr-3 shrink-0">
                         <User size={16} className="text-cyan-400" />
                       </div>
                       <div>

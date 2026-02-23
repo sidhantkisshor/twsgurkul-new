@@ -11,7 +11,7 @@ interface BlogCardProps {
 const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
   if (featured) {
     return (
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300">
+      <div className="bg-linear-to-r from-gray-900 to-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300">
         <div className="flex flex-wrap items-center gap-4 mb-4">
           <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
             {post.category}

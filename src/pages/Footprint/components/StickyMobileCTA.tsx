@@ -37,7 +37,7 @@ const StickyMobileCTA: React.FC = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-0 left-0 right-0 z-[800] md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-cyan-500/20 p-4"
+          className="fixed bottom-0 left-0 right-0 z-800 md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-cyan-500/20 p-4"
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           exit={{ y: 100 }}

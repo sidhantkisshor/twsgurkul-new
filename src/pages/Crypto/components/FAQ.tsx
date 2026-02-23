@@ -11,7 +11,7 @@ const FAQ: React.FC = () => {
 
     return (
         <>
-            <section id="faq" className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-slate-900 to-slate-800">
+            <section id="faq" className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-t from-slate-900 to-slate-800">
                 <div className="max-w-4xl mx-auto">
                     {/* FAQ */}
                     <div className="space-y-4">
@@ -21,19 +21,19 @@ const FAQ: React.FC = () => {
                         {faqs.map((faq, index) => (
                             <div 
                                 key={index} 
-                                className="bg-slate-800/70 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden transition-all duration-300 hover:border-yellow-400/30 hover:shadow-lg hover:shadow-yellow-400/10"
+                                className="bg-slate-800/70 backdrop-blur-xs rounded-xl border border-slate-700/50 overflow-hidden transition-all duration-300 hover:border-yellow-400/30 hover:shadow-lg hover:shadow-yellow-400/10"
                             >
                                 <button
                                     onClick={() => toggleFAQ(index)}
                                     className="w-full p-6 text-left flex items-center justify-between transition-all duration-200 hover:bg-slate-700/30"
                                 >
                                     <div className="flex items-start flex-1">
-                                        <Eye className="w-5 h-5 text-yellow-400 mr-3 flex-shrink-0 mt-1" />
+                                        <Eye className="w-5 h-5 text-yellow-400 mr-3 shrink-0 mt-1" />
                                         <span className="font-semibold text-white text-lg leading-relaxed">
                                             {faq.q}
                                         </span>
                                     </div>
-                                    <div className="ml-4 flex-shrink-0">
+                                    <div className="ml-4 shrink-0">
                                         {openIndex === index ? (
                                             <ChevronUp className="w-5 h-5 text-yellow-400 transition-transform duration-200" />
                                         ) : (
@@ -51,7 +51,7 @@ const FAQ: React.FC = () => {
                                 >
                                     <div className="px-6 pb-6 pt-0">
                                         <div className="ml-8 pr-9">
-                                            <div className="w-full h-px bg-gradient-to-r from-yellow-400/20 to-transparent mb-4"></div>
+                                            <div className="w-full h-px bg-linear-to-r from-yellow-400/20 to-transparent mb-4"></div>
                                             <p className="text-slate-300 leading-relaxed">
                                                 {faq.a}
                                             </p>

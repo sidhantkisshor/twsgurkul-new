@@ -25,13 +25,13 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
     <AnimatePresence>
       {isOpen && (
         <motion.div 
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[900] flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto"
+          className="fixed inset-0 bg-black/80 backdrop-blur-xs z-900 flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div 
-            className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-xl sm:rounded-2xl p-5 sm:p-8 max-w-lg w-full border border-yellow-500/30 shadow-2xl relative overflow-hidden my-auto mt-12 sm:mt-auto"
+            className="bg-linear-to-br from-slate-900 to-slate-800 rounded-xl sm:rounded-2xl p-5 sm:p-8 max-w-lg w-full border border-yellow-500/30 shadow-2xl relative overflow-hidden my-auto mt-12 sm:mt-auto"
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -76,7 +76,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
               <div className="space-y-2 sm:space-y-3 pt-4 sm:pt-6">
                 <motion.button
                   onClick={handleClaimSeat}
-                  className="w-full py-3 sm:py-4 bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-base sm:text-lg"
+                  className="w-full py-3 sm:py-4 bg-linear-to-r from-yellow-500 to-orange-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-base sm:text-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

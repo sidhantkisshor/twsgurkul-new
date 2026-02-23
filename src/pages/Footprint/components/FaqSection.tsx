@@ -24,7 +24,7 @@ const FaqSection: React.FC = () => {
       question: "Calls milenge?",
       answer: (
         <div className="flex items-start gap-2">
-          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0 mt-0.5 pointer-events-none">
+          <div className="w-6 h-6 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center shrink-0 mt-0.5 pointer-events-none">
             <span className="text-white font-bold text-[10px]">TWS</span>
           </div>
           <span>Nahi. Process sikhate hain—planned entries with clear invalidation.</span>
@@ -55,7 +55,7 @@ const FaqSection: React.FC = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-700 overflow-hidden animate-on-scroll"
+                className="bg-slate-800/60 backdrop-blur-xs rounded-xl border border-slate-700 overflow-hidden animate-on-scroll"
               >
                 <button
                   className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center gap-2"
@@ -63,9 +63,9 @@ const FaqSection: React.FC = () => {
                 >
                   <span className="font-bold text-white text-sm sm:text-base">{faq.question}</span>
                   {openIndex === index ? (
-                    <ChevronUp className="text-cyan-400 flex-shrink-0" />
+                    <ChevronUp className="text-cyan-400 shrink-0" />
                   ) : (
-                    <ChevronDown className="text-cyan-400 flex-shrink-0" />
+                    <ChevronDown className="text-cyan-400 shrink-0" />
                   )}
                 </button>
                 

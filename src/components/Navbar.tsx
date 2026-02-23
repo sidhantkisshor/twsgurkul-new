@@ -37,7 +37,7 @@ const Navbar = () => {
         className={`fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 transition-colors duration-300 ${
           isScrolled 
             ? 'bg-black/80 backdrop-blur-lg border border-white/20' 
-            : 'bg-white/10 backdrop-blur-sm border border-white/10'
+            : 'bg-white/10 backdrop-blur-xs border border-white/10'
         } rounded-full px-3 sm:px-4 xl:px-6 py-2 sm:py-3 w-[calc(100%-1rem)] sm:w-auto max-w-[calc(100vw-1rem)] sm:max-w-none`}
       >
         <div className="flex items-center justify-between sm:justify-start sm:space-x-3 xl:space-x-8 w-full sm:w-auto">
@@ -55,7 +55,7 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/"
-              className="font-extrabold text-white block sm:hidden md:block tracking-tight text-sm sm:text-lg bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent hover:from-blue-200 hover:via-purple-200 hover:to-green-200 transition-all duration-300"
+              className="font-extrabold text-white block sm:hidden md:block tracking-tight text-sm sm:text-lg bg-linear-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent hover:from-blue-200 hover:via-purple-200 hover:to-green-200 transition-all duration-300"
             >
               TWS<span className="text-green-400">.</span>GURUKUL
             </Link>
@@ -97,7 +97,7 @@ const Navbar = () => {
                 window.location.href = '/#quiz';
               }
             }}
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-4 py-2 text-sm font-semibold hidden md:flex transition-colors duration-200 whitespace-nowrap shadow-lg"
+            className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-4 py-2 text-sm font-semibold hidden md:flex transition-colors duration-200 whitespace-nowrap shadow-lg"
           >
             Find Your Program
           </button>
@@ -166,7 +166,7 @@ const Navbar = () => {
                       quizElement.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="group bg-gradient-to-r from-green-500 to-[#01d449] hover:from-green-600 hover:to-[#00c43e] text-white rounded-xl w-full py-3 px-4 text-center block transition-all duration-300 font-medium text-base"
+                  className="group bg-linear-to-r from-green-500 to-[#01d449] hover:from-green-600 hover:to-[#00c43e] text-white rounded-xl w-full py-3 px-4 text-center block transition-all duration-300 font-medium text-base"
                 >
                   <span className="flex items-center justify-center space-x-2">
                     <span>Take Quiz</span>

@@ -81,14 +81,14 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
     };
 
     return (
-        <section ref={containerRef} className="relative min-h-screen lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 lg:py-0">
+        <section ref={containerRef} className="relative min-h-screen lg:min-h-screen flex items-center overflow-hidden bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 py-20 lg:py-0">
             {/* Animated background elements */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-yellow-500/10 rounded-full filter blur-[80px] sm:blur-[120px] animate-pulse" />
                 <div className="absolute bottom-0 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-orange-500/10 rounded-full filter blur-[80px] sm:blur-[120px] animate-pulse delay-1000" />
                 
                 {/* Grid pattern */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[4rem_4rem]" />
             </div>
 
             <motion.div 
@@ -128,7 +128,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                             >
                                 <span className="text-white">Stop losing money to</span>{" "}
                                 <span className="relative">
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+                                    <span className="text-transparent bg-clip-text bg-linear-to-r from-yellow-400 to-orange-500">
                                         Instagram gurus
                                     </span>
                                     <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8">
@@ -154,7 +154,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                         </div>
 
                         {/* Problem/Solution Toggle */}
-                        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-1">
+                        <div className="bg-slate-800/50 backdrop-blur-xs rounded-xl p-1">
                             <div className="flex gap-1">
                                 <button
                                     onClick={() => setActiveTab('problem')}
@@ -199,7 +199,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                                         "Information overload → Paralysis by analysis"
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-start gap-3">
-                                            <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center shrink-0 mt-0.5">
                                                 <div className="w-2 h-2 bg-red-500 rounded-full" />
                                             </div>
                                             <span className="text-sm sm:text-base text-slate-400">{item}</span>
@@ -221,7 +221,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                                         "Live monthly Q&A → Direct access to expert guidance"
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-start gap-3">
-                                            <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-0.5">
                                                 <CheckCircle className="w-4 h-4 text-green-500" />
                                             </div>
                                             <span className="text-sm sm:text-base text-slate-300">{item}</span>
@@ -232,21 +232,21 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                         </AnimatePresence>
 
                         {/* Mobile Countdown Timer */}
-                        <div className="lg:hidden bg-gradient-to-br from-orange-500/20 to-yellow-500/20 backdrop-blur-sm rounded-xl p-3 border border-yellow-500/30">
+                        <div className="lg:hidden bg-linear-to-br from-orange-500/20 to-yellow-500/20 backdrop-blur-xs rounded-xl p-3 border border-yellow-500/30">
                             <div className="text-center">
                                 <div className="text-xs text-yellow-400 mb-1">Enrollment closes in</div>
                                 <div className="flex items-center justify-center gap-1 text-white font-mono">
-                                    <div className="bg-slate-800/80 rounded px-2 py-1">
+                                    <div className="bg-slate-800/80 rounded-sm px-2 py-1">
                                         <div className="text-lg font-bold">{String(timeLeft.hours).padStart(2, '0')}</div>
                                         <div className="text-[9px] text-slate-400">HRS</div>
                                     </div>
                                     <span className="text-yellow-400 text-sm">:</span>
-                                    <div className="bg-slate-800/80 rounded px-2 py-1">
+                                    <div className="bg-slate-800/80 rounded-sm px-2 py-1">
                                         <div className="text-lg font-bold">{String(timeLeft.minutes).padStart(2, '0')}</div>
                                         <div className="text-[9px] text-slate-400">MIN</div>
                                     </div>
                                     <span className="text-yellow-400 text-sm">:</span>
-                                    <div className="bg-slate-800/80 rounded px-2 py-1">
+                                    <div className="bg-slate-800/80 rounded-sm px-2 py-1">
                                         <div className="text-lg font-bold">{String(timeLeft.seconds).padStart(2, '0')}</div>
                                         <div className="text-[9px] text-slate-400">SEC</div>
                                     </div>
@@ -258,7 +258,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                         <div className="space-y-4">
                             <motion.button
                                 onClick={handleEnroll}
-                                className="w-full sm:w-auto bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-yellow-500/25 transition-all hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/30 text-sm sm:text-base"
+                                className="w-full sm:w-auto bg-linear-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-yellow-500/25 transition-all hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/30 text-sm sm:text-base"
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                             >
@@ -318,7 +318,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
 
                             {/* Floating stat cards */}
                             <motion.div 
-                                className="absolute top-0 left-0 bg-slate-800/80 backdrop-blur-sm rounded-xl p-4 border border-slate-700"
+                                className="absolute top-0 left-0 bg-slate-800/80 backdrop-blur-xs rounded-xl p-4 border border-slate-700"
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                             >
@@ -334,7 +334,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                             </motion.div>
 
                             <motion.div 
-                                className="absolute top-20 right-0 bg-slate-800/80 backdrop-blur-sm rounded-xl p-4 border border-slate-700"
+                                className="absolute top-20 right-0 bg-slate-800/80 backdrop-blur-xs rounded-xl p-4 border border-slate-700"
                                 animate={{ y: [0, 10, 0] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                             >
@@ -350,7 +350,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                             </motion.div>
 
                             <motion.div 
-                                className="absolute bottom-20 left-0 bg-slate-800/80 backdrop-blur-sm rounded-xl p-4 border border-slate-700"
+                                className="absolute bottom-20 left-0 bg-slate-800/80 backdrop-blur-xs rounded-xl p-4 border border-slate-700"
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                             >
@@ -367,24 +367,24 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
 
                             {/* Timer Card - Desktop Only */}
                             <motion.div 
-                                className="hidden lg:block absolute bottom-0 right-0 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 backdrop-blur-sm rounded-xl p-4 border border-yellow-500/30"
+                                className="hidden lg:block absolute bottom-0 right-0 bg-linear-to-br from-orange-500/20 to-yellow-500/20 backdrop-blur-xs rounded-xl p-4 border border-yellow-500/30"
                                 animate={{ scale: [1, 1.05, 1] }}
                                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                             >
                                 <div className="text-center">
                                     <div className="text-xs text-yellow-400 mb-2">Enrollment closes in</div>
                                     <div className="flex items-center gap-2 text-white font-mono">
-                                        <div className="bg-slate-800/80 rounded px-2 py-1">
+                                        <div className="bg-slate-800/80 rounded-sm px-2 py-1">
                                             <div className="text-xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</div>
                                             <div className="text-[10px] text-slate-400">HRS</div>
                                         </div>
                                         <span className="text-yellow-400">:</span>
-                                        <div className="bg-slate-800/80 rounded px-2 py-1">
+                                        <div className="bg-slate-800/80 rounded-sm px-2 py-1">
                                             <div className="text-xl font-bold">{String(timeLeft.minutes).padStart(2, '0')}</div>
                                             <div className="text-[10px] text-slate-400">MIN</div>
                                         </div>
                                         <span className="text-yellow-400">:</span>
-                                        <div className="bg-slate-800/80 rounded px-2 py-1">
+                                        <div className="bg-slate-800/80 rounded-sm px-2 py-1">
                                             <div className="text-xl font-bold">{String(timeLeft.seconds).padStart(2, '0')}</div>
                                             <div className="text-[10px] text-slate-400">SEC</div>
                                         </div>
@@ -395,19 +395,19 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
 
                         {/* Mobile Stats - Visible only on mobile */}
                         <div className="md:hidden grid grid-cols-2 gap-4 mb-8">
-                            <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-4 border border-slate-700">
+                            <div className="bg-slate-800/60 backdrop-blur-xs rounded-xl p-4 border border-slate-700">
                                 <div className="text-2xl font-bold text-white">₹27.2 Cr</div>
                                 <div className="text-xs text-slate-400">Student Profits</div>
                             </div>
-                            <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-4 border border-slate-700">
+                            <div className="bg-slate-800/60 backdrop-blur-xs rounded-xl p-4 border border-slate-700">
                                 <div className="text-2xl font-bold text-white">1,263</div>
                                 <div className="text-xs text-slate-400">Active Learners</div>
                             </div>
-                            <div className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-4 border border-slate-700">
+                            <div className="bg-slate-800/60 backdrop-blur-xs rounded-xl p-4 border border-slate-700">
                                 <div className="text-2xl font-bold text-white">73%</div>
                                 <div className="text-xs text-slate-400">Win Rate</div>
                             </div>
-                            <div className="bg-gradient-to-br from-orange-500/20 to-yellow-500/20 backdrop-blur-sm rounded-xl p-4 border border-yellow-500/30">
+                            <div className="bg-linear-to-br from-orange-500/20 to-yellow-500/20 backdrop-blur-xs rounded-xl p-4 border border-yellow-500/30">
                                 <div className="text-2xl font-bold text-white">Live</div>
                                 <div className="text-xs text-slate-400">42 Trading Now</div>
                             </div>
@@ -433,7 +433,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
 
                 {/* Bottom Proof Bar */}
                 <motion.div 
-                    className="mt-8 lg:mt-12 bg-slate-800/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-slate-700"
+                    className="mt-8 lg:mt-12 bg-slate-800/30 backdrop-blur-xs rounded-xl p-3 sm:p-4 border border-slate-700"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
@@ -447,7 +447,7 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ handleSmo
                                 <div aria-label="student avatar" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 bg-cover bg-center filter brightness-90 contrast-110" style={{ backgroundImage: 'url(https://randomuser.me/api/portraits/women/15.jpg)' }} />
                                 <div aria-label="student avatar" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 bg-cover bg-center filter brightness-90 contrast-110" style={{ backgroundImage: 'url(https://xsgames.co/randomusers/assets/avatars/male/65.jpg)' }} />
                                 <div aria-label="student avatar" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-800 bg-cover bg-center filter brightness-90 contrast-110" style={{ backgroundImage: 'url(https://i.pravatar.cc/400?img=59)' }} />
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 border-2 border-slate-800 flex items-center justify-center">
+                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-linear-to-br from-yellow-500 to-orange-600 border-2 border-slate-800 flex items-center justify-center">
                                     <span className="text-[10px] sm:text-xs text-white font-semibold">+1k</span>
                                 </div>
                             </div>

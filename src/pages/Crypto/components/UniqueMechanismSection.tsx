@@ -26,7 +26,7 @@ const UniqueMechanismSection: React.FC = () => {
             {uniqueMechanismData.features.map((feature, index) => (
               <motion.div 
                 key={index}
-                className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-6 border border-yellow-500/20 hover:border-yellow-500/40 transition-all"
+                className="bg-slate-800/60 backdrop-blur-xs rounded-xl p-6 border border-yellow-500/20 hover:border-yellow-500/40 transition-all"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}

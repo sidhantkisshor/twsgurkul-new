@@ -53,13 +53,13 @@ const WhyFootprintSection: React.FC = () => {
           {learningPoints.map((point, index) => (
             <motion.div
               key={index}
-              className="bg-slate-800/60 backdrop-blur-sm rounded-xl p-4 border border-slate-700 flex items-start gap-4"
+              className="bg-slate-800/60 backdrop-blur-xs rounded-xl p-4 border border-slate-700 flex items-start gap-4"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className="flex-shrink-0 w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+              <div className="shrink-0 w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
                 <span className="text-lg font-bold text-cyan-400">{point.letter}</span>
               </div>
               <div className="flex-1">
@@ -79,7 +79,7 @@ const WhyFootprintSection: React.FC = () => {
           transition={{ delay: 0.5 }}
         >
           <div className="flex flex-col md:flex-row items-center gap-4">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center flex-shrink-0 pointer-events-none">
+            <div className="w-16 h-16 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center shrink-0 pointer-events-none">
               <span className="text-white font-bold text-xl">S</span>
             </div>
             <div className="flex-1 text-center md:text-left">

@@ -20,14 +20,14 @@ const ExitIntentPopup: React.FC = () => {
   return (
     <AnimatePresence>
       <motion.div 
-        className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+        className="fixed inset-0 bg-black/80 backdrop-blur-xs flex items-center justify-center z-50 p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={handleClose}
       >
         <motion.div 
-          className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 max-w-lg w-full relative border border-red-500/30"
+          className="bg-linear-to-br from-gray-900 to-black rounded-2xl p-8 max-w-lg w-full relative border border-red-500/30"
           initial={{ scale: 0.8, y: 20 }}
           animate={{ scale: 1, y: 0 }}
           exit={{ scale: 0.8, y: 20 }}
@@ -51,7 +51,7 @@ const ExitIntentPopup: React.FC = () => {
             </motion.div>
 
             <h3 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
                 Don't Miss Out!
               </span>
             </h3>
@@ -95,7 +95,7 @@ const ExitIntentPopup: React.FC = () => {
 
             <button 
               onClick={handleEnroll}
-              className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-full hover:shadow-lg hover:shadow-green-500/50 transition-all transform hover:scale-105 mb-4"
+              className="w-full py-4 bg-linear-to-r from-green-500 to-emerald-600 text-white font-bold rounded-full hover:shadow-lg hover:shadow-green-500/50 transition-all transform hover:scale-105 mb-4"
             >
               Secure Your Spot Now
             </button>

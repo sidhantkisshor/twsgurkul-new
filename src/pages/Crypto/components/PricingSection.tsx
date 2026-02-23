@@ -25,7 +25,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
   };
 
   return (
-    <section id="pricing" className="crypto-section bg-gradient-to-b from-slate-900 to-slate-800">
+    <section id="pricing" className="crypto-section bg-linear-to-b from-slate-900 to-slate-800">
       <div className="crypto-container">
         <motion.div 
           className="text-center mb-12"
@@ -35,7 +35,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
           viewport={{ once: true }}
         >
           <h2 className="crypto-h2 mb-4">
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent">
               Choose Your Learning Path
             </span>
           </h2>
@@ -66,7 +66,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
         >
           {/* Best Value Badge */}
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-            <div className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-6 py-2 rounded-full font-bold text-sm animate-pulse whitespace-nowrap">
+            <div className="bg-linear-to-r from-yellow-500 to-orange-600 text-white px-6 py-2 rounded-full font-bold text-sm animate-pulse whitespace-nowrap">
               🎯 <span className="tracking-[0.02em]">INSTANT ACCESS TODAY</span>
             </div>
           </div>
@@ -96,19 +96,19 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
               <h4 className="font-semibold text-white text-center">What you get for ₹19,499 (one-time, lifetime)</h4>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-yellow-400 mt-0.5 shrink-0">•</span>
                   <span className="text-gray-300"><strong className="text-white">Core Skillset</strong> — 12-week recorded curriculum</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-yellow-400 mt-0.5 shrink-0">•</span>
                   <span className="text-gray-300"><strong className="text-white">Real-time Refinement</strong> — monthly live Q&A + trade reviews (recorded)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-yellow-400 mt-0.5 shrink-0">•</span>
                   <span className="text-gray-300"><strong className="text-white">Tools & Templates</strong> — scanners, checklists, sizing sheets, psychology drills</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
+                  <span className="text-yellow-400 mt-0.5 shrink-0">•</span>
                   <span className="text-gray-300"><strong className="text-white">Private Network</strong> — moderated community for accountability</span>
                 </li>
               </ul>
@@ -118,7 +118,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
             {/* CTA Button */}
             <button 
               onClick={handleEnroll}
-              className="w-full py-4 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded-lg font-bold text-xl hover:shadow-lg hover:shadow-yellow-500/50 transition-all transform hover:scale-105 group"
+              className="w-full py-4 bg-linear-to-r from-yellow-500 to-orange-600 text-white rounded-lg font-bold text-xl hover:shadow-lg hover:shadow-yellow-500/50 transition-all transform hover:scale-105 group"
             >
               <span className="flex items-center justify-center gap-2">
                 Start Learning — ₹19,499

@@ -29,7 +29,7 @@ const InstructorSectionSimplified: React.FC = () => {
                             loading="lazy"
                         />
                     </picture>
-                    <div className="absolute bottom-4 left-4 right-4 bg-slate-900/80 backdrop-blur-sm p-4 rounded-lg border border-slate-700">
+                    <div className="absolute bottom-4 left-4 right-4 bg-slate-900/80 backdrop-blur-xs p-4 rounded-lg border border-slate-700">
                         <p className="text-lg font-bold text-white">Sidhant Kisshor</p>
                         <p className="text-sm text-slate-300">TEDx Speaker • IIT & NIT Guest Faculty</p>
                     </div>
@@ -44,7 +44,7 @@ const InstructorSectionSimplified: React.FC = () => {
                     <div>
                         <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                             <span className="text-white">Meet Sidhant —</span>{' '}
-                            <span className="bg-gradient-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent">
+                            <span className="bg-linear-to-r from-yellow-400 to-orange-600 bg-clip-text text-transparent">
                                 TEDx speaker, IIT/NIT guest faculty, trading since 2017
                             </span>
                         </h2>
@@ -63,7 +63,7 @@ const InstructorSectionSimplified: React.FC = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                <div className={`p-3 rounded-lg ${feature.bgColor} flex-shrink-0`}>
+                                <div className={`p-3 rounded-lg ${feature.bgColor} shrink-0`}>
                                     <feature.icon className={`w-5 h-5 ${feature.iconColor}`} />
                                 </div>
                                 <div>
