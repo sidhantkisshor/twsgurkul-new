@@ -27,7 +27,7 @@ const Header: React.FC = () => {
     <>
       <motion.header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-xs' : 'bg-transparent'
+          isScrolled ? 'bg-deep-slate/95 backdrop-blur-lg shadow-xs' : 'bg-deep-slate'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <Link to="/" className="text-xl sm:text-2xl font-light text-gray-900">
+            <Link to="/" className="text-xl sm:text-2xl font-semibold text-white">
               ETM
             </Link>
 
@@ -44,25 +44,25 @@ const Header: React.FC = () => {
             <nav className="hidden md:flex items-center gap-8">
               <button 
                 onClick={() => scrollToSection('problem')}
-                className="text-gray-600 hover:text-gray-900 transition-colors font-light"
+                className="text-white/80 hover:text-white transition-colors font-light"
               >
                 Problem
               </button>
               <button 
                 onClick={() => scrollToSection('unique-mechanism')}
-                className="text-gray-600 hover:text-gray-900 transition-colors font-light"
+                className="text-white/80 hover:text-white transition-colors font-light"
               >
                 Method
               </button>
               <button 
                 onClick={() => scrollToSection('testimonials')}
-                className="text-gray-600 hover:text-gray-900 transition-colors font-light"
+                className="text-white/80 hover:text-white transition-colors font-light"
               >
                 Success Stories
               </button>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="text-gray-600 hover:text-gray-900 transition-colors font-light"
+                className="text-white/80 hover:text-white transition-colors font-light"
               >
                 Pricing
               </button>
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
             {/* Desktop CTA */}
             <motion.button
               onClick={() => scrollToSection('pricing')}
-              className="hidden md:block px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all font-light"
+              className="hidden md:block px-6 py-3 bg-burnt-amber text-white rounded-full hover:bg-burnt-amber/90 transition-all font-semibold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-gray-900"
+              className="md:hidden p-2 text-white"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
             
             {/* Menu Panel */}
             <motion.div
-              className="absolute right-0 top-0 h-full w-3/4 max-w-sm bg-white shadow-xl"
+              className="absolute right-0 top-0 h-full w-3/4 max-w-sm bg-deep-slate shadow-xl"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -116,25 +116,25 @@ const Header: React.FC = () => {
                 <nav className="flex flex-col gap-6">
                   <button 
                     onClick={() => scrollToSection('problem')}
-                    className="text-left text-lg text-gray-900 font-light"
+                    className="text-left text-lg text-white/80 hover:text-white font-light"
                   >
                     Problem
                   </button>
                   <button 
                     onClick={() => scrollToSection('unique-mechanism')}
-                    className="text-left text-lg text-gray-900 font-light"
+                    className="text-left text-lg text-white/80 hover:text-white font-light"
                   >
                     Method
                   </button>
                   <button 
                     onClick={() => scrollToSection('testimonials')}
-                    className="text-left text-lg text-gray-900 font-light"
+                    className="text-left text-lg text-white/80 hover:text-white font-light"
                   >
                     Success Stories
                   </button>
                   <button 
                     onClick={() => scrollToSection('pricing')}
-                    className="text-left text-lg text-gray-900 font-light"
+                    className="text-left text-lg text-white/80 hover:text-white font-light"
                   >
                     Pricing
                   </button>
@@ -142,7 +142,7 @@ const Header: React.FC = () => {
                 
                 <motion.button
                   onClick={() => scrollToSection('pricing')}
-                  className="mt-8 w-full px-6 py-3 bg-gray-900 text-white rounded-full font-light"
+                  className="mt-8 w-full px-6 py-3 bg-burnt-amber text-white rounded-full font-semibold"
                   whileTap={{ scale: 0.95 }}
                 >
                   Get Started

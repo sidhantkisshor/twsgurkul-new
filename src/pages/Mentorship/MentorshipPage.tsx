@@ -33,7 +33,7 @@ const MentorshipPage: React.FC = () => {
         ogDescription="Join a capped cohort, learn the 8 PM liquidity window, and practice it live five nights a week with our certified pro coaches trained in Sidhant's system."
       />
       <motion.div 
-        className="min-h-screen bg-white text-gray-900 overflow-x-hidden"
+        className="min-h-screen bg-warm-white text-deep-slate overflow-x-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
