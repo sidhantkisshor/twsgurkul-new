@@ -95,12 +95,11 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
     return (
         <section 
             id="testimonials" 
-            className="crypto-section bg-slate-900/50 overflow-hidden relative"
+            className="crypto-section bg-[#2C3539] overflow-hidden relative"
             role="region"
             aria-label="Customer testimonials"
         >
-            {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-linear-to-b from-transparent via-yellow-500/5 to-transparent" />
+            {/* Background */}
             <div className="crypto-container">
                 <motion.div
                     className="text-center space-y-4 sm:space-y-6 mb-12 sm:mb-16 px-4 sm:px-6 lg:px-8"
@@ -110,16 +109,16 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="crypto-h2">
-                        Real Student <span className="text-transparent bg-linear-to-r from-yellow-400 to-orange-300 bg-clip-text">Experiences</span>
+                        Real Student <span className="text-white">Experiences</span>
                     </h2>
-                    <p className="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-lg sm:text-xl text-[#EDE6D8] max-w-3xl mx-auto leading-relaxed">
                         Based on self-reported data. Individual results vary significantly.
                         {onMethodologyClick && (
                             <>
                                 {' '}
                                 <button
                                     onClick={onMethodologyClick}
-                                    className="inline-flex items-center gap-1 text-slate-400 hover:text-yellow-400 transition-colors group"
+                                    className="inline-flex items-center gap-1 text-[#EDE6D8]/70 hover:text-[#C87533] transition-colors group"
                                 >
                                     <span className="group-hover:underline">Methodology & verification</span>
                                     <span>→</span>
@@ -227,8 +226,8 @@ const TestimonialCard: React.FC<{
     return (
         <motion.div
             ref={cardRef}
-            className="bg-linear-to-br from-slate-800 to-slate-850 rounded-2xl border border-slate-700 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
-            whileHover={{ y: -8, borderColor: 'rgb(71 85 105)' }}
+            className="bg-[#FAF8F5] rounded-2xl border border-[rgba(44,53,57,0.08)] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
+            whileHover={{ y: -8, borderColor: 'rgba(44,53,57,0.16)' }}
         >
 
             <div className="flex items-center space-x-4 mb-4">
@@ -245,7 +244,7 @@ const TestimonialCard: React.FC<{
                         <motion.img 
                             src={testimonial.image} 
                             alt={testimonial.name} 
-                            className={`w-14 h-14 rounded-full object-cover border-2 border-slate-600 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                            className={`w-14 h-14 rounded-full object-cover border-2 border-[rgba(44,53,57,0.08)] transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                             onLoad={() => setImageLoaded(true)}
                             loading="lazy"
                             decoding="async"
@@ -253,25 +252,25 @@ const TestimonialCard: React.FC<{
                         />
                     </motion.picture>
                     {!imageLoaded && (
-                        <div className="absolute inset-0 bg-slate-700 rounded-full animate-pulse w-14 h-14" />
+                        <div className="absolute inset-0 bg-[#EDE6D8] rounded-full animate-pulse w-14 h-14" />
                     )}
                 </div>
                 
                 <div className="flex-1 min-w-0">
                     <motion.h4 
-                        className="font-bold text-white text-base"
+                        className="font-bold text-[#2C3539] text-base"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
                     >
                         {testimonial.name}
                     </motion.h4>
-                    <p className="text-slate-400 font-medium text-sm truncate">
+                    <p className="text-[#111111]/50 font-medium text-sm truncate">
                         {testimonial.role}
                     </p>
-                       <div className="flex items-center space-x-2 text-slate-500 mt-1 text-xs">
+                       <div className="flex items-center space-x-2 text-[#111111]/50 mt-1 text-xs">
                            <span>{testimonial.location}</span>
-                           <span className='text-slate-600'>•</span>
+                           <span className='text-[#111111]/30'>•</span>
                            <span>Age {testimonial.age}</span>
                        </div>
                 </div>
@@ -283,32 +282,32 @@ const TestimonialCard: React.FC<{
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
             >
-                <blockquote className="text-white leading-relaxed text-lg">
-                    <span className="text-green-400 text-3xl font-serif leading-none">"</span>
+                <blockquote className="text-[#2C3539] leading-relaxed text-lg">
+                    <span className="text-[#C87533] text-3xl font-serif leading-none">"</span>
                     <span className="font-semibold italic mx-1">
                         {testimonial.quoteHeadline}
                     </span>
-                    <span className="text-green-400 text-3xl font-serif leading-none">"</span>
+                    <span className="text-[#C87533] text-3xl font-serif leading-none">"</span>
                 </blockquote>
                 
-                <p className="text-slate-300 mt-2 leading-relaxed text-sm">
+                <p className="text-[#111111]/70 mt-2 leading-relaxed text-sm">
                     {testimonial.quoteBody}
                 </p>
             </motion.div>
 
             <div className="space-y-3">
                 <motion.div 
-                    className="bg-linear-to-r from-green-900/40 to-green-800/40 border border-green-500/30 rounded-xl p-3 relative overflow-hidden"
+                    className="bg-[#0A8D7A]/10 border border-[#0A8D7A]/20 rounded-xl p-3 relative overflow-hidden"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.6 }}
                 >
                     <div className="flex items-center justify-between relative z-10">
-                        <span className="text-slate-300 text-sm">
+                        <span className="text-[#111111]/70 text-sm">
                             Profit in {testimonial.time}
                         </span>
                         <motion.span 
-                            className="font-bold bg-linear-to-r from-green-400 to-green-300 bg-clip-text text-transparent text-xl"
+                            className="font-bold text-[#0A8D7A] text-xl"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: profitVisible ? 1 : 0 }}
                             transition={{ delay: 0.8, duration: 0.5 }}
@@ -317,7 +316,7 @@ const TestimonialCard: React.FC<{
                         </motion.span>
                     </div>
                     <motion.div 
-                        className="absolute inset-0 bg-linear-to-r from-green-400/10 to-transparent"
+                        className="absolute inset-0 bg-linear-to-r from-[#0A8D7A]/10 to-transparent"
                         initial={{ x: '-100%' }}
                         animate={{ x: '100%' }}
                         transition={{ delay: 1, duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
@@ -330,10 +329,10 @@ const TestimonialCard: React.FC<{
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7 }}
                 >
-                    <div className="p-2 bg-yellow-400/10 rounded-lg border border-yellow-400/20">
-                        <Gift className="text-yellow-400 w-5 h-5" />
+                    <div className="p-2 bg-[#C87533]/10 rounded-lg border border-[#C87533]/20">
+                        <Gift className="text-[#C87533] w-5 h-5" />
                     </div>
-                    <span className="font-semibold text-slate-200 text-sm">
+                    <span className="font-semibold text-[#2C3539] text-sm">
                         {testimonial.highlight}
                     </span>
                 </motion.div>
@@ -345,14 +344,14 @@ const TestimonialCard: React.FC<{
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.8 }}
                     >
-                        <div className="p-2 bg-blue-400/10 rounded-lg border border-blue-400/20">
-                            <UserCheck className="text-blue-400 w-5 h-5" />
+                        <div className="p-2 bg-[#0A8D7A]/10 rounded-lg border border-[#0A8D7A]/20">
+                            <UserCheck className="text-[#0A8D7A] w-5 h-5" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="font-semibold text-blue-400 text-sm">
+                            <span className="font-semibold text-[#0A8D7A] text-sm">
                                 Verified Student
                             </span>
-                            <span className="text-xs text-slate-500">
+                            <span className="text-xs text-[#111111]/50">
                                 {testimonial.verificationDate}
                             </span>
                         </div>
