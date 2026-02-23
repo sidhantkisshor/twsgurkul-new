@@ -5,82 +5,82 @@ import VerificationModal from './VerificationModal';
 const Footer: React.FC = () => {
   const [showVerificationModal, setShowVerificationModal] = useState(false);
   return (
-    <footer className="bg-slate-950 py-12 border-t border-slate-800">
+    <footer className="bg-[#232B2F] py-12 border-t border-[#B8956A]/20">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div className="flex items-center space-x-3 mb-6 md:mb-0">
               <div className="relative">
-                <div className="absolute inset-0 bg-cyan-500 blur-lg opacity-30"></div>
-                <div className="relative bg-linear-to-br from-cyan-400 to-teal-500 p-2 rounded-lg">
-                  <BookOpen className="w-5 h-5 text-slate-900" />
+                <div className="absolute inset-0 bg-[#C87533] blur-lg opacity-30"></div>
+                <div className="relative bg-gradient-to-br from-[#C87533] to-[#B8956A] p-2 rounded-lg">
+                  <BookOpen className="w-5 h-5 text-[#232B2F]" />
                 </div>
               </div>
               <div>
-                <span className="text-lg font-bold text-white">Footprint</span>
-                <span className="text-lg font-bold bg-linear-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent ml-1">Mastery</span>
+                <span className="text-lg font-bold text-[#EDE6D8]">Footprint</span>
+                <span className="text-lg font-bold bg-gradient-to-r from-[#C87533] to-[#B8956A] bg-clip-text text-transparent ml-1">Mastery</span>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap justify-center gap-6">
-              <a href="#mechanism" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">
+              <a href="#mechanism" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors text-sm">
                 What You'll Learn
               </a>
-              <a href="#testimonials" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">
+              <a href="#testimonials" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors text-sm">
                 Student Results
               </a>
-              <a href="#pricing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">
+              <a href="#pricing" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors text-sm">
                 Pricing
               </a>
-              <a href="#faq" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">
+              <a href="#faq" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors text-sm">
                 FAQ
               </a>
             </div>
           </div>
-          
-          <div className="border-t border-slate-800 pt-8 text-center">
+
+          <div className="border-t border-[#B8956A]/20 pt-8 text-center">
             <div className="space-y-4">
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[#B8A99A]">
                 © {new Date().getFullYear()} TWS Gurukul. All rights reserved.
               </p>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[#B8A99A]">
                 Education only. Not investment advice. Results vary.
               </p>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[#B8A99A]">
                 <button
                   onClick={() => setShowVerificationModal(true)}
-                  className="text-cyan-400 hover:text-cyan-300 underline"
+                  className="text-[#0A8D7A] hover:underline"
                 >
                   How TWS verifies student feedback →
                 </button>
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-xs">
-                <a href="https://tradingwithsidhant.com/legal/disclaimers" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href="https://tradingwithsidhant.com/legal/disclaimers" target="_blank" rel="noopener noreferrer" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors">
                   Disclaimers
                 </a>
-                <a href="https://tradingwithsidhant.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href="https://tradingwithsidhant.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors">
                   Privacy Policy
                 </a>
-                <a href="https://tradingwithsidhant.com/legal/terms" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href="https://tradingwithsidhant.com/legal/terms" target="_blank" rel="noopener noreferrer" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors">
                   Terms
                 </a>
-                <a href="https://tradingwithsidhant.com/legal/refund-policy" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href="https://tradingwithsidhant.com/legal/refund-policy" target="_blank" rel="noopener noreferrer" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors">
                   Refund Policy
                 </a>
-                <a href="https://tradingwithsidhant.com/legal/cookie-policy" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href="https://tradingwithsidhant.com/legal/cookie-policy" target="_blank" rel="noopener noreferrer" className="text-[#0A8D7A] hover:text-[#C87533] transition-colors">
                   Cookie Policy
                 </a>
               </div>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[#0A8D7A]">
                 Support: support@twsgurukul.com
               </p>
             </div>
           </div>
         </div>
       </div>
-      
+
       {/* Verification Modal */}
-      <VerificationModal 
+      <VerificationModal
         isOpen={showVerificationModal}
         onClose={() => setShowVerificationModal(false)}
       />
