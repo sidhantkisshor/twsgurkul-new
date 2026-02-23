@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import MobileStickyQuiz from './components/MobileStickyQuiz';
 import FloatingCTA from './components/FloatingCTA';
+import SocialProofBar from './components/SocialProofBar';
 import { useExitIntent } from './hooks/useExitIntent';
 import Seo from '../../components/Seo';
 
@@ -40,6 +41,7 @@ const MentorshipPage: React.FC = () => {
       >
         <Header />
         <HeroSection />
+        <SocialProofBar />
         <ProblemSection />
         <UniqueMechanismSection />
         <WhatYouGetSection />
