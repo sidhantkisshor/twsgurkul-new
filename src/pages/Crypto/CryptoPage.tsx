@@ -1,5 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Seo from '../../components/Seo';
+import './styles/crypto-brand-tokens.css';
 import './styles/design-system.css';
 import './styles/hero-reimagined.css';
 import './styles/crypto.css';
@@ -56,7 +57,7 @@ function CryptoPage() {
 
   return (
     <ErrorBoundary>
-      <div className="crypto-page min-h-screen bg-slate-900 text-white overflow-x-hidden">
+      <div className="crypto-page min-h-screen overflow-x-hidden">
         <Seo
           title="Crypto Market Mastery | TWS Gurukul"
           description="A recorded program with monthly live Q&A to learn systematic crypto trading with risk management at the core."
