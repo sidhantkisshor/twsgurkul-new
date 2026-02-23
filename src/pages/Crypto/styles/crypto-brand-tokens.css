@@ -52,7 +52,7 @@
   --color-info: #0A8D7A;
 
   /* === Typography === */
-  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-primary: 'Satoshi', 'Inter', system-ui, -apple-system, sans-serif;
   --text-h1: 56px;
   --text-h2: 36px;
   --text-h3: 24px;
