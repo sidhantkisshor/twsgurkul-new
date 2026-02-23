@@ -4,7 +4,7 @@ import { Check, X, ArrowRight } from 'lucide-react';
 
 const PricingSection: React.FC = () => {
   const [showInterceptModal, setShowInterceptModal] = useState(false);
-  
+
   const handleEnroll = (plan: string) => {
     if (plan === 'lite') {
       window.open('https://learn.tradingwithsidhant.com/web/checkout/689e1446ec5d77ab522a50f7?purchaseNow=true', '_blank');
@@ -17,12 +17,12 @@ const PricingSection: React.FC = () => {
       // Add enrollment logic here
     }
   };
-  
+
   const handleProContinue = () => {
     setShowInterceptModal(false);
     window.open('https://learn.tradingwithsidhant.com/web/checkout/689e14be3143df7292e76c34?purchaseNow=true', '_blank');
   };
-  
+
   const handleUpgradeToMax = () => {
     setShowInterceptModal(false);
     window.open('https://learn.tradingwithsidhant.com/web/checkout/689e14304cdc28f73d92a88c?purchaseNow=true', '_blank');
@@ -88,7 +88,7 @@ const PricingSection: React.FC = () => {
       style: 'featured'
     }
   ];
-  
+
   // Mobile order: Max, Pro, Lite (most important first)
   const mobilePlans = [
     desktopPlans[2], // Max
@@ -101,17 +101,17 @@ const PricingSection: React.FC = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <motion.div 
+          <motion.div
             className="text-center mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
               Choose your learning path
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+            <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
               Three months to transform your trading. One decision to change your life.
             </p>
           </motion.div>
@@ -122,11 +122,11 @@ const PricingSection: React.FC = () => {
               <motion.div
                 key={plan.id}
                 className={`relative rounded-3xl transition-all duration-300 ${
-                  plan.style === 'featured' 
-                    ? 'bg-gray-900 text-white shadow-2xl transform scale-105 lg:scale-110' 
+                  plan.style === 'featured'
+                    ? 'bg-deep-slate text-white shadow-2xl transform scale-105 lg:scale-110 border-2 border-burnt-amber'
                     : plan.style === 'muted'
-                    ? 'bg-gray-50 shadow-none'
-                    : 'bg-white shadow-xs'
+                    ? 'bg-white shadow-none border border-deep-slate/10'
+                    : 'bg-white shadow-xs border border-deep-slate/10'
                 }`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ const PricingSection: React.FC = () => {
                 {/* Recommended badge */}
                 {plan.recommended && (
                   <div className="absolute -top-4 right-6">
-                    <div className="bg-green-500 text-white text-xs px-4 py-2 rounded-full font-medium">
+                    <div className="bg-brushed-gold text-white text-xs px-4 py-2 rounded-full font-semibold">
                       Recommended
                     </div>
                   </div>
@@ -146,32 +146,32 @@ const PricingSection: React.FC = () => {
                 <div className={`p-8 ${plan.style === 'muted' ? 'opacity-90' : ''}`}>
                   {/* Plan header */}
                   <div className={`text-center mb-8 pb-8 border-b ${
-                    plan.style === 'featured' ? 'border-gray-700' : 'border-gray-200'
+                    plan.style === 'featured' ? 'border-white/20' : 'border-deep-slate/10'
                   }`}>
-                    <h3 className={`text-2xl font-normal mb-2 ${
-                      plan.style === 'featured' ? 'text-white' : 'text-gray-900'
+                    <h3 className={`text-2xl font-semibold mb-2 ${
+                      plan.style === 'featured' ? 'text-white' : 'text-deep-slate'
                     }`}>
                       {plan.name}
                     </h3>
-                    
+
                     {/* Price */}
                     <div className="mt-4">
-                      <span className={`text-3xl font-light ${
-                        plan.style === 'featured' ? 'text-white' : 'text-gray-900'
+                      <span className={`text-3xl font-semibold ${
+                        plan.style === 'featured' ? 'text-white' : 'text-deep-slate'
                       }`}>
                         {plan.price}
                       </span>
                       <span className={`text-sm ${
-                        plan.style === 'featured' ? 'text-gray-400' : 'text-gray-500'
+                        plan.style === 'featured' ? 'text-soft-sand/70' : 'text-deep-slate/50'
                       }`}>
                         {plan.duration}
                       </span>
                     </div>
-                    
+
                     {/* Description */}
                     <p className={`text-sm mt-4 ${
-                      plan.style === 'featured' ? 'text-gray-300' : 'text-gray-600'
-                    } font-light`}>
+                      plan.style === 'featured' ? 'text-soft-sand' : 'text-deep-slate/70'
+                    } font-normal`}>
                       {plan.description}
                     </p>
                   </div>
@@ -181,18 +181,16 @@ const PricingSection: React.FC = () => {
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
                         {feature.included ? (
-                          <Check className={`w-5 h-5 mt-0.5 shrink-0 ${
-                            plan.style === 'featured' ? 'text-green-400' : 'text-green-600'
-                          }`} />
+                          <Check className="w-5 h-5 mt-0.5 shrink-0 text-wealth-teal" />
                         ) : (
                           <X className={`w-5 h-5 mt-0.5 shrink-0 ${
-                            plan.style === 'featured' ? 'text-gray-600' : 'text-gray-300'
+                            plan.style === 'featured' ? 'text-white/30' : 'text-deep-slate/30'
                           }`} />
                         )}
-                        <span className={`text-sm font-light ${
-                          feature.included 
-                            ? plan.style === 'featured' ? 'text-gray-200' : 'text-gray-700'
-                            : plan.style === 'featured' ? 'text-gray-500' : 'text-gray-400'
+                        <span className={`text-sm font-normal ${
+                          feature.included
+                            ? plan.style === 'featured' ? 'text-soft-sand' : 'text-deep-slate/70'
+                            : plan.style === 'featured' ? 'text-white/40' : 'text-deep-slate/40'
                         }`}>
                           {feature.text}
                         </span>
@@ -204,10 +202,10 @@ const PricingSection: React.FC = () => {
                   <div>
                     <motion.button
                       onClick={() => handleEnroll(plan.id)}
-                      className={`w-full py-4 rounded-full transition-all duration-300 group font-light flex items-center justify-center gap-2 ${
+                      className={`w-full py-4 rounded-full transition-all duration-300 group font-semibold flex items-center justify-center gap-2 ${
                         plan.style === 'featured'
-                          ? 'bg-white text-gray-900 hover:bg-gray-100 text-base'
-                          : 'bg-gray-900 text-white hover:bg-gray-800 text-sm'
+                          ? 'bg-burnt-amber text-white hover:bg-burnt-amber/90 text-base'
+                          : 'bg-burnt-amber text-white hover:bg-burnt-amber/90 text-sm'
                       }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -215,15 +213,15 @@ const PricingSection: React.FC = () => {
                       {plan.ctaText}
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </motion.button>
-                    
+
                     {/* Microcopy */}
                     {plan.microcopy && (
                       <p className={`text-xs text-center mt-3 ${
-                        plan.style === 'featured' 
-                          ? 'text-gray-400' 
+                        plan.style === 'featured'
+                          ? 'text-soft-sand/60'
                           : plan.style === 'muted'
                           ? 'text-red-600 font-medium'
-                          : 'text-gray-500'
+                          : 'text-deep-slate/50'
                       }`}>
                         {plan.microcopy}
                       </p>
@@ -233,7 +231,7 @@ const PricingSection: React.FC = () => {
               </motion.div>
             ))}
           </div>
-          
+
           {/* Pricing cards - Mobile (carousel style, Max first) */}
           <div className="lg:hidden">
             <div className="flex flex-col gap-6 max-w-md mx-auto">
@@ -241,11 +239,11 @@ const PricingSection: React.FC = () => {
               <motion.div
                 key={plan.id}
                 className={`relative rounded-3xl transition-all duration-300 ${
-                  plan.style === 'featured' 
-                    ? 'bg-gray-900 text-white shadow-2xl transform scale-105 lg:scale-110' 
+                  plan.style === 'featured'
+                    ? 'bg-deep-slate text-white shadow-2xl transform scale-105 lg:scale-110 border-2 border-burnt-amber'
                     : plan.style === 'muted'
-                    ? 'bg-gray-50 shadow-none'
-                    : 'bg-white shadow-xs'
+                    ? 'bg-white shadow-none border border-deep-slate/10'
+                    : 'bg-white shadow-xs border border-deep-slate/10'
                 }`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -255,7 +253,7 @@ const PricingSection: React.FC = () => {
                 {/* Recommended badge */}
                 {plan.recommended && (
                   <div className="absolute -top-4 right-6">
-                    <div className="bg-green-500 text-white text-xs px-4 py-2 rounded-full font-medium">
+                    <div className="bg-brushed-gold text-white text-xs px-4 py-2 rounded-full font-semibold">
                       Recommended
                     </div>
                   </div>
@@ -265,32 +263,32 @@ const PricingSection: React.FC = () => {
                 <div className={`p-8 ${plan.style === 'muted' ? 'opacity-90' : ''}`}>
                   {/* Plan header */}
                   <div className={`text-center mb-8 pb-8 border-b ${
-                    plan.style === 'featured' ? 'border-gray-700' : 'border-gray-200'
+                    plan.style === 'featured' ? 'border-white/20' : 'border-deep-slate/10'
                   }`}>
-                    <h3 className={`text-2xl font-normal mb-2 ${
-                      plan.style === 'featured' ? 'text-white' : 'text-gray-900'
+                    <h3 className={`text-2xl font-semibold mb-2 ${
+                      plan.style === 'featured' ? 'text-white' : 'text-deep-slate'
                     }`}>
                       {plan.name}
                     </h3>
-                    
+
                     {/* Price */}
                     <div className="mt-4">
-                      <span className={`text-3xl font-light ${
-                        plan.style === 'featured' ? 'text-white' : 'text-gray-900'
+                      <span className={`text-3xl font-semibold ${
+                        plan.style === 'featured' ? 'text-white' : 'text-deep-slate'
                       }`}>
                         {plan.price}
                       </span>
                       <span className={`text-sm ${
-                        plan.style === 'featured' ? 'text-gray-400' : 'text-gray-500'
+                        plan.style === 'featured' ? 'text-soft-sand/70' : 'text-deep-slate/50'
                       }`}>
                         {plan.duration}
                       </span>
                     </div>
-                    
+
                     {/* Description */}
                     <p className={`text-sm mt-4 ${
-                      plan.style === 'featured' ? 'text-gray-300' : 'text-gray-600'
-                    } font-light`}>
+                      plan.style === 'featured' ? 'text-soft-sand' : 'text-deep-slate/70'
+                    } font-normal`}>
                       {plan.description}
                     </p>
                   </div>
@@ -300,18 +298,16 @@ const PricingSection: React.FC = () => {
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3">
                         {feature.included ? (
-                          <Check className={`w-5 h-5 mt-0.5 shrink-0 ${
-                            plan.style === 'featured' ? 'text-green-400' : 'text-green-600'
-                          }`} />
+                          <Check className="w-5 h-5 mt-0.5 shrink-0 text-wealth-teal" />
                         ) : (
                           <X className={`w-5 h-5 mt-0.5 shrink-0 ${
-                            plan.style === 'featured' ? 'text-gray-600' : 'text-gray-300'
+                            plan.style === 'featured' ? 'text-white/30' : 'text-deep-slate/30'
                           }`} />
                         )}
-                        <span className={`text-sm font-light ${
-                          feature.included 
-                            ? plan.style === 'featured' ? 'text-gray-200' : 'text-gray-700'
-                            : plan.style === 'featured' ? 'text-gray-500' : 'text-gray-400'
+                        <span className={`text-sm font-normal ${
+                          feature.included
+                            ? plan.style === 'featured' ? 'text-soft-sand' : 'text-deep-slate/70'
+                            : plan.style === 'featured' ? 'text-white/40' : 'text-deep-slate/40'
                         }`}>
                           {feature.text}
                         </span>
@@ -323,10 +319,10 @@ const PricingSection: React.FC = () => {
                   <div>
                     <motion.button
                       onClick={() => handleEnroll(plan.id)}
-                      className={`w-full py-4 rounded-full transition-all duration-300 group font-light flex items-center justify-center gap-2 ${
+                      className={`w-full py-4 rounded-full transition-all duration-300 group font-semibold flex items-center justify-center gap-2 ${
                         plan.style === 'featured'
-                          ? 'bg-white text-gray-900 hover:bg-gray-100 text-base'
-                          : 'bg-gray-900 text-white hover:bg-gray-800 text-sm'
+                          ? 'bg-burnt-amber text-white hover:bg-burnt-amber/90 text-base'
+                          : 'bg-burnt-amber text-white hover:bg-burnt-amber/90 text-sm'
                       }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -334,15 +330,15 @@ const PricingSection: React.FC = () => {
                       {plan.ctaText}
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </motion.button>
-                    
+
                     {/* Microcopy */}
                     {plan.microcopy && (
                       <p className={`text-xs text-center mt-3 ${
-                        plan.style === 'featured' 
-                          ? 'text-gray-400' 
+                        plan.style === 'featured'
+                          ? 'text-soft-sand/60'
                           : plan.style === 'muted'
                           ? 'text-red-600 font-medium'
-                          : 'text-gray-500'
+                          : 'text-deep-slate/50'
                       }`}>
                         {plan.microcopy}
                       </p>
@@ -362,16 +358,16 @@ const PricingSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm text-gray-500 mb-4">
+            <p className="text-sm text-deep-slate/50 mb-4">
               All plans include lifetime access to updates • 30-day money-back guarantee on ETM Max
             </p>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-deep-slate/40">
               Lite & Pro buyers can upgrade anytime for the difference in price
             </p>
           </motion.div>
         </div>
       </div>
-      
+
       {/* Intercept Modal for Pro Plan */}
       <AnimatePresence>
         {showInterceptModal && (
@@ -386,10 +382,10 @@ const PricingSection: React.FC = () => {
               className="absolute inset-0 bg-black/60"
               onClick={() => setShowInterceptModal(false)}
             />
-            
+
             {/* Modal Content */}
             <motion.div
-              className="relative bg-white rounded-3xl p-8 sm:p-12 max-w-md w-full shadow-2xl"
+              className="relative bg-deep-slate rounded-3xl p-8 sm:p-12 max-w-md w-full shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -398,51 +394,51 @@ const PricingSection: React.FC = () => {
               {/* Modal Content */}
               <div className="text-center">
                 {/* Icon */}
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-2xl">💭</span>
                 </div>
-                
+
                 {/* Message */}
-                <h3 className="text-2xl font-light text-gray-900 mb-4">
+                <h3 className="text-2xl font-semibold text-white mb-4">
                   Add nightly live coaching for ₹1,000 more?
                 </h3>
-                
-                <p className="text-base text-gray-600 mb-8 font-light">
+
+                <p className="text-base text-soft-sand mb-8 font-normal">
                   9 out of 10 traders choose Max.
                 </p>
-                
+
                 {/* Visual comparison */}
-                <div className="bg-gray-50 rounded-2xl p-6 mb-8">
+                <div className="bg-white/10 rounded-2xl p-6 mb-8">
                   <div className="space-y-3 text-left">
                     <div className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600 shrink-0" />
-                      <span className="text-sm text-gray-700">Nightly 8 PM live sessions</span>
+                      <Check className="w-5 h-5 text-wealth-teal shrink-0" />
+                      <span className="text-sm text-soft-sand">Nightly 8 PM live sessions</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600 shrink-0" />
-                      <span className="text-sm text-gray-700">Weekly performance reviews</span>
+                      <Check className="w-5 h-5 text-wealth-teal shrink-0" />
+                      <span className="text-sm text-soft-sand">Weekly performance reviews</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600 shrink-0" />
-                      <span className="text-sm text-gray-700">Accountability pod (12 max)</span>
+                      <Check className="w-5 h-5 text-wealth-teal shrink-0" />
+                      <span className="text-sm text-soft-sand">Accountability pod (12 max)</span>
                     </div>
                   </div>
                 </div>
-                
+
                 {/* CTAs */}
                 <div className="space-y-3">
                   <motion.button
                     onClick={handleUpgradeToMax}
-                    className="w-full py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors font-light"
+                    className="w-full py-4 bg-burnt-amber text-white rounded-full hover:bg-burnt-amber/90 transition-colors font-semibold"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     Upgrade to Max
                   </motion.button>
-                  
+
                   <button
                     onClick={handleProContinue}
-                    className="w-full py-4 text-gray-500 hover:text-gray-700 transition-colors font-light text-sm"
+                    className="w-full py-4 text-soft-sand/60 hover:text-soft-sand transition-colors font-normal text-sm"
                   >
                     Continue to Pro
                   </button>
