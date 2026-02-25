@@ -1,16 +1,16 @@
 # TWS GurukulX
 
-> TWS GurukulX is an India-based trading education platform founded by professional trader Tanay (TWS). We offer mentorship programs, courses, and tools for forex, crypto, and stock market trading. Our approach combines institutional-grade footprint analysis, AI-powered tools, and hands-on mentorship to help traders build consistent, rule-based strategies.
+> TWS GurukulX (twsgurukul.com) is an India-based trading education platform by Trading With Sidhant LLP. Founded by professional trader Sidhant Kisshor (TEDx Speaker, trading since 2017), we offer structured mentorship programs and courses covering forex, crypto, and Indian stock markets. Our approach combines institutional-grade footprint analysis, rule-based systems, and hands-on mentorship for working professionals.
 
 ## Programs
 
-- [1-on-1 Mentorship Program](https://www.twsgurukul.com/mentorship): Personalized trading mentorship with live portfolio access, daily trade setups, and institutional-level training. Covers forex, crypto, and Indian stock markets.
-- [Footprint Mastery Course](https://www.twsgurukul.com/footprint): Learn to read institutional order flow using footprint charts. Track whale movements, volume clusters, and smart money activity.
-- [Crypto Trading Course](https://www.twsgurukul.com/crypto): Comprehensive crypto trading program covering Bitcoin, altcoins, DeFi, and on-chain analysis with a proven framework.
+- [Elite Trading Mentorship](https://www.twsgurukul.com/mentorship): 1-on-1 mentorship — ₹19,999 for 3 months. Live 8 PM sessions 5 nights/week, 40+ strategy videos, weekly trade reviews. 2,300+ traders trained, 83% complete the full 90 days.
+- [Footprint Mastery](https://www.twsgurukul.com/footprint): Institutional order flow course — ₹32,999 one-time. The F.A.S.T. framework (Find, Assess, Sync, Trade) for reading whale movements and volume clusters. 1,263+ paid learners, 73% reported win rate.
+- [Crypto Mastery](https://www.twsgurukul.com/crypto): Crypto trading system — ₹19,499 one-time. 5-step execution framework for a 2-hour evening routine. Recorded curriculum + monthly live Q&A. 1,263 enrolled, ₹27.2 Cr self-reported student profits.
 
-## Tools
+## Free Tools
 
-- [Prop Firm Safety Checker](https://www.twsgurukul.com/prop-firm-safety-checker): Free tool to verify if a prop trading firm is legitimate. Checks registration, reviews, and red flags.
+- [Prop Firm Safety Checker](https://www.twsgurukul.com/prop-firm-safety-checker): Free tool to verify if a prop trading firm is legitimate — checks registration, reviews, and red flags.
 - [Trading Style Quiz](https://www.twsgurukul.com/quiz): Find your ideal trading style and get personalized program recommendations.
 
 ## Results
@@ -23,8 +23,14 @@
 - [How to Automate Your Zerodha Portfolio with AI](https://www.twsgurukul.com/blog/ai-automation-zerodha-portfolio): Guide to transforming your Zerodha account into an AI-powered investment machine.
 - [Bitcoin Trading Sessions Guide](https://www.twsgurukul.com/blog/bitcoin-trading-sessions): Essential guide to trading Bitcoin across global sessions and institutional money flows.
 
+## Contact
+
+- WhatsApp: +91 8062963333
+- Checkout: learn.tradingwithsidhant.com
+
 ## Optional
 
+- [Full LLM context](https://www.twsgurukul.com/llms-full.txt): Comprehensive site content for deeper AI understanding.
 - [Terms of Service](https://www.twsgurukul.com/terms)
 - [Privacy Policy](https://www.twsgurukul.com/privacy)
 - [Disclaimer](https://www.twsgurukul.com/disclaimer)

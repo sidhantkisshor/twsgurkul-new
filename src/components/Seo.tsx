@@ -10,6 +10,7 @@ interface SeoProps {
   canonicalUrl?: string;
   keywords?: string;
   noIndex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const Seo: React.FC<SeoProps> = ({
@@ -22,6 +23,7 @@ const Seo: React.FC<SeoProps> = ({
   canonicalUrl,
   keywords,
   noIndex = false,
+  jsonLd,
 }) => {
   return (
     <>
@@ -45,6 +47,14 @@ const Seo: React.FC<SeoProps> = ({
 
       {/* Canonical */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+      {/* JSON-LD Structured Data */}
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
     </>
   );
 };

@@ -44,16 +44,44 @@ export default JsonLd;
 export const organizationSchema: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.twsgurukul.com/#organization",
   "name": "TWS GurukulX",
+  "legalName": "Trading With Sidhant LLP",
   "url": "https://www.twsgurukul.com",
-  "logo": "https://www.twsgurukul.com/logo.png",
+  "logo": "https://www.twsgurukul.com/logo-icon.png",
   "foundingDate": "2023",
   "description":
-    "India-first trading education platform focusing on order flow analysis and systematic trading.",
+    "India-based trading education platform offering mentorship programs and courses for forex, crypto, and Indian stock markets. Combines institutional-grade footprint analysis, rule-based systems, and hands-on mentorship for working professionals.",
+  "founder": {
+    "@type": "Person",
+    "@id": "https://www.twsgurukul.com/#founder",
+    "name": "Sidhant Kisshor",
+    "jobTitle": "Founder & Lead Mentor",
+    "description": "TEDx Speaker, professional trader since 2017",
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-8062963333",
+    "contactType": "customer support",
+    "availableLanguage": ["English", "Hindi"],
+  },
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "IN",
   },
+  "areaServed": {
+    "@type": "Country",
+    "name": "India",
+  },
+  "knowsAbout": [
+    "Forex Trading",
+    "Cryptocurrency Trading",
+    "Indian Stock Market",
+    "Footprint Analysis",
+    "Order Flow Trading",
+    "Trading Psychology",
+    "Risk Management",
+  ],
   "sameAs": [
     "https://www.youtube.com/@twsgurukul",
   ],
@@ -63,8 +91,11 @@ export const organizationSchema: Record<string, unknown> = {
 export const webSiteSchema: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://www.twsgurukul.com/#website",
   "name": "TWS GurukulX",
   "url": "https://www.twsgurukul.com",
+  "publisher": { "@id": "https://www.twsgurukul.com/#organization" },
+  "description": "India-based trading education platform. Live mentorship, rule-based systems, and multi-market mastery for working professionals.",
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -73,7 +104,7 @@ export const cryptoCourseSchema: Record<string, unknown> = {
   "@type": "Course",
   "name": "Crypto Mastery",
   "description":
-    "A recorded program with monthly live Q&A to learn systematic crypto trading with risk management at the core.",
+    "12-week recorded crypto trading program with monthly live Q&A. Build a 2-hour evening system (7-9 PM) with a 5-step execution framework covering technical analysis, confluence stacking, risk management, and trade journaling. 1,263 enrolled, 73% reported win rate.",
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
@@ -89,9 +120,11 @@ export const cryptoCourseSchema: Record<string, unknown> = {
   "hasCourseInstance": {
     "@type": "CourseInstance",
     "courseMode": "online",
+    "courseWorkload": "PT24H",
     "instructor": {
-      "@type": "Organization",
-      "name": "TWS GurukulX",
+      "@type": "Person",
+      "name": "Sidhant Kisshor",
+      "description": "TEDx Speaker, professional trader since 2017",
     },
   },
   "aggregateRating": {
@@ -100,6 +133,9 @@ export const cryptoCourseSchema: Record<string, unknown> = {
     "bestRating": "5",
     "reviewCount": "1263",
   },
+  "inLanguage": "en",
+  "educationalLevel": "Beginner to Advanced",
+  "about": ["Cryptocurrency Trading", "Bitcoin", "Altcoins", "Risk Management", "Technical Analysis"],
 };
 
 /**
@@ -168,7 +204,7 @@ export const footprintCourseSchema: Record<string, unknown> = {
   "@type": "Course",
   "name": "Footprint Mastery",
   "description":
-    "Master order flow analysis with footprint charts. Learn to identify absorption, delta divergence, and liquidity zones for systematic trading.",
+    "Master institutional order flow analysis with footprint charts using the F.A.S.T. framework (Find, Assess, Sync, Trade). Learn to identify absorption, delta divergence, and liquidity zones. Self-paced 10-module course with monthly live Q&A and lifetime access.",
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
@@ -176,7 +212,7 @@ export const footprintCourseSchema: Record<string, unknown> = {
   },
   "offers": {
     "@type": "Offer",
-    "price": "29999",
+    "price": "32999",
     "priceCurrency": "INR",
     "availability": "https://schema.org/InStock",
     "url": "https://www.twsgurukul.com/footprint",
@@ -186,18 +222,20 @@ export const footprintCourseSchema: Record<string, unknown> = {
     "courseMode": "online",
     "courseWorkload": "PT10H",
     "instructor": {
-      "@type": "Organization",
-      "name": "TWS GurukulX Pro Coaches",
-      "description":
-        "Expert team of order flow and footprint analysis specialists",
+      "@type": "Person",
+      "name": "Sidhant Kisshor",
+      "description": "TEDx Speaker, professional trader since 2017",
     },
   },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
     "bestRating": "5",
-    "reviewCount": "412",
+    "reviewCount": "1263",
   },
+  "inLanguage": "en",
+  "educationalLevel": "Beginner to Advanced",
+  "about": ["Footprint Charts", "Order Flow Analysis", "Institutional Trading", "Delta Divergence", "Liquidity Zones"],
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -206,7 +244,7 @@ export const mentorshipCourseSchema: Record<string, unknown> = {
   "@type": "Course",
   "name": "Elite Trading Mentorship",
   "description":
-    "Live 8 PM trading sessions with pro coaches, accountability pods, and weekly performance reviews. Capped cohorts for personalised attention.",
+    "Live 1-on-1 trading mentorship with nightly 8 PM IST sessions, 5 nights a week. Includes 40+ strategy videos, weekly performance reviews, whale wallet tracking, and WhatsApp support. Capped at 50 per batch. 2,300+ traders trained, 83% complete the full 90 days.",
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
@@ -223,16 +261,18 @@ export const mentorshipCourseSchema: Record<string, unknown> = {
     "@type": "CourseInstance",
     "courseMode": "online",
     "instructor": {
-      "@type": "Organization",
-      "name": "TWS GurukulX Pro Coaches",
-      "description":
-        "Certified pro coaches trained in Sidhant's system",
+      "@type": "Person",
+      "name": "Sidhant Kisshor",
+      "description": "TEDx Speaker, professional trader since 2017, founder of TWS GurukulX",
     },
   },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
     "bestRating": "5",
-    "reviewCount": "847",
+    "reviewCount": "2300",
   },
+  "inLanguage": ["en", "hi"],
+  "educationalLevel": "Beginner to Advanced",
+  "about": ["Forex Trading", "Crypto Trading", "Indian Stock Market", "Live Trading Sessions", "Risk Management"],
 };

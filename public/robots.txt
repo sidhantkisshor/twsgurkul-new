@@ -85,3 +85,7 @@ Disallow: /
 # Sitemaps & LLMs.txt
 # ===========================================
 Sitemap: https://www.twsgurukul.com/sitemap.xml
+
+# LLM-friendly content (llmstxt.org standard)
+# llms.txt: concise site overview for AI inference
+# llms-full.txt: comprehensive content dump for deeper context

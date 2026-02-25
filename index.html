@@ -45,6 +45,60 @@
 
     <!-- LLMs.txt for AI discoverability -->
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site description">
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM-friendly full site content">
+
+    <!-- JSON-LD: Organization + WebSite schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.twsgurukul.com/#organization",
+          "name": "TWS GurukulX",
+          "legalName": "Trading With Sidhant LLP",
+          "url": "https://www.twsgurukul.com",
+          "logo": "https://www.twsgurukul.com/logo-icon.png",
+          "description": "India-based trading education platform offering mentorship programs and courses for forex, crypto, and Indian stock markets.",
+          "foundingDate": "2023",
+          "founder": {
+            "@type": "Person",
+            "name": "Sidhant Kisshor",
+            "jobTitle": "Founder & Lead Mentor",
+            "description": "TEDx Speaker, professional trader since 2017"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-8062963333",
+            "contactType": "customer support",
+            "availableLanguage": ["English", "Hindi"]
+          },
+          "sameAs": [],
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
+          },
+          "knowsAbout": [
+            "Forex Trading",
+            "Cryptocurrency Trading",
+            "Indian Stock Market Trading",
+            "Footprint Analysis",
+            "Order Flow Trading",
+            "Trading Psychology",
+            "Risk Management"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.twsgurukul.com/#website",
+          "name": "TWS GurukulX",
+          "url": "https://www.twsgurukul.com",
+          "publisher": { "@id": "https://www.twsgurukul.com/#organization" },
+          "description": "Transform from a struggling trader to a market master. Live mentorship, rule-based systems, and multi-market mastery."
+        }
+      ]
+    }
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
