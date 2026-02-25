@@ -35,7 +35,7 @@ const HeaderMinimal: React.FC = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 min-h-[44px]">
             <img
-              src="/TWS GurukulX/Icon/tws-gurukulx-icon-256.png"
+              src="/tws-gurukulx-icon.png"
               alt="TWS GurukulX"
               className="h-8 w-8 object-contain"
             />
