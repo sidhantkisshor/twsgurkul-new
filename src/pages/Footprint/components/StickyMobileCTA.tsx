@@ -39,7 +39,7 @@ const StickyMobileCTA: React.FC = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed bottom-0 left-0 right-0 z-50 bg-[#2C3539]/95 backdrop-blur-lg border-t border-[#C87533]/20 p-3 md:hidden"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-[#2C3539]/95 backdrop-blur-lg border-t border-[#C87533]/20 px-3 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] md:hidden"
           initial={{ y: 100 }}
           animate={{ y: 0 }}
           exit={{ y: 100 }}
@@ -47,9 +47,10 @@ const StickyMobileCTA: React.FC = () => {
         >
           <button
             onClick={handlePaymentPopup}
-            className="w-full bg-[#C87533] hover:bg-[#A85E28] text-white font-bold py-3 rounded-full shadow-lg shadow-[#C87533]/25 transition-all"
+            className="w-full bg-[#C87533] hover:bg-[#A85E28] text-white font-bold py-3 rounded-full shadow-lg shadow-[#C87533]/25 transition-all leading-snug"
           >
-            Enroll Now
+            <span className="block text-sm font-bold">Start reading order flow →</span>
+            <span className="block text-xs font-semibold opacity-90 mt-0.5">₹90/day · 7-day refund policy</span>
           </button>
           <p className="text-center text-[#B8A99A] text-xs mt-1">
             Next Q&A: {nextSessionDate}

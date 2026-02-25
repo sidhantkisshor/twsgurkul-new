@@ -11,87 +11,77 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [showResult, setShowResult] = useState(false);
-  const [recommendation, setRecommendation] = useState<'max' | 'lite' | null>(null);
 
   const questions = [
     {
       id: 1,
       question: "What's your trading experience?",
       options: [
-        { value: 'none', label: 'Complete beginner', points: 0 },
-        { value: 'some', label: '< 6 months', points: 1 },
-        { value: 'moderate', label: '6-12 months', points: 2 },
-        { value: 'experienced', label: '1+ years', points: 3 }
+        { value: 'none', label: 'Complete beginner' },
+        { value: 'some', label: '< 6 months' },
+        { value: 'moderate', label: '6-12 months' },
+        { value: 'experienced', label: '1+ years' }
       ]
     },
     {
       id: 2,
       question: "How much time can you dedicate nightly?",
       options: [
-        { value: '30min', label: '30 minutes', points: 0 },
-        { value: '1hr', label: '1 hour', points: 1 },
-        { value: '2hr', label: '2+ hours', points: 3 },
-        { value: 'varies', label: 'It varies', points: 2 }
+        { value: '30min', label: '30 minutes' },
+        { value: '1hr', label: '1 hour' },
+        { value: '2hr', label: '2+ hours' },
+        { value: 'varies', label: 'It varies' }
       ]
     },
     {
       id: 3,
       question: "Your starting capital?",
       options: [
-        { value: 'small', label: '< ₹25,000', points: 0 },
-        { value: 'medium', label: '₹25,000 - ₹1 lakh', points: 2 },
-        { value: 'large', label: '₹1 lakh+', points: 3 },
-        { value: 'testing', label: 'Just testing first', points: 1 }
+        { value: 'small', label: '< ₹25,000' },
+        { value: 'medium', label: '₹25,000 - ₹1 lakh' },
+        { value: 'large', label: '₹1 lakh+' },
+        { value: 'testing', label: 'Just testing first' }
       ]
     },
     {
       id: 4,
       question: "What matters most to you?",
       options: [
-        { value: 'guidance', label: 'Live coaching & accountability', points: 3 },
-        { value: 'content', label: 'Self-paced learning', points: 1 },
-        { value: 'ideas', label: 'Trade ideas only', points: 0 },
-        { value: 'community', label: 'Community access', points: 2 }
+        { value: 'guidance', label: 'Live coaching & accountability' },
+        { value: 'content', label: 'Self-paced learning' },
+        { value: 'ideas', label: 'Trade ideas only' },
+        { value: 'community', label: 'Community access' }
       ]
     },
     {
       id: 5,
       question: "How do you learn best?",
       options: [
-        { value: 'doing', label: 'By doing with guidance', points: 3 },
-        { value: 'watching', label: 'Watching others', points: 2 },
-        { value: 'reading', label: 'Reading & studying', points: 1 },
-        { value: 'trial', label: 'Trial and error', points: 0 }
+        { value: 'doing', label: 'By doing with guidance' },
+        { value: 'watching', label: 'Watching others' },
+        { value: 'reading', label: 'Reading & studying' },
+        { value: 'trial', label: 'Trial and error' }
       ]
     },
     {
       id: 6,
       question: "Your biggest trading challenge?",
       options: [
-        { value: 'discipline', label: 'Lack of discipline', points: 3 },
-        { value: 'knowledge', label: 'Don\'t know what to do', points: 2 },
-        { value: 'time', label: 'Finding time', points: 1 },
-        { value: 'capital', label: 'Limited capital', points: 0 }
+        { value: 'discipline', label: 'Lack of discipline' },
+        { value: 'knowledge', label: "Don't know what to do" },
+        { value: 'time', label: 'Finding time' },
+        { value: 'capital', label: 'Limited capital' }
       ]
     }
   ];
 
-  const handleAnswer = (value: string, points: number) => {
+  const handleAnswer = (value: string) => {
     const newAnswers = { ...answers, [currentQuestion]: value };
     setAnswers(newAnswers);
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Calculate total points
-      const totalPoints = Object.values(newAnswers).reduce((sum, answer) => {
-        const question = questions.find((_, index) => index === Object.keys(newAnswers).indexOf(answer));
-        const option = question?.options.find(opt => opt.value === answer);
-        return sum + (option?.points || 0);
-      }, 0);
-
-      // Determine recommendation (>10 points = Max, <=10 = Lite)
-      setRecommendation(totalPoints > 10 ? 'max' : 'lite');
       setShowResult(true);
     }
   };
@@ -106,7 +96,6 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
     setCurrentQuestion(0);
     setAnswers({});
     setShowResult(false);
-    setRecommendation(null);
   };
 
   const scrollToPricing = () => {
@@ -182,7 +171,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                     {questions[currentQuestion].options.map((option) => (
                       <button
                         key={option.value}
-                        onClick={() => handleAnswer(option.value, option.points)}
+                        onClick={() => handleAnswer(option.value)}
                         className={`w-full text-left p-4 rounded-2xl border transition-all duration-200 ${
                           answers[currentQuestion] === option.value
                             ? 'border-burnt-amber bg-burnt-amber/10 text-deep-slate'
@@ -207,7 +196,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                 </motion.div>
               </>
             ) : (
-              /* Result */
+              /* Result - always recommend Mentorship */
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -222,35 +211,17 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                   Your perfect match:
                 </h3>
 
-                {recommendation === 'max' ? (
-                  <>
-                    <div className="bg-deep-slate text-white rounded-2xl p-6 mb-6">
-                      <h4 className="text-xl font-semibold mb-2">ETM Max</h4>
-                      <p className="text-sm text-soft-sand mb-4">
-                        Based on your answers, you'll benefit most from live coaching, accountability, and structured reviews.
-                      </p>
-                      <div className="text-2xl text-burnt-amber mb-1">₹19,999</div>
-                      <div className="text-xs text-soft-sand/70">for 3 months</div>
-                    </div>
-                    <p className="text-sm text-deep-slate/70 mb-6">
-                      You need guidance and structure to succeed. Max provides nightly live sessions and weekly reviews.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <div className="bg-burnt-amber/10 rounded-2xl p-6 mb-6">
-                      <h4 className="text-xl font-semibold text-deep-slate mb-2">ETM Lite</h4>
-                      <p className="text-sm text-deep-slate/70 mb-4">
-                        Perfect for beginners who want to start small with daily trade ideas and basic analysis.
-                      </p>
-                      <div className="text-2xl text-burnt-amber mb-1">₹6,999</div>
-                      <div className="text-xs text-deep-slate/50">per month</div>
-                    </div>
-                    <p className="text-sm text-deep-slate/70 mb-6">
-                      Start here to get a feel for our system. You can always upgrade to Max later.
-                    </p>
-                  </>
-                )}
+                <div className="bg-deep-slate text-white rounded-2xl p-6 mb-6">
+                  <h4 className="text-xl font-semibold mb-2">Mentorship</h4>
+                  <p className="text-sm text-soft-sand mb-4">
+                    Live coaching, accountability, and structured reviews - everything you need to transform your trading.
+                  </p>
+                  <div className="text-2xl text-burnt-amber mb-1">₹19,999</div>
+                  <div className="text-xs text-soft-sand/70">for 3 months</div>
+                </div>
+                <p className="text-sm text-deep-slate/70 mb-6">
+                  Nightly live sessions, weekly reviews, and a community that keeps you accountable.
+                </p>
 
                 <div className="space-y-3">
                   <motion.button

@@ -20,7 +20,7 @@ const blogPosts: BlogPost[] = [
     readTime: '15 min',
     category: 'AI Trading',
     featured: true,
-    author: 'TWS Gurukul',
+    author: 'TWS GurukulX',
     tags: ['AI', 'Automation', 'Zerodha', 'Portfolio Management', 'Trading'],
   },
   {
@@ -31,7 +31,7 @@ const blogPosts: BlogPost[] = [
     readTime: '12 min',
     category: 'Crypto Trading',
     featured: false,
-    author: 'TWS Gurukul',
+    author: 'TWS GurukulX',
     tags: ['Bitcoin', 'Crypto', 'Trading Sessions', 'Market Analysis', 'Institutional Trading'],
   },
 ];

@@ -1,39 +1,64 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TMQ589CP');</script>
+    <!-- Google Tag Manager (consent-gated, deferred for better LCP) -->
+    <script>window.dataLayer=window.dataLayer||[];
+    window.loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;
+    var f=document.getElementsByTagName('script')[0],
+    j=document.createElement('script');j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-TMQ589CP';
+    f.parentNode.insertBefore(j,f);window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});};
+    try{if(localStorage.getItem('cookie_consent')==='accepted'){
+    if('requestIdleCallback' in window){requestIdleCallback(window.loadGTM);}
+    else{setTimeout(window.loadGTM,2000);}}}catch(e){}</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Preload critical fonts -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#C87533" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- DNS prefetch + preconnect for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" as="style">
-    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>TWS Gurukul - Stop Gambling. Start Dominating.</title>
-    <meta name="description" content="Transform from a struggling trader to a market master in 90 days. TWS Gurukul offers live mentorship, psychology rewiring, and multi-market mastery.">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://d2j3cl693ttatt.cloudfront.net" crossorigin>
+    <link rel="dns-prefetch" href="https://api.binance.com">
+    <link rel="dns-prefetch" href="https://learn.tradingwithsidhant.com">
+
+    <!-- Self-hosted Satoshi font (replaces broken Fontshare CDN) -->
+    <link rel="preload" href="/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/fonts/satoshi.css">
+    <!-- Inter + Instrument Serif from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
+
+    <title>TWS GurukulX - Stop Gambling. Start Dominating.</title>
+    <meta name="description" content="Transform from a struggling trader to a market master in 90 days. TWS GurukulX offers live mentorship, psychology rewiring, and multi-market mastery.">
+    <link rel="canonical" href="https://www.twsgurukul.com/">
+
+    <!-- LLMs.txt for AI discoverability -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site description">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.twsgurukul.com/">
-    <meta property="og:title" content="TWS Gurukul - Stop Gambling. Start Dominating.">
-    <meta property="og:description" content="Transform from a struggling trader to a market master in 90 days. TWS Gurukul offers live mentorship, psychology rewiring, and multi-market mastery.">
+    <meta property="og:title" content="TWS GurukulX - Stop Gambling. Start Dominating.">
+    <meta property="og:description" content="Transform from a struggling trader to a market master in 90 days. TWS GurukulX offers live mentorship, psychology rewiring, and multi-market mastery.">
     <meta property="og:image" content="https://www.twsgurukul.com/og-image.jpg">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.twsgurukul.com/">
-    <meta property="twitter:title" content="TWS Gurukul - Stop Gambling. Start Dominating.">
-    <meta property="twitter:description" content="Transform from a struggling trader to a market master in 90 days. TWS Gurukul offers live mentorship, psychology rewiring, and multi-market mastery.">
-    <meta property="twitter:image" content="https://www.twsgurukul.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.twsgurukul.com/">
+    <meta name="twitter:title" content="TWS GurukulX - Stop Gambling. Start Dominating.">
+    <meta name="twitter:description" content="Transform from a struggling trader to a market master in 90 days. TWS GurukulX offers live mentorship, psychology rewiring, and multi-market mastery.">
+    <meta name="twitter:image" content="https://www.twsgurukul.com/og-image.jpg">
 
   </head>
   <body>

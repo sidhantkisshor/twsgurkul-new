@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AlertCircle, TrendingDown, Clock, IndianRupee, XCircle, ChevronRight, Target, Users } from 'lucide-react';
+import { AlertCircle, TrendingDown, Clock, IndianRupee, ChevronRight, Target, Users } from 'lucide-react';
 
 interface BigProblemSectionProps {
   onQuizOpen?: () => void;
@@ -68,11 +68,11 @@ const BigProblemSection: React.FC<BigProblemSectionProps> = ({ onQuizOpen }) => 
             </div>
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
+              <span className="font-sans font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
                 The ₹73,000 Lesson Most Traders
               </span>
               <br />
-              <span className="bg-linear-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="font-serif italic font-normal text-burnt-amber">
                 Learn Too Late
               </span>
             </h2>

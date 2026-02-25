@@ -54,7 +54,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
                 {/* Introduction */}
                 <div className="bg-[#3A4449] rounded-lg p-4 border border-[#C87533]/10">
                   <p className="text-[#B8A99A]">
-                    TWS Gurukul maintains transparency in how we collect, verify, and present student results.
+                    TWS GurukulX maintains transparency in how we collect, verify, and present student results.
                     All testimonials undergo a multi-step verification process.
                   </p>
                 </div>
@@ -62,7 +62,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
                 {/* Verification Process */}
                 <div>
                   <h3 className="text-lg font-semibold text-[#EDE6D8] mb-4 flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#0A8D7A]" />
+                    <CheckCircle className="w-5 h-5 text-[#2DBDA8]" />
                     Our Verification Process
                   </h3>
                   <div className="space-y-3">
@@ -109,7 +109,7 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
                 {/* What We Track */}
                 <div>
                   <h3 className="text-lg font-semibold text-[#EDE6D8] mb-4 flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5 text-[#0A8D7A]" />
+                    <TrendingUp className="w-5 h-5 text-[#2DBDA8]" />
                     What We Track
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -150,12 +150,12 @@ const VerificationModal: React.FC<VerificationModalProps> = ({ isOpen, onClose }
                 {/* Student Count */}
                 <div className="text-center py-4 border-t border-[#3A4449]">
                   <div className="flex items-center justify-center gap-3">
-                    <Users className="w-5 h-5 text-[#0A8D7A]" />
+                    <Users className="w-5 h-5 text-[#2DBDA8]" />
                     <p className="text-[#B8A99A]">
                       <span className="text-[#C87533] font-bold">1,263+</span> verified students across all TWS programs
                     </p>
                   </div>
-                  <p className="text-xs text-[#B8A99A]/60 mt-2">
+                  <p className="text-xs text-[#8A9199] mt-2">
                     Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                   </p>
                 </div>

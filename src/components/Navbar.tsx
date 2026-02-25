@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,174 +8,188 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50);
+        ticking = false;
+      });
     };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Don't show Home button when on home page
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false); // eslint-disable-line react-hooks/set-state-in-effect -- canonical reset-on-nav pattern
+  }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
+
   const isHomePage = location.pathname === '/';
-  
+
   const navItems = [
-    ...(isHomePage ? [] : [{ name: "Home", href: "/" }]),
-    { name: "Crypto", href: "/crypto" },
-    { name: "Footprint", href: "/footprint" },
-    { name: "Mentorship", href: "/mentorship" },
-    { name: "Blog", href: "/blog" },
+    ...(isHomePage ? [] : [{ name: 'Home', href: '/' }]),
+    { name: 'Crypto', href: '/crypto' },
+    { name: 'Footprint', href: '/footprint' },
+    { name: 'ETM', href: '/mentorship' },
+    { name: 'Blog', href: '/blog' },
   ];
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
+  const isActive = (href: string) => {
+    if (href === '/') return location.pathname === '/';
+    return location.pathname.startsWith(href);
   };
+
+  const handleCTAClick = useCallback(() => {
+    setIsMobileMenuOpen(false);
+    if (location.pathname === '/') {
+      document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#quiz';
+    }
+  }, [location.pathname]);
 
   return (
     <>
-      <nav 
-        className={`fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 transition-colors duration-300 ${
-          isScrolled 
-            ? 'bg-black/80 backdrop-blur-lg border border-white/20' 
-            : 'bg-white/10 backdrop-blur-xs border border-white/10'
-        } rounded-full px-3 sm:px-4 xl:px-6 py-2 sm:py-3 w-[calc(100%-1rem)] sm:w-auto max-w-[calc(100vw-1rem)] sm:max-w-none`}
+      <nav
+        className={`fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-full w-[calc(100%-1rem)] sm:w-auto max-w-[calc(100vw-1rem)] sm:max-w-none ${
+          isScrolled
+            ? 'bg-deep-slate/95 backdrop-blur-2xl border border-soft-sand/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(184,149,106,0.06)]'
+            : 'bg-deep-slate/40 backdrop-blur-md border border-soft-sand/[0.04]'
+        }`}
       >
-        <div className="flex items-center justify-between sm:justify-start sm:space-x-3 xl:space-x-8 w-full sm:w-auto">
+        <div className="flex items-center justify-between sm:justify-start px-3 sm:px-5 xl:px-6 py-2.5 sm:py-3 sm:gap-2 xl:gap-6">
           {/* Logo */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            <Link 
-              to="/"
-              className="flex items-center"
-            >
-              <img 
-                src="/favicon.png" 
-                alt="Trading With Sidhant" 
-                className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
-              />
-            </Link>
-            <Link 
-              to="/"
-              className="font-extrabold text-white block sm:hidden md:block tracking-tight text-sm sm:text-lg bg-linear-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent hover:from-blue-200 hover:via-purple-200 hover:to-green-200 transition-all duration-300"
-            >
-              TWS<span className="text-green-400">.</span>GURUKUL
-            </Link>
-          </div>
+          <Link to="/" className="flex items-center group shrink-0">
+            <img
+              src="/logo-wordmark-dark.png"
+              alt="TWS GurukulX"
+              height={20}
+              className="h-5 sm:h-6 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4 xl:space-x-6">
+          <div className="hidden md:flex items-center gap-1 xl:gap-1.5">
             {navItems.map((item) => (
-              item.isAnchor ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium whitespace-nowrap px-3 py-1.5 rounded-md hover:bg-white/10"
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium whitespace-nowrap px-3 py-1.5 rounded-md hover:bg-white/10"
-                >
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                to={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                className={`relative text-sm font-medium font-sans px-3.5 py-2 rounded-full transition-all duration-300 ${
+                  isActive(item.href)
+                    ? 'text-white bg-soft-sand/[0.08]'
+                    : 'text-soft-sand/70 hover:text-soft-sand/90 hover:bg-soft-sand/[0.04]'
+                }`}
+              >
+                {item.name}
+                {/* Active indicator — warm amber glow dot */}
+                {isActive(item.href) && (
+                  <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-burnt-amber shadow-[0_0_6px_rgba(200,117,51,0.6)]" />
+                )}
+              </Link>
             ))}
           </div>
 
-          {/* CTA Button - Points to Quiz or Programs */}
+          {/* Desktop CTA */}
           <button
-            onClick={() => {
-              // If on homepage, scroll to quiz. Otherwise navigate to homepage quiz
-              if (window.location.pathname === '/') {
-                const quizElement = document.getElementById('quiz');
-                if (quizElement) {
-                  quizElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              } else {
-                window.location.href = '/#quiz';
-              }
-            }}
-            className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full px-4 py-2 text-sm font-semibold hidden md:flex transition-colors duration-200 whitespace-nowrap shadow-lg"
+            onClick={handleCTAClick}
+            className="group relative hidden md:flex items-center gap-2 bg-burnt-amber text-white rounded-full px-5 py-2 text-sm font-semibold font-sans transition-all duration-300 hover:shadow-[0_0_20px_rgba(200,117,51,0.25)] overflow-hidden shrink-0"
           >
-            Find Your Program
+            <span className="absolute inset-0 bg-linear-to-r from-burnt-amber to-[#d4843f] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10">Find Your Program</span>
+            <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
           </button>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-colors"
+            className="md:hidden relative w-11 h-11 flex items-center justify-center rounded-full hover:bg-soft-sand/[0.08] transition-colors"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <div className="relative w-5 h-5">
+              <X
+                className={`absolute inset-0 w-5 h-5 text-white transition-all duration-300 ${
+                  isMobileMenuOpen ? 'rotate-0 opacity-100' : 'rotate-90 opacity-0'
+                }`}
+              />
+              <Menu
+                className={`absolute inset-0 w-5 h-5 text-white transition-all duration-300 ${
+                  isMobileMenuOpen ? '-rotate-90 opacity-0' : 'rotate-0 opacity-100'
+                }`}
+              />
+            </div>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden animate-fade-in">
-          <div 
-            className="absolute inset-0 bg-black/70 backdrop-blur-xl transition-opacity duration-300" 
-            onClick={() => setIsMobileMenuOpen(false)} 
+        <div className="fixed inset-0 z-40 md:hidden">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-deep-slate/80 backdrop-blur-xl animate-fade-in"
+            onClick={() => setIsMobileMenuOpen(false)}
           />
-          <div className="absolute top-16 sm:top-20 left-4 right-4 glass-effect rounded-3xl p-4 sm:p-6 shadow-2xl animate-slide-down">
-            <div className="space-y-1">
-              {/* Navigation Items */}
+
+          {/* Menu Panel */}
+          <div
+            className="absolute top-16 sm:top-20 left-3 right-3 bg-deep-slate border border-soft-sand/[0.08] rounded-2xl shadow-[0_24px_64px_rgba(0,0,0,0.4)] animate-slide-down overflow-hidden"
+          >
+            {/* Nav Items */}
+            <div className="p-2">
               {navItems.map((item, index) => (
-                item.isAnchor ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={closeMobileMenu}
-                    className="group flex items-center justify-between text-gray-300 hover:text-white transition-all duration-300 w-full text-left p-4 hover:bg-white/10 rounded-xl"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <span className="text-base font-medium">{item.name}</span>
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                  </a>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    onClick={closeMobileMenu}
-                    className="group flex items-center justify-between text-gray-300 hover:text-white transition-all duration-300 w-full text-left p-4 hover:bg-white/10 rounded-xl"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <span className="text-base font-medium">{item.name}</span>
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </Link>
-                )
-              ))}
-              
-              {/* CTA Section - Points to Quiz */}
-              <div className="pt-4">
-                <button
-                  onClick={() => {
-                    closeMobileMenu();
-                    const quizElement = document.getElementById('quiz');
-                    if (quizElement) {
-                      quizElement.scrollIntoView({ behavior: 'smooth' });
-                    }
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
+                    isActive(item.href)
+                      ? 'bg-burnt-amber/[0.08] text-white'
+                      : 'text-soft-sand/60 hover:text-white hover:bg-soft-sand/[0.04]'
+                  }`}
+                  style={{
+                    animationDelay: `${index * 60}ms`,
+                    animation: 'slideUp 0.3s ease-out forwards',
+                    opacity: 0,
                   }}
-                  className="group bg-linear-to-r from-green-500 to-[#01d449] hover:from-green-600 hover:to-[#00c43e] text-white rounded-xl w-full py-3 px-4 text-center block transition-all duration-300 font-medium text-base"
                 >
-                  <span className="flex items-center justify-center space-x-2">
-                    <span>Take Quiz</span>
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </span>
-                </button>
-              </div>
+                  <span className="text-[15px] font-medium font-sans">{item.name}</span>
+                  <div className="flex items-center gap-2">
+                    {isActive(item.href) && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-burnt-amber shadow-[0_0_6px_rgba(200,117,51,0.5)]" />
+                    )}
+                    <ArrowRight className="w-4 h-4 opacity-30" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="mx-4 h-px bg-soft-sand/[0.06]" />
+
+            {/* CTA */}
+            <div className="p-3">
+              <button
+                onClick={handleCTAClick}
+                className="group w-full bg-burnt-amber text-white rounded-xl py-3.5 px-5 text-center transition-all duration-300 font-semibold text-[15px] font-sans hover:bg-[#d4843f] flex items-center justify-center gap-2"
+                style={{
+                  animation: 'slideUp 0.3s ease-out forwards',
+                  animationDelay: `${navItems.length * 60}ms`,
+                  opacity: 0,
+                }}
+              >
+                Find Your Program
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </button>
             </div>
           </div>
         </div>
@@ -184,4 +198,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

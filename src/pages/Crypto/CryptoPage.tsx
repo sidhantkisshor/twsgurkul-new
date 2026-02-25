@@ -1,9 +1,8 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useCallback, useEffect, lazy, Suspense } from 'react';
 import Seo from '../../components/Seo';
-import './styles/crypto-brand-tokens.css';
-import './styles/design-system.css';
-import './styles/hero-reimagined.css';
-import './styles/crypto.css';
+import JsonLd, { cryptoCourseSchema, buildBreadcrumbSchema, buildVideoSchema } from '../../components/StructuredData';
+import QuizWelcomeBanner from '../../components/QuizWelcomeBanner';
+import './styles/crypto.css'; // consolidated: tokens + design system + hero + components
 
 // Core components loaded immediately
 import ErrorBoundary from './components/ErrorBoundary';
@@ -22,13 +21,17 @@ import JournalPreview from './components/JournalPreview';
 import ReturningUserCheckout from './components/ReturningUserCheckout';
 import VideoSection from './components/VideoSection';
 import Footer from './components/Footer';
+import TargetingSection from './components/TargetingSection';
+import ObjectionKiller from './components/ObjectionKiller';
+import WhatsAppButton from './components/WhatsAppButton';
+import RawProofSection from './components/RawProofSection';
+import ScrollDepthStickyBar from './components/ScrollDepthStickyBar';
 
 // Lazy load secondary components for performance
 const TrustBadgesBar = lazy(() => import('./components/TrustBadgesBar'));
 const FAQ = lazy(() => import('./components/FAQ'));
 
 // Hooks
-import { useCountdown } from './hooks/useCountdown';
 import { useExitIntent } from './hooks/useExitIntent';
 
 // Tracking
@@ -36,32 +39,45 @@ import { initScrollTracking, trackTimeOnPage } from './utils/tracking';
 
 function CryptoPage() {
   const [showMethodologyModal, setShowMethodologyModal] = useState(false);
-  const timeLeft = useCountdown();
-  const { showExitPopup, setShowExitPopup } = useExitIntent();
+  // Prevent popup stacking: suppress exit intent while returning-user checkout is visible
+  const [returningUserVisible, setReturningUserVisible] = useState(false);
+  const handleReturningUserVisibility = useCallback((visible: boolean) => setReturningUserVisible(visible), []);
+  const { showExitPopup, setShowExitPopup } = useExitIntent(returningUserVisible);
 
   // Initialize tracking
   useEffect(() => {
     const cleanupScroll = initScrollTracking();
-    trackTimeOnPage();
-    
-    return cleanupScroll;
+    const cleanupTime = trackTimeOnPage();
+    return () => {
+      cleanupScroll?.();
+      cleanupTime();
+    };
   }, []);
-
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLElement, MouseEvent>, targetId: string) => {
-    e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   return (
     <ErrorBoundary>
-      <div className="crypto-page min-h-screen overflow-x-hidden">
+      <div className="crypto-page min-h-screen overflow-x-hidden" style={{ overflowX: 'clip' }}>
         <Seo
-          title="Crypto Market Mastery | TWS Gurukul"
+          title="Crypto Mastery | TWS GurukulX"
           description="A recorded program with monthly live Q&A to learn systematic crypto trading with risk management at the core."
+          canonicalUrl="https://www.twsgurukul.com/crypto"
+          ogImage="https://www.twsgurukul.com/og-image.jpg"
         />
+        <JsonLd data={[
+          cryptoCourseSchema,
+          buildBreadcrumbSchema([
+            { name: 'Home', url: 'https://www.twsgurukul.com/' },
+            { name: 'Crypto Mastery', url: 'https://www.twsgurukul.com/crypto' },
+          ]),
+          buildVideoSchema({
+            name: 'Crypto Mastery - Trade Review Walkthrough',
+            description: 'Watch a real trade review session showing setup logic, risk sizing, and exit planning.',
+            thumbnailUrl: 'https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg',
+            contentUrl: 'https://d2j3cl693ttatt.cloudfront.net/assets/videos/hero-background-cmm-sidhant-1080.mp4',
+            uploadDate: '2025-01-01',
+            duration: 'PT5M',
+          }),
+        ]} />
         
         {/* Minimal header without navigation for conversion focus */}
         <HeaderMinimal />
@@ -70,12 +86,16 @@ function CryptoPage() {
         {/* <AnnouncementBar timeLeft={timeLeft} /> */}
         
         {/* Returning user quick checkout */}
-        <ReturningUserCheckout />
+        <ReturningUserCheckout onVisibilityChange={handleReturningUserVisibility} />
         
-        <main className="pt-16">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-black focus:px-3 focus:py-2 focus:rounded-sm focus:z-50">Skip to content</a>
+        <main id="main" className="pt-20">
+          {/* Personalized banner for quiz completers */}
+          <div className="max-w-4xl mx-auto px-4 pt-4">
+            <QuizWelcomeBanner programId="cmm" variant="light" />
+          </div>
           {/* Reimagined Hero Section */}
-          <HeroSectionReimagined 
-            handleSmoothScroll={handleSmoothScroll}
+          <HeroSectionReimagined
             onMethodologyClick={() => setShowMethodologyModal(true)}
           />
           
@@ -83,40 +103,54 @@ function CryptoPage() {
           <Suspense fallback={<div className="h-20" />}>
             <TrustBadgesBar onMethodologyClick={() => setShowMethodologyModal(true)} />
           </Suspense>
-          
+
+          {/* Targeting: "Is this for you?" — persona match + disqualification */}
+          <TargetingSection />
+
           <ProblemSection />
-          
+
           <UniqueMechanismSection />
-          
-          
+
           <InstructorSectionSimplified />
-          
-          <TestimonialsSection 
+
+          <TestimonialsSection
             onMethodologyClick={() => setShowMethodologyModal(true)}
           />
-          
-          {/* Video Section - moved from hero */}
+
+          {/* Raw WhatsApp-style proof from community */}
+          <RawProofSection />
+
+          {/* Video Section */}
           <VideoSection />
-          
+
           {/* Journal Preview - high intent signal */}
           <JournalPreview />
-          
-          <PricingSection onMethodologyClick={() => setShowMethodologyModal(true)} />
-          
+
+          {/* Objection handling + guarantee + FAQ BEFORE pricing */}
+          <ObjectionKiller />
+
           <CryptoGuaranteeSection />
-          
-          {/* FAQ lazy loaded as it's below the fold */}
+
           <Suspense fallback={<div className="h-40" />}>
             <FAQ />
           </Suspense>
-          
-          {/* Single final CTA - removed duplicate CtaSection */}
+
+          {/* Pricing after all objections handled */}
+          <PricingSection onMethodologyClick={() => setShowMethodologyModal(true)} />
+
+          {/* Single final CTA */}
           <FinalCtaSection />
         </main>
         
         {/* Footer */}
         <Footer />
         
+        {/* Floating WhatsApp button */}
+        <WhatsAppButton />
+
+        {/* Scroll-depth sticky bar — cohort urgency + bonus reminder */}
+        <ScrollDepthStickyBar />
+
         {/* Exit intent popup for recovery */}
         <ExitIntentPopup 
           isOpen={showExitPopup}

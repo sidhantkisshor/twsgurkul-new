@@ -42,11 +42,42 @@ amplifyconfiguration*
 public/assets/
 *.local
 
-# SuperStreams page
-/src/pages/SuperStreams
+# Brand assets and media (served from CDN, not bundled)
+/TWS GurukulX/
+/assets/
+
+# Windows system files
+desktop.ini
+Thumbs.db
+
+# Audit and test artifacts
+audit-*.mjs
+audit-screenshots/
+testBinance.js
+testProxy.html
+
+# Screenshots and images in project root (not in public/ or src/)
+/*.png
+/*.jpg
+/*.jpeg
+
+# Playwright MCP logs
+.playwright-mcp/
+
+# Temporary directories
+tempimage/
+
+# Temporary analysis/planning docs
+codebase_analysis.md
+crypto-page-snapshot.md
+FOOTPRINT_OPTIMIZATION_SUMMARY.md
+FOOTPRINT_BEFORE_AFTER.md
+FOOTPRINT_QA_CHECKLIST.md
+new legal.md
 
 # Documentation and IDE files
 /docs
 /.claude
 /.cursor
 /design.md
+agents.md

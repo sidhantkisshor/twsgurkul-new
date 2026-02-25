@@ -10,7 +10,7 @@ const UniqueMechanismSection: React.FC = () => {
       id: 1,
       time: "7:45 PM",
       title: "Watch",
-      description: "New York market opens. Big players start moving money. We show you exactly where — on your screen, live.",
+      description: "New York market opens. Big players start moving money. We show you exactly where, on your screen, live.",
       icon: <Eye className="w-6 h-6" />
     },
     {
@@ -30,19 +30,19 @@ const UniqueMechanismSection: React.FC = () => {
   ];
 
   return (
-    <section id="unique-mechanism" className="py-32 relative overflow-hidden bg-white">
+    <section id="unique-mechanism" className="pt-16 lg:pt-24 pb-16 lg:pb-24 relative overflow-hidden bg-soft-sand/50">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <motion.div 
-            className="text-center mb-24"
+            className="text-center mb-10 lg:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              The <span className="text-burnt-amber font-semibold">8 PM</span> Window — Why This Time, Why This Works
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-deep-slate mb-6">
+              The <span className="font-serif italic font-normal text-burnt-amber">8 PM</span> Window: Why This Time, Why This Works
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
               New York opens at 8 PM India time. That's when the real money moves. We show you exactly where.
@@ -50,7 +50,7 @@ const UniqueMechanismSection: React.FC = () => {
           </motion.div>
 
           {/* 3-step timeline */}
-          <div className="max-w-5xl mx-auto mb-32">
+          <div className="max-w-5xl mx-auto mb-12 lg:mb-16">
             <motion.div
               className="relative"
               initial={{ opacity: 0 }}
@@ -62,7 +62,7 @@ const UniqueMechanismSection: React.FC = () => {
               <div className="hidden md:block absolute top-12 left-0 right-0 h-px bg-wealth-teal/30 z-0" />
               
               {/* Steps */}
-              <div className="relative grid md:grid-cols-3 gap-12 md:gap-8">
+              <div className="relative grid md:grid-cols-3 gap-6 md:gap-8">
                 {steps.map((step, index) => (
                   <motion.div
                     key={step.id}
@@ -72,6 +72,7 @@ const UniqueMechanismSection: React.FC = () => {
                     transition={{ duration: 0.8, delay: index * 0.2 }}
                     viewport={{ once: true }}
                     onMouseEnter={() => setActiveStep(step.id)}
+                    onClick={() => setActiveStep(step.id)}
                   >
                     <div className="md:text-center relative">
                       {/* Circle - 48px (12 tailwind units) */}
@@ -84,7 +85,7 @@ const UniqueMechanismSection: React.FC = () => {
                       </div>
                       
                       {/* Time */}
-                      <p className="text-sm font-medium text-deep-slate mb-2">{step.time} — {step.title}</p>
+                      <p className="text-sm font-medium text-deep-slate mb-2">{step.time} - {step.title}</p>
                       
                       {/* Description */}
                       <p className="text-sm text-deep-slate/70 font-normal leading-relaxed">
@@ -99,14 +100,14 @@ const UniqueMechanismSection: React.FC = () => {
 
           {/* Why this works */}
           <motion.div
-            className="max-w-3xl mx-auto mb-32"
+            className="max-w-4xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bg-warm-white rounded-3xl p-8 sm:p-12">
-              <h3 className="text-2xl font-semibold text-deep-slate mb-8">
+            <div className="bg-white rounded-3xl p-8 sm:p-12 border border-deep-slate/8">
+              <h3 className="text-2xl font-sans font-semibold text-deep-slate mb-8">
                 Why this works
               </h3>
               <div className="space-y-4">
@@ -119,7 +120,7 @@ const UniqueMechanismSection: React.FC = () => {
                 <div className="flex gap-3">
                   <span className="text-burnt-amber">•</span>
                   <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
-                    You're free from office by then — no conflict with your 9-6
+                    You're free from office by then. No conflict with your 9-6
                   </p>
                 </div>
                 <div className="flex gap-3">
@@ -131,13 +132,13 @@ const UniqueMechanismSection: React.FC = () => {
                 <div className="flex gap-3">
                   <span className="text-burnt-amber">•</span>
                   <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
-                    Coach trades the same screen you see — no fake screenshots
+                    Coach trades the same screen you see. No fake screenshots
                   </p>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-burnt-amber">•</span>
                   <p className="text-sm sm:text-base text-deep-slate/70 font-normal">
-                    Small group (12 max) — coach knows your name
+                    Coach gives personal feedback on your trades
                   </p>
                 </div>
               </div>

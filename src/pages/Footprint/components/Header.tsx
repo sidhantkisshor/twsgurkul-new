@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Activity } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { handlePaymentPopup } from '../utils/payment';
@@ -27,8 +27,8 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 ${
-        isScrolled ? 'bg-[#2C3539]/90 backdrop-blur-xl shadow-lg border-b border-[#2C3539]/50' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-[#1A2226]/95 backdrop-blur-xl shadow-lg border-b border-[#3A4449]/30' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -36,43 +36,40 @@ const Header: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#C87533] blur-lg opacity-30 group-hover:opacity-50 transition-opacity"></div>
-              <div className="relative bg-linear-to-br from-[#C87533] to-[#B8956A] p-2 rounded-lg">
-                <Activity className="w-6 h-6 text-[#2C3539]" />
-              </div>
-            </div>
+          <Link to="/" className="flex items-center space-x-3 group shrink-0">
+            <img
+              src="/tws-gurukulx-icon.png"
+              alt="TWS GurukulX"
+              className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
             <div>
-              <span className="text-xl font-bold font-mono bg-linear-to-r from-[#C87533] to-[#B8956A] bg-clip-text text-transparent">FOOTPRINT</span>
-              <span className="text-xl font-bold text-[#EDE6D8] ml-1 font-mono">MASTERY</span>
+              <span className="text-lg sm:text-xl font-sans font-bold text-white">Footprint</span>
+              <span className="text-lg sm:text-xl font-serif italic font-normal text-[#C87533] ml-1.5">Mastery</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-[#B8A99A] hover:text-[#C87533] transition-colors text-sm font-medium">Home</Link>
-            <a href="#mechanism" className="text-[#B8A99A] hover:text-[#C87533] transition-colors text-sm font-medium">F.A.S.T. Method</a>
-            <a href="#testimonials" className="text-[#B8A99A] hover:text-[#C87533] transition-colors text-sm font-medium">Success Stories</a>
-            <a href="#curriculum" className="text-[#B8A99A] hover:text-[#C87533] transition-colors text-sm font-medium">Course</a>
-            <a href="#pricing" className="text-[#B8A99A] hover:text-[#C87533] transition-colors text-sm font-medium">Pricing</a>
+            <a href="#framework" className="text-[#D0C5B4]/60 hover:text-white transition-colors text-sm font-medium">F.A.S.T. Method</a>
+            <a href="#testimonials" className="text-[#D0C5B4]/60 hover:text-white transition-colors text-sm font-medium">Results</a>
+            <a href="#pricing" className="text-[#D0C5B4]/60 hover:text-white transition-colors text-sm font-medium">Pricing</a>
           </nav>
 
           <div className="hidden md:block">
             <motion.button
               onClick={handlePaymentPopup}
-              className="bg-[#C87533] hover:bg-[#A85E28] text-white font-semibold px-6 py-2.5 rounded-full transition-colors text-sm font-mono"
+              className="bg-[#C87533] hover:bg-[#A85E28] text-white font-semibold px-6 py-2.5 rounded-full transition-colors text-sm font-sans"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Footprint Mastery →
+              Start reading order flow →
             </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-[#EDE6D8] focus:outline-hidden"
+            className="md:hidden text-[#EDE6D8] w-11 h-11 flex items-center justify-center -mr-2 relative z-[60] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C87533] rounded-sm"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -82,55 +79,41 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[#2C3539]/95 backdrop-blur-xl">
-          <div className="container-custom py-4 flex flex-col space-y-4">
-            <Link
-              to="/"
-              className="text-[#EDE6D8] hover:text-[#C87533] transition-colors py-2 border-b border-[#2C3539]/50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
+        <div className="md:hidden bg-[#1A2226]/95 backdrop-blur-xl relative z-[55]">
+          <div className="px-4 sm:px-6 py-4 flex flex-col">
             <a
-              href="#benefits"
-              className="text-[#EDE6D8] hover:text-[#C87533] transition-colors py-2 border-b border-[#2C3539]/50"
+              href="#framework"
+              className="text-white hover:text-[#D4943F] transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              Why Us
-            </a>
-            <a
-              href="#transformation"
-              className="text-[#EDE6D8] hover:text-[#C87533] transition-colors py-2 border-b border-[#2C3539]/50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Results
+              F.A.S.T. Method
             </a>
             <a
               href="#testimonials"
-              className="text-[#EDE6D8] hover:text-[#C87533] transition-colors py-2 border-b border-[#2C3539]/50"
+              className="text-white hover:text-[#D4943F] transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonials
             </a>
             <a
-              href="#course"
-              className="text-[#EDE6D8] hover:text-[#C87533] transition-colors py-2 border-b border-[#2C3539]/50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Course Details
-            </a>
-            <a
               href="#pricing"
-              className="text-[#EDE6D8] hover:text-[#C87533] transition-colors py-2 border-b border-[#2C3539]/50"
+              className="text-white hover:text-[#D4943F] transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Pricing
             </a>
+            <a
+              href="#faq"
+              className="text-white hover:text-[#D4943F] transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQ
+            </a>
             <button
               onClick={handlePaymentPopup}
-              className="bg-[#C87533] hover:bg-[#A85E28] text-white font-semibold px-6 py-2.5 rounded-full transition-colors mt-4"
+              className="bg-[#C87533] hover:bg-[#A85E28] text-white font-semibold px-6 py-3 rounded-full transition-colors mt-5 min-h-[48px]"
             >
-              Start Footprint Mastery
+              Start reading order flow →
             </button>
           </div>
         </div>

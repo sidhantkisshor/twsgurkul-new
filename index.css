@@ -140,6 +140,18 @@
 }
 
 @layer base {
+  /* Respect user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   html {
     scroll-behavior: smooth;
     /* Prevent iOS zoom on input focus */
@@ -161,6 +173,21 @@
     /* Mobile font size */
     font-size: 1rem;
     line-height: 1.6;
+    /* Prevent white flash on dark pages (Footprint, Crypto, Mentorship) */
+    background-color: #1A2226;
+  }
+
+  /* Global focus-visible rings for keyboard accessibility (WCAG 2.4.7) */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:not([tabindex="-1"]):focus-visible {
+    outline: 2px solid #C87533;
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   
   /* Mobile-optimized headings */

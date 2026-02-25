@@ -1,5 +1,87 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
-#
-# Allow all user-agents to crawl the site.
+# https://www.robotstxt.org/robotstxt.html
+# TWS GurukulX - robots.txt (Updated Feb 2026)
+
+# ===========================================
+# Search Engine Crawlers - Allow All
+# ===========================================
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 User-agent: *
-Disallow: 
+Allow: /
+
+# ===========================================
+# AI Search & Assistant Crawlers - Allow
+# These power AI search results (ChatGPT search, Perplexity, etc.)
+# Allowing them helps our content appear in AI-powered answers.
+# ===========================================
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# ===========================================
+# Block known aggressive/unwanted crawlers
+# ===========================================
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# ===========================================
+# Sitemaps & LLMs.txt
+# ===========================================
+Sitemap: https://www.twsgurukul.com/sitemap.xml

@@ -6,7 +6,7 @@ interface TrackingEvent {
   eventCategory?: string;
   eventLabel?: string;
   eventValue?: number;
-  customData?: Record<string, any>;
+  customData?: Record<string, unknown>;
 }
 
 // Main tracking function
@@ -19,8 +19,8 @@ export const trackEvent = ({
 }: TrackingEvent): void => {
   try {
     // Google Analytics 4
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', eventName, {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', eventName, {
         event_category: eventCategory,
         event_label: eventLabel,
         value: eventValue,
@@ -30,8 +30,8 @@ export const trackEvent = ({
     }
 
     // Facebook Pixel
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('trackCustom', eventName, {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('trackCustom', eventName, {
         category: eventCategory,
         label: eventLabel,
         value: eventValue,
@@ -202,13 +202,13 @@ export const isReturningUser = (): boolean => {
   return true;
 };
 
-// Track time on page
-export const trackTimeOnPage = () => {
-  if (typeof window === 'undefined') return;
-  
+// Track time on page — returns a cleanup function to remove the listener.
+export const trackTimeOnPage = (): (() => void) => {
+  if (typeof window === 'undefined') return () => {};
+
   const startTime = Date.now();
-  
-  window.addEventListener('beforeunload', () => {
+
+  const handleBeforeUnload = () => {
     const timeOnPage = Math.round((Date.now() - startTime) / 1000);
     trackEvent({
       eventName: 'time_on_page',
@@ -216,5 +216,8 @@ export const trackTimeOnPage = () => {
       eventLabel: 'Total time on crypto page',
       eventValue: timeOnPage
     });
-  });
+  };
+
+  window.addEventListener('beforeunload', handleBeforeUnload);
+  return () => window.removeEventListener('beforeunload', handleBeforeUnload);
 };

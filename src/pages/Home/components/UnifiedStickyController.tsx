@@ -16,68 +16,70 @@ const UnifiedStickyController: React.FC<UnifiedStickyControllerProps> = ({ onQui
   useEffect(() => {
     if (isDismissed) return;
 
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const isMobile = window.innerWidth < 768;
-      
-      // Calculate scroll progress
-      const progress = (scrollY / (documentHeight - windowHeight)) * 100;
-      setScrollProgress(Math.min(100, Math.max(0, progress)));
-      
-      // Get key elements
-      const heroElement = document.getElementById('hero');
-      const quizElement = document.getElementById('quiz');
-      const journeyElement = document.getElementById('journey');
-      const successElement = document.getElementById('success');
-      
-      // Check element positions
-      const heroBottom = heroElement?.getBoundingClientRect().bottom || 0;
-      const quizRect = quizElement?.getBoundingClientRect();
-      const journeyBottom = journeyElement?.getBoundingClientRect().bottom || 0;
-      const successTop = successElement?.getBoundingClientRect().top || documentHeight;
-      
-      // Quiz is in view
-      if (quizRect && quizRect.top <= windowHeight && quizRect.bottom >= 0) {
-        setMode('hidden');
-        return;
-      }
-      
-      // Mobile-specific logic
-      if (isMobile) {
-        // After hero, before journey
-        if (heroBottom < 0 && journeyBottom > windowHeight * 0.8) {
-          setMode('mobile-quiz');
-        }
-        // After journey, show prompt
-        else if (journeyBottom < windowHeight * 0.5 && successTop > 100) {
-          setMode('quiz-prompt');
-        }
-        else {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const isMobile = window.innerWidth < 768;
+
+        // Calculate scroll progress
+        const progress = (scrollY / (documentHeight - windowHeight)) * 100;
+        setScrollProgress(Math.min(100, Math.max(0, progress)));
+
+        // Get key elements
+        const heroElement = document.getElementById('hero');
+        const quizElement = document.getElementById('quiz');
+        const journeyElement = document.getElementById('journey');
+        const successElement = document.getElementById('success');
+
+        // Check element positions
+        const heroBottom = heroElement?.getBoundingClientRect().bottom || 0;
+        const quizRect = quizElement?.getBoundingClientRect();
+        const journeyBottom = journeyElement?.getBoundingClientRect().bottom || 0;
+        const successTop = successElement?.getBoundingClientRect().top || documentHeight;
+
+        // Quiz is in view
+        if (quizRect && quizRect.top <= windowHeight && quizRect.bottom >= 0) {
           setMode('hidden');
+          ticking = false;
+          return;
         }
-      } 
-      // Desktop logic
-      else {
-        // Show navigation after scrolling past hero
-        if (heroBottom < -100) {
-          // After journey, switch to quiz prompt
-          if (journeyBottom < 100) {
+
+        // Mobile-specific logic
+        if (isMobile) {
+          if (heroBottom < 0 && journeyBottom > windowHeight * 0.8) {
+            setMode('mobile-quiz');
+          } else if (journeyBottom < windowHeight * 0.5 && successTop > 100) {
             setMode('quiz-prompt');
           } else {
-            setMode('navigation');
+            setMode('hidden');
           }
-        } else {
-          setMode('hidden');
         }
-      }
+        // Desktop logic
+        else {
+          if (heroBottom < -100) {
+            if (journeyBottom < 100) {
+              setMode('quiz-prompt');
+            } else {
+              setMode('navigation');
+            }
+          } else {
+            setMode('hidden');
+          }
+        }
+        ticking = false;
+      });
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
@@ -207,7 +209,7 @@ const UnifiedStickyController: React.FC<UnifiedStickyControllerProps> = ({ onQui
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-8">
               <button onClick={scrollToTop} className="text-white font-bold text-lg">
-                TWS Gurukul
+                TWS GurukulX
               </button>
               <nav className="flex items-center gap-6 text-sm">
                 <a href="#problem" className="text-gray-400 hover:text-white transition-colors">Problem</a>

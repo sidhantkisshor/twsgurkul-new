@@ -1,17 +1,18 @@
-export const handlePaymentPopup = (e?: React.MouseEvent) => {
+import { getCheckoutUrl } from '../../../constants';
+
+export const handlePaymentPopup = (e?: { preventDefault: () => void }) => {
   if (e) {
     e.preventDefault();
   }
-  
-  // Create mobile-friendly popup
-  const popup = window.open(
-    'https://learn.tradingwithsidhant.com/web/checkout/67865c7a63edaa470ad42516?purchaseNow=true',
-    'enrollment',
-    'width=400,height=600,scrollbars=yes,resizable=yes,toolbar=no,menubar=no,location=no,status=no'
+
+  // Track CTA click before opening checkout
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'footprint_cta_click', page: 'footprint' });
+
+  // noopener,noreferrer prevents opener reference leak; _blank opens in new tab
+  window.open(
+    getCheckoutUrl('footprint', 'cta'),
+    '_blank',
+    'noopener,noreferrer'
   );
-  
-  // Focus the popup if it opened successfully
-  if (popup) {
-    popup.focus();
-  }
-}; 
+};

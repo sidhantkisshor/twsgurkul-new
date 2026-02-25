@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-deep-slate px-4 sm:px-6 lg:px-12 pt-32 sm:pt-24">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-deep-slate px-4 sm:px-6 lg:px-12 pt-16 sm:pt-20">
         {/* Subtle gradient background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-linear-to-b from-deep-slate to-deep-slate" />
@@ -104,24 +104,34 @@ const HeroSection: React.FC = () => {
                   />
                 </div>
                 <span className="font-semibold tracking-wider uppercase">
-                  LIVE NOW — 8 PM Every Night
+                  LIVE NOW - 8 PM Every Night
                 </span>
               </div>
             </motion.div>
 
-            {/* Headline - pure simplicity */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold mb-6 sm:mb-8 leading-tight px-4">
+            {/* Headline - pain-first identity attack */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-sans font-bold mb-4 sm:mb-6 leading-tight px-4">
               <motion.span
                 className="block text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                Every Night at 8 PM, We Trade Live. You Follow Along. You Get Better.
+                Still Losing Money to Random YouTube Tips?
               </motion.span>
             </h1>
 
-            {/* Subheadline - refined */}
+            {/* Transformation subheadline */}
+            <motion.p
+              className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-burnt-amber mb-6 sm:mb-10 px-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              There's a simpler way to trade.
+            </motion.p>
+
+            {/* Outcome with timeframe */}
             <motion.p
               className="text-base sm:text-lg md:text-xl text-soft-sand mb-12 sm:mb-20 max-w-2xl mx-auto leading-relaxed font-normal px-4"
               initial={{ opacity: 0 }}
@@ -129,42 +139,42 @@ const HeroSection: React.FC = () => {
               transition={{ delay: 0.8, duration: 0.8 }}
               style={{ maxWidth: '720px' }}
             >
-              No guesswork. No YouTube confusion. Just a proven system you follow live with pro coaches — 5 nights a week, from your phone.
+              In 90 days, go from confused retail trader to a disciplined 8 PM routine - following live coaches, 5 nights a week, from your phone.
             </motion.p>
 
-            {/* Stats - responsive layout for mobile */}
+            {/* Stats */}
             <motion.div
-              className="mb-12 sm:mb-20"
+              className="mb-10 sm:mb-16"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
-              {/* First two stats - always inline */}
-              <div className="flex items-baseline justify-center gap-3 sm:gap-6 text-sm sm:text-base mb-4 sm:mb-0">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl sm:text-3xl font-semibold text-white">₹47,000+</span>
-                  <span className="text-xs sm:text-sm text-soft-sand/70">avg. student profit by Month 3</span>
+              {/* Mobile: stacked grid */}
+              <div className="grid grid-cols-3 gap-4 sm:hidden max-w-sm mx-auto text-center">
+                <div>
+                  <span className="text-2xl font-semibold text-white block">2,300+</span>
+                  <span className="text-xs text-soft-sand/70 leading-tight block mt-1">traders trained</span>
                 </div>
-                <span className="text-soft-sand/40">•</span>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl sm:text-3xl font-semibold text-white">83%</span>
-                  <span className="text-xs sm:text-sm text-soft-sand/70">complete the full 90 days</span>
+                <div>
+                  <span className="text-2xl font-semibold text-white block">83%</span>
+                  <span className="text-xs text-soft-sand/70 leading-tight block mt-1">complete 90 days</span>
                 </div>
-              </div>
-
-              {/* Third stat - below on mobile, inline on desktop */}
-              <div className="flex items-center justify-center sm:hidden">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-semibold text-white">2,300+</span>
-                  <span className="text-xs text-soft-sand/70">traders trained since 2023</span>
+                <div>
+                  <span className="text-2xl font-semibold text-white block">5</span>
+                  <span className="text-xs text-soft-sand/70 leading-tight block mt-1">nights a week</span>
                 </div>
               </div>
 
-              {/* Desktop version - only third stat */}
-              <div className="hidden sm:flex items-center justify-center gap-6">
+              {/* Desktop: inline */}
+              <div className="hidden sm:flex items-baseline justify-center gap-8">
                 <div className="flex items-baseline gap-2">
                   <span className="text-3xl font-semibold text-white">2,300+</span>
                   <span className="text-sm text-soft-sand/70">traders trained since 2023</span>
+                </div>
+                <span className="text-soft-sand/60">·</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-semibold text-white">83%</span>
+                  <span className="text-sm text-soft-sand/70">complete the full 90 days</span>
                 </div>
               </div>
             </motion.div>
@@ -188,10 +198,10 @@ const HeroSection: React.FC = () => {
                 </span>
               </motion.button>
 
-              {/* Guarantee badge */}
+              {/* Trust line */}
               <div className="flex items-center gap-2 mt-4">
                 <Shield size={16} className="text-wealth-teal" />
-                <span className="text-xs sm:text-sm text-soft-sand/70">30-day money-back · No questions asked</span>
+                <span className="text-xs sm:text-sm text-soft-sand/70">Live sessions every night at 8 PM IST</span>
               </div>
 
               {/* Countdown to 8 PM IST */}

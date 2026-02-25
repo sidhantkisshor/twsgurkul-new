@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { motion, useMotionValue, useTransform, animate, useAnimationFrame, wrap, PanInfo } from 'framer-motion';
-import { Gift, UserCheck } from 'lucide-react';
+import { motion, useMotionValue, useTransform, animate, useAnimationFrame, wrap, PanInfo, useReducedMotion } from 'framer-motion';
+import { Gift, UserCheck, ArrowRight } from 'lucide-react';
 import { testimonials } from '../data';
 import { Testimonial } from '../types';
 
@@ -19,25 +19,25 @@ const parseProfit = (profit: string): number => {
 const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodologyClick }) => {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [scrollWidth, setScrollWidth] = useState(0);
+    const prefersReducedMotion = useReducedMotion();
 
     const baseX = useMotionValue(0);
-    const baseVelocity = -50;
+    const baseVelocity = -25;
     const moveFactor = useRef(1);
     const isDragging = useRef(false); // Ref to track drag state
 
     useEffect(() => {
         const updateDimensions = () => {
             if (scrollRef.current && testimonials.length > 0) {
-                const oneSetWidth = scrollRef.current.scrollWidth / 4;
+                const oneSetWidth = scrollRef.current.scrollWidth / 2;
                 setScrollWidth(oneSetWidth);
 
                 if (testimonials.length > 2) {
                     const children = Array.from(scrollRef.current.children);
                     const card1Width = (children[0] as HTMLElement).offsetWidth;
-                    const card2Width = (children[1] as HTMLElement).offsetWidth;
                     const gap = parseFloat(window.getComputedStyle(scrollRef.current).gap) || 0;
-                    
-                    const initialOffset = -(card1Width + card2Width + (gap * 2));
+
+                    const initialOffset = -(card1Width + gap);
                     baseX.set(initialOffset);
                 }
             }
@@ -52,7 +52,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
     }, [testimonials.length]);
 
     useAnimationFrame((_, delta) => {
-        if (!scrollWidth || moveFactor.current === 0) return;
+        if (prefersReducedMotion || !scrollWidth || moveFactor.current === 0) return;
         const moveBy = moveFactor.current * baseVelocity * (delta / 1000);
         baseX.set(baseX.get() + moveBy);
     });
@@ -92,10 +92,25 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
         }
     };
 
+    // Keyboard navigation: arrow keys nudge the carousel
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            baseX.set(baseX.get() + 320);
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            baseX.set(baseX.get() - 320);
+        } else if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            // Toggle pause/resume
+            moveFactor.current = moveFactor.current === 0 ? 1 : 0;
+        }
+    };
+
     return (
-        <section 
-            id="testimonials" 
-            className="crypto-section bg-[#2C3539] overflow-hidden relative"
+        <section
+            id="testimonials"
+            className="crypto-section bg-[#FFF1E0] overflow-hidden relative"
             role="region"
             aria-label="Customer testimonials"
         >
@@ -108,17 +123,18 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="crypto-h2">
-                        Real Student <span className="text-white">Experiences</span>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl">
+                        <span className="font-sans font-bold text-[#2C3539]">Student</span>{' '}
+                        <span className="font-serif italic font-normal text-[#C87533]">Experiences</span>
                     </h2>
-                    <p className="text-lg sm:text-xl text-[#EDE6D8] max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-lg sm:text-xl text-[#2C3539]/70 max-w-3xl mx-auto leading-relaxed">
                         Based on self-reported data. Individual results vary significantly.
                         {onMethodologyClick && (
                             <>
                                 {' '}
                                 <button
                                     onClick={onMethodologyClick}
-                                    className="inline-flex items-center gap-1 text-[#EDE6D8]/70 hover:text-[#C87533] transition-colors group"
+                                    className="inline-flex items-center gap-1 text-[#2C3539]/70 hover:text-[#C87533] transition-colors group py-3 -my-3"
                                 >
                                     <span className="group-hover:underline">Methodology & verification</span>
                                     <span>→</span>
@@ -128,7 +144,14 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                     </p>
                 </motion.div>
                 
-                <div className="relative cursor-grab active:cursor-grabbing">
+                <div
+                    className="relative cursor-grab active:cursor-grabbing"
+                    role="group"
+                    aria-roledescription="carousel"
+                    aria-label="Student testimonials — use arrow keys to scroll, Enter or Space to pause"
+                    tabIndex={0}
+                    onKeyDown={handleKeyDown}
+                >
                     <motion.div
                         ref={scrollRef}
                         className="flex gap-4 md:gap-8"
@@ -143,7 +166,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                         onPointerUp={handlePointerUp}
                         dragElastic={0.02}
                     >
-                        {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
+                        {[...testimonials, ...testimonials].map((testimonial, index) => (
                             <TestimonialCard 
                                 key={`${testimonial.name}-${index}`}
                                 testimonial={testimonial} 
@@ -151,6 +174,29 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                         ))}
                     </motion.div>
                 </div>
+
+                {/* Swipe affordance — mobile only */}
+                <p className="sm:hidden text-center text-xs text-[#2C3539]/40 mt-4 mb-2 select-none">
+                    ← swipe to see more →
+                </p>
+
+                <motion.div
+                    className="text-center mt-6 sm:mt-10 px-4"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                >
+                    <button
+                        onClick={() => {
+                            const el = document.getElementById('pricing');
+                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                        className="inline-flex items-center gap-2 bg-[#C87533] hover:bg-[#b5682d] text-white font-bold py-3 px-8 rounded-xl transition-all text-base"
+                    >
+                        Join 1,263+ students
+                        <ArrowRight className="w-5 h-5" />
+                    </button>
+                </motion.div>
 
             </div>
         </section>
@@ -160,7 +206,6 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
 const TestimonialCard: React.FC<{
     testimonial: Testimonial;
 }> = ({ testimonial }) => {
-    const [imageLoaded, setImageLoaded] = useState(false);
     const [profitVisible, setProfitVisible] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -186,11 +231,7 @@ const TestimonialCard: React.FC<{
             observer.observe(currentRef);
         }
 
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef);
-            }
-        };
+        return () => observer.disconnect();
     }, [profitVisible]);
 
     useEffect(() => {
@@ -206,54 +247,14 @@ const TestimonialCard: React.FC<{
     return (
         <motion.div
             ref={cardRef}
-            className="bg-[#FAF8F5] rounded-2xl border border-[rgba(44,53,57,0.08)] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
+            className="bg-white rounded-2xl border border-[rgba(44,53,57,0.08)] p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 shrink-0 w-[85vw] sm:w-[80vw] md:w-[400px] shadow-lg relative select-none"
             whileHover={{ y: -8, borderColor: 'rgba(44,53,57,0.16)' }}
         >
 
-            <div className="flex items-center space-x-4 mb-4">
-                <div className="relative shrink-0">
-                    <motion.picture
-                        initial={{ scale: 0.8 }}
-                        animate={{ scale: 1 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <source 
-                            srcSet={testimonial.image.replace('.jpg', '.webp')} 
-                            type="image/webp" 
-                        />
-                        <motion.img 
-                            src={testimonial.image} 
-                            alt={testimonial.name} 
-                            className={`w-14 h-14 rounded-full object-cover border-2 border-[rgba(44,53,57,0.08)] transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                            onLoad={() => setImageLoaded(true)}
-                            loading="lazy"
-                            decoding="async"
-                            draggable={false}
-                        />
-                    </motion.picture>
-                    {!imageLoaded && (
-                        <div className="absolute inset-0 bg-[#EDE6D8] rounded-full animate-pulse w-14 h-14" />
-                    )}
-                </div>
-                
-                <div className="flex-1 min-w-0">
-                    <motion.h4 
-                        className="font-bold text-[#2C3539] text-base"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        {testimonial.name}
-                    </motion.h4>
-                    <p className="text-[#111111]/50 font-medium text-sm truncate">
-                        {testimonial.role}
-                    </p>
-                       <div className="flex items-center space-x-2 text-[#111111]/50 mt-1 text-xs">
-                           <span>{testimonial.location}</span>
-                           <span className='text-[#111111]/30'>•</span>
-                           <span>Age {testimonial.age}</span>
-                       </div>
-                </div>
+            <div className="mb-4">
+                <h4 className="font-sans font-bold text-[#2C3539] text-base">{testimonial.name}</h4>
+                <p className="text-[#2C3539]/70 text-sm">{testimonial.role}</p>
+                <p className="text-[#2C3539]/70 text-xs mt-0.5">{testimonial.location} · Age {testimonial.age}</p>
             </div>
 
             <motion.div 
@@ -270,7 +271,7 @@ const TestimonialCard: React.FC<{
                     <span className="text-[#C87533] text-3xl font-serif leading-none">"</span>
                 </blockquote>
                 
-                <p className="text-[#111111]/70 mt-2 leading-relaxed text-sm">
+                <p className="text-[#2C3539]/80 mt-2 leading-relaxed text-sm">
                     {testimonial.quoteBody}
                 </p>
             </motion.div>
@@ -283,7 +284,7 @@ const TestimonialCard: React.FC<{
                     transition={{ delay: 0.6 }}
                 >
                     <div className="flex items-center justify-between relative z-10">
-                        <span className="text-[#111111]/70 text-sm">
+                        <span className="text-[#2C3539]/80 text-sm">
                             Profit in {testimonial.time}
                         </span>
                         <motion.span 
@@ -328,10 +329,10 @@ const TestimonialCard: React.FC<{
                             <UserCheck className="text-[#0A8D7A] w-5 h-5" />
                         </div>
                         <div className="flex flex-col">
-                            <span className="font-semibold text-[#0A8D7A] text-sm">
+                            <span className="font-semibold text-[#076D5F] text-sm">
                                 Verified Student
                             </span>
-                            <span className="text-xs text-[#111111]/50">
+                            <span className="text-xs text-[#2C3539]/70">
                                 {testimonial.verificationDate}
                             </span>
                         </div>

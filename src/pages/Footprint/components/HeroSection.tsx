@@ -1,139 +1,149 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, Activity, BarChart3 } from 'lucide-react';
+import { BarChart3, MessageCircle, TrendingUp, Award, Users, Youtube, Instagram, Send, Linkedin } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
 import { useWhaleTracker } from '../hooks/useWhaleTracker';
 import { formatCurrency } from '../../../services/binanceV2';
+import { WHATSAPP_NUMBER } from '../../../constants';
+
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Footprint%20Mastery`;
 
 const HeroSection: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
-  const [showDemo, setShowDemo] = useState(false);
-  const videoRef = useRef<HTMLDivElement>(null);
-
-  // Lazy load video section with IntersectionObserver
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setShouldLoadVideo(true);
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        rootMargin: '200px', // Start loading 200px before visible
-        threshold: 0.01
-      }
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const whaleData = useWhaleTracker();
 
-  // Get whale orders with better handling
   const largestWhaleOrder = whaleData.btc?.largestBuyOrder || null;
   const largestSellOrder = whaleData.btc?.largestSellOrder || null;
-
-  // Get current BTC price and stats
   const btcPrice = whaleData.btc?.price || 42000;
   const btcChange = whaleData.btc?.priceChange24h || 0;
-  const ethPrice = whaleData.eth?.price || 2200;
   const ethChange = whaleData.eth?.priceChange24h || 0;
 
-  const heroData = {
-    headline: {
-      line1: "See order flow before",
-      line2: "it hits the chart.",
-      line3: "Plan clean entries. Exit with rules."
-    },
-    description: {
-      main: "A recorded footprint trading program for working traders — with monthly live Q&A.",
-      details: "Learn to read absorption, cumulative delta, and liquidity zones so your entries/exits are planned, not guessed."
-    }
-  };
-
   return (
-    <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-0 relative overflow-hidden">
-      {/* Background with subtle radial gradient overlay */}
-      <div className="absolute inset-0 bg-[#2C3539]">
+    <section className="px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 sm:pb-20 relative overflow-hidden">
+      {/* Background — darker base for text contrast */}
+      <div className="absolute inset-0 bg-[#1A2226]">
         <div
           className="absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(200,117,51,0.08) 0%, transparent 60%)' }}
+          style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(200,117,51,0.06) 0%, transparent 70%)' }}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-600">
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
-            className="space-y-5 sm:space-y-6"
+            className="space-y-6 sm:space-y-8"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="space-y-4 sm:space-y-4">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="inline-flex items-center px-3 py-1 bg-[#3A4449]/60 border border-[#3A4449] rounded-full text-xs text-[#B8A99A]">
-                  Recorded modules
-                </span>
-                <span className="inline-flex items-center px-3 py-1 bg-[#3A4449]/60 border border-[#3A4449] rounded-full text-xs text-[#B8A99A]">
-                  Monthly live Q&A (recordings provided)
-                </span>
-                <span className="inline-flex items-center px-3 py-1 bg-[#3A4449]/60 border border-[#3A4449] rounded-full text-xs text-[#B8A99A]">
-                  Lifetime access
-                </span>
-              </div>
-
-              <div className="flex items-start gap-2">
-                <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-tight flex-1">
-                  <span className="text-[#EDE6D8]">{heroData.headline.line1}</span><br />
-                  <span className="text-[#EDE6D8]">{heroData.headline.line2}</span><br />
-                  <span className="text-[#C87533]">{heroData.headline.line3}</span>
-                </h1>
-                <div className="shrink-0 mt-1 sm:mt-2 pointer-events-none">
-                  <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-br from-[#C87533] to-[#A85E28] rounded-full flex items-center justify-center shadow-lg shadow-[#C87533]/30">
-                    <span className="text-white font-bold text-[10px] sm:text-xs lg:text-sm">TWS</span>
-                  </div>
+            {/* Instructor credibility bar */}
+            <div className="flex items-center gap-3 mb-2">
+              <img
+                src="/sidhant-casino-chips.png"
+                alt="Sidhant Kisshor"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover object-top shadow-lg shadow-[#C87533]/30 shrink-0"
+              />
+              <div>
+                <p className="text-sm sm:text-base font-semibold text-white">Sidhant Kisshor</p>
+                <p className="text-xs text-[#D0C5B4]">
+                  <a href="https://www.youtube.com/watch?v=kUloX27rFvk" target="_blank" rel="noopener noreferrer" className="hover:text-[#C87533] transition-colors underline underline-offset-2">TEDx Speaker</a>
+                  {' · '}Trading since 2017 · 1,263+ students
+                </p>
+                <div className="flex items-center gap-1 mt-1 -ml-2">
+                  <a
+                    href="https://youtube.com/@tradingwithsidhant"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube channel"
+                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-[#C87533] transition-colors"
+                  >
+                    <Youtube className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://instagram.com/twsgurukul"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram profile"
+                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-[#C87533] transition-colors"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/sidhant-kisshor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn profile"
+                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-[#C87533] transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://t.me/tradingwsidhant"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Telegram channel"
+                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-[#C87533] transition-colors"
+                  >
+                    <Send className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
+            </div>
 
-              <p className="text-sm sm:text-base lg:text-xl text-[#B8A99A] leading-relaxed mb-2">
-                Footprint Mastery by TWS Gurukul — a recorded program for working traders with monthly live Q&A and lifetime access.
+            {/* Headline — simple, benefit-driven */}
+            <div className="space-y-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">
+                <span className="font-sans font-bold text-white">Tired of watching the move happen&nbsp;— </span>
+                <span className="font-serif italic font-normal text-[#D4943F]">after you already exited?</span>
+              </h1>
+
+              <p className="text-base lg:text-lg text-[#D0C5B4] leading-relaxed">
+                In 6 weeks, go from retail guesswork to reading institutional order flow — using the F.A.S.T. framework trusted by 1,263+ traders.
               </p>
-              <p className="text-sm sm:text-base text-[#B8A99A]">
-                Learn to read absorption, cumulative delta, and liquidity zones.<br className="hidden sm:block" />
-                <span className="font-serif italic text-[#C87533] font-medium">Guess nahi. Data se trade karo.</span>
+              <p className="text-sm text-[#D0C5B4]">
+                Recorded course + monthly live Q&A + lifetime access.
+                <span className="font-serif italic text-[#D4943F] font-medium ml-1">Starting at just ₹90/day.</span>
               </p>
             </div>
 
-            {/* Mobile CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 md:hidden">
+            {/* Credential pills */}
+            <div className="flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0A8D7A]/15 border border-[#0A8D7A]/30 rounded-full text-xs text-[#3DD9C4] font-medium">
+                <TrendingUp className="w-3 h-3" /> 73% win rate (1,847 tracked trades)*
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#C87533]/15 border border-[#C87533]/30 rounded-full text-xs text-[#D4943F] font-medium">
+                <Award className="w-3 h-3" /> ₹27.2 Cr student-reported profits*
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#B8956A]/15 border border-[#B8956A]/30 rounded-full text-xs text-[#D0C5B4] font-medium">
+                <Users className="w-3 h-3" /> 7-day refund policy
+              </span>
+            </div>
+            <p className="text-xs text-[#8A9199]">*Past performance is not indicative of future results. Individual results vary.</p>
+
+            {/* CTA Buttons — Mobile */}
+            <div className="flex flex-col gap-3 md:hidden">
               <motion.button
                 onClick={handlePaymentPopup}
-                className="w-full px-4 py-3 font-bold rounded-full text-sm bg-[#C87533] hover:bg-[#A85E28] text-white shadow-lg shadow-[#C87533]/25 transition-all"
+                className="w-full px-4 py-3.5 font-bold rounded-full text-sm bg-[#C87533] hover:bg-[#A85E28] text-white shadow-lg shadow-[#C87533]/25 transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Start Learning with TWS
+                Start reading order flow →
               </motion.button>
 
-              <motion.button
-                onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full px-4 py-3 font-semibold rounded-full text-sm bg-transparent border-2 border-[#C87533] text-[#C87533] hover:bg-[#C87533]/10 transition-all"
+              <motion.a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 font-semibold rounded-full text-sm bg-wealth-teal/10 border-2 border-wealth-teal/30 text-wealth-teal hover:bg-wealth-teal/20 transition-all text-center"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                See Student Results
-              </motion.button>
+                <MessageCircle className="w-4 h-4" />
+                Talk to us on WhatsApp
+              </motion.a>
             </div>
 
-            {/* Desktop CTA Buttons */}
+            {/* CTA Buttons — Desktop */}
             <div className="hidden md:flex gap-4">
               <motion.button
                 onClick={handlePaymentPopup}
@@ -141,230 +151,203 @@ const HeroSection: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Start Learning with TWS
+                Start reading order flow →
               </motion.button>
 
-              <motion.button
-                onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-6 sm:px-8 py-3 sm:py-4 font-semibold rounded-full text-base sm:text-lg bg-transparent border-2 border-[#C87533] text-[#C87533] hover:bg-[#C87533]/10 transition-all"
+              <motion.a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 font-semibold rounded-full text-base sm:text-lg bg-wealth-teal/10 border-2 border-wealth-teal/30 text-wealth-teal hover:bg-wealth-teal/20 transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                See Live Student Results
-              </motion.button>
+                <MessageCircle className="w-5 h-5" />
+                Ask on WhatsApp
+              </motion.a>
             </div>
 
-            {/* Key Highlights Section */}
-            <div className="bg-[#3A4449]/60 backdrop-blur-xs rounded-lg p-4 border border-[#3A4449] space-y-3">
-              <h3 className="text-sm font-semibold text-[#B8956A] uppercase tracking-wider mb-3">Key Highlights</h3>
-              <div className="space-y-2">
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#C87533] mt-1.5 shrink-0"></div>
-                  <div>
-                    <span className="font-medium text-[#EDE6D8]">Footprint clarity:</span>
-                    <span className="text-[#B8A99A] text-sm"> spot absorption vs. exhaustion</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#C87533] mt-1.5 shrink-0"></div>
-                  <div>
-                    <span className="font-medium text-[#EDE6D8]">Delta confirmation:</span>
-                    <span className="text-[#B8A99A] text-sm"> use cumulative delta for bias</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#C87533] mt-1.5 shrink-0"></div>
-                  <div>
-                    <span className="font-medium text-[#EDE6D8]">Liquidity zones:</span>
-                    <span className="text-[#B8A99A] text-sm"> mark likely stop clusters</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#C87533] mt-1.5 shrink-0"></div>
-                  <div>
-                    <span className="font-medium text-[#EDE6D8]">Risk rules:</span>
-                    <span className="text-[#B8A99A] text-sm"> pre-defined entries, invalidation, and sizing</span>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#C87533] mt-1.5 shrink-0"></div>
-                  <div>
-                    <span className="font-medium text-[#EDE6D8]">Review loop:</span>
-                    <span className="text-[#B8A99A] text-sm"> post-trade logs to improve consistency</span>
-                  </div>
-                </div>
-              </div>
-            </div>
 
           </motion.div>
 
           <motion.div
             className="relative mt-8 lg:mt-0"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            {/* Live Demo Section - Hidden by default */}
-            {showDemo ? (
-              <div className="bg-[#0B1221] backdrop-blur-xl rounded-2xl p-4 sm:p-6 border border-[#0A8D7A]/30 mb-6 font-mono relative z-700 shadow-xl">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-semibold text-[#EDE6D8]">
-                  Live Demo • Footprint Table & Delta Shifts
-                </h3>
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#0A8D7A]/20 text-[#0A8D7A] rounded-full text-xs font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0A8D7A] animate-pulse"></span>
-                    LIVE
-                  </span>
-                  <Activity className="w-4 h-4 text-[#0A8D7A] animate-pulse" />
-                </div>
-              </div>
+            {/* Ambient glow background */}
+            <div className="absolute -inset-4 bg-gradient-to-br from-[#0A8D7A]/10 via-transparent to-[#C87533]/10 rounded-3xl blur-2xl" />
 
-              <div className="space-y-3">
-                <motion.div
-                  className="flex items-center justify-between"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <span className="text-[10px] sm:text-xs text-[#B8A99A] whitespace-nowrap">BTC</span>
-                  <div className="flex-1 mx-2 sm:mx-3 h-6 bg-[#0A8D7A]/20 rounded-sm overflow-hidden relative">
-                    <motion.div
-                      className="absolute top-0 left-0 h-full bg-[#0A8D7A]"
-                      initial={{ width: "60%" }}
-                      animate={{ width: [`${Math.min(85, largestWhaleOrder ? (largestWhaleOrder.total / (largestWhaleOrder.total + (largestSellOrder?.total || 0))) * 100 : 60)}%`] }}
-                      transition={{ duration: 0.5 }}
-                    />
-                    <span className="absolute inset-0 flex items-center justify-center text-[10px] sm:text-xs text-[#EDE6D8] px-1">
-                      <span className="hidden sm:inline">Bid: </span>{largestWhaleOrder ? formatCurrency(largestWhaleOrder.total) : 'Loading'}
-                    </span>
-                  </div>
-                  <span className={`text-xs ${btcChange > 0 ? 'text-[#0A8D7A]' : 'text-[#E5484D]'}`}>
-                    {btcChange > 0 ? '+' : ''}{btcChange.toFixed(2)}%
-                  </span>
-                </motion.div>
-
-                <motion.div
-                  className="flex items-center justify-between"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                >
-                  <span className="text-[10px] sm:text-xs text-[#B8A99A] whitespace-nowrap">ETH</span>
-                  <div className="flex-1 mx-2 sm:mx-3 h-6 bg-[#E5484D]/20 rounded-sm overflow-hidden relative">
-                    <motion.div
-                      className="absolute top-0 right-0 h-full bg-[#E5484D]"
-                      initial={{ width: "40%" }}
-                      animate={{ width: ["40%", "55%", "40%"] }}
-                      transition={{ duration: 3, repeat: Infinity }}
-                    />
-                    <span className="absolute inset-0 flex items-center justify-center text-[10px] sm:text-xs text-[#EDE6D8] px-1">
-                      <span className="hidden sm:inline">Ask: </span>{whaleData.eth?.largestSellOrder ? formatCurrency(whaleData.eth.largestSellOrder.total) : 'Loading'}
-                    </span>
-                  </div>
-                  <span className={`text-xs ${ethChange > 0 ? 'text-[#0A8D7A]' : 'text-[#E5484D]'}`}>
-                    {ethChange > 0 ? '+' : ''}{ethChange.toFixed(2)}%
-                  </span>
-                </motion.div>
-
-                <div className="pt-3 border-t border-[#3A4449]">
-                  <div className="grid grid-cols-2 gap-3 text-xs">
-                    <div>
-                      <span className="text-[#B8A99A]">Cumulative Delta</span>
-                      <motion.div
-                        className="text-[#0A8D7A] font-bold mt-1"
-                        animate={{ opacity: [0.7, 1, 0.7] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        {whaleData.btc && whaleData.btc.buyPressure ?
-                          `${whaleData.btc.buyPressure > whaleData.btc.sellPressure ? '+' : '-'}${Math.abs(whaleData.btc.buyPressure - whaleData.btc.sellPressure).toFixed(1)}%` :
-                          '+2.3%'}
-                      </motion.div>
-                    </div>
-                    <div>
-                      <span className="text-[#B8A99A]">Absorption Level</span>
-                      <motion.div
-                        className="text-[#D4943F] font-bold mt-1"
-                        animate={{ opacity: [0.7, 1, 0.7] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                      >
-                        ${(btcPrice - 500).toLocaleString()} - ${(btcPrice + 200).toLocaleString()}
-                      </motion.div>
-                    </div>
-                  </div>
-                  <div className="mt-3 text-xs text-[#B8A99A]/60">
-                    This is a demonstration of how order flow is interpreted in practice.
-                  </div>
-                </div>
-              </div>
-            </div>
-            ) : (
-              <button
-                onClick={() => setShowDemo(true)}
-                className="w-full bg-[#0B1221] backdrop-blur-xs rounded-2xl p-4 sm:p-6 border border-[#0A8D7A]/30 mb-6 hover:border-[#0A8D7A]/50 transition-colors cursor-pointer relative z-700 group shadow-xl"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Activity className="w-5 h-5 text-[#0A8D7A] animate-pulse" />
-                    <h3 className="text-sm font-semibold text-[#EDE6D8]">
-                      Click to View Live Footprint Demo
-                    </h3>
-                  </div>
-                  <span className="text-xs text-[#B8A99A] group-hover:text-[#0A8D7A] transition-colors">
-                    See order flow in action →
-                  </span>
-                </div>
-              </button>
-            )}
-
+            {/* Grid pattern overlay */}
             <div
-              ref={videoRef}
-              className="aspect-video bg-[#0B1221] rounded-2xl border border-[#C87533]/20 overflow-hidden hover:border-[#C87533]/40 transition-colors cursor-pointer relative"
-              onClick={() => setIsPlaying(true)}
-            >
-              {!isPlaying || !shouldLoadVideo ? (
-                <div className="w-full h-full relative flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[#0B1221]" />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <div className="text-center px-4">
-                      <motion.div
-                        className="w-16 h-16 sm:w-20 sm:h-20 bg-[#C87533]/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 border border-[#C87533]/50"
-                        whileHover={{ scale: 1.1, borderColor: "rgba(200, 117, 51, 0.8)" }}
-                      >
-                        <Play className="w-8 h-8 sm:w-10 sm:h-10 text-[#C87533] ml-1" />
-                      </motion.div>
-                      <p className="text-base sm:text-lg font-medium mb-1 sm:mb-2 text-[#EDE6D8]">Watch Footprint Analysis Demo</p>
-                      <p className="text-xs sm:text-sm text-[#B8A99A]">See how footprint tables and delta shifts work in practice</p>
+              className="absolute inset-0 opacity-[0.03] rounded-2xl pointer-events-none"
+              style={{
+                backgroundImage: 'linear-gradient(rgba(200,117,51,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(200,117,51,0.5) 1px, transparent 1px)',
+                backgroundSize: '24px 24px'
+              }}
+            />
+
+            {/* Main card with glass morphism */}
+            <div className="relative backdrop-blur-xl rounded-2xl overflow-hidden border border-[#0A8D7A]/40 shadow-2xl shadow-[#0A8D7A]/20">
+              {/* Animated border glow */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#0A8D7A]/0 via-[#0A8D7A]/30 to-[#0A8D7A]/0 opacity-50 animate-pulse" />
+
+              {/* Inner content container */}
+              <div className="relative bg-[#0B1221]/95 p-5 sm:p-7">
+                {/* Header */}
+                <motion.div
+                  className="mb-6 pb-4 border-b border-[#0A8D7A]/20"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                >
+                  <h3 className="text-base sm:text-lg mb-1">
+                    <span className="font-sans font-bold text-white">Live </span>
+                    <span className="font-serif italic font-normal text-[#D4943F]">Order Flow</span>
+                  </h3>
+                  <p className="text-[10px] sm:text-xs text-[#8A9199] font-sans tracking-wide uppercase">
+                    Footprint · Delta · Absorption
+                  </p>
+                </motion.div>
+
+                {/* Order book visualization */}
+                <div className="space-y-4 mb-6">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-sans font-semibold text-[#B8A99A] tracking-wide">BTC/USDT</span>
+                      <span className={`text-xs font-bold font-mono ${btcChange > 0 ? 'text-[#0A8D7A]' : 'text-[#E5484D]'}`}>
+                        {btcChange > 0 ? '▲' : '▼'} {Math.abs(btcChange).toFixed(2)}%
+                      </span>
                     </div>
-                  </div>
+                    <div className="relative h-12 bg-gradient-to-r from-[#0A8D7A]/5 to-transparent rounded-lg overflow-hidden border border-[#0A8D7A]/20">
+                      <motion.div
+                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#0A8D7A] to-[#0A8D7A]/70"
+                        initial={{ width: "0%" }}
+                        animate={{ width: `${Math.min(75, largestWhaleOrder ? (largestWhaleOrder.total / (largestWhaleOrder.total + (largestSellOrder?.total || 0))) * 100 : 60)}%` }}
+                        transition={{ duration: 1.2, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10" />
+                      </motion.div>
+                      <div className="absolute inset-0 flex items-center justify-between px-4">
+                        <span className="relative z-10 text-xs sm:text-sm font-mono font-bold text-white drop-shadow-lg">
+                          {largestWhaleOrder ? formatCurrency(largestWhaleOrder.total) : '—'}
+                        </span>
+                        <span className="text-[10px] sm:text-xs font-sans text-[#0A8D7A] font-bold tracking-wider">BID</span>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.7 }}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-sans font-semibold text-[#B8A99A] tracking-wide">ETH/USDT</span>
+                      <span className={`text-xs font-bold font-mono ${ethChange > 0 ? 'text-[#0A8D7A]' : 'text-[#E5484D]'}`}>
+                        {ethChange > 0 ? '▲' : '▼'} {Math.abs(ethChange).toFixed(2)}%
+                      </span>
+                    </div>
+                    <div className="relative h-12 bg-gradient-to-l from-[#E5484D]/5 to-transparent rounded-lg overflow-hidden border border-[#E5484D]/20">
+                      <motion.div
+                        className="absolute inset-y-0 right-0 bg-gradient-to-l from-[#E5484D] to-[#E5484D]/70"
+                        initial={{ width: "0%" }}
+                        animate={{ width: ["0%", "48%"] }}
+                        transition={{ duration: 1.2, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-l from-transparent to-white/10" />
+                      </motion.div>
+                      <div className="absolute inset-0 flex items-center justify-between px-4">
+                        <span className="text-[10px] sm:text-xs font-sans text-[#E5484D] font-bold tracking-wider">ASK</span>
+                        <span className="relative z-10 text-xs sm:text-sm font-mono font-bold text-white drop-shadow-lg">
+                          {whaleData.eth?.largestSellOrder ? formatCurrency(whaleData.eth.largestSellOrder.total) : '—'}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
-              ) : (
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/rPUQ_qtqH_M?start=22&autoplay=1&mute=1&controls=1&rel=0&modestbranding=1"
-                  title="Footprint Mastery Demo"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              )}
-            </div>
 
-            <motion.div
-              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-[#0A8D7A]/20 text-[#0A8D7A] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-sm border border-[#0A8D7A]/30 pointer-events-none z-700"
-              animate={{ opacity: [0.8, 1, 0.8] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0A8D7A] animate-pulse"></span>
-                Live Demo
-              </span>
-            </motion.div>
+                {/* Delta metrics */}
+                <motion.div
+                  className="grid grid-cols-2 gap-4 pt-5 border-t border-[#3A4449]/50"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#0A8D7A]" />
+                      <span className="text-[10px] sm:text-xs text-[#8A9199] font-sans font-semibold uppercase tracking-wider">Delta</span>
+                    </div>
+                    <motion.div
+                      className="font-mono text-lg sm:text-xl font-bold text-[#0A8D7A]"
+                      animate={{
+                        textShadow: ['0 0 0px rgba(10,141,122,0)', '0 0 12px rgba(10,141,122,0.6)', '0 0 0px rgba(10,141,122,0)']
+                      }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      {whaleData.btc && whaleData.btc.buyPressure ?
+                        `${whaleData.btc.buyPressure > whaleData.btc.sellPressure ? '+' : '-'}${Math.abs(whaleData.btc.buyPressure - whaleData.btc.sellPressure).toFixed(1)}%` :
+                        '+2.3%'}
+                    </motion.div>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#C87533]" />
+                      <span className="text-[10px] sm:text-xs text-[#8A9199] font-sans font-semibold uppercase tracking-wider">Absorption</span>
+                    </div>
+                    <motion.div
+                      className="font-mono text-[10px] sm:text-xs font-bold text-[#D4943F]"
+                      animate={{
+                        textShadow: ['0 0 0px rgba(212,148,63,0)', '0 0 12px rgba(212,148,63,0.6)', '0 0 0px rgba(212,148,63,0)']
+                      }}
+                      transition={{ duration: 2.5, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}
+                    >
+                      ${(btcPrice - 500).toLocaleString()}
+                      <br />
+                      ${(btcPrice + 200).toLocaleString()}
+                    </motion.div>
+                  </div>
+                </motion.div>
 
-            <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2 bg-[#0B1221]/90 backdrop-blur-xs px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-[#3A4449] pointer-events-none z-700">
-              <div className="flex items-center space-x-2">
-                <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-[#C87533]" />
-                <span className="text-xs sm:text-sm text-[#B8956A] whitespace-nowrap">Order Flow Visualization</span>
+                {/* Footer */}
+                <motion.div
+                  className="mt-5 pt-4 border-t border-[#3A4449]/50 flex items-center justify-between"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 1 }}
+                >
+                  <p className="text-[10px] text-[#6B7280] font-sans max-w-[70%]">
+                    Live demonstration. Course includes practice on real markets.
+                  </p>
+                  <div className="flex items-center gap-1.5 text-[#B8956A]">
+                    <BarChart3 className="w-4 h-4" strokeWidth={2} />
+                  </div>
+                </motion.div>
               </div>
             </div>
+
+            {/* Floating badge */}
+            <motion.div
+              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 pointer-events-none"
+              initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
+              animate={{ opacity: 1, scale: 1, rotate: -6 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0A8D7A] to-[#0A8D7A]/50 rounded-full blur-lg opacity-60" />
+                <div className="relative bg-gradient-to-br from-[#0A8D7A] to-[#077A6A] px-4 py-2 rounded-full border-2 border-[#3DD9C4]/40 shadow-xl">
+                  <span className="font-sans text-xs sm:text-sm font-bold text-white tracking-wider drop-shadow-lg">
+                    LIVE DATA
+                  </span>
+                </div>
+              </div>
+            </motion.div>
 
           </motion.div>
         </div>

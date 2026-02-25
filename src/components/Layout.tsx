@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="min-h-screen font-sans">
+    <div className="min-h-screen font-sans overflow-x-clip">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-white focus:text-black focus:px-3 focus:py-2 focus:rounded-sm focus:z-50"

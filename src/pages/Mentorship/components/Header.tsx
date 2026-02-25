@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Menu, X, MessageCircle } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '../../../constants';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,8 +37,16 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <Link to="/" className="text-xl sm:text-2xl font-semibold text-white">
-              ETM
+            <Link to="/" className="flex items-center gap-2.5 group">
+              <img
+                src="/tws-gurukulx-icon.png"
+                alt="TWS GurukulX"
+                className="h-8 sm:h-9 w-auto"
+              />
+              <div className="flex items-baseline gap-0">
+                <span className="text-xl sm:text-2xl font-bold text-white tracking-tight">ET</span>
+                <span className="text-2xl sm:text-3xl font-serif italic font-normal text-burnt-amber -ml-0.5 group-hover:text-brushed-gold transition-colors duration-300">M</span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -71,7 +80,7 @@ const Header: React.FC = () => {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
               <a
-                href="https://wa.me/919220592205?text=Hi%2C%20I%20want%20to%20know%20more%20about%20ETM%20Mentorship"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20want%20to%20know%20more%20about%20ETM%20Mentorship`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-white transition-colors"
@@ -93,6 +102,7 @@ const Header: React.FC = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-white"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

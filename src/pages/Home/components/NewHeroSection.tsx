@@ -1,17 +1,59 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Users, TrendingUp, Award, Star, Sparkles, ChevronRight, Play, CheckCircle, IndianRupee, Clock, Zap, Target, BookOpen, BarChart3, Crown } from 'lucide-react';
+import { ArrowRight, Users, TrendingUp, Star, CheckCircle, Clock, Target, BookOpen, BarChart3, Crown } from 'lucide-react';
 
 interface NewHeroSectionProps {
   onQuizOpen?: () => void;
 }
 
+// Pre-computed particle positions to avoid Math.random() during render
+const PARTICLE_STYLES = Array.from({ length: 20 }, () => ({
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  animationDelay: `${Math.random() * 10}s`,
+  animationDuration: `${10 + Math.random() * 20}s`,
+}));
+
+// Static data moved outside component to prevent re-creation on every render
+const testimonials = [
+  { name: "Priya S.", profit: "+₹1.2L/month", time: "45 days", avatar: "👩" },
+  { name: "Vikram R.", profit: "+₹5L/month", time: "60 days", avatar: "👨" },
+  { name: "Arjun K.", profit: "+₹15L/month", time: "90 days", avatar: "👨‍💼" }
+];
+
+const paths = [
+  {
+    icon: BookOpen,
+    name: "Crypto Mastery",
+    level: "BEGINNER",
+    promise: "₹0 → ₹1.2L/mo",
+    duration: "45 days",
+    color: "from-blue-500 to-cyan-500",
+    glow: "shadow-blue-500/30"
+  },
+  {
+    icon: BarChart3,
+    name: "Footprint Trading",
+    level: "INTERMEDIATE",
+    promise: "₹1L → ₹5L/mo",
+    duration: "60 days",
+    color: "from-purple-500 to-pink-500",
+    glow: "shadow-purple-500/30"
+  },
+  {
+    icon: Crown,
+    name: "Elite Mentorship",
+    level: "ADVANCED",
+    promise: "₹5L → ₹25L/mo",
+    duration: "90 days",
+    color: "from-orange-500 to-red-500",
+    glow: "shadow-orange-500/30"
+  }
+];
+
 const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
-  // Animated counters
-  const [isVisible, setIsVisible] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  
+
   useEffect(() => {
-    setIsVisible(true);
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % 3);
     }, 4000);
@@ -23,44 +65,6 @@ const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
       onQuizOpen();
     }
   };
-
-  // Mini testimonials for social proof
-  const testimonials = [
-    { name: "Priya S.", profit: "+₹1.2L/month", time: "45 days", avatar: "👩" },
-    { name: "Vikram R.", profit: "+₹5L/month", time: "60 days", avatar: "👨" },
-    { name: "Arjun K.", profit: "+₹15L/month", time: "90 days", avatar: "👨‍💼" }
-  ];
-
-  // Program paths
-  const paths = [
-    {
-      icon: BookOpen,
-      name: "Crypto Mastery",
-      level: "BEGINNER",
-      promise: "₹0 → ₹1.2L/mo",
-      duration: "45 days",
-      color: "from-blue-500 to-cyan-500",
-      glow: "shadow-blue-500/30"
-    },
-    {
-      icon: BarChart3,
-      name: "Footprint Trading",
-      level: "INTERMEDIATE",
-      promise: "₹1L → ₹5L/mo",
-      duration: "60 days",
-      color: "from-purple-500 to-pink-500",
-      glow: "shadow-purple-500/30"
-    },
-    {
-      icon: Crown,
-      name: "Elite Mentorship",
-      level: "ADVANCED",
-      promise: "₹5L → ₹25L/mo",
-      duration: "90 days",
-      color: "from-orange-500 to-red-500",
-      glow: "shadow-orange-500/30"
-    }
-  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20 sm:pt-28 sm:pb-24">
@@ -89,7 +93,7 @@ const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
             
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Whether you're starting at zero or scaling to millions, TWS Gurukul has the 
+              Whether you're starting at zero or scaling to millions, TWS GurukulX has the 
               <span className="text-white font-semibold"> right program</span> for your current level and goals
             </p>
           </div>
@@ -207,16 +211,11 @@ const NewHeroSection: React.FC<NewHeroSectionProps> = ({ onQuizOpen }) => {
 
       {/* Animated particles */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {PARTICLE_STYLES.map((style, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${10 + Math.random() * 20}s`
-            }}
+            style={style}
           />
         ))}
       </div>

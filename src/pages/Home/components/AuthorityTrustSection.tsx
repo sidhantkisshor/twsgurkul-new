@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Award, Users, Star, Mic, Building, Trophy, Globe, ExternalLink, Newspaper, Tv, ArrowRight } from 'lucide-react';
-
-interface MediaLogo {
-  name: string;
-  type: string;
-  displayName: string;
-  abbr: string;
-}
+import { Award, Users, Star, Mic, Building, Trophy, Globe, ExternalLink, ArrowRight } from 'lucide-react';
 
 interface AuthorityTrustSectionProps {
   onQuizOpen?: () => void;
@@ -56,7 +49,7 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
     },
     {
       type: "Trading Educator",
-      event: "TWS Gurukul Founder",
+      event: "TWS GurukulX Founder",
       topic: "10,000+ Students Trained",
       viewers: "89% Success Rate",
       icon: Users,
@@ -66,13 +59,13 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
     }
   ];
 
-  const mediaLogos = [
-    { name: "Economic Times", type: "newspaper", displayName: "Economic Times", abbr: "ET" },
-    { name: "Business Standard", type: "newspaper", displayName: "Business Standard", abbr: "BS" },
-    { name: "CNBC TV18", type: "tv", displayName: "CNBC TV18", abbr: "CNBC" },
-    { name: "Moneycontrol", type: "website", displayName: "Moneycontrol", abbr: "MC" },
-    { name: "Zee Business", type: "tv", displayName: "Zee Business", abbr: "ZEE" },
-    { name: "Bloomberg", type: "tv", displayName: "Bloomberg", abbr: "BBG" }
+  const studentCompanies = [
+    { name: "Google", abbr: "GOOG" },
+    { name: "Microsoft", abbr: "MSFT" },
+    { name: "Amazon", abbr: "AMZN" },
+    { name: "Infosys", abbr: "INFY" },
+    { name: "TCS", abbr: "TCS" },
+    { name: "Wipro", abbr: "WIPRO" }
   ];
 
   return (
@@ -92,14 +85,14 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-white">Learn from a </span>
-            <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="font-sans font-bold text-white">Systems Built by a </span>
+            <span className="font-serif italic font-normal text-burnt-amber">
               Proven Expert
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Join India's most trusted trading education platform led by Sidhant
+            India's most trusted trading education platform — built on Sidhant's principles
           </p>
 
           {/* Live indicator */}
@@ -158,37 +151,30 @@ const AuthorityTrustSection: React.FC<AuthorityTrustSectionProps> = ({ onQuizOpe
               </div>
             </div>
 
-            {/* Right - Media & Collaborations */}
+            {/* Right - Students & Collaborations */}
             <div>
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                 <Globe className="w-6 h-6 text-blue-400" />
-                Media Recognition
+                Our Students Work At
               </h3>
-              
-              {/* Media Logos Grid - Subtle Professional Design */}
+
+              {/* Company Grid */}
               <div className="glass-effect rounded-2xl p-6 border border-blue-500/20 bg-linear-to-br from-blue-950/20 to-cyan-950/10 mb-6">
-                <p className="text-sm text-gray-400 mb-6 uppercase tracking-wider font-medium">As Featured In</p>
+                <p className="text-sm text-gray-400 mb-6 uppercase tracking-wider font-medium">Students From</p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {mediaLogos.map((media: MediaLogo, index) => (
-                    <div 
+                  {studentCompanies.map((company, index) => (
+                    <div
                       key={index}
                       className="group relative rounded-lg p-3 border border-white/5 bg-white/2 hover:bg-white/5 hover:border-white/20 transition-all duration-300"
                     >
                       <div className="flex flex-col items-center justify-center gap-1">
-                        {/* Icon */}
-                        <div className="text-gray-500 group-hover:text-gray-400 transition-colors">
-                          {media.type === 'tv' && <Tv className="w-4 h-4" />}
-                          {media.type === 'newspaper' && <Newspaper className="w-4 h-4" />}
-                          {media.type === 'website' && <Globe className="w-4 h-4" />}
-                        </div>
-                        
-                        {/* Logo Text */}
+                        <Building className="w-4 h-4 text-gray-500 group-hover:text-gray-400 transition-colors" />
                         <div className="text-center">
                           <div className="text-base font-semibold text-gray-300 group-hover:text-white transition-colors">
-                            {media.abbr}
+                            {company.abbr}
                           </div>
                           <div className="text-[9px] text-gray-600 mt-0.5 group-hover:text-gray-500 transition-colors">
-                            {media.displayName}
+                            {company.name}
                           </div>
                         </div>
                       </div>

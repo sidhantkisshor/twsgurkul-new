@@ -1,7 +1,7 @@
 # Quiz Landing Page - Copy
 
 ## SEO & Meta
-**Title:** Find Your Perfect Trading Path - 2-Min Personalized Quiz | TWS Gurukul
+**Title:** Find Your Perfect Trading Path - 2-Min Personalized Quiz | TWS GurukulX
 **Description:** 97% of traders choose the wrong program and lose ₹50K+. Take this 2-minute AI-powered quiz to discover YOUR perfect trading path. Get ₹15,000 in bonuses.
 
 ## Urgency Banner

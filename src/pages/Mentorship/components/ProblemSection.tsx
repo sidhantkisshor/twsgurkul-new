@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Info } from 'lucide-react';
+import InlineCTA from './InlineCTA';
 
 const ProblemSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,7 +11,7 @@ const ProblemSection: React.FC = () => {
     {
       kicker: "CONFUSION",
       title: "100 Videos. Zero Clarity.",
-      description: "You watched every trading guru on YouTube. Each one said something different. You tried 10 strategies. None worked. Now you don't trust anyone — including yourself.",
+      description: "You watched every trading guru on YouTube. Each one said something different. You tried 10 strategies. None worked. Now you don't trust anyone, including yourself.",
       stat: "97%",
       statLabel: "quit within 90 days"
     },
@@ -31,7 +32,7 @@ const ProblemSection: React.FC = () => {
   ];
 
   return (
-    <section id="problem" className="py-32 relative overflow-hidden bg-warm-white">
+    <section id="problem" className="pt-16 lg:pt-24 pb-16 lg:pb-24 relative overflow-hidden bg-warm-white">
       {/* Subtle background gradient */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-linear-to-b from-white to-warm-white" />
@@ -41,14 +42,14 @@ const ProblemSection: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header - minimal and centered */}
           <motion.div 
-            className="text-center mb-24"
+            className="text-center mb-10 lg:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              You Already Know Trading Is Hard. Here's Why.
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-deep-slate mb-6">
+              You Already Know Trading Is <span className="font-serif italic font-normal text-burnt-amber">Hard.</span> Here's Why.
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
               Most traders lose money for the same 3 reasons. Sound familiar?
@@ -93,7 +94,7 @@ const ProblemSection: React.FC = () => {
                         </div>
                         <div className="relative">
                           <button
-                            className="text-deep-slate/40 hover:text-deep-slate/60 transition-colors p-1"
+                            className="text-deep-slate/40 hover:text-deep-slate/60 transition-colors p-3 -m-2"
                             onMouseEnter={() => setShowTooltip(index)}
                             onMouseLeave={() => setShowTooltip(null)}
                             onClick={(e) => {
@@ -122,7 +123,7 @@ const ProblemSection: React.FC = () => {
 
           {/* Bridge banner */}
           <motion.div 
-            className="mt-24 text-center"
+            className="mt-16 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -131,11 +132,13 @@ const ProblemSection: React.FC = () => {
             <div className="max-w-4xl mx-auto">
               <div className="bg-deep-slate text-white rounded-3xl p-8 sm:p-12">
                 <p className="text-lg sm:text-xl font-normal leading-relaxed">
-                  What if you could see exactly where the big money is moving — and trade alongside it? That's what happens every night at 8 PM.
+                  What if you could see exactly where the big money is moving, and trade alongside it? That's what happens every night at 8 PM.
                 </p>
               </div>
             </div>
           </motion.div>
+
+          <InlineCTA text="See how we fix this" />
         </div>
       </div>
     </section>

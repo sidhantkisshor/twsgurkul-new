@@ -1,6 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../../components/Seo';
+import JsonLd from '../../components/StructuredData';
+
+const propScannerSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Prop Firm Safety Checker - Free AI Analysis Tool",
+  "description": "Free prop firm legitimacy checker. Instantly verify prop trading firms before paying challenge fees. AI-powered safety analysis for FTMO, Topstep, MyFundedFX and 100+ prop firms.",
+  "url": "https://twsgurukul.com/prop-firm-safety-checker",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "TWS GurukulX",
+    "url": "https://twsgurukul.com"
+  }
+};
 
 interface RedFlag {
   id: string;
@@ -9,48 +30,16 @@ interface RedFlag {
 }
 
 function PropScannerPage() {
-  // Add structured data for SEO
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Prop Firm Safety Checker - Free AI Analysis Tool",
-      "description": "Free prop firm legitimacy checker. Instantly verify prop trading firms before paying challenge fees. AI-powered safety analysis for FTMO, Topstep, MyFundedFX and 100+ prop firms.",
-      "url": "https://twsgurukul.com/prop-firm-safety-checker",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "1263"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "TWS Gurukul",
-        "url": "https://twsgurukul.com"
-      }
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []);
   const [firmName, setFirmName] = useState('');
   const [country, setCountry] = useState('');
   const [fee, setFee] = useState('');
   const [showResults, setShowResults] = useState(false);
   const [showPrompt, setShowPrompt] = useState(false);
+  const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
+  const [whatsappNumber, setWhatsappNumber] = useState('');
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
   const [redFlags, setRedFlags] = useState<RedFlag[]>([
     { id: 'rf1', text: "Can't find company address or registration", checked: false },
     { id: 'rf2', text: 'Pushing crypto-only payments or VPN use', checked: false },
@@ -85,15 +74,96 @@ function PropScannerPage() {
       return;
     }
 
+    // Show lead capture step before results
+    if (!showLeadCapture && !showResults) {
+      setShowLeadCapture(true);
+      setTimeout(() => {
+        document.getElementById('leadCaptureSection')?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        });
+      }, 100);
+      return;
+    }
+
     setShowResults(true);
     setShowPrompt(true);
-    
+
     setTimeout(() => {
-      document.getElementById('promptSection')?.scrollIntoView({ 
+      document.getElementById('promptSection')?.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest'
       });
     }, 100);
+  };
+
+  const handleLeadSubmit = () => {
+    if (whatsappNumber.trim().length >= 10) {
+      const last4 = whatsappNumber.trim().slice(-4);
+      // Fire dataLayer event
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
+          event: 'propscanner_lead',
+          phone_last4: last4,
+        } as Record<string, unknown>);
+      }
+      setLeadSubmitted(true);
+    }
+    // Show results regardless
+    setShowResults(true);
+    setShowPrompt(true);
+    setTimeout(() => {
+      document.getElementById('promptSection')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+    }, 100);
+  };
+
+  const handleSkipLead = () => {
+    setShowResults(true);
+    setShowPrompt(true);
+    setTimeout(() => {
+      document.getElementById('promptSection')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+    }, 100);
+  };
+
+  const shareUrl = 'https://www.twsgurukul.com/prop-firm-safety-checker';
+
+  const getShareText = () =>
+    `I just checked ${firmName || 'a prop firm'} on the TWS GurukulX Prop Firm Safety Checker. Check yours too!`;
+
+  const handleShareWhatsApp = () => {
+    const text = encodeURIComponent(`${getShareText()} ${shareUrl}`);
+    window.open(`https://wa.me/?text=${text}`, '_blank');
+  };
+
+  const handleShareTwitter = () => {
+    const text = encodeURIComponent(getShareText());
+    const url = encodeURIComponent(shareUrl);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2500);
+    } catch {
+      const textArea = document.createElement('textarea');
+      textArea.value = shareUrl;
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2500);
+    }
   };
 
   const getCheckedRedFlags = () => redFlags.filter(flag => flag.checked);
@@ -191,13 +261,14 @@ Provide:
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900">
       <Seo
-        title="Prop Firm Safety Checker 2025 - Free Legitimacy Scanner | TWS Gurukul"
+        title="Prop Firm Safety Checker - Free Legitimacy Scanner | TWS GurukulX"
         description="Free prop firm legitimacy checker tool. Instantly verify FTMO, Topstep, MyFundedFX & 100+ prop trading firms before paying fees. AI-powered safety analysis for traders."
         keywords="prop firm checker, prop firm legitimacy, prop trading safety, FTMO review, Topstep verification, prop firm scam checker, funded trader program review, prop firm analysis tool, trading challenge verification"
         ogType="website"
         ogImage="https://twsgurukul.com/og-prop-firm-checker.jpg"
         canonicalUrl="https://twsgurukul.com/prop-firm-safety-checker"
       />
+      <JsonLd data={propScannerSchema} />
 
       {/* Header */}
       <div className="border-b border-white/10 bg-slate-900/50 backdrop-blur-xs sticky top-0 z-50">
@@ -207,7 +278,7 @@ Provide:
               <div className="w-10 h-10 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">TWS</span>
               </div>
-              <span className="text-white font-semibold text-lg">TWS Gurukul</span>
+              <span className="text-white font-semibold text-lg">TWS GurukulX</span>
             </Link>
           </div>
         </div>
@@ -220,7 +291,10 @@ Provide:
           <div className="bg-linear-to-r from-purple-600 to-indigo-600 p-8 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative z-10">
-              <h1 className="text-3xl font-bold text-white mb-2">⚡ Free Prop Firm Safety Checker</h1>
+              <h1 className="text-3xl font-bold text-white mb-2">
+                <span className="font-sans font-bold">Free Prop Firm</span>{' '}
+                <span className="font-serif italic font-normal text-burnt-amber">Safety Checker</span>
+              </h1>
               <p className="text-purple-100">Instant AI-Powered Legitimacy Verification Tool</p>
             </div>
           </div>
@@ -328,6 +402,48 @@ Provide:
               Generate Safety Analysis →
             </button>
 
+            {/* Lead Capture Section */}
+            {showLeadCapture && !showResults && (
+              <div id="leadCaptureSection" className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-5 animate-fade-in">
+                <h3 className="text-purple-200 font-semibold mb-2 flex items-center gap-2">
+                  Get your full safety report emailed to you
+                  <span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded-sm">Optional</span>
+                </h3>
+                <p className="text-gray-400 text-xs mb-3">
+                  Enter your WhatsApp number to receive the report. You can skip this step.
+                </p>
+                <div className="flex gap-2 mb-3">
+                  <label htmlFor="leadWhatsapp" className="sr-only">WhatsApp number</label>
+                  <input
+                    type="tel"
+                    id="leadWhatsapp"
+                    value={whatsappNumber}
+                    onChange={(e) => setWhatsappNumber(e.target.value)}
+                    className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-purple-400 focus:bg-white/15 transition-all"
+                    placeholder="WhatsApp number (e.g., 9876543210)"
+                    autoComplete="tel"
+                  />
+                  <button
+                    onClick={handleLeadSubmit}
+                    disabled={leadSubmitted}
+                    className={`px-5 py-3 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
+                      leadSubmitted
+                        ? 'bg-green-600 text-white cursor-default'
+                        : 'bg-purple-600 hover:bg-purple-700 text-white'
+                    }`}
+                  >
+                    {leadSubmitted ? 'Sent!' : 'Send Report'}
+                  </button>
+                </div>
+                <button
+                  onClick={handleSkipLead}
+                  className="text-gray-400 hover:text-white text-sm underline underline-offset-2 transition-colors"
+                >
+                  Skip, just show my results
+                </button>
+              </div>
+            )}
+
             {/* Results Section */}
             {showResults && (
               <div className={`rounded-lg p-5 animate-fade-in ${
@@ -415,46 +531,86 @@ Provide:
                     </li>
                   </ul>
                 </div>
+
+                {/* Share Buttons */}
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <p className="text-gray-300 text-sm font-medium mb-3">Share this tool with fellow traders:</p>
+                  <div className="flex flex-wrap gap-3">
+                    <button
+                      onClick={handleShareWhatsApp}
+                      className="flex items-center gap-2 px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg transition-all"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      </svg>
+                      WhatsApp
+                    </button>
+                    <button
+                      onClick={handleShareTwitter}
+                      className="flex items-center gap-2 px-4 py-2.5 bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium rounded-lg transition-all"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </svg>
+                      Twitter
+                    </button>
+                    <button
+                      onClick={handleCopyLink}
+                      className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg transition-all ${
+                        linkCopied
+                          ? 'bg-green-500 text-white'
+                          : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                      }`}
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                      </svg>
+                      {linkCopied ? 'Link Copied!' : 'Copy Link'}
+                    </button>
+                  </div>
+                </div>
               </div>
             )}
           </div>
         </div>
 
-        {/* CTA Section with SEO content */}
+        {/* CTA Section */}
         <div className="mt-12 text-center">
-          <div className="bg-linear-to-r from-cyan-500/10 to-teal-500/10 backdrop-blur-xs rounded-2xl p-8 border border-cyan-500/20">
+          <div className="bg-linear-to-r from-purple-500/10 to-indigo-500/10 backdrop-blur-xs rounded-2xl p-8 border border-purple-500/20">
             <h2 className="text-2xl font-bold text-white mb-4">
-              Learn Real Trading Instead of Prop Firm Challenges
+              <span className="font-sans font-bold">Want to Trade Profitably Instead of</span>{' '}
+              <span className="font-serif italic font-normal text-burnt-amber">Paying Prop Firm Fees?</span>
             </h2>
             <p className="text-gray-300 mb-6">
-              Skip the prop firm evaluation fees. Join Wealth OS and learn professional trading strategies that work with your own capital.
+              Most traders lose money on prop firm challenges. Find the right trading program for your goals and start building real, sustainable income.
             </p>
-            <a 
-              href="https://learn.tradingwithsidhant.com/l/f232107210"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+            <Link
+              to="/quiz"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              <span>Join Wealth OS</span>
+              <span>Find Your Trading Program</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
             <p className="text-xs text-gray-400 mt-4">
-              1,200+ students • Live mentorship • Proven strategies
+              Takes 2 minutes - Get a personalized recommendation
             </p>
           </div>
         </div>
 
         {/* SEO Content Section */}
         <div className="mt-12 bg-white/5 backdrop-blur-xs rounded-2xl p-8 border border-white/10">
-          <h2 className="text-xl font-bold text-white mb-4">Why Use Our Prop Firm Safety Checker?</h2>
+          <h2 className="text-xl font-bold text-white mb-4">
+            <span className="font-sans font-bold">Why Use Our Prop Firm</span>{' '}
+            <span className="font-serif italic font-normal text-burnt-amber">Safety Checker?</span>
+          </h2>
           <div className="text-gray-300 space-y-4 text-sm">
             <p>
               Before paying hundreds or thousands in challenge fees to prop trading firms like FTMO, Topstep, MyFundedFX, or any other funded trader program, 
               it's crucial to verify their legitimacy. Our free prop firm checker tool helps traders avoid scams and make informed decisions.
             </p>
-            <h3 className="text-lg font-semibold text-white mt-4">What This Tool Checks:</h3>
+            <h3 className="text-lg font-sans font-semibold text-white mt-4">What This Tool Checks:</h3>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Regulatory compliance and warnings from FCA, CFTC, SEBI, and other authorities</li>
               <li>Company registration and business transparency</li>
@@ -463,7 +619,7 @@ Provide:
               <li>Hidden fees and impossible challenge requirements</li>
               <li>Country-specific legal status for Indian, US, UK, and other traders</li>
             </ul>
-            <h3 className="text-lg font-semibold text-white mt-4">Popular Prop Firms to Check:</h3>
+            <h3 className="text-lg font-sans font-semibold text-white mt-4">Popular Prop Firms to Check:</h3>
             <p>
               FTMO, Topstep, MyFundedFX, The Funded Trader, E8 Funding, True Forex Funds, Fidelcrest, 
               FundedNext, Blue Guardian, Alpha Capital Group, and 100+ other prop trading firms.
@@ -476,7 +632,7 @@ Provide:
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-400 text-sm">
-          <p>© 2024 TWS Gurukul - Prop Firm Safety Checker | <Link to="/" className="hover:text-white">Home</Link></p>
+          <p>© {new Date().getFullYear()} TWS GurukulX - Prop Firm Safety Checker | <Link to="/" className="hover:text-white">Home</Link></p>
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { TrendingUp, MapPin, Play, MessageCircle, Trophy, Star, ChevronLeft, ChevronRight, ArrowRight, PlayCircle, ChevronDown, CheckCircle } from 'lucide-react';
+import { TrendingUp, MapPin, Play, MessageCircle, Trophy, Star, ChevronLeft, ChevronRight, PlayCircle, ChevronDown, CheckCircle } from 'lucide-react';
 import { useIntersectionAnimation, useCounterAnimation } from '../../../utils/animations';
 
 // Types
@@ -41,34 +41,6 @@ const ScreenshotCard = ({ label, profit, percentage }: { label: string; profit: 
     <p className="text-xs text-gray-500 mb-1">{label}</p>
     <p className="text-lg font-bold text-green-400">{profit}</p>
     <p className="text-sm text-green-300">{percentage}</p>
-  </div>
-);
-
-// Render star rating component
-const StarRating = ({ size = 'w-4 h-4' }: { size?: string }) => (
-  <div className="flex gap-0.5">
-    {Array.from({ length: 5 }).map((_, i) => (
-      <Star key={i} className={`${size} fill-yellow-400 text-yellow-400`} />
-    ))}
-  </div>
-);
-
-// Component for testimonial mini card
-const TestimonialMiniCard = ({ testimonial }: { testimonial: any }) => (
-  <div className="glass-effect rounded-xl p-4 border border-white/10 hover:border-green-500/30 transition-all">
-    <div className="flex items-start gap-3 mb-3">
-      <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-400 to-emerald-500 flex items-center justify-center">
-        <span className="text-lg">{testimonial.image || '👤'}</span>
-      </div>
-      <div className="flex-1">
-        <p className="font-semibold text-white">{testimonial.name}</p>
-        <p className="text-xs text-gray-400">{testimonial.location} • {testimonial.program}</p>
-      </div>
-    </div>
-    <div className="flex items-center justify-between">
-      <p className="text-green-400 font-bold">{testimonial.profit || testimonial.after}</p>
-      <StarRating size="w-3 h-3" />
-    </div>
   </div>
 );
 
@@ -139,7 +111,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
       profit: "₹4,87,000",
       duration: "3 months",
       image: "👨‍💼",
-      message: "Sidhant's footprint analysis changed everything. From struggling with random trades to consistent 5L monthly.",
+      message: "The footprint analysis system changed everything. From struggling with random trades to consistent 5L monthly.",
       type: "screenshot",
       hasScreenshot: true
     },
@@ -177,23 +149,13 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
     }
   ];
 
-  // Additional testimonials data
-  const additionalTestimonials = [
-    { name: "Amit Kumar", location: "Pune", profit: "₹2.5L/month", program: "Footprint" },
-    { name: "Sneha Verma", location: "Chennai", profit: "₹1.8L/month", program: "CMM" },
-    { name: "Karan Singh", location: "Jaipur", profit: "₹4.5L/month", program: "Elite" },
-    { name: "Neha Gupta", location: "Kolkata", profit: "₹1.2L/month", program: "CMM" },
-    { name: "Rohit Sharma", location: "Hyderabad", profit: "₹7.1L/month", program: "Elite" },
-    { name: "Pooja Reddy", location: "Noida", profit: "₹3.8L/month", program: "Footprint" }
-  ];
-
   const whatsappChats = [
     { time: "10:23 AM", message: "Today's profit ₹48,750! 🎯", sender: "student", isVerified: true, name: "Amit K." },
     { time: "10:24 AM", message: "Footprint pattern worked perfectly", sender: "student" },
-    { time: "10:25 AM", message: "Excellent execution! Keep it up 💪", sender: "sidhant" },
+    { time: "10:25 AM", message: "Excellent execution! Keep it up 💪", sender: "coach" },
     { time: "2:15 PM", message: "₹1.2L profit this week already!", sender: "student", isVerified: true, name: "Priya S." },
     { time: "2:16 PM", message: "Following exact CMM strategy", sender: "student" },
-    { time: "2:17 PM", message: "This is the way! Consistency is key 🔥", sender: "sidhant" },
+    { time: "2:17 PM", message: "This is the way! Consistency is key 🔥", sender: "coach" },
     { time: "3:45 PM", message: "Hit ₹5L this month! 🚀", sender: "student", isVerified: true, name: "Raj M." },
     { time: "3:46 PM", message: "Stage 2 Footprint magic", sender: "student" }
   ];
@@ -224,12 +186,12 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
             </div>
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <span className="font-sans font-bold bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 From ₹0 to ₹15L/month
               </span>
               <br />
-              <span className="bg-linear-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-                Real People, Real Results
+              <span className="font-serif italic font-normal text-burnt-amber">
+                Real Results
               </span>
             </h2>
             
@@ -271,7 +233,7 @@ const CombinedStudentSuccessSection: React.FC<CombinedStudentSuccessSectionProps
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                   >
                     {whatsappChats.concat(whatsappChats).map((chat, index) => {
-                      const isSidhant = chat.sender === 'sidhant';
+                      const isSidhant = chat.sender === 'coach';
                       return (
                         <div key={index} className={`flex ${isSidhant ? 'justify-start' : 'justify-end'}`}>
                           <div className={`max-w-[80%] rounded-2xl px-4 py-2 ${

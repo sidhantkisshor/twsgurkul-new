@@ -1,198 +1,122 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Shield, TrendingUp, Bitcoin, Zap, CreditCard, Smartphone, Building } from 'lucide-react';
-
-const containerVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.6,
-            staggerChildren: 0.12,
-        },
-    },
-};
-
-const itemVariants = {
-    hidden: { opacity: 0, y: 16 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
-const slideLeftVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-};
-
-const slideRightVariants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-};
+import { ArrowRight, Clock, Shield, TrendingUp } from 'lucide-react';
+import { getCheckoutUrl } from '../../../constants';
+import { cryptoTrackingEvents } from '../utils/tracking';
+import { CRYPTO_PRICE } from '../data';
 
 const FinalCtaSection: React.FC = () => {
+    const handleEnroll = () => {
+        cryptoTrackingEvents.checkoutStart('final_cta', CRYPTO_PRICE);
+        window.open(getCheckoutUrl('crypto', 'final_cta'), '_blank', 'noopener');
+    };
 
     return (
-        <section id="final-cta" className="py-16 px-4 sm:px-6 lg:px-8 bg-[#2C3539] relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-[#C87533]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <section id="final-cta" className="crypto-section bg-[#2C3539] relative overflow-hidden px-4 sm:px-6 lg:px-8">
+            {/* Amber glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#C87533]/[0.06] rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
-            <div className="max-w-6xl mx-auto text-center relative z-10">
+            <div className="max-w-4xl mx-auto text-center relative z-10">
                 <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="space-y-10"
                 >
-
-                    {/* Main heading */}
-                    <motion.div className="mb-12" variants={itemVariants}>
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white">
-                            Ready to Start Your
-                            <span className="font-bold text-white">
-                                {' '}Crypto Journey?{' '}
-                            </span>
+                    {/* Heading */}
+                    <div>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-4 leading-tight">
+                            <span className="font-sans font-bold text-white">Ready to start your crypto</span>{' '}
+                            <span className="font-serif italic font-normal text-[#C87533]">journey?</span>
                         </h2>
-                        <p className="lg:text-lg sm:text-[10px] text-[#EDE6D8] mx-auto max-w-2xl">
-                            Join our community learning systematic crypto trading. <br/>
-                            <span className="text-[#C87533] font-semibold">Start today with instant access to all modules.</span>
+                        <p className="text-base sm:text-lg text-white/60 max-w-xl mx-auto">
+                            Join 1,263+ professionals learning systematic trading — with instant access to all modules.
                         </p>
-                    </motion.div>
+                    </div>
 
-                    {/* Comparison cards */}
-                    <motion.div className="bg-white/10 rounded-2xl p-6 sm:p-8 mb-12 border border-white/10 hover:border-white/20 transition-all" variants={itemVariants}>
-                        <div className="grid md:grid-cols-2 gap-8">
-                            {/* Without action */}
-                            <motion.div
-                                className="relative"
-                                variants={slideLeftVariants}
-                            >
-                                <h3 className="font-bold text-[#E5484D] mb-4 text-lg sm:text-xl flex items-center">
-                                    <span className="w-2 h-2 bg-[#E5484D] rounded-full mr-3"></span>
-                                    Without Proper Education
-                                </h3>
-                                <ul className="space-y-3 text-left">
-                                    <li className="text-[#EDE6D8] flex items-start">
-                                        <span className="text-[#E5484D] mr-2 text-lg">×</span>
-                                        Continue trading without a system
+                    {/* Comparison */}
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 grid md:grid-cols-2 gap-6 text-left">
+                        <div>
+                            <h3 className="font-bold text-[#E5484D] mb-4 flex items-center gap-2">
+                                <span className="w-2 h-2 bg-[#E5484D] rounded-full" />
+                                Without this program
+                            </h3>
+                            <ul className="space-y-3">
+                                {[
+                                    "Continue trading without a system",
+                                    "Follow random tips and signals",
+                                    "No risk rules, no stop-loss discipline",
+                                    "Miss the next monthly Q&A session",
+                                ].map((item) => (
+                                    <li key={item} className="flex items-start gap-2 text-sm text-white/60">
+                                        <span className="text-[#E5484D] mt-0.5">×</span>
+                                        {item}
                                     </li>
-                                    <li className="text-[#EDE6D8] flex items-start">
-                                        <span className="text-[#E5484D] mr-2 text-lg">×</span>
-                                        Miss structured learning opportunities
-                                    </li>
-                                    <li className="text-[#EDE6D8] flex items-start">
-                                        <span className="text-[#E5484D] mr-2 text-lg">×</span>
-                                        Lack community support and guidance
-                                    </li>
-                                    <li className="text-[#EDE6D8] flex items-start">
-                                        <span className="text-[#E5484D] mr-2 text-lg">×</span>
-                                        Miss the next Live Q&A session
-                                    </li>
-                                </ul>
-                            </motion.div>
-
-                            {/* With action */}
-                            <motion.div
-                                className="relative"
-                                variants={slideRightVariants}
-                            >
-                                <h3 className="font-bold text-[#0A8D7A] mb-4 text-lg sm:text-xl flex items-center">
-                                    <span className="w-2 h-2 bg-[#0A8D7A] rounded-full mr-3"></span>
-                                    With Our Program
-                                </h3>
-                                <ul className="space-y-3 text-left">
-                                    <li className="text-[#EDE6D8] flex items-start">
-                                        <span className="text-[#0A8D7A] mr-2 text-lg">✓</span>
-                                        Learn proven trading strategies
-                                    </li>
-                                    <li className="text-[#EDE6D8] flex items-start">
-                                        <span className="text-[#0A8D7A] mr-2 text-lg">✓</span>
-                                        Get access to proven trading strategies
-                                    </li>
-                                    <li className="text-[#EDE6D8] flex items-start">
-                                        <span className="text-[#0A8D7A] mr-2 text-lg">✓</span>
-                                        Learn to identify pump & dump schemes
-                                    </li>
-                                    <li className="text-[#EDE6D8] flex items-start">
-                                        <span className="text-[#0A8D7A] mr-2 text-lg">✓</span>
-                                        Access to monthly Live Q&A sessions
-                                    </li>
-                                </ul>
-                            </motion.div>
+                                ))}
+                            </ul>
                         </div>
-                    </motion.div>
-
-                    {/* Program highlights */}
-                    <motion.div className="mb-12" variants={itemVariants}>
-                        <div className="bg-white/10 rounded-xl p-6 border border-[#EDE6D8]/20">
-                            <div className="flex items-center justify-center gap-3 mb-3">
-                                <Bitcoin className="w-8 h-8 text-[#C87533] animate-pulse" />
-                                <Zap className="w-6 h-6 text-[#0A8D7A]" />
-                            </div>
-                            <p className="text-xl sm:text-2xl font-bold mb-2">
-                                <span className="text-white">
-                                    Start Your Learning Journey Today
-                                </span>
-                            </p>
-                            <p className="text-[#EDE6D8] text-sm sm:text-base">
-                                Get instant access to all modules and resources.<br/>
-                                <span className="text-[#C87533] font-semibold">Start your transformation today.</span>
-                            </p>
+                        <div>
+                            <h3 className="font-bold text-[#0A8D7A] mb-4 flex items-center gap-2">
+                                <span className="w-2 h-2 bg-[#0A8D7A] rounded-full" />
+                                With this program
+                            </h3>
+                            <ul className="space-y-3">
+                                {[
+                                    "Rule-based 2-hour evening system",
+                                    "Risk management before every trade",
+                                    "Identify pump & dump schemes",
+                                    "Monthly live Q&A + trade reviews",
+                                ].map((item) => (
+                                    <li key={item} className="flex items-start gap-2 text-sm text-white/70">
+                                        <span className="text-[#0A8D7A] mt-0.5">✓</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    {/* Payment Options */}
-                    <motion.div className="mb-8" variants={itemVariants}>
-                        <div className="bg-white/10 rounded-xl p-6 border border-white/10 max-w-lg mx-auto">
-                            <h3 className="text-lg font-bold text-white mb-4">Multiple payment options available</h3>
-                            <div className="flex justify-center gap-4 mb-4">
-                                <div className="flex items-center gap-2 text-sm text-[#EDE6D8]">
-                                    <Smartphone className="w-4 h-4 text-[#C87533]" />
-                                    <span>UPI</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-sm text-[#EDE6D8]">
-                                    <CreditCard className="w-4 h-4 text-[#C87533]" />
-                                    <span>Cards</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-sm text-[#EDE6D8]">
-                                    <Building className="w-4 h-4 text-[#C87533]" />
-                                    <span>Netbanking</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
+                    {/* Payment methods */}
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {["UPI", "Cards", "Netbanking", "No-cost EMI"].map((label) => (
+                            <span key={label} className="px-3 py-1.5 bg-white/[0.06] border border-white/10 rounded-full text-sm text-white/60 font-medium">
+                                {label}
+                            </span>
+                        ))}
+                    </div>
 
-                    {/* Trust indicators */}
-                    <motion.div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8" variants={itemVariants}>
-                        <div className="flex items-center text-xs sm:text-sm text-[#EDE6D8]/80" style={{ fontSize: '13px' }}>
-                            <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-[#0A8D7A]" />
+                    {/* Trust badges */}
+                    <div className="flex flex-wrap justify-center gap-6">
+                        <div className="flex items-center gap-2 text-sm text-white/50">
+                            <Shield className="w-4 h-4 text-[#0A8D7A]" />
                             Secure Payment
                         </div>
-                        <div className="flex items-center text-xs sm:text-sm text-[#EDE6D8]/80" style={{ fontSize: '13px' }}>
-                            <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-[#0A8D7A]" />
+                        <div className="flex items-center gap-2 text-sm text-white/50">
+                            <TrendingUp className="w-4 h-4 text-[#0A8D7A]" />
                             Proven Results
                         </div>
-                        <div className="flex items-center text-xs sm:text-sm text-[#EDE6D8]/80" style={{ fontSize: '13px' }}>
-                            <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-[#C87533]" />
+                        <div className="flex items-center gap-2 text-sm text-white/50">
+                            <Clock className="w-4 h-4 text-[#C87533]" />
                             Instant Access
                         </div>
-                    </motion.div>
+                    </div>
 
-                    {/* CTA Button */}
-                    <motion.button
-                        onClick={() => window.open('https://learn.tradingwithsidhant.com/web/checkout/68468c5a2f492ef9273b5025?purchaseNow=true', '_blank')}
-                        className="group bg-[#C87533] text-white px-8 sm:px-12 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold shadow-2xl hover:bg-[#b5682d] transform hover:-translate-y-2 transition-all duration-300 inline-flex items-center space-x-3 relative overflow-hidden"
-                        variants={itemVariants}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                        <span className="relative">Start Learning Today</span>
-                        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 relative group-hover:translate-x-1 transition-transform duration-300" />
-                    </motion.button>
-
-                    <p className="text-xs text-[#EDE6D8]/80 mt-3 text-center" style={{ fontSize: '13px' }}>
-                        Takes under 2 minutes · UPI/cards/netbanking · No-cost EMI available
-                    </p>
+                    {/* Main CTA */}
+                    <div className="space-y-3">
+                        <motion.button
+                            onClick={handleEnroll}
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#C87533] hover:bg-[#b5682d] text-white font-bold py-5 px-8 sm:px-12 rounded-2xl text-lg sm:text-xl transition-all shadow-xl shadow-[#C87533]/20"
+                            whileHover={{ scale: 1.03, y: -2 }}
+                            whileTap={{ scale: 0.97 }}
+                        >
+                            Start my crypto journey today
+                            <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+                        </motion.button>
+                        <p className="text-xs text-white/40">
+                            Takes under 2 minutes · ₹19,499 + 18% GST · Instant access
+                        </p>
+                    </div>
                 </motion.div>
             </div>
         </section>

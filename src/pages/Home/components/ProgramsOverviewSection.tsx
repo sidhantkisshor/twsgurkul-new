@@ -79,7 +79,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
       testimonial: {
         name: 'Vikram R.',
         location: 'Mumbai',
-        text: 'Footprint changed everything — ₹5L consistent now',
+        text: 'Footprint changed everything -₹5L consistent now',
         profit: '+₹5,00,000/month'
       }
     },
@@ -107,7 +107,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
         'Live & recorded mentorship sessions',
         'Psychological and risk management frameworks',
         'Weekly reviews & group discussions',
-        'Monthly live sessions with Sidhant'
+        'Monthly live sessions with pro coaches'
       ],
       bestFor: 'Working professionals and independent traders seeking freedom from the 9-to-5 grind.',
       successRate: '94%',
@@ -131,13 +131,13 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="text-white">Choose Your </span>
-              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-sans font-bold text-white">Choose Your </span>
+              <span className="font-serif italic font-normal text-burnt-amber">
                 Trading Path
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Each program is designed for a specific trading level. Start where you are — reach where you want to be.
+              Each program is designed for a specific trading level. Start where you are -reach where you want to be.
             </p>
           </div>
 
@@ -250,7 +250,7 @@ const ProgramsOverviewSection: React.FC<ProgramsOverviewSectionProps> = ({ onQui
               Not sure which program is right for you?
             </p>
             <p className="text-sm text-gray-500 mb-6">
-              Find out in 30 seconds — no email, instant results.
+              Find out in 30 seconds -no email, instant results.
             </p>
             <button
               onClick={() => {

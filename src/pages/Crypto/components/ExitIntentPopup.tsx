@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Clock, Gift } from 'lucide-react';
+import { X, MessageCircle } from 'lucide-react';
 import { cryptoTrackingEvents } from '../utils/tracking';
+import { useFocusTrap } from '../../../hooks/useFocusTrap';
+import { WHATSAPP_NUMBER } from '../../../constants';
 
 interface ExitIntentPopupProps {
   isOpen: boolean;
@@ -15,79 +17,89 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
     }
   }, [isOpen]);
 
-  const handleClaimSeat = () => {
-    cryptoTrackingEvents.couponClaimed(5000); // ₹5000 discount
-    cryptoTrackingEvents.checkoutStart('exit_intent', 19499);
-    window.open('https://learn.tradingwithsidhant.com/web/checkout/68468c5a2f492ef9273b5025?purchaseNow=true', '_blank');
+  // Escape key handler
+  useEffect(() => {
+    if (!isOpen) return;
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [isOpen, onClose]);
+
+  const focusTrapRef = useFocusTrap(isOpen);
+
+  const handleWhatsApp = () => {
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Crypto%20Market%20Mastery%20program`,
+      '_blank'
+    );
     onClose();
   };
+
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
+          ref={focusTrapRef}
           className="fixed inset-0 bg-[#0B1221]/80 z-900 flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Have questions?"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          onClick={onClose}
         >
-          <motion.div 
-            className="bg-[#FAF8F5] rounded-xl shadow-[0_20px_60px_rgba(11,18,33,0.3)] sm:rounded-2xl p-5 sm:p-8 max-w-lg w-full relative overflow-hidden my-auto mt-12 sm:mt-auto"
+          <motion.div
+            className="bg-[#FAF8F5] rounded-xl shadow-[0_20px_60px_rgba(11,18,33,0.3)] sm:rounded-2xl p-6 sm:p-8 max-w-md w-full relative overflow-hidden my-auto mt-12 sm:mt-auto"
+            onClick={e => e.stopPropagation()}
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25 }}
           >
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-[#C87533]/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-32 sm:w-40 h-32 sm:h-40 bg-[#0A8D7A]/10 rounded-full blur-3xl"></div>
-            
             {/* Close button */}
-            <button 
+            <button
               onClick={onClose}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 hover:bg-[#2C3539]/10 rounded-lg transition-colors z-20"
+              aria-label="Close"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-[#2C3539]/10 rounded-lg transition-colors z-20"
             >
-              <X className="w-5 h-5 text-[#111111]/40 hover:text-[#2C3539]" />
+              <X className="w-5 h-5 text-[#2C3539]/50 hover:text-[#2C3539]" />
             </button>
 
-            {/* Timer Icon */}
-            <div className="flex justify-center mb-4 sm:mb-6">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#C87533]/10 rounded-full flex items-center justify-center">
-                <Clock className="w-7 h-7 sm:w-8 sm:h-8 text-[#C87533]" />
+            {/* WhatsApp Icon */}
+            <div className="flex justify-center mb-6">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366]/10 rounded-full flex items-center justify-center">
+                <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-[#25D366]" />
               </div>
             </div>
 
-            {/* Main Offer */}
-            <div className="text-center space-y-3 sm:space-y-4 relative z-10">
-              <h2 className="text-xl sm:text-3xl font-bold text-[#2C3539] leading-tight px-2">
-                We've held your seat for 15 minutes
+            {/* Main content */}
+            <div className="text-center space-y-4 relative z-10">
+              <h2 className="text-xl sm:text-2xl leading-tight">
+                <span className="font-sans font-bold text-[#2C3539]">Before you go — </span>
+                <span className="font-serif italic font-normal text-[#C87533]">talk to our team?</span>
               </h2>
-              
-              <p className="text-sm sm:text-lg text-[#111111]/70 px-2">
-                Join today and unlock the <span className="text-[#C87533] font-semibold">Advanced Bot Trading Module</span> free.
+
+              <p className="text-base text-[#2C3539]/80">
+                Have questions about Crypto Mastery, the curriculum, or whether it's right for your trading style? Our support team is happy to help on WhatsApp.
               </p>
 
-              {/* Bonus Badge */}
-              <div className="inline-flex items-center gap-2 bg-[#B8956A]/10 border border-[#B8956A]/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
-                <Gift className="w-4 sm:w-5 h-4 sm:h-5 text-[#B8956A]" />
-                <span className="text-xs sm:text-sm font-medium text-[#B8956A]">₹5,000 Value - Today Only</span>
-              </div>
-
-              {/* CTAs */}
-              <div className="space-y-2 sm:space-y-3 pt-4 sm:pt-6">
+              <div className="space-y-3 pt-2">
                 <motion.button
-                  onClick={handleClaimSeat}
-                  className="w-full py-3 sm:py-4 bg-[#C87533] text-white hover:bg-[#b5682d] font-bold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-base sm:text-lg"
+                  onClick={handleWhatsApp}
+                  className="w-full py-4 bg-[#25D366] text-white hover:bg-[#1DA851] font-bold rounded-lg shadow-lg hover:shadow-xl transition-all text-base sm:text-lg inline-flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Claim my seat — ₹19,499
+                  <MessageCircle className="w-5 h-5" />
+                  Chat with our team
                 </motion.button>
-                
+
                 <button
                   onClick={onClose}
-                  className="w-full py-2 text-xs sm:text-sm text-[#0A8D7A] hover:text-[#0A8D7A]/80 transition-colors"
+                  className="w-full py-3 min-h-[44px] text-sm text-[#2C3539]/60 hover:text-[#2C3539] transition-colors"
                 >
-                  Maybe later
+                  No thanks, I'll keep reading
                 </button>
               </div>
             </div>
@@ -98,4 +110,4 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
   );
 };
 
-export default ExitIntentPopup; 
+export default ExitIntentPopup;

@@ -1,208 +1,184 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Clock, Users, BookOpen, Shield, Award, Zap, ChartBar } from 'lucide-react';
+import { Check, BookOpen, Shield, Award, Zap, ChartBar, MessageCircle, Users } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
+import { WHATSAPP_NUMBER } from '../../../constants';
+
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Footprint%20Mastery`;
 import { getNextFirstSaturdayWithOrdinal } from '../../Crypto/utils/dateHelpers';
 
 const PricingSection: React.FC = () => {
   const nextSession = getNextFirstSaturdayWithOrdinal();
 
   const features = [
-    {
-      icon: BookOpen,
-      title: "10 Comprehensive Modules",
-      description: "F.A.S.T. framework systematically taught"
-    },
-    {
-      icon: Users,
-      title: "Monthly Live Q&A Sessions",
-      description: `Next: ${nextSession} (recordings provided)`
-    },
-    {
-      icon: ChartBar,
-      title: "Real Footprint Analysis",
-      description: "Live market examples and case studies"
-    },
-    {
-      icon: Shield,
-      title: "Risk Management Tools",
-      description: "Position sizing calculator & templates"
-    },
-    {
-      icon: Award,
-      title: "Entry Checklist System",
-      description: "1-page systematic entry framework"
-    },
-    {
-      icon: Zap,
-      title: "Community Access",
-      description: "Connect with serious footprint traders"
-    }
-  ];
-
-  const guarantees = [
-    "30-day satisfaction guarantee",
-    "Lifetime access to all content",
-    "Future updates included free",
-    "EMI options 3-24 months"
+    { icon: BookOpen, text: "10 comprehensive modules" },
+    { icon: Users, text: `Monthly live Q&A (next: ${nextSession})` },
+    { icon: ChartBar, text: "Real footprint analysis examples" },
+    { icon: Shield, text: "Risk management tools & templates" },
+    { icon: Award, text: "1-page entry checklist system" },
+    { icon: Zap, text: "Private community access" },
   ];
 
   return (
-    <section id="pricing" className="relative py-20 bg-[#2C3539] overflow-hidden">
+    <section id="pricing" className="relative py-20 sm:py-28 bg-[#1A2226] overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-96 h-96 bg-[#C87533]/5 rounded-full blur-3xl" />
+        <div className="w-[600px] h-[600px] bg-[#C87533]/8 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container-custom relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#EDE6D8] text-center mb-4">
-              Master <span className="text-[#C87533]">Footprint Trading</span>
-            </h2>
-            <p className="text-lg text-[#B8A99A] max-w-2xl mx-auto">
-              Stop guessing. Start reading order flow like institutional traders.
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-[#EDE6D8] mb-4">
+            <span className="font-sans font-bold">Invest in Your </span>
+            <span className="font-serif italic font-normal text-[#C87533]">Trading Edge</span>
+          </h2>
+          <p className="text-lg text-[#B8A99A]">
+            Everything you need to read order flow with confidence.
+          </p>
+        </motion.div>
+
+        {/* What's Included - simple list OUTSIDE the card */}
+        <motion.div
+          className="mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+            {features.map((feature, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <feature.icon className="w-5 h-5 text-[#C87533] shrink-0" />
+                <span className="text-sm text-[#EDE6D8]">{feature.text}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Pricing Card - clean and focused */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="bg-[#3A4449]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-10 border border-[#C87533]/30 shadow-xl shadow-[#C87533]/5 text-center">
+            {/* Price */}
+            <p className="text-sm text-[#B8A99A] mb-2">One-time payment · Self-paced access</p>
+            <div className="flex items-baseline justify-center gap-3 mb-1">
+              <span className="text-4xl sm:text-5xl font-bold text-[#EDE6D8]">₹32,999</span>
+            </div>
+            <p className="text-sm text-[#D4943F] font-medium mb-2">
+              or ₹2,750/month × 12 months (₹90/day)
             </p>
-          </motion.div>
+            <p className="text-xs text-[#B8A99A]/50 mb-6">+ 18% GST applicable</p>
 
-          {/* Main Pricing Card */}
-          <motion.div
-            className="max-w-2xl mx-auto"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="bg-[#3A4449]/80 backdrop-blur-sm rounded-2xl p-8 border border-[#C87533]/30 shadow-xl shadow-[#C87533]/5 relative">
-              {/* Price Header */}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-[#EDE6D8] mb-2">Footprint Mastery Program</h3>
-                <p className="text-[#B8A99A] mb-4">Complete order flow education system</p>
-                <div className="flex items-baseline gap-3 justify-center">
-                  <span className="text-[#B8A99A] line-through text-lg">₹1,50,000</span>
-                  <span className="text-5xl font-bold text-[#EDE6D8]">₹34,997</span>
-                </div>
-                <p className="text-sm text-[#E5484D] font-medium mt-2">Limited time offer</p>
-              </div>
+            {/* Scarcity — tied to real Q&A date */}
+            <div className="bg-[#0A8D7A]/10 border border-[#0A8D7A]/20 rounded-lg px-4 py-2.5 mb-4">
+              <p className="text-sm text-[#2DBDA8] font-medium">
+                Next live Q&A: {nextSession}
+              </p>
+              <p className="text-xs text-[#B8A99A] mt-0.5">
+                Enroll now to join with your questions ready
+              </p>
+            </div>
 
-              {/* Features Grid */}
-              <div className="mb-8">
-                <h4 className="text-lg font-semibold text-[#EDE6D8] mb-6 flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-[#C87533]" />
-                  What's Included
-                </h4>
+            {/* CTA */}
+            <motion.button
+              onClick={handlePaymentPopup}
+              className="w-full bg-[#C87533] hover:bg-[#A85E28] text-white font-bold py-4 rounded-full shadow-lg shadow-[#C87533]/25 transition-all text-lg mb-4"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Yes, I want this →
+            </motion.button>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  {features.map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex gap-4 bg-[#2C3539]/60 rounded-lg p-4 border border-[#0A8D7A]/10 hover:border-[#C87533]/30 transition-colors"
-                      initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <div className="shrink-0">
-                        <div className="w-10 h-10 bg-[#0A8D7A]/10 rounded-lg flex items-center justify-center">
-                          <feature.icon className="w-5 h-5 text-[#0A8D7A]" />
-                        </div>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-[#EDE6D8] text-sm mb-1">{feature.title}</h5>
-                        <p className="text-xs text-[#B8A99A]">{feature.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+            <motion.a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 py-3 bg-wealth-teal/10 border border-wealth-teal/30 text-wealth-teal font-semibold rounded-full hover:bg-wealth-teal/20 transition-all text-sm mb-6"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <MessageCircle className="w-4 h-4" />
+              Questions? Ask on WhatsApp
+            </motion.a>
 
-              {/* Guarantees */}
-              <div className="bg-[#2C3539]/60 rounded-lg p-6 border border-[#B8956A]/20 mb-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <Shield className="w-5 h-5 text-[#B8956A]" />
-                  <h4 className="font-semibold text-[#EDE6D8]">Your Investment is Protected</h4>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {guarantees.map((guarantee, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-[#0A8D7A] shrink-0" />
-                      <span className="text-sm text-[#EDE6D8]">{guarantee}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {/* Guarantees - inline */}
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[#B8A99A]">
+              <span className="flex items-center gap-1.5">
+                <Check className="w-4 h-4 text-[#2DBDA8]" /> 7-day refund policy
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Check className="w-4 h-4 text-[#2DBDA8]" /> Lifetime access
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Check className="w-4 h-4 text-[#2DBDA8]" /> Free updates
+              </span>
+            </div>
 
-              {/* Guarantee Badges */}
-              <div className="mt-6 flex flex-wrap gap-3 justify-center mb-8">
-                <span className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#B8956A]/30 text-[#B8956A] text-sm">
-                  <Shield className="w-4 h-4" /> 30-Day Guarantee
-                </span>
-                <span className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#B8956A]/30 text-[#B8956A] text-sm">
-                  <Clock className="w-4 h-4" /> Lifetime Access
-                </span>
-              </div>
+            {/* Payment methods */}
+            <div className="flex items-center justify-center gap-4 mt-5 pt-5 border-t border-[#B8956A]/10 text-[#B8A99A]">
+              <span className="text-xs flex items-center gap-1">
+                <Shield className="w-3 h-3" /> Secure Payment
+              </span>
+              <span className="text-xs">UPI</span>
+              <span className="text-xs">Cards</span>
+              <span className="text-xs">EMI</span>
+            </div>
+          </div>
+        </motion.div>
 
-              {/* Limited Seats Notice */}
-              <motion.div
-                className="bg-[#E5484D]/10 border border-[#E5484D]/30 rounded-lg p-4 mb-8"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-[#E5484D] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-[#E5484D] text-sm font-medium mb-1">Limited Monthly Seats</p>
-                    <p className="text-xs text-[#B8A99A]">
-                      Q&A sessions are capped to ensure quality interaction. Secure your spot before the next batch fills.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* CTA Button */}
-              <div className="text-center">
-                <motion.button
-                  onClick={handlePaymentPopup}
-                  className="w-full bg-[#C87533] hover:bg-[#A85E28] text-white font-bold py-4 rounded-full shadow-lg shadow-[#C87533]/25 transition-all text-lg mb-4"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Start Your Footprint Journey
-                  <span className="block text-sm font-normal mt-1 opacity-90">
-                    Instant access · Lifetime updates
-                  </span>
-                </motion.button>
-
-                <p className="text-[#B8A99A] text-xs max-w-md mx-auto">
-                  Join 1,263+ traders who stopped guessing and started reading order flow systematically
+        {/* Guarantee Section */}
+        <motion.div
+          className="mt-12 bg-[#2C3539] rounded-xl p-6 sm:p-8 border border-[#0A8D7A]/30 relative overflow-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0A8D7A] via-[#2DBDA8] to-[#0A8D7A]" />
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-full bg-[#0A8D7A]/15 border border-[#0A8D7A]/30 flex items-center justify-center shrink-0">
+              <Shield className="w-6 h-6 text-[#2DBDA8]" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-[#EDE6D8] mb-3">Our 7-Day Promise</h3>
+              <p className="text-sm text-[#D0C5B4] leading-relaxed mb-4">
+                Start the course. Watch the first 3 modules. Try the F.A.S.T. checklist on a paper trade. If you honestly feel this isn't worth your time, email us within 7 days of purchase — full refund, no questions asked.
+              </p>
+              <div className="space-y-2 text-sm text-[#B8A99A]">
+                <p className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#2DBDA8] shrink-0 mt-0.5" />
+                  <span>Refund available within 7 days if less than 20% accessed</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#2DBDA8] shrink-0 mt-0.5" />
+                  <span>Email support@tradingwithsidhant.com with your order ID</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#2DBDA8] shrink-0 mt-0.5" />
+                  <span>No hoops, no retention calls — just a refund</span>
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Bottom Trust Elements */}
-          <motion.div
-            className="mt-12 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <p className="text-[#B8A99A] text-xs mb-2">
-              No recurring fees · No upsells · Complete program
-            </p>
-            <p className="text-[#B8A99A] text-xs italic">
-              Educational content only. Not investment advice. Results vary with practice.
-            </p>
-          </motion.div>
-        </div>
+        {/* Disclaimer */}
+        <motion.p
+          className="mt-8 text-center text-[#B8A99A] text-xs italic"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          Educational content only. Not investment advice. Results vary with practice.
+        </motion.p>
       </div>
     </section>
   );

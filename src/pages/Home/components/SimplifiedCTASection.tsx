@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Clock, ArrowRight, Target, Star, TrendingUp, CheckCircle, CreditCard, Smartphone, FileText, AlertTriangle } from 'lucide-react';
+import { Shield, Clock, ArrowRight, Target, Star, TrendingUp, CheckCircle, CreditCard, Smartphone, AlertTriangle } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '../../../constants';
 
 interface SimplifiedCTASectionProps {
   onQuizOpen?: () => void;
@@ -92,8 +93,8 @@ const SimplifiedCTASection: React.FC<SimplifiedCTASectionProps> = ({ onQuizOpen 
             
             {/* Headline */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-white">Your Trading Journey </span>
-              <span className="bg-linear-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+              <span className="font-sans font-bold text-white">Your Trading Journey </span>
+              <span className="font-serif italic font-normal text-burnt-amber">
                 Starts Here
               </span>
             </h2>
@@ -160,10 +161,10 @@ const SimplifiedCTASection: React.FC<SimplifiedCTASectionProps> = ({ onQuizOpen 
           <div className="text-center mt-8">
             <p className="text-gray-400 text-sm mb-3">Have questions?</p>
             <a 
-              href="https://wa.me/919876543210" 
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
+              className="inline-flex items-center gap-2 text-wealth-teal hover:text-wealth-teal/80 transition-colors"
             >
               <Smartphone className="w-4 h-4" />
               <span className="text-sm font-medium">Chat on WhatsApp</span>

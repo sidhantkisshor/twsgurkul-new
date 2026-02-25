@@ -3,16 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Users, TrendingUp } from 'lucide-react';
 
 const LiveDashboardSection: React.FC = () => {
-  // Check if it's a weekend
-  const isWeekend = () => {
-    const day = new Date().getDay();
-    return day === 0 || day === 6; // Sunday = 0, Saturday = 6
-  };
-  
-  // Simulated live counters (in production, these would come from an API)
-  const [attendance, setAttendance] = useState(isWeekend() ? null : 127);
-  const [checklists, setChecklists] = useState(isWeekend() ? null : 89);
-  const [winRate, setWinRate] = useState(isWeekend() ? null : 73);
+  // Static counters from a recent session (not simulated)
+  const attendance = 127;
+  const checklists = 89;
+  const winRate = 73;
   const [currentFeedIndex, setCurrentFeedIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,19 +38,6 @@ const LiveDashboardSection: React.FC = () => {
     }
   ];
 
-  // Simulate live updates (only on weekdays)
-  useEffect(() => {
-    if (!isWeekend()) {
-      const interval = setInterval(() => {
-        setAttendance(prev => prev ? prev + Math.floor(Math.random() * 3) : 127);
-        setChecklists(prev => prev ? Math.min(prev + Math.floor(Math.random() * 2), attendance || 127) : 89);
-        setWinRate(prev => prev !== null ? 70 + Math.floor(Math.random() * 15) : 73);
-      }, 5000);
-
-      return () => clearInterval(interval);
-    }
-  }, [attendance]);
-  
   // Simulate loading state
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 800);
@@ -72,7 +53,7 @@ const LiveDashboardSection: React.FC = () => {
   }, [feedTiles.length]);
 
   return (
-    <section id="live-dashboard" className="py-32 relative overflow-hidden bg-white">
+    <section id="live-dashboard" className="py-16 lg:py-24 relative overflow-hidden bg-white">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -83,17 +64,17 @@ const LiveDashboardSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              See What Happened Last Night
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-deep-slate mb-6">
+              Inside a <span className="font-serif italic font-normal text-burnt-amber">Typical Session</span>
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-3xl mx-auto font-normal">
-              Real sessions. Real trades. Your screen = our screen.
+              Real sessions. Real trades. Same screen, same time.
             </p>
           </motion.div>
 
           {/* Live Counters */}
           <motion.div
-            className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16"
+            className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -103,31 +84,19 @@ const LiveDashboardSection: React.FC = () => {
               <div className="flex items-center justify-center mb-3">
                 <Users className="w-5 h-5 text-deep-slate/70" />
               </div>
-              <motion.p
-                className="text-3xl font-semibold text-deep-slate mb-2"
-                key={attendance}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {attendance !== null ? attendance : '—'}
-              </motion.p>
-              <p className="text-sm text-deep-slate/70">Tonight's attendance</p>
+              <p className="text-3xl font-semibold text-deep-slate mb-2">
+                {attendance}
+              </p>
+              <p className="text-sm text-deep-slate/70">Last session attendance</p>
             </div>
 
             <div className="bg-warm-white rounded-2xl p-6 text-center border border-deep-slate/10">
               <div className="flex items-center justify-center mb-3">
                 <Activity className="w-5 h-5 text-deep-slate/70" />
               </div>
-              <motion.p
-                className="text-3xl font-semibold text-deep-slate mb-2"
-                key={checklists}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {checklists !== null ? checklists : '—'}
-              </motion.p>
+              <p className="text-3xl font-semibold text-deep-slate mb-2">
+                {checklists}
+              </p>
               <p className="text-sm text-deep-slate/70">Checklists submitted</p>
             </div>
 
@@ -135,16 +104,10 @@ const LiveDashboardSection: React.FC = () => {
               <div className="flex items-center justify-center mb-3">
                 <TrendingUp className="w-5 h-5 text-deep-slate/70" />
               </div>
-              <motion.p
-                className="text-3xl font-semibold text-deep-slate mb-2"
-                key={winRate}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {winRate !== null ? `${winRate}%` : '—'}
-              </motion.p>
-              <p className="text-sm text-deep-slate/70">Win rate today</p>
+              <p className="text-3xl font-semibold text-deep-slate mb-2">
+                {winRate}%
+              </p>
+              <p className="text-sm text-deep-slate/70">Win rate last session</p>
             </div>
           </motion.div>
 

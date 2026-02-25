@@ -12,20 +12,20 @@ export function getNextFirstSaturday(): string {
     // Find the first Saturday of current month
     const firstOfMonth = new Date(targetYear, targetMonth, 1);
     const dayOfWeek = firstOfMonth.getDay();
-    const daysUntilSaturday = (6 - dayOfWeek + 7) % 7 || 7;
-    const firstSaturday = new Date(targetYear, targetMonth, daysUntilSaturday);
-    
+    const daysUntilSaturday = (6 - dayOfWeek + 7) % 7;
+    const firstSaturday = new Date(targetYear, targetMonth, 1 + daysUntilSaturday);
+
     // If we've passed the first Saturday of current month, get next month's
     if (currentDate > firstSaturday.getDate()) {
         targetMonth = (currentMonth + 1) % 12;
         if (targetMonth === 0) {
             targetYear = currentYear + 1;
         }
-        
+
         const nextFirstOfMonth = new Date(targetYear, targetMonth, 1);
         const nextDayOfWeek = nextFirstOfMonth.getDay();
-        const nextDaysUntilSaturday = (6 - nextDayOfWeek + 7) % 7 || 7;
-        const nextFirstSaturday = new Date(targetYear, targetMonth, nextDaysUntilSaturday);
+        const nextDaysUntilSaturday = (6 - nextDayOfWeek + 7) % 7;
+        const nextFirstSaturday = new Date(targetYear, targetMonth, 1 + nextDaysUntilSaturday);
         
         return `${nextFirstSaturday.getDate()} ${nextFirstSaturday.toLocaleDateString('en-US', { month: 'short' }).toUpperCase()}`;
     }
@@ -47,20 +47,20 @@ export function getNextFirstSaturdayWithOrdinal(): string {
     // Find the first Saturday of current month
     const firstOfMonth = new Date(targetYear, targetMonth, 1);
     const dayOfWeek = firstOfMonth.getDay();
-    const daysUntilSaturday = (6 - dayOfWeek + 7) % 7 || 7;
-    const firstSaturday = new Date(targetYear, targetMonth, daysUntilSaturday);
-    
+    const daysUntilSaturday = (6 - dayOfWeek + 7) % 7;
+    const firstSaturday = new Date(targetYear, targetMonth, 1 + daysUntilSaturday);
+
     // If we've passed the first Saturday of current month, get next month's
     if (currentDate > firstSaturday.getDate()) {
         targetMonth = (currentMonth + 1) % 12;
         if (targetMonth === 0) {
             targetYear = currentYear + 1;
         }
-        
+
         const nextFirstOfMonth = new Date(targetYear, targetMonth, 1);
         const nextDayOfWeek = nextFirstOfMonth.getDay();
-        const nextDaysUntilSaturday = (6 - nextDayOfWeek + 7) % 7 || 7;
-        const nextFirstSaturday = new Date(targetYear, targetMonth, nextDaysUntilSaturday);
+        const nextDaysUntilSaturday = (6 - nextDayOfWeek + 7) % 7;
+        const nextFirstSaturday = new Date(targetYear, targetMonth, 1 + nextDaysUntilSaturday);
         
         const day = nextFirstSaturday.getDate();
         const ordinal = getOrdinalSuffix(day);

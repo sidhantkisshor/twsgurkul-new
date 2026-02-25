@@ -1,8 +1,316 @@
 /* =================================================================
-   CRYPTO PAGE — Component Styles (Sophisticated Warmth)
+   CRYPTO PAGE — Consolidated Styles (Sophisticated Warmth)
+   Previously split across 4 files:
+     crypto-brand-tokens.css → design-system.css
+     → hero-reimagined.css → crypto.css
    ================================================================= */
 
-/* Hero CTA Button */
+
+/* =================================================================
+   SECTION 1: BRAND TOKENS (CSS Custom Properties)
+   ================================================================= */
+
+:root {
+  /* Core Brand Colors */
+  --brand-deep-slate: #2C3539;
+  --brand-burnt-amber: #C87533;
+  --brand-brushed-gold: #B8956A;
+  --brand-warm-white: #FAF8F5;
+  --brand-wealth-teal: #0A8D7A;
+  --brand-soft-sand: #EDE6D8;
+  --brand-paper-cream: #FFF1E0;
+  --brand-navy-black: #0B1221;
+  --brand-crimson: #E5484D;
+  --brand-graphite: #111111;
+
+  /* Gradient Tokens */
+  --gradient-hero: linear-gradient(180deg, #2C3539 0%, #3a4549 100%);
+  --gradient-hero-warm: linear-gradient(135deg, #2C3539 0%, #3d4a4f 50%, #2C3539 100%);
+  --gradient-cta-hover: linear-gradient(135deg, #C87533 0%, #B8956A 100%);
+  --gradient-section-transition: linear-gradient(180deg, #FAF8F5 0%, #FFF1E0 100%);
+  --gradient-amber-glow: radial-gradient(circle at 50% 0%, rgba(200,117,51,0.15) 0%, transparent 60%);
+  --gradient-teal-subtle: linear-gradient(135deg, rgba(10,141,122,0.05) 0%, transparent 100%);
+
+  /* Button State Tokens */
+  --btn-primary-bg: #C87533;
+  --btn-primary-hover: #b5682d;
+  --btn-primary-active: #a35e28;
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: transparent;
+  --btn-secondary-border: #0A8D7A;
+  --btn-secondary-hover: rgba(10,141,122,0.1);
+  --btn-secondary-text: #0A8D7A;
+  --btn-disabled-bg: #d4cfc9;
+  --btn-disabled-text: #8a8580;
+
+  /* Card State Tokens */
+  --card-bg: #FAF8F5;
+  --card-border: rgba(44,53,57,0.08);
+  --card-hover-border: rgba(200,117,51,0.3);
+  --card-hover-shadow: 0 8px 24px rgba(44,53,57,0.12);
+
+  /* Input State Tokens */
+  --input-border: rgba(44,53,57,0.2);
+  --input-focus-border: #0A8D7A;
+  --input-focus-ring: rgba(10,141,122,0.2);
+  --input-error-border: #E5484D;
+
+  /* Semantic Colors */
+  --color-success: #0A8D7A;
+  --color-warning: #C87533;
+  --color-error: #E5484D;
+  --color-info: #0A8D7A;
+
+  /* Typography */
+  --font-primary: 'Satoshi', 'Inter', system-ui, -apple-system, sans-serif;
+  --text-h1: 56px;
+  --text-h2: 36px;
+  --text-h3: 24px;
+  --text-body: 17px;
+  --text-small: 14px;
+  --text-micro: 12px;
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+  --ls-heading: -0.02em;
+
+  /* Spacing */
+  --space-section-desktop: 64px;
+  --space-section-tablet: 48px;
+  --space-section-mobile: 40px;
+  --space-container-desktop: 32px;
+  --space-container-mobile: 20px;
+
+  /* Shape */
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 12px rgba(44,53,57,0.08);
+  --shadow-hover: 0 8px 24px rgba(44,53,57,0.12);
+  --shadow-modal: 0 20px 60px rgba(11,18,33,0.3);
+
+  /* Transitions */
+  --transition-base: 200ms ease;
+  --transition-slow: 400ms ease;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --text-h1: 40px;
+    --text-h2: 28px;
+    --text-h3: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --text-h1: 48px;
+    --text-h2: 32px;
+  }
+}
+
+
+/* =================================================================
+   SECTION 2: BASE TYPOGRAPHY & LAYOUT SYSTEM
+   ================================================================= */
+
+.crypto-page {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--brand-deep-slate);
+}
+
+.crypto-page h1, .crypto-h1 {
+  font-size: var(--text-h1);
+  line-height: var(--lh-heading);
+  font-weight: 700;
+  letter-spacing: var(--ls-heading);
+}
+
+.crypto-page h2, .crypto-h2 {
+  font-size: var(--text-h2);
+  line-height: var(--lh-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.crypto-page h3, .crypto-h3 {
+  font-size: var(--text-h3);
+  line-height: var(--lh-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.crypto-body {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+}
+
+.crypto-micro {
+  font-size: var(--text-micro);
+  line-height: 1.5;
+}
+
+.crypto-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+.crypto-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--space-container-desktop);
+  padding-right: var(--space-container-desktop);
+  width: 100%;
+}
+
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+.crypto-section {
+  padding-top: var(--space-section-desktop);
+  padding-bottom: var(--space-section-desktop);
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .crypto-section {
+    padding-top: var(--space-section-tablet);
+    padding-bottom: var(--space-section-tablet);
+  }
+}
+
+@media (max-width: 767px) {
+  .crypto-section {
+    padding-top: var(--space-section-mobile);
+    padding-bottom: var(--space-section-mobile);
+  }
+  .crypto-container {
+    padding-left: var(--space-container-mobile);
+    padding-right: var(--space-container-mobile);
+  }
+  .crypto-grid {
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =================================================================
+   SECTION 3: COMPONENTS
+   ================================================================= */
+
+.crypto-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+}
+
+.crypto-card:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-2px);
+}
+
+.crypto-image {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.crypto-button {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  font-size: var(--text-small);
+  transition: background var(--transition-base), transform var(--transition-base);
+  border: none;
+  cursor: pointer;
+}
+
+.crypto-button:hover {
+  background: var(--btn-primary-hover);
+  transform: translateY(-1px);
+}
+
+.crypto-button:active {
+  background: var(--btn-primary-active);
+  transform: translateY(0);
+}
+
+.crypto-button-secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--btn-secondary-border);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  font-size: var(--text-small);
+  transition: background var(--transition-base);
+  cursor: pointer;
+}
+
+.crypto-button-secondary:hover {
+  background: var(--btn-secondary-hover);
+}
+
+.crypto-chip {
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-size: var(--text-micro);
+  font-weight: 500;
+  background: rgba(44, 53, 57, 0.06);
+  color: var(--brand-deep-slate);
+}
+
+.glass-effect {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+}
+
+/* Utility Classes */
+.crypto-mt-8 { margin-top: 2rem; }
+.crypto-mb-8 { margin-bottom: 2rem; }
+.crypto-py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+.crypto-text-center { text-align: center; }
+.crypto-font-bold { font-weight: 700; }
+.crypto-font-medium { font-weight: 500; }
+.crypto-shadow-sm { box-shadow: var(--shadow-card); }
+.crypto-shadow-md { box-shadow: var(--shadow-hover); }
+.crypto-shadow-lg { box-shadow: var(--shadow-modal); }
+.crypto-rounded { border-radius: var(--radius-card); }
+.crypto-rounded-full { border-radius: var(--radius-pill); }
+
+
+/* =================================================================
+   SECTION 4: HERO & COMPONENT-SPECIFIC STYLES
+   ================================================================= */
+
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.enhanced-focus:focus-visible {
+  outline: 2px solid var(--brand-wealth-teal);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(10, 141, 122, 0.1);
+}
+
 .hero-cta {
   transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
 }
@@ -12,7 +320,6 @@
   box-shadow: 0 8px 20px rgba(44, 53, 57, 0.15);
 }
 
-/* Focus States for Accessibility */
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--brand-wealth-teal);
@@ -20,7 +327,6 @@ a:focus-visible {
   border-radius: 4px;
 }
 
-/* Chip Hover Effects */
 .chip-hover {
   transition: all var(--transition-base);
   position: relative;
@@ -31,7 +337,6 @@ a:focus-visible {
   box-shadow: 0 0 0 1px rgba(200, 117, 51, 0.2);
 }
 
-/* Methodology Link */
 .methodology-link {
   position: relative;
   text-decoration: none;
@@ -44,37 +349,59 @@ a:focus-visible {
   text-underline-offset: 2px;
 }
 
-/* High Contrast Text */
 .text-contrast-high {
   color: var(--brand-graphite);
 }
 
-/* Stat Bar Animation */
-.stat-animate {
-  animation: fadeInUp 300ms ease-out forwards;
+.chip-border {
+  border: 1px solid var(--card-border);
+  transition: border-color var(--transition-base);
 }
 
-/* Modal Focus Trap */
+.chip-border:hover {
+  border-color: var(--card-hover-border);
+}
+
 .modal-focus-trap:focus {
   outline: none;
 }
 
-/* Responsive Typography */
 @media (max-width: 640px) {
   .hero-title {
     font-size: var(--text-h1);
     line-height: var(--lh-heading);
   }
-
   .hero-subtitle {
     font-size: 16px;
     line-height: var(--lh-body);
   }
 }
 
-/* Sticky Bar Animation */
-.sticky-rotate-enter {
-  animation: slideInUp 400ms ease-out;
+
+/* =================================================================
+   SECTION 5: ANIMATIONS
+   ================================================================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes liveDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
 }
 
 @keyframes slideInUp {
@@ -88,12 +415,22 @@ a:focus-visible {
   }
 }
 
-/* Chip Borders */
-.chip-border {
-  border: 1px solid var(--card-border);
-  transition: border-color var(--transition-base);
+.crypto-animate-in {
+  animation: fadeInUp 400ms ease-out forwards;
 }
 
-.chip-border:hover {
-  border-color: var(--card-hover-border);
+.count-animation {
+  animation: fadeInUp 400ms ease-out forwards;
+}
+
+.live-dot {
+  animation: liveDot 1.5s ease-in-out infinite;
+}
+
+.stat-animate {
+  animation: fadeInUp 300ms ease-out forwards;
+}
+
+.sticky-rotate-enter {
+  animation: slideInUp 400ms ease-out;
 }

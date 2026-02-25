@@ -8,24 +8,44 @@ const FloatingCTA: React.FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
-    // Show after user scrolls 20% of the page
+    let ticking = false;
     const handleScroll = () => {
-      const scrollPercentage = (window.scrollY / document.documentElement.scrollHeight) * 100;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrollPercentage = (window.scrollY / document.documentElement.scrollHeight) * 100;
 
-      if (scrollPercentage > 20 && !hasScrolled) {
-        setHasScrolled(true);
-        setIsVisible(true);
-      }
+        if (scrollPercentage > 20 && !hasScrolled) {
+          setHasScrolled(true);
+          setIsVisible(true);
+        }
 
-      // Hide when near bottom (last 10% of page) to avoid overlapping with footer
-      if (scrollPercentage > 90) {
-        setIsVisible(false);
-      } else if (scrollPercentage > 20 && hasScrolled) {
-        setIsVisible(true);
-      }
+        // Hide near sections where FloatingCTA overlaps content
+        // Use a buffer so the bar disappears before it covers CTAs
+        const hideNearSections = ['pricing', 'testimonials', 'faq'];
+        const buffer = 80; // px buffer so sticky bar clears before overlapping CTAs
+        for (const id of hideNearSections) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight + buffer && rect.bottom > -buffer) {
+              setIsVisible(false);
+              ticking = false;
+              return;
+            }
+          }
+        }
+
+        if (scrollPercentage > 90) {
+          setIsVisible(false);
+        } else if (scrollPercentage > 20 && hasScrolled) {
+          setIsVisible(true);
+        }
+        ticking = false;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasScrolled]);
 
@@ -49,10 +69,10 @@ const FloatingCTA: React.FC = () => {
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <div className={`${isMinimized ? 'w-auto' : 'max-w-sm'}`}>
+            <div className={`${isMinimized ? 'w-auto' : 'max-w-xs'}`}>
               {!isMinimized ? (
                 <div className="bg-deep-slate rounded-2xl shadow-2xl border border-soft-sand/10 overflow-hidden">
-                  <div className="p-6">
+                  <div className="p-5">
                     <button
                       onClick={() => setIsMinimized(true)}
                       className="absolute top-3 right-3 text-soft-sand/60 hover:text-white transition-colors"
@@ -66,24 +86,24 @@ const FloatingCTA: React.FC = () => {
                         <Calendar className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-white font-semibold text-lg">
-                          Tonight's Session at 8 PM
+                        <h3 className="text-white font-sans font-semibold text-lg">
+                          Live Sessions at 8 PM
                         </h3>
                         <p className="text-soft-sand text-sm mt-1">
-                          500+ traders already in the room
+                          5 nights a week, from your phone
                         </p>
                       </div>
                     </div>
 
                     <p className="text-sm text-soft-sand">
-                      Live trading · Personal reviews · 30-day guarantee
+                      Live trading · Personal reviews · Weekly analysis
                     </p>
 
                     <button
                       onClick={handleClick}
                       className="w-full mt-5 bg-burnt-amber text-white font-semibold py-3 px-4 rounded-lg hover:bg-burnt-amber/90 transition-all duration-300 flex items-center justify-center gap-2 group"
                     >
-                      <span>View Plans</span>
+                      <span>Join the 8 PM Room</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -93,7 +113,7 @@ const FloatingCTA: React.FC = () => {
                   onClick={() => setIsMinimized(false)}
                   className="bg-burnt-amber text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-burnt-amber/90 transition-all duration-300 flex items-center gap-2 group"
                 >
-                  <span>ETM Mentorship</span>
+                  <span>ET<span className="font-serif italic">M</span> Mentorship</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               )}
@@ -108,23 +128,30 @@ const FloatingCTA: React.FC = () => {
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <div className="bg-deep-slate border-t border-soft-sand/10">
+            <div className="bg-deep-slate border-t border-soft-sand/10" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
               <div className="container mx-auto px-4 py-3">
                 <div className="flex items-center justify-between gap-3">
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <p className="text-white font-medium text-sm">
                       8 PM Session Tonight
                     </p>
                     <p className="text-soft-sand/70 text-xs">
-                      30-day guarantee
+                      Weekly reviews
                     </p>
                   </div>
                   <button
                     onClick={handleClick}
                     className="bg-burnt-amber text-white font-semibold py-2.5 px-5 rounded-lg text-sm flex items-center gap-2 whitespace-nowrap hover:bg-burnt-amber/90 transition-all"
                   >
-                    <span>Join Now</span>
+                    <span>Join at 8 PM</span>
                     <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setIsVisible(false)}
+                    className="text-soft-sand/50 hover:text-white transition-colors p-1 shrink-0"
+                    aria-label="Dismiss sticky bar"
+                  >
+                    <X className="w-4 h-4" />
                   </button>
                 </div>
               </div>

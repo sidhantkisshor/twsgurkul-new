@@ -26,10 +26,18 @@ const VideoSection: React.FC = () => {
         };
     }, [showLightbox]);
 
+    // Escape key handler for lightbox
+    useEffect(() => {
+        if (!showLightbox) return;
+        const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setShowLightbox(false); };
+        document.addEventListener('keydown', handler);
+        return () => document.removeEventListener('keydown', handler);
+    }, [showLightbox]);
+
     const { video } = heroData;
 
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#FAF8F5]">
+        <section className="crypto-section px-4 sm:px-6 lg:px-8 bg-[#FAF8F5]">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -38,10 +46,11 @@ const VideoSection: React.FC = () => {
                     viewport={{ once: true }}
                     className="text-center mb-8"
                 >
-                    <h2 className="text-3xl font-bold text-[#2C3539] mb-4">
-                        {video.title}
+                    <h2 className="text-3xl mb-4">
+                        <span className="font-sans font-bold text-[#2C3539]">{video.title.split(' ').slice(0, -1).join(' ')}</span>{' '}
+                        <span className="font-serif italic font-normal text-[#A85C22]">{video.title.split(' ').slice(-1)[0]}</span>
                     </h2>
-                    <p className="text-lg text-[#111111]/70">
+                    <p className="text-lg text-[#2C3539]/80">
                         {video.subtitle}
                     </p>
                 </motion.div>
@@ -53,16 +62,20 @@ const VideoSection: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
                 >
-                    <div
-                        className="aspect-video border border-[rgba(44,53,57,0.08)] rounded-xl shadow-sm overflow-hidden hover:border-[#C87533]/50 transition-all cursor-pointer relative group"
+                    <button
+                        type="button"
+                        className="aspect-video w-full border border-[rgba(44,53,57,0.08)] rounded-xl shadow-sm overflow-hidden hover:border-[#C87533]/50 transition-all cursor-pointer relative group text-left"
                         onClick={() => setShowLightbox(true)}
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
+                        aria-label="Play trade review video"
                     >
                         <div className="w-full h-full relative flex items-center justify-center">
                             <img
                                 src={video.thumbnail}
                                 alt="Trade Review Video"
+                                width={896}
+                                height={504}
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                             />
@@ -71,7 +84,7 @@ const VideoSection: React.FC = () => {
                                     <div className="w-20 h-20 bg-[#C87533]/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                                         <Play className="w-10 h-10 text-[#C87533] ml-1" />
                                     </div>
-                                    <p className="text-sm text-[#111111]/60 mb-3">Click to watch</p>
+                                    <p className="text-sm text-white/90 mb-3">Click to watch</p>
                                     
                                     {/* Hover bullets */}
                                     <AnimatePresence>
@@ -84,9 +97,9 @@ const VideoSection: React.FC = () => {
                                                 className="flex items-center justify-center gap-2 text-xs text-[#C87533] font-medium"
                                             >
                                                 <span>Setup logic</span>
-                                                <span className="text-[#111111]/40">·</span>
+                                                <span className="text-white/60">·</span>
                                                 <span>Risk sizing</span>
-                                                <span className="text-[#111111]/40">·</span>
+                                                <span className="text-white/60">·</span>
                                                 <span>Exit plan</span>
                                             </motion.div>
                                         )}
@@ -94,7 +107,7 @@ const VideoSection: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </button>
                 </motion.div>
 
                 {/* Lightbox */}
@@ -102,6 +115,9 @@ const VideoSection: React.FC = () => {
                     {showLightbox && (
                         <motion.div
                             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B1221]/90"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label="Video player"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -118,10 +134,10 @@ const VideoSection: React.FC = () => {
                                 {/* Close button */}
                                 <button
                                     onClick={() => setShowLightbox(false)}
-                                    className="absolute -top-12 right-0 text-[#EDE6D8] hover:text-white transition-colors"
+                                    className="absolute -top-10 right-0 text-[#EDE6D8] hover:text-white transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                                     aria-label="Close video"
                                 >
-                                    <X className="w-8 h-8" />
+                                    <X className="w-6 h-6" />
                                 </button>
                                 
                                 {/* Video container */}

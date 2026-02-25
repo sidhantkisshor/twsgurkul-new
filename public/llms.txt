@@ -1,0 +1,32 @@
+# TWS GurukulX
+
+> TWS GurukulX is an India-based trading education platform founded by professional trader Tanay (TWS). We offer mentorship programs, courses, and tools for forex, crypto, and stock market trading. Our approach combines institutional-grade footprint analysis, AI-powered tools, and hands-on mentorship to help traders build consistent, rule-based strategies.
+
+## Programs
+
+- [1-on-1 Mentorship Program](https://www.twsgurukul.com/mentorship): Personalized trading mentorship with live portfolio access, daily trade setups, and institutional-level training. Covers forex, crypto, and Indian stock markets.
+- [Footprint Mastery Course](https://www.twsgurukul.com/footprint): Learn to read institutional order flow using footprint charts. Track whale movements, volume clusters, and smart money activity.
+- [Crypto Trading Course](https://www.twsgurukul.com/crypto): Comprehensive crypto trading program covering Bitcoin, altcoins, DeFi, and on-chain analysis with a proven framework.
+
+## Tools
+
+- [Prop Firm Safety Checker](https://www.twsgurukul.com/prop-firm-safety-checker): Free tool to verify if a prop trading firm is legitimate. Checks registration, reviews, and red flags.
+- [Trading Style Quiz](https://www.twsgurukul.com/quiz): Find your ideal trading style and get personalized program recommendations.
+
+## Results
+
+- [Results & Claims](https://www.twsgurukul.com/results-and-claims): Verified trading results, student testimonials, and performance claims with full transparency.
+
+## Blog
+
+- [Blog](https://www.twsgurukul.com/blog): Trading insights, market analysis, and educational content.
+- [How to Automate Your Zerodha Portfolio with AI](https://www.twsgurukul.com/blog/ai-automation-zerodha-portfolio): Guide to transforming your Zerodha account into an AI-powered investment machine.
+- [Bitcoin Trading Sessions Guide](https://www.twsgurukul.com/blog/bitcoin-trading-sessions): Essential guide to trading Bitcoin across global sessions and institutional money flows.
+
+## Optional
+
+- [Terms of Service](https://www.twsgurukul.com/terms)
+- [Privacy Policy](https://www.twsgurukul.com/privacy)
+- [Disclaimer](https://www.twsgurukul.com/disclaimer)
+- [Refund Policy](https://www.twsgurukul.com/refunds)
+- [Cookie Policy](https://www.twsgurukul.com/cookies)

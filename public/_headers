@@ -5,4 +5,36 @@
   X-XSS-Protection: 1; mode=block
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https: www.googletagmanager.com www.google-analytics.com; connect-src 'self' https://api.binance.com https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self' https://www.googletagmanager.com
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com data:; img-src 'self' data: https: www.googletagmanager.com www.google-analytics.com; connect-src 'self' https://api.binance.com https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://graph.facebook.com https://hooks.zapier.com https://hook.us1.make.com https://api.airtable.com; frame-src 'self' https://www.googletagmanager.com; media-src 'self' https://d2j3cl693ttatt.cloudfront.net; object-src 'none'; base-uri 'none'; form-action 'self' https://learn.tradingwithsidhant.com; frame-ancestors 'none'; upgrade-insecure-requests
+
+/index.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/pages/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.png
+  Cache-Control: public, max-age=2592000

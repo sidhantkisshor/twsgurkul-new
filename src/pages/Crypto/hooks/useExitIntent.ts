@@ -1,51 +1,40 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-export const useExitIntent = () => {
+/**
+ * Desktop-only exit intent hook.
+ * @param suppress When true, exit intent will not fire (e.g. another popup is active).
+ */
+export const useExitIntent = (suppress = false) => {
   const [showExitPopup, setShowExitPopup] = useState(false);
-  const [exitIntentShown, setExitIntentShown] = useState(false);
+  // useRef so the flag never re-triggers the effect
+  const exitIntentShown = useRef(
+    !!sessionStorage.getItem('crypto_exit_shown')
+  );
+  const suppressRef = useRef(suppress);
+  useEffect(() => { suppressRef.current = suppress; });
 
   useEffect(() => {
+    // Desktop only: fires when cursor moves toward closing the tab
+    // Mobile exit-intent is unreliable and prohibited per popup framework
     const handleMouseLeave = (e: MouseEvent) => {
-      // Only trigger on desktop when mouse leaves from top
-      if (e.clientY <= 0 && !exitIntentShown && window.innerWidth > 768) {
+      if (
+        e.clientY <= 0 &&
+        !exitIntentShown.current &&
+        !suppressRef.current &&
+        window.innerWidth > 768
+      ) {
+        exitIntentShown.current = true;
+        sessionStorage.setItem('crypto_exit_shown', 'true');
         setShowExitPopup(true);
-        setExitIntentShown(true);
       }
     };
 
-    // Mobile exit intent - triggered after 60 seconds
-    const mobileExitTimer = setTimeout(() => {
-      if (window.innerWidth <= 768 && !exitIntentShown) {
-        setShowExitPopup(true);
-        setExitIntentShown(true);
-      }
-    }, 60000);
-
-    // Back button press detection for mobile
-    const handlePopState = () => {
-      if (!exitIntentShown && window.innerWidth <= 768) {
-        setShowExitPopup(true);
-        setExitIntentShown(true);
-        // Push state again to keep user on page
-        window.history.pushState(null, '', window.location.href);
-      }
-    };
-
-    // Add event listeners
     document.addEventListener('mouseleave', handleMouseLeave);
-    window.addEventListener('popstate', handlePopState);
-    
-    // Push initial state for back button detection
-    if (window.innerWidth <= 768) {
-      window.history.pushState(null, '', window.location.href);
-    }
 
     return () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
-      window.removeEventListener('popstate', handlePopState);
-      clearTimeout(mobileExitTimer);
     };
-  }, [exitIntentShown]);
+  }, []); // stable — exitIntentShown and suppressRef are refs
 
   return { showExitPopup, setShowExitPopup };
-}; 
+};

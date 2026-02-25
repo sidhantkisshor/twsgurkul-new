@@ -74,7 +74,7 @@ export interface HeroData {
         part3: string;
     };
     enrollmentStats: {
-        count: number;
+        count: string;
         text: string;
     };
     features: HeroFeature[];

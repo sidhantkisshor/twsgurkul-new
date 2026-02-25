@@ -2,20 +2,20 @@ import { motion } from 'framer-motion';
 
 const proofItems = [
   'Rahul from Jaipur joined 2 hours ago',
-  'Priya, Chennai — Month 2, first green week',
-  'Amit, Nagpur — ₹34k profit this month',
+  'Priya, Chennai -Month 2, first green week',
+  'Amit, Nagpur -₹34k profit this month',
   'Sneha from Lucknow just enrolled',
-  'Vikram, Pune — 6 green weeks in a row',
-  'Deepak, Indore — "Best decision I made this year"',
-  'Meera, Kolkata — started with ₹10k, now consistent',
+  'Vikram, Pune -6 green weeks in a row',
+  'Deepak, Indore -"Best decision I made this year"',
+  'Meera, Kolkata -started with ₹10k, now consistent',
   'Arjun, Hyderabad joined yesterday',
 ];
 
 export default function SocialProofBar() {
   return (
-    <div className="bg-deep-slate py-3 overflow-hidden border-t border-soft-sand/10">
+    <div className="bg-deep-slate py-2 overflow-hidden border-t border-soft-sand/10" style={{ overflowX: 'clip' }}>
       <motion.div
-        className="flex gap-8 whitespace-nowrap"
+        className="flex gap-6 whitespace-nowrap w-max"
         animate={{ x: ['0%', '-50%'] }}
         transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
       >

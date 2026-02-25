@@ -9,6 +9,16 @@ import {
 import { TrustBadge, FaqItem, HeroData, Problem, InstructorFeature, Testimonial } from './types';
 
 
+// Crypto Mastery — shared constants
+export const CRYPTO_PRICE = 19499;
+
+export const CRYPTO_STATS = {
+    enrolled: '1,263',
+    winRate: '73%',
+    avgRR: '2.1:1',
+    dailyCommitment: '2 hrs',
+} as const;
+
 export const trustBadges: TrustBadge[] = [
     {
       icon: Building2,
@@ -67,7 +77,7 @@ export const trustBadges: TrustBadge[] = [
       profit: "₹1.5 Lakhs",
       time: "3 months",
       quoteHeadline: "The risk management module alone was worth it",
-      quoteBody: "Lost ₹50K following random Telegram tips before joining. The systematic approach here is completely different — I actually understand why I enter and exit trades now.",
+      quoteBody: "Lost ₹50K following random Telegram tips before joining. The systematic approach here is completely different -I actually understand why I enter and exit trades now.",
       highlight: "Win rate improved from ~30% to 68%",
       rating: 5,
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-1.jpg",
@@ -82,7 +92,7 @@ export const trustBadges: TrustBadge[] = [
       profit: "₹2.3 Lakhs",
       time: "4 months",
       quoteHeadline: "Finally a course that teaches process, not just signals",
-      quoteBody: "The 2-hour evening routine fits my CA schedule perfectly. Stop-losses saved me during the March correction — would have lost ₹80K without them.",
+      quoteBody: "The 2-hour evening routine fits my CA schedule perfectly. Stop-losses saved me during the March correction -would have lost ₹80K without them.",
       highlight: "Consistent since month 2",
       rating: 5,
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-2.jpg",
@@ -97,7 +107,7 @@ export const trustBadges: TrustBadge[] = [
       profit: "₹42,000",
       time: "3 months",
       quoteHeadline: "Slow start, but the system works if you follow it",
-      quoteBody: "First month was rough — I kept breaking rules. Once I stuck to the checklist and journaling, things clicked. Not life-changing money yet, but I'm consistently profitable now.",
+      quoteBody: "First month was rough -I kept breaking rules. Once I stuck to the checklist and journaling, things clicked. Not life-changing money yet, but I'm consistently profitable now.",
       highlight: "Breakeven month 1, profitable since month 2",
       rating: 4,
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-3.jpg",
@@ -126,7 +136,7 @@ export const trustBadges: TrustBadge[] = [
       age: "26",
       profit: "₹95,000",
       time: "2 months",
-      quoteHeadline: "Journal system is underrated — that's where the real learning is",
+      quoteHeadline: "Journal system is underrated -that's where the real learning is",
       quoteBody: "Was losing daily before joining. The scanning checklist alone cut my bad trades by half. Still learning the advanced modules but already seeing results.",
       highlight: "First profitable week: Week 3",
       rating: 4,
@@ -141,7 +151,7 @@ export const trustBadges: TrustBadge[] = [
       age: "31",
       profit: "₹2.7 Lakhs",
       time: "6 months",
-      quoteHeadline: "Skeptical banker converted — the data speaks for itself",
+      quoteHeadline: "Skeptical banker converted -the data speaks for itself",
       quoteBody: "Working in banking, I needed to see the numbers. The methodology transparency and journal tracking convinced me. 6 months in, the compounding is real.",
       highlight: "Most consistent: BTC/ETH pairs",
       rating: 5,
@@ -157,7 +167,7 @@ export const trustBadges: TrustBadge[] = [
       profit: "₹28,000",
       time: "2 months",
       quoteHeadline: "Good foundation, but you need patience",
-      quoteBody: "The course content is solid and well-structured. I'm only 2 months in so profits are modest. The Q&A sessions are helpful — Sidhant is honest about what works and what doesn't.",
+      quoteBody: "The course content is solid and well-structured. I'm only 2 months in so profits are modest. The monthly Q&A sessions are helpful — honest about what works and what doesn't.",
       highlight: "Still working through advanced modules",
       rating: 4,
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-7.jpg",
@@ -186,8 +196,8 @@ export const trustBadges: TrustBadge[] = [
       age: "34",
       profit: "₹2.9 Lakhs",
       time: "5 months",
-      quoteHeadline: "The technical depth surprised me — not a typical 'crypto bro' course",
-      quoteBody: "As a CA, I appreciated the analytical rigor. Position sizing, risk-reward ratios, trade journaling — this is how professionals approach markets.",
+      quoteHeadline: "The technical depth surprised me -not a typical 'crypto bro' course",
+      quoteBody: "As a CA, I appreciated the analytical rigor. Position sizing, risk-reward ratios, trade journaling -this is how professionals approach markets.",
       highlight: "Avg risk-reward: 2.1:1",
       rating: 5,
       image: "https://d2j3cl693ttatt.cloudfront.net/assets/images/student-9.jpg",
@@ -212,33 +222,33 @@ export const trustBadges: TrustBadge[] = [
   ];
 
 export const uniqueMechanismData = {
-    headline: "The 2-Hour Skillstack (7–9 PM)",
-    subheadline: "",
+    headline: "Crypto Mastery",
+    subheadline: "The complete execution framework for the trader who's done winging it.",
     features: [
         {
             letter: "1",
-            title: "Define risk first",
-            description: "Invalidation and position size set before entry"
+            title: "See the Market the Way Institutions Do",
+            description: "Before you place a trade, you need to see what the market is actually respecting — not what looks good on a 5-minute chart. You'll master Support/Resistance, Daily/Weekly Naked Levels, VWAP, Fibonacci, and Moving Averages the way professionals use them. Not theory. Precision."
         },
         {
             letter: "2",
-            title: "Scan with checklist",
-            description: "Shortlist 3–5 clean setups"
+            title: "Find the Setups Worth Your Capital",
+            description: "Most traders take 20 trades when they should take 3. You'll learn Top-Down Analysis, proven chart patterns, and the Fixed Range Tool to filter noise and identify only the levels where price actually reacts before it moves."
         },
         {
             letter: "3",
-            title: "Plan entries/exits",
-            description: "Rules for partials and stops, not gut feel"
+            title: "Stack Confluence Until the Trade Has No Argument",
+            description: "One signal is a guess. Five aligned signals is a system. You'll learn VMC indicator confluence, Divergence Reversals, the SuperPattern Strategy, and the Structure Failure Pattern — the setup that works across scalping, day trading, and swings."
         },
         {
             letter: "4",
-            title: "Execute with alerts",
-            description: "Place orders; manage by exception"
+            title: "Execute Like the Market Owes You Nothing",
+            description: "Knowing what to trade is only half the war. You'll learn to use exchanges with professional-grade precision and build the psychological framework that keeps you from destroying good setups with bad decisions."
         },
         {
             letter: "5",
-            title: "Review & journal",
-            description: "Weekly refinement tightens the system"
+            title: "The Edge That Compounds Over Time",
+            description: "A Pro Trading Checklist that eliminates second-guessing before every trade. The Top 5 tools that serious traders use and most beginners never find. This is where the system becomes a habit."
         }
     ],
     proof: ""
@@ -246,28 +256,44 @@ export const uniqueMechanismData = {
 
 export const faqs: FaqItem[] = [
     {
-        q: "Live or recorded?",
+        q: "Is this live or recorded?",
         a: "Recorded program + one monthly live Q&A (recordings provided). Learn at your pace, then join live sessions for doubt-solving and trade reviews."
     },
     {
-        q: "Legal in India?",
-        a: "Trading on compliant platforms is permitted. Education only; no tips. We teach methods and risk control, not specific token recommendations."
+        q: "Is crypto trading legal in India?",
+        a: "Yes — buying, selling, and holding crypto is legal in India. Crypto is classified as a Virtual Digital Asset (VDA) under the Income Tax Act but is not legal tender. All compliant exchanges must be registered with FIU-IND under PMLA. We teach methods and risk control, not specific token recommendations."
     },
     {
-        q: "Taxes basics?",
-        a: "We include a beginner primer + CA resources. Generally 30% tax + 1% TDS on transactions above ₹10,000. Consult a tax professional."
+        q: "What about crypto taxes in India?",
+        a: "Key rules as of 2026: (1) 30% flat tax on all VDA gains — no deductions except cost of acquisition. (2) 1% TDS on sell transactions above ₹50,000 per financial year. (3) 18% GST on platform trading/service fees (applicable from July 2025). (4) Losses from crypto cannot be set off against other income or carried forward. Budget 2026-27 kept these rates unchanged. Consult a CA for your specific situation."
     },
     {
-        q: "Exchange risk/self-custody?",
+        q: "What about exchange risk and self-custody?",
         a: "Counterparty risk exists; we include a self-custody primer & risk checklist. Learn to minimize exchange exposure and protect your assets properly."
     },
     {
-        q: "Mobile vs laptop?",
+        q: "Can I do this on my phone or do I need a laptop?",
         a: "Both taught; laptop preferred for analysis. Many students trade successfully on mobile. We cover apps and tools for both platforms."
     },
     {
-        q: "If I miss the live Q&A?",
+        q: "What if I miss a live Q&A session?",
         a: "Recording + written summary provided. All live sessions are recorded so you never miss important insights or trade reviews."
+    },
+    {
+        q: "How much capital do I need to start trading?",
+        a: "The program teaches position sizing and risk management — you decide your own capital. Many students start small while learning the system and scale up as they gain confidence. The focus is on the process, not the amount."
+    },
+    {
+        q: "I'm a complete beginner — will I be able to follow along?",
+        a: "Yes. The program starts from zero and assumes no prior crypto experience. Our students include doctors, CAs, software engineers, government employees, and marketing managers. What matters is that you can dedicate 2 hours in the evening and follow a checklist."
+    },
+    {
+        q: "What's the actual daily time commitment?",
+        a: "The system is built around a 2-hour evening routine (7–9 PM). You scan with a checklist, plan entries and exits, set alerts, and journal. It's designed for working professionals who can't watch charts all day."
+    },
+    {
+        q: "Is there a refund policy?",
+        a: "Yes. We have a published refund policy — review it before enrolling at twsgurukul.com/refunds. We want committed students, not trapped ones."
     }
 ];
 
@@ -300,8 +326,8 @@ export const heroData: HeroData = {
     ],
     video: {
         thumbnail: "https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg",
-        title: "Uncut trade review: ₹2.3L example",
-        subtitle: "Watch how we analyze winning trades"
+        title: "Program Overview",
+        subtitle: "See what's inside the curriculum"
     },
     badges: {
         top: "INSTANT ACCESS",

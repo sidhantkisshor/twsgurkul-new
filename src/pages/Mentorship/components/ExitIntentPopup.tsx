@@ -1,77 +1,101 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Download } from 'lucide-react';
+import { X, MessageCircle } from 'lucide-react';
+import { useFocusTrap } from '../../../hooks/useFocusTrap';
+import { WHATSAPP_NUMBER } from '../../../constants';
 
-const ExitIntentPopup: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(true);
+interface ExitIntentPopupProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
-  const handleClose = () => {
-    setIsVisible(false);
-  };
+const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) => {
+  const focusTrapRef = useFocusTrap(isOpen);
 
-  const handleDownload = () => {
+  // Escape key handler
+  useEffect(() => {
+    if (!isOpen) return;
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [isOpen, onClose]);
+
+  const handleWhatsApp = () => {
     window.open(
-      'https://wa.me/919220592205?text=Hi%2C%20send%20me%20the%208%20PM%20checklist',
+      `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20have%20a%20question%20about%20the%20ETM%20Mentorship%20program`,
       '_blank'
     );
-    setIsVisible(false);
+    onClose();
   };
-
-  if (!isVisible) return null;
 
   return (
     <AnimatePresence>
-      <motion.div
-        className="fixed inset-0 bg-black/80 backdrop-blur-xs flex items-center justify-center z-50 p-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        onClick={handleClose}
-      >
+      {isOpen && (
         <motion.div
-          className="bg-deep-slate rounded-2xl p-8 max-w-lg w-full relative border border-soft-sand/10"
-          initial={{ scale: 0.8, y: 20 }}
-          animate={{ scale: 1, y: 0 }}
-          exit={{ scale: 0.8, y: 20 }}
-          onClick={(e) => e.stopPropagation()}
+          ref={focusTrapRef}
+          className="fixed inset-0 bg-black/80 backdrop-blur-xs flex items-start sm:items-center justify-center z-50 p-3 sm:p-4 overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Have questions?"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
         >
-          <button
-            onClick={handleClose}
-            className="absolute top-4 right-4 text-soft-sand/60 hover:text-white transition-colors z-10"
-            aria-label="Close popup"
+          <motion.div
+            className="bg-deep-slate rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-md w-full relative border border-soft-sand/10 my-auto mt-12 sm:mt-auto"
+            onClick={(e) => e.stopPropagation()}
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            transition={{ type: "spring", damping: 25 }}
           >
-            <X size={24} />
-          </button>
+            <button
+              onClick={onClose}
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 hover:bg-soft-sand/10 rounded-lg transition-colors z-10"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5 text-soft-sand/50 hover:text-white" />
+            </button>
 
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-wealth-teal/20 rounded-full mb-4">
-              <Download className="text-wealth-teal" size={32} />
+            <div className="flex justify-center mb-6">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366]/10 rounded-full flex items-center justify-center">
+                <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-[#25D366]" />
+              </div>
             </div>
 
-            <h3 className="text-3xl font-semibold mb-4 text-white">
-              Before You Go — Free Download
-            </h3>
+            <div className="text-center space-y-4 relative z-10">
+              <h2 className="text-xl sm:text-2xl leading-tight">
+                <span className="font-sans font-bold text-white">Before you go — </span>
+                <span className="font-serif italic font-normal text-burnt-amber">talk to our team?</span>
+              </h2>
 
-            <p className="text-xl text-soft-sand mb-6">
-              Get the 8 PM Trading Checklist our students use every session. Free. No signup.
-            </p>
+              <p className="text-base text-soft-sand/80">
+                Have questions about the mentorship, curriculum, or whether it's right for you? Our support team is happy to help on WhatsApp.
+              </p>
 
-            <button
-              onClick={handleDownload}
-              className="w-full py-4 bg-burnt-amber text-white font-semibold rounded-full hover:bg-burnt-amber/90 transition-all transform hover:scale-105 mb-4"
-            >
-              Send to My WhatsApp
-            </button>
+              <div className="space-y-3 pt-2">
+                <motion.button
+                  onClick={handleWhatsApp}
+                  className="w-full py-4 bg-[#25D366] text-white hover:bg-[#1DA851] font-bold rounded-lg shadow-lg hover:shadow-xl transition-all text-base sm:text-lg inline-flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Chat with our team
+                </motion.button>
 
-            <button
-              onClick={handleClose}
-              className="text-sm text-soft-sand/60 hover:text-white transition-colors"
-            >
-              No thanks
-            </button>
-          </div>
+                <button
+                  onClick={onClose}
+                  className="w-full py-2 text-sm text-soft-sand/60 hover:text-white transition-colors"
+                >
+                  No thanks, I'll keep reading
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </AnimatePresence>
   );
 };

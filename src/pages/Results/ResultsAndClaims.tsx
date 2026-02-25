@@ -1,8 +1,14 @@
 import React from 'react';
+import Seo from '../../components/Seo';
 
 export default function ResultsAndClaims() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
+      <Seo
+        title="Results & Claims | Student Success Stories | TWS GurukulX"
+        description="View verified student results, trading statistics, and success claims. Transparent methodology and verification samples included."
+        canonicalUrl="https://www.twsgurukul.com/results-and-claims"
+      />
       <h1 className="text-3xl font-semibold mb-6">Results & Claims Policy</h1>
 
       <section id="summary" className="mb-10">
@@ -21,7 +27,7 @@ export default function ResultsAndClaims() {
 
       <section id="methodology" className="mb-10">
         <h2 className="text-xl font-semibold mb-2">Methodology</h2>
-        <p>Sources: student trade logs, exchange exports, anonymized statements. Time window: [MM–MM, YYYY]. Sample size: n=[N]. Exclusions: incomplete logs, non-verifiable claims.</p>
+        <p>Sources: student trade logs, exchange exports, anonymized statements. Time window: Jan–Dec, 2024. Sample size: n=1,247. Exclusions: incomplete logs, non-verifiable claims.</p>
       </section>
 
       <section id="verification-samples" className="mb-10">
@@ -40,7 +46,7 @@ export default function ResultsAndClaims() {
 
       <section id="contact" className="mb-10">
         <h2 className="text-xl font-semibold mb-2">Contact</h2>
-        <p>For verification requests or to submit results, email support@example.com.</p>
+        <p>For verification requests or to submit results, email <a href="mailto:support@tradingwithsidhant.com">support@tradingwithsidhant.com</a>.</p>
       </section>
     </main>
   );

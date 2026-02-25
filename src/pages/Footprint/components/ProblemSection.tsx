@@ -4,7 +4,7 @@ import { comparisonData } from '../data';
 
 const ProblemSection: React.FC = () => {
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-[#3A4449]">
+    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#1A2226]">
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12"
@@ -13,7 +13,8 @@ const ProblemSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#EDE6D8]">
-            The <span className="text-[#C87533]">TWS Difference</span>
+            <span className="font-sans font-bold">The </span>
+            <span className="font-serif italic font-normal text-[#C87533]">TWS Difference</span>
           </h2>
           <p className="text-lg text-[#B8A99A]">
             See how <span className="text-[#C87533]">Footprint</span> Mastery transforms your trading approach
@@ -23,7 +24,7 @@ const ProblemSection: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Before column */}
           <motion.div
-            className="bg-[#2C3539]/60 backdrop-blur-sm border border-[#E5484D]/20 rounded-xl p-6 sm:p-8"
+            className="bg-[#2C3539]/50 border border-[#E5484D]/20 rounded-xl p-6 sm:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -35,8 +36,8 @@ const ProblemSection: React.FC = () => {
             <ul className="space-y-3">
               {comparisonData.regularTrading.points.map((point, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <span className="text-[#E5484D] mt-1">✗</span>
-                  <span className="text-[#B8A99A]">{point}</span>
+                  <span className="text-[#F87171] mt-1">✗</span>
+                  <span className="text-[#B8A99A] leading-relaxed">{point}</span>
                 </li>
               ))}
             </ul>
@@ -44,7 +45,7 @@ const ProblemSection: React.FC = () => {
 
           {/* After column */}
           <motion.div
-            className="bg-[#2C3539]/60 backdrop-blur-sm border border-[#0A8D7A]/20 rounded-xl p-6 sm:p-8"
+            className="bg-[#2C3539]/50 border border-[#0A8D7A]/20 rounded-xl p-6 sm:p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -56,8 +57,8 @@ const ProblemSection: React.FC = () => {
             <ul className="space-y-3">
               {comparisonData.footprintTrading.points.map((point, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <span className="text-[#0A8D7A] mt-1">✓</span>
-                  <span className="text-[#B8A99A]">{point}</span>
+                  <span className="text-[#2DBDA8] mt-1">✓</span>
+                  <span className="text-[#B8A99A] leading-relaxed">{point}</span>
                 </li>
               ))}
             </ul>
@@ -71,7 +72,7 @@ const ProblemSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <p className="text-base text-[#B8956A] font-medium italic">
-            "Footprint se pehle samjho kaun absorb kar raha hai, phir enter karo."
+            "Understand who's absorbing on the footprint first, then enter the trade."
           </p>
         </motion.div>
       </div>

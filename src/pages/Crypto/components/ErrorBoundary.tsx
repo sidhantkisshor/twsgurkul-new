@@ -29,7 +29,7 @@ class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="flex flex-col items-center justify-center h-screen bg-[#FAF8F5] text-[#2C3539]">
             <h1 className="text-2xl font-bold text-[#E5484D] mb-4">Something went wrong.</h1>
-            <p className="text-[#111111]/60">We're sorry for the inconvenience. Please try refreshing the page.</p>
+            <p className="text-[#2C3539]/70">We're sorry for the inconvenience. Please try refreshing the page.</p>
         </div>
       );
     }

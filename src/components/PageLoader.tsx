@@ -17,7 +17,7 @@ const PageLoader: React.FC = () => {
         
         {/* Optional: Add brand name */}
         <p className="text-gray-600 text-sm mt-2">
-          TWS Gurukul
+          TWS GurukulX
         </p>
       </div>
     </div>

@@ -28,7 +28,7 @@ export default {
       },
       fontFamily: {
         sans: ['Satoshi', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['Instrument Serif', 'Georgia', 'serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       keyframes: {
         fadeIn: {

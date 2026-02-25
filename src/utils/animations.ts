@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, RefObject } from 'react';
+import { useEffect, useRef, useState, RefObject, useCallback } from 'react';
 
 /**
  * Custom hook for intersection observer with animation triggers
@@ -6,31 +6,31 @@ import { useEffect, useRef, useState, RefObject } from 'react';
 export const useIntersectionAnimation = (
   threshold = 0.1,
   rootMargin = '0px'
-): [RefObject<HTMLDivElement>, boolean] => {
-  const ref = useRef<HTMLDivElement>(null);
+): [RefObject<HTMLElement>, boolean] => {
+  const ref = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const currentRef = ref.current;
+    if (!currentRef) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
+        if (entry.isIntersecting) {
           setIsVisible(true);
+          // Once visible, no need to keep observing
+          observer.disconnect();
         }
       },
       { threshold, rootMargin }
     );
 
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    observer.observe(currentRef);
 
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [isVisible, threshold, rootMargin]);
+    return () => observer.disconnect();
+  // threshold and rootMargin are the only external deps; isVisible is NOT
+  // a dep — using disconnect() eliminates the stale-closure risk entirely.
+  }, [threshold, rootMargin]);
 
   return [ref, isVisible];
 };
@@ -98,8 +98,6 @@ export const useCounterAnimation = (
 
     const steps = 60;
     const interval = duration / steps;
-    const increment = endValue / steps;
-    
     let currentStep = 0;
     const timer = setInterval(() => {
       currentStep++;
@@ -121,19 +119,25 @@ export const useCounterAnimation = (
 };
 
 /**
- * Parallax scroll effect hook
+ * Parallax scroll effect hook — throttled to one update per animation frame.
  */
 export const useParallaxScroll = (speed: number = 0.5) => {
   const [offset, setOffset] = useState(0);
+  const ticking = useRef(false);
+
+  const handleScroll = useCallback(() => {
+    if (ticking.current) return;
+    ticking.current = true;
+    requestAnimationFrame(() => {
+      setOffset(window.pageYOffset * speed);
+      ticking.current = false;
+    });
+  }, [speed]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setOffset(window.pageYOffset * speed);
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [speed]);
+  }, [handleScroll]);
 
   return offset;
 };

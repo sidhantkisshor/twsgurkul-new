@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, CheckCircle, ExternalLink, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
+import InlineCTA from './InlineCTA';
 
 const TestimonialsSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showProofModal, setShowProofModal] = useState(false);
-  const [selectedProof, setSelectedProof] = useState<string | null>(null);
-
   const testimonials = [
     {
       name: "Divya",
@@ -18,7 +16,6 @@ const TestimonialsSection: React.FC = () => {
         "Indicators to order flow and footprint",
         "Featured in 'Trading Queens of India'"
       ],
-      proofImage: "/proof-divya-blurred.jpg" // Placeholder path
     },
     {
       name: "Vikram",
@@ -30,7 +27,6 @@ const TestimonialsSection: React.FC = () => {
         "Consistency score: 52 → 83",
         "Wife manages his trade journal now"
       ],
-      proofImage: "/proof-vikram-blurred.jpg" // Placeholder path
     },
     {
       name: "Mohammed",
@@ -42,7 +38,39 @@ const TestimonialsSection: React.FC = () => {
         "Now runs a small family account",
         "Mentors 2 new students on journaling"
       ],
-      proofImage: "/proof-mohammed-blurred.jpg" // Placeholder path
+    },
+    {
+      name: "Priya",
+      location: "Chennai",
+      tag: "CA student · Started with ₹25k",
+      quote: "I was studying for CA and trading on the side with zero discipline. Random entries, no journal, no stop loss. The 8 PM routine gave me structure. Now I journal every trade and my win rate went from 30% to 65%.",
+      facts: [
+        "Win rate improved from 30% to 65%",
+        "Trades only during the 8 PM window",
+        "First green month within 6 weeks"
+      ],
+    },
+    {
+      name: "Amit",
+      location: "Nagpur",
+      tag: "Pharma sales rep · Started with ₹30k",
+      quote: "Telegram groups took ₹1.5 lakh from me in 4 months. I was done with trading. My friend dragged me to the live room. Seeing the coach take a loss and explain why was the moment everything changed for me.",
+      facts: [
+        "Recovered losses within 4 months",
+        "Stopped following Telegram tips completely",
+        "Now trades independently using the system"
+      ],
+    },
+    {
+      name: "Sneha",
+      location: "Lucknow",
+      tag: "School teacher · Started with ₹15k",
+      quote: "Mujhe lagta tha trading sirf rich logo ke liye hai. ₹15k se shuru kiya. Coach ne position sizing sikhayi. 3 months mein school salary se zyada profit hua. Ab husband bhi join kar rahe hain.",
+      facts: [
+        "Started with just ₹15k capital",
+        "Exceeded monthly salary from trading profits",
+        "Husband enrolling for next cohort"
+      ],
     }
   ];
 
@@ -54,83 +82,90 @@ const TestimonialsSection: React.FC = () => {
     setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      handlePrev();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      handleNext();
+    }
+  };
+
   return (
-    <section id="testimonials" className="py-32 relative overflow-hidden bg-warm-white">
+    <section id="testimonials" className="py-20 lg:py-28 relative overflow-hidden bg-deep-slate">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <motion.div 
-            className="text-center mb-24"
+            className="text-center mb-10 lg:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-slate mb-6">
-              They Were Where You Are
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-white mb-6">
+              They Were Where <span className="font-serif italic font-normal text-burnt-amber">You</span> Are
             </h2>
-            <p className="text-lg text-deep-slate/70 max-w-3xl mx-auto font-normal">
+            <p className="text-lg text-soft-sand/70 max-w-3xl mx-auto font-normal">
               Some started with ₹10k. Some had zero experience. All of them stuck to the 8 PM routine.
             </p>
           </motion.div>
 
           {/* Testimonial Carousel */}
-          <div className="max-w-5xl mx-auto relative">
+          <div
+            className="max-w-5xl mx-auto relative"
+            role="group"
+            aria-roledescription="carousel"
+            aria-label={`Testimonial ${activeIndex + 1} of ${testimonials.length} — use arrow keys to navigate`}
+            tabIndex={0}
+            onKeyDown={handleKeyDown}
+          >
             <motion.div
               key={activeIndex}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="grid md:grid-cols-2 gap-12 items-start"
+              className="grid md:grid-cols-2 gap-6 md:gap-8 items-start"
             >
               {/* Quote Card */}
-              <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xs border border-deep-slate/10">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-white/10">
                 <div className="flex items-start gap-4 mb-6">
                   <div>
-                    <h3 className="text-xl font-medium text-deep-slate">
+                    <h3 className="text-xl font-medium text-white">
                       {testimonials[activeIndex].name}, {testimonials[activeIndex].location}
                     </h3>
-                    <p className="text-sm text-deep-slate/60">
+                    <p className="text-sm text-soft-sand/60">
                       {testimonials[activeIndex].tag}
                     </p>
                   </div>
                 </div>
                 
-                <blockquote className="text-lg text-deep-slate font-normal leading-relaxed mb-6">
+                <blockquote className="text-lg text-soft-sand font-normal leading-relaxed mb-8">
                   "{testimonials[activeIndex].quote}"
                 </blockquote>
-                
-                {/* View proof link */}
-                <button
-                  onClick={() => {
-                    setSelectedProof(testimonials[activeIndex].proofImage);
-                    setShowProofModal(true);
-                  }}
-                  className="text-sm text-deep-slate/60 hover:text-deep-slate underline inline-flex items-center gap-1 mb-8 transition-colors"
-                >
-                  <ExternalLink className="w-3 h-3" />
-                  View proof
-                </button>
 
                 {/* Navigation dots */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-0">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setActiveIndex(index)}
-                      className={`transition-all duration-300 ${
-                        index === activeIndex
-                          ? 'w-8 h-2 bg-deep-slate rounded-full'
-                          : 'w-2 h-2 bg-deep-slate/20 rounded-full hover:bg-deep-slate/40'
-                      }`}
+                      className="flex items-center justify-center w-11 h-11 -mx-1"
                       aria-label={`Go to testimonial ${index + 1}`}
-                    />
+                    >
+                      <span className={`transition-all duration-300 rounded-full inline-block ${
+                        index === activeIndex
+                          ? 'w-8 h-2 bg-white'
+                          : 'w-2 h-2 bg-white/20 hover:bg-white/40'
+                      }`} />
+                    </button>
                   ))}
                 </div>
               </div>
 
               {/* Quick Facts Card */}
-              <div className="bg-deep-slate text-white rounded-3xl p-8 sm:p-12">
+              <div className="bg-white/8 border border-white/10 text-white rounded-3xl p-8 sm:p-12">
                 <h4 className="text-sm uppercase tracking-wider mb-6 text-soft-sand/60">
                   Quick facts
                 </h4>
@@ -153,30 +188,46 @@ const TestimonialsSection: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Navigation Arrows */}
-            <div className="absolute top-1/2 -translate-y-1/2 -left-4 sm:-left-12">
+            {/* Navigation Arrows - mobile: below cards, desktop: absolute sides */}
+            <div className="flex items-center justify-center gap-4 mt-6 md:hidden">
               <button
                 onClick={handlePrev}
-                className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
+                className="p-3 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft className="w-5 h-5 text-deep-slate" />
+                <ChevronLeft className="w-5 h-5 text-white" />
               </button>
-            </div>
-            <div className="absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-12">
               <button
                 onClick={handleNext}
-                className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
+                className="p-3 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="w-5 h-5 text-deep-slate" />
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+            </div>
+            <div className="hidden md:block absolute top-1/2 -translate-y-1/2 -left-12">
+              <button
+                onClick={handlePrev}
+                className="p-3 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition-colors"
+                aria-label="Previous testimonial"
+              >
+                <ChevronLeft className="w-5 h-5 text-white" />
+              </button>
+            </div>
+            <div className="hidden md:block absolute top-1/2 -translate-y-1/2 -right-12">
+              <button
+                onClick={handleNext}
+                className="p-3 rounded-full bg-white/10 border border-white/10 hover:bg-white/20 transition-colors"
+                aria-label="Next testimonial"
+              >
+                <ChevronRight className="w-5 h-5 text-white" />
               </button>
             </div>
           </div>
 
           {/* Case Study Stripe */}
           <motion.div
-            className="mt-16 bg-deep-slate text-white rounded-3xl p-8"
+            className="mt-16 bg-burnt-amber/20 border border-burnt-amber/30 text-white rounded-3xl p-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -195,73 +246,14 @@ const TestimonialsSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <p className="text-sm text-deep-slate/60 max-w-2xl mx-auto">
+            <p className="text-sm text-soft-sand/70 max-w-2xl mx-auto">
               Individual experiences. No assured returns. Skill and discipline decide outcomes.
             </p>
           </motion.div>
+
+          <InlineCTA text="Join them at 8 PM tonight" variant="dark" />
         </div>
       </div>
-      
-      {/* Proof Modal */}
-      <AnimatePresence>
-        {showProofModal && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {/* Backdrop */}
-            <motion.div
-              className="absolute inset-0 bg-black/70"
-              onClick={() => setShowProofModal(false)}
-            />
-            
-            {/* Modal Content */}
-            <motion.div
-              className="relative bg-white rounded-3xl p-8 max-w-2xl w-full shadow-2xl"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", duration: 0.5 }}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setShowProofModal(false)}
-                className="absolute top-4 right-4 p-2 text-deep-slate/40 hover:text-deep-slate/60 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              
-              {/* Modal Header */}
-              <h3 className="text-2xl font-semibold text-deep-slate mb-6">
-                Performance Verification
-              </h3>
-              
-              {/* Placeholder for proof image */}
-              <div className="bg-soft-sand/30 rounded-2xl p-12 mb-6">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-soft-sand/50 rounded-lg flex items-center justify-center">
-                    <p className="text-deep-slate/60 text-sm">
-                      P&L Statement<br/>
-                      (Numbers blurred for privacy)
-                    </p>
-                  </div>
-                  <p className="text-xs text-deep-slate/60">
-                    Verified by independent CA firm<br/>
-                    Letter available upon enrollment
-                  </p>
-                </div>
-              </div>
-              
-              {/* Disclaimer */}
-              <p className="text-xs text-deep-slate/60 text-center">
-                Past performance does not guarantee future results. Results vary based on individual skill, capital, and market conditions.
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
