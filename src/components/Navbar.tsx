@@ -39,7 +39,7 @@ const Navbar = () => {
     { name: 'Crypto', href: '/crypto' },
     { name: 'Footprint', href: '/footprint' },
     { name: 'ETM', href: '/mentorship' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Blog', href: 'https://blogs.twsgurukul.com', external: true },
   ];
 
   const isActive = (href: string) => {
@@ -78,24 +78,36 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1 xl:gap-1.5">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-                className={`relative text-sm font-medium font-sans px-3.5 py-2 rounded-full transition-all duration-300 ${
-                  isActive(item.href)
-                    ? 'text-white bg-soft-sand/[0.08]'
-                    : 'text-soft-sand/70 hover:text-soft-sand/90 hover:bg-soft-sand/[0.04]'
-                }`}
-              >
-                {item.name}
-                {/* Active indicator — warm amber glow dot */}
-                {isActive(item.href) && (
-                  <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-burnt-amber shadow-[0_0_6px_rgba(200,117,51,0.6)]" />
-                )}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const classes = `relative text-sm font-medium font-sans px-3.5 py-2 rounded-full transition-all duration-300 ${
+                isActive(item.href)
+                  ? 'text-white bg-soft-sand/[0.08]'
+                  : 'text-soft-sand/70 hover:text-soft-sand/90 hover:bg-soft-sand/[0.04]'
+              }`;
+              return item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={classes}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  className={classes}
+                >
+                  {item.name}
+                  {isActive(item.href) && (
+                    <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-burnt-amber shadow-[0_0_6px_rgba(200,117,51,0.6)]" />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Desktop CTA */}
@@ -145,32 +157,53 @@ const Navbar = () => {
           >
             {/* Nav Items */}
             <div className="p-2">
-              {navItems.map((item, index) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  aria-current={isActive(item.href) ? 'page' : undefined}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
-                    isActive(item.href)
-                      ? 'bg-burnt-amber/[0.08] text-white'
-                      : 'text-soft-sand/60 hover:text-white hover:bg-soft-sand/[0.04]'
-                  }`}
-                  style={{
-                    animationDelay: `${index * 60}ms`,
-                    animation: 'slideUp 0.3s ease-out forwards',
-                    opacity: 0,
-                  }}
-                >
-                  <span className="text-[15px] font-medium font-sans">{item.name}</span>
-                  <div className="flex items-center gap-2">
-                    {isActive(item.href) && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-burnt-amber shadow-[0_0_6px_rgba(200,117,51,0.5)]" />
-                    )}
-                    <ArrowRight className="w-4 h-4 opacity-30" />
-                  </div>
-                </Link>
-              ))}
+              {navItems.map((item, index) => {
+                const mobileClasses = `flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
+                  isActive(item.href)
+                    ? 'bg-burnt-amber/[0.08] text-white'
+                    : 'text-soft-sand/60 hover:text-white hover:bg-soft-sand/[0.04]'
+                }`;
+                const mobileStyle = {
+                  animationDelay: `${index * 60}ms`,
+                  animation: 'slideUp 0.3s ease-out forwards',
+                  opacity: 0 as const,
+                };
+                const mobileContent = (
+                  <>
+                    <span className="text-[15px] font-medium font-sans">{item.name}</span>
+                    <div className="flex items-center gap-2">
+                      {isActive(item.href) && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-burnt-amber shadow-[0_0_6px_rgba(200,117,51,0.5)]" />
+                      )}
+                      <ArrowRight className="w-4 h-4 opacity-30" />
+                    </div>
+                  </>
+                );
+                return item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={mobileClasses}
+                    style={mobileStyle}
+                  >
+                    {mobileContent}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={mobileClasses}
+                    style={mobileStyle}
+                  >
+                    {mobileContent}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Divider */}
