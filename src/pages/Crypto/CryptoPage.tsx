@@ -4,32 +4,37 @@ import JsonLd, { cryptoCourseSchema, buildBreadcrumbSchema, buildVideoSchema } f
 import QuizWelcomeBanner from '../../components/QuizWelcomeBanner';
 import './styles/crypto.css'; // consolidated: tokens + design system + hero + components
 
-// Core components loaded immediately
+// Above-fold: render synchronously so the LCP section is never gated on a chunk fetch.
 import ErrorBoundary from './components/ErrorBoundary';
 import HeaderMinimal from './components/HeaderMinimal';
 import HeroSectionReimagined from './components/HeroSectionReimagined';
+import TargetingSection from './components/TargetingSection';
 import ProblemSection from './components/ProblemSection';
 import UniqueMechanismSection from './components/UniqueMechanismSection';
 import InstructorSectionSimplified from './components/InstructorSectionSimplified';
-import TestimonialsSection from './components/TestimonialsSection';
-import PricingSection from './components/PricingSection';
 import CryptoGuaranteeSection from './components/CryptoGuaranteeSection';
-import FinalCtaSection from './components/FinalCtaSection';
-import ExitIntentPopup from './components/ExitIntentPopup';
-import MethodologyModal from './components/MethodologyModal';
-import JournalPreview from './components/JournalPreview';
+
+// Floating / always-mounted: small, low cost.
 import ReturningUserCheckout from './components/ReturningUserCheckout';
-import VideoSection from './components/VideoSection';
-import Footer from './components/Footer';
-import TargetingSection from './components/TargetingSection';
-import ObjectionKiller from './components/ObjectionKiller';
 import WhatsAppButton from './components/WhatsAppButton';
-import RawProofSection from './components/RawProofSection';
 import ScrollDepthStickyBar from './components/ScrollDepthStickyBar';
 
-// Lazy load secondary components for performance
+// Below-fold: lazy-load to cut the initial chunk. Each has a fixed-height
+// fallback to reserve layout space and prevent CLS as sections hydrate.
 const TrustBadgesBar = lazy(() => import('./components/TrustBadgesBar'));
+const TestimonialsSection = lazy(() => import('./components/TestimonialsSection'));
+const RawProofSection = lazy(() => import('./components/RawProofSection'));
+const VideoSection = lazy(() => import('./components/VideoSection'));
+const JournalPreview = lazy(() => import('./components/JournalPreview'));
+const ObjectionKiller = lazy(() => import('./components/ObjectionKiller'));
 const FAQ = lazy(() => import('./components/FAQ'));
+const PricingSection = lazy(() => import('./components/PricingSection'));
+const FinalCtaSection = lazy(() => import('./components/FinalCtaSection'));
+const Footer = lazy(() => import('./components/Footer'));
+
+// Modals / popups: load only when opened.
+const ExitIntentPopup = lazy(() => import('./components/ExitIntentPopup'));
+const MethodologyModal = lazy(() => import('./components/MethodologyModal'));
 
 // Hooks
 import { useExitIntent } from './hooks/useExitIntent';
@@ -60,14 +65,14 @@ function CryptoPage() {
         <Seo
           title="Crypto Mastery | TWS GurukulX"
           description="A recorded program with monthly live Q&A to learn systematic crypto trading with risk management at the core."
-          canonicalUrl="https://www.twsgurukul.com/crypto"
-          ogImage="https://www.twsgurukul.com/og-image.jpg"
+          canonicalUrl="https://www.twsgurukulx.com/crypto"
+          ogImage="https://www.twsgurukulx.com/og-image.jpg"
         />
         <JsonLd data={[
           cryptoCourseSchema,
           buildBreadcrumbSchema([
-            { name: 'Home', url: 'https://www.twsgurukul.com/' },
-            { name: 'Crypto Mastery', url: 'https://www.twsgurukul.com/crypto' },
+            { name: 'Home', url: 'https://www.twsgurukulx.com/' },
+            { name: 'Crypto Mastery', url: 'https://www.twsgurukulx.com/crypto' },
           ]),
           buildVideoSchema({
             name: 'Crypto Mastery - Trade Review Walkthrough',
@@ -113,56 +118,79 @@ function CryptoPage() {
 
           <InstructorSectionSimplified />
 
-          <TestimonialsSection
-            onMethodologyClick={() => setShowMethodologyModal(true)}
-          />
+          <Suspense fallback={<div className="min-h-[600px]" />}>
+            <TestimonialsSection
+              onMethodologyClick={() => setShowMethodologyModal(true)}
+            />
+          </Suspense>
 
           {/* Raw WhatsApp-style proof from community */}
-          <RawProofSection />
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <RawProofSection />
+          </Suspense>
 
           {/* Video Section */}
-          <VideoSection />
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <VideoSection />
+          </Suspense>
 
           {/* Journal Preview - high intent signal */}
-          <JournalPreview />
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <JournalPreview />
+          </Suspense>
 
           {/* Objection handling + guarantee + FAQ BEFORE pricing */}
-          <ObjectionKiller />
+          <Suspense fallback={<div className="min-h-[600px]" />}>
+            <ObjectionKiller />
+          </Suspense>
 
           <CryptoGuaranteeSection />
 
-          <Suspense fallback={<div className="h-40" />}>
+          <Suspense fallback={<div className="min-h-[400px]" />}>
             <FAQ />
           </Suspense>
 
           {/* Pricing after all objections handled */}
-          <PricingSection onMethodologyClick={() => setShowMethodologyModal(true)} />
+          <Suspense fallback={<div className="min-h-[600px]" />}>
+            <PricingSection onMethodologyClick={() => setShowMethodologyModal(true)} />
+          </Suspense>
 
           {/* Single final CTA */}
-          <FinalCtaSection />
+          <Suspense fallback={<div className="min-h-[300px]" />}>
+            <FinalCtaSection />
+          </Suspense>
         </main>
-        
+
         {/* Footer */}
-        <Footer />
-        
+        <Suspense fallback={<div className="min-h-[300px]" />}>
+          <Footer />
+        </Suspense>
+
         {/* Floating WhatsApp button */}
         <WhatsAppButton />
 
         {/* Scroll-depth sticky bar — cohort urgency + bonus reminder */}
         <ScrollDepthStickyBar />
 
-        {/* Exit intent popup for recovery */}
-        <ExitIntentPopup 
-          isOpen={showExitPopup}
-          onClose={() => setShowExitPopup(false)}
-        />
-        
-        
-        {/* Methodology Modal */}
-        <MethodologyModal 
-          isOpen={showMethodologyModal}
-          onClose={() => setShowMethodologyModal(false)}
-        />
+        {/* Exit intent popup for recovery. Only load the chunk if we need to render it. */}
+        {showExitPopup && (
+          <Suspense fallback={null}>
+            <ExitIntentPopup
+              isOpen={showExitPopup}
+              onClose={() => setShowExitPopup(false)}
+            />
+          </Suspense>
+        )}
+
+        {/* Methodology Modal — load the chunk on first open only. */}
+        {showMethodologyModal && (
+          <Suspense fallback={null}>
+            <MethodologyModal
+              isOpen={showMethodologyModal}
+              onClose={() => setShowMethodologyModal(false)}
+            />
+          </Suspense>
+        )}
       </div>
     </ErrorBoundary>
   );

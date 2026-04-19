@@ -1,27 +1,25 @@
 # TWS GurukulX
 
-> TWS GurukulX (twsgurukul.com) is an India-based trading education platform by Trading With Sidhant LLP. Founded by professional trader Sidhant Kisshor (TEDx Speaker, trading since 2017), we offer structured mentorship programs and courses covering forex, crypto, and Indian stock markets. Our approach combines institutional-grade footprint analysis, rule-based systems, and hands-on mentorship for working professionals.
+> TWS GurukulX (twsgurukulx.com) is an India-based trading education platform by Trading With Sidhant LLP. Founded by professional trader Sidhant Kisshor (TEDx Speaker, trading since 2017), we offer structured mentorship programs and courses covering forex, crypto, and Indian stock markets. Our approach combines institutional-grade footprint analysis, rule-based systems, and hands-on mentorship for working professionals.
 
 ## Programs
 
-- [Elite Trading Mentorship](https://www.twsgurukul.com/mentorship): 1-on-1 mentorship — ₹19,999 for 3 months. Live 8 PM sessions 5 nights/week, 40+ strategy videos, weekly trade reviews. 2,300+ traders trained, 83% complete the full 90 days.
-- [Footprint Mastery](https://www.twsgurukul.com/footprint): Institutional order flow course — ₹32,999 one-time. The F.A.S.T. framework (Find, Assess, Sync, Trade) for reading whale movements and volume clusters. 1,263+ paid learners, 73% reported win rate.
-- [Crypto Mastery](https://www.twsgurukul.com/crypto): Crypto trading system — ₹19,499 one-time. 5-step execution framework for a 2-hour evening routine. Recorded curriculum + monthly live Q&A. 1,263 enrolled, ₹27.2 Cr self-reported student profits.
+- [Elite Trading Mentorship](https://www.twsgurukulx.com/mentorship): 1-on-1 mentorship — ₹19,999 for 3 months. Live 8 PM sessions 5 nights/week, 40+ strategy videos, weekly trade reviews. 2,300+ traders trained, 83% complete the full 90 days.
+- [Footprint Mastery](https://www.twsgurukulx.com/footprint): Institutional order flow course — ₹32,999 one-time. The F.A.S.T. framework (Find, Assess, Sync, Trade) for reading whale movements and volume clusters. 1,263+ paid learners, 73% reported win rate.
+- [Crypto Mastery](https://www.twsgurukulx.com/crypto): Crypto trading system — ₹19,499 one-time. 5-step execution framework for a 2-hour evening routine. Recorded curriculum + monthly live Q&A. 1,263 enrolled, ₹27.2 Cr self-reported student profits.
 
 ## Free Tools
 
-- [Prop Firm Safety Checker](https://www.twsgurukul.com/prop-firm-safety-checker): Free tool to verify if a prop trading firm is legitimate — checks registration, reviews, and red flags.
-- [Trading Style Quiz](https://www.twsgurukul.com/quiz): Find your ideal trading style and get personalized program recommendations.
+- [Prop Firm Safety Checker](https://www.twsgurukulx.com/prop-firm-safety-checker): Free tool to verify if a prop trading firm is legitimate — checks registration, reviews, and red flags.
+- [Trading Style Quiz](https://www.twsgurukulx.com/quiz): Find your ideal trading style and get personalized program recommendations.
 
 ## Results
 
-- [Results & Claims](https://www.twsgurukul.com/results-and-claims): Verified trading results, student testimonials, and performance claims with full transparency.
+- [Results & Claims](https://www.twsgurukulx.com/results-and-claims): Verified trading results, student testimonials, and performance claims with full transparency.
 
 ## Blog
 
-- [Blog](https://www.twsgurukul.com/blog): Trading insights, market analysis, and educational content.
-- [How to Automate Your Zerodha Portfolio with AI](https://www.twsgurukul.com/blog/ai-automation-zerodha-portfolio): Guide to transforming your Zerodha account into an AI-powered investment machine.
-- [Bitcoin Trading Sessions Guide](https://www.twsgurukul.com/blog/bitcoin-trading-sessions): Essential guide to trading Bitcoin across global sessions and institutional money flows.
+- [TWS GurukulX Blog](https://blogs.twsgurukulx.com): Trading insights, market analysis, and educational content. The blog lives at its own subdomain with its own sitemap.
 
 ## Contact
 
@@ -30,9 +28,9 @@
 
 ## Optional
 
-- [Full LLM context](https://www.twsgurukul.com/llms-full.txt): Comprehensive site content for deeper AI understanding.
-- [Terms of Service](https://www.twsgurukul.com/terms)
-- [Privacy Policy](https://www.twsgurukul.com/privacy)
-- [Disclaimer](https://www.twsgurukul.com/disclaimer)
-- [Refund Policy](https://www.twsgurukul.com/refunds)
-- [Cookie Policy](https://www.twsgurukul.com/cookies)
+- [Full LLM context](https://www.twsgurukulx.com/llms-full.txt): Comprehensive site content for deeper AI understanding.
+- [Terms of Service](https://www.twsgurukulx.com/terms)
+- [Privacy Policy](https://www.twsgurukulx.com/privacy)
+- [Disclaimer](https://www.twsgurukulx.com/disclaimer)
+- [Refund Policy](https://www.twsgurukulx.com/refunds)
+- [Cookie Policy](https://www.twsgurukulx.com/cookies)

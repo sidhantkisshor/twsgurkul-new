@@ -1,6 +1,6 @@
 # TWS GurukulX — Complete Site Content
 
-> TWS GurukulX (twsgurukul.com) is an India-based trading education platform by Trading With Sidhant LLP. Founded by professional trader Sidhant Kisshor (TEDx Speaker, trading since 2017), we offer structured mentorship programs and courses covering forex, crypto, and Indian stock markets. Our approach combines institutional-grade footprint analysis, rule-based systems, and hands-on mentorship for working professionals.
+> TWS GurukulX (twsgurukulx.com) is an India-based trading education platform by Trading With Sidhant LLP. Founded by professional trader Sidhant Kisshor (TEDx Speaker, trading since 2017), we offer structured mentorship programs and courses covering forex, crypto, and Indian stock markets. Our approach combines institutional-grade footprint analysis, rule-based systems, and hands-on mentorship for working professionals.
 
 ## About
 
@@ -10,13 +10,13 @@ TWS GurukulX teaches traders to move from guesswork to rule-based, systematic tr
 
 **Company:** Trading With Sidhant LLP, India.
 
-**Contact:** WhatsApp +91 8062963333 | Website: twsgurukul.com | Checkout: learn.tradingwithsidhant.com
+**Contact:** WhatsApp +91 8062963333 | Website: twsgurukulx.com | Checkout: learn.tradingwithsidhant.com
 
 ---
 
 ## Program 1: Elite Trading Mentorship
 
-**URL:** https://www.twsgurukul.com/mentorship
+**URL:** https://www.twsgurukulx.com/mentorship
 **Price:** ₹19,999 for 3 months (EMI: ₹1,999/month × 12, no-cost EMI available)
 **Daily cost:** ₹222/day | **GST:** 18% applicable
 **Batch size:** Capped at 50 per batch (coaches review trades personally)
@@ -74,13 +74,13 @@ A: We trade LIVE with real money. You see entries, exits, and risk management in
 A: We teach 0.5–1% risk per trade with proper position sizing. Losses are part of trading, but the system keeps them small and controlled.
 
 **Q: What is the refund policy?**
-A: Full details at twsgurukul.com/refunds. 7-day refund if less than 20% content accessed.
+A: Full details at twsgurukulx.com/refunds. 7-day refund if less than 20% content accessed.
 
 ---
 
 ## Program 2: Footprint Mastery
 
-**URL:** https://www.twsgurukul.com/footprint
+**URL:** https://www.twsgurukulx.com/footprint
 **Price:** ₹32,999 one-time (EMI: ₹2,750/month × 12 = ₹90/day)
 **GST:** 18% applicable
 **Format:** Recorded course + monthly live Q&A + lifetime access
@@ -165,7 +165,7 @@ A: 7-day refund if you've accessed less than 20% of the content.
 
 ## Program 3: Crypto Mastery
 
-**URL:** https://www.twsgurukul.com/crypto
+**URL:** https://www.twsgurukulx.com/crypto
 **Price:** ₹19,499 one-time (EMI: ₹1,625/month × 12)
 **GST:** 18% applicable
 **Format:** 12-week recorded curriculum + monthly live Q&A + lifetime access
@@ -245,7 +245,7 @@ A: Yes. The program starts from zero and assumes no prior crypto experience. Our
 A: The system is built around a 2-hour evening routine (7–9 PM). You scan with a checklist, plan entries and exits, set alerts, and journal. Designed for working professionals who can't watch charts all day.
 
 **Q: Is there a refund policy?**
-A: Yes. We have a published refund policy at twsgurukul.com/refunds. 7-day refund if less than 20% content accessed.
+A: Yes. We have a published refund policy at twsgurukulx.com/refunds. 7-day refund if less than 20% content accessed.
 
 ---
 
@@ -253,13 +253,13 @@ A: Yes. We have a published refund policy at twsgurukul.com/refunds. 7-day refun
 
 ### Prop Firm Safety Checker
 
-**URL:** https://www.twsgurukul.com/prop-firm-safety-checker
+**URL:** https://www.twsgurukulx.com/prop-firm-safety-checker
 
 A free tool to verify if a prop trading firm is legitimate before you risk your money. Checks registration status, community reviews, and common red flags. No signup required.
 
 ### Trading Style Quiz
 
-**URL:** https://www.twsgurukul.com/quiz
+**URL:** https://www.twsgurukulx.com/quiz
 
 A short quiz to help you discover your ideal trading style and get a personalized program recommendation. Covers risk tolerance, available time, preferred markets, and trading personality.
 
@@ -267,27 +267,15 @@ A short quiz to help you discover your ideal trading style and get a personalize
 
 ## Blog
 
-**URL:** https://www.twsgurukul.com/blog
+**URL:** https://blogs.twsgurukulx.com
 
-### How to Automate Your Zerodha Investment Portfolio with AI
-
-**URL:** https://www.twsgurukul.com/blog/ai-automation-zerodha-portfolio
-**Published:** January 1, 2025 | **Category:** Trading insights
-
-A comprehensive guide to transforming your Zerodha account into an AI-powered investment machine using free tools.
-
-### Bitcoin Trading Sessions: The Essential Guide for Crypto Traders
-
-**URL:** https://www.twsgurukul.com/blog/bitcoin-trading-sessions
-**Published:** January 14, 2025 | **Category:** Crypto
-
-Essential guide to trading Bitcoin across global sessions — understanding when institutional money flows, session overlaps, and optimal trading windows.
+Trading insights, market analysis, and educational content. The blog is hosted at its own subdomain (blogs.twsgurukulx.com) with its own sitemap. Recent topics include AI-assisted portfolio management, Bitcoin trading sessions and institutional order flow.
 
 ---
 
 ## Results & Claims
 
-**URL:** https://www.twsgurukul.com/results-and-claims
+**URL:** https://www.twsgurukulx.com/results-and-claims
 
 Verified trading results, student testimonials, and performance claims with full transparency. All figures marked with asterisks (*) are self-reported by students and independently verified where possible.
 
@@ -307,10 +295,10 @@ All programs: 18% GST applicable. 7-day refund if less than 20% content accessed
 
 ## Legal
 
-- [Terms of Service](https://www.twsgurukul.com/terms)
-- [Privacy Policy](https://www.twsgurukul.com/privacy)
-- [Disclaimer](https://www.twsgurukul.com/disclaimer)
-- [Refund Policy](https://www.twsgurukul.com/refunds)
-- [Cookie Policy](https://www.twsgurukul.com/cookies)
+- [Terms of Service](https://www.twsgurukulx.com/terms)
+- [Privacy Policy](https://www.twsgurukulx.com/privacy)
+- [Disclaimer](https://www.twsgurukulx.com/disclaimer)
+- [Refund Policy](https://www.twsgurukulx.com/refunds)
+- [Cookie Policy](https://www.twsgurukulx.com/cookies)
 
 **Disclaimer:** Trading involves substantial risk. Past performance and student testimonials do not guarantee future results. TWS GurukulX provides education only — not financial advice. All investment decisions are made at your own risk.

@@ -1,27 +1,31 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
+// Above-fold: render synchronously so LCP isn't gated on a chunk fetch.
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import ProblemSection from './components/ProblemSection';
 import IsThisForYouSection from './components/IsThisForYouSection';
 import FrameworkSection from './components/FrameworkSection';
-import RoadmapSection from './components/RoadmapSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import PricingSection from './components/PricingSection';
-import FaqSection from './components/FaqSection';
-import Footer from './components/Footer';
 import Seo from '../../components/Seo';
 import StickyMobileCTA from './components/StickyMobileCTA';
 import StructuredData from './components/StructuredData';
-import SocialProofToast from './components/SocialProofToast';
-import ExitIntentPopup from './components/ExitIntentPopup';
 import { useExitIntent } from './hooks/useExitIntent';
 import QuizWelcomeBanner from '../../components/QuizWelcomeBanner';
-import ShowPartnerSection from './components/ShowPartnerSection';
-import CostOfWaitingSection from './components/CostOfWaitingSection';
-import AntiScamSection from './components/AntiScamSection';
 import InlineObjection from './components/InlineObjection';
-import PricingComparison from './components/PricingComparison';
-import VideoSection from './components/VideoSection';
+
+// Below-fold: lazy-load to shrink the initial chunk. Each has a fixed-height
+// fallback to reserve layout space and prevent CLS while chunks hydrate.
+const RoadmapSection = lazy(() => import('./components/RoadmapSection'));
+const TestimonialsSection = lazy(() => import('./components/TestimonialsSection'));
+const PricingSection = lazy(() => import('./components/PricingSection'));
+const FaqSection = lazy(() => import('./components/FaqSection'));
+const Footer = lazy(() => import('./components/Footer'));
+const SocialProofToast = lazy(() => import('./components/SocialProofToast'));
+const ExitIntentPopup = lazy(() => import('./components/ExitIntentPopup'));
+const ShowPartnerSection = lazy(() => import('./components/ShowPartnerSection'));
+const CostOfWaitingSection = lazy(() => import('./components/CostOfWaitingSection'));
+const AntiScamSection = lazy(() => import('./components/AntiScamSection'));
+const PricingComparison = lazy(() => import('./components/PricingComparison'));
+const VideoSection = lazy(() => import('./components/VideoSection'));
 
 // Static style object hoisted outside component to avoid re-creation per render
 const noiseOverlayStyle = {
@@ -64,9 +68,9 @@ function FootprintPage() {
       <Seo
         title="Footprint Mastery | TWS GurukulX"
         description="Learn footprint chart analysis to see institutional order flow before it hits the chart. Plan clean entries, manage risk, and exit with rules. Self-paced course with monthly live Q&A."
-        ogImage="https://www.twsgurukul.com/footprint-og.jpg"
+        ogImage="https://www.twsgurukulx.com/footprint-og.jpg"
         ogType="website"
-        canonicalUrl="https://www.twsgurukul.com/footprint"
+        canonicalUrl="https://www.twsgurukulx.com/footprint"
       />
       <div>
         <main id="main" className="pb-24 md:pb-0">
@@ -135,10 +139,18 @@ function FootprintPage() {
             </div>
           </div>
 
-          <VideoSection />
-          <RoadmapSection />
-          <AntiScamSection />
-          <TestimonialsSection />
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <VideoSection />
+          </Suspense>
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <RoadmapSection />
+          </Suspense>
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <AntiScamSection />
+          </Suspense>
+          <Suspense fallback={<div className="min-h-[600px]" />}>
+            <TestimonialsSection />
+          </Suspense>
 
           {/* Inline Objection 2: After testimonials */}
           <div className="bg-[#2C3539] py-8">
@@ -149,17 +161,35 @@ function FootprintPage() {
               />
             </div>
           </div>
-          <ShowPartnerSection />
-          <CostOfWaitingSection />
-          <PricingComparison />
-          <PricingSection />
-          <FaqSection />
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <ShowPartnerSection />
+          </Suspense>
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <CostOfWaitingSection />
+          </Suspense>
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <PricingComparison />
+          </Suspense>
+          <Suspense fallback={<div className="min-h-[600px]" />}>
+            <PricingSection />
+          </Suspense>
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <FaqSection />
+          </Suspense>
         </main>
       </div>
-      <Footer />
+      <Suspense fallback={<div className="min-h-[300px]" />}>
+        <Footer />
+      </Suspense>
       <StickyMobileCTA />
-      <SocialProofToast />
-      <ExitIntentPopup isOpen={showExitPopup} onClose={() => setShowExitPopup(false)} />
+      <Suspense fallback={null}>
+        <SocialProofToast />
+      </Suspense>
+      {showExitPopup && (
+        <Suspense fallback={null}>
+          <ExitIntentPopup isOpen={showExitPopup} onClose={() => setShowExitPopup(false)} />
+        </Suspense>
+      )}
     </div>
   );
 }

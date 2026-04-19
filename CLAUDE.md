@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**TWS Gurukul** (`twsgurukul.com`) is a multi-page SPA for Trading With Sidhant LLP — an India-focused trading education business. It serves as a marketing/sales site for three paid programs, a free tool, a quiz funnel, and a blog.
+**TWS Gurukul** (`twsgurukulx.com`) is a multi-page SPA for Trading With Sidhant LLP — an India-focused trading education business. It serves as a marketing/sales site for three paid programs, a free tool, a quiz funnel, and a blog.
 
 ## Tech Stack
 
@@ -63,7 +63,7 @@ npm run upload:s3:force # Re-upload all assets to S3
 │   ├── hooks/                  # useQuizModal (global quiz state)
 │   ├── services/               # binanceV2.ts (Binance API with caching)
 │   ├── types/                  # globals.d.ts (dataLayer, gtag, fbq)
-│   └── utils/                  # animations, security (DOMPurify), cn
+│   └── utils/                  # animations, security (DOMPurify), cn, aisensy, mediaLogos
 └── public/                     # Static: favicon, robots.txt, sitemap.xml, llms.txt, _headers
 ```
 
@@ -76,6 +76,8 @@ npm run upload:s3:force # Re-upload all assets to S3
 - **Quiz system**: `src/components/UnifiedQuiz/` supports `mode: 'modal' | 'standalone'`
 - **`.quiz-scope` CSS class**: Protects quiz components from global mobile CSS overrides
 - **Centralised constants**: `src/constants.ts` is the single source of truth for CDN base URL, checkout IDs, WhatsApp number, AiSensy campaign names, and quiz thresholds — always import from here instead of hardcoding
+- **AiSensy WhatsApp**: `src/utils/aisensy.ts` exposes `sendAiSensyCampaign()` as fire-and-forget — never throws, never blocks UI. Campaign names must match `AISENSY_CAMPAIGNS` in `constants.ts` exactly (they reference templates created in the AiSensy dashboard).
+- **Dev Binance proxy**: Vite proxies `/api/binance/*` → `https://api.binance.com/api/v3/*` (see `vite.config.ts`). Production code calls Binance directly from the browser — use the proxy path only during local dev to sidestep CORS.
 
 ## CDN & Asset Pipeline
 
@@ -136,6 +138,7 @@ Combine Satoshi Bold (white) with Instrument Serif italic (burnt-amber/brushed-g
 VITE_BINANCE_API_KEY=          # Optional: Binance API for live market widgets
 VITE_QUIZ_WEBHOOK_URL=         # Optional: Quiz lead capture webhook
 VITE_NEWSLETTER_WEBHOOK_URL=   # Optional: Footer newsletter signup webhook
+VITE_AISENSY_API_KEY=          # Optional: AiSensy WhatsApp campaign trigger (bundled client-side — must be a restricted, send-only key)
 ```
 
 All optional — the app works without them.
@@ -163,9 +166,14 @@ Use `getCheckoutUrl(course, utmContent)` from `src/constants.ts` — it builds t
 - `strict: true`, `noUnusedLocals: true`, `noUnusedParameters: true`
 - Target: ES2020, module resolution: bundler
 
+## Testing
+
+- **Vitest runs in `node` environment**, not jsdom — tests must be pure logic (no DOM, no React rendering). See `src/utils/security.test.ts` and `src/components/UnifiedQuiz/data.test.ts` for the patterns currently in use.
+- Test glob: `src/**/*.test.ts` and `src/**/*.test.tsx` (from `vite.config.ts`).
+
 ## Security
 
 - DOMPurify for HTML sanitization (`src/utils/security.ts`)
-- CSP + HSTS + X-Frame-Options DENY via `public/_headers`
+- **Two header sources**: `customHttp.yml` (authoritative for Amplify hosting — includes CSP, HSTS, COOP, cache rules) and `public/_headers` (fallback for Netlify/Cloudflare-style static hosts). Keep them in sync when updating CSP or cache rules.
 - Console/debugger stripped in production builds via esbuild `drop: ['console', 'debugger']`
 - `npm audit` in `build-secure` script

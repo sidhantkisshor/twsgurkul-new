@@ -1,9 +1,20 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { generateSitemap } from './scripts/generate-sitemap.mjs'
+
+// Emit dist/sitemap.xml at build end. Source of truth for canonical URLs;
+// blog lives on blogs.twsgurukulx.com and is NOT listed here.
+const sitemapPlugin = () => ({
+  name: 'tws-sitemap',
+  apply: 'build' as const,
+  closeBundle() {
+    generateSitemap()
+  },
+})
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), sitemapPlugin()],
   base: '/',
   server: {
     proxy: {
