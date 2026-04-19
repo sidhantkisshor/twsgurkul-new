@@ -16,7 +16,7 @@ const RefundPage: React.FC = () => (
   <LegalPageLayout
     title="Refund Policy"
     effectiveDate="February 24, 2026"
-    applies="tradingwithsidhant.com | twsgurukul.com"
+    applies="tradingwithsidhant.com | twsgurukulx.com"
     sections={sections}
   >
     <Section id="overview" number="01" title="Overview">

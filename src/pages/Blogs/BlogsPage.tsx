@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, BookOpen, TrendingUp } from 'lucide-react';
 import { getAllBlogPosts } from './utils/blogData';
 import Seo from '../../components/Seo';
+import JsonLd, { buildBreadcrumbSchema } from '../../components/StructuredData';
 
 const BlogsPage: React.FC = () => {
   const blogPosts = getAllBlogPosts();
@@ -15,9 +16,13 @@ const BlogsPage: React.FC = () => {
       <Seo
         title="Blog & Trading Insights | TWS GurukulX"
         description="Learn from real market experiences, trading psychology, and proven strategies. Read the latest insights from TWS GurukulX."
-        canonicalUrl="https://www.twsgurukul.com/blog"
-        ogImage="https://www.twsgurukul.com/og-image.jpg"
+        canonicalUrl="https://www.twsgurukulx.com/blog"
+        ogImage="https://www.twsgurukulx.com/og-image.jpg"
       />
+      <JsonLd data={buildBreadcrumbSchema([
+        { name: 'Home', url: 'https://www.twsgurukulx.com/' },
+        { name: 'Blog', url: 'https://www.twsgurukulx.com/blog' },
+      ])} />
       {/* Hero Section */}
       <section className="relative pt-20 sm:pt-32 pb-12 sm:pb-24 overflow-hidden overflow-x-clip">
         {/* Background gradient effects */}

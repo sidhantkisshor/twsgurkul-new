@@ -9,6 +9,7 @@ const NotFoundPage: React.FC = () => (
     <Seo
       title="Page Not Found | TWS GurukulX"
       description="The page you're looking for doesn't exist. Head back to TWS GurukulX to explore trading programs."
+      canonicalUrl="https://www.twsgurukulx.com/"
       noIndex
     />
     <div className="min-h-[70vh] bg-deep-slate text-white flex items-center justify-center px-4">

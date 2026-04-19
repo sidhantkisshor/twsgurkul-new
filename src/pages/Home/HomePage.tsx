@@ -31,9 +31,8 @@ const HomePage: React.FC = () => {
       <Seo
         title="TWS GurukulX — Losing Money Trading? Get a System That Works | 10,847+ Profitable Traders"
         description="Stop bleeding capital on random tips. Learn the exact rule-based trading system that turned 10,847+ Indian traders profitable in 30–90 days. Crypto, Footprint, and Elite Mentorship programs."
-        keywords="trading courses india, crypto trading course, footprint trading, elite trading mentorship, sidhant gurukul, TWS gurukulX, learn trading india"
-        canonicalUrl="https://www.twsgurukul.com/"
-        ogImage="https://www.twsgurukul.com/og-image.jpg"
+        canonicalUrl="https://www.twsgurukulx.com/"
+        ogImage="https://www.twsgurukulx.com/og-image.jpg"
       />
       <JsonLd data={[organizationSchema, webSiteSchema]} />
 

@@ -20,8 +20,8 @@ const StructuredData: React.FC = () => (
       footprintCourseSchema,
       organizationSchema,
       buildBreadcrumbSchema([
-        { name: 'Home', url: 'https://www.twsgurukul.com/' },
-        { name: 'Footprint Mastery', url: 'https://www.twsgurukul.com/footprint' },
+        { name: 'Home', url: 'https://www.twsgurukulx.com/' },
+        { name: 'Footprint Mastery', url: 'https://www.twsgurukulx.com/footprint' },
       ]),
       buildFaqSchema(footprintFaqs),
     ]}

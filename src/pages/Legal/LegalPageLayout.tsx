@@ -36,7 +36,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
       <Seo
         title={`${title} | TWS GurukulX`}
         description={`${title} for TWS GurukulX trading education platform by Trading With Sidhant LLP.`}
-        canonicalUrl={`https://www.twsgurukul.com/${title.toLowerCase().replace(/\s+/g, '-')}`}
+        canonicalUrl={`https://www.twsgurukulx.com/${title.toLowerCase().replace(/\s+/g, '-')}`}
       />
       {/* ── Hero header ── */}
       <div className="bg-deep-slate relative overflow-hidden">

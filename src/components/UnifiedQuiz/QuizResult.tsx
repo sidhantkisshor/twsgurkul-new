@@ -22,7 +22,7 @@ const QuizResult: React.FC<QuizResultProps> = ({
   React.useEffect(() => () => { if (copyTimerRef.current) clearTimeout(copyTimerRef.current); }, []);
 
   const shareText = `I matched with ${result.program} on TWS GurukulX's trading quiz! Find your perfect trading program too:`;
-  const shareUrl = 'https://www.twsgurukul.com/quiz';
+  const shareUrl = 'https://www.twsgurukulx.com/quiz';
 
   const handleShareWhatsApp = () => {
     window.open(`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, '_blank');

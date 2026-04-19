@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../../components/Seo';
-import JsonLd from '../../components/StructuredData';
+import JsonLd, { buildBreadcrumbSchema } from '../../components/StructuredData';
 
 const propScannerSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Prop Firm Safety Checker - Free AI Analysis Tool",
   "description": "Free prop firm legitimacy checker. Instantly verify prop trading firms before paying challenge fees. AI-powered safety analysis for FTMO, Topstep, MyFundedFX and 100+ prop firms.",
-  "url": "https://twsgurukul.com/prop-firm-safety-checker",
+  "url": "https://www.twsgurukulx.com/prop-firm-safety-checker",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -19,9 +19,14 @@ const propScannerSchema = {
   "author": {
     "@type": "Organization",
     "name": "TWS GurukulX",
-    "url": "https://twsgurukul.com"
+    "url": "https://www.twsgurukulx.com"
   }
 };
+
+const propScannerBreadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.twsgurukulx.com/' },
+  { name: 'Prop Firm Safety Checker', url: 'https://www.twsgurukulx.com/prop-firm-safety-checker' },
+]);
 
 interface RedFlag {
   id: string;
@@ -131,7 +136,7 @@ function PropScannerPage() {
     }, 100);
   };
 
-  const shareUrl = 'https://www.twsgurukul.com/prop-firm-safety-checker';
+  const shareUrl = 'https://www.twsgurukulx.com/prop-firm-safety-checker';
 
   const getShareText = () =>
     `I just checked ${firmName || 'a prop firm'} on the TWS GurukulX Prop Firm Safety Checker. Check yours too!`;
@@ -263,12 +268,11 @@ Provide:
       <Seo
         title="Prop Firm Safety Checker - Free Legitimacy Scanner | TWS GurukulX"
         description="Free prop firm legitimacy checker tool. Instantly verify FTMO, Topstep, MyFundedFX & 100+ prop trading firms before paying fees. AI-powered safety analysis for traders."
-        keywords="prop firm checker, prop firm legitimacy, prop trading safety, FTMO review, Topstep verification, prop firm scam checker, funded trader program review, prop firm analysis tool, trading challenge verification"
         ogType="website"
-        ogImage="https://twsgurukul.com/og-prop-firm-checker.jpg"
-        canonicalUrl="https://twsgurukul.com/prop-firm-safety-checker"
+        ogImage="https://www.twsgurukulx.com/og-prop-firm-checker.jpg"
+        canonicalUrl="https://www.twsgurukulx.com/prop-firm-safety-checker"
       />
-      <JsonLd data={propScannerSchema} />
+      <JsonLd data={[propScannerSchema, propScannerBreadcrumbSchema]} />
 
       {/* Header */}
       <div className="border-b border-white/10 bg-slate-900/50 backdrop-blur-xs sticky top-0 z-50">

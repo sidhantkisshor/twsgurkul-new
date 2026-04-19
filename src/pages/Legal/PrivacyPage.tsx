@@ -19,14 +19,14 @@ const PrivacyPage: React.FC = () => (
   <LegalPageLayout
     title="Privacy Policy"
     effectiveDate="February 24, 2026"
-    applies="tradingwithsidhant.com | twsgurukul.com"
+    applies="tradingwithsidhant.com | twsgurukulx.com"
     sections={sections}
   >
     <Section id="introduction" number="01" title="Introduction">
       <p>
         Trading With Sidhant LLP ("we", "us", "our") is committed to protecting your personal data. This Privacy
         Policy explains how we collect, use, store, and protect your personal information when you use
-        tradingwithsidhant.com, twsgurukul.com, and our mobile applications (collectively, "the Platform").
+        tradingwithsidhant.com, twsgurukulx.com, and our mobile applications (collectively, "the Platform").
       </p>
       <p>
         This Policy is compliant with the <strong className="text-deep-slate">Information Technology Act, 2000</strong>,

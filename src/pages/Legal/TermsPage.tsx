@@ -20,12 +20,12 @@ const TermsPage: React.FC = () => (
   <LegalPageLayout
     title="Terms & Conditions"
     effectiveDate="February 24, 2026"
-    applies="tradingwithsidhant.com | twsgurukul.com"
+    applies="tradingwithsidhant.com | twsgurukulx.com"
     sections={sections}
   >
     <Section id="acceptance" number="01" title="Acceptance of Terms">
       <p>
-        By accessing or using tradingwithsidhant.com or twsgurukul.com (collectively, "the Platform"), enrolling
+        By accessing or using tradingwithsidhant.com or twsgurukulx.com (collectively, "the Platform"), enrolling
         in any course, or purchasing any subscription, you ("User") agree to be legally bound by these Terms &amp;
         Conditions. If you do not agree, please do not use the Platform.
       </p>
@@ -169,7 +169,7 @@ const TermsPage: React.FC = () => (
       <ContactCard>
         <p className="font-semibold text-deep-slate">Trading With Sidhant LLP</p>
         <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a></p>
-        <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukul.com</p>
+        <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukulx.com</p>
       </ContactCard>
     </Section>
   </LegalPageLayout>

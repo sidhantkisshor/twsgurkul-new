@@ -40,7 +40,7 @@ const Footer = () => {
   ];
 
   const resources = [
-    { name: 'Blog & Resources', href: 'https://blogs.twsgurukul.com' },
+    { name: 'Blog & Resources', href: 'https://blogs.twsgurukulx.com' },
     { name: 'YouTube Channel', href: 'https://youtube.com/@tradingwithsidhant' },
     { name: 'Telegram Community', href: 'https://t.me/tradingwsidhant' },
     { name: 'Trading With Sidhant', href: 'https://tradingwithsidhant.com' },

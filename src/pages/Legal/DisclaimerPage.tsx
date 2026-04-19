@@ -19,13 +19,13 @@ const DisclaimerPage: React.FC = () => (
   <LegalPageLayout
     title="Disclaimer"
     effectiveDate="February 24, 2026"
-    applies="tradingwithsidhant.com | twsgurukul.com"
+    applies="tradingwithsidhant.com | twsgurukulx.com"
     sections={sections}
   >
     <Section id="general" number="01" title="General Disclaimer">
       <p>
         The information, courses, videos, materials, and all other content available on tradingwithsidhant.com
-        and twsgurukul.com ("the Platform"), operated by Trading With Sidhant LLP, are provided{' '}
+        and twsgurukulx.com ("the Platform"), operated by Trading With Sidhant LLP, are provided{' '}
         <strong className="text-deep-slate">STRICTLY FOR EDUCATIONAL AND INFORMATIONAL PURPOSES ONLY</strong>.
       </p>
       <p>
@@ -147,7 +147,7 @@ const DisclaimerPage: React.FC = () => (
       <ContactCard>
         <p className="font-semibold text-deep-slate">Trading With Sidhant LLP</p>
         <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a></p>
-        <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukul.com</p>
+        <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukulx.com</p>
       </ContactCard>
     </Section>
   </LegalPageLayout>

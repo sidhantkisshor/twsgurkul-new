@@ -14,7 +14,7 @@ const CookiePage: React.FC = () => (
   <LegalPageLayout
     title="Cookie Policy"
     effectiveDate="February 24, 2026"
-    applies="tradingwithsidhant.com | twsgurukul.com"
+    applies="tradingwithsidhant.com | twsgurukulx.com"
     sections={sections}
   >
     <Section id="what" number="01" title="What Are Cookies">
@@ -81,7 +81,7 @@ const CookiePage: React.FC = () => (
       <ContactCard>
         <p className="font-semibold text-deep-slate">Trading With Sidhant LLP</p>
         <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a></p>
-        <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukul.com</p>
+        <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukulx.com</p>
       </ContactCard>
     </Section>
   </LegalPageLayout>

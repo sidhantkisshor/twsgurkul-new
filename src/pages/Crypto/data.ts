@@ -293,7 +293,7 @@ export const faqs: FaqItem[] = [
     },
     {
         q: "Is there a refund policy?",
-        a: "Yes. We have a published refund policy — review it before enrolling at twsgurukul.com/refunds. We want committed students, not trapped ones."
+        a: "Yes. We have a published refund policy — review it before enrolling at twsgurukulx.com/refunds. We want committed students, not trapped ones."
     }
 ];
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Clock, CheckCircle, AlertTriangle, ArrowRight } from 'lucide-react';
 import { UnifiedQuiz } from '../../components/UnifiedQuiz';
 import Seo from '../../components/Seo';
+import JsonLd, { buildBreadcrumbSchema } from '../../components/StructuredData';
 
 export default function QuizLandingPage() {
   const [showQuiz, setShowQuiz] = useState(false);
@@ -11,8 +12,12 @@ export default function QuizLandingPage() {
       <Seo
         title="Find Your Trading Program | TWS GurukulX Quiz"
         description="Take our 90-second quiz to find the perfect trading program for your experience level, capital, and goals."
-        canonicalUrl="https://www.twsgurukul.com/quiz"
+        canonicalUrl="https://www.twsgurukulx.com/quiz"
       />
+      <JsonLd data={buildBreadcrumbSchema([
+        { name: 'Home', url: 'https://www.twsgurukulx.com/' },
+        { name: 'Find Your Trading Program', url: 'https://www.twsgurukulx.com/quiz' },
+      ])} />
       {showQuiz ? (
         <UnifiedQuiz mode="standalone" source="quiz_page" />
       ) : (

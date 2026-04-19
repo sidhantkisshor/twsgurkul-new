@@ -41,14 +41,14 @@ const MentorshipPage: React.FC = () => {
         description="Learn a repeatable 8 PM trading routine with live market sessions and weekly performance reviews. 2,300+ traders trained. Next cohort starts soon."
         ogTitle="Trade The 8 PM Window With Pro Coaches"
         ogDescription="Join a capped cohort, learn the 8 PM liquidity window, and practice it live five nights a week with our certified pro coaches trained in Sidhant's system."
-        canonicalUrl="https://www.twsgurukul.com/mentorship"
-        ogImage="https://www.twsgurukul.com/og-image.jpg"
+        canonicalUrl="https://www.twsgurukulx.com/mentorship"
+        ogImage="https://www.twsgurukulx.com/og-image.jpg"
       />
       <JsonLd data={[
         mentorshipCourseSchema,
         buildBreadcrumbSchema([
-          { name: 'Home', url: 'https://www.twsgurukul.com/' },
-          { name: 'Elite Trading Mentorship', url: 'https://www.twsgurukul.com/mentorship' },
+          { name: 'Home', url: 'https://www.twsgurukulx.com/' },
+          { name: 'Elite Trading Mentorship', url: 'https://www.twsgurukulx.com/mentorship' },
         ]),
         buildVideoSchema({
           name: 'Elite Trading Mentorship - Live Session Walkthrough',

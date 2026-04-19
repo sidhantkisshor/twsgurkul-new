@@ -44,17 +44,17 @@ export default JsonLd;
 export const organizationSchema: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://www.twsgurukul.com/#organization",
+  "@id": "https://www.twsgurukulx.com/#organization",
   "name": "TWS GurukulX",
   "legalName": "Trading With Sidhant LLP",
-  "url": "https://www.twsgurukul.com",
-  "logo": "https://www.twsgurukul.com/logo-icon.png",
+  "url": "https://www.twsgurukulx.com",
+  "logo": "https://www.twsgurukulx.com/logo-icon.png",
   "foundingDate": "2023",
   "description":
     "India-based trading education platform offering mentorship programs and courses for forex, crypto, and Indian stock markets. Combines institutional-grade footprint analysis, rule-based systems, and hands-on mentorship for working professionals.",
   "founder": {
     "@type": "Person",
-    "@id": "https://www.twsgurukul.com/#founder",
+    "@id": "https://www.twsgurukulx.com/#founder",
     "name": "Sidhant Kisshor",
     "jobTitle": "Founder & Lead Mentor",
     "description": "TEDx Speaker, professional trader since 2017",
@@ -91,10 +91,10 @@ export const organizationSchema: Record<string, unknown> = {
 export const webSiteSchema: Record<string, unknown> = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://www.twsgurukul.com/#website",
+  "@id": "https://www.twsgurukulx.com/#website",
   "name": "TWS GurukulX",
-  "url": "https://www.twsgurukul.com",
-  "publisher": { "@id": "https://www.twsgurukul.com/#organization" },
+  "url": "https://www.twsgurukulx.com",
+  "publisher": { "@id": "https://www.twsgurukulx.com/#organization" },
   "description": "India-based trading education platform. Live mentorship, rule-based systems, and multi-market mastery for working professionals.",
 };
 
@@ -108,14 +108,14 @@ export const cryptoCourseSchema: Record<string, unknown> = {
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
-    "sameAs": "https://www.twsgurukul.com",
+    "sameAs": "https://www.twsgurukulx.com",
   },
   "offers": {
     "@type": "Offer",
     "price": "19499",
     "priceCurrency": "INR",
     "availability": "https://schema.org/InStock",
-    "url": "https://www.twsgurukul.com/crypto",
+    "url": "https://www.twsgurukulx.com/crypto",
   },
   "hasCourseInstance": {
     "@type": "CourseInstance",
@@ -126,12 +126,6 @@ export const cryptoCourseSchema: Record<string, unknown> = {
       "name": "Sidhant Kisshor",
       "description": "TEDx Speaker, professional trader since 2017",
     },
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "bestRating": "5",
-    "reviewCount": "1263",
   },
   "inLanguage": "en",
   "educationalLevel": "Beginner to Advanced",
@@ -208,14 +202,14 @@ export const footprintCourseSchema: Record<string, unknown> = {
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
-    "sameAs": "https://www.twsgurukul.com",
+    "sameAs": "https://www.twsgurukulx.com",
   },
   "offers": {
     "@type": "Offer",
     "price": "32999",
     "priceCurrency": "INR",
     "availability": "https://schema.org/InStock",
-    "url": "https://www.twsgurukul.com/footprint",
+    "url": "https://www.twsgurukulx.com/footprint",
   },
   "hasCourseInstance": {
     "@type": "CourseInstance",
@@ -226,12 +220,6 @@ export const footprintCourseSchema: Record<string, unknown> = {
       "name": "Sidhant Kisshor",
       "description": "TEDx Speaker, professional trader since 2017",
     },
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "bestRating": "5",
-    "reviewCount": "1263",
   },
   "inLanguage": "en",
   "educationalLevel": "Beginner to Advanced",
@@ -248,14 +236,14 @@ export const mentorshipCourseSchema: Record<string, unknown> = {
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
-    "sameAs": "https://www.twsgurukul.com",
+    "sameAs": "https://www.twsgurukulx.com",
   },
   "offers": {
     "@type": "Offer",
     "price": "19999",
     "priceCurrency": "INR",
     "availability": "https://schema.org/InStock",
-    "url": "https://www.twsgurukul.com/mentorship",
+    "url": "https://www.twsgurukulx.com/mentorship",
   },
   "hasCourseInstance": {
     "@type": "CourseInstance",
@@ -265,12 +253,6 @@ export const mentorshipCourseSchema: Record<string, unknown> = {
       "name": "Sidhant Kisshor",
       "description": "TEDx Speaker, professional trader since 2017, founder of TWS GurukulX",
     },
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "bestRating": "5",
-    "reviewCount": "2300",
   },
   "inLanguage": ["en", "hi"],
   "educationalLevel": "Beginner to Advanced",

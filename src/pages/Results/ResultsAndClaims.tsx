@@ -1,5 +1,6 @@
 import React from 'react';
 import Seo from '../../components/Seo';
+import JsonLd, { buildBreadcrumbSchema } from '../../components/StructuredData';
 
 export default function ResultsAndClaims() {
   return (
@@ -7,8 +8,12 @@ export default function ResultsAndClaims() {
       <Seo
         title="Results & Claims | Student Success Stories | TWS GurukulX"
         description="View verified student results, trading statistics, and success claims. Transparent methodology and verification samples included."
-        canonicalUrl="https://www.twsgurukul.com/results-and-claims"
+        canonicalUrl="https://www.twsgurukulx.com/results-and-claims"
       />
+      <JsonLd data={buildBreadcrumbSchema([
+        { name: 'Home', url: 'https://www.twsgurukulx.com/' },
+        { name: 'Results & Claims', url: 'https://www.twsgurukulx.com/results-and-claims' },
+      ])} />
       <h1 className="text-3xl font-semibold mb-6">Results & Claims Policy</h1>
 
       <section id="summary" className="mb-10">

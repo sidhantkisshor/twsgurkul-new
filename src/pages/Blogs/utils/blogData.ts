@@ -8,6 +8,10 @@ export interface BlogPost {
   featured: boolean;
   author?: string;
   tags?: string[];
+  /** ISO date (YYYY-MM-DD). Falls back to `date` if absent. */
+  dateModified?: string;
+  /** Full URL to a ≥1200px hero image for BlogPosting JSON-LD. */
+  heroImage?: string;
 }
 
 // Blog posts database
@@ -20,7 +24,7 @@ const blogPosts: BlogPost[] = [
     readTime: '15 min',
     category: 'AI Trading',
     featured: true,
-    author: 'TWS GurukulX',
+    author: 'Sidhant Kisshor',
     tags: ['AI', 'Automation', 'Zerodha', 'Portfolio Management', 'Trading'],
   },
   {
@@ -31,7 +35,7 @@ const blogPosts: BlogPost[] = [
     readTime: '12 min',
     category: 'Crypto Trading',
     featured: false,
-    author: 'TWS GurukulX',
+    author: 'Sidhant Kisshor',
     tags: ['Bitcoin', 'Crypto', 'Trading Sessions', 'Market Analysis', 'Institutional Trading'],
   },
 ];

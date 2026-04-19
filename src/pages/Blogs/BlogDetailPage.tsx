@@ -26,6 +26,8 @@ const BlogDetailPage: React.FC = () => {
         <Seo
           title="Post Not Found | TWS GurukulX"
           description="The blog post you're looking for doesn't exist."
+          canonicalUrl="https://www.twsgurukulx.com/blog"
+          noIndex
         />
         <div className="min-h-[70vh] bg-deep-slate text-white flex items-center justify-center">
           <div className="text-center">
@@ -70,27 +72,35 @@ const BlogDetailPage: React.FC = () => {
         description={blogPost.excerpt}
         ogTitle={blogPost.title}
         ogDescription={blogPost.excerpt}
-        canonicalUrl={`https://www.twsgurukul.com/blog/${slug}`}
-        ogImage="https://www.twsgurukul.com/og-image.jpg"
+        canonicalUrl={`https://www.twsgurukulx.com/blog/${slug}`}
+        ogImage="https://www.twsgurukulx.com/og-image.jpg"
         ogType="article"
       />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": blogPost.title,
+        "headline": blogPost.title.slice(0, 110),
         "description": blogPost.excerpt,
         "datePublished": blogPost.date,
+        "dateModified": blogPost.dateModified ?? blogPost.date,
+        "image": [blogPost.heroImage ?? "https://www.twsgurukulx.com/og-image.jpg"],
         "author": {
-          "@type": "Organization",
-          "name": blogPost.author || "TWS GurukulX",
-          "url": "https://www.twsgurukul.com",
+          "@type": "Person",
+          "name": blogPost.author && blogPost.author !== "TWS GurukulX" ? blogPost.author : "Sidhant Kisshor",
+          "url": "https://www.twsgurukulx.com/#founder",
         },
         "publisher": {
           "@type": "Organization",
           "name": "TWS GurukulX",
-          "url": "https://www.twsgurukul.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.twsgurukulx.com/logo-icon.png",
+          },
         },
-        "mainEntityOfPage": `https://www.twsgurukul.com/blog/${slug}`,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://www.twsgurukulx.com/blog/${slug}`,
+        },
       }} />
 
       {/* Article Header */}
@@ -109,7 +119,7 @@ const BlogDetailPage: React.FC = () => {
             </Link>
             <button
               onClick={() => {
-                const url = `https://www.twsgurukul.com/blog/${slug}`;
+                const url = `https://www.twsgurukulx.com/blog/${slug}`;
                 if (navigator.share) {
                   navigator.share({ title: blogPost.title, text: blogPost.excerpt, url });
                 } else {
