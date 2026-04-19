@@ -264,7 +264,7 @@ Provide:
   const checkedFlags = getCheckedRedFlags();
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-linear-to-br from-deep-slate via-navy-black to-deep-slate">
       <Seo
         title="Prop Firm Safety Checker - Free Legitimacy Scanner | TWS GurukulX"
         description="Free prop firm legitimacy checker tool. Instantly verify FTMO, Topstep, MyFundedFX & 100+ prop trading firms before paying fees. AI-powered safety analysis for traders."
@@ -275,11 +275,11 @@ Provide:
       <JsonLd data={[propScannerSchema, propScannerBreadcrumbSchema]} />
 
       {/* Header */}
-      <div className="border-b border-white/10 bg-slate-900/50 backdrop-blur-xs sticky top-0 z-50">
+      <div className="border-b border-white/10 bg-deep-slate/70 backdrop-blur-xs sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-linear-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-burnt-amber to-brushed-gold flex items-center justify-center">
                 <span className="text-white font-bold text-sm">TWS</span>
               </div>
               <span className="text-white font-semibold text-lg">TWS GurukulX</span>
@@ -292,14 +292,14 @@ Provide:
       <div className="max-w-2xl mx-auto px-4 py-12">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-white/20">
           {/* Card Header */}
-          <div className="bg-linear-to-r from-purple-600 to-indigo-600 p-8 text-center relative overflow-hidden">
+          <div className="bg-linear-to-r from-burnt-amber to-[#d4843f] p-8 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative z-10">
               <h1 className="text-3xl font-bold text-white mb-2">
                 <span className="font-sans font-bold">Free Prop Firm</span>{' '}
-                <span className="font-serif italic font-normal text-burnt-amber">Safety Checker</span>
+                <span className="font-serif italic font-normal text-soft-sand">Safety Checker</span>
               </h1>
-              <p className="text-purple-100">Instant AI-Powered Legitimacy Verification Tool</p>
+              <p className="text-soft-sand/90">Instant AI-Powered Legitimacy Verification Tool</p>
             </div>
           </div>
 
@@ -319,14 +319,14 @@ Provide:
             <div>
               <label htmlFor="firmName" className="block text-sm font-semibold text-white mb-2">
                 Prop Firm Name
-                <span className="ml-2 text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-sm">Required</span>
+                <span className="ml-2 text-xs bg-burnt-amber/20 text-burnt-amber px-2 py-1 rounded-sm">Required</span>
               </label>
               <input
                 type="text"
                 id="firmName"
                 value={firmName}
                 onChange={(e) => setFirmName(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-purple-400 focus:bg-white/15 transition-all"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-burnt-amber focus:bg-white/15 transition-all"
                 placeholder="e.g., FTMO, Topstep, MyFundedFX"
                 autoComplete="off"
               />
@@ -337,23 +337,23 @@ Provide:
             <div>
               <label htmlFor="country" className="block text-sm font-semibold text-white mb-2">
                 Your Location
-                <span className="ml-2 text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-sm">Required</span>
+                <span className="ml-2 text-xs bg-burnt-amber/20 text-burnt-amber px-2 py-1 rounded-sm">Required</span>
               </label>
               <select
                 id="country"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-hidden focus:border-purple-400 focus:bg-white/15 transition-all"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-hidden focus:border-burnt-amber focus:bg-white/15 transition-all"
               >
-                <option value="" className="bg-slate-800">Select your country</option>
-                <option value="India" className="bg-slate-800">🇮🇳 India</option>
-                <option value="USA" className="bg-slate-800">🇺🇸 United States</option>
-                <option value="UK" className="bg-slate-800">🇬🇧 United Kingdom</option>
-                <option value="Canada" className="bg-slate-800">🇨🇦 Canada</option>
-                <option value="Australia" className="bg-slate-800">🇦🇺 Australia</option>
-                <option value="UAE" className="bg-slate-800">🇦🇪 UAE</option>
-                <option value="Singapore" className="bg-slate-800">🇸🇬 Singapore</option>
-                <option value="Other" className="bg-slate-800">🌍 Other Country</option>
+                <option value="" className="bg-deep-slate">Select your country</option>
+                <option value="India" className="bg-deep-slate">🇮🇳 India</option>
+                <option value="USA" className="bg-deep-slate">🇺🇸 United States</option>
+                <option value="UK" className="bg-deep-slate">🇬🇧 United Kingdom</option>
+                <option value="Canada" className="bg-deep-slate">🇨🇦 Canada</option>
+                <option value="Australia" className="bg-deep-slate">🇦🇺 Australia</option>
+                <option value="UAE" className="bg-deep-slate">🇦🇪 UAE</option>
+                <option value="Singapore" className="bg-deep-slate">🇸🇬 Singapore</option>
+                <option value="Other" className="bg-deep-slate">🌍 Other Country</option>
               </select>
               <p className="text-xs text-gray-400 mt-1">For checking local regulations</p>
             </div>
@@ -369,7 +369,7 @@ Provide:
                 id="fee"
                 value={fee}
                 onChange={(e) => setFee(e.target.value)}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-purple-400 focus:bg-white/15 transition-all"
+                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-burnt-amber focus:bg-white/15 transition-all"
                 placeholder="Amount in USD (e.g., 150)"
               />
               <p className="text-xs text-gray-400 mt-1">Helps calculate ROI potential</p>
@@ -401,15 +401,15 @@ Provide:
             {/* Generate Button */}
             <button
               onClick={generatePrompt}
-              className="w-full py-4 bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-[1.02] transition-all duration-200"
+              className="w-full py-4 bg-burnt-amber hover:bg-burnt-amber/90 text-white font-semibold rounded-lg shadow-lg shadow-burnt-amber/20 transform hover:scale-[1.02] transition-all duration-200"
             >
               Generate Safety Analysis →
             </button>
 
             {/* Lead Capture Section */}
             {showLeadCapture && !showResults && (
-              <div id="leadCaptureSection" className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-5 animate-fade-in">
-                <h3 className="text-purple-200 font-semibold mb-2 flex items-center gap-2">
+              <div id="leadCaptureSection" className="bg-burnt-amber/10 border border-burnt-amber/30 rounded-lg p-5 animate-fade-in">
+                <h3 className="text-burnt-amber font-semibold mb-2 flex items-center gap-2">
                   Get your full safety report emailed to you
                   <span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded-sm">Optional</span>
                 </h3>
@@ -423,7 +423,7 @@ Provide:
                     id="leadWhatsapp"
                     value={whatsappNumber}
                     onChange={(e) => setWhatsappNumber(e.target.value)}
-                    className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-purple-400 focus:bg-white/15 transition-all"
+                    className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-hidden focus:border-burnt-amber focus:bg-white/15 transition-all"
                     placeholder="WhatsApp number (e.g., 9876543210)"
                     autoComplete="tel"
                   />
@@ -433,7 +433,7 @@ Provide:
                     className={`px-5 py-3 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
                       leadSubmitted
                         ? 'bg-green-600 text-white cursor-default'
-                        : 'bg-purple-600 hover:bg-purple-700 text-white'
+                        : 'bg-burnt-amber hover:bg-burnt-amber/90 text-white'
                     }`}
                   >
                     {leadSubmitted ? 'Sent!' : 'Send Report'}
@@ -580,7 +580,7 @@ Provide:
 
         {/* CTA Section */}
         <div className="mt-12 text-center">
-          <div className="bg-linear-to-r from-purple-500/10 to-indigo-500/10 backdrop-blur-xs rounded-2xl p-8 border border-purple-500/20">
+          <div className="bg-linear-to-r from-burnt-amber/10 to-wealth-teal/10 backdrop-blur-xs rounded-2xl p-8 border border-burnt-amber/20">
             <h2 className="text-2xl font-bold text-white mb-4">
               <span className="font-sans font-bold">Want to Trade Profitably Instead of</span>{' '}
               <span className="font-serif italic font-normal text-burnt-amber">Paying Prop Firm Fees?</span>
@@ -590,7 +590,7 @@ Provide:
             </p>
             <Link
               to="/quiz"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-burnt-amber hover:bg-burnt-amber/90 text-white font-semibold rounded-lg shadow-lg shadow-burnt-amber/20 transform hover:scale-105 transition-all duration-200"
             >
               <span>Find Your Trading Program</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
