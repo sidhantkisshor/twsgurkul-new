@@ -4,7 +4,7 @@ import { BarChart3, MessageCircle, TrendingUp, Award, Users, Youtube, Instagram,
 import { handlePaymentPopup } from '../utils/payment';
 import { useWhaleTracker } from '../hooks/useWhaleTracker';
 import { formatCurrency } from '../../../services/binanceV2';
-import { WHATSAPP_NUMBER } from '../../../constants';
+import { CDN_BASE, WHATSAPP_NUMBER } from '../../../constants';
 
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Footprint%20Mastery`;
 
@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
             {/* Instructor credibility bar */}
             <div className="flex items-center gap-3 mb-2">
               <img
-                src="/sidhant-casino-chips.png"
+                src={`${CDN_BASE}/assets/images/brand/raw/sidhant-casino-chips.webp`}
                 alt="Sidhant Kisshor"
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover object-top shadow-lg shadow-[#C87533]/30 shrink-0"
               />

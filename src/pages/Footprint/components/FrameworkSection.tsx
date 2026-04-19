@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { uniqueMechanismData } from '../data';
 import { handlePaymentPopup } from '../utils/payment';
 import VerificationModal from './VerificationModal';
+import { CDN_BASE } from '../../../constants';
 
 const FrameworkSection: React.FC = () => {
   const [showVerificationModal, setShowVerificationModal] = useState(false);
@@ -127,7 +128,7 @@ const FrameworkSection: React.FC = () => {
               {/* Sidhant — System Creator */}
               <div className="flex items-start gap-3 flex-1">
                 <img
-                  src="/sidhant-casino-chips.png"
+                  src={`${CDN_BASE}/assets/images/brand/raw/sidhant-casino-chips.webp`}
                   alt="Sidhant Kisshor"
                   className="w-10 h-10 rounded-full object-cover object-top shrink-0"
                 />

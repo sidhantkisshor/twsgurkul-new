@@ -193,7 +193,7 @@ const HeroSection: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="flex items-center gap-3 sm:gap-4 font-semibold tracking-wide">
-                  Join Tonight's 8 PM Session
+                  Reserve my 8 PM seat
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </motion.button>

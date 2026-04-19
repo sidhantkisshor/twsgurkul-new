@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, Mic2, GraduationCap } from 'lucide-react';
 import { useIntersectionAnimation } from '../../../utils/animations';
+import { CDN_BASE } from '../../../constants';
 
 const credentials = [
   { icon: GraduationCap, label: 'IIT Bombay', detail: 'Guest Faculty - Trading & Markets' },
@@ -33,7 +34,7 @@ const TrustSection: React.FC = () => {
           </p>
           <div className="relative w-36 h-48 sm:w-40 sm:h-56 rounded-2xl mb-6 overflow-hidden border-2 border-brushed-gold/20 shadow-[0_0_60px_rgba(184,149,106,0.12)]">
             <img
-              src="/sidhant-casino-chips.png"
+              src={`${CDN_BASE}/assets/images/brand/raw/sidhant-casino-chips.webp`}
               alt="Sidhant — Founder of TWS GurukulX, professional trader and IIT Bombay guest faculty"
               className="w-full h-full object-cover object-center"
               loading="lazy"
