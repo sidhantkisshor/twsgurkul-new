@@ -70,7 +70,7 @@ const Footer = () => {
         {/* ─── Band 1: CTA Band ─── */}
         <div className="border-b border-soft-sand/[0.06]">
           <div className="max-w-6xl mx-auto px-6 py-14 sm:py-16 text-center">
-            <p className="text-xs tracking-[0.3em] uppercase text-burnt-amber/50 mb-4 font-sans font-medium">
+            <p className="text-xs tracking-[0.3em] uppercase text-amber-bright/80 mb-4 font-sans font-medium">
               Start your journey
             </p>
             <h3 className="text-2xl sm:text-3xl md:text-4xl text-white mb-3">
@@ -101,7 +101,7 @@ const Footer = () => {
           <div className="max-w-6xl mx-auto px-6 py-10 text-center">
             <div className="flex items-center justify-center gap-2 mb-3">
               <MessageCircle className="w-4 h-4 text-burnt-amber/50" />
-              <p className="text-xs tracking-[0.2em] uppercase text-burnt-amber/50 font-sans font-medium">
+              <p className="text-xs tracking-[0.2em] uppercase text-amber-bright/80 font-sans font-medium">
                 Free weekly insights
               </p>
             </div>

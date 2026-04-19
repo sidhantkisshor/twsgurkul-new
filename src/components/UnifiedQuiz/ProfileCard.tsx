@@ -54,7 +54,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ fields }) => {
       <div className="mt-4 pt-3 border-t border-white/[0.04]">
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[10px] font-sans text-soft-sand/50">Profile</span>
-          <span className="text-[10px] font-sans text-burnt-amber/50">{percentage}%</span>
+          <span className="text-[10px] font-sans text-amber-bright/80">{percentage}%</span>
         </div>
         <div className="w-full h-1 bg-white/[0.04] rounded-full overflow-hidden">
           <div

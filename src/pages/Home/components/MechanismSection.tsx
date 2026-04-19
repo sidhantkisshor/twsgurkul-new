@@ -46,7 +46,7 @@ const MechanismSection: React.FC = () => {
             transform: visible ? 'translateY(0)' : 'translateY(24px)',
           }}
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-burnt-amber/60 mb-4 font-sans font-medium">
+          <p className="text-[11px] tracking-[0.3em] uppercase text-amber-bright mb-4 font-sans font-medium">
             The GurukulX Method
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-deep-slate mb-4">

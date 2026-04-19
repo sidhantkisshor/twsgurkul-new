@@ -16,7 +16,7 @@ const QuizProgress: React.FC<QuizProgressProps> = ({ currentStep, totalSteps }) 
         <span className="text-[13px] font-sans font-medium text-soft-sand/70 uppercase tracking-wider">
           Question {Math.min(currentStep + 1, totalSteps)} of {totalSteps}
         </span>
-        <span className="text-[13px] font-sans font-medium text-burnt-amber/70">
+        <span className="text-[13px] font-sans font-medium text-amber-bright">
           {percentage}%
         </span>
       </div>
