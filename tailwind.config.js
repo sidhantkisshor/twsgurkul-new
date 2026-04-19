@@ -27,7 +27,7 @@ export default {
         'paper-cream': '#FFF1E0',
       },
       fontFamily: {
-        sans: ['Satoshi', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Satoshi', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       keyframes: {

@@ -36,9 +36,11 @@ const TrustSection: React.FC = () => {
             <img
               src={`${CDN_BASE}/assets/images/brand/raw/sidhant-casino-chips.webp`}
               alt="Sidhant — Founder of TWS GurukulX, professional trader and IIT Bombay guest faculty"
-              className="w-full h-full object-cover object-center"
+              width={160}
+              height={224}
               loading="lazy"
               decoding="async"
+              className="w-full h-full object-cover object-center"
             />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-white mb-6">

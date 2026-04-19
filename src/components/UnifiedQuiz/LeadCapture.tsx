@@ -99,14 +99,14 @@ const LeadCapture: React.FC<LeadCaptureProps> = ({ profileFields, onSubmit }) =>
             required
             aria-required="true"
             aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? "name-error" : undefined}
+            aria-describedby="name-error"
             autoComplete="name"
             autoCapitalize="words"
-            className={`w-full min-h-[52px] bg-white/[0.05] border ${errors.name ? 'border-red-400/50' : 'border-white/[0.08]'} rounded-xl px-5 py-4 text-white font-sans text-base placeholder:text-soft-sand/50 focus:outline-none focus:border-burnt-amber/40 focus:ring-1 focus:ring-burnt-amber/20 transition-[border-color,box-shadow] duration-200`}
+            className={`w-full min-h-[52px] bg-white/[0.05] border ${errors.name ? 'border-red-400/50' : 'border-white/[0.08]'} rounded-xl px-5 py-4 text-white font-sans text-base placeholder:text-soft-sand/50 focus:outline-none focus:border-burnt-amber focus:ring-2 focus:ring-burnt-amber/60 transition-[border-color,box-shadow] duration-200`}
           />
-          {errors.name && (
-            <p id="name-error" role="alert" className="text-[12px] text-red-400 font-sans mt-1.5 ml-1">{errors.name}</p>
-          )}
+          <div id="name-error" role="alert" className="min-h-[18px] mt-1.5 ml-1">
+            {errors.name && <span className="text-[12px] text-red-400 font-sans">{errors.name}</span>}
+          </div>
         </div>
 
         <div>
@@ -118,7 +118,7 @@ const LeadCapture: React.FC<LeadCaptureProps> = ({ profileFields, onSubmit }) =>
                 value={countryCode}
                 onChange={(e) => { setCountryCode(e.target.value); setErrors(prev => ({ ...prev, phone: undefined })); }}
                 aria-label="Country code"
-                className={`appearance-none min-h-[52px] w-[88px] bg-white/[0.05] border ${errors.phone ? 'border-red-400/50' : 'border-white/[0.08]'} rounded-xl pl-3 pr-7 py-4 text-white font-sans text-base focus:outline-none focus:border-burnt-amber/40 focus:ring-1 focus:ring-burnt-amber/20 transition-[border-color,box-shadow] duration-200 cursor-pointer`}
+                className={`appearance-none min-h-[52px] w-[88px] bg-white/[0.05] border ${errors.phone ? 'border-red-400/50' : 'border-white/[0.08]'} rounded-xl pl-3 pr-7 py-4 text-white font-sans text-base focus:outline-none focus:border-burnt-amber focus:ring-2 focus:ring-burnt-amber/60 transition-[border-color,box-shadow] duration-200 cursor-pointer`}
               >
                 {countryCodes.map(c => (
                   <option key={c.code} value={c.code} className="bg-deep-slate text-white">
@@ -146,14 +146,14 @@ const LeadCapture: React.FC<LeadCaptureProps> = ({ profileFields, onSubmit }) =>
               required
               aria-required="true"
               aria-invalid={!!errors.phone}
-              aria-describedby={errors.phone ? "phone-error" : undefined}
+              aria-describedby="phone-error"
               autoComplete="tel-national"
-              className={`flex-1 min-w-0 min-h-[52px] bg-white/[0.05] border ${errors.phone ? 'border-red-400/50' : 'border-white/[0.08]'} rounded-xl px-5 py-4 text-white font-sans text-base placeholder:text-soft-sand/50 focus:outline-none focus:border-burnt-amber/40 focus:ring-1 focus:ring-burnt-amber/20 transition-[border-color,box-shadow] duration-200`}
+              className={`flex-1 min-w-0 min-h-[52px] bg-white/[0.05] border ${errors.phone ? 'border-red-400/50' : 'border-white/[0.08]'} rounded-xl px-5 py-4 text-white font-sans text-base placeholder:text-soft-sand/50 focus:outline-none focus:border-burnt-amber focus:ring-2 focus:ring-burnt-amber/60 transition-[border-color,box-shadow] duration-200`}
             />
           </div>
-          {errors.phone && (
-            <p id="phone-error" role="alert" className="text-[12px] text-red-400 font-sans mt-1.5 ml-1">{errors.phone}</p>
-          )}
+          <div id="phone-error" role="alert" className="min-h-[18px] mt-1.5 ml-1">
+            {errors.phone && <span className="text-[12px] text-red-400 font-sans">{errors.phone}</span>}
+          </div>
         </div>
 
         <button

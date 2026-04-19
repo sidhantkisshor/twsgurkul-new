@@ -106,9 +106,11 @@ const RawProofWall: React.FC = () => {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  width={400}
+                  height={500}
                   loading="lazy"
                   decoding="async"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 {/* Gradient overlay at bottom for label legibility */}
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black/70 to-transparent pointer-events-none" />
@@ -147,6 +149,9 @@ const RawProofWall: React.FC = () => {
               <img
                 src={proofItems[expanded].src}
                 alt={proofItems[expanded].alt}
+                width={800}
+                height={1000}
+                decoding="async"
                 className="w-full h-auto rounded-2xl"
               />
               <button

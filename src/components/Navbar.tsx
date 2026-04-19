@@ -39,7 +39,7 @@ const Navbar = () => {
     { name: 'Crypto', href: '/crypto' },
     { name: 'Footprint', href: '/footprint' },
     { name: 'ETM', href: '/mentorship' },
-    { name: 'Blog', href: 'https://blogs.twsgurukul.com', external: true },
+    { name: 'Blog', href: 'https://blogs.twsgurukulx.com', external: true },
   ];
 
   const isActive = (href: string) => {
@@ -125,6 +125,8 @@ const Navbar = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden relative w-11 h-11 flex items-center justify-center rounded-full hover:bg-soft-sand/[0.08] transition-colors"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu-panel"
           >
             <div className="relative w-5 h-5">
               <X
@@ -153,6 +155,7 @@ const Navbar = () => {
 
           {/* Menu Panel */}
           <div
+            id="mobile-menu-panel"
             className="absolute top-16 sm:top-20 left-3 right-3 bg-deep-slate border border-soft-sand/[0.08] rounded-2xl shadow-[0_24px_64px_rgba(0,0,0,0.4)] animate-slide-down overflow-hidden"
           >
             {/* Nav Items */}

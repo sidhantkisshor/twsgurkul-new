@@ -140,20 +140,27 @@
 }
 
 @layer base {
-  /* Respect user preference for reduced motion */
+  /*
+    Respect prefers-reduced-motion. web.dev recommends selective reduction:
+    cap animation duration and iterations (stops infinite keyframes), disable
+    smooth scroll. Transitions are NOT globally killed so button/focus/hover
+    feedback remains functional. Framer Motion is disabled via
+    <MotionConfig reducedMotion="user"> in App.tsx.
+  */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
   }
 
   html {
     scroll-behavior: smooth;
+    /* WCAG 2.2 SC 2.4.11 — keep focused elements visible under sticky nav */
+    scroll-padding-top: 80px;
     /* Prevent iOS zoom on input focus */
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -168,7 +175,7 @@
   
   body {
     @apply antialiased;
-    font-family: 'Satoshi', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
     /* Mobile font size */
     font-size: 1rem;
