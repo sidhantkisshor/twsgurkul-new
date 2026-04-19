@@ -1,16 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager (consent-gated, deferred for better LCP) -->
-    <script>window.dataLayer=window.dataLayer||[];
-    window.loadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;
-    var f=document.getElementsByTagName('script')[0],
-    j=document.createElement('script');j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id=GTM-TMQ589CP';
-    f.parentNode.insertBefore(j,f);window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});};
-    try{if(localStorage.getItem('cookie_consent')==='accepted'){
-    if('requestIdleCallback' in window){requestIdleCallback(window.loadGTM);}
-    else{setTimeout(window.loadGTM,2000);}}}catch(e){}</script>
+    <!-- Google Tag Manager (consent-gated, externalized; see public/scripts/gtm-consent.js) -->
+    <script src="/scripts/gtm-consent.js" defer></script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -22,26 +14,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <!-- DNS prefetch + preconnect for external resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://d2j3cl693ttatt.cloudfront.net" crossorigin>
     <link rel="dns-prefetch" href="https://api.binance.com">
     <link rel="dns-prefetch" href="https://learn.tradingwithsidhant.com">
 
-    <!-- Self-hosted Satoshi font (replaces broken Fontshare CDN) -->
+    <!-- Self-hosted Satoshi (preload) + Instrument Serif via @fontsource (see src/main.tsx) -->
     <link rel="preload" href="/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/fonts/satoshi.css">
-    <!-- Inter + Instrument Serif from Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap">
-    </noscript>
 
+    <!--
+      Note: <title>, <meta name="description">, <link rel="canonical">, og:url, twitter:url
+      are emitted per-route by src/components/Seo.tsx (React 19 hoists them into <head>).
+      The fallback title/description below is shown only if JS fails.
+    -->
     <title>TWS GurukulX - Stop Gambling. Start Dominating.</title>
     <meta name="description" content="Transform from a struggling trader to a market master in 90 days. TWS GurukulX offers live mentorship, psychology rewiring, and multi-market mastery.">
-    <link rel="canonical" href="https://www.twsgurukul.com/">
 
     <!-- LLMs.txt for AI discoverability -->
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site description">
@@ -54,11 +43,11 @@
       "@graph": [
         {
           "@type": "Organization",
-          "@id": "https://www.twsgurukul.com/#organization",
+          "@id": "https://www.twsgurukulx.com/#organization",
           "name": "TWS GurukulX",
           "legalName": "Trading With Sidhant LLP",
-          "url": "https://www.twsgurukul.com",
-          "logo": "https://www.twsgurukul.com/logo-icon.png",
+          "url": "https://www.twsgurukulx.com",
+          "logo": "https://www.twsgurukulx.com/logo-icon.png",
           "description": "India-based trading education platform offering mentorship programs and courses for forex, crypto, and Indian stock markets.",
           "foundingDate": "2023",
           "founder": {
@@ -90,29 +79,21 @@
         },
         {
           "@type": "WebSite",
-          "@id": "https://www.twsgurukul.com/#website",
+          "@id": "https://www.twsgurukulx.com/#website",
           "name": "TWS GurukulX",
-          "url": "https://www.twsgurukul.com",
-          "publisher": { "@id": "https://www.twsgurukul.com/#organization" },
+          "url": "https://www.twsgurukulx.com",
+          "publisher": { "@id": "https://www.twsgurukulx.com/#organization" },
           "description": "Transform from a struggling trader to a market master. Live mentorship, rule-based systems, and multi-market mastery."
         }
       ]
     }
     </script>
 
-    <!-- Open Graph / Facebook -->
+    <!-- OG / Twitter fallbacks (overridden per-route by Seo.tsx). og:image and twitter:image are safe defaults. -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.twsgurukul.com/">
-    <meta property="og:title" content="TWS GurukulX - Stop Gambling. Start Dominating.">
-    <meta property="og:description" content="Transform from a struggling trader to a market master in 90 days. TWS GurukulX offers live mentorship, psychology rewiring, and multi-market mastery.">
-    <meta property="og:image" content="https://www.twsgurukul.com/og-image.jpg">
-
-    <!-- Twitter -->
+    <meta property="og:image" content="https://www.twsgurukulx.com/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.twsgurukul.com/">
-    <meta name="twitter:title" content="TWS GurukulX - Stop Gambling. Start Dominating.">
-    <meta name="twitter:description" content="Transform from a struggling trader to a market master in 90 days. TWS GurukulX offers live mentorship, psychology rewiring, and multi-market mastery.">
-    <meta name="twitter:image" content="https://www.twsgurukul.com/og-image.jpg">
+    <meta name="twitter:image" content="https://www.twsgurukulx.com/og-image.jpg">
 
   </head>
   <body>
