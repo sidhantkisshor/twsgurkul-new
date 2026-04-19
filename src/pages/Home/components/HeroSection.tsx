@@ -16,25 +16,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onQuizOpen }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
       {/* Layered background — Deep Slate base with warm gradient atmosphere */}
-      <div className="absolute inset-0 bg-[#1a2024]" />
-      <div className="absolute inset-0 bg-linear-to-b from-deep-slate via-[#1e2a2f] to-[#0f1519]" />
+      <div className="absolute inset-0 bg-[#1a2024]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-linear-to-b from-deep-slate via-[#1e2a2f] to-[#0f1519]" aria-hidden="true" />
 
       {/* Warm amber glow — top center */}
-      <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-burnt-amber/[0.07] rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-burnt-amber/[0.07] rounded-full blur-[150px] pointer-events-none" aria-hidden="true" />
 
       {/* Secondary teal glow — bottom right */}
-      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-wealth-teal/[0.04] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-wealth-teal/[0.04] rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
 
       {/* Subtle grain texture overlay */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        aria-hidden="true"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
         }}
       />
 
       {/* Horizontal rule accent line */}
-      <div className="absolute top-1/2 left-0 w-full h-px bg-linear-to-r from-transparent via-burnt-amber/10 to-transparent pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-full h-px bg-linear-to-r from-transparent via-burnt-amber/10 to-transparent pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 text-center max-w-5xl mx-auto">
         {/* Pain-first opener — names the reader's current situation */}
@@ -138,7 +139,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onQuizOpen }) => {
       </div>
 
       {/* Bottom fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-warm-white to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-warm-white to-transparent pointer-events-none" aria-hidden="true" />
     </section>
   );
 };

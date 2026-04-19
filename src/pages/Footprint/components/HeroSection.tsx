@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { BarChart3, MessageCircle, TrendingUp, Award, Users, Youtube, Instagram, Send, Linkedin } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
 import { useWhaleTracker } from '../hooks/useWhaleTracker';
@@ -10,6 +10,7 @@ const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20want%20
 
 const HeroSection: React.FC = () => {
   const whaleData = useWhaleTracker();
+  const shouldReduceMotion = useReducedMotion();
 
   const largestWhaleOrder = whaleData.btc?.largestBuyOrder || null;
   const largestSellOrder = whaleData.btc?.largestSellOrder || null;
@@ -290,10 +291,10 @@ const HeroSection: React.FC = () => {
                     </div>
                     <motion.div
                       className="font-mono text-lg sm:text-xl font-bold text-wealth-teal"
-                      animate={{
+                      animate={shouldReduceMotion ? undefined : {
                         textShadow: ['0 0 0px rgba(10,141,122,0)', '0 0 12px rgba(10,141,122,0.6)', '0 0 0px rgba(10,141,122,0)']
                       }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                      transition={shouldReduceMotion ? undefined : { duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                     >
                       {whaleData.btc && whaleData.btc.buyPressure ?
                         `${whaleData.btc.buyPressure > whaleData.btc.sellPressure ? '+' : '-'}${Math.abs(whaleData.btc.buyPressure - whaleData.btc.sellPressure).toFixed(1)}%` :
@@ -307,10 +308,10 @@ const HeroSection: React.FC = () => {
                     </div>
                     <motion.div
                       className="font-mono text-[10px] sm:text-xs font-bold text-burnt-amber"
-                      animate={{
+                      animate={shouldReduceMotion ? undefined : {
                         textShadow: ['0 0 0px rgba(212,148,63,0)', '0 0 12px rgba(212,148,63,0.6)', '0 0 0px rgba(212,148,63,0)']
                       }}
-                      transition={{ duration: 2.5, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}
+                      transition={shouldReduceMotion ? undefined : { duration: 2.5, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}
                     >
                       ${(btcPrice - 500).toLocaleString()}
                       <br />

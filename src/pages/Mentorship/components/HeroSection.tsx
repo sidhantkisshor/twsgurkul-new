@@ -6,31 +6,25 @@ const HeroSection: React.FC = () => {
   const [countdown, setCountdown] = useState('');
 
   useEffect(() => {
+    const formatter = new Intl.DateTimeFormat('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+
     const update = () => {
-      const now = new Date();
-      // Convert to IST (UTC+5:30)
-      const istOffset = 5.5 * 60 * 60 * 1000;
-      const istNow = new Date(now.getTime() + now.getTimezoneOffset() * 60 * 1000 + istOffset);
-
-      const hours = istNow.getHours();
-      const minutes = istNow.getMinutes();
-      const currentMinutes = hours * 60 + minutes;
-
-      const sessionStart = 20 * 60; // 8 PM = 1200 min
-      const sessionEnd = 22 * 60 + 30; // 10:30 PM = 1350 min
+      const [h, m] = formatter.format(new Date()).split(':').map(Number);
+      const currentMinutes = h * 60 + m;
+      const sessionStart = 20 * 60; // 8 PM IST
+      const sessionEnd = 22 * 60 + 30; // 10:30 PM IST
 
       if (currentMinutes >= sessionStart && currentMinutes < sessionEnd) {
         setCountdown('Session is LIVE now');
-      } else {
-        // Calculate minutes until next 8 PM IST
-        let diff = sessionStart - currentMinutes;
-        if (diff <= 0) {
-          diff += 24 * 60; // next day
-        }
-        const h = Math.floor(diff / 60);
-        const m = diff % 60;
-        setCountdown(`Next session in ${h}h ${m}m`);
+        return;
       }
+      const diff = (sessionStart - currentMinutes + 24 * 60) % (24 * 60);
+      setCountdown(`Next session in ${Math.floor(diff / 60)}h ${diff % 60}m`);
     };
 
     update();
