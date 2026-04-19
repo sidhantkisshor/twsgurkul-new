@@ -132,7 +132,7 @@ const HeroSection: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Start reading order flow →
+                Start my order-flow system →
               </motion.button>
 
               <motion.a
@@ -156,7 +156,7 @@ const HeroSection: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Start reading order flow →
+                Start my order-flow system →
               </motion.button>
 
               <motion.a
