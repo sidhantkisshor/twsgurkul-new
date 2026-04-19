@@ -40,12 +40,16 @@ const HeroSection: React.FC = () => {
               <img
                 src={`${CDN_BASE}/assets/images/brand/raw/sidhant-casino-chips.webp`}
                 alt="Sidhant Kisshor"
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover object-top shadow-lg shadow-[#C87533]/30 shrink-0"
+                width={48}
+                height={48}
+                decoding="async"
+                fetchPriority="high"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover object-top shadow-lg shadow-burnt-amber/30 shrink-0"
               />
               <div>
                 <p className="text-sm sm:text-base font-semibold text-white">Sidhant Kisshor</p>
                 <p className="text-xs text-[#D0C5B4]">
-                  <a href="https://www.youtube.com/watch?v=kUloX27rFvk" target="_blank" rel="noopener noreferrer" className="hover:text-[#C87533] transition-colors underline underline-offset-2">TEDx Speaker</a>
+                  <a href="https://www.youtube.com/watch?v=kUloX27rFvk" target="_blank" rel="noopener noreferrer" className="hover:text-burnt-amber transition-colors underline underline-offset-2">TEDx Speaker</a>
                   {' · '}Trading since 2017 · 1,263+ students
                 </p>
                 <div className="flex items-center gap-1 mt-1 -ml-2">
@@ -54,7 +58,7 @@ const HeroSection: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="YouTube channel"
-                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-[#C87533] transition-colors"
+                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-burnt-amber transition-colors"
                   >
                     <Youtube className="w-4 h-4" />
                   </a>
@@ -63,7 +67,7 @@ const HeroSection: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram profile"
-                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-[#C87533] transition-colors"
+                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-burnt-amber transition-colors"
                   >
                     <Instagram className="w-4 h-4" />
                   </a>
@@ -72,7 +76,7 @@ const HeroSection: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn profile"
-                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-[#C87533] transition-colors"
+                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-burnt-amber transition-colors"
                   >
                     <Linkedin className="w-4 h-4" />
                   </a>
@@ -81,7 +85,7 @@ const HeroSection: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Telegram channel"
-                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-[#C87533] transition-colors"
+                    className="inline-flex items-center justify-center w-[44px] h-[44px] text-[#D0C5B4] hover:text-burnt-amber transition-colors"
                   >
                     <Send className="w-4 h-4" />
                   </a>
@@ -93,7 +97,7 @@ const HeroSection: React.FC = () => {
             <div className="space-y-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">
                 <span className="font-sans font-bold text-white">Tired of watching the move happen&nbsp;— </span>
-                <span className="font-serif italic font-normal text-[#D4943F]">after you already exited?</span>
+                <span className="font-serif italic font-normal text-burnt-amber">after you already exited?</span>
               </h1>
 
               <p className="text-base lg:text-lg text-[#D0C5B4] leading-relaxed">
@@ -101,19 +105,19 @@ const HeroSection: React.FC = () => {
               </p>
               <p className="text-sm text-[#D0C5B4]">
                 Recorded course + monthly live Q&A + lifetime access.
-                <span className="font-serif italic text-[#D4943F] font-medium ml-1">Starting at just ₹90/day.</span>
+                <span className="font-serif italic text-burnt-amber font-medium ml-1">Starting at just ₹90/day.</span>
               </p>
             </div>
 
             {/* Credential pills */}
             <div className="flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0A8D7A]/15 border border-[#0A8D7A]/30 rounded-full text-xs text-[#3DD9C4] font-medium">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-wealth-teal/15 border border-wealth-teal/30 rounded-full text-xs text-[#3DD9C4] font-medium">
                 <TrendingUp className="w-3 h-3" /> 73% win rate (1,847 tracked trades)*
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#C87533]/15 border border-[#C87533]/30 rounded-full text-xs text-[#D4943F] font-medium">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-burnt-amber/15 border border-burnt-amber/30 rounded-full text-xs text-burnt-amber font-medium">
                 <Award className="w-3 h-3" /> ₹27.2 Cr student-reported profits*
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#B8956A]/15 border border-[#B8956A]/30 rounded-full text-xs text-[#D0C5B4] font-medium">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brushed-gold/15 border border-brushed-gold/30 rounded-full text-xs text-[#D0C5B4] font-medium">
                 <Users className="w-3 h-3" /> 7-day refund policy
               </span>
             </div>
@@ -123,7 +127,7 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-col gap-3 md:hidden">
               <motion.button
                 onClick={handlePaymentPopup}
-                className="w-full px-4 py-3.5 font-bold rounded-full text-sm bg-[#C87533] hover:bg-[#A85E28] text-white shadow-lg shadow-[#C87533]/25 transition-all"
+                className="w-full px-4 py-3.5 font-bold rounded-full text-sm bg-burnt-amber hover:bg-[#A85E28] text-white shadow-lg shadow-burnt-amber/25 transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -147,7 +151,7 @@ const HeroSection: React.FC = () => {
             <div className="hidden md:flex gap-4">
               <motion.button
                 onClick={handlePaymentPopup}
-                className="px-6 sm:px-8 py-3 sm:py-4 font-bold rounded-full text-base sm:text-lg bg-[#C87533] hover:bg-[#A85E28] text-white shadow-lg shadow-[#C87533]/25 transition-all"
+                className="px-6 sm:px-8 py-3 sm:py-4 font-bold rounded-full text-base sm:text-lg bg-burnt-amber hover:bg-[#A85E28] text-white shadow-lg shadow-burnt-amber/25 transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -177,7 +181,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           >
             {/* Ambient glow background */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-[#0A8D7A]/10 via-transparent to-[#C87533]/10 rounded-3xl blur-2xl" />
+            <div className="absolute -inset-4 bg-gradient-to-br from-wealth-teal/10 via-transparent to-burnt-amber/10 rounded-3xl blur-2xl" />
 
             {/* Grid pattern overlay */}
             <div
@@ -189,22 +193,22 @@ const HeroSection: React.FC = () => {
             />
 
             {/* Main card with glass morphism */}
-            <div className="relative backdrop-blur-xl rounded-2xl overflow-hidden border border-[#0A8D7A]/40 shadow-2xl shadow-[#0A8D7A]/20">
+            <div className="relative backdrop-blur-xl rounded-2xl overflow-hidden border border-wealth-teal/40 shadow-2xl shadow-wealth-teal/20">
               {/* Animated border glow */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#0A8D7A]/0 via-[#0A8D7A]/30 to-[#0A8D7A]/0 opacity-50 animate-pulse" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-wealth-teal/0 via-wealth-teal/30 to-wealth-teal/0 opacity-50 animate-pulse" />
 
               {/* Inner content container */}
-              <div className="relative bg-[#0B1221]/95 p-5 sm:p-7">
+              <div className="relative bg-navy-black/95 p-5 sm:p-7">
                 {/* Header */}
                 <motion.div
-                  className="mb-6 pb-4 border-b border-[#0A8D7A]/20"
+                  className="mb-6 pb-4 border-b border-wealth-teal/20"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
                   <h3 className="text-base sm:text-lg mb-1">
                     <span className="font-sans font-bold text-white">Live </span>
-                    <span className="font-serif italic font-normal text-[#D4943F]">Order Flow</span>
+                    <span className="font-serif italic font-normal text-burnt-amber">Order Flow</span>
                   </h3>
                   <p className="text-[10px] sm:text-xs text-[#8A9199] font-sans tracking-wide uppercase">
                     Footprint · Delta · Absorption
@@ -220,13 +224,13 @@ const HeroSection: React.FC = () => {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs font-sans font-semibold text-[#B8A99A] tracking-wide">BTC/USDT</span>
-                      <span className={`text-xs font-bold font-mono ${btcChange > 0 ? 'text-[#0A8D7A]' : 'text-[#E5484D]'}`}>
+                      <span className={`text-xs font-bold font-mono ${btcChange > 0 ? 'text-wealth-teal' : 'text-[#E5484D]'}`}>
                         {btcChange > 0 ? '▲' : '▼'} {Math.abs(btcChange).toFixed(2)}%
                       </span>
                     </div>
-                    <div className="relative h-12 bg-gradient-to-r from-[#0A8D7A]/5 to-transparent rounded-lg overflow-hidden border border-[#0A8D7A]/20">
+                    <div className="relative h-12 bg-gradient-to-r from-wealth-teal/5 to-transparent rounded-lg overflow-hidden border border-wealth-teal/20">
                       <motion.div
-                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#0A8D7A] to-[#0A8D7A]/70"
+                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-wealth-teal to-wealth-teal/70"
                         initial={{ width: "0%" }}
                         animate={{ width: `${Math.min(75, largestWhaleOrder ? (largestWhaleOrder.total / (largestWhaleOrder.total + (largestSellOrder?.total || 0))) * 100 : 60)}%` }}
                         transition={{ duration: 1.2, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
@@ -237,7 +241,7 @@ const HeroSection: React.FC = () => {
                         <span className="relative z-10 text-xs sm:text-sm font-mono font-bold text-white drop-shadow-lg">
                           {largestWhaleOrder ? formatCurrency(largestWhaleOrder.total) : '—'}
                         </span>
-                        <span className="text-[10px] sm:text-xs font-sans text-[#0A8D7A] font-bold tracking-wider">BID</span>
+                        <span className="text-[10px] sm:text-xs font-sans text-wealth-teal font-bold tracking-wider">BID</span>
                       </div>
                     </div>
                   </motion.div>
@@ -249,7 +253,7 @@ const HeroSection: React.FC = () => {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs font-sans font-semibold text-[#B8A99A] tracking-wide">ETH/USDT</span>
-                      <span className={`text-xs font-bold font-mono ${ethChange > 0 ? 'text-[#0A8D7A]' : 'text-[#E5484D]'}`}>
+                      <span className={`text-xs font-bold font-mono ${ethChange > 0 ? 'text-wealth-teal' : 'text-[#E5484D]'}`}>
                         {ethChange > 0 ? '▲' : '▼'} {Math.abs(ethChange).toFixed(2)}%
                       </span>
                     </div>
@@ -281,11 +285,11 @@ const HeroSection: React.FC = () => {
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#0A8D7A]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-wealth-teal" />
                       <span className="text-[10px] sm:text-xs text-[#8A9199] font-sans font-semibold uppercase tracking-wider">Delta</span>
                     </div>
                     <motion.div
-                      className="font-mono text-lg sm:text-xl font-bold text-[#0A8D7A]"
+                      className="font-mono text-lg sm:text-xl font-bold text-wealth-teal"
                       animate={{
                         textShadow: ['0 0 0px rgba(10,141,122,0)', '0 0 12px rgba(10,141,122,0.6)', '0 0 0px rgba(10,141,122,0)']
                       }}
@@ -298,11 +302,11 @@ const HeroSection: React.FC = () => {
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#C87533]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-burnt-amber" />
                       <span className="text-[10px] sm:text-xs text-[#8A9199] font-sans font-semibold uppercase tracking-wider">Absorption</span>
                     </div>
                     <motion.div
-                      className="font-mono text-[10px] sm:text-xs font-bold text-[#D4943F]"
+                      className="font-mono text-[10px] sm:text-xs font-bold text-burnt-amber"
                       animate={{
                         textShadow: ['0 0 0px rgba(212,148,63,0)', '0 0 12px rgba(212,148,63,0.6)', '0 0 0px rgba(212,148,63,0)']
                       }}
@@ -325,7 +329,7 @@ const HeroSection: React.FC = () => {
                   <p className="text-[10px] text-[#6B7280] font-sans max-w-[70%]">
                     Live demonstration. Course includes practice on real markets.
                   </p>
-                  <div className="flex items-center gap-1.5 text-[#B8956A]">
+                  <div className="flex items-center gap-1.5 text-brushed-gold">
                     <BarChart3 className="w-4 h-4" strokeWidth={2} />
                   </div>
                 </motion.div>
@@ -340,8 +344,8 @@ const HeroSection: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0A8D7A] to-[#0A8D7A]/50 rounded-full blur-lg opacity-60" />
-                <div className="relative bg-gradient-to-br from-[#0A8D7A] to-[#077A6A] px-4 py-2 rounded-full border-2 border-[#3DD9C4]/40 shadow-xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-wealth-teal to-wealth-teal/50 rounded-full blur-lg opacity-60" />
+                <div className="relative bg-gradient-to-br from-wealth-teal to-[#077A6A] px-4 py-2 rounded-full border-2 border-[#3DD9C4]/40 shadow-xl">
                   <span className="font-sans text-xs sm:text-sm font-bold text-white tracking-wider drop-shadow-lg">
                     LIVE DATA
                   </span>

@@ -91,8 +91,9 @@ const BitcoinTradingSessions = () => {
 
       {/* Hero Section — py reduced on mobile */}
       <div className="mb-8 sm:mb-12 text-center">
-        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-6 text-white leading-snug">
-          Bitcoin Trading Sessions
+        <h1 className="text-2xl sm:text-4xl md:text-5xl mb-3 sm:mb-6 leading-snug">
+          <span className="font-sans font-bold text-white">Bitcoin Trading </span>
+          <span className="font-serif italic font-normal text-burnt-amber">Sessions</span>
         </h1>
         <p className="text-base sm:text-xl text-soft-sand/70 max-w-3xl mx-auto leading-relaxed">
           The Essential Guide for Crypto Traders

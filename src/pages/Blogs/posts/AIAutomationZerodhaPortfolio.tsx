@@ -86,8 +86,9 @@ const BlogPost = () => {
               text-2xl on mobile keeps long title readable without wrapping awkwardly.
               leading-snug prevents cramped line-height on multi-line mobile display.
             */}
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-white leading-snug">
-              How to Automate Your Zerodha Investment Portfolio with Free AI Tools
+            <h1 className="text-2xl sm:text-4xl md:text-5xl mb-4 sm:mb-6 leading-snug">
+              <span className="font-sans font-bold text-white">How to Automate Your Zerodha Investment Portfolio with </span>
+              <span className="font-serif italic font-normal text-burnt-amber">Free AI Tools</span>
             </h1>
           </div>
         </div>

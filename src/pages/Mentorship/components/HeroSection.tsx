@@ -109,27 +109,25 @@ const HeroSection: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Headline - pain-first identity attack */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-sans font-bold mb-4 sm:mb-6 leading-tight px-4">
+            {/* Headline - pain-first identity attack + transformation */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 sm:mb-10 leading-tight px-4">
               <motion.span
-                className="block text-white"
+                className="block font-sans font-bold text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                Still Losing Money to Random YouTube Tips?
+                Still losing money to random YouTube tips?
+              </motion.span>
+              <motion.span
+                className="block mt-2 sm:mt-3 font-serif italic font-normal text-burnt-amber"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              >
+                There's a simpler way.
               </motion.span>
             </h1>
-
-            {/* Transformation subheadline */}
-            <motion.p
-              className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-burnt-amber mb-6 sm:mb-10 px-4"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            >
-              There's a simpler way to trade.
-            </motion.p>
 
             {/* Outcome with timeframe */}
             <motion.p
