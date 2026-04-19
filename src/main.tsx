@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
+import { initWebVitals } from './utils/webVitals';
 import '../index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -13,3 +14,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </ErrorBoundary>
   </React.StrictMode>
 );
+
+initWebVitals();
