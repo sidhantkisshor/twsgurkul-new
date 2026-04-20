@@ -48,7 +48,7 @@ export const organizationSchema: Record<string, unknown> = {
   "name": "TWS GurukulX",
   "legalName": "Trading With Sidhant LLP",
   "url": "https://www.twsgurukulx.com",
-  "logo": "https://www.twsgurukulx.com/logo-icon.png",
+  "logo": "https://d2j3cl693ttatt.cloudfront.net/assets/images/brand/icons/tws-gurukulx-icon-512.webp",
   "foundingDate": "2023",
   "description":
     "India-based trading education platform offering mentorship programs and courses for forex, crypto, and Indian stock markets. Combines institutional-grade footprint analysis, rule-based systems, and hands-on mentorship for working professionals.",

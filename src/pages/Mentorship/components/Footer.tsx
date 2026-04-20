@@ -1,4 +1,5 @@
 import React from 'react';
+import { CDN_BASE } from '../../../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -8,8 +9,10 @@ const Footer: React.FC = () => {
           {/* Logo */}
           <div className="flex justify-center mb-8">
             <img
-              src="/tws-gurukulx-icon.png"
+              src={`${CDN_BASE}/assets/images/brand/icons/tws-gurukulx-icon-512.webp`}
               alt="TWS GurukulX"
+              loading="lazy"
+              decoding="async"
               className="h-10 w-auto opacity-80"
             />
           </div>

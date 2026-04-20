@@ -11,6 +11,7 @@ import StructuredData from './components/StructuredData';
 import { useExitIntent } from './hooks/useExitIntent';
 import QuizWelcomeBanner from '../../components/QuizWelcomeBanner';
 import InlineObjection from './components/InlineObjection';
+import { CDN_BASE } from '../../constants';
 
 // Below-fold: lazy-load to shrink the initial chunk. Each has a fixed-height
 // fallback to reserve layout space and prevent CLS while chunks hydrate.
@@ -86,7 +87,7 @@ function FootprintPage() {
             <div className="max-w-6xl mx-auto px-4">
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-[#D0C5B4]">
                 <div className="flex items-center gap-2">
-                  <img src="/tws-gurukulx-icon.png" alt="TWS GurukulX" className="w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0" />
+                  <img src={`${CDN_BASE}/assets/images/brand/icons/tws-gurukulx-icon-512.webp`} alt="TWS GurukulX" loading="lazy" decoding="async" className="w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0" />
                   <span>TWS GurukulX since 2023</span>
                 </div>
                 <span className="hidden sm:inline text-[#B8A99A]/60">·</span>

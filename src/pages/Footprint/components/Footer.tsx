@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import VerificationModal from './VerificationModal';
+import { CDN_BASE } from '../../../constants';
 
 const Footer: React.FC = () => {
   const [showVerificationModal, setShowVerificationModal] = useState(false);
@@ -10,7 +11,7 @@ const Footer: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div className="flex items-center space-x-3 mb-6 md:mb-0">
-              <img src="/tws-gurukulx-icon.png" alt="TWS GurukulX" className="w-8 h-8 object-contain" />
+              <img src={`${CDN_BASE}/assets/images/brand/icons/tws-gurukulx-icon-512.webp`} alt="TWS GurukulX" loading="lazy" decoding="async" className="w-8 h-8 object-contain" />
               <div>
                 <span className="text-lg font-bold text-[#EDE6D8]">Footprint</span>
                 <span className="text-lg font-bold bg-gradient-to-r from-[#C87533] to-[#B8956A] bg-clip-text text-transparent ml-1">Mastery</span>

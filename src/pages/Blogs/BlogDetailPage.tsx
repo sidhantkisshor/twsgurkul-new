@@ -94,7 +94,7 @@ const BlogDetailPage: React.FC = () => {
           "name": "TWS GurukulX",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://www.twsgurukulx.com/logo-icon.png",
+            "url": "https://d2j3cl693ttatt.cloudfront.net/assets/images/brand/icons/tws-gurukulx-icon-512.webp",
           },
         },
         "mainEntityOfPage": {

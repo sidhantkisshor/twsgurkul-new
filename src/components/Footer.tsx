@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Instagram, Youtube, Send, ArrowRight, MessageCircle } from 'lucide-react';
 import { sanitizeInput } from '../utils/security';
 import { sendAiSensyCampaign } from '../utils/aisensy';
-import { AISENSY_CAMPAIGNS } from '../constants';
+import { AISENSY_CAMPAIGNS, CDN_BASE } from '../constants';
 
 // Retry a fetch up to `retries` times with exponential backoff.
 // Returns true on success, false after all retries exhausted.
@@ -205,13 +205,17 @@ const Footer = () => {
                 <div className="mb-4">
                   <div className="flex items-center gap-2 mb-1">
                     <img
-                      src="/logo-icon.png"
+                      src={`${CDN_BASE}/assets/images/brand/icons/tws-gurukulx-icon-512.webp`}
                       alt=""
+                      loading="lazy"
+                      decoding="async"
                       className="h-7 w-7 object-contain"
                     />
                     <img
-                      src="/logo-wordmark-dark.png"
+                      src={`${CDN_BASE}/assets/images/brand/wordmarks/tws-gurukulx-wordmark-dark-transparent.webp`}
                       alt="TWS GurukulX"
+                      loading="lazy"
+                      decoding="async"
                       className="h-6 w-auto object-contain"
                     />
                   </div>
