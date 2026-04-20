@@ -8,6 +8,9 @@ interface SeoProps {
   ogDescription?: string;
   ogImage?: string;
   ogType?: string;
+  /** When set alongside ogType="product", emits product:price:amount/currency OG meta (Meta 2025+). */
+  productPriceAmount?: string | number;
+  productPriceCurrency?: string;
   noIndex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -20,9 +23,12 @@ const Seo: React.FC<SeoProps> = ({
   ogDescription,
   ogImage,
   ogType = 'website',
+  productPriceAmount,
+  productPriceCurrency,
   noIndex = false,
   jsonLd,
 }) => {
+  const isProduct = ogType === 'product';
   return (
     <>
       <title>{title}</title>
@@ -34,6 +40,19 @@ const Seo: React.FC<SeoProps> = ({
       <meta property="og:description" content={ogDescription ?? description} />
       <meta property="og:url" content={canonicalUrl} />
       {ogImage && <meta property="og:image" content={ogImage} />}
+
+      {isProduct && productPriceAmount !== undefined && (
+        <meta property="product:price:amount" content={String(productPriceAmount)} />
+      )}
+      {isProduct && productPriceCurrency && (
+        <meta property="product:price:currency" content={productPriceCurrency} />
+      )}
+      {isProduct && productPriceAmount !== undefined && (
+        <meta property="og:price:amount" content={String(productPriceAmount)} />
+      )}
+      {isProduct && productPriceCurrency && (
+        <meta property="og:price:currency" content={productPriceCurrency} />
+      )}
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={ogTitle ?? title} />

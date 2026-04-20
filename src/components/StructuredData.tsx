@@ -104,23 +104,69 @@ export const cryptoCourseSchema: Record<string, unknown> = {
   "@type": "Course",
   "name": "Crypto Mastery",
   "description":
-    "12-week recorded crypto trading program with monthly live Q&A. Build a 2-hour evening system (7-9 PM) with a 5-step execution framework covering technical analysis, confluence stacking, risk management, and trade journaling. 1,263 enrolled, 73% reported win rate.",
+    "Recorded crypto trading program (~6 hours of content) paced over 12 weeks with monthly live Q&A. Build a 2-hour evening system (7-9 PM) with a 5-step execution framework covering technical analysis, confluence stacking, risk management, and trade journaling.",
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
     "sameAs": "https://www.twsgurukulx.com",
   },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": 10,
+    "bestRating": "5",
+    "worstRating": "1",
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Rahul Sharma" },
+      "datePublished": "2024-11-15",
+      "reviewBody":
+        "The risk management module alone was worth it. The systematic approach is completely different — I understand why I enter and exit trades now.",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Priya Patel" },
+      "datePublished": "2024-10-20",
+      "reviewBody":
+        "Finally a course that teaches process, not just signals. The 2-hour evening routine fits my CA schedule perfectly.",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Amit Kumar" },
+      "datePublished": "2024-12-10",
+      "reviewBody":
+        "Slow start, but the system works if you follow it. Once I stuck to the checklist and journal, things clicked.",
+      "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
+    },
+  ],
+  "totalHistoricalEnrollment": 1263,
   "offers": {
     "@type": "Offer",
     "price": "19499",
     "priceCurrency": "INR",
     "availability": "https://schema.org/InStock",
+    "category": "Paid",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "19499",
+      "priceCurrency": "INR",
+      "valueAddedTaxIncluded": false,
+    },
     "url": "https://www.twsgurukulx.com/crypto",
   },
   "hasCourseInstance": {
     "@type": "CourseInstance",
-    "courseMode": "online",
-    "courseWorkload": "PT24H",
+    "courseMode": "Online",
+    "courseWorkload": "PT6H",
+    "educationalProgramMode": "PartTime",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://www.twsgurukulx.com/crypto",
+    },
     "instructor": {
       "@type": "Person",
       "name": "Sidhant Kisshor",
@@ -198,7 +244,7 @@ export const footprintCourseSchema: Record<string, unknown> = {
   "@type": "Course",
   "name": "Footprint Mastery",
   "description":
-    "Master institutional order flow analysis with footprint charts using the F.A.S.T. framework (Find, Assess, Sync, Trade). Learn to identify absorption, delta divergence, and liquidity zones. Self-paced 10-module course with monthly live Q&A and lifetime access.",
+    "Master institutional order flow analysis with footprint charts using the F.A.S.T. framework (Find, Assess, Sync, Trade). Learn to identify absorption, delta divergence, and liquidity zones. Self-paced 10-module course with monthly live Q&A and 12-month access.",
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
@@ -209,12 +255,24 @@ export const footprintCourseSchema: Record<string, unknown> = {
     "price": "32999",
     "priceCurrency": "INR",
     "availability": "https://schema.org/InStock",
+    "category": "Paid",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "32999",
+      "priceCurrency": "INR",
+      "valueAddedTaxIncluded": false,
+    },
     "url": "https://www.twsgurukulx.com/footprint",
   },
   "hasCourseInstance": {
     "@type": "CourseInstance",
-    "courseMode": "online",
+    "courseMode": "Online",
     "courseWorkload": "PT10H",
+    "educationalProgramMode": "PartTime",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://www.twsgurukulx.com/footprint",
+    },
     "instructor": {
       "@type": "Person",
       "name": "Sidhant Kisshor",
@@ -232,7 +290,7 @@ export const mentorshipCourseSchema: Record<string, unknown> = {
   "@type": "Course",
   "name": "Elite Trading Mentorship",
   "description":
-    "Live 1-on-1 trading mentorship with nightly 8 PM IST sessions, 5 nights a week. Includes 40+ strategy videos, weekly performance reviews, whale wallet tracking, and WhatsApp support. Capped at 50 per batch. 2,300+ traders trained, 83% complete the full 90 days.",
+    "Live trading mentorship with nightly 8 PM IST sessions, 5 nights a week. Recurring 3-month term (₹19,999 / 3 months). Includes 40+ strategy videos, weekly performance reviews, whale wallet tracking, and WhatsApp support. Capped at 50 per batch. 2,300+ traders trained, 83% complete the full 90 days.",
   "provider": {
     "@type": "Organization",
     "name": "TWS GurukulX",
@@ -242,12 +300,25 @@ export const mentorshipCourseSchema: Record<string, unknown> = {
     "@type": "Offer",
     "price": "19999",
     "priceCurrency": "INR",
-    "availability": "https://schema.org/InStock",
+    "availability": "https://schema.org/SoldOut",
+    "category": "Paid",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "19999",
+      "priceCurrency": "INR",
+      "valueAddedTaxIncluded": false,
+      "unitText": "3-month term",
+    },
     "url": "https://www.twsgurukulx.com/mentorship",
   },
   "hasCourseInstance": {
     "@type": "CourseInstance",
-    "courseMode": "online",
+    "courseMode": "Online",
+    "educationalProgramMode": "PartTime",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://www.twsgurukulx.com/mentorship",
+    },
     "instructor": {
       "@type": "Person",
       "name": "Sidhant Kisshor",

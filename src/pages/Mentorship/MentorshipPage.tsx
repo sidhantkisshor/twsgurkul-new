@@ -38,11 +38,14 @@ const MentorshipPage: React.FC = () => {
     <>
       <Seo
         title="Elite Trading Mentorship | Live 8 PM Sessions | TWS GurukulX"
-        description="Learn a repeatable 8 PM trading routine with live market sessions and weekly performance reviews. 2,300+ traders trained. Next cohort starts soon."
+        description="Learn a repeatable 8 PM trading routine with live market sessions and weekly performance reviews. 2,300+ traders trained. Current cohort full — waitlist open."
         ogTitle="Trade The 8 PM Window With Pro Coaches"
-        ogDescription="Join a capped cohort, learn the 8 PM liquidity window, and practice it live five nights a week with our certified pro coaches trained in Sidhant's system."
+        ogDescription="Current cohort full — join the waitlist for the next intake. Learn the 8 PM liquidity window and practice it live five nights a week with certified pro coaches trained in Sidhant's system."
         canonicalUrl="https://www.twsgurukulx.com/mentorship"
         ogImage="https://www.twsgurukulx.com/og-image.jpg"
+        ogType="product"
+        productPriceAmount={19999}
+        productPriceCurrency="INR"
       />
       <JsonLd data={[
         mentorshipCourseSchema,

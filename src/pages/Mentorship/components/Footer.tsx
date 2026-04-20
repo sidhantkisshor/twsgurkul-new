@@ -14,10 +14,17 @@ const Footer: React.FC = () => {
             />
           </div>
 
-          {/* Disclaimer */}
+          {/* ASCI-mandated VDA disclosure */}
+          <div className="text-center mb-5">
+            <p className="text-sm text-soft-sand max-w-3xl mx-auto leading-relaxed font-medium">
+              Crypto products and NFTs are unregulated and can be highly risky. There may be no regulatory recourse for any loss from such transactions.
+            </p>
+          </div>
+
+          {/* SEBI non-registration + testimonial disclaimer */}
           <div className="text-center mb-8">
-            <p className="text-sm text-soft-sand/70 max-w-3xl mx-auto">
-              Trading virtual digital assets involves risk. Past performance does not indicate future results. Educational purposes only.
+            <p className="text-xs text-soft-sand/75 max-w-3xl mx-auto leading-relaxed">
+              Trading With Sidhant LLP is <strong className="text-soft-sand/90">not a SEBI-registered Investment Adviser or Research Analyst</strong>. All content is educational; we do not provide buy/sell signals, recommendations, or personalised investment advice. Past performance is not indicative of future results. Testimonials reflect self-reported outcomes from individual students and are not typical.
             </p>
           </div>
 
