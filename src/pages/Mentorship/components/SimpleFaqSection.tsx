@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import JsonLd, { buildFaqSchema } from '../../../components/StructuredData';
 

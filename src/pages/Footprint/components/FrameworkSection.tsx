@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { uniqueMechanismData } from '../data';
 import { handlePaymentPopup } from '../utils/payment';
 import VerificationModal from './VerificationModal';

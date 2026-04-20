@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle } from 'lucide-react';
 import { cryptoTrackingEvents } from '../utils/tracking';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';

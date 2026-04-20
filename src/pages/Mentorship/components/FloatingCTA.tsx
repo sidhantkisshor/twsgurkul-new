@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X, Calendar } from 'lucide-react';
 
 const FloatingCTA: React.FC = () => {

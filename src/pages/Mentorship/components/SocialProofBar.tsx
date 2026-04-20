@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 const proofItems = [
   'Rahul from Jaipur joined 2 hours ago',

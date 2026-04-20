@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Check, X, ArrowRight, UserCheck } from 'lucide-react';
 
 const TargetingSection: React.FC = () => {

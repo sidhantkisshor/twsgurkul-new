@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { instructorFeatures } from '../data';
 

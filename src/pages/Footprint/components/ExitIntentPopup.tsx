@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle } from 'lucide-react';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
 import { WHATSAPP_NUMBER } from '../../../constants';

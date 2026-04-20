@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Menu, X, MessageCircle } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '../../../constants';
+import { CDN_BASE, WHATSAPP_NUMBER } from '../../../constants';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 group">
               <img
-                src="/tws-gurukulx-icon.png"
+                src={`${CDN_BASE}/assets/images/brand/icons/tws-gurukulx-icon-512.webp`}
                 alt="TWS GurukulX"
                 className="h-8 sm:h-9 w-auto"
               />
@@ -94,7 +94,7 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Started
+              Reserve my 8 PM seat
             </motion.button>
             </div>
 
@@ -166,7 +166,7 @@ const Header: React.FC = () => {
                   className="mt-8 w-full px-6 py-3 bg-burnt-amber text-white rounded-full font-semibold"
                   whileTap={{ scale: 0.95 }}
                 >
-                  Get Started
+                  Reserve my 8 PM seat
                 </motion.button>
               </div>
             </motion.div>

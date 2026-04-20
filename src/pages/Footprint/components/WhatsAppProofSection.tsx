@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { CheckCheck } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
 

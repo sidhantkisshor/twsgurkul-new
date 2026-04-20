@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { handlePaymentPopup } from '../utils/payment';
+import { CDN_BASE } from '../../../constants';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,13 +39,13 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="flex items-center space-x-3 group shrink-0">
             <img
-              src="/tws-gurukulx-icon.png"
+              src={`${CDN_BASE}/assets/images/brand/icons/tws-gurukulx-icon-512.webp`}
               alt="TWS GurukulX"
               className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-105"
             />
             <div>
               <span className="text-lg sm:text-xl font-sans font-bold text-white">Footprint</span>
-              <span className="text-lg sm:text-xl font-serif italic font-normal text-[#C87533] ml-1.5">Mastery</span>
+              <span className="text-lg sm:text-xl font-serif italic font-normal text-burnt-amber ml-1.5">Mastery</span>
             </div>
           </Link>
 
@@ -58,18 +59,18 @@ const Header: React.FC = () => {
           <div className="hidden md:block">
             <motion.button
               onClick={handlePaymentPopup}
-              className="bg-[#C87533] hover:bg-[#A85E28] text-white font-semibold px-6 py-2.5 rounded-full transition-colors text-sm font-sans"
+              className="bg-burnt-amber hover:bg-[#A85E28] text-white font-semibold px-6 py-2.5 rounded-full transition-colors text-sm font-sans"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start reading order flow →
+              Start my order-flow system →
             </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-[#EDE6D8] w-11 h-11 flex items-center justify-center -mr-2 relative z-[60] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C87533] rounded-sm"
+            className="md:hidden text-soft-sand w-11 h-11 flex items-center justify-center -mr-2 relative z-[60] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burnt-amber rounded-sm"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,37 +84,37 @@ const Header: React.FC = () => {
           <div className="px-4 sm:px-6 py-4 flex flex-col">
             <a
               href="#framework"
-              className="text-white hover:text-[#D4943F] transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
+              className="text-white hover:text-burnt-amber transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               F.A.S.T. Method
             </a>
             <a
               href="#testimonials"
-              className="text-white hover:text-[#D4943F] transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
+              className="text-white hover:text-burnt-amber transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonials
             </a>
             <a
               href="#pricing"
-              className="text-white hover:text-[#D4943F] transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
+              className="text-white hover:text-burnt-amber transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Pricing
             </a>
             <a
               href="#faq"
-              className="text-white hover:text-[#D4943F] transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
+              className="text-white hover:text-burnt-amber transition-colors py-3.5 border-b border-[#3A4449]/40 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               FAQ
             </a>
             <button
               onClick={handlePaymentPopup}
-              className="bg-[#C87533] hover:bg-[#A85E28] text-white font-semibold px-6 py-3 rounded-full transition-colors mt-5 min-h-[48px]"
+              className="bg-burnt-amber hover:bg-[#A85E28] text-white font-semibold px-6 py-3 rounded-full transition-colors mt-5 min-h-[48px]"
             >
-              Start reading order flow →
+              Start my order-flow system →
             </button>
           </div>
         </div>

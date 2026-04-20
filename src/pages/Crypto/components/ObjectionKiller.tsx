@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Shield, Clock, Target, Users } from 'lucide-react';
 
 const ObjectionKiller: React.FC = () => {
@@ -56,7 +56,7 @@ const ObjectionKiller: React.FC = () => {
                   </li>
                 </ul>
                 <p className="text-[#2C3539]/70 text-sm leading-relaxed mt-3">
-                  73% of our students report being active after 90 days because the format is daily practice, not one-time watching.
+                  Students who follow the daily checklist and journal tend to stay active past month 3 — the format rewards daily practice, not one-time binge-watching.
                 </p>
               </div>
             </div>
@@ -118,7 +118,7 @@ const ObjectionKiller: React.FC = () => {
               <div>
                 <h3 className="font-bold text-[#2C3539] mb-2">Show this to your family</h3>
                 <p className="text-[#2C3539]/70 text-sm leading-relaxed">
-                  We understand that ₹19,499 is a family decision for many. Here's the plain-language breakdown: It's a <strong className="text-[#2C3539]">one-time payment for a structured crypto education program</strong> with lifetime access. It teaches risk management first — how to protect capital, not gamble it. If the student implements even one risk management rule from the course, it can prevent losses that typically exceed the course cost. There are no hidden upsells. No-cost EMI at ₹1,625/month is available.
+                  We understand that ₹19,499 is a family decision for many. Here's the plain-language breakdown: It's a <strong className="text-[#2C3539]">one-time payment for a structured crypto education program</strong> with 12 months of access plus monthly live Q&A. It teaches risk management first — how to protect capital, not gamble it. If the student implements even one risk management rule from the course, it can prevent losses that typically exceed the course cost. There are no hidden upsells. No-cost EMI at ₹1,625/month is available.
                 </p>
               </div>
             </div>

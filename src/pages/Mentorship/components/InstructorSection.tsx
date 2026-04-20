@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { GraduationCap, Mic2, Award, ExternalLink } from 'lucide-react';
 
 const credentials = [

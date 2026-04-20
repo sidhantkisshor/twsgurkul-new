@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import VerificationModal from './VerificationModal';
 import { handlePaymentPopup } from '../utils/payment';

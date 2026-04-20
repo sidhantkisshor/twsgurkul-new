@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { ArrowRight, Lock, Calendar, CheckCircle } from 'lucide-react';
 import { getNextFirstSaturdayWithOrdinal } from '../utils/dateHelpers';
 import { cryptoTrackingEvents } from '../utils/tracking';
@@ -56,16 +56,11 @@ const HeroSectionReimagined: React.FC<HeroSectionReimaginedProps> = ({ onMethodo
                             Still FOMO-buying at the top and panic-selling at the bottom?
                         </motion.p>
 
-                        {/* Headline — pain-first, then solution */}
-                        <motion.h1
-                            className="text-4xl sm:text-5xl lg:text-6xl leading-tight"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                        >
+                        {/* Headline — pain-first, then solution. LCP element: no opacity animation to avoid blocking first paint on mid-range Android. */}
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl leading-tight">
                             <span className="font-sans font-bold text-white">Stop losing money on </span>
                             <span className="font-serif italic font-normal text-burnt-amber">random crypto trades</span>
-                        </motion.h1>
+                        </h1>
 
                         {/* Transformation subheadline */}
                         <motion.p

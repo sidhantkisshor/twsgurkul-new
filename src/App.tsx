@@ -1,7 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { MotionConfig } from 'framer-motion';
+import { LazyMotion, MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
+
+// Motion features load asynchronously once the page is idle, keeping the
+// initial JS budget small. The target is a tiny module that re-exports only
+// domMax so Vite tree-shakes it into a dedicated chunk. Per motion.dev.
+const loadMotionFeatures = () => import('./utils/motionFeatures').then((m) => m.default);
 import ScrollToTop from './components/ScrollToTop';
 import PageLoader from './components/PageLoader';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -33,6 +38,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 function App() {
   return (
     <MotionConfig reducedMotion="user">
+      <LazyMotion features={loadMotionFeatures} strict>
       <Router>
         <ScrollToTop />
         <ErrorBoundary>
@@ -62,6 +68,7 @@ function App() {
           <CookieConsent />
         </ErrorBoundary>
       </Router>
+      </LazyMotion>
     </MotionConfig>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Check, X, Briefcase, TrendingUp, Clock } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
 

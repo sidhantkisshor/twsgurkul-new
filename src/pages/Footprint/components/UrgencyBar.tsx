@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Clock } from 'lucide-react';
 import { useCountdown } from '../../Crypto/hooks/useCountdown';
 import { getNextFirstSaturdayWithOrdinal } from '../../Crypto/utils/dateHelpers';

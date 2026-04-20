@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { BookOpen, BarChart3, Trophy, Video, Users, FileText } from 'lucide-react';
 
 const weeks = [

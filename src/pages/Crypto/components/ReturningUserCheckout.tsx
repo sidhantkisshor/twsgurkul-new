@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { Zap, ArrowRight, X } from 'lucide-react';
 import { cryptoTrackingEvents, isReturningUser } from '../utils/tracking';
 import { CRYPTO_PRICE } from '../data';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Info } from 'lucide-react';
 import InlineCTA from './InlineCTA';
 

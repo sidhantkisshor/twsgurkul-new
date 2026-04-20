@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Download, Play } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../../../constants';
 

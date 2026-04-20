@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { FileText, TrendingUp, Calendar, ChevronRight } from 'lucide-react';
 import { cryptoTrackingEvents } from '../utils/tracking';
 

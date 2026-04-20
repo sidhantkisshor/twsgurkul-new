@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { handlePaymentPopup } from '../utils/payment';
 import { getNextFirstSaturdayWithOrdinal } from '../../Crypto/utils/dateHelpers';
 

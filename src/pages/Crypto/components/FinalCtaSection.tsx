@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { ArrowRight, Clock, Shield, TrendingUp } from 'lucide-react';
 import { getCheckoutUrl } from '../../../constants';
 import { cryptoTrackingEvents } from '../utils/tracking';

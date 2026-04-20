@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { X, Info } from 'lucide-react';
 import { cryptoTrackingEvents } from '../utils/tracking';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
@@ -77,14 +77,14 @@ const MethodologyModal: React.FC<MethodologyModalProps> = ({ isOpen, onClose }) 
                                 <div className="flex items-start gap-3">
                                     <span className="text-[#0A8D7A] mt-1">•</span>
                                     <p className="text-[#2C3539]/80">
-                                        <strong className="text-[#111111]">₹27.2Cr</strong> is the sum of withdrawals self-reported by students who voluntarily shared bank screenshots.
+                                        <strong className="text-[#111111]">₹53 Cr</strong> (updated January 2026) is the cumulative sum of withdrawals self-reported by students who voluntarily shared bank screenshots. This figure is not independently audited.
                                     </p>
                                 </div>
 
                                 <div className="flex items-start gap-3">
                                     <span className="text-[#0A8D7A] mt-1">•</span>
                                     <p className="text-[#2C3539]/80">
-                                        <strong className="text-[#111111]">73% reported win rate</strong> is from 1,847 student-recorded trades over 12 months; a "win" = above-breakeven after fees.
+                                        <strong className="text-[#111111]">73% reported win rate</strong> is derived from student-recorded trades aggregated over a 12-month internal sample; a "win" = above-breakeven after fees.
                                     </p>
                                 </div>
 

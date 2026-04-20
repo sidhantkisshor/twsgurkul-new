@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Eye, Play, CheckCircle } from 'lucide-react';
 
 const UniqueMechanismSection: React.FC = () => {

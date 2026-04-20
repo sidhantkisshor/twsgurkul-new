@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { ArrowRight, Eye, Filter, Layers, Crosshair, TrendingUp } from 'lucide-react';
 import { uniqueMechanismData } from '../data';
 

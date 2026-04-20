@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { motion, useMotionValue, useTransform, animate, useAnimationFrame, wrap, PanInfo, useReducedMotion } from 'framer-motion';
+import { m as motion, useMotionValue, useTransform, animate, useAnimationFrame, wrap, PanInfo, useReducedMotion } from 'framer-motion';
 import { Gift, UserCheck, ArrowRight } from 'lucide-react';
 import { testimonials } from '../data';
 import { Testimonial } from '../types';
@@ -127,14 +127,14 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                         <span className="font-sans font-bold text-[#2C3539]">Student</span>{' '}
                         <span className="font-serif italic font-normal text-[#C87533]">Experiences</span>
                     </h2>
-                    <p className="text-lg sm:text-xl text-[#2C3539]/70 max-w-3xl mx-auto leading-relaxed">
-                        Based on self-reported data. Individual results vary significantly.
+                    <p className="text-lg sm:text-xl text-[#2C3539]/80 max-w-3xl mx-auto leading-relaxed">
+                        Self-reported by students. Not typical. Past performance is not indicative of future results. Trading crypto/VDAs carries substantial risk.
                         {onMethodologyClick && (
                             <>
                                 {' '}
                                 <button
                                     onClick={onMethodologyClick}
-                                    className="inline-flex items-center gap-1 text-[#2C3539]/70 hover:text-[#C87533] transition-colors group py-3 -my-3"
+                                    className="inline-flex items-center gap-1 text-[#2C3539]/80 hover:text-[#C87533] transition-colors group py-3 -my-3"
                                 >
                                     <span className="group-hover:underline">Methodology & verification</span>
                                     <span>→</span>
@@ -319,7 +319,7 @@ const TestimonialCard: React.FC<{
                 </motion.div>
 
                 {testimonial.isVerified && (
-                    <motion.div 
+                    <motion.div
                         className="flex items-center space-x-3"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -339,6 +339,11 @@ const TestimonialCard: React.FC<{
                     </motion.div>
                 )}
             </div>
+
+            {/* Per-card compliance disclaimer — ASCI + CPA 2019 require adjacency */}
+            <p className="text-[10px] text-[#2C3539]/60 leading-snug mt-4 pt-3 border-t border-[rgba(44,53,57,0.06)]">
+                Self-reported. Not typical. Past performance not indicative of future results.
+            </p>
         </motion.div>
     );
 };

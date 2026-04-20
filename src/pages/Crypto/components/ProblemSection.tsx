@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { AlertTriangle, Radio, BookOpen, ShieldOff, Users } from 'lucide-react';
 
 const problems = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle, AlertCircle, Users, TrendingUp } from 'lucide-react';
 
 interface VerificationModalProps {
