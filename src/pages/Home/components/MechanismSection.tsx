@@ -6,20 +6,20 @@ const steps = [
   {
     icon: Search,
     number: '01',
-    title: 'Audit Your Leaks',
-    description: "Find out exactly where you\u2019re bleeding money \u2014 bad entries, no stop-loss, emotional exits. Most traders skip this and keep repeating the same mistakes.",
+    title: 'Find Your Biggest Leaks',
+    description: "We show you exactly where you are losing money. Wrong entries. No stop-loss. Exits out of fear or greed. Most traders skip this step, so they keep making the same mistakes.",
   },
   {
     icon: Crosshair,
     number: '02',
-    title: 'Install a Rule-Based System',
-    description: "Replace guesswork with a repeatable system \u2014 specific entries, exits, and position sizes. You\u2019ll know what to do before the market opens.",
+    title: 'Learn a Simple Set of Rules',
+    description: "Stop guessing. Follow clear rules for when to enter, when to exit, and how much to risk. You will know what to do before the market opens.",
   },
   {
     icon: ShieldCheck,
     number: '03',
-    title: 'Trade with Risk-First Discipline',
-    description: 'Learn to protect capital first, profit second. This is why our students stay profitable — they survive the bad weeks that wipe out everyone else.',
+    title: 'Protect Capital First, Profit Second',
+    description: 'Learn to keep your money safe first. Profit comes second. This is why our students stay in the game — they survive the bad weeks that wipe out everyone else.',
   },
 ];
 
@@ -46,15 +46,15 @@ const MechanismSection: React.FC = () => {
             transform: visible ? 'translateY(0)' : 'translateY(24px)',
           }}
         >
-          <p className="text-[11px] tracking-[0.3em] uppercase text-amber-bright mb-4 font-sans font-medium">
+          <p className="text-[11px] tracking-[0.3em] uppercase text-amber-dark mb-4 font-sans font-medium">
             The GurukulX Method
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-deep-slate mb-4">
             <span className="font-sans font-bold">How it </span>
             <span className="font-serif italic font-normal text-burnt-amber">actually works</span>
           </h2>
-          <p className="text-base text-deep-slate/45 font-sans max-w-lg mx-auto leading-relaxed">
-            Not 200 hours of theory. A focused 3-step system that turns losing traders into profitable ones. Every program follows this framework.
+          <p className="text-base text-deep-slate/70 font-sans max-w-lg mx-auto leading-relaxed">
+            Not another 200-hour course. A simple 3-step method that turns losing traders profitable. Every program follows this same framework.
           </p>
         </div>
 
@@ -75,21 +75,21 @@ const MechanismSection: React.FC = () => {
                 {/* Step number + icon */}
                 <div className="shrink-0">
                   <div className="w-12 h-12 rounded-xl bg-burnt-amber/[0.08] flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-burnt-amber/70" />
-                  </div>
-                  <div className="text-center mt-2">
-                    <span className="text-[11px] font-bold text-deep-slate/20 font-sans tracking-wider">
-                      {step.number}
-                    </span>
+                    <Icon className="w-5 h-5 text-burnt-amber" />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="min-w-0">
-                  <h3 className="text-lg font-bold text-deep-slate font-sans mb-1.5">
-                    {step.title}
-                  </h3>
-                  <p className="text-[15px] text-deep-slate/50 font-sans leading-relaxed">
+                  <div className="flex items-baseline gap-2 mb-1.5">
+                    <span className="text-[11px] font-bold text-burnt-amber/70 font-sans tracking-wider">
+                      {step.number}
+                    </span>
+                    <h3 className="text-lg font-bold text-deep-slate font-sans">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <p className="text-[15px] text-deep-slate/75 font-sans leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -106,8 +106,8 @@ const MechanismSection: React.FC = () => {
             transform: visible ? 'translateY(0)' : 'translateY(12px)',
           }}
         >
-          <p className="text-sm text-deep-slate/50 font-sans">
-            Three programs. Same framework. Pick the one that fits your level &darr;
+          <p className="text-sm text-deep-slate/70 font-sans">
+            Three programs. Same framework. Pick the one that fits where you are today &darr;
           </p>
         </div>
       </div>

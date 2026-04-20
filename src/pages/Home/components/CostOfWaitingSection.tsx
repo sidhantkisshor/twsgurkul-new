@@ -4,16 +4,16 @@ import { useIntersectionAnimation } from '../../../utils/animations';
 
 const withoutSystem = [
   { month: 'Month 1', outcome: '-₹15,000', detail: 'Bad trade on a WhatsApp tip' },
-  { month: 'Month 3', outcome: '-₹73,000', detail: 'Accumulated losses, no system' },
-  { month: 'Month 6', outcome: '-₹1.5L', detail: 'Frustration + emotional trading' },
+  { month: 'Month 3', outcome: '-₹73,000', detail: 'Losses add up, no clear rules' },
+  { month: 'Month 6', outcome: '-₹1.5L', detail: 'Stopped trading out of frustration' },
   { month: 'Month 12', outcome: 'Quit forever', detail: 'Blame the market, give up' },
 ];
 
 const withTWS = [
   { month: 'Month 1', outcome: '₹0 risk', detail: 'Learning the system properly' },
-  { month: 'Month 3', outcome: '+₹47,000', detail: 'First profits with real trades' },
-  { month: 'Month 6', outcome: '₹1.2L/mo', detail: 'Consistent, rule-based income' },
-  { month: 'Month 12', outcome: '₹3L+/mo', detail: 'Financial freedom unlocked' },
+  { month: 'Month 3', outcome: '+₹47,000', detail: 'First real profits with the rules' },
+  { month: 'Month 6', outcome: '₹1.2L/mo*', detail: 'Steady monthly trading income' },
+  { month: 'Month 12', outcome: '₹3L+/mo*', detail: 'Trading covers monthly expenses' },
 ];
 
 interface CostOfWaitingSectionProps {
@@ -52,9 +52,8 @@ const CostOfWaitingSection: React.FC<CostOfWaitingSectionProps> = ({ onQuizOpen 
             <span className="font-sans font-bold">The real cost of </span>
             <span className="font-serif italic font-normal text-red-400/80">figuring it out alone</span>
           </h2>
-          <p className="text-base text-soft-sand/60 font-sans max-w-lg mx-auto leading-relaxed">
-            Every month without a proven system costs the average trader ₹73,000.
-            Here&apos;s how the next 12 months look -with and without a system.
+          <p className="text-base text-soft-sand/85 font-sans max-w-lg mx-auto leading-relaxed">
+            The average trader we surveyed loses about ₹73,000 a month without a plan.* Here is what the next 12 months can look like, with and without our system.
           </p>
         </div>
 
@@ -83,12 +82,12 @@ const CostOfWaitingSection: React.FC<CostOfWaitingSectionProps> = ({ onQuizOpen 
                     transitionDelay: `${300 + i * 120}ms`,
                   }}
                 >
-                  <div className="text-[11px] text-soft-sand/50 font-sans font-medium w-16 shrink-0 pt-0.5 uppercase tracking-wider">
+                  <div className="text-[11px] text-soft-sand/70 font-sans font-medium w-16 shrink-0 pt-0.5 uppercase tracking-wider">
                     {item.month}
                   </div>
                   <div>
                     <div className="text-lg font-bold text-red-400/90 font-sans">{item.outcome}</div>
-                    <div className="text-[13px] text-soft-sand/55 font-sans">{item.detail}</div>
+                    <div className="text-[13px] text-soft-sand/80 font-sans">{item.detail}</div>
                   </div>
                 </div>
               ))}
@@ -118,12 +117,12 @@ const CostOfWaitingSection: React.FC<CostOfWaitingSectionProps> = ({ onQuizOpen 
                     transitionDelay: `${400 + i * 120}ms`,
                   }}
                 >
-                  <div className="text-[11px] text-soft-sand/50 font-sans font-medium w-16 shrink-0 pt-0.5 uppercase tracking-wider">
+                  <div className="text-[11px] text-soft-sand/70 font-sans font-medium w-16 shrink-0 pt-0.5 uppercase tracking-wider">
                     {item.month}
                   </div>
                   <div>
                     <div className="text-lg font-bold text-wealth-teal font-sans">{item.outcome}</div>
-                    <div className="text-[13px] text-soft-sand/55 font-sans">{item.detail}</div>
+                    <div className="text-[13px] text-soft-sand/80 font-sans">{item.detail}</div>
                   </div>
                 </div>
               ))}
@@ -131,22 +130,28 @@ const CostOfWaitingSection: React.FC<CostOfWaitingSectionProps> = ({ onQuizOpen 
           </div>
         </div>
 
+        {/* Inline SEBI-compliant disclaimer near the specific rupee claims */}
+        <p className="text-[11px] text-soft-sand/65 font-sans text-center max-w-xl mx-auto mb-8 leading-relaxed">
+          *Based on 2024 survey of TWS students + matched non-student controls. Self-reported, illustrative only. Individual results vary. Education only — not SEBI-registered investment advice.
+        </p>
+
         {/* CTA */}
         <div
-          className="text-center transition-all duration-700 ease-out delay-700"
+          className="text-center transition-all duration-700 ease-out delay-700 motion-reduce:transition-none"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(16px)',
           }}
         >
           <button
+            type="button"
             onClick={onQuizOpen}
-            className="group relative inline-flex items-center gap-3 bg-burnt-amber text-white rounded-full px-10 py-4 text-base font-bold font-sans transition-all duration-300 hover:scale-[1.03] overflow-hidden"
+            className="group relative inline-flex items-center gap-3 bg-burnt-amber text-white rounded-full px-10 py-4 text-base font-bold font-sans transition-all duration-300 hover:scale-[1.03] motion-reduce:hover:scale-100 overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-[#1a2024] focus-visible:ring-amber-bright"
           >
             <span className="absolute inset-0 bg-linear-to-r from-burnt-amber to-[#d4843f] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="absolute inset-0 rounded-full shadow-[0_0_40px_rgba(200,117,51,0)] group-hover:shadow-[0_0_40px_rgba(200,117,51,0.3)] transition-shadow duration-300" />
             <span className="relative z-10 flex items-center gap-3">
-              Stop Losing — Start Now
+              See Which Program Fits Me
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
           </button>

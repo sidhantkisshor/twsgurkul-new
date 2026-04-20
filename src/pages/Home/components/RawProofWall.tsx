@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
+import { Play } from 'lucide-react';
 import { useIntersectionAnimation } from '../../../utils/animations';
+import { useFocusTrap } from '../../../hooks/useFocusTrap';
+import { CDN_BASE } from '../../../constants';
 
 const proofItems = [
   {
@@ -49,16 +52,10 @@ const proofItems = [
 const RawProofWall: React.FC = () => {
   const [ref, visible] = useIntersectionAnimation(0.05);
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [showVideo, setShowVideo] = useState(false);
 
   const closeExpanded = useCallback(() => setExpanded(null), []);
-
-  // Close on Escape key
-  useEffect(() => {
-    if (expanded === null) return;
-    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') closeExpanded(); };
-    document.addEventListener('keydown', handleKey);
-    return () => document.removeEventListener('keydown', handleKey);
-  }, [expanded, closeExpanded]);
+  const dialogRef = useFocusTrap(expanded !== null, closeExpanded);
 
   return (
     <section ref={ref} className="relative py-16 sm:py-24 px-4 overflow-hidden">
@@ -81,8 +78,65 @@ const RawProofWall: React.FC = () => {
             <span className="font-sans font-bold">What students </span>
             <span className="font-serif italic font-normal text-burnt-amber">are sharing</span>
           </h2>
-          <p className="text-base text-soft-sand/50 font-sans max-w-md mx-auto">
-            Screenshots from WhatsApp, Discord, and Telegram. Nothing staged.
+          <p className="text-base text-soft-sand/70 font-sans max-w-md mx-auto">
+            Real student stories. No paid actors. No filters.
+          </p>
+        </div>
+
+        {/* Featured video testimonial — single video because it's the only one we have rights to
+            on the home page. Lazy-loaded via poster frame + click-to-play to keep the page light. */}
+        <div
+          className="mb-8 sm:mb-10 max-w-2xl mx-auto transition-all duration-700 ease-out motion-reduce:transition-none"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transitionDelay: '100ms',
+          }}
+        >
+          <div className="rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.03]">
+            {!showVideo ? (
+              <button
+                type="button"
+                onClick={() => setShowVideo(true)}
+                className="relative w-full aspect-video bg-deep-slate flex items-center justify-center group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-bright"
+                aria-label="Play video testimonial from Abhilasha, Elite Mentorship student"
+              >
+                <img
+                  src={`${CDN_BASE}/assets/images/etm/etm-video-poster-abhilasha.webp`}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover opacity-60"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                />
+                <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/60" />
+                <div className="relative z-10 flex flex-col items-center gap-3">
+                  <div className="w-16 h-16 rounded-full bg-burnt-amber flex items-center justify-center group-hover:scale-110 motion-reduce:group-hover:scale-100 transition-transform shadow-[0_0_40px_rgba(200,117,51,0.4)]">
+                    <Play className="w-7 h-7 text-white ml-1" aria-hidden="true" />
+                  </div>
+                  <p className="text-white font-bold text-sm sm:text-base font-sans">
+                    Watch Abhilasha&apos;s story
+                  </p>
+                  <p className="text-soft-sand/70 text-[12px] font-sans">
+                    Elite Mentorship · 2:14
+                  </p>
+                </div>
+              </button>
+            ) : (
+              <video
+                src={`${CDN_BASE}/assets/videos/testimonial-abhilasha-etm.mp4`}
+                controls
+                autoPlay
+                playsInline
+                preload="none"
+                className="w-full aspect-video"
+              >
+                Your browser does not support embedded video.
+              </video>
+            )}
+          </div>
+          <p className="text-center text-[12px] text-soft-sand/60 mt-3 font-sans">
+            Real student. Shared with permission. Self-reported. Not typical. Past performance not indicative of future results.
           </p>
         </div>
 
@@ -139,6 +193,7 @@ const RawProofWall: React.FC = () => {
         {/* Expanded overlay */}
         {expanded !== null && (
           <div
+            ref={dialogRef}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in"
             onClick={closeExpanded}
             role="dialog"
@@ -156,9 +211,9 @@ const RawProofWall: React.FC = () => {
               />
               <button
                 type="button"
-                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 text-white/80 flex items-center justify-center text-lg font-sans backdrop-blur-sm hover:bg-black/70 transition-colors"
+                className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center text-xl font-sans backdrop-blur-sm hover:bg-black/80 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-bright"
                 onClick={(e) => { e.stopPropagation(); closeExpanded(); }}
-                aria-label="Close"
+                aria-label="Close screenshot preview"
               >
                 &times;
               </button>
@@ -166,14 +221,14 @@ const RawProofWall: React.FC = () => {
           </div>
         )}
 
-        {/* Bottom note */}
+        {/* Bottom note — lifted from /35 to /60 so it actually reads on Android in daylight */}
         <p
-          className="text-center text-[13px] text-soft-sand/35 font-sans mt-8 transition-all duration-700 ease-out delay-700"
+          className="text-center text-[13px] text-soft-sand/60 font-sans mt-8 transition-all duration-700 ease-out delay-700 motion-reduce:transition-none"
           style={{
             opacity: visible ? 1 : 0,
           }}
         >
-          Self-reported results &middot; Individual outcomes vary &middot; All screenshots are unedited
+          Self-reported &middot; Not typical &middot; Past performance not indicative of future results &middot; All screenshots unedited
         </p>
       </div>
     </section>

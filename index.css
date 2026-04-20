@@ -139,6 +139,20 @@
   animation: gradient 3s ease infinite;
 }
 
+/*
+  hover-card: lift + shadow on pointer-capable devices only.
+  Guarded by @media (hover: hover) so Android touch-taps don't fire the hover
+  state (which causes a jarring shift on programs section cards).
+*/
+@utility hover-card {
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px -15px rgba(44, 53, 57, 0.12);
+    }
+  }
+}
+
 @layer base {
   /*
     Respect prefers-reduced-motion. web.dev recommends selective reduction:

@@ -6,10 +6,17 @@ const Footer: React.FC = () => {
     <footer className="py-12 bg-[#232b2f] border-t border-white/10">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
-          {/* Disclaimer */}
+          {/* ASCI-mandated VDA disclosure */}
+          <div className="text-center mb-5">
+            <p className="text-sm text-white/90 max-w-3xl mx-auto leading-relaxed font-medium">
+              Crypto products and NFTs are unregulated and can be highly risky. There may be no regulatory recourse for any loss from such transactions.
+            </p>
+          </div>
+
+          {/* SEBI non-registration + testimonial disclaimer */}
           <div className="text-center mb-8">
-            <p className="text-sm text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Cryptocurrency trading involves substantial risk. Past performance does not guarantee future results. Educational content only.
+            <p className="text-xs text-white/75 max-w-3xl mx-auto leading-relaxed">
+              Trading With Sidhant LLP is <strong className="text-white/90">not a SEBI-registered Investment Adviser or Research Analyst</strong>. All content is educational; we do not provide buy/sell signals, recommendations, or personalised investment advice. Past performance is not indicative of future results. Testimonials reflect self-reported outcomes from individual students and are not typical. Cryptocurrency trading carries substantial risk of loss, including total capital loss.
             </p>
           </div>
 
@@ -27,7 +34,7 @@ const Footer: React.FC = () => {
             <p className="text-xs text-white/80">
               &copy; {new Date().getFullYear()} Trading With Sidhant LLP. All rights reserved.
             </p>
-            <p className="text-xs text-white/55 mt-1">
+            <p className="text-xs text-white/75 mt-1">
               GSTIN: 36AAVFT2975Q1ZW · All prices exclusive of 18% GST
             </p>
           </div>

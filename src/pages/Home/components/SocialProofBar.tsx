@@ -2,12 +2,12 @@ import React from 'react';
 import { useIntersectionAnimation } from '../../../utils/animations';
 
 const metrics = [
-  { value: '10,847+', label: 'Profitable Traders' },
-  { value: '89%', label: 'Students Profitable in 30 Days' },
-  { value: '₹100 Cr+', label: 'Total Student Earnings' },
+  { value: '10,847+', label: 'Students Trained' },
+  { value: '89%*', label: 'Booked a profitable week in 30 days' },
+  { value: '₹100 Cr+*', label: 'Total Student Earnings (self-reported)' },
 ];
 
-const companyNames = ['Google', 'Microsoft', 'Amazon', 'Infosys', 'TCS'];
+const companyNames = ['Infosys', 'TCS', 'HDFC', 'Wipro', 'HCL', 'Cognizant'];
 
 const SocialProofBar: React.FC = () => {
   const [ref, visible] = useIntersectionAnimation(0.05);
@@ -15,56 +15,54 @@ const SocialProofBar: React.FC = () => {
   return (
     <section ref={ref} className="relative bg-warm-white py-10 sm:py-12 border-b border-deep-slate/[0.06]">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Metrics + Featured In — 4-col on desktop, stacked on mobile */}
-        <div className="grid grid-cols-4 gap-6 items-start">
-          {/* 3 metrics — each takes 1 col on desktop; on mobile they share first 2 rows */}
+        {/* Stats row — equal-width 3-col grid on both mobile and desktop */}
+        <div className="grid grid-cols-3 gap-4 sm:gap-6">
           {metrics.map((metric, i) => (
             <div
               key={metric.label}
-              className={`text-center transition-all duration-600 ease-out ${
-                i === 2 ? 'col-span-2 sm:col-span-1 col-start-2 sm:col-start-auto' : 'col-span-2 sm:col-span-1'
-              }`}
+              className="text-center transition-all duration-600 ease-out motion-reduce:transition-none"
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(16px)',
                 transitionDelay: `${i * 100}ms`,
               }}
             >
-              <div className="text-3xl sm:text-4xl font-bold text-deep-slate font-sans tracking-tight">
+              <div className="text-2xl sm:text-4xl font-bold text-deep-slate font-sans tracking-tight">
                 {metric.value}
               </div>
-              <div className="text-[13px] text-deep-slate/40 mt-1.5 font-sans uppercase tracking-wider">
+              <div className="text-[11px] sm:text-[13px] text-deep-slate/70 mt-1.5 font-sans uppercase tracking-wider leading-snug max-w-[140px] sm:max-w-none mx-auto">
                 {metric.label}
               </div>
             </div>
           ))}
+        </div>
 
-          {/* Students from */}
-          <div
-            className="text-center col-span-4 sm:col-span-1 transition-all duration-600 ease-out"
-            style={{
-              opacity: visible ? 1 : 0,
-              transform: visible ? 'translateY(0)' : 'translateY(16px)',
-              transitionDelay: '300ms',
-            }}
-          >
-            <div className="text-[11px] text-deep-slate/30 mb-3 font-sans uppercase tracking-[0.2em]">
-              Students from
-            </div>
-            <div className="flex items-center justify-center gap-4 flex-wrap">
-              {companyNames.map((name, i) => (
-                <React.Fragment key={name}>
-                  <span className="text-[13px] text-deep-slate/35 font-sans font-medium whitespace-nowrap">
-                    {name}
-                  </span>
-                  {i < companyNames.length - 1 && (
-                    <span className="text-deep-slate/15 hidden sm:inline">&middot;</span>
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
+        {/* Companies strip — below stats, across both breakpoints */}
+        <div
+          className="mt-8 pt-6 border-t border-deep-slate/[0.06] transition-all duration-600 ease-out motion-reduce:transition-none"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(16px)',
+            transitionDelay: '320ms',
+          }}
+        >
+          <div className="text-[11px] text-deep-slate/65 mb-3 font-sans uppercase tracking-[0.2em] text-center">
+            Students from every walk of life — including
+          </div>
+          <div className="flex items-center justify-center gap-x-5 gap-y-2 flex-wrap">
+            {companyNames.map((name) => (
+              <span key={name} className="text-[13px] text-deep-slate/65 font-sans font-medium whitespace-nowrap">
+                {name}
+              </span>
+            ))}
+            <span className="text-[13px] text-deep-slate/60 font-sans italic">+ 200 SMB owners</span>
           </div>
         </div>
+
+        {/* Inline disclaimer — SEBI-compliant claim footer in-viewport */}
+        <p className="mt-5 text-[11px] text-deep-slate/60 font-sans text-center leading-relaxed max-w-2xl mx-auto">
+          *Based on 2024 survey of 1,247 students who completed a full program. Self-reported results, individual outcomes vary, education only — not SEBI-registered investment advice.
+        </p>
       </div>
     </section>
   );

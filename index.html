@@ -11,6 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#C87533" />
+    <meta name="color-scheme" content="dark light" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <!-- DNS prefetch + preconnect for external resources -->
@@ -19,8 +20,11 @@
     <link rel="dns-prefetch" href="https://api.binance.com">
     <link rel="dns-prefetch" href="https://learn.tradingwithsidhant.com">
 
-    <!-- Self-hosted Satoshi (preload) + Instrument Serif via @fontsource (see src/main.tsx) -->
+    <!-- Self-hosted Satoshi (preload) + Instrument Serif via @fontsource (see src/main.tsx).
+         Medium (500) is the body text weight on the Home page hero — preloaded so the
+         first LCP-text paint doesn't FOIT/FOUT on mid-range Android 4G. -->
     <link rel="preload" href="/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Satoshi-Medium.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/fonts/satoshi.css">
 

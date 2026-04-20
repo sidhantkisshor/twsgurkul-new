@@ -28,11 +28,11 @@ const QuizStickyBar: React.FC<QuizStickyBarProps> = ({ show, onClick }) => {
 
               <div className="min-w-0">
                 {/* Desktop text */}
-                <p className="text-white font-semibold text-sm font-sans hidden md:block truncate">
+                <p className="text-white font-bold text-sm font-sans hidden md:block truncate">
                   Find Your Perfect Program
                 </p>
                 {/* Mobile text */}
-                <p className="text-white font-semibold text-sm font-sans md:hidden truncate">
+                <p className="text-white font-bold text-sm font-sans md:hidden truncate">
                   Step 1: Find Your Program
                 </p>
 

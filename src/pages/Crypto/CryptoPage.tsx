@@ -67,6 +67,9 @@ function CryptoPage() {
           description="A recorded program with monthly live Q&A to learn systematic crypto trading with risk management at the core."
           canonicalUrl="https://www.twsgurukulx.com/crypto"
           ogImage="https://www.twsgurukulx.com/og-image.jpg"
+          ogType="product"
+          productPriceAmount={19499}
+          productPriceCurrency="INR"
         />
         <JsonLd data={[
           cryptoCourseSchema,
@@ -79,7 +82,7 @@ function CryptoPage() {
             description: 'Watch a real trade review session showing setup logic, risk sizing, and exit planning.',
             thumbnailUrl: 'https://d2j3cl693ttatt.cloudfront.net/assets/images/-crypto-market-mastery-tws.jpeg',
             contentUrl: 'https://d2j3cl693ttatt.cloudfront.net/assets/videos/hero-background-cmm-sidhant-1080.mp4',
-            uploadDate: '2025-01-01',
+            uploadDate: '2025-01-01T00:00:00+05:30',
             duration: 'PT5M',
           }),
         ]} />

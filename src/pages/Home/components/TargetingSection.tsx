@@ -35,8 +35,8 @@ const TargetingSection: React.FC = () => {
             <span className="font-sans font-bold">Is this </span>
             <span className="font-serif italic font-normal text-burnt-amber">for you?</span>
           </h2>
-          <p className="text-base text-deep-slate/45 font-sans max-w-md mx-auto">
-            Be honest with yourself. If 3 or more hit home, you&apos;re in the right place.
+          <p className="text-base text-deep-slate/70 font-sans max-w-md mx-auto">
+            Tick any that sound like you. Three or more? This is for you.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ const TargetingSection: React.FC = () => {
                   }}
                 >
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-wealth-teal/60 shrink-0" />
-                  <span className="text-[15px] text-deep-slate/65 font-sans leading-relaxed">
+                  <span className="text-[15px] text-deep-slate/80 font-sans leading-relaxed">
                     {item}
                   </span>
                 </li>
@@ -105,7 +105,7 @@ const TargetingSection: React.FC = () => {
                   }}
                 >
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400/50 shrink-0" />
-                  <span className="text-[15px] text-deep-slate/65 font-sans leading-relaxed">
+                  <span className="text-[15px] text-deep-slate/80 font-sans leading-relaxed">
                     {item}
                   </span>
                 </li>
@@ -120,11 +120,14 @@ const TargetingSection: React.FC = () => {
                 transform: visible ? 'translateY(0)' : 'translateY(12px)',
               }}
             >
-              <p className="text-[13px] text-deep-slate/50 font-sans italic leading-relaxed">
+              <p className="text-[14px] text-deep-slate/75 font-sans italic leading-relaxed">
                 &ldquo;I was exactly here — salaried job in Pune, lost ₹1.5L on Telegram tips, almost quit trading forever. Joined Crypto Mastery as a last try. Made ₹87,000 in month 2.&rdquo;
               </p>
-              <p className="text-[13px] text-deep-slate/70 font-sans font-semibold mt-2">
+              <p className="text-[13px] text-deep-slate/80 font-sans font-bold mt-2">
                 — Rahul K., Software Engineer, Pune
+              </p>
+              <p className="text-[11px] text-deep-slate/60 font-sans mt-1 italic">
+                Individual result. Not typical — most students see smaller gains.
               </p>
             </div>
           </div>

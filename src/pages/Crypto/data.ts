@@ -27,7 +27,7 @@ export const trustBadges: TrustBadge[] = [
     },
     {
       icon: Bitcoin,
-      text: "₹27.2 Cr self-reported",
+      text: "₹53 Cr self-reported",
       color: "yellow",
     },
     {
@@ -54,15 +54,15 @@ export const trustBadges: TrustBadge[] = [
       },
       {
           icon: BarChart3,
-          title: "₹27.2 Cr reported",
-          description: "Student-reported profits",
+          title: "₹53 Cr reported",
+          description: "Student-reported profits (Jan 2026)",
           bgColor: "bg-[#0A8D7A]/10",
           iconColor: "text-[#0A8D7A]"
       },
        {
           icon: CandlestickChart,
-          title: "73% win rate",
-          description: "Sample: 1,847 trades",
+          title: "73% reported win rate",
+          description: "12-month trade sample",
           bgColor: "bg-[#0A8D7A]/10",
           iconColor: "text-[#0A8D7A]"
       }
@@ -320,7 +320,7 @@ export const heroData: HeroData = {
         { icon: Calendar, text: "Monthly live Q&A", subtext: "Recording provided", color: "yellow" }
     ],
     stats: [
-        { value: "₹27.2 Cr", label: "Self-reported profits", color: "slate" },
+        { value: "₹53 Cr", label: "Self-reported profits", color: "slate" },
         { value: "1,263", label: "Active learners", color: "yellow" },
         { value: "73%", label: "Reported win rate", color: "blue" }
     ],
@@ -333,7 +333,7 @@ export const heroData: HeroData = {
         top: "INSTANT ACCESS",
         bottom: "Recorded + Monthly Live Q&A"
     },
-    microNote: "Education only. Results vary. Trading involves risk.",
+    microNote: "Self-reported · not typical. Crypto/VDAs are unregulated and carry substantial risk. Education only — no buy/sell signals.",
     cta: {
         primary: "Start my 2-hour skill today",
         secondary: "See verified student results"

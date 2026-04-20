@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { Zap, ArrowRight, X } from 'lucide-react';
-import { cryptoTrackingEvents, isReturningUser } from '../utils/tracking';
+import { cryptoTrackingEvents, hasVisitedBefore, markVisited } from '../utils/tracking';
 import { CRYPTO_PRICE } from '../data';
 import { getCheckoutUrl } from '../../../constants';
 
@@ -25,10 +25,11 @@ const ReturningUserCheckout: React.FC<ReturningUserCheckoutProps> = ({ onVisibil
     // Show popup after delay for returning users
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (isReturningUser()) {
+            if (hasVisitedBefore()) {
                 cryptoTrackingEvents.returningUserDetected();
                 setShowQuickCheckout(true);
             }
+            markVisited();
         }, INITIAL_DELAY_MS);
 
         return () => clearTimeout(timer);

@@ -2,8 +2,16 @@
 export const CDN_BASE = 'https://d2j3cl693ttatt.cloudfront.net';
 
 // Quiz modal behaviour
-export const QUIZ_EXIT_INTENT_MOBILE_DELAY_MS = 45_000;
+export const QUIZ_EXIT_INTENT_MOBILE_DELAY_MS = 90_000;
+export const QUIZ_EXIT_INTENT_SCROLL_PCT = 40;
 export const QUIZ_STICKY_BAR_HIDE_PCT = 85;
+
+// Home page program pricing (mirrors the authoritative prices on each landing page)
+export const HOME_PROGRAM_PRICING = {
+  crypto: { amount: 19499, emi: 1625, label: '₹19,499' },
+  footprint: { amount: 33000, emi: 2750, label: '₹33,000' },
+  mentorship: { amount: 19999, emi: 1999, label: '₹19,999' },
+} as const;
 
 // Binance API service
 export const BINANCE_CACHE_TTL_MS = 30_000;

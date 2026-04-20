@@ -67,26 +67,32 @@ const CookieConsent: React.FC = () => {
         'backdrop:bg-transparent'
       }
     >
-      <div className="bg-[#2C3539] border-t border-soft-sand/10 px-4 py-3 sm:py-4 shadow-[0_-4px_20px_rgba(0,0,0,0.3)]">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
-          <p id="cookie-consent-title" className="text-sm text-[#B8A99A] font-sans flex-1 leading-relaxed">
-            We use cookies for analytics and to improve your experience.{' '}
-            <Link to="/cookies" className="underline hover:text-white transition-colors">
-              Cookie policy
+      {/*
+        Compact horizontal layout on every breakpoint. Previous layout stacked text above
+        buttons on mobile, eating ~120px of the first-render viewport and covering the
+        hero CTA. Single-row with shortened copy keeps footprint to ~56px on mobile.
+      */}
+      <div className="bg-[#2C3539] border-t border-soft-sand/10 px-3 sm:px-4 py-2 sm:py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] pb-[max(0.5rem,env(safe-area-inset-bottom))]">
+        <div className="max-w-5xl mx-auto flex items-center gap-3 sm:gap-6">
+          <p id="cookie-consent-title" className="text-[12px] sm:text-sm text-[#B8A99A] font-sans flex-1 leading-snug">
+            <span className="hidden sm:inline">We use cookies for analytics and to improve your experience. </span>
+            <span className="sm:hidden">Cookies for analytics. </span>
+            <Link to="/cookies" className="underline hover:text-white transition-colors whitespace-nowrap">
+              Policy
             </Link>
           </p>
           <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
               onClick={handleReject}
-              className="px-4 py-2 text-sm text-[#B8A99A] hover:text-white border border-[#B8A99A]/20 hover:border-[#B8A99A]/40 rounded-lg font-sans transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burnt-amber"
+              className="px-3 sm:px-4 py-1.5 sm:py-2 text-[12px] sm:text-sm text-[#B8A99A] hover:text-white border border-[#B8A99A]/20 hover:border-[#B8A99A]/40 rounded-lg font-sans transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burnt-amber"
             >
               Reject
             </button>
             <button
               type="button"
               onClick={handleAccept}
-              className="px-4 py-2 text-sm text-white bg-[#C87533] hover:bg-[#b5682d] rounded-lg font-sans font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="px-3 sm:px-4 py-1.5 sm:py-2 text-[12px] sm:text-sm text-white bg-[#C87533] hover:bg-[#b5682d] rounded-lg font-sans font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Accept
             </button>

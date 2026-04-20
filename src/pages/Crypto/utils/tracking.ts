@@ -157,15 +157,17 @@ export const cryptoTrackingEvents = {
   })
 };
 
-// Utility to track scroll depth
+// Utility to track scroll depth — rAF-throttled to avoid INP regressions on mid-range Android.
 export const initScrollTracking = () => {
   if (typeof window === 'undefined') return;
 
   let maxScroll = 0;
   const thresholds = [25, 50, 75, 90, 100];
   const tracked = new Set<number>();
+  let rafId: number | null = null;
 
-  const handleScroll = () => {
+  const measure = () => {
+    rafId = null;
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
     const scrollTop = window.scrollY;
@@ -173,8 +175,7 @@ export const initScrollTracking = () => {
 
     if (scrollPercentage > maxScroll) {
       maxScroll = scrollPercentage;
-      
-      thresholds.forEach(threshold => {
+      thresholds.forEach((threshold) => {
         if (scrollPercentage >= threshold && !tracked.has(threshold)) {
           tracked.add(threshold);
           cryptoTrackingEvents.scrollDepth(threshold);
@@ -183,41 +184,64 @@ export const initScrollTracking = () => {
     }
   };
 
+  const handleScroll = () => {
+    if (rafId !== null) return;
+    rafId = window.requestAnimationFrame(measure);
+  };
+
   window.addEventListener('scroll', handleScroll, { passive: true });
-  return () => window.removeEventListener('scroll', handleScroll);
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+    if (rafId !== null) window.cancelAnimationFrame(rafId);
+  };
 };
 
-// Check if user is returning (using localStorage)
-export const isReturningUser = (): boolean => {
+const VISIT_KEY = 'crypto_page_visited';
+
+// Pure read — no side effects. Call this to check returning-visitor state.
+export const hasVisitedBefore = (): boolean => {
   if (typeof window === 'undefined') return false;
-  
-  const visitKey = 'crypto_page_visited';
-  const hasVisited = localStorage.getItem(visitKey);
-  
-  if (!hasVisited) {
-    localStorage.setItem(visitKey, new Date().toISOString());
-    return false;
-  }
-  
-  return true;
+  return localStorage.getItem(VISIT_KEY) !== null;
 };
 
-// Track time on page — returns a cleanup function to remove the listener.
+// Idempotent write — call once after the returning-check has settled.
+export const markVisited = (): void => {
+  if (typeof window === 'undefined') return;
+  if (localStorage.getItem(VISIT_KEY) === null) {
+    localStorage.setItem(VISIT_KEY, new Date().toISOString());
+  }
+};
+
+// Track time on page — uses visibilitychange + sendBeacon so the event actually
+// fires on mobile (iOS Safari drops beforeunload).
 export const trackTimeOnPage = (): (() => void) => {
   if (typeof window === 'undefined') return () => {};
 
   const startTime = Date.now();
+  let sent = false;
 
-  const handleBeforeUnload = () => {
+  const send = () => {
+    if (sent) return;
+    sent = true;
     const timeOnPage = Math.round((Date.now() - startTime) / 1000);
     trackEvent({
       eventName: 'time_on_page',
       eventCategory: 'Engagement',
       eventLabel: 'Total time on crypto page',
-      eventValue: timeOnPage
+      eventValue: timeOnPage,
     });
   };
 
-  window.addEventListener('beforeunload', handleBeforeUnload);
-  return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  const onVisibilityChange = () => {
+    if (document.visibilityState === 'hidden') send();
+  };
+
+  document.addEventListener('visibilitychange', onVisibilityChange);
+  // pagehide fires reliably on bfcache navigations + iOS
+  window.addEventListener('pagehide', send);
+
+  return () => {
+    document.removeEventListener('visibilitychange', onVisibilityChange);
+    window.removeEventListener('pagehide', send);
+  };
 };

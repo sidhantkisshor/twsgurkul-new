@@ -28,6 +28,7 @@ const QuizLandingPage = lazy(() =>
   }))
 );
 const PropScannerPage = lazy(() => import('./pages/PropScanner/PropScannerPage'));
+const HitpointLiveInvitePage = lazy(() => import('./pages/HitpointLiveInvite/HitpointLiveInvitePage'));
 const TermsPage = lazy(() => import('./pages/Legal/TermsPage'));
 const PrivacyPage = lazy(() => import('./pages/Legal/PrivacyPage'));
 const DisclaimerPage = lazy(() => import('./pages/Legal/DisclaimerPage'));
@@ -57,6 +58,11 @@ function App() {
               <Route path="/quiz" element={<QuizLandingPage />} />
               <Route path="/results-and-claims" element={<ResultsAndClaims />} />
               <Route path="/prop-firm-safety-checker" element={<PropScannerPage />} />
+              <Route path="/hitpoint-live-invite" element={
+                <Layout>
+                  <HitpointLiveInvitePage />
+                </Layout>
+              } />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/disclaimer" element={<DisclaimerPage />} />

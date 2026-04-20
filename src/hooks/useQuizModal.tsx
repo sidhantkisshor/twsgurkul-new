@@ -1,5 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import { QUIZ_EXIT_INTENT_MOBILE_DELAY_MS, QUIZ_STICKY_BAR_HIDE_PCT } from '../constants';
+import {
+  QUIZ_EXIT_INTENT_MOBILE_DELAY_MS,
+  QUIZ_EXIT_INTENT_SCROLL_PCT,
+  QUIZ_STICKY_BAR_HIDE_PCT,
+} from '../constants';
 
 // Safe sessionStorage wrapper — matches UnifiedQuiz's safeStorage pattern
 function safeGet(key: string): string | null {
@@ -44,6 +48,17 @@ export const useQuizModal = (options: UseQuizModalOptions = {}) => {
     setIsOpen(false);
   }, []);
 
+  // Global event listener — lets shared components (Navbar) open the quiz on pages
+  // that own the modal state (e.g. HomePage) without prop-drilling or scroll-to-anchor hacks.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<{ source?: string }>).detail;
+      openQuiz(detail?.source ?? 'event');
+    };
+    window.addEventListener('tws:open-quiz', handler);
+    return () => window.removeEventListener('tws:open-quiz', handler);
+  }, [openQuiz]);
+
   // Handle sticky bar visibility based on scroll — show midway, hide near footer
   useEffect(() => {
     if (!enableStickyBar) return;
@@ -79,22 +94,26 @@ export const useQuizModal = (options: UseQuizModalOptions = {}) => {
 
     const isMobile = window.innerWidth < 768;
 
-    // --- Mobile: time-based exit intent after 45s of browsing ---
+    // --- Mobile: time-based exit intent, gated behind meaningful scroll depth ---
+    // Rationale: firing at 45s while a T2 reader is mid-way through "Is this for you?"
+    // interrupts trust-building. Require both a longer dwell AND that they've engaged
+    // past the first few sections before auto-opening.
     if (isMobile) {
-      const MOBILE_DELAY_MS = QUIZ_EXIT_INTENT_MOBILE_DELAY_MS;
-
       const timer = window.setTimeout(() => {
         const quizOpened = safeGet('quizOpened');
         const quizDismissed = safeGet('quizDismissed');
         const exitIntentShown = safeGet('exitIntentShown');
         const ctaClicked = safeGet('ctaClicked');
+        const scrollPct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
 
-        // Only show if user hasn't interacted with any CTA or already seen the quiz
-        if (!quizOpened && !quizDismissed && !exitIntentShown && !ctaClicked) {
+        if (
+          !quizOpened && !quizDismissed && !exitIntentShown && !ctaClicked &&
+          scrollPct >= QUIZ_EXIT_INTENT_SCROLL_PCT
+        ) {
           safeSet('exitIntentShown', 'true');
           openQuiz('exit_intent_mobile');
         }
-      }, MOBILE_DELAY_MS);
+      }, QUIZ_EXIT_INTENT_MOBILE_DELAY_MS);
 
       return () => window.clearTimeout(timer);
     }

@@ -35,14 +35,21 @@ const Footer: React.FC = () => {
 
           <div className="border-t border-[#B8956A]/20 pt-8 text-center">
             <div className="space-y-4">
+              {/* ASCI-mandated VDA disclosure */}
+              <p className="text-sm text-[#EDE6D8] max-w-3xl mx-auto leading-relaxed font-medium">
+                Crypto products and NFTs are unregulated and can be highly risky. There may be no regulatory recourse for any loss from such transactions.
+              </p>
+
+              {/* SEBI non-registration + testimonial disclaimer */}
+              <p className="text-xs text-[#B8A99A] max-w-3xl mx-auto leading-relaxed">
+                Trading With Sidhant LLP is <strong className="text-[#EDE6D8]">not a SEBI-registered Investment Adviser or Research Analyst</strong>. All content is educational; we do not provide buy/sell signals, recommendations, or personalised investment advice. Past performance is not indicative of future results. Testimonials reflect self-reported outcomes from individual students and are not typical.
+              </p>
+
               <p className="text-xs text-[#B8A99A]">
                 © {new Date().getFullYear()} Trading With Sidhant LLP. All rights reserved.
               </p>
               <p className="text-xs text-[#B8A99A]/60">
                 GSTIN: 36AAVFT2975Q1ZW · All prices exclusive of 18% GST
-              </p>
-              <p className="text-xs text-[#B8A99A]">
-                Education only. Not investment advice. Results vary.
               </p>
               <p className="text-xs text-[#B8A99A]">
                 <button

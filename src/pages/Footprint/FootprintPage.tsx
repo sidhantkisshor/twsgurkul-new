@@ -69,7 +69,9 @@ function FootprintPage() {
         title="Footprint Mastery | TWS GurukulX"
         description="Learn footprint chart analysis to see institutional order flow before it hits the chart. Plan clean entries, manage risk, and exit with rules. Self-paced course with monthly live Q&A."
         ogImage="https://www.twsgurukulx.com/footprint-og.jpg"
-        ogType="website"
+        ogType="product"
+        productPriceAmount={32999}
+        productPriceCurrency="INR"
         canonicalUrl="https://www.twsgurukulx.com/footprint"
       />
       <div>

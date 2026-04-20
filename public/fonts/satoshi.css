@@ -1,10 +1,14 @@
+/*
+  Self-hosted Satoshi — woff2 only. woff2 is 97%+ supported in 2026
+  (Android WebView 4.4+, iOS Safari 10+). Dropping the .woff fallback halves
+  the preload manifest and cuts 4xx chance on CDN misconfigs.
+*/
 @font-face {
   font-family: 'Satoshi';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/Satoshi-Regular.woff2') format('woff2'),
-       url('/fonts/Satoshi-Regular.woff') format('woff');
+  src: url('/fonts/Satoshi-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -12,8 +16,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url('/fonts/Satoshi-Medium.woff2') format('woff2'),
-       url('/fonts/Satoshi-Medium.woff') format('woff');
+  src: url('/fonts/Satoshi-Medium.woff2') format('woff2');
 }
 
 @font-face {
@@ -21,6 +24,5 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/Satoshi-Bold.woff2') format('woff2'),
-       url('/fonts/Satoshi-Bold.woff') format('woff');
+  src: url('/fonts/Satoshi-Bold.woff2') format('woff2');
 }
