@@ -121,13 +121,13 @@ const TargetingSection: React.FC = () => {
               }}
             >
               <p className="text-[14px] text-deep-slate/75 font-sans italic leading-relaxed">
-                &ldquo;I was exactly here — salaried job in Pune, lost ₹1.5L on Telegram tips, almost quit trading forever. Joined Crypto Mastery as a last try. Made ₹87,000 in month 2.&rdquo;
+                &ldquo;I was exactly here. Salaried job in Pune, lost ₹1.5L on Telegram tips, almost quit trading forever. Joined Crypto Mastery as a last try. Made ₹87,000 in month 2.&rdquo;
               </p>
               <p className="text-[13px] text-deep-slate/80 font-sans font-bold mt-2">
                 — Rahul K., Software Engineer, Pune
               </p>
               <p className="text-[11px] text-deep-slate/60 font-sans mt-1 italic">
-                Individual result. Not typical — most students see smaller gains.
+                Individual result. Not typical. Most students see smaller gains.
               </p>
             </div>
           </div>

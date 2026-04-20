@@ -37,7 +37,7 @@ const TrustSection: React.FC = () => {
           <div className="relative w-36 h-48 sm:w-40 sm:h-56 rounded-2xl mb-6 overflow-hidden border-2 border-brushed-gold/20 shadow-[0_0_60px_rgba(184,149,106,0.12)]">
             <img
               src={`${CDN_BASE}/assets/images/brand/raw/sidhant-casino-chips.webp`}
-              alt="Sidhant — Founder of TWS GurukulX, professional trader and IIT Bombay guest faculty"
+              alt="Sidhant, Founder of TWS GurukulX, professional trader and IIT Bombay guest faculty"
               width={160}
               height={224}
               loading="lazy"

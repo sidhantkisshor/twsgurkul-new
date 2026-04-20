@@ -47,7 +47,7 @@ const SocialProofBar: React.FC = () => {
           }}
         >
           <div className="text-[11px] text-deep-slate/65 mb-3 font-sans uppercase tracking-[0.2em] text-center">
-            Students from every walk of life — including
+            Students from every walk of life, including
           </div>
           <div className="flex items-center justify-center gap-x-5 gap-y-2 flex-wrap">
             {companyNames.map((name) => (
@@ -61,7 +61,7 @@ const SocialProofBar: React.FC = () => {
 
         {/* Inline disclaimer — SEBI-compliant claim footer in-viewport */}
         <p className="mt-5 text-[11px] text-deep-slate/60 font-sans text-center leading-relaxed max-w-2xl mx-auto">
-          *Based on 2024 survey of 1,247 students who completed a full program. Self-reported results, individual outcomes vary, education only — not SEBI-registered investment advice.
+          *Based on 2024 survey of 1,247 students who completed a full program. Self-reported results. Individual outcomes vary. Education only. Not SEBI-registered investment advice.
         </p>
       </div>
     </section>

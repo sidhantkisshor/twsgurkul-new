@@ -9,7 +9,7 @@ const programs = [
     icon: BookOpen,
     level: 'Beginner',
     name: 'Crypto Mastery',
-    tagline: 'Start trading crypto in 45 days — even if you have never traded before',
+    tagline: 'Start trading crypto in 45 days, even if you have never traded before',
     metric: '₹40k–₹1.2L/month',
     priceLabel: HOME_PROGRAM_PRICING.crypto.label,
     emiLabel: `EMI from ₹${HOME_PROGRAM_PRICING.crypto.emi}/mo`,
@@ -24,7 +24,7 @@ const programs = [
     icon: BarChart3,
     level: 'Intermediate',
     name: 'Footprint Trading',
-    tagline: 'See where big money is moving — and trade before the crowd',
+    tagline: 'See where big money is moving, and trade before the crowd',
     metric: '₹1L–₹5L/month',
     priceLabel: HOME_PROGRAM_PRICING.footprint.label,
     emiLabel: `EMI from ₹${HOME_PROGRAM_PRICING.footprint.emi}/mo`,
@@ -194,7 +194,7 @@ const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onQuizOpen }) => {
 
         {/* Inline claim disclaimer for the whole card row */}
         <p className="text-[11px] text-deep-slate/65 text-center font-sans max-w-2xl mx-auto mb-10 leading-relaxed">
-          *Typical observed earnings range based on student self-reports, 2024 survey. Your results will vary. Testimonials show individual outcomes that are not typical. Education only — not SEBI-registered investment advice.
+          *Typical observed earnings range based on student self-reports, 2024 survey. Your results will vary. Testimonials show individual outcomes that are not typical. Education only. Not SEBI-registered investment advice.
         </p>
 
         {/* Quiz CTA */}

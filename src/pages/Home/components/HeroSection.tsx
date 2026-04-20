@@ -15,7 +15,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onQuizOpen }) => {
   }, []);
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center px-4 overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center justify-center px-4 pt-28 sm:pt-32 pb-16 overflow-hidden">
       {/* Layered background — Deep Slate base with warm gradient atmosphere */}
       <div className="absolute inset-0 bg-[#1a2024]" aria-hidden="true" />
       <div className="absolute inset-0 bg-linear-to-b from-deep-slate via-[#1e2a2f] to-[#0f1519]" aria-hidden="true" />
@@ -44,9 +44,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onQuizOpen }) => {
         }}
       />
 
-      {/* Horizontal rule accent line */}
-      <div className="absolute top-1/2 left-0 w-full h-px bg-linear-to-r from-transparent via-burnt-amber/10 to-transparent pointer-events-none" aria-hidden="true" />
-
       <div className="relative z-10 text-center max-w-3xl mx-auto">
         {/* Pain-first opener — names the reader's current situation */}
         <div
@@ -56,27 +53,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onQuizOpen }) => {
             transform: mounted ? 'translateY(0)' : 'translateY(20px)',
           }}
         >
-          <p className="text-[13px] sm:text-sm tracking-[0.15em] uppercase text-red-400 mb-8 font-sans font-medium">
+          <p className="text-[13px] sm:text-sm tracking-[0.15em] uppercase text-red-400 mb-6 font-sans font-medium">
             Still losing money on YouTube tips &amp; Telegram calls?
           </p>
         </div>
 
         {/* LCP candidate — paint immediately, no opacity gate. Entrance animation stays for non-LCP lines. */}
-        <h1 className="mb-7">
-          <span className="block text-[clamp(1.7rem,5.5vw,2.8rem)] font-medium text-soft-sand/75 font-sans leading-[1.3] mb-3">
+        <h1 className="mb-6">
+          <span className="block text-[clamp(1.6rem,4.5vw,2.4rem)] font-medium text-soft-sand/75 font-sans leading-[1.3] mb-2">
             You&apos;re not a bad trader.
           </span>
-          <span className="block text-[clamp(2.4rem,8.5vw,5rem)] font-bold text-white font-sans leading-[1.08]">
+          <span className="block text-[clamp(2.2rem,7vw,4rem)] font-bold text-white font-sans leading-[1.05]">
             You just don&apos;t have
           </span>
-          <span className="block text-[clamp(2.4rem,8.5vw,5rem)] font-serif italic font-normal text-burnt-amber leading-[1.08] mt-1">
+          <span className="block text-[clamp(2.2rem,7vw,4rem)] font-serif italic font-normal text-burnt-amber leading-[1.05]">
             a system.
           </span>
         </h1>
 
-        {/* Micro social proof — above the fold */}
+        {/* Micro social proof above the fold */}
         <div
-          className="flex items-center justify-center gap-3 mb-6 transition-all duration-700 ease-out delay-[400ms] motion-reduce:transition-none"
+          className="flex items-center justify-center gap-3 mb-5 transition-all duration-700 ease-out delay-[400ms] motion-reduce:transition-none"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(16px)',
@@ -91,22 +88,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onQuizOpen }) => {
           </p>
         </div>
 
-        {/* Transformation subheadline — simpler English for T2 readers */}
+        {/* Transformation subheadline, simpler English for T2 readers */}
         <p
-          className="text-base sm:text-lg text-soft-sand/80 max-w-lg mx-auto mb-4 leading-relaxed font-sans font-normal transition-all duration-700 ease-out delay-500 motion-reduce:transition-none"
+          className="text-base sm:text-lg text-soft-sand/80 max-w-xl mx-auto mb-3 leading-relaxed font-sans font-normal transition-all duration-700 ease-out delay-500 motion-reduce:transition-none"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(20px)',
           }}
         >
-          In 30 to 90 days, stop trading on guesswork. Learn the rules our students use to aim for
+          In 30 to 90 days, learn the rule-based system our students use to aim for
           <span className="text-amber-bright font-bold"> ₹1L–₹5L/month</span>
-          <sup className="text-soft-sand/60 ml-0.5">*</sup>. Built by a trader with 12 years of experience.
+          <sup className="text-soft-sand/60 ml-0.5">*</sup>. Built by a 12-year veteran trader.
         </p>
 
-        {/* Inline SEBI / claim disclaimer — required when the claim is above-fold */}
-        <p className="text-[11px] text-soft-sand/55 max-w-md mx-auto mb-8 font-sans leading-snug">
-          *Typical student range (self-reported). Individual results vary. Education only — not SEBI-registered investment advice.
+        {/* Inline SEBI / claim disclaimer, required when the claim is above-fold */}
+        <p className="text-[11px] text-soft-sand/50 max-w-md mx-auto mb-7 font-sans leading-snug">
+          *Typical self-reported range. Individual results vary. Education only. Not SEBI-registered investment advice.
         </p>
 
         {/* Primary CTA */}
@@ -130,17 +127,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onQuizOpen }) => {
             </span>
           </button>
 
-          <p className="text-[13px] text-soft-sand/70 mt-5 font-sans">
+          <p className="text-[13px] text-soft-sand/70 mt-4 font-sans">
             Free &middot; 2 minutes &middot; We match you to the right program
           </p>
 
-          {/* WhatsApp secondary CTA — T2 buyers treat "no WhatsApp = suspicious".
+          {/* WhatsApp secondary CTA. T2 buyers treat "no WhatsApp = suspicious".
               Lower-commitment path for the skeptical reader who isn't ready for the quiz yet. */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-5 text-[13px] text-soft-sand/80 hover:text-white transition-colors font-sans font-medium underline decoration-soft-sand/30 underline-offset-4 hover:decoration-[#25D366] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2024] rounded"
+            className="inline-flex items-center gap-2 mt-6 px-4 py-2 text-[13px] text-soft-sand/85 hover:text-white transition-all font-sans font-medium bg-soft-sand/[0.04] hover:bg-soft-sand/[0.08] border border-soft-sand/[0.08] hover:border-[#25D366]/30 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a2024]"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" aria-hidden="true" />
             Or chat with us on WhatsApp
@@ -148,8 +145,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onQuizOpen }) => {
         </div>
       </div>
 
-      {/* Bottom fade to next section — shortened so the fold isn't compressed by a dead band */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-warm-white to-transparent pointer-events-none" aria-hidden="true" />
+      {/* Bottom fade to next section — soft transition into warm-white SocialProofBar */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-linear-to-t from-warm-white via-warm-white/40 to-transparent pointer-events-none" aria-hidden="true" />
     </section>
   );
 };

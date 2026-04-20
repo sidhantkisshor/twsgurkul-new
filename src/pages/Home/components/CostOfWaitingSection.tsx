@@ -132,7 +132,7 @@ const CostOfWaitingSection: React.FC<CostOfWaitingSectionProps> = ({ onQuizOpen 
 
         {/* Inline SEBI-compliant disclaimer near the specific rupee claims */}
         <p className="text-[11px] text-soft-sand/65 font-sans text-center max-w-xl mx-auto mb-8 leading-relaxed">
-          *Based on 2024 survey of TWS students + matched non-student controls. Self-reported, illustrative only. Individual results vary. Education only — not SEBI-registered investment advice.
+          *Based on 2024 survey of TWS students + matched non-student controls. Self-reported, illustrative only. Individual results vary. Education only. Not SEBI-registered investment advice.
         </p>
 
         {/* CTA */}

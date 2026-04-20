@@ -19,7 +19,7 @@ const steps = [
     icon: ShieldCheck,
     number: '03',
     title: 'Protect Capital First, Profit Second',
-    description: 'Learn to keep your money safe first. Profit comes second. This is why our students stay in the game — they survive the bad weeks that wipe out everyone else.',
+    description: 'Learn to keep your money safe first. Profit comes second. This is why our students stay in the game and survive the bad weeks that wipe out everyone else.',
   },
 ];
 

@@ -42,8 +42,8 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Seo
-        title="TWS GurukulX — Learn a Simple Trading System | 10,847+ Students Trained"
-        description="Losing money on YouTube tips and Telegram calls? Learn the rule-based trading system used by 10,847+ students. Crypto Mastery, Footprint Trading, and Elite Mentorship (waitlist) programs. Education only — not SEBI-registered investment advice."
+        title="TWS GurukulX | Learn a Simple Trading System | 10,847+ Students Trained"
+        description="Losing money on YouTube tips and Telegram calls? Learn the rule-based trading system used by 10,847+ students. Crypto Mastery, Footprint Trading, and Elite Mentorship (waitlist) programs. Education only. Not SEBI-registered investment advice."
         canonicalUrl="https://www.twsgurukulx.com/"
         ogType="website"
         ogImage="https://www.twsgurukulx.com/og-image.jpg"

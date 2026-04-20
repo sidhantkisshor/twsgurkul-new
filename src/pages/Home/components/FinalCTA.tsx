@@ -170,7 +170,7 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onQuizOpen }) => {
             <span className="font-bold text-deep-slate/85">
               Enrolling now
             </span>
-            <span className="text-deep-slate/70"> — you get access right after you pay</span>
+            <span className="text-deep-slate/70">, you get access right after you pay</span>
           </span>
         </div>
       </div>
