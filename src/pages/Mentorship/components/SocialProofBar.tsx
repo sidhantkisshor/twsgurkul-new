@@ -1,14 +1,14 @@
 import { m as motion } from 'framer-motion';
 
 const proofItems = [
-  'Rahul from Jaipur joined 2 hours ago',
+  'Rahul from Jaipur joined the waitlist 2 hours ago',
   'Priya, Chennai -Month 2, first green week',
   'Amit, Nagpur -₹34k profit this month',
-  'Sneha from Lucknow just enrolled',
+  'Sneha from Lucknow just joined the waitlist',
   'Vikram, Pune -6 green weeks in a row',
   'Deepak, Indore -"Best decision I made this year"',
   'Meera, Kolkata -started with ₹10k, now consistent',
-  'Arjun, Hyderabad joined yesterday',
+  'Arjun, Hyderabad joined the waitlist yesterday',
 ];
 
 export default function SocialProofBar() {

@@ -93,7 +93,7 @@ const ShowPartnerSection: React.FC = () => {
                 ₹19,999 one-time to learn a skill that pays back every month — vs ₹2.3 lakh average loss from figuring it out alone. This isn't an expense. It's the cheapest insurance against losing more.
               </p>
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20my%20family%20has%20some%20questions%20about%20the%20ETM%20Mentorship%20before%20I%20enroll`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20my%20family%20has%20some%20questions%20about%20the%20ETM%20Mentorship%20before%20joining%20the%20waitlist`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-medium text-burnt-amber hover:text-burnt-amber/80 transition-colors"

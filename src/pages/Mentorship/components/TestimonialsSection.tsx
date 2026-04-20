@@ -256,7 +256,7 @@ const TestimonialsSection: React.FC = () => {
             </p>
           </motion.div>
 
-          <InlineCTA text="Join them at 8 PM tonight" variant="dark" />
+          <InlineCTA text="Join the waitlist for the next cohort" variant="dark" />
         </div>
       </div>
     </section>

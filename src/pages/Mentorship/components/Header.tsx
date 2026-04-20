@@ -94,7 +94,7 @@ const Header: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Reserve my 8 PM seat
+              Join the waitlist
             </motion.button>
             </div>
 
@@ -166,7 +166,7 @@ const Header: React.FC = () => {
                   className="mt-8 w-full px-6 py-3 bg-burnt-amber text-white rounded-full font-semibold"
                   whileTap={{ scale: 0.95 }}
                 >
-                  Reserve my 8 PM seat
+                  Join the waitlist
                 </motion.button>
               </div>
             </motion.div>

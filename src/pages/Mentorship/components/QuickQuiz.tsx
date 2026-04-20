@@ -230,7 +230,7 @@ const QuickQuiz: React.FC<QuickQuizProps> = ({ isOpen, onClose }) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    View pricing details
+                    Join the waitlist
                     <ArrowRight className="inline-block ml-2 w-4 h-4" />
                   </motion.button>
 

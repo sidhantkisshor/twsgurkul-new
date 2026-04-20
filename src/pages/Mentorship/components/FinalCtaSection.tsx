@@ -74,12 +74,12 @@ const FinalCtaSection: React.FC = () => {
               whileTap={{ scale: 0.98 }}
             >
               <span className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg font-semibold tracking-wide">
-                Join the 8 PM Room
+                Join the waitlist
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>
 
-            <p className="mt-4 text-sm text-soft-sand/60">From ₹222/day · Live sessions every night</p>
+            <p className="mt-4 text-sm text-soft-sand/60">Cohort full — we'll notify you when the next spot opens</p>
           </motion.div>
         </div>
       </div>

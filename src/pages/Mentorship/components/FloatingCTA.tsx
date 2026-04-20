@@ -87,23 +87,23 @@ const FloatingCTA: React.FC = () => {
                       </div>
                       <div>
                         <h3 className="text-white font-sans font-semibold text-lg">
-                          Live Sessions at 8 PM
+                          Cohort is full
                         </h3>
                         <p className="text-soft-sand text-sm mt-1">
-                          5 nights a week, from your phone
+                          Waitlist open for the next intake
                         </p>
                       </div>
                     </div>
 
                     <p className="text-sm text-soft-sand">
-                      Live trading · Personal reviews · Weekly analysis
+                      We'll notify you when the next spot opens.
                     </p>
 
                     <button
                       onClick={handleClick}
                       className="w-full mt-5 bg-burnt-amber text-white font-semibold py-3 px-4 rounded-lg hover:bg-burnt-amber/90 transition-all duration-300 flex items-center justify-center gap-2 group"
                     >
-                      <span>Join the 8 PM Room</span>
+                      <span>Join the waitlist</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -133,17 +133,17 @@ const FloatingCTA: React.FC = () => {
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <p className="text-white font-medium text-sm">
-                      8 PM Session Tonight
+                      Cohort full — waitlist open
                     </p>
                     <p className="text-soft-sand/70 text-xs">
-                      Weekly reviews
+                      Get notified for the next intake
                     </p>
                   </div>
                   <button
                     onClick={handleClick}
                     className="bg-burnt-amber text-white font-semibold py-2.5 px-5 rounded-lg text-sm flex items-center gap-2 whitespace-nowrap hover:bg-burnt-amber/90 transition-all"
                   >
-                    <span>Join at 8 PM</span>
+                    <span>Join waitlist</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <button

@@ -1,11 +1,14 @@
 import React from 'react';
 import { m as motion } from 'framer-motion';
 import { Check, ArrowRight, MessageCircle, Shield, Users, CreditCard } from 'lucide-react';
-import { getCheckoutUrl, WHATSAPP_NUMBER } from '../../../constants';
+import { WHATSAPP_NUMBER } from '../../../constants';
+
+const WAITLIST_MESSAGE = "Hi, I'd like to join the Elite Trading Mentorship waitlist. Please let me know when the next cohort opens.";
 
 const PricingSection: React.FC = () => {
-  const handleEnroll = () => {
-    window.open(getCheckoutUrl('mentorship', 'max'), '_blank');
+  const handleWaitlist = () => {
+    const msg = encodeURIComponent(WAITLIST_MESSAGE);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank', 'noopener');
   };
 
   const features = [
@@ -34,7 +37,7 @@ const PricingSection: React.FC = () => {
               One program. Everything you need. Start <span className="font-serif italic font-normal text-burnt-amber">tonight.</span>
             </h2>
             <p className="text-lg text-deep-slate/70 max-w-2xl mx-auto font-normal">
-              Lifetime access to updates. No hidden fees.
+              Access to all content and future updates while your membership is active. No hidden fees.
             </p>
 
             {/* Price anchoring */}
@@ -49,6 +52,38 @@ const PricingSection: React.FC = () => {
             </div>
           </motion.div>
 
+          {/* Waitlist Banner — cohort full */}
+          <motion.div
+            className="max-w-lg mx-auto mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-burnt-amber/10 border-2 border-burnt-amber/40 rounded-2xl p-6 text-center">
+              <div className="inline-flex items-center gap-2 bg-burnt-amber text-white rounded-full px-3 py-1 mb-3">
+                <Users className="w-4 h-4" />
+                <span className="text-xs font-semibold uppercase tracking-wider">Cohort full</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-sans font-bold text-deep-slate mb-2">
+                Current cohort is full
+              </h3>
+              <p className="text-sm text-deep-slate/70 mb-5 max-w-md mx-auto">
+                We cap the cohort to maintain quality. Join the waitlist and we'll notify you when the next spot opens.
+              </p>
+              <motion.button
+                onClick={handleWaitlist}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-burnt-amber text-white hover:bg-burnt-amber/90 rounded-full font-semibold transition-all duration-300 group"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <MessageCircle className="w-4 h-4" />
+                Join the waitlist
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </div>
+          </motion.div>
+
           {/* Single Pricing Card */}
           <motion.div
             className="max-w-lg mx-auto"
@@ -58,11 +93,11 @@ const PricingSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="relative bg-deep-slate text-white shadow-2xl border-2 border-burnt-amber rounded-3xl">
-              {/* Scarcity badge */}
+              {/* Scarcity badge — cohort full, waitlist open */}
               <div className="bg-burnt-amber text-white text-center py-2.5 px-4 rounded-t-3xl">
                 <div className="flex items-center justify-center gap-2">
                   <Users className="w-4 h-4" />
-                  <span className="text-sm font-semibold">Capped at 50 per batch — coaches review your trades personally</span>
+                  <span className="text-sm font-semibold">Cohort full — waitlist open</span>
                 </div>
               </div>
               {/* Card content */}
@@ -116,21 +151,21 @@ const PricingSection: React.FC = () => {
                   ))}
                 </div>
 
-                {/* CTA */}
+                {/* CTA — waitlist only (cohort full) */}
                 <div>
                   <motion.button
-                    onClick={handleEnroll}
+                    onClick={handleWaitlist}
                     className="w-full py-4 bg-burnt-amber text-white hover:bg-burnt-amber/90 rounded-full transition-all duration-300 group font-semibold flex items-center justify-center gap-2 text-base"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Reserve my 8 PM seat
+                    Join the waitlist
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </motion.button>
 
                   {/* Microcopy */}
                   <p className="text-xs text-center mt-3 text-soft-sand/60">
-                    = ₹222/day. Less than chai + samosa.
+                    Pricing shown for when the next cohort opens. No payment today.
                   </p>
 
                   {/* 7-Day Guarantee */}
@@ -164,7 +199,7 @@ const PricingSection: React.FC = () => {
                 <p className="text-sm font-semibold text-deep-slate">Not sure if this is right for you?</p>
               </div>
               <p className="text-sm text-deep-slate/70 mb-4">
-                Message us on WhatsApp before you pay. We'll tell you honestly if this program fits your situation.
+                Message us on WhatsApp before you join the waitlist. We'll tell you honestly if this program fits your situation.
               </p>
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%27m%20interested%20in%20the%20mentorship%20but%20have%20some%20questions`}
