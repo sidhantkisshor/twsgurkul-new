@@ -17,7 +17,8 @@ TWS GurukulX teaches traders to move from guesswork to rule-based, systematic tr
 ## Program 1: Elite Trading Mentorship
 
 **URL:** https://www.twsgurukulx.com/mentorship
-**Price:** ₹19,999 for 3 months (EMI: ₹1,999/month × 12, no-cost EMI available)
+**Status:** Current cohort is **full — waitlist open for the next intake**. Enrolment opens in batches capped at 50 per cohort; the page shows a waitlist form when closed.
+**Price (on intake):** ₹19,999 per 3-month term (EMI: ₹1,999/month × 12, no-cost EMI available)
 **Daily cost:** ₹222/day | **GST:** 18% applicable
 **Batch size:** Capped at 50 per batch (coaches review trades personally)
 
@@ -168,11 +169,11 @@ A: 7-day refund if you've accessed less than 20% of the content.
 **URL:** https://www.twsgurukulx.com/crypto
 **Price:** ₹19,499 one-time (EMI: ₹1,625/month × 12)
 **GST:** 18% applicable
-**Format:** 12-week recorded curriculum + monthly live Q&A + lifetime access
+**Format:** ~6 hours of recorded content paced over a 12-week self-study plan + monthly live Q&A + lifetime access
 
 ### What You Get
 
-- 12-week self-paced recorded curriculum
+- ~6 hours of recorded content, paced over a 12-week self-study plan
 - Monthly live Q&A and trade review sessions (recordings provided)
 - Scanners, checklists, and position sizing sheets (ready-to-use tools)
 - Private community access
@@ -283,11 +284,11 @@ Verified trading results, student testimonials, and performance claims with full
 
 ## Pricing Summary
 
-| Program | Price | EMI Option | Format |
-|---------|-------|------------|--------|
-| Elite Trading Mentorship | ₹19,999 / 3 months | ₹1,999/mo × 12 | Live sessions 5 nights/week |
-| Footprint Mastery | ₹32,999 one-time | ₹2,750/mo × 12 | Recorded + monthly live Q&A |
-| Crypto Mastery | ₹19,499 one-time | ₹1,625/mo × 12 | Recorded + monthly live Q&A |
+| Program | Price | EMI Option | Format | Status |
+|---------|-------|------------|--------|--------|
+| Elite Trading Mentorship | ₹19,999 / 3 months | ₹1,999/mo × 12 | Live sessions 5 nights/week | Waitlist — cohort full |
+| Footprint Mastery | ₹32,999 one-time | ₹2,750/mo × 12 | Recorded + monthly live Q&A | Open |
+| Crypto Mastery | ₹19,499 one-time | ₹1,625/mo × 12 | ~6h recorded + monthly live Q&A | Open |
 
 All programs: 18% GST applicable. 7-day refund if less than 20% content accessed. Lifetime access. Secure payment via UPI, Cards, EMI.
 
