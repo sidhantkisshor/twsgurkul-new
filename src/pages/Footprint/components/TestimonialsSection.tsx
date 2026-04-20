@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import { m as motion } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { CDN_BASE } from '../../../constants';
 import VerificationModal from './VerificationModal';
 import { handlePaymentPopup } from '../utils/payment';
 
-const CDN = 'https://d2j3cl693ttatt.cloudfront.net';
 
 // Real screenshots — ordered by impact (numbers first, per audit rules)
 const proofScreenshots = [
   {
-    src: `${CDN}/assets/images/footprint/whatsapp-1to16-rr.webp`,
+    src: `${CDN_BASE}/assets/images/footprint/whatsapp-1to16-rr.webp`,
     alt: "WhatsApp: Student shares 1:16 risk-reward trade using footprint chart analysis",
     tag: "1:16 R:R trade"
   },
   {
-    src: `${CDN}/assets/images/footprint/whatsapp-cmm-fmp.webp`,
+    src: `${CDN_BASE}/assets/images/footprint/whatsapp-cmm-fmp.webp`,
     alt: "WhatsApp: Student says CMM and FMP works everywhere, shorted Nifty at the top in intraday",
     tag: "Nifty short at top"
   },
   {
-    src: `${CDN}/assets/images/footprint/whatsapp-2010-trade.webp`,
+    src: `${CDN_BASE}/assets/images/footprint/whatsapp-2010-trade.webp`,
     alt: "WhatsApp group: Student shares +2010% Gold trade, community reacts with excitement",
     tag: "+2010% Gold trade"
   },
   {
-    src: `${CDN}/assets/images/footprint/sidhant-recovery.webp`,
+    src: `${CDN_BASE}/assets/images/footprint/sidhant-recovery.webp`,
     alt: "Discord: Student recovered ₹20k loss, made over ₹100k, credits psychology lessons",
     tag: "₹20k loss → ₹1L+ profit"
   },
@@ -32,12 +32,12 @@ const proofScreenshots = [
 
 const moreScreenshots = [
   {
-    src: `${CDN}/assets/images/footprint/discord-course-review.webp`,
+    src: `${CDN_BASE}/assets/images/footprint/discord-course-review.webp`,
     alt: "Discord: Student praises course clarity, found edge with Cohort 2.0 and crypto course confluences",
     tag: "Course review"
   },
   {
-    src: `${CDN}/assets/images/footprint/whatsapp-fahad-review.webp`,
+    src: `${CDN_BASE}/assets/images/footprint/whatsapp-fahad-review.webp`,
     alt: "WhatsApp: Student praises Fahad's mentorship for boosting confidence and trading skills",
     tag: "Mentorship feedback"
   },
@@ -48,11 +48,11 @@ const TestimonialsSection: React.FC = () => {
   const [showVerificationModal, setShowVerificationModal] = useState(false);
 
   return (
-    <section id="testimonials" className="bg-[#2C3539] relative pt-10 pb-16 sm:pt-12 sm:pb-20">
+    <section id="testimonials" className="bg-deep-slate relative pt-10 pb-16 sm:pt-12 sm:pb-20">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#EDE6D8] animate-on-scroll">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-soft-sand animate-on-scroll">
           <span className="font-sans font-bold">Student </span>
-          <span className="font-serif italic font-normal text-[#C87533]">Results</span>
+          <span className="font-serif italic font-normal text-burnt-amber">Results</span>
         </h2>
         <p className="text-center text-[#B8A99A] animate-on-scroll mb-8 mt-4">
           Unedited screenshots from our WhatsApp group and Discord
@@ -78,6 +78,10 @@ const TestimonialsSection: React.FC = () => {
               <div className="px-3 py-2 bg-[#1A2226] border-t border-[#3A4449]/50">
                 <span className="text-xs font-medium text-[#2DBDA8]">{img.tag}</span>
               </div>
+              {/* Per-card compliance disclaimer — ASCI + CPA 2019 require adjacency */}
+              <p className="text-[10px] text-[#B8A99A]/60 leading-snug px-3 py-2 border-t border-[#3A4449]/40">
+                Self-reported. Not typical. Past performance not indicative of future results.
+              </p>
             </motion.div>
           ))}
         </div>
@@ -87,7 +91,7 @@ const TestimonialsSection: React.FC = () => {
           <div className="text-center mb-8">
             <button
               onClick={() => setShowMore(true)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent border border-[#0A8D7A]/40 rounded-lg text-sm text-[#2DBDA8] hover:bg-[#0A8D7A]/10 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent border border-wealth-teal/40 rounded-lg text-sm text-[#2DBDA8] hover:bg-wealth-teal/10 transition-colors"
             >
               See More Proof
               <ChevronDown size={16} />
@@ -115,13 +119,17 @@ const TestimonialsSection: React.FC = () => {
                   <div className="px-3 py-2 bg-[#1A2226] border-t border-[#3A4449]/50">
                     <span className="text-xs font-medium text-[#2DBDA8]">{img.tag}</span>
                   </div>
+                  {/* Per-card compliance disclaimer — ASCI + CPA 2019 require adjacency */}
+                  <p className="text-[10px] text-[#B8A99A]/60 leading-snug px-3 py-2 border-t border-[#3A4449]/40">
+                    Self-reported. Not typical. Past performance not indicative of future results.
+                  </p>
                 </motion.div>
               ))}
             </div>
             <div className="text-center mb-8">
               <button
                 onClick={() => setShowMore(false)}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-[#2C3539] border border-[#C87533]/10 rounded-lg text-sm text-[#2DBDA8] hover:text-[#1A9E8A] transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-deep-slate border border-burnt-amber/10 rounded-lg text-sm text-[#2DBDA8] hover:text-[#1A9E8A] transition-colors"
               >
                 Show Less
                 <ChevronUp size={16} />
@@ -146,9 +154,9 @@ const TestimonialsSection: React.FC = () => {
           </p>
           <button
             onClick={handlePaymentPopup}
-            className="inline-block bg-[#C87533] hover:bg-[#A85E28] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#C87533]/20"
+            className="inline-block bg-burnt-amber hover:bg-[#A85E28] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-burnt-amber/20"
           >
-            Start reading order flow →
+            Start my order-flow system →
           </button>
         </div>
       </div>

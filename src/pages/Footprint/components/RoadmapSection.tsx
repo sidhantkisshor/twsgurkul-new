@@ -107,7 +107,7 @@ const RoadmapSection: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          Most students finish in 4-6 weeks at 1 hour/day. But there's no deadline — lifetime access means you go at your pace.
+          Most students finish in 4-6 weeks at 1 hour/day. But there's no deadline — 12-month access means you go at your pace.
         </motion.p>
       </div>
     </section>

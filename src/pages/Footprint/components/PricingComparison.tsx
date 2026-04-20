@@ -29,7 +29,7 @@ const PricingComparison: React.FC = () => {
     {
       name: "Footprint Mastery",
       cost: FOOTPRINT_PRICE_DISPLAY,
-      duration: "Lifetime access",
+      duration: "12-month access",
       whatYouGet: "Complete system, live Q&A, community",
       value: "best",
       highlight: true
@@ -158,7 +158,7 @@ const PricingComparison: React.FC = () => {
             <div>
               <p className="text-white font-semibold mb-1 text-sm">The Smart Investment</p>
               <p className="text-[#B8A99A] text-xs leading-relaxed">
-                One-time payment. Lifetime access. Complete system. Monthly live support. All for less than a single losing month costs most traders.
+                One-time payment. 12-month access. Complete system. Monthly live support. All for less than a single losing month costs most traders.
               </p>
             </div>
           </div>

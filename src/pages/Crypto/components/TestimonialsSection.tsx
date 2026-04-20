@@ -110,7 +110,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
     return (
         <section
             id="testimonials"
-            className="crypto-section bg-[#FFF1E0] overflow-hidden relative"
+            className="crypto-section bg-paper-cream overflow-hidden relative"
             role="region"
             aria-label="Customer testimonials"
         >
@@ -124,17 +124,17 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="text-2xl sm:text-3xl md:text-4xl">
-                        <span className="font-sans font-bold text-[#2C3539]">Student</span>{' '}
-                        <span className="font-serif italic font-normal text-[#C87533]">Experiences</span>
+                        <span className="font-sans font-bold text-deep-slate">Student</span>{' '}
+                        <span className="font-serif italic font-normal text-burnt-amber">Experiences</span>
                     </h2>
-                    <p className="text-lg sm:text-xl text-[#2C3539]/80 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-lg sm:text-xl text-deep-slate/80 max-w-3xl mx-auto leading-relaxed">
                         Self-reported by students. Not typical. Past performance is not indicative of future results. Trading crypto/VDAs carries substantial risk.
                         {onMethodologyClick && (
                             <>
                                 {' '}
                                 <button
                                     onClick={onMethodologyClick}
-                                    className="inline-flex items-center gap-1 text-[#2C3539]/80 hover:text-[#C87533] transition-colors group py-3 -my-3"
+                                    className="inline-flex items-center gap-1 text-deep-slate/80 hover:text-burnt-amber transition-colors group py-3 -my-3"
                                 >
                                     <span className="group-hover:underline">Methodology & verification</span>
                                     <span>→</span>
@@ -176,7 +176,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                 </div>
 
                 {/* Swipe affordance — mobile only */}
-                <p className="sm:hidden text-center text-xs text-[#2C3539]/40 mt-4 mb-2 select-none">
+                <p className="sm:hidden text-center text-xs text-deep-slate/40 mt-4 mb-2 select-none">
                     ← swipe to see more →
                 </p>
 
@@ -191,7 +191,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onMethodology
                             const el = document.getElementById('pricing');
                             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }}
-                        className="inline-flex items-center gap-2 bg-[#C87533] hover:bg-[#b5682d] text-white font-bold py-3 px-8 rounded-xl transition-all text-base"
+                        className="inline-flex items-center gap-2 bg-burnt-amber hover:bg-[#b5682d] text-white font-bold py-3 px-8 rounded-xl transition-all text-base"
                     >
                         Join 1,263+ students
                         <ArrowRight className="w-5 h-5" />
@@ -252,9 +252,9 @@ const TestimonialCard: React.FC<{
         >
 
             <div className="mb-4">
-                <h4 className="font-sans font-bold text-[#2C3539] text-base">{testimonial.name}</h4>
-                <p className="text-[#2C3539]/70 text-sm">{testimonial.role}</p>
-                <p className="text-[#2C3539]/70 text-xs mt-0.5">{testimonial.location} · Age {testimonial.age}</p>
+                <h4 className="font-sans font-bold text-deep-slate text-base">{testimonial.name}</h4>
+                <p className="text-deep-slate/70 text-sm">{testimonial.role}</p>
+                <p className="text-deep-slate/70 text-xs mt-0.5">{testimonial.location} · Age {testimonial.age}</p>
             </div>
 
             <motion.div 
@@ -263,32 +263,32 @@ const TestimonialCard: React.FC<{
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
             >
-                <blockquote className="text-[#2C3539] leading-relaxed text-lg">
-                    <span className="text-[#C87533] text-3xl font-serif leading-none">"</span>
+                <blockquote className="text-deep-slate leading-relaxed text-lg">
+                    <span className="text-burnt-amber text-3xl font-serif leading-none">"</span>
                     <span className="font-semibold italic mx-1">
                         {testimonial.quoteHeadline}
                     </span>
-                    <span className="text-[#C87533] text-3xl font-serif leading-none">"</span>
+                    <span className="text-burnt-amber text-3xl font-serif leading-none">"</span>
                 </blockquote>
                 
-                <p className="text-[#2C3539]/80 mt-2 leading-relaxed text-sm">
+                <p className="text-deep-slate/80 mt-2 leading-relaxed text-sm">
                     {testimonial.quoteBody}
                 </p>
             </motion.div>
 
             <div className="space-y-3">
                 <motion.div 
-                    className="bg-[#0A8D7A]/10 border border-[#0A8D7A]/20 rounded-xl p-3 relative overflow-hidden"
+                    className="bg-wealth-teal/10 border border-wealth-teal/20 rounded-xl p-3 relative overflow-hidden"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.6 }}
                 >
                     <div className="flex items-center justify-between relative z-10">
-                        <span className="text-[#2C3539]/80 text-sm">
+                        <span className="text-deep-slate/80 text-sm">
                             Profit in {testimonial.time}
                         </span>
                         <motion.span 
-                            className="font-bold text-[#0A8D7A] text-xl"
+                            className="font-bold text-wealth-teal text-xl"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: profitVisible ? 1 : 0 }}
                             transition={{ delay: 0.8, duration: 0.5 }}
@@ -297,7 +297,7 @@ const TestimonialCard: React.FC<{
                         </motion.span>
                     </div>
                     <motion.div 
-                        className="absolute inset-0 bg-linear-to-r from-[#0A8D7A]/10 to-transparent"
+                        className="absolute inset-0 bg-linear-to-r from-wealth-teal/10 to-transparent"
                         initial={{ x: '-100%' }}
                         animate={{ x: '100%' }}
                         transition={{ delay: 1, duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
@@ -310,10 +310,10 @@ const TestimonialCard: React.FC<{
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7 }}
                 >
-                    <div className="p-2 bg-[#C87533]/10 rounded-lg border border-[#C87533]/20">
-                        <Gift className="text-[#C87533] w-5 h-5" />
+                    <div className="p-2 bg-burnt-amber/10 rounded-lg border border-burnt-amber/20">
+                        <Gift className="text-burnt-amber w-5 h-5" />
                     </div>
-                    <span className="font-semibold text-[#2C3539] text-sm">
+                    <span className="font-semibold text-deep-slate text-sm">
                         {testimonial.highlight}
                     </span>
                 </motion.div>
@@ -325,14 +325,14 @@ const TestimonialCard: React.FC<{
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.8 }}
                     >
-                        <div className="p-2 bg-[#0A8D7A]/10 rounded-lg border border-[#0A8D7A]/20">
-                            <UserCheck className="text-[#0A8D7A] w-5 h-5" />
+                        <div className="p-2 bg-wealth-teal/10 rounded-lg border border-wealth-teal/20">
+                            <UserCheck className="text-wealth-teal w-5 h-5" />
                         </div>
                         <div className="flex flex-col">
                             <span className="font-semibold text-[#076D5F] text-sm">
                                 Verified Student
                             </span>
-                            <span className="text-xs text-[#2C3539]/70">
+                            <span className="text-xs text-deep-slate/70">
                                 {testimonial.verificationDate}
                             </span>
                         </div>
@@ -341,7 +341,7 @@ const TestimonialCard: React.FC<{
             </div>
 
             {/* Per-card compliance disclaimer — ASCI + CPA 2019 require adjacency */}
-            <p className="text-[10px] text-[#2C3539]/60 leading-snug mt-4 pt-3 border-t border-[rgba(44,53,57,0.06)]">
+            <p className="text-[10px] text-deep-slate/60 leading-snug mt-4 pt-3 border-t border-[rgba(44,53,57,0.06)]">
                 Self-reported. Not typical. Past performance not indicative of future results.
             </p>
         </motion.div>

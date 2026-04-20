@@ -117,7 +117,7 @@ const PricingSection: React.FC = () => {
                 <Check className="w-4 h-4 text-[#2DBDA8]" /> 7-day refund policy
               </span>
               <span className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-[#2DBDA8]" /> Lifetime access
+                <Check className="w-4 h-4 text-[#2DBDA8]" /> 12-month access
               </span>
               <span className="flex items-center gap-1.5">
                 <Check className="w-4 h-4 text-[#2DBDA8]" /> Free updates

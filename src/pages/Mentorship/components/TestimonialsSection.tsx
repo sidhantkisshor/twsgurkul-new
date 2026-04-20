@@ -162,6 +162,11 @@ const TestimonialsSection: React.FC = () => {
                     </button>
                   ))}
                 </div>
+
+                {/* Per-card compliance disclaimer — ASCI + CPA 2019 require adjacency */}
+                <p className="text-[10px] text-soft-sand/60 leading-snug mt-4 pt-3 border-t border-white/10">
+                  Self-reported. Not typical. Past performance not indicative of future results.
+                </p>
               </div>
 
               {/* Quick Facts Card */}

@@ -10,7 +10,7 @@ const ShowPartnerSection: React.FC = () => {
     { text: "₹90/day", subtext: "Less than daily coffee" },
     { text: "One good trade = course paid for", subtext: "Average student reports ₹45k+ profit in first 3 months" },
     { text: "7-day full refund if it's not for you", subtext: "No questions asked" },
-    { text: "Lifetime access — not a subscription", subtext: "Watch on your schedule, forever" },
+    { text: "12-month access — not a subscription", subtext: "Watch on your schedule, at your pace" },
     { text: "Live Q&A support — not just videos", subtext: "Monthly sessions with Sidhant" }
   ];
 

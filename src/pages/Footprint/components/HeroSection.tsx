@@ -105,7 +105,7 @@ const HeroSection: React.FC = () => {
                 In 6 weeks, go from retail guesswork to reading institutional order flow — using the F.A.S.T. framework trusted by 1,263+ traders.
               </p>
               <p className="text-sm text-[#D0C5B4]">
-                Recorded course + monthly live Q&A + lifetime access.
+                Recorded course + monthly live Q&A + 12-month access.
                 <span className="font-serif italic text-burnt-amber font-medium ml-1">Starting at just ₹90/day.</span>
               </p>
             </div>
@@ -113,10 +113,10 @@ const HeroSection: React.FC = () => {
             {/* Credential pills */}
             <div className="flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-wealth-teal/15 border border-wealth-teal/30 rounded-full text-xs text-[#3DD9C4] font-medium">
-                <TrendingUp className="w-3 h-3" /> 73% win rate (1,847 tracked trades)*
+                <TrendingUp className="w-3 h-3" /> 73% win rate (12-month sample)*
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-burnt-amber/15 border border-burnt-amber/30 rounded-full text-xs text-burnt-amber font-medium">
-                <Award className="w-3 h-3" /> ₹27.2 Cr student-reported profits*
+                <Award className="w-3 h-3" /> ₹53 Cr student-reported profits (updated Jan 2026)*
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brushed-gold/15 border border-brushed-gold/30 rounded-full text-xs text-[#D0C5B4] font-medium">
                 <Users className="w-3 h-3" /> 7-day refund policy
