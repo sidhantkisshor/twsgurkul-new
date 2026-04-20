@@ -72,6 +72,7 @@ const RawProofSection: React.FC = () => {
                   src={shot.src}
                   alt={shot.alt}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-auto block"
                 />
               </motion.button>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Play } from 'lucide-react';
+import { CDN_BASE } from '../../../constants';
 
 const screenshots = [
   {
@@ -84,7 +85,7 @@ const RawProofSection: React.FC = () => {
                   </button>
                 ) : (
                   <video
-                    src="https://d2j3cl693ttatt.cloudfront.net/assets/videos/testimonial-abhilasha-etm.mp4"
+                    src={`${CDN_BASE}/assets/videos/testimonial-abhilasha-etm.mp4`}
                     controls
                     autoPlay
                     playsInline
@@ -117,6 +118,7 @@ const RawProofSection: React.FC = () => {
                     src={shot.src}
                     alt={shot.alt}
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-auto block"
                   />
                 </motion.button>
@@ -143,7 +145,7 @@ const RawProofSection: React.FC = () => {
             <button
               onClick={() => setLightboxIndex(null)}
               aria-label="Close"
-              className="absolute top-4 right-4 p-2 text-white/60 hover:text-white transition-colors z-10"
+              className="absolute top-4 right-4 min-w-[44px] min-h-[44px] flex items-center justify-center text-white/60 hover:text-white transition-colors z-10"
             >
               <X className="w-6 h-6" />
             </button>

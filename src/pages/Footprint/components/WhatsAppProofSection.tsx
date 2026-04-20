@@ -37,9 +37,9 @@ const WhatsAppProofSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#EDE6D8] mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-soft-sand mb-3">
             <span className="font-sans font-bold">What Students Are </span>
-            <span className="font-serif italic font-normal text-[#C87533]">Saying</span>
+            <span className="font-serif italic font-normal text-burnt-amber">Saying</span>
           </h2>
         </motion.div>
 
@@ -80,7 +80,7 @@ const WhatsAppProofSection: React.FC = () => {
 
                 {/* Result tag */}
                 <div className="mt-3">
-                  <span className="inline-block max-w-full px-3 py-1.5 bg-[#0A8D7A]/10 border border-[#0A8D7A]/20 rounded-full text-xs text-[#2DBDA8] font-medium break-words">
+                  <span className="inline-block max-w-full px-3 py-1.5 bg-wealth-teal/10 border border-wealth-teal/20 rounded-full text-xs text-[#2DBDA8] font-medium break-words">
                     {t.resultTag}
                   </span>
                 </div>
@@ -102,7 +102,7 @@ const WhatsAppProofSection: React.FC = () => {
         >
           <button
             onClick={handlePaymentPopup}
-            className="text-[#D4943F] hover:text-[#C87533] font-semibold text-sm transition-colors py-3 px-4 min-h-[44px]"
+            className="text-burnt-amber hover:text-brushed-gold font-semibold text-sm transition-colors py-3 px-4 min-h-[44px]"
           >
             I want results like these → See pricing
           </button>

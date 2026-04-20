@@ -42,15 +42,22 @@ const SocialProofToast: React.FC = () => {
           <div
             role="status"
             aria-live="polite"
-            className="bg-[#3A4449] border border-[#B8956A]/20 rounded-lg p-3 shadow-xl cursor-pointer"
-            onClick={() => setDismissed(true)}
+            className="bg-[#3A4449] border border-brushed-gold/20 rounded-lg p-3 shadow-xl relative"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#0A8D7A]/20 flex items-center justify-center shrink-0">
+            <button
+              type="button"
+              onClick={() => setDismissed(true)}
+              aria-label="Dismiss notification"
+              className="absolute top-1 right-1 w-7 h-7 flex items-center justify-center text-soft-sand/60 hover:text-soft-sand transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-burnt-amber rounded-sm"
+            >
+              <span aria-hidden="true" className="text-sm leading-none">×</span>
+            </button>
+            <div className="flex items-center gap-3 pr-5">
+              <div className="w-8 h-8 rounded-full bg-wealth-teal/20 flex items-center justify-center shrink-0">
                 <Users className="w-4 h-4 text-[#2DBDA8]" />
               </div>
               <div>
-                <p className="text-xs font-semibold text-[#EDE6D8]">
+                <p className="text-xs font-semibold text-soft-sand">
                   1,263+ traders enrolled
                 </p>
                 <p className="text-xs text-[#B8A99A]">across 28+ Indian cities</p>

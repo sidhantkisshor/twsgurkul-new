@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { CDN_BASE } from '../constants';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,9 +51,12 @@ const Navbar = () => {
   const handleCTAClick = useCallback(() => {
     setIsMobileMenuOpen(false);
     if (location.pathname === '/') {
-      document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+      window.dispatchEvent(
+        new CustomEvent('tws:open-quiz', { detail: { source: 'navbar' } })
+      );
     } else {
-      window.location.href = '/#quiz';
+      // Non-home routes own their own CTAs; send the user to Home and open the quiz there.
+      window.location.href = '/?quiz=open';
     }
   }, [location.pathname]);
 
@@ -69,9 +73,11 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center group shrink-0">
             <img
-              src="/logo-wordmark-dark.png"
+              src={`${CDN_BASE}/assets/images/brand/wordmarks/tws-gurukulx-wordmark-dark-transparent.webp`}
               alt="TWS GurukulX"
               height={20}
+              loading="eager"
+              decoding="async"
               className="h-5 sm:h-6 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
             />
           </Link>
@@ -113,10 +119,10 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <button
             onClick={handleCTAClick}
-            className="group relative hidden md:flex items-center gap-2 bg-burnt-amber text-white rounded-full px-5 py-2 text-sm font-semibold font-sans transition-all duration-300 hover:shadow-[0_0_20px_rgba(200,117,51,0.25)] overflow-hidden shrink-0"
+            className="group relative hidden md:flex items-center gap-2 bg-burnt-amber text-white rounded-full px-5 py-2 text-sm font-bold font-sans transition-all duration-300 hover:shadow-[0_0_20px_rgba(200,117,51,0.25)] overflow-hidden shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate focus-visible:ring-amber-bright"
           >
             <span className="absolute inset-0 bg-linear-to-r from-burnt-amber to-[#d4843f] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative z-10">Find Your Program</span>
+            <span className="relative z-10">Take the 2-Min Quiz</span>
             <ArrowRight className="relative z-10 w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
           </button>
 
@@ -216,14 +222,14 @@ const Navbar = () => {
             <div className="p-3">
               <button
                 onClick={handleCTAClick}
-                className="group w-full bg-burnt-amber text-white rounded-xl py-3.5 px-5 text-center transition-all duration-300 font-semibold text-[15px] font-sans hover:bg-[#d4843f] flex items-center justify-center gap-2"
+                className="group w-full bg-burnt-amber text-white rounded-xl py-3.5 px-5 text-center transition-all duration-300 font-bold text-[15px] font-sans hover:bg-[#d4843f] flex items-center justify-center gap-2"
                 style={{
                   animation: 'slideUp 0.3s ease-out forwards',
                   animationDelay: `${navItems.length * 60}ms`,
                   opacity: 0,
                 }}
               >
-                Find Your Program
+                Take the 2-Min Quiz
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>

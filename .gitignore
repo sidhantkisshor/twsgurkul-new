@@ -64,6 +64,10 @@ testProxy.html
 # Playwright MCP logs
 .playwright-mcp/
 
+# Audit artifacts (screenshot captures + accessibility dumps)
+/audit/
+quiz-modal.yml
+
 # Temporary directories
 tempimage/
 
