@@ -67,20 +67,6 @@ const Footer = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-burnt-amber/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10">
-        {/* ─── Band 0: Compliance Disclosures (ASCI VDA + SEBI non-registration) ─── */}
-        <div className="border-b border-soft-sand/[0.06] bg-deep-slate/50">
-          <div className="max-w-4xl mx-auto px-6 py-6">
-            {/* ASCI-mandated VDA disclosure — required because the site promotes crypto programs */}
-            <p className="text-[13px] text-soft-sand/85 text-center leading-relaxed font-sans font-medium mb-3">
-              Crypto products and NFTs are unregulated and can be highly risky. There may be no regulatory recourse for any loss from such transactions.
-            </p>
-            {/* SEBI non-registration + testimonial disclaimer */}
-            <p className="text-xs text-soft-sand/65 text-center leading-relaxed font-sans">
-              Trading With Sidhant LLP is <strong className="text-soft-sand/85">not a SEBI-registered Investment Adviser or Research Analyst</strong>. All content is educational; we do not provide buy/sell signals, recommendations, or personalised investment advice. Past performance is not indicative of future results. Testimonials reflect self-reported outcomes from individual students and are not typical.
-            </p>
-          </div>
-        </div>
-
         {/* ─── Band 1: CTA Band ─── */}
         <div className="border-b border-soft-sand/[0.06]">
           <div className="max-w-6xl mx-auto px-6 py-14 sm:py-16 text-center">
@@ -308,6 +294,20 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* ─── Band 2.5: Compliance Disclosures (ASCI VDA + SEBI non-registration) ─── */}
+        <div className="border-b border-soft-sand/[0.06]">
+          <div className="max-w-4xl mx-auto px-6 py-6">
+            {/* ASCI-mandated VDA disclosure — required because the site promotes crypto programs */}
+            <p className="text-[13px] text-soft-sand/70 text-center leading-relaxed font-sans mb-3">
+              Crypto products and NFTs are unregulated and can be highly risky. There may be no regulatory recourse for any loss from such transactions.
+            </p>
+            {/* SEBI non-registration + testimonial disclaimer */}
+            <p className="text-xs text-soft-sand/55 text-center leading-relaxed font-sans">
+              Trading With Sidhant LLP is <strong className="text-soft-sand/70 font-semibold">not a SEBI-registered Investment Adviser or Research Analyst</strong>. All content is educational; we do not provide buy/sell signals, recommendations, or personalised investment advice. Past performance is not indicative of future results. Testimonials reflect self-reported outcomes from individual students and are not typical.
+            </p>
           </div>
         </div>
 

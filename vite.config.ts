@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 
 // Emit dist/sitemap.xml at build end. Source of truth for canonical URLs;
@@ -14,7 +15,7 @@ const sitemapPlugin = () => ({
 })
 
 export default defineConfig({
-  plugins: [react(), sitemapPlugin()],
+  plugins: [react(), tailwindcss(), sitemapPlugin()],
   base: '/',
   server: {
     proxy: {

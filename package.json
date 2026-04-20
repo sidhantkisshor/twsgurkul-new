@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@fontsource/instrument-serif": "^5.2.8",
+    "@tailwindcss/vite": "^4.2.2",
     "dompurify": "^3.3.1",
     "framer-motion": "^12.34.3",
     "lucide-react": "^0.575.0",
@@ -33,7 +34,6 @@
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.997.0",
     "@eslint/js": "^10.0.1",
-    "@tailwindcss/postcss": "^4.2.1",
     "@types/dompurify": "^3.0.5",
     "@types/node": "^25.3.0",
     "@types/react": "^19.2.14",

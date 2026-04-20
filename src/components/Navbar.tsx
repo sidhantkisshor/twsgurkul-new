@@ -78,6 +78,7 @@ const Navbar = () => {
               height={20}
               loading="eager"
               decoding="async"
+              fetchPriority="high"
               className="h-5 sm:h-6 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
             />
           </Link>

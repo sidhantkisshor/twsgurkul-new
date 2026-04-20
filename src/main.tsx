@@ -16,4 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>
 );
 
-initWebVitals();
+// Defer RUM observer setup so it doesn't compete with the LCP paint.
+if ('requestIdleCallback' in window) {
+  window.requestIdleCallback(() => initWebVitals());
+} else {
+  setTimeout(initWebVitals, 0);
+}

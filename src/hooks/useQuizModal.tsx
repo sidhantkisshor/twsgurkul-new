@@ -104,7 +104,8 @@ export const useQuizModal = (options: UseQuizModalOptions = {}) => {
         const quizDismissed = safeGet('quizDismissed');
         const exitIntentShown = safeGet('exitIntentShown');
         const ctaClicked = safeGet('ctaClicked');
-        const scrollPct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
 
         if (
           !quizOpened && !quizDismissed && !exitIntentShown && !ctaClicked &&

@@ -44,10 +44,13 @@ npm run upload:s3:force # Re-upload all assets to S3
 ├── vite.config.ts              # Dev proxy, chunk splitting, console stripping
 ├── tailwind.config.js          # Brand colors, fonts, animations
 ├── amplify.yml                 # AWS Amplify build config
-├── scripts/upload-to-s3.mjs    # S3 asset upload with sharp optimisation
+├── customHttp.yml              # Amplify CSP / HSTS / cache headers (authoritative)
+├── scripts/
+│   ├── upload-to-s3.mjs        # S3 asset upload with sharp optimisation
+│   └── generate-sitemap.mjs    # Build-time sitemap generator (emits dist/sitemap.xml)
 ├── src/
 │   ├── main.tsx                # React entry
-│   ├── App.tsx                 # Route definitions (React.lazy + Suspense)
+│   ├── App.tsx                 # Route definitions (React.lazy + LazyMotion + Suspense)
 │   ├── constants.ts            # CDN_BASE, checkout URLs, WhatsApp, quiz config
 │   ├── components/             # Shared: Layout, Navbar, Footer, Seo, UnifiedQuiz/
 │   ├── pages/
@@ -55,22 +58,24 @@ npm run upload:s3:force # Re-upload all assets to S3
 │   │   ├── Mentorship/         # ETM sales page (standalone layout)
 │   │   ├── Footprint/          # Footprint Mastery sales page (standalone)
 │   │   ├── Crypto/             # Crypto Mastery sales page (standalone)
-│   │   ├── Blogs/              # Blog listing + detail + posts/
+│   │   ├── HitpointLiveInvite/ # Hitpoint Live referral invite page (uses Layout)
+│   │   ├── Blogs/              # ExternalBlogRedirect (legacy BlogsPage/posts kept for reference only)
 │   │   ├── Legal/              # Terms, Privacy, Disclaimer, Refund, Cookies
 │   │   ├── PropScanner/        # Free prop firm safety checker tool
 │   │   ├── Quiz/               # Standalone quiz landing page
-│   │   └── Results/            # Verified results & claims page
-│   ├── hooks/                  # useQuizModal (global quiz state)
+│   │   ├── Results/            # Verified results & claims page
+│   │   └── NotFoundPage.tsx    # Catch-all 404
+│   ├── hooks/                  # useQuizModal (global quiz state), useFocusTrap
 │   ├── services/               # binanceV2.ts (Binance API with caching)
 │   ├── types/                  # globals.d.ts (dataLayer, gtag, fbq)
-│   └── utils/                  # animations, security (DOMPurify), cn, aisensy, mediaLogos
-└── public/                     # Static: favicon, robots.txt, sitemap.xml, llms.txt, _headers
+│   └── utils/                  # animations, security (DOMPurify), cn, aisensy, mediaLogos, motionFeatures, webVitals
+└── public/                     # Static: favicon, robots.txt, sitemap.xml (fallback), llms.txt, _headers
 ```
 
 ## Key Architecture Patterns
 
 - **Route-level code splitting**: All pages use `React.lazy()` in App.tsx
-- **Standalone course pages**: Mentorship, Footprint, Crypto have their own Header/Footer — they do NOT use the shared `Layout` component
+- **Standalone course pages**: Mentorship, Footprint, Crypto have their own Header/Footer — they do NOT use the shared `Layout` component. HitpointLiveInvite and Home use `Layout`.
 - **Data co-location**: Page-specific data, types, hooks, and utils live inside the page folder (e.g., `src/pages/Crypto/data.ts`)
 - **No state management library**: Local React state + sessionStorage (quiz) + localStorage (returning user)
 - **Quiz system**: `src/components/UnifiedQuiz/` supports `mode: 'modal' | 'standalone'`
@@ -78,6 +83,9 @@ npm run upload:s3:force # Re-upload all assets to S3
 - **Centralised constants**: `src/constants.ts` is the single source of truth for CDN base URL, checkout IDs, WhatsApp number, AiSensy campaign names, and quiz thresholds — always import from here instead of hardcoding
 - **AiSensy WhatsApp**: `src/utils/aisensy.ts` exposes `sendAiSensyCampaign()` as fire-and-forget — never throws, never blocks UI. Campaign names must match `AISENSY_CAMPAIGNS` in `constants.ts` exactly (they reference templates created in the AiSensy dashboard).
 - **Dev Binance proxy**: Vite proxies `/api/binance/*` → `https://api.binance.com/api/v3/*` (see `vite.config.ts`). Production code calls Binance directly from the browser — use the proxy path only during local dev to sidestep CORS.
+- **Framer Motion tree-shaking**: `App.tsx` wraps routes in `LazyMotion` + `MotionConfig reducedMotion="user"`. Features are dynamically imported from `src/utils/motionFeatures.ts` (re-exports `domMax`) so Vite splits them into their own chunk. Use `m.div` / `m.span` etc. (not `motion.div`) inside `LazyMotion` children — `motion.*` pulls the full bundle back in.
+- **Blog lives off-repo**: The blog moved to `blogs.twsgurukulx.com` (separate Next.js project on Vercel). `/blog` and `/blog/:slug` render `ExternalBlogRedirect`, which `window.location.replace()`s to the subdomain. Legacy `BlogsPage.tsx`, `BlogDetailPage.tsx`, and `posts/` are kept for reference / possible reinstatement but are NOT routed — do not add new posts here; author them in the blogs repo. For proper 301s, add rewrite rules in Amplify Console (see comment in `ExternalBlogRedirect.tsx`).
+- **Build-time sitemap**: `scripts/generate-sitemap.mjs` runs as a Vite `closeBundle` plugin and emits `dist/sitemap.xml`. `lastmod` is derived from the mtime of each route's source `.tsx` file, so editing a page updates its lastmod automatically. `public/sitemap.xml` is a fallback — the build output overwrites it. Blog URLs are intentionally excluded (listed by the blog subdomain's own sitemap). When adding a new public route, register it in the `routes` array in this script.
 
 ## CDN & Asset Pipeline
 
@@ -150,12 +158,6 @@ All optional — the app works without them.
 - Quiz fires `dataLayer.push()` events: `quiz_open`, `quiz_answer`, `quiz_lead_submit`, `quiz_result_view`
 - Crypto page has dedicated tracking: scroll depth, time-on-page, returning user detection
 - Checkout clicks tracked via `getCheckoutUrl()` in `src/constants.ts` (fires `checkout_click` to dataLayer)
-
-## Adding a Blog Post
-
-1. Create `src/pages/Blogs/posts/YourPost.tsx`
-2. Add metadata to `src/pages/Blogs/utils/blogData.ts`
-3. Add `case 'your-slug': return <YourPost />;` in `BlogDetailPage.tsx`
 
 ## Payment / Checkout
 
