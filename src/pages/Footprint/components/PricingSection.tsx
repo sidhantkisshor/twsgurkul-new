@@ -1,8 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Check, BookOpen, Shield, Award, Zap, ChartBar, MessageCircle, Users } from 'lucide-react';
 import { handlePaymentPopup } from '../utils/payment';
 import { WHATSAPP_NUMBER } from '../../../constants';
+import { FOOTPRINT_PRICE_DISPLAY } from '../data';
 
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Footprint%20Mastery`;
 import { getNextFirstSaturdayWithOrdinal } from '../../Crypto/utils/dateHelpers';
@@ -23,7 +24,7 @@ const PricingSection: React.FC = () => {
     <section id="pricing" className="relative py-20 sm:py-28 bg-[#1A2226] overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[600px] bg-[#C87533]/8 rounded-full blur-[120px]" />
+        <div className="w-[600px] h-[600px] bg-burnt-amber/8 rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
@@ -34,9 +35,9 @@ const PricingSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#EDE6D8] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-soft-sand mb-4">
             <span className="font-sans font-bold">Invest in Your </span>
-            <span className="font-serif italic font-normal text-[#C87533]">Trading Edge</span>
+            <span className="font-serif italic font-normal text-burnt-amber">Trading Edge</span>
           </h2>
           <p className="text-lg text-[#B8A99A]">
             Everything you need to read order flow with confidence.
@@ -53,8 +54,8 @@ const PricingSection: React.FC = () => {
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
             {features.map((feature, index) => (
               <div key={index} className="flex items-center gap-3">
-                <feature.icon className="w-5 h-5 text-[#C87533] shrink-0" />
-                <span className="text-sm text-[#EDE6D8]">{feature.text}</span>
+                <feature.icon className="w-5 h-5 text-burnt-amber shrink-0" />
+                <span className="text-sm text-soft-sand">{feature.text}</span>
               </div>
             ))}
           </div>
@@ -67,19 +68,19 @@ const PricingSection: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="bg-[#3A4449]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-10 border border-[#C87533]/30 shadow-xl shadow-[#C87533]/5 text-center">
+          <div className="bg-[#3A4449]/80 backdrop-blur-sm rounded-2xl p-6 sm:p-10 border border-burnt-amber/30 shadow-xl shadow-burnt-amber/5 text-center">
             {/* Price */}
             <p className="text-sm text-[#B8A99A] mb-2">One-time payment · Self-paced access</p>
             <div className="flex items-baseline justify-center gap-3 mb-1">
-              <span className="text-4xl sm:text-5xl font-bold text-[#EDE6D8]">₹32,999</span>
+              <span className="text-4xl sm:text-5xl font-bold text-soft-sand">{FOOTPRINT_PRICE_DISPLAY}</span>
             </div>
-            <p className="text-sm text-[#D4943F] font-medium mb-2">
+            <p className="text-sm text-burnt-amber font-medium mb-2">
               or ₹2,750/month × 12 months (₹90/day)
             </p>
             <p className="text-xs text-[#B8A99A]/50 mb-6">+ 18% GST applicable</p>
 
             {/* Scarcity — tied to real Q&A date */}
-            <div className="bg-[#0A8D7A]/10 border border-[#0A8D7A]/20 rounded-lg px-4 py-2.5 mb-4">
+            <div className="bg-wealth-teal/10 border border-wealth-teal/20 rounded-lg px-4 py-2.5 mb-4">
               <p className="text-sm text-[#2DBDA8] font-medium">
                 Next live Q&A: {nextSession}
               </p>
@@ -91,11 +92,11 @@ const PricingSection: React.FC = () => {
             {/* CTA */}
             <motion.button
               onClick={handlePaymentPopup}
-              className="w-full bg-[#C87533] hover:bg-[#A85E28] text-white font-bold py-4 rounded-full shadow-lg shadow-[#C87533]/25 transition-all text-lg mb-4"
+              className="w-full bg-burnt-amber hover:bg-[#A85E28] text-white font-bold py-4 rounded-full shadow-lg shadow-burnt-amber/25 transition-all text-lg mb-4"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Yes, I want this →
+              Enroll me in Footprint Mastery →
             </motion.button>
 
             <motion.a
@@ -124,7 +125,7 @@ const PricingSection: React.FC = () => {
             </div>
 
             {/* Payment methods */}
-            <div className="flex items-center justify-center gap-4 mt-5 pt-5 border-t border-[#B8956A]/10 text-[#B8A99A]">
+            <div className="flex items-center justify-center gap-4 mt-5 pt-5 border-t border-brushed-gold/10 text-[#B8A99A]">
               <span className="text-xs flex items-center gap-1">
                 <Shield className="w-3 h-3" /> Secure Payment
               </span>
@@ -137,18 +138,18 @@ const PricingSection: React.FC = () => {
 
         {/* Guarantee Section */}
         <motion.div
-          className="mt-12 bg-[#2C3539] rounded-xl p-6 sm:p-8 border border-[#0A8D7A]/30 relative overflow-hidden"
+          className="mt-12 bg-deep-slate rounded-xl p-6 sm:p-8 border border-wealth-teal/30 relative overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0A8D7A] via-[#2DBDA8] to-[#0A8D7A]" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-wealth-teal via-[#2DBDA8] to-wealth-teal" />
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#0A8D7A]/15 border border-[#0A8D7A]/30 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-full bg-wealth-teal/15 border border-wealth-teal/30 flex items-center justify-center shrink-0">
               <Shield className="w-6 h-6 text-[#2DBDA8]" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-[#EDE6D8] mb-3">Our 7-Day Promise</h3>
+              <h3 className="text-lg font-bold text-soft-sand mb-3">Our 7-Day Promise</h3>
               <p className="text-sm text-[#D0C5B4] leading-relaxed mb-4">
                 Start the course. Watch the first 3 modules. Try the F.A.S.T. checklist on a paper trade. If you honestly feel this isn't worth your time, email us within 7 days of purchase — full refund, no questions asked.
               </p>

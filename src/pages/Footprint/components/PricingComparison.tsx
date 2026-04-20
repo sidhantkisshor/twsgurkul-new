@@ -1,6 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { FOOTPRINT_PRICE_DISPLAY } from '../data';
 
 const PricingComparison: React.FC = () => {
   const options = [
@@ -27,7 +28,7 @@ const PricingComparison: React.FC = () => {
     },
     {
       name: "Footprint Mastery",
-      cost: "₹32,999",
+      cost: FOOTPRINT_PRICE_DISPLAY,
       duration: "Lifetime access",
       whatYouGet: "Complete system, live Q&A, community",
       value: "best",
@@ -44,9 +45,9 @@ const PricingComparison: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-[#EDE6D8] mb-3">
+          <h3 className="text-2xl md:text-3xl font-bold text-soft-sand mb-3">
             <span className="font-sans font-bold">Compare Your </span>
-            <span className="font-serif italic font-normal text-[#C87533]">Options</span>
+            <span className="font-serif italic font-normal text-burnt-amber">Options</span>
           </h3>
           <p className="text-[#B8A99A]">
             How does this stack up against your alternatives?
@@ -67,8 +68,8 @@ const PricingComparison: React.FC = () => {
                 key={i}
                 className={`grid grid-cols-4 gap-3 rounded-lg p-4 border ${
                   option.highlight
-                    ? 'bg-[#C87533]/10 border-[#C87533]/40 shadow-lg shadow-[#C87533]/10'
-                    : 'bg-[#2C3539] border-[#3A4449]'
+                    ? 'bg-burnt-amber/10 border-burnt-amber/40 shadow-lg shadow-burnt-amber/10'
+                    : 'bg-deep-slate border-[#3A4449]'
                 }`}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -81,12 +82,12 @@ const PricingComparison: React.FC = () => {
                       {option.name}
                     </p>
                     {option.highlight && (
-                      <span className="text-xs text-[#D4943F] font-medium">Recommended</span>
+                      <span className="text-xs text-burnt-amber font-medium">Recommended</span>
                     )}
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <p className={`text-sm font-bold ${option.highlight ? 'text-[#0A8D7A]' : 'text-[#E5484D]'}`}>
+                  <p className={`text-sm font-bold ${option.highlight ? 'text-wealth-teal' : 'text-[#E5484D]'}`}>
                     {option.cost}
                   </p>
                 </div>
@@ -96,7 +97,7 @@ const PricingComparison: React.FC = () => {
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <p className={`text-xs ${option.highlight ? 'text-[#EDE6D8]' : 'text-[#8A9199]'}`}>
+                  <p className={`text-xs ${option.highlight ? 'text-soft-sand' : 'text-[#8A9199]'}`}>
                     {option.whatYouGet}
                   </p>
                 </div>
@@ -112,8 +113,8 @@ const PricingComparison: React.FC = () => {
               key={i}
               className={`rounded-lg p-4 border ${
                 option.highlight
-                  ? 'bg-[#C87533]/10 border-[#C87533]/40 shadow-lg shadow-[#C87533]/10'
-                  : 'bg-[#2C3539] border-[#3A4449]'
+                  ? 'bg-burnt-amber/10 border-burnt-amber/40 shadow-lg shadow-burnt-amber/10'
+                  : 'bg-deep-slate border-[#3A4449]'
               }`}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -126,10 +127,10 @@ const PricingComparison: React.FC = () => {
                     {option.name}
                   </p>
                   {option.highlight && (
-                    <span className="text-xs text-[#D4943F] font-medium">Recommended</span>
+                    <span className="text-xs text-burnt-amber font-medium">Recommended</span>
                   )}
                 </div>
-                <p className={`text-sm font-bold ${option.highlight ? 'text-[#0A8D7A]' : 'text-[#E5484D]'}`}>
+                <p className={`text-sm font-bold ${option.highlight ? 'text-wealth-teal' : 'text-[#E5484D]'}`}>
                   {option.cost}
                 </p>
               </div>
@@ -137,7 +138,7 @@ const PricingComparison: React.FC = () => {
                 <p className={option.highlight ? 'text-white' : 'text-[#B8A99A]'}>
                   {option.duration}
                 </p>
-                <p className={`text-right ${option.highlight ? 'text-[#EDE6D8]' : 'text-[#8A9199]'}`}>
+                <p className={`text-right ${option.highlight ? 'text-soft-sand' : 'text-[#8A9199]'}`}>
                   {option.whatYouGet}
                 </p>
               </div>
@@ -146,14 +147,14 @@ const PricingComparison: React.FC = () => {
         </div>
 
         <motion.div
-          className="mt-8 bg-[#3A4449]/60 rounded-lg p-5 border border-[#0A8D7A]/20"
+          className="mt-8 bg-[#3A4449]/60 rounded-lg p-5 border border-wealth-teal/20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
           <div className="flex items-start gap-3">
-            <Check className="w-5 h-5 text-[#0A8D7A] shrink-0 mt-0.5" />
+            <Check className="w-5 h-5 text-wealth-teal shrink-0 mt-0.5" />
             <div>
               <p className="text-white font-semibold mb-1 text-sm">The Smart Investment</p>
               <p className="text-[#B8A99A] text-xs leading-relaxed">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { ArrowRight, Check, Shield, Calendar, Gift } from 'lucide-react';
 import { getNextFirstSaturdayWithOrdinal } from '../utils/dateHelpers';
 import { cryptoTrackingEvents } from '../utils/tracking';
@@ -25,9 +25,9 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
   };
 
   return (
-    <section id="pricing" className="crypto-section bg-[#2C3539] relative overflow-hidden">
+    <section id="pricing" className="crypto-section bg-deep-slate relative overflow-hidden">
       {/* Amber glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#C87533]/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-burnt-amber/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
       <div className="crypto-container relative z-10">
         <motion.div
@@ -39,7 +39,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl mb-3">
             <span className="font-sans font-bold text-white">One Investment, Complete</span>{' '}
-            <span className="font-serif italic font-normal text-[#C87533]">System</span>
+            <span className="font-serif italic font-normal text-burnt-amber">System</span>
           </h2>
           <p className="text-base text-white/60 max-w-xl mx-auto">
             One bad FOMO trade without stop-losses can wipe out ₹50k+ overnight — more than 2.5× the cost of this entire program. One risk management rule from this course can prevent that loss on day one.
@@ -47,7 +47,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
           {onMethodologyClick && (
             <button
               onClick={onMethodologyClick}
-              className="inline-flex items-center gap-1 text-sm text-white/50 hover:text-[#C87533] transition-colors mt-2 group min-h-[44px] py-2"
+              className="inline-flex items-center gap-1 text-sm text-white/50 hover:text-burnt-amber transition-colors mt-2 group min-h-[44px] py-2"
             >
               <span className="group-hover:underline">Methodology & verification</span>
               <span>→</span>
@@ -64,7 +64,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
         >
           {/* Badge */}
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-            <div className="bg-[#C87533] text-white px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap shadow-lg shadow-[#C87533]/30">
+            <div className="bg-burnt-amber text-white px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap shadow-lg shadow-burnt-amber/30">
               INSTANT ACCESS
             </div>
           </div>
@@ -76,16 +76,16 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
               <div className="flex items-baseline justify-center gap-2 mb-2">
                 <span className="text-5xl font-bold text-white">₹19,499</span>
               </div>
-              <p className="text-sm text-white/60">One-time payment · Lifetime access</p>
-              <p className="text-sm text-white/60 mt-1">+ 18% GST applicable</p>
-              <p className="text-sm text-[#C87533] font-semibold mt-3">
+              <p className="text-sm text-white/70">One-time payment · 12-month access</p>
+              <p className="text-sm text-white/70 mt-1">+ 18% GST applicable</p>
+              <p className="text-sm text-burnt-amber font-semibold mt-3">
                 No-cost EMI: ₹1,625/month × 12
               </p>
 
               {/* Scarcity — tied to real live Q&A constraint */}
-              <div className="mt-4 inline-flex items-center gap-2 bg-[#0A8D7A]/[0.10] border border-[#0A8D7A]/[0.20] rounded-full px-4 py-2">
-                <Calendar className="w-4 h-4 text-[#0A8D7A]" />
-                <span className="text-sm text-[#0A8D7A] font-medium">
+              <div className="mt-4 inline-flex items-center gap-2 bg-wealth-teal/[0.10] border border-wealth-teal/[0.20] rounded-full px-4 py-2">
+                <Calendar className="w-4 h-4 text-wealth-teal" />
+                <span className="text-sm text-wealth-teal font-medium">
                   Join before {nextLiveDate} to attend the next live Q&A
                 </span>
               </div>
@@ -96,28 +96,28 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
               <h4 className="font-semibold text-white/80 mb-5 text-sm uppercase tracking-wider">What you get</h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#0A8D7A] shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-wealth-teal shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-white">12-week recorded curriculum</span>
                     <p className="text-sm text-white/50 mt-0.5">Learn at your own pace</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#0A8D7A] shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-wealth-teal shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-white">Monthly live Q&A + trade reviews</span>
                     <p className="text-sm text-white/50 mt-0.5">Next session: {nextLiveDate}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#0A8D7A] shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-wealth-teal shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-white">Scanners, checklists, sizing sheets</span>
                     <p className="text-sm text-white/50 mt-0.5">Ready-to-use trading tools</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#0A8D7A] shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-wealth-teal shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-white">Private community</span>
                     <p className="text-sm text-white/50 mt-0.5">Moderated for accountability</p>
@@ -127,11 +127,11 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
             </div>
 
             {/* Bonus stacking — time-bound value addition, not a discount */}
-            <div className="px-5 sm:px-8 py-6 bg-[#C87533]/[0.04] border-y border-[#C87533]/[0.10]">
+            <div className="px-5 sm:px-8 py-6 bg-burnt-amber/[0.04] border-y border-burnt-amber/[0.10]">
               <div className="flex items-center gap-2 mb-4">
-                <Gift className="w-4 h-4 text-[#C87533]" />
+                <Gift className="w-4 h-4 text-burnt-amber" />
                 <p className="text-sm font-semibold text-white">
-                  Enroll before <span className="text-[#C87533]">{nextLiveDate}</span> and get:
+                  Enroll before <span className="text-burnt-amber">{nextLiveDate}</span> and get:
                 </p>
               </div>
               <ul className="space-y-3">
@@ -141,11 +141,11 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
                   { name: 'Stock Market Essentials', value: '₹2,499', desc: 'Complete foundations mini-course for cross-market context' },
                 ].map((bonus) => (
                   <li key={bonus.name} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#C87533] shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-burnt-amber shrink-0 mt-0.5" />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-baseline gap-2">
                         <span className="text-sm font-medium text-white">{bonus.name}</span>
-                        <span className="text-xs text-[#C87533]/80">worth {bonus.value}</span>
+                        <span className="text-xs text-burnt-amber/80">worth {bonus.value}</span>
                       </div>
                       <p className="text-xs text-white/40 mt-0.5">{bonus.desc}</p>
                     </div>
@@ -153,7 +153,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
                 ))}
               </ul>
               <p className="text-xs text-white/50 mt-4 pt-3 border-t border-white/5">
-                Total bonus value: <span className="text-[#C87533] font-semibold">₹7,497</span> — included free before {nextLiveDate}
+                Total bonus value: <span className="text-burnt-amber font-semibold">₹7,497</span> — included free before {nextLiveDate}
               </p>
             </div>
 
@@ -161,7 +161,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
             <div className="px-5 sm:px-8 pb-8 pt-6">
               <button
                 onClick={handleEnroll}
-                className="w-full py-4 bg-[#C87533] hover:bg-[#b5682d] text-white rounded-xl font-bold text-lg transition-all group shadow-lg shadow-[#C87533]/20"
+                className="w-full py-4 bg-burnt-amber hover:bg-[#b5682d] text-white rounded-xl font-bold text-lg transition-all group shadow-lg shadow-burnt-amber/20"
               >
                 <span className="flex items-center justify-center gap-2">
                   Start my 2-hour crypto skill
@@ -177,16 +177,16 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onMethodologyClick }) =
             </div>
 
             {/* Trust footer */}
-            <div className="px-5 sm:px-8 py-5 bg-[#0A8D7A]/5 border-t border-[#0A8D7A]/[0.10]">
+            <div className="px-5 sm:px-8 py-5 bg-wealth-teal/5 border-t border-wealth-teal/[0.10]">
               <div className="flex items-start gap-3">
-                <Shield className="w-5 h-5 text-[#0A8D7A] shrink-0 mt-0.5" />
+                <Shield className="w-5 h-5 text-wealth-teal shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm text-white font-semibold mb-1">
                     Not sure? Review our refund policy before enrolling.
                   </p>
                   <p className="text-xs text-white/50">
                     We want committed students, not trapped ones. Education only, not investment advice.{' '}
-                    <a href="/refunds" className="text-[#0A8D7A] underline inline-flex items-center min-h-[44px]">Read full refund policy</a>
+                    <a href="/refunds" className="text-wealth-teal underline inline-flex items-center min-h-[44px]">Read full refund policy</a>
                   </p>
                 </div>
               </div>

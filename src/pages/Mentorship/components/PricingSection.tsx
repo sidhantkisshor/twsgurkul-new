@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Check, ArrowRight, MessageCircle, Shield, Users, CreditCard } from 'lucide-react';
 import { getCheckoutUrl, WHATSAPP_NUMBER } from '../../../constants';
 
@@ -124,7 +124,7 @@ const PricingSection: React.FC = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Start Trading at 8 PM
+                    Reserve my 8 PM seat
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </motion.button>
 

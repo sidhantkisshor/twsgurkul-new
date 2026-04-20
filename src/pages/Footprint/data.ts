@@ -1,3 +1,6 @@
+export const FOOTPRINT_PRICE = 32999;
+export const FOOTPRINT_PRICE_DISPLAY = '₹32,999';
+
 export const uniqueMechanismData = {
   headline: "The F.A.S.T. Framework",
   subheadline: "A systematic approach to order flow analysis that removes guesswork:",
