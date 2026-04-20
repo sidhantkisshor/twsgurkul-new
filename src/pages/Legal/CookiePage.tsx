@@ -80,7 +80,7 @@ const CookiePage: React.FC = () => (
       <p>For questions about our cookie practices, please contact us:</p>
       <ContactCard>
         <p className="font-semibold text-deep-slate">Trading With Sidhant LLP</p>
-        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a></p>
+        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">support@tradingwithsidhant.com</a></p>
         <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukulx.com</p>
       </ContactCard>
     </Section>

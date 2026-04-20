@@ -40,9 +40,17 @@ const RefundPage: React.FC = () => (
           'Requests made after 7 days of the purchase date',
           'Courses where more than 20% of the content has been accessed',
           'Downloadable resources, PDF materials, or bonuses that have already been accessed or downloaded',
-          '"Step 2 to 1% Mentorship" and other live or cohort-based programs once the program has commenced',
+          '"Elite Trading Mentorship" and other live or cohort-based programs once the program has commenced',
           'Purchases made under promotional or discounted pricing',
         ]} />
+      </SubSection>
+      <SubSection title="2.3 Access Duration">
+        <p>
+          Paid one-time course purchases (Crypto Mastery, Footprint Mastery) include{' '}
+          <strong className="text-deep-slate">12 months of access</strong> to course content and monthly live
+          Q&amp;A from the date of purchase. Eligibility for a refund is determined by the criteria in 2.1 and
+          2.2 above and is independent of the total access duration.
+        </p>
       </SubSection>
     </Section>
 
@@ -61,12 +69,19 @@ const RefundPage: React.FC = () => (
           month's worth of content has been accessed. Renewal charges for annual subscriptions are non-refundable.
         </p>
       </SubSection>
+      <SubSection title="3.3 Elite Trading Mentorship">
+        <p>
+          The Elite Trading Mentorship program is currently <strong className="text-deep-slate">accepting
+          waitlist signups only</strong> and is not open for new enrollments. Refund terms for existing
+          subscribers remain unchanged and are governed by the monthly subscription provisions in 3.1.
+        </p>
+      </SubSection>
     </Section>
 
     <Section id="how-to" number="04" title="How to Request a Refund">
       <p>To initiate a refund, please follow these steps:</p>
       <BulletList items={[
-        <>Email <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a> with the subject line: <em>"Refund Request – [Your Name] – [Course/Plan Name]"</em></>,
+        <>Email <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">support@tradingwithsidhant.com</a> with the subject line: <em>"Refund Request – [Your Name] – [Course/Plan Name]"</em></>,
         'Include your registered email address, order ID or payment reference number, and reason for the refund request',
         'Our support team will review your request within 5 business days and communicate the outcome via email',
       ]} />
@@ -99,7 +114,7 @@ const RefundPage: React.FC = () => (
 
     <Section id="contact" number="08" title="Contact for Refund Queries">
       <ContactCard>
-        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a></p>
+        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">support@tradingwithsidhant.com</a></p>
         <p className="text-deep-slate/50">Response time: Within 5 business days</p>
       </ContactCard>
     </Section>

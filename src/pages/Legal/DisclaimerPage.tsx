@@ -36,6 +36,11 @@ const DisclaimerPage: React.FC = () => (
 
     <Section id="not-sebi" number="02" title="Not a Financial Advisor or SEBI Registered Entity">
       <p>
+        Trading With Sidhant LLP is not a SEBI-registered Investment Adviser or Research Analyst. All content
+        is educational; we do not provide buy/sell signals, recommendations, or personalised investment advice.
+        Past performance is not indicative of future results.
+      </p>
+      <p>
         Trading With Sidhant LLP and its founders, instructors, employees, and affiliates are{' '}
         <strong className="text-deep-slate">NOT registered</strong> with the Securities and Exchange Board of
         India (SEBI) as investment advisors, portfolio managers, or research analysts.
@@ -65,6 +70,13 @@ const DisclaimerPage: React.FC = () => (
         'Cryptocurrency markets are highly volatile and largely unregulated',
         'You should only trade with capital you can afford to lose entirely',
       ]} />
+      <WarningBlock>
+        <p className="font-semibold text-deep-slate mb-1">Virtual Digital Assets (VDA) Disclosure</p>
+        <p>
+          Crypto products and NFTs are unregulated and can be highly risky. There may be no regulatory recourse
+          for any loss from such transactions.
+        </p>
+      </WarningBlock>
     </Section>
 
     <Section id="no-guarantee" number="04" title="No Guarantee of Results">
@@ -111,7 +123,7 @@ const DisclaimerPage: React.FC = () => (
       <p className="mt-3">
         If you are contacted by any individual or entity claiming to represent Trading With Sidhant and
         offering such services, please treat it as a scam and report it immediately to{' '}
-        <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">
+        <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">
           support@tradingwithsidhant.com
         </a>.
         The Company is not liable for any losses incurred through impersonation scams or fraud.
@@ -146,7 +158,7 @@ const DisclaimerPage: React.FC = () => (
     <Section id="contact" number="11" title="Contact">
       <ContactCard>
         <p className="font-semibold text-deep-slate">Trading With Sidhant LLP</p>
-        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a></p>
+        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">support@tradingwithsidhant.com</a></p>
         <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukulx.com</p>
       </ContactCard>
     </Section>

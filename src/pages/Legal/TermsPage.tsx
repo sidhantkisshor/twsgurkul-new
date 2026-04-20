@@ -75,7 +75,7 @@ const TermsPage: React.FC = () => (
       <BulletList items={[
         'Provide accurate and complete registration information',
         'Maintain the confidentiality of your login credentials',
-        <>Notify us immediately at <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a> of any unauthorized access</>,
+        <>Notify us immediately at <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">support@tradingwithsidhant.com</a> of any unauthorized access</>,
         'Not share, sell, or transfer your account credentials to any third party',
       ]} />
       <p className="mt-3">
@@ -91,7 +91,7 @@ const TermsPage: React.FC = () => (
         the applicable fee.
       </p>
       <BulletList items={[
-        'One-time course purchases: Immediate access upon payment confirmation',
+        'One-time course purchases: Immediate access upon payment confirmation, with 12 months of access from the date of purchase to course content and monthly live Q&A, including any content updates released during that period',
         'Subscriptions: Billed on a recurring basis (monthly or annual) until cancelled',
         'Subscription auto-renewal: Subscriptions renew automatically unless cancelled at least 24 hours before the renewal date',
         'The Company reserves the right to modify pricing at any time; changes will be communicated via email or platform notification',
@@ -168,7 +168,7 @@ const TermsPage: React.FC = () => (
       <p>For queries related to these Terms, please contact us:</p>
       <ContactCard>
         <p className="font-semibold text-deep-slate">Trading With Sidhant LLP</p>
-        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a></p>
+        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">support@tradingwithsidhant.com</a></p>
         <p className="text-deep-slate/50">tradingwithsidhant.com | twsgurukulx.com</p>
       </ContactCard>
     </Section>

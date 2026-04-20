@@ -52,8 +52,8 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 sm:py-20">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 mb-5">
-            <FileText className="w-3.5 h-3.5 text-burnt-amber/60" />
-            <span className="text-[10px] tracking-[0.3em] uppercase font-sans font-semibold text-burnt-amber/50">
+            <FileText className="w-3.5 h-3.5 text-amber-bright" />
+            <span className="text-[10px] tracking-[0.3em] uppercase font-sans font-semibold text-amber-bright">
               Legal · Trading With Sidhant LLP
             </span>
           </div>
@@ -92,7 +92,7 @@ const LegalPageLayout: React.FC<LegalPageLayoutProps> = ({
                     <button
                       key={s.id}
                       onClick={() => handleNavClick(s.id)}
-                      className="block w-full text-left text-[13px] font-sans text-deep-slate/45 hover:text-burnt-amber py-1.5 px-3 rounded-lg hover:bg-burnt-amber/5 transition-all duration-200 leading-snug"
+                      className="block w-full text-left text-[13px] font-sans text-deep-slate/45 hover:text-amber-dark py-1.5 px-3 rounded-lg hover:bg-burnt-amber/5 transition-all duration-200 leading-snug"
                     >
                       {s.label}
                     </button>
@@ -129,7 +129,7 @@ interface SectionProps {
 export const Section: React.FC<SectionProps> = ({ id, number, title, children }) => (
   <section id={id} className="scroll-mt-24 py-8 border-b border-deep-slate/[0.07] last:border-0">
     <div className="flex items-baseline gap-4 mb-5">
-      <span className="shrink-0 w-8 h-8 rounded-full bg-burnt-amber/10 border border-burnt-amber/20 flex items-center justify-center text-[11px] font-bold text-burnt-amber font-sans">
+      <span className="shrink-0 w-8 h-8 rounded-full bg-burnt-amber/10 border border-burnt-amber/20 flex items-center justify-center text-[11px] font-bold text-amber-dark font-sans">
         {number}
       </span>
       <h2 className="text-lg sm:text-xl font-bold text-deep-slate font-sans leading-snug">

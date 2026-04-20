@@ -19,10 +19,13 @@ export default {
       colors: {
         'deep-slate': '#2C3539',
         'burnt-amber': '#C87533',
-        // AA-safe small-text variant of burnt-amber. Use for body-size text
-        // (<18pt / <14pt bold) on deep-slate. ~5.1:1 vs ~3.7:1 for burnt-amber.
-        // burnt-amber is still fine for large text, buttons, and UI components.
+        // AA-safe small-text variants of burnt-amber:
+        // - amber-bright (#E89040) for dark backgrounds like deep-slate → ~5.1:1
+        // - amber-dark (#985527) for light backgrounds like warm-white → ~5.3:1
+        // burnt-amber (#C87533) is still fine for large text, buttons, and UI
+        // components (3:1 threshold) on either background.
         'amber-bright': '#E89040',
+        'amber-dark': '#985527',
         'brushed-gold': '#B8956A',
         'warm-white': '#FAF8F5',
         'wealth-teal': '#0A8D7A',

@@ -117,7 +117,7 @@ const PrivacyPage: React.FC = () => (
       ]} />
       <p className="mt-3">
         To exercise your rights, please contact our Grievance Officer at{' '}
-        <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">
+        <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">
           support@tradingwithsidhant.com
         </a>.
       </p>
@@ -154,7 +154,7 @@ const PrivacyPage: React.FC = () => (
       <p>For any privacy-related queries or concerns:</p>
       <ContactCard>
         <p className="font-semibold text-deep-slate">Grievance Officer: Trading With Sidhant LLP</p>
-        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-burnt-amber hover:underline">support@tradingwithsidhant.com</a></p>
+        <p>Email: <a href="mailto:support@tradingwithsidhant.com" className="text-amber-dark underline">support@tradingwithsidhant.com</a></p>
         <p className="text-deep-slate/50">Response time: Within 30 days of receipt of complaint</p>
       </ContactCard>
     </Section>
