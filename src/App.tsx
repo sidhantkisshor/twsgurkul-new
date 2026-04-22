@@ -58,11 +58,7 @@ function App() {
               <Route path="/quiz" element={<QuizLandingPage />} />
               <Route path="/results-and-claims" element={<ResultsAndClaims />} />
               <Route path="/prop-firm-safety-checker" element={<PropScannerPage />} />
-              <Route path="/hitpoint-live-invite" element={
-                <Layout>
-                  <HitpointLiveInvitePage />
-                </Layout>
-              } />
+              <Route path="/hitpoint-live-invite" element={<HitpointLiveInvitePage />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/disclaimer" element={<DisclaimerPage />} />
